@@ -1,0 +1,23 @@
+{
+  "name": "@xiaoye-ui/nuxt-module",
+  "version": "6.0.0",
+  "description": "XiaoyeUI Nuxt 3 module",
+  "type": "module",
+  "main": "./src/module.ts",
+  "module": "./src/module.ts",
+  "types": "./src/module.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "nuxt-module-build build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.0.0",
+    "@xiaoye-ui/auto-import-resolver": "workspace:*",
+    "@xiaoye-ui/vite-plugin": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

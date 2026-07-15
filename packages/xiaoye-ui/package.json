@@ -1,0 +1,56 @@
+{
+  "name": "xiaoye-ui",
+  "version": "6.0.0",
+  "description": "An enterprise-class UI design language and Vue-based implementation",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": [
+    "**/style/index.{js,ts}",
+    "*.vue",
+    "*.css",
+    "*.less"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prebuild": "node scripts/prebuild.mjs",
+    "postbuild": "node scripts/postbuild.mjs",
+    "test:unit": "vitest run",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": ">=3.4.0"
+  },
+  "dependencies": {
+    "@xiaoye-ui/core": "workspace:*",
+    "@xiaoye-ui/icons": "workspace:*",
+    "@xiaoye-ui/utils": "workspace:*",
+    "@ant-design/icons-vue": "^7.0.0",
+    "@ant-design/colors": "^7.0.0",
+    "async-validator": "^4.0.0",
+    "dayjs": "^1.11.0",
+    "dom-align": "^1.12.0",
+    "dom-scroll-into-view": "^3.0.0",
+    "scroll-into-view-if-needed": "^3.0.0",
+    "resize-observer-polyfill": "^1.5.0",
+    "vue-types": "^5.0.0",
+    "@ctrl/tinycolor": "^4.0.0",
+    "csstype": "^3.1.0",
+    "throttle-debounce": "^5.0.0",
+    "shallow-equal": "^3.0.0",
+    "warning": "^4.0.0",
+    "array-tree-filter": "^2.0.0",
+    "@emotion/hash": "^0.9.0",
+    "@emotion/unitless": "^0.8.0",
+    "stylis": "^4.0.0",
+    "lodash-es": "^4.17.21",
+    "@simonwep/pickr": "^1.8.0",
+    "@babel/runtime": "^7.20.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

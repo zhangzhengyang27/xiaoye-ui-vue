@@ -1,0 +1,18 @@
+{
+  "name": "@xiaoye-ui/utils",
+  "version": "6.0.0",
+  "description": "XiaoyeUI utility functions",
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

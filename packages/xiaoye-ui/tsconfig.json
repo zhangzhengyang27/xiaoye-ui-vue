@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "xiaoye-ui": ["./src/index.ts"],
+      "xiaoye-ui/*": ["./src/*"],
+      "@xiaoye-ui/core": ["../core/src/index.ts"],
+      "@xiaoye-ui/icons": ["../icons/src/index.ts"],
+      "@xiaoye-ui/utils": ["../utils/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}
