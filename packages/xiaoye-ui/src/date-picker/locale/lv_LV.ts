@@ -1,0 +1,19 @@
+import CalendarLocale from '../../vc-picker/locale/lv_LV';
+import TimePickerLocale from '../../time-picker/locale/lv_LV';
+import type { PickerLocale } from '../generatePicker';
+
+// Merge into a locale object
+const locale: PickerLocale = {
+  lang: {
+    placeholder: 'Izvēlieties datumu',
+    rangePlaceholder: ['Sākuma datums', 'Beigu datums'],
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
+};
+
+// All settings at:
+
+export default locale;

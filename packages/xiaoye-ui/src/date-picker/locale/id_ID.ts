@@ -1,0 +1,19 @@
+import CalendarLocale from '../../vc-picker/locale/id_ID';
+import TimePickerLocale from '../../time-picker/locale/id_ID';
+import type { PickerLocale } from '../generatePicker';
+
+// Merge into a locale object
+const locale: PickerLocale = {
+  lang: {
+    placeholder: 'Pilih tanggal',
+    rangePlaceholder: ['Mulai tanggal', 'Tanggal akhir'],
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
+};
+
+// All settings at:
+
+export default locale;

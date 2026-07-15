@@ -62,7 +62,6 @@ function dist(done) {
       (info.errors || []).forEach(error => {
         console.error(error);
       });
-      // https://github.com/ant-design/ant-design/pull/31662
       if (bail) {
         process.exit(1);
       }

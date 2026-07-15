@@ -1,38 +1,23 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "xiaoye-ui": ["components/index.ts"],
-      "xiaoye-ui/es/*": ["components/*"],
-      "xiaoye-ui/lib/*": ["components/*"],
-      "xiaoye-ui/locale/*": ["components/locale/*"]
+      "xiaoye-ui": ["packages/xiaoye-ui/src/index.ts"],
+      "xiaoye-ui/*": ["packages/xiaoye-ui/src/*"],
+      "@xiaoye-ui/core": ["packages/core/src/index.ts"],
+      "@xiaoye-ui/core/*": ["packages/core/src/*"],
+      "@xiaoye-ui/icons": ["packages/icons/src/index.ts"],
+      "@xiaoye-ui/icons/*": ["packages/icons/src/*"],
+      "@xiaoye-ui/utils": ["packages/utils/src/index.ts"],
+      "@xiaoye-ui/utils/*": ["packages/utils/src/*"]
     },
-    "lib": ["DOM", "ESNext"],
     "strictNullChecks": false,
     "moduleResolution": "node",
-    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
     "noImplicitAny": false,
     "target": "es6",
-    "module": "esnext",
-    "skipLibCheck": true,
-    "allowJs": true,
-    "importsNotUsedAsValues": "preserve",
-    "stripInternal": true,
-    "resolveJsonModule": true
+    "allowJs": true
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es",
-    "dist",
-    "locale",
-    "scripts",
-    "**/__tests__/**/*",
-    "site/dist"
-  ]
+  "exclude": ["node_modules", "**/dist/**/*", "**/lib/**/*", "**/es/**/*", "site/dist"]
 }

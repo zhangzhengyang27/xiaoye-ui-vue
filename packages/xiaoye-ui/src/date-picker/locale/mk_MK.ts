@@ -1,0 +1,19 @@
+import CalendarLocale from '../../vc-picker/locale/mk_MK';
+import TimePickerLocale from '../../time-picker/locale/mk_MK';
+import type { PickerLocale } from '../generatePicker';
+
+// Merge into a locale object
+const locale: PickerLocale = {
+  lang: {
+    placeholder: 'Избери датум',
+    rangePlaceholder: ['Од датум', 'До датум'],
+    ...CalendarLocale,
+  },
+  timePickerLocale: {
+    ...TimePickerLocale,
+  },
+};
+
+// All settings at:
+
+export default locale;
