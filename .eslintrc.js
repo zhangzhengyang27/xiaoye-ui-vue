@@ -8,9 +8,6 @@ module.exports = {
     es6: true,
   },
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    parser: 'babel-eslint',
-  },
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:import/recommended',
