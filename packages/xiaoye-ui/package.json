@@ -202,6 +202,7 @@
     "./watermark": "./src/watermark/index.tsx"
   },
   "devDependencies": {
-    "@types/minimatch": "^6.0.0"
+    "@types/minimatch": "^6.0.0",
+    "jsdom": "^24.0.0"
   }
 }
