@@ -47,7 +47,7 @@ function filter(inputValue, path) {
 }
 
 function toggleOpen(wrapper) {
-  wrapper.find('.ant-select-selector').trigger('mousedown');
+  wrapper.find('.xy-select-selector').trigger('mousedown');
 }
 
 function isOpen(wrapper) {
@@ -66,7 +66,7 @@ describe('Cascader', () => {
       attachTo: 'body',
     });
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus').length).toBe(0);
+      expect($$('.xy-cascader-menus').length).toBe(0);
     });
   });
 
@@ -75,9 +75,9 @@ describe('Cascader', () => {
     await asyncExpect(() => {
       toggleOpen(wrapper);
     });
-    expect($$('.ant-cascader-menus').length).toBe(1);
+    expect($$('.xy-cascader-menus').length).toBe(1);
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
+      expect($$('.xy-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
     }, 1000);
   });
 
@@ -105,9 +105,9 @@ describe('Cascader', () => {
     await asyncExpect(() => {
       toggleOpen(wrapper);
     });
-    expect($$('.ant-cascader-menus').length).toBe(1);
+    expect($$('.xy-cascader-menus').length).toBe(1);
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
+      expect($$('.xy-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
     }, 0);
   });
 
@@ -117,31 +117,31 @@ describe('Cascader', () => {
       toggleOpen(wrapper);
     });
     await asyncExpect(() => {
-      $$('.ant-cascader-menu')[0].querySelectorAll('.ant-cascader-menu-item')[0].click();
+      $$('.xy-cascader-menu')[0].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus')[0].innerHTML).toMatchSnapshot();
+      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
 
     await asyncExpect(() => {
-      $$('.ant-cascader-menu')[1].querySelectorAll('.ant-cascader-menu-item')[0].click();
+      $$('.xy-cascader-menu')[1].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus')[0].innerHTML).toMatchSnapshot();
+      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
 
     await asyncExpect(() => {
-      $$('.ant-cascader-menu')[2].querySelectorAll('.ant-cascader-menu-item')[0].click();
+      $$('.xy-cascader-menu')[2].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-cascader-menus')[0].innerHTML).toMatchSnapshot();
+      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
   });
 
-  fit('backspace should work with `Cascader[showSearch]`', async () => {
+  it('backspace should work with `Cascader[showSearch]`', async () => {
     const wrapper = mount(Cascader, { props: { options, showSearch: true }, sync: false });
     await asyncExpect(() => {
       wrapper.find('input').element.value = '123';
@@ -192,7 +192,7 @@ describe('Cascader', () => {
       wrapper.find('input').element.value = 'a';
       wrapper.find('input').trigger('input');
       await asyncExpect(() => {
-        expect($$('.ant-cascader-menu-item').length).toBe(1);
+        expect($$('.xy-cascader-menu-item').length).toBe(1);
       }, 0);
     });
 
@@ -206,7 +206,7 @@ describe('Cascader', () => {
       wrapper.find('input').element.value = 'a';
       wrapper.find('input').trigger('input');
       await asyncExpect(() => {
-        expect($$('.ant-cascader-menu-item').length).toBe(2);
+        expect($$('.xy-cascader-menu-item').length).toBe(2);
       }, 0);
     });
 
@@ -220,7 +220,7 @@ describe('Cascader', () => {
       wrapper.find('input').element.value = 'a';
       wrapper.find('input').trigger('input');
       await asyncExpect(() => {
-        expect($$('.ant-cascader-menu-item').length).toBe(2);
+        expect($$('.xy-cascader-menu-item').length).toBe(2);
       }, 0);
     });
   });

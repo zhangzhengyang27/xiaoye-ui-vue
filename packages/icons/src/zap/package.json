@@ -1,0 +1,11 @@
+{
+    "main": "./ZapIcon.vue",
+    "module": "./ZapIcon.vue",
+    "types": "./ZapIcon.d.ts",
+    "browser": {
+        "./sfc": "./ZapIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

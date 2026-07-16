@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageHeader pageHeader should not render blank dom 1`] = `
+exports[`PageHeader > pageHeader should not render blank dom 1`] = `
 <div
-  class="ant-page-header ant-page-header-ghost"
+  class="xy-page-header xy-page-header-ghost css-dev-only-do-not-override-1p3hq3p"
 >
   <!---->
   <!---->
@@ -11,21 +11,21 @@ exports[`PageHeader pageHeader should not render blank dom 1`] = `
 </div>
 `;
 
-exports[`PageHeader pageHeader should support class 1`] = `
+exports[`PageHeader > pageHeader should support class 1`] = `
 <div
-  class="ant-page-header ant-page-header-ghost not-works"
+  class="not-works xy-page-header xy-page-header-ghost not-works css-dev-only-do-not-override-1p3hq3p"
 >
   <!---->
   <div
-    class="ant-page-header-heading"
+    class="xy-page-header-heading"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="xy-page-header-heading-left"
     >
       <!---->
       <!---->
       <span
-        class="ant-page-header-heading-title"
+        class="xy-page-header-heading-title"
         title="Page Title"
       >
         Page Title

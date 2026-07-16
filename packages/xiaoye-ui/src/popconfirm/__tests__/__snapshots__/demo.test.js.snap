@@ -1,70 +1,42 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/popconfirm/demo/basic.vue correctly 1`] = `<a href="#">Delete</a>`;
+exports[`renders ./src/popconfirm/demo/basic.vue correctly 1`] = `"<a href="#">Delete</a>"`;
 
-exports[`renders ./components/popconfirm/demo/dynamic-trigger.vue correctly 1`] = `
-<div>
-  <!----><a href="#">Delete a task</a><br><br> Whether directly execute： <label class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"><span class="ant-checkbox ant-checkbox-checked"><input type="checkbox" class="ant-checkbox-input"><span class="ant-checkbox-inner"></span></span>
+exports[`renders ./src/popconfirm/demo/dynamic-trigger.vue correctly 1`] = `
+"<div><a href="#">Delete a task</a>
+  <!----><br><br> Whether directly execute： <label class="xy-checkbox-wrapper xy-checkbox-wrapper-checked css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p xy-checkbox-checked"><input type="checkbox" class="xy-checkbox-input" checked=""><span class="xy-checkbox-inner"></span></span>
     <!---->
   </label>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/popconfirm/demo/icon.vue correctly 1`] = `<a href="#">Delete</a>`;
+exports[`renders ./src/popconfirm/demo/icon.vue correctly 1`] = `"<a href="#">Delete</a>"`;
 
-exports[`renders ./components/popconfirm/demo/local.vue correctly 1`] = `<a href="#">Delete</a>`;
+exports[`renders ./src/popconfirm/demo/local.vue correctly 1`] = `"<a href="#">Delete</a>"`;
 
-exports[`renders ./components/popconfirm/demo/placement.vue correctly 1`] = `
-<div id="components-a-popconfirm-demo-placement">
-  <div style="margin-left: 70px; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Top</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TR</span>
-    </button>
+exports[`renders ./src/popconfirm/demo/placement.vue correctly 1`] = `
+"<div data-v-0485c8dd="" id="components-a-popconfirm-demo-placement">
+  <div data-v-0485c8dd="" style="margin-left: 70px; white-space: nowrap;"><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TL</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Top</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TR</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; float: left;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Left</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LB</span>
-    </button>
+  <div data-v-0485c8dd="" style="width: 70px; float: left;"><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LT</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Left</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LB</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; margin-left: 304px;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Right</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RB</span>
-    </button>
+  <div data-v-0485c8dd="" style="width: 70px; margin-left: 304px;"><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RT</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Right</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RB</span></button>
+    <!---->
   </div>
-  <div style="margin-left: 70px; clear: both; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Bottom</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BR</span>
-    </button>
+  <div data-v-0485c8dd="" style="margin-left: 70px; clear: both; white-space: nowrap;"><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BL</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Bottom</span></button>
+    <!----><button data-v-0485c8dd="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BR</span></button>
+    <!---->
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/popconfirm/demo/promise.vue correctly 1`] = `
-<button class="ant-btn ant-btn-primary" type="button">
-  <!----><span>Open Popconfirm with Promise</span>
-</button>
-`;
+exports[`renders ./src/popconfirm/demo/promise.vue correctly 1`] = `"<button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open Popconfirm with Promise</span></button>"`;

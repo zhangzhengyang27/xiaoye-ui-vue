@@ -1,0 +1,11 @@
+{
+    "main": "./AlignCenterIcon.vue",
+    "module": "./AlignCenterIcon.vue",
+    "types": "./AlignCenterIcon.d.ts",
+    "browser": {
+        "./sfc": "./AlignCenterIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

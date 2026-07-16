@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import * as Vue from 'vue';
 import Upload from '..';
@@ -30,14 +31,14 @@ const fileList = [
 describe('Upload List', () => {
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
-  window.URL.createObjectURL = jest.fn(() => '');
+  window.URL.createObjectURL = vi.fn(() => '');
   const originHTMLCanvasElementGetContext = window.HTMLCanvasElement.prototype.getContext;
-  window.HTMLCanvasElement.prototype.getContext = jest.fn(() => '');
+  window.HTMLCanvasElement.prototype.getContext = vi.fn(() => '');
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
     window.HTMLCanvasElement.prototype.getContext = originHTMLCanvasElementGetContext;
   });
-  it('should use file.thumbUrl for <img /> in priority', done => {
+  it('should use file.thumbUrl for <img /> in priority', async () => {
     const props = {
       props: {
         defaultFileList: fileList,
@@ -50,14 +51,12 @@ describe('Upload List', () => {
       sync: false,
     };
     const wrapper = mount(Upload, props);
-    Vue.nextTick(() => {
-      fileList.forEach((file, i) => {
-        const linkNode = wrapper.findAll('.ant-upload-list-item-thumbnail')[i];
-        const imgNode = wrapper.findAll('.ant-upload-list-item-thumbnail img')[i];
-        expect(linkNode.attributes().href).toBe(file.url);
-        expect(imgNode.attributes().src).toBe(file.thumbUrl);
-      });
-      done();
+    await Vue.nextTick();
+    fileList.forEach((file, i) => {
+      const linkNode = wrapper.findAll('.xy-upload-list-item-thumbnail')[i];
+      const imgNode = wrapper.findAll('.xy-upload-list-item-thumbnail img')[i];
+      expect(linkNode.attributes().href).toBe(file.url);
+      expect(imgNode.attributes().src).toBe(file.thumbUrl);
     });
   });
 
@@ -90,81 +89,85 @@ describe('Upload List', () => {
     };
     const wrapper = mount(Upload, props);
     await sleep();
-    expect(wrapper.findAll('.ant-upload-list-item').length).toBe(2);
-    wrapper.findAll('.ant-upload-list-item')[0].find('.anticon-delete').trigger('click');
+    expect(wrapper.findAll('.xy-upload-list-item').length).toBe(2);
+    wrapper.findAll('.xy-upload-list-item')[0].find('.anticon-delete').trigger('click');
     await sleep(400);
     // wrapper.update();
-    expect(wrapper.findAll('.ant-upload-list-item').length).toBe(1);
+    expect(wrapper.findAll('.xy-upload-list-item').length).toBe(1);
   });
 
-  xit('should be uploading when upload a file', done => {
-    const props = {
-      props: {
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        customRequest: successRequest,
-        onChange: ({ file }) => {
-          if (file.status === 'uploading') {
-            expect(wrapper.html()).toMatchSnapshot();
-            done();
-          }
-          if (file.status === 'done') {
-            expect(wrapper.html()).toMatchSnapshot();
-            done();
-          }
+  it.skip('should be uploading when upload a file', async () => {
+    await new Promise(resolve => {
+      const props = {
+        props: {
+          action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+          customRequest: successRequest,
+          onChange: ({ file }) => {
+            if (file.status === 'uploading') {
+              expect(wrapper.html()).toMatchSnapshot();
+              resolve();
+            }
+            if (file.status === 'done') {
+              expect(wrapper.html()).toMatchSnapshot();
+              resolve();
+            }
+          },
         },
-      },
-      slots: {
-        default: () => h('button', 'upload'),
-      },
-      sync: false,
-    };
-    const wrapper = mount(Upload, props);
-    setTimeout(() => {
-      const mockFile = new File(['foo'], 'foo.png', {
-        type: 'image/png',
-      });
-      wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
-        target: {
-          files: [mockFile],
+        slots: {
+          default: () => h('button', 'upload'),
         },
-      });
-    }, 0);
+        sync: false,
+      };
+      const wrapper = mount(Upload, props);
+      setTimeout(() => {
+        const mockFile = new File(['foo'], 'foo.png', {
+          type: 'image/png',
+        });
+        wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
+          target: {
+            files: [mockFile],
+          },
+        });
+      }, 0);
+    });
   });
 
-  xit('handle error', done => {
-    const props = {
-      props: {
-        action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-        customRequest: errorRequest,
-      },
-      listeners: {
-        change: ({ file }) => {
-          if (file.status !== 'uploading') {
-            expect(wrapper.html()).toMatchSnapshot();
-            done();
-          }
+  it.skip('handle error', async () => {
+    await new Promise(resolve => {
+      const props = {
+        props: {
+          action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+          customRequest: errorRequest,
         },
-      },
-      slots: {
-        default: () => h('button', 'upload'),
-      },
-      sync: false,
-    };
-    const wrapper = mount(Upload, props);
-    setTimeout(() => {
-      const mockFile = new File(['foo'], 'foo.png', {
-        type: 'image/png',
-      });
-      wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
-        target: {
-          files: [mockFile],
+        listeners: {
+          change: ({ file }) => {
+            if (file.status !== 'uploading') {
+              expect(wrapper.html()).toMatchSnapshot();
+              resolve();
+            }
+          },
         },
-      });
-    }, 0);
+        slots: {
+          default: () => h('button', 'upload'),
+        },
+        sync: false,
+      };
+      const wrapper = mount(Upload, props);
+      setTimeout(() => {
+        const mockFile = new File(['foo'], 'foo.png', {
+          type: 'image/png',
+        });
+        wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
+          target: {
+            files: [mockFile],
+          },
+        });
+      }, 0);
+    });
   });
 
-  xit('does concat filelist when beforeUpload returns false', done => {
-    const handleChange = jest.fn();
+  it.skip('does concat filelist when beforeUpload returns false', async () => {
+    const handleChange = vi.fn();
     const props = {
       props: {
         action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -180,21 +183,18 @@ describe('Upload List', () => {
     };
     const wrapper = mount(Upload, props);
 
-    setTimeout(() => {
-      const mockFile = new File(['foo'], 'foo.png', {
-        type: 'image/png',
-      });
-      wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
-        target: {
-          files: [mockFile],
-        },
-      });
-      Vue.nextTick(() => {
-        expect(wrapper.vm.sFileList.length).toBe(fileList.length + 1);
-        expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
-        done();
-      });
-    }, 0);
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const mockFile = new File(['foo'], 'foo.png', {
+      type: 'image/png',
+    });
+    wrapper.findComponent({ name: 'ajaxUploader' }).vm.onChange({
+      target: {
+        files: [mockFile],
+      },
+    });
+    await Vue.nextTick();
+    expect(wrapper.vm.sFileList.length).toBe(fileList.length + 1);
+    expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
   // it('work with form validation', (done) => {
@@ -266,7 +266,7 @@ describe('Upload List', () => {
   // })
 
   it('should support onPreview', async () => {
-    const handlePreview = jest.fn();
+    const handlePreview = vi.fn();
     const props = {
       props: {
         defaultFileList: fileList,
@@ -287,9 +287,9 @@ describe('Upload List', () => {
     expect(handlePreview).toBeCalledWith(fileList[1]);
   });
 
-  it('should support onRemove', done => {
-    const handleRemove = jest.fn();
-    const handleChange = jest.fn();
+  it('should support onRemove', async () => {
+    const handleRemove = vi.fn();
+    const handleChange = vi.fn();
     const props = {
       props: {
         defaultFileList: fileList,
@@ -305,20 +305,17 @@ describe('Upload List', () => {
       sync: false,
     };
     const wrapper = mount(Upload, props);
-    jest.setTimeout(300000);
-    setTimeout(async () => {
-      wrapper.findAll('.anticon-delete')[0].trigger('click');
-      expect(handleRemove).toBeCalledWith(fileList[0]);
-      wrapper.findAll('.anticon-delete')[1].trigger('click');
-      expect(handleRemove).toBeCalledWith(fileList[1]);
-      await delay(0);
-      expect(handleChange.mock.calls.length).toBe(2);
-      done();
-    }, 0);
+    await new Promise(resolve => setTimeout(resolve, 0));
+    wrapper.findAll('.anticon-delete')[0].trigger('click');
+    expect(handleRemove).toBeCalledWith(fileList[0]);
+    wrapper.findAll('.anticon-delete')[1].trigger('click');
+    expect(handleRemove).toBeCalledWith(fileList[1]);
+    await delay(0);
+    expect(handleChange.mock.calls.length).toBe(2);
   });
 
-  xit('should generate thumbUrl from file', done => {
-    const handlePreview = jest.fn();
+  it.skip('should generate thumbUrl from file', async () => {
+    const handlePreview = vi.fn();
     const newFileList = [...fileList];
     const newFile = { ...fileList[0], uid: -3, originFileObj: new File([], 'xxx.png') };
     delete newFile.thumbUrl;
@@ -336,19 +333,17 @@ describe('Upload List', () => {
       sync: false,
     };
     const wrapper = mount(Upload, props);
-    setTimeout(async () => {
-      const newFile = { ...fileList[2], uid: -4, originFileObj: new File([], 'xxx.png') };
-      newFileList.push(newFile);
-      wrapper.setProps({
-        defaultFileList: [...newFileList],
-      });
-      await delay(200);
-      expect(wrapper.vm.sFileList[2].thumbUrl).not.toBe(undefined);
-      done();
-    }, 1000);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    const newFile2 = { ...fileList[2], uid: -4, originFileObj: new File([], 'xxx.png') };
+    newFileList.push(newFile2);
+    wrapper.setProps({
+      defaultFileList: [...newFileList],
+    });
+    await delay(200);
+    expect(wrapper.vm.sFileList[2].thumbUrl).not.toBe(undefined);
   });
 
-  it('should non-image format file preview', done => {
+  it('should non-image format file preview', async () => {
     const list = [
       {
         name: 'not-image',
@@ -420,9 +415,7 @@ describe('Upload List', () => {
       sync: false,
     };
     const wrapper = mount(Upload, props);
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

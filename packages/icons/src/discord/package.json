@@ -1,0 +1,11 @@
+{
+    "main": "./DiscordIcon.vue",
+    "module": "./DiscordIcon.vue",
+    "types": "./DiscordIcon.d.ts",
+    "browser": {
+        "./sfc": "./DiscordIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

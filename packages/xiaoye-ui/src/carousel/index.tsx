@@ -77,7 +77,8 @@ const Carousel = defineComponent({
   name: 'ACarousel',
   inheritAttrs: false,
   props: carouselProps(),
-  setup(props, { slots, attrs, expose }) {
+  emits: ['beforeChange', 'afterChange', 'swipeEvent'],
+  setup(props, { slots, attrs, expose, emit }) {
     const slickRef = ref();
 
     const goTo = (slide: number, dontAnimate = false) => {
@@ -126,7 +127,7 @@ const Carousel = defineComponent({
       });
     });
     return () => {
-      const { dots, arrows, draggable, effect } = props;
+      const { dots, arrows, draggable, effect, beforeChange, afterChange, swipeEvent } = props;
       const { class: cls, style, ...restAttrs } = attrs;
       const fade = effect === 'fade' ? true : props.fade;
       const className = classNames(
@@ -151,6 +152,18 @@ const Carousel = defineComponent({
             fade={fade}
             vertical={vertical.value}
             v-slots={slots}
+            beforeChange={(currentSlide: number, nextSlide: number) => {
+              emit('beforeChange', currentSlide, nextSlide);
+              beforeChange?.(currentSlide, nextSlide);
+            }}
+            afterChange={(currentSlide: number) => {
+              emit('afterChange', currentSlide);
+              afterChange?.(currentSlide);
+            }}
+            swipeEvent={(swipeDirection: SwipeDirection) => {
+              emit('swipeEvent', swipeDirection);
+              swipeEvent?.(swipeDirection);
+            }}
           />
         </div>,
       );

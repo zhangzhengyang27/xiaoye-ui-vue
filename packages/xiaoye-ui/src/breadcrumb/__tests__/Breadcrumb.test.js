@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();

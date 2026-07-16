@@ -26,11 +26,11 @@ describe('Menu', () => {
   });
   beforeEach(() => {
     document.body.innerHTML = '';
-    // jest.useFakeTimers()
+    // vi.useFakeTimers()
   });
 
   afterEach(() => {
-    // jest.useRealTimers()
+    // vi.useRealTimers()
   });
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', async () => {
     mount(
@@ -54,7 +54,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('li.ant-menu-submenu-selected').length).toBe(1);
+      expect($$('li.xy-menu-submenu-selected').length).toBe(1);
     });
   });
   it('should accept openKeys in mode horizontal', async () => {
@@ -75,7 +75,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect(wrapper.exists('.ant-menu-sub')).toBe(true);
+      expect(wrapper.exists('.xy-menu-sub')).toBe(true);
     });
   });
 
@@ -97,7 +97,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     });
   });
 
@@ -119,7 +119,7 @@ describe('Menu', () => {
   //     { attachTo: 'body', sync: false },
   //   );
   //   await asyncExpect(() => {
-  //     expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+  //     expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
   //   }, 100);
   // });
 
@@ -149,7 +149,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await sleep(100);
-    expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+    expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
   });
 
   // it('inline', async () => {
@@ -174,15 +174,15 @@ describe('Menu', () => {
   //     { attachTo: 'body', sync: false },
   //   );
   //   await asyncExpect(() => {
-  //     expect($$('.ant-menu-sub')[0].style.display).not.toBe('none');
+  //     expect($$('.xy-menu-sub')[0].style.display).not.toBe('none');
   //   }, 0);
   //   openKeys.value = [];
   //   await asyncExpect(() => {
-  //     expect($$('.ant-menu-sub')[0].style.display).toBe('none');
+  //     expect($$('.xy-menu-sub')[0].style.display).toBe('none');
   //   }, 100);
   //   openKeys.value = ['1'];
   //   await asyncExpect(() => {
-  //     expect($$('.ant-menu-sub')[0].style.display).not.toBe('none');
+  //     expect($$('.xy-menu-sub')[0].style.display).not.toBe('none');
   //   }, 100);
   // });
 
@@ -212,15 +212,15 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+      expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
     }, 100);
     wrapper.setProps({ openKeys: [] });
     await asyncExpect(() => {
-      expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
+      expect($$('.xy-menu-submenu-popup')[0].style.display).toBe('none');
     }, 500);
     wrapper.setProps({ openKeys: ['1'] });
     await asyncExpect(() => {
-      expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+      expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
     }, 100);
   });
 
@@ -245,7 +245,7 @@ describe('Menu', () => {
     // just expect no error emit
   });
 
-  xit('should always follow openKeys when mode is switched', async () => {
+  it.skip('should always follow openKeys when mode is switched', async () => {
     const wrapper = mount(
       {
         props: {
@@ -269,15 +269,15 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     });
     wrapper.setProps({ mode: 'vertical' });
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].parentElement.style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].parentElement.style.display).not.toBe('none');
     }, 0);
     wrapper.setProps({ mode: 'inline' });
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     }, 0);
   });
 
@@ -308,8 +308,8 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].className).toContain('ant-menu-inline');
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].className).toContain('xy-menu-inline');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     }, 0);
     wrapper.setProps({ inlineCollapsed: true });
     await asyncExpect(() => {
@@ -321,17 +321,17 @@ describe('Menu', () => {
     //   wrapper.trigger('transitionend', { propertyName: 'width' });
     // });
     // await asyncExpect(() => {
-    //   expect(wrapper.findAll('ul.ant-menu-root')[0].classes()).toContain('ant-menu-vertical');
-    //   expect(wrapper.findAll('ul.ant-menu-sub').length).toBe(0);
+    //   expect(wrapper.findAll('ul.xy-menu-root')[0].classes()).toContain('xy-menu-vertical');
+    //   expect(wrapper.findAll('ul.xy-menu-sub').length).toBe(0);
     // }, 500);
     wrapper.setProps({ inlineCollapsed: false });
     await asyncExpect(() => {
-      expect($$('ul.ant-menu-sub')[0].className).toContain('ant-menu-inline');
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('ul.xy-menu-sub')[0].className).toContain('xy-menu-inline');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     }, 0);
   });
 
-  xit('inlineCollapsed should works well when specify a not existed default openKeys', async () => {
+  it.skip('inlineCollapsed should works well when specify a not existed default openKeys', async () => {
     const wrapper = mount(
       {
         props: {
@@ -363,7 +363,7 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-menu-sub').length).toBe(1);
+      expect(wrapper.findAll('.xy-menu-sub').length).toBe(1);
     });
     wrapper.setProps({ inlineCollapsed: true });
     // await asyncExpect(() => {
@@ -375,15 +375,15 @@ describe('Menu', () => {
     //   wrapper.trigger('transitionend', { propertyName: 'width' });
     // });
     await asyncExpect(() => {
-      $$('.ant-menu-submenu-title')[0].dispatchEvent(new MouseEvent('mouseenter'));
+      $$('.xy-menu-submenu-title')[0].dispatchEvent(new MouseEvent('mouseenter'));
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-menu-submenu')[0].classes()).toContain(
-        'ant-menu-submenu-vertical',
+      expect(wrapper.findAll('.xy-menu-submenu')[0].classes()).toContain(
+        'xy-menu-submenu-vertical',
       );
-      expect(wrapper.findAll('.ant-menu-submenu')[0].classes()).toContain('ant-menu-submenu-open');
-      expect($$('ul.ant-menu-sub')[0].className).toContain('ant-menu-vertical');
-      expect($$('ul.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect(wrapper.findAll('.xy-menu-submenu')[0].classes()).toContain('xy-menu-submenu-open');
+      expect($$('ul.xy-menu-sub')[0].className).toContain('xy-menu-vertical');
+      expect($$('ul.xy-menu-sub')[0].style.display).not.toBe('none');
     }, 500);
   });
 
@@ -393,7 +393,7 @@ describe('Menu', () => {
   //   });
 
   const toggleMenu = (wrapper, index, event) => {
-    $$('.ant-menu-submenu-title')[index].dispatchEvent(new MouseEvent(event));
+    $$('.xy-menu-submenu-title')[index].dispatchEvent(new MouseEvent(event));
   };
 
   it('inline', async () => {
@@ -414,16 +414,16 @@ describe('Menu', () => {
       { attachTo: 'body', sync: false },
     );
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub').length).toBe(1);
+      expect($$('.xy-menu-sub').length).toBe(1);
       toggleMenu(wrapper, 0, 'click');
     }, 0);
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub').length).toBe(1);
-      expect($$('.ant-menu-sub')[0].style.display).not.toBe('none');
+      expect($$('.xy-menu-sub').length).toBe(1);
+      expect($$('.xy-menu-sub')[0].style.display).not.toBe('none');
       toggleMenu(wrapper, 0, 'click');
     }, 500);
     await asyncExpect(() => {
-      expect($$('.ant-menu-sub')[0].style.display).toBe('none');
+      expect($$('.xy-menu-sub')[0].style.display).toBe('none');
     }, 500);
   });
 
@@ -445,16 +445,16 @@ describe('Menu', () => {
   //       { attachTo: 'body', sync: false },
   //     );
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub').length).toBe(0);
+  //       expect($$('.xy-menu-sub').length).toBe(0);
   //       toggleMenu(wrapper, 0, 'mouseenter');
   //     }, 0);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub').length).toBe(1);
-  //       expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+  //       expect($$('.xy-menu-sub').length).toBe(1);
+  //       expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
   //       toggleMenu(wrapper, 0, 'mouseleave');
   //     }, 500);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
+  //       expect($$('.xy-menu-submenu-popup')[0].style.display).toBe('none');
   //     }, 500);
   //   });
 
@@ -476,16 +476,16 @@ describe('Menu', () => {
   //       { attachTo: 'body', sync: false },
   //     );
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub').length).toBe(0);
+  //       expect($$('.xy-menu-sub').length).toBe(0);
   //       toggleMenu(wrapper, 1, 'mouseenter');
   //     }, 100);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-sub').length).toBe(1);
-  //       expect($$('.ant-menu-submenu-popup')[0].style.display).not.toBe('none');
+  //       expect($$('.xy-menu-sub').length).toBe(1);
+  //       expect($$('.xy-menu-submenu-popup')[0].style.display).not.toBe('none');
   //       toggleMenu(wrapper, 1, 'mouseleave');
   //     }, 500);
   //     await asyncExpect(() => {
-  //       expect($$('.ant-menu-submenu-popup')[0].style.display).toBe('none');
+  //       expect($$('.xy-menu-submenu-popup')[0].style.display).toBe('none');
   //     }, 500);
   //   });
   // });
@@ -514,9 +514,9 @@ describe('Menu', () => {
       { sync: false, attachTo: 'body' },
     );
 
-    wrapper.find('.ant-menu-item').trigger('mouseenter');
+    wrapper.find('.xy-menu-item').trigger('mouseenter');
     await asyncExpect(() => {
-      const text = $$('.ant-tooltip-inner')[0].textContent;
+      const text = $$('.xy-tooltip-inner')[0].textContent;
       expect(text).toBe('bamboo lucky');
     }, 500);
   });

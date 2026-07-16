@@ -95,8 +95,12 @@ function PanelBody<DateType>(_props: PanelBodyProps<DateType>) {
           })}
           onClick={e => {
             e.stopPropagation();
-            if (!disabled) {
-              onSelect(currentDate);
+            if (!disabled && onSelect) {
+              if (Array.isArray(onSelect)) {
+                onSelect.forEach(fn => fn?.(currentDate));
+              } else {
+                onSelect(currentDate);
+              }
             }
           }}
           onMouseenter={() => {

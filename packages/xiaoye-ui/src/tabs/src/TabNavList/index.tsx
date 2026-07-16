@@ -105,7 +105,14 @@ export default defineComponent({
     default?: any;
   }>,
   emits: ['tabClick', 'tabScroll'],
-  setup(props, { attrs, slots }) {
+  setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const { tabs, prefixCls } = useInjectTabs();
     const tabsWrapperRef = shallowRef<HTMLDivElement>();
     const tabListRef = shallowRef<HTMLDivElement>();
@@ -117,13 +124,17 @@ export default defineComponent({
     );
 
     const [transformLeft, setTransformLeft] = useSyncState(0, (next, prev) => {
-      if (tabPositionTopOrBottom.value && props.onTabScroll) {
-        props.onTabScroll({ direction: next > prev ? 'left' : 'right' });
+      if (tabPositionTopOrBottom.value) {
+        const direction = next > prev ? 'left' : 'right';
+        emit('tabScroll', { direction });
+        callEvent(props.onTabScroll, { direction });
       }
     });
     const [transformTop, setTransformTop] = useSyncState(0, (next, prev) => {
-      if (!tabPositionTopOrBottom.value && props.onTabScroll) {
-        props.onTabScroll({ direction: next > prev ? 'top' : 'bottom' });
+      if (!tabPositionTopOrBottom.value) {
+        const direction = next > prev ? 'top' : 'bottom';
+        emit('tabScroll', { direction });
+        callEvent(props.onTabScroll, { direction });
       }
     });
 
@@ -489,7 +500,8 @@ export default defineComponent({
             removeAriaLabel={locale?.removeAriaLabel}
             ref={setRef(key)}
             onClick={e => {
-              onTabClick(key, e);
+              emit('tabClick', key, e);
+              callEvent(onTabClick, key, e);
             }}
             onFocus={() => {
               scrollToTab(key);

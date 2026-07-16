@@ -259,7 +259,29 @@ function RangerPicker<DateType>() {
       'superPrevIcon',
       'superNextIcon',
     ] as any,
-    setup(props, { attrs, expose }) {
+    emits: [
+      'change',
+      'calendarChange',
+      'openChange',
+      'panelChange',
+      'focus',
+      'blur',
+      'keydown',
+      'click',
+      'mousedown',
+      'mouseup',
+      'mouseenter',
+      'mouseleave',
+      'ok',
+    ],
+    setup(props, { attrs, expose, emit }) {
+      const callEvent = (fn: any, ...args: any[]) => {
+        if (Array.isArray(fn)) {
+          fn.forEach(f => f?.(...args));
+        } else {
+          fn?.(...args);
+        }
+      };
       const needConfirmButton = computed(
         () => (props.picker === 'date' && !!props.showTime) || props.picker === 'time',
       );
@@ -366,7 +388,8 @@ function RangerPicker<DateType>() {
 
       const triggerModesChange = (modes: [PanelMode, PanelMode], values: RangeValue<DateType>) => {
         setInnerModes(modes);
-        props.onPanelChange?.(values, modes);
+        emit('panelChange', values, modes);
+        callEvent(props.onPanelChange, values, modes);
       };
 
       // ========================= Disable Date ==========================
@@ -389,7 +412,8 @@ function RangerPicker<DateType>() {
         postState: postOpen =>
           mergedDisabled.value[mergedActivePickerIndex.value] ? false : postOpen,
         onChange: newOpen => {
-          props.onOpenChange?.(newOpen);
+          emit('openChange', newOpen);
+          callEvent(props.onOpenChange, newOpen);
 
           if (!newOpen && operationRef.value && operationRef.value.onClose) {
             operationRef.value.onClose();
@@ -552,7 +576,8 @@ function RangerPicker<DateType>() {
         if (onCalendarChange) {
           const info: RangeInfo = { range: sourceIndex === 0 ? 'start' : 'end' };
 
-          onCalendarChange(values, [startStr, endStr], info);
+          emit('calendarChange', values, [startStr, endStr], info);
+          callEvent(props.onCalendarChange, values, [startStr, endStr], info);
         }
 
         // >>>>> Trigger `onChange` event
@@ -575,7 +600,8 @@ function RangerPicker<DateType>() {
             (!isEqual(generateConfig, getValue(mergedValue.value, 0), startValue) ||
               !isEqual(generateConfig, getValue(mergedValue.value, 1), endValue))
           ) {
-            onChange(values, [startStr, endStr]);
+            emit('change', values, [startStr, endStr]);
+            callEvent(props.onChange, values, [startStr, endStr]);
           }
         }
 
@@ -695,7 +721,8 @@ function RangerPicker<DateType>() {
       const getSharedInputHookProps = (index: 0 | 1, resetText: () => void) => ({
         forwardKeydown,
         onBlur: (e: FocusEvent) => {
-          props.onBlur?.(e);
+          emit('blur', e);
+          callEvent(props.onBlur, e);
         },
         isClickOutside: (target: EventTarget | null) =>
           !elementsContains(
@@ -704,7 +731,8 @@ function RangerPicker<DateType>() {
           ),
         onFocus: (e: FocusEvent) => {
           setMergedActivePickerIndex(index);
-          props.onFocus?.(e);
+          emit('focus', e);
+          callEvent(props.onFocus, e);
         },
         triggerOpen: (newOpen: boolean) => {
           triggerOpen(newOpen, index);
@@ -734,7 +762,8 @@ function RangerPicker<DateType>() {
         open: startOpen,
         value: startText,
         onKeydown: (e, preventDefault) => {
-          props.onKeydown?.(e, preventDefault);
+          emit('keydown', e, preventDefault);
+          callEvent(props.onKeydown, e, preventDefault);
         },
       });
 
@@ -744,7 +773,8 @@ function RangerPicker<DateType>() {
         open: endOpen,
         value: endText,
         onKeydown: (e, preventDefault) => {
-          props.onKeydown?.(e, preventDefault);
+          emit('keydown', e, preventDefault);
+          callEvent(props.onKeydown, e, preventDefault);
         },
       });
 
@@ -752,7 +782,8 @@ function RangerPicker<DateType>() {
       const onPickerClick = (e: MouseEvent) => {
         // When click inside the picker & outside the picker's input elements
         // the panel should still be opened
-        props.onClick?.(e);
+        emit('click', e);
+        callEvent(props.onClick, e);
         if (
           !mergedOpen.value &&
           !startInputRef.value.contains(e.target as Node) &&
@@ -768,7 +799,8 @@ function RangerPicker<DateType>() {
 
       const onPickerMousedown = (e: MouseEvent) => {
         // shouldn't affect input elements if picker is active
-        props.onMousedown?.(e);
+        emit('mousedown', e);
+        callEvent(props.onMousedown, e);
         if (
           mergedOpen.value &&
           (startFocused.value || endFocused.value) &&
@@ -1018,10 +1050,6 @@ function RangerPicker<DateType>() {
           clearIcon,
           inputReadOnly,
           renderExtraFooter,
-          onMouseenter,
-          onMouseleave,
-          onMouseup,
-          onOk,
           components,
           direction,
           autocomplete = 'off',
@@ -1052,9 +1080,8 @@ function RangerPicker<DateType>() {
               if (getValue(selectedValue.value, mergedActivePickerIndex.value)) {
                 // triggerChangeOld(selectedValue.value);
                 triggerChange(selectedValue.value, mergedActivePickerIndex.value);
-                if (onOk) {
-                  onOk(selectedValue.value);
-                }
+                emit('ok', selectedValue.value);
+                callEvent(props.onOk, selectedValue.value);
               }
             },
           });
@@ -1223,10 +1250,19 @@ function RangerPicker<DateType>() {
             })}
             style={attrs.style}
             onClick={onPickerClick}
-            onMouseenter={onMouseenter}
-            onMouseleave={onMouseleave}
+            onMouseenter={e => {
+              emit('mouseenter', e);
+              callEvent(props.onMouseenter, e);
+            }}
+            onMouseleave={e => {
+              emit('mouseleave', e);
+              callEvent(props.onMouseleave, e);
+            }}
             onMousedown={onPickerMousedown}
-            onMouseup={onMouseup}
+            onMouseup={e => {
+              emit('mouseup', e);
+              callEvent(props.onMouseup, e);
+            }}
             {...getDataOrAriaProps(props)}
           >
             <div

@@ -1,0 +1,11 @@
+{
+    "main": "./MoreHorizontalIcon.vue",
+    "module": "./MoreHorizontalIcon.vue",
+    "types": "./MoreHorizontalIcon.d.ts",
+    "browser": {
+        "./sfc": "./MoreHorizontalIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

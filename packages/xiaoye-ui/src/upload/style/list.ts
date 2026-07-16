@@ -3,7 +3,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
 
 const genListStyle: GenerateStyle<UploadToken> = token => {
-  const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;
+  const { componentCls, rootCls, iconCls, fontSize, lineHeight } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
@@ -41,7 +41,7 @@ const genListStyle: GenerateStyle<UploadToken> = token => {
               opacity: 0,
             },
 
-            [`${actionCls}${antCls}-btn-sm`]: {
+            [`${actionCls}${rootCls}-btn-sm`]: {
               height: listItemHeightSM,
               border: 0,
               lineHeight: 1,

@@ -1,0 +1,11 @@
+{
+    "main": "./CompassIcon.vue",
+    "module": "./CompassIcon.vue",
+    "types": "./CompassIcon.d.ts",
+    "browser": {
+        "./sfc": "./CompassIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

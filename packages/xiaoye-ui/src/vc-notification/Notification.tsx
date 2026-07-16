@@ -96,7 +96,7 @@ const Notification = defineComponent({
         key,
       };
       const { maxCount } = props;
-      const noticeIndex = notices.value.map(v => v.notice.key).indexOf(key);
+      const noticeIndex = (notices.value as any[]).map(v => v.notice.key).indexOf(key);
       const updatedNotices = notices.value.concat();
       if (noticeIndex !== -1) {
         updatedNotices.splice(noticeIndex, 1, { notice, holderCallback } as any);
@@ -138,7 +138,7 @@ const Notification = defineComponent({
     });
     return () => {
       const { prefixCls, closeIcon = slots.closeIcon?.({ prefixCls }) } = props;
-      const noticeNodes = notices.value.map(({ notice, holderCallback }, index) => {
+      const noticeNodes = (notices.value as any[]).map(({ notice, holderCallback }, index) => {
         const updateMark = index === notices.value.length - 1 ? notice.updateMark : undefined;
         const { key, userPassKey } = notice;
 

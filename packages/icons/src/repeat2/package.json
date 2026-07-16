@@ -1,0 +1,11 @@
+{
+    "main": "./Repeat2Icon.vue",
+    "module": "./Repeat2Icon.vue",
+    "types": "./Repeat2Icon.d.ts",
+    "browser": {
+        "./sfc": "./Repeat2Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

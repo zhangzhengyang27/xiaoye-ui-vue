@@ -1,0 +1,11 @@
+{
+    "main": "./PaperclipIcon.vue",
+    "module": "./PaperclipIcon.vue",
+    "types": "./PaperclipIcon.d.ts",
+    "browser": {
+        "./sfc": "./PaperclipIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,15 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Collapse should support remove expandIcon 1`] = `
-<div class="ant-collapse ant-collapse-icon-position-start">
-  <div class="ant-collapse-item">
-    <div class="ant-collapse-header" role="button" tabindex="0" aria-expanded="false">
-      <div class="ant-collapse-expand-icon">
+exports[`Collapse > should support remove expandIcon 1`] = `
+"<div class="xy-collapse xy-collapse-icon-position-start css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-collapse-item">
+    <div class="xy-collapse-header" role="button" tabindex="0" aria-expanded="false">
+      <div class="xy-collapse-expand-icon css-dev-only-do-not-override-1p3hq3p">
         <!---->
-      </div><span class="ant-collapse-header-text">header</span>
+      </div><span class="xy-collapse-header-text">header</span>
       <!---->
-    </div>
-    <!---->
+    </div><span style="display: contents;"><!----></span>
   </div>
-</div>
+</div>"
 `;

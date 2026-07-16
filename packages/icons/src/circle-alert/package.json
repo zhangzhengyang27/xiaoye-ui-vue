@@ -1,0 +1,11 @@
+{
+    "main": "./CircleAlertIcon.vue",
+    "module": "./CircleAlertIcon.vue",
+    "types": "./CircleAlertIcon.d.ts",
+    "browser": {
+        "./sfc": "./CircleAlertIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./RedditIcon.vue",
+    "module": "./RedditIcon.vue",
+    "types": "./RedditIcon.d.ts",
+    "browser": {
+        "./sfc": "./RedditIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

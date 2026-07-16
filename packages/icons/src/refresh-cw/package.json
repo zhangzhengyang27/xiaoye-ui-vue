@@ -1,0 +1,11 @@
+{
+    "main": "./RefreshCwIcon.vue",
+    "module": "./RefreshCwIcon.vue",
+    "types": "./RefreshCwIcon.d.ts",
+    "browser": {
+        "./sfc": "./RefreshCwIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -39,7 +39,7 @@ const activeKey = ref('1');
   margin-right: 16px;
 }
 
-.ant-row-rtl .tabs-extra-demo-button {
+.xy-row-rtl .tabs-extra-demo-button {
   margin-right: 0;
   margin-left: 16px;
 }

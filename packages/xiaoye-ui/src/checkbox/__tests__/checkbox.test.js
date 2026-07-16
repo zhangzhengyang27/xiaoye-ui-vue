@@ -8,8 +8,8 @@ describe('Checkbox', () => {
   focusTest(Checkbox);
   mountTest(Checkbox);
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const wrapper = mount(Checkbox, {
       props: {
@@ -27,7 +27,7 @@ describe('Checkbox', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount(Checkbox, {
       props: {
         value: 'xxx',

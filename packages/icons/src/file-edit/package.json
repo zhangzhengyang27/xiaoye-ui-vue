@@ -1,0 +1,11 @@
+{
+    "main": "./FileEditIcon.vue",
+    "module": "./FileEditIcon.vue",
+    "types": "./FileEditIcon.d.ts",
+    "browser": {
+        "./sfc": "./FileEditIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

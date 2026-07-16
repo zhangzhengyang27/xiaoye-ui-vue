@@ -247,3 +247,4 @@ export interface MessageApi extends MessageInstance {
 export const getInstance = () => (process.env.NODE_ENV === 'test' ? messageInstance : null);
 
 export default api as MessageApi;
+export const message = api;

@@ -1,0 +1,11 @@
+{
+    "main": "./PaypalIcon.vue",
+    "module": "./PaypalIcon.vue",
+    "types": "./PaypalIcon.d.ts",
+    "browser": {
+        "./sfc": "./PaypalIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -45,7 +45,14 @@ export default defineComponent({
     moreIcon?: any;
     default?: any;
   }>,
-  setup(props, { attrs, slots }) {
+  setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     // ======================== Dropdown ========================
     const [open, setOpen] = useState(false);
     const [selectedKey, setSelectedKey] = useState<Key>(null);
@@ -89,7 +96,10 @@ export default defineComponent({
           break;
         case KeyCode.SPACE:
         case KeyCode.ENTER:
-          if (selectedKey.value !== null) props.onTabClick(selectedKey.value, e);
+          if (selectedKey.value !== null) {
+            emit('tabClick', selectedKey.value, e);
+            callEvent(props.onTabClick, selectedKey.value, e);
+          }
           break;
       }
     };
@@ -175,7 +185,8 @@ export default defineComponent({
             overlay: () => (
               <Menu
                 onClick={({ key, domEvent }) => {
-                  onTabClick(key, domEvent);
+                  emit('tabClick', key, domEvent);
+                  callEvent(onTabClick, key, domEvent);
                   setOpen(false);
                 }}
                 id={popupId.value}

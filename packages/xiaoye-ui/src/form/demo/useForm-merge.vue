@@ -89,7 +89,7 @@ const errorInfos = computed(() => {
 });
 </script>
 <style scoped>
-.error-infos :deep(.ant-form-explain) {
+.error-infos :deep(.xy-form-explain) {
   white-space: pre-line;
 }
 </style>

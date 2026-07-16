@@ -6,7 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = token => {
   const { componentCls, width, notificationMarginEdge } = token;
 
-  const notificationTopFadeIn = new Keyframes('antNotificationTopFadeIn', {
+  const notificationTopFadeIn = new Keyframes('xyNotificationTopFadeIn', {
     '0%': {
       marginTop: '-100%',
       opacity: 0,
@@ -18,7 +18,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
     },
   });
 
-  const notificationBottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
+  const notificationBottomFadeIn = new Keyframes('xyNotificationBottomFadeIn', {
     '0%': {
       marginBottom: '-100%',
       opacity: 0,
@@ -30,7 +30,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
     },
   });
 
-  const notificationLeftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
+  const notificationLeftFadeIn = new Keyframes('xyNotificationLeftFadeIn', {
     '0%': {
       right: {
         _skip_check_: true,

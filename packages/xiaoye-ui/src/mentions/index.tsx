@@ -104,6 +104,7 @@ const Mentions = defineComponent({
   name: 'AMentions',
   inheritAttrs: false,
   props: mentionsProps(),
+  emits: ['focus', 'blur', 'change', 'select', 'pressenter', 'update:value', 'search'],
   slots: Object as CustomSlotsType<{
     notFoundContent?: any;
     option?: any;
@@ -149,16 +150,19 @@ const Mentions = defineComponent({
     const handleFocus = (e: FocusEvent) => {
       focused.value = true;
       emit('focus', e);
+      props.onFocus?.(e);
     };
 
     const handleBlur = (e: FocusEvent) => {
       focused.value = false;
       emit('blur', e);
+      props.onBlur?.(e);
       formItemContext.onFieldBlur();
     };
 
     const handleSelect = (...args: [MentionsOptionProps, string]) => {
       emit('select', ...args);
+      props.onSelect?.(...args);
       focused.value = true;
     };
 
@@ -168,7 +172,13 @@ const Mentions = defineComponent({
       }
       emit('update:value', val);
       emit('change', val);
+      props.onChange?.(val);
       formItemContext.onFieldChange();
+    };
+
+    const handlePressEnter = (e: KeyboardEvent) => {
+      emit('pressenter', e);
+      props.onPressenter?.(e);
     };
 
     const getNotFoundContent = () => {
@@ -246,6 +256,8 @@ const Mentions = defineComponent({
         onSelect: handleSelect,
         onFocus: handleFocus,
         onBlur: handleBlur,
+        onPressenter: handlePressEnter,
+        onSearch: (text: string, prefix: string) => emit('search', text, prefix),
         ref: vcMentions,
         value: value.value,
         id,

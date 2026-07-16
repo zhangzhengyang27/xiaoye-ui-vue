@@ -36,7 +36,15 @@ export default defineComponent({
       focusTriggerAfterClose: true,
     },
   ),
-  setup(props, { attrs, slots }) {
+  emits: ['close', 'afterClose'],
+  setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const lastOutSideActiveElementRef = shallowRef<HTMLElement>();
     const wrapperRef = shallowRef<HTMLDivElement>();
     const contentRef = shallowRef<ContentRef>();
@@ -66,13 +74,15 @@ export default defineComponent({
 
         // Trigger afterClose only when change visible from true to false
         if (preAnimatedVisible) {
-          props.afterClose?.();
+          emit('afterClose');
+          callEvent(props.afterClose);
         }
       }
     };
 
     const onInternalClose = (e: MouseEvent | KeyboardEvent) => {
-      props.onClose?.(e);
+      emit('close', e);
+      callEvent(props.onClose, e);
     };
 
     // >>> Content
@@ -179,7 +189,7 @@ export default defineComponent({
             {...wrapProps}
           >
             <Content
-              {...omit(props, ['scrollLocker'])}
+              {...omit(props, ['scrollLocker', 'onClose'])}
               style={style}
               class={className}
               v-slots={slots}

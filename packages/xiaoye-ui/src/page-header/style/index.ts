@@ -17,7 +17,7 @@ interface PageHeaderToken extends FullToken<'PageHeader'> {
 }
 
 const genPageHeaderStyle: GenerateStyle<PageHeaderToken, CSSObject> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
 
   return {
     [componentCls]: {
@@ -46,13 +46,13 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken, CSSObject> = token => {
         },
       },
 
-      [`${antCls}-divider-vertical`]: {
+      [`${rootCls}-divider-vertical`]: {
         height: '14px',
         margin: `0 ${token.marginSM}`,
         verticalAlign: 'middle',
       },
 
-      [`${antCls}-breadcrumb + &-heading`]: {
+      [`${rootCls}-breadcrumb + &-heading`]: {
         marginTop: token.marginXS,
       },
 
@@ -77,7 +77,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken, CSSObject> = token => {
           ...textEllipsis,
         },
 
-        [`${antCls}-avatar`]: {
+        [`${rootCls}-avatar`]: {
           marginRight: token.marginSM,
         },
 
@@ -110,15 +110,15 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken, CSSObject> = token => {
 
       [`${componentCls}-footer`]: {
         marginTop: token.marginMD,
-        [`${antCls}-tabs`]: {
-          [`> ${antCls}-tabs-nav`]: {
+        [`${rootCls}-tabs`]: {
+          [`> ${rootCls}-tabs-nav`]: {
             margin: 0,
 
             [`&::before`]: {
               border: 'none',
             },
           },
-          [`${antCls}-tabs-tab`]: {
+          [`${rootCls}-tabs-tab`]: {
             paddingTop: token.paddingXS,
             paddingBottom: token.paddingXS,
             fontSize: token.pageHeaderTabFontSize,

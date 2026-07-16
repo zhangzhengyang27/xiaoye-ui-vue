@@ -18,7 +18,7 @@ The most basic dropdown menu.
 
 <template>
   <a-dropdown>
-    <a class="ant-dropdown-link" @click.prevent>
+    <a class="xy-dropdown-link" @click.prevent>
       Hover me
       <DownOutlined />
     </a>

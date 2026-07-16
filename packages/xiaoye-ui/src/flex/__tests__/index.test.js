@@ -16,9 +16,9 @@ describe('Flex', () => {
         return <Flex gap={100}>test</Flex>;
       },
     });
-    expect(wrapper.classes('ant-flex')).toBeTruthy();
-    expect(wrapper.find('.ant-flex-justify-center')).toBeTruthy();
-    expect(wrapper2.classes('ant-flex')).toBeTruthy();
+    expect(wrapper.classes('xy-flex')).toBeTruthy();
+    expect(wrapper.find('.xy-flex-justify-center')).toBeTruthy();
+    expect(wrapper2.classes('xy-flex')).toBeTruthy();
     expect(wrapper2.element.style.gap).toBe('100px');
   });
 
@@ -33,8 +33,8 @@ describe('Flex', () => {
         return <Flex component="span">test</Flex>;
       },
     });
-    expect(wrapper.find('.ant-flex').element.tagName).toBe('DIV');
-    expect(wrapper2.find('.ant-flex').element.tagName).toBe('SPAN');
+    expect(wrapper.find('.xy-flex').element.tagName).toBe('DIV');
+    expect(wrapper2.find('.xy-flex').element.tagName).toBe('SPAN');
   });
 
   it('when vertical=true should stretch work', () => {
@@ -52,7 +52,7 @@ describe('Flex', () => {
         );
       },
     });
-    expect(wrapper.find('.ant-flex-align-stretch')).toBeTruthy();
-    expect(wrapper2.find('.ant-flex-align-center')).toBeTruthy();
+    expect(wrapper.find('.xy-flex-align-stretch')).toBeTruthy();
+    expect(wrapper2.find('.xy-flex-align-center')).toBeTruthy();
   });
 });

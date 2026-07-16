@@ -198,8 +198,30 @@ function Picker<DateType>() {
       'secondStep',
       'hideDisabledOptions',
     ] as any,
-    setup(props, { attrs, expose }) {
+    emits: [
+      'change',
+      'openChange',
+      'panelChange',
+      'focus',
+      'blur',
+      'mousedown',
+      'mouseup',
+      'mouseenter',
+      'mouseleave',
+      'contextmenu',
+      'click',
+      'keydown',
+      'select',
+    ],
+    setup(props, { attrs, expose, emit }) {
       const inputRef = ref(null);
+      const callEvent = (fn: any, ...args: any[]) => {
+        if (Array.isArray(fn)) {
+          fn.forEach(f => f?.(...args));
+        } else {
+          fn?.(...args);
+        }
+      };
       const presets = computed(() => props.presets);
       const presetList = usePresets(presets);
       const picker = computed(() => props.picker ?? 'date');
@@ -239,9 +261,8 @@ function Picker<DateType>() {
         defaultValue: props.defaultOpen,
         postState: postOpen => (props.disabled ? false : postOpen),
         onChange: newOpen => {
-          if (props.onOpenChange) {
-            props.onOpenChange(newOpen);
-          }
+          emit('openChange', newOpen);
+          callEvent(props.onOpenChange, newOpen);
 
           if (!newOpen && operationRef.value && operationRef.value.onClose) {
             operationRef.value.onClose();
@@ -276,12 +297,11 @@ function Picker<DateType>() {
         setInnerValue(newValue);
 
         if (onChange && !isEqual(generateConfig, mergedValue.value, newValue)) {
-          onChange(
-            newValue,
-            newValue
-              ? formatValue(newValue, { generateConfig, locale, format: formatList.value[0] })
-              : '',
-          );
+          const dateString = newValue
+            ? formatValue(newValue, { generateConfig, locale, format: formatList.value[0] })
+            : '';
+          emit('change', newValue, dateString);
+          callEvent(props.onChange, newValue, dateString);
         }
       };
 
@@ -310,9 +330,8 @@ function Picker<DateType>() {
       };
 
       const onInternalMouseup: MouseEventHandler = (...args) => {
-        if (props.onMouseup) {
-          props.onMouseup(...args);
-        }
+        emit('mouseup', ...args);
+        callEvent(props.onMouseup, ...args);
 
         if (inputRef.value) {
           inputRef.value.focus();
@@ -353,13 +372,16 @@ function Picker<DateType>() {
           resetText();
         },
         onKeydown: (e, preventDefault) => {
-          props.onKeydown?.(e, preventDefault);
+          emit('keydown', e, preventDefault);
+          callEvent(props.onKeydown, e, preventDefault);
         },
         onFocus: (e: FocusEvent) => {
-          props.onFocus?.(e);
+          emit('focus', e);
+          callEvent(props.onFocus, e);
         },
         onBlur: (e: FocusEvent) => {
-          props.onBlur?.(e);
+          emit('blur', e);
+          callEvent(props.onBlur, e);
         },
       });
 
@@ -449,12 +471,6 @@ function Picker<DateType>() {
           placeholder,
           getPopupContainer,
           panelRender,
-          onMousedown,
-          onMouseenter,
-          onMouseleave,
-          onContextmenu,
-          onClick,
-          onSelect,
           direction,
           autocomplete = 'off',
         } = props;
@@ -489,14 +505,15 @@ function Picker<DateType>() {
               locale={locale}
               tabindex={-1}
               onSelect={date => {
-                onSelect?.(date);
+                emit('select', date);
+                callEvent(props.onSelect, date);
                 setSelectedValue(date);
               }}
               direction={direction}
               onPanelChange={(viewDate, mode) => {
-                const { onPanelChange } = props;
                 onLeave(true);
-                onPanelChange?.(viewDate, mode);
+                emit('panelChange', viewDate, mode);
+                callEvent(props.onPanelChange, viewDate, mode);
               }}
             />
           </div>
@@ -590,12 +607,27 @@ function Picker<DateType>() {
               [`${prefixCls}-rtl`]: direction === 'rtl',
             })}
             style={attrs.style as CSSProperties}
-            onMousedown={onMousedown}
+            onMousedown={e => {
+              emit('mousedown', e);
+              callEvent(props.onMousedown, e);
+            }}
             onMouseup={onInternalMouseup}
-            onMouseenter={onMouseenter}
-            onMouseleave={onMouseleave}
-            onContextmenu={onContextmenu}
-            onClick={onClick}
+            onMouseenter={e => {
+              emit('mouseenter', e);
+              callEvent(props.onMouseenter, e);
+            }}
+            onMouseleave={e => {
+              emit('mouseleave', e);
+              callEvent(props.onMouseleave, e);
+            }}
+            onContextmenu={e => {
+              emit('contextmenu', e);
+              callEvent(props.onContextmenu, e);
+            }}
+            onClick={e => {
+              emit('click', e);
+              callEvent(props.onClick, e);
+            }}
           >
             <div
               class={classNames(`${prefixCls}-input`, {

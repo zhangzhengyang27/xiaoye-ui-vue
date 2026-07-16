@@ -1,28 +1,26 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/mentions/demo/async.vue correctly 1`] = `
-<div class="ant-mentions"><textarea dropdownclassname="" rows="1"></textarea>
+exports[`renders ./src/mentions/demo/async.vue correctly 1`] = `
+"<div data-v-bd6aa610="" class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" value=""></textarea>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/mentions/demo/basic.vue correctly 1`] = `
-<div class="ant-mentions"><textarea dropdownclassname="" autofocus="" rows="1"></textarea>
+exports[`renders ./src/mentions/demo/basic.vue correctly 1`] = `
+"<div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" autofocus="" rows="1" value="@afc163"></textarea>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/mentions/demo/form.vue correctly 1`] = `
-<form class="ant-form ant-form-horizontal">
-  <div class="ant-form-item">
-    <div class="ant-row ant-form-row">
-      <div class="ant-col ant-col-6 ant-form-item-label"><label for="form_item_coders" class="ant-form-item-required" title="Top coders">Top coders
-          <!---->
-        </label></div>
-      <div class="ant-col ant-col-18 ant-form-item-control">
-        <div class="ant-form-item-control-input">
-          <div class="ant-form-item-control-input-content">
-            <div class="ant-mentions"><textarea dropdownclassname="" rows="1" id="form_item_coders"></textarea>
+exports[`renders ./src/mentions/demo/form.vue correctly 1`] = `
+"<form class="xy-form xy-form-horizontal css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-form-item css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-form-item-row xy-row xy-form-item-row css-dev-only-do-not-override-1p3hq3p">
+      <div class="xy-form-item-label xy-col xy-col-6 xy-form-item-label css-dev-only-do-not-override-1p3hq3p"><label for="form_item_coders" class="xy-form-item-required" title="Top coders">Top coders</label></div>
+      <div class="xy-form-item-control xy-col xy-col-18 xy-form-item-control css-dev-only-do-not-override-1p3hq3p">
+        <div class="xy-form-item-control-input">
+          <div class="xy-form-item-control-input-content">
+            <div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" id="form_item_coders" value=""></textarea>
               <!---->
             </div>
           </div>
@@ -33,15 +31,13 @@ exports[`renders ./components/mentions/demo/form.vue correctly 1`] = `
     </div>
     <!---->
   </div>
-  <div class="ant-form-item">
-    <div class="ant-row ant-form-row">
-      <div class="ant-col ant-col-6 ant-form-item-label"><label for="form_item_bio" class="ant-form-item-required" title="Bio">Bio
-          <!---->
-        </label></div>
-      <div class="ant-col ant-col-18 ant-form-item-control">
-        <div class="ant-form-item-control-input">
-          <div class="ant-form-item-control-input-content">
-            <div class="ant-mentions"><textarea dropdownclassname="" rows="3" placeholder="You can use @ to ref user here" id="form_item_bio"></textarea>
+  <div class="xy-form-item css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-form-item-row xy-row xy-form-item-row css-dev-only-do-not-override-1p3hq3p">
+      <div class="xy-form-item-label xy-col xy-col-6 xy-form-item-label css-dev-only-do-not-override-1p3hq3p"><label for="form_item_bio" class="xy-form-item-required" title="Bio">Bio</label></div>
+      <div class="xy-form-item-control xy-col xy-col-18 xy-form-item-control css-dev-only-do-not-override-1p3hq3p">
+        <div class="xy-form-item-control-input">
+          <div class="xy-form-item-control-input-content">
+            <div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="3" placeholder="You can use @ to ref user here" id="form_item_bio" value=""></textarea>
               <!---->
             </div>
           </div>
@@ -52,16 +48,12 @@ exports[`renders ./components/mentions/demo/form.vue correctly 1`] = `
     </div>
     <!---->
   </div>
-  <div class="ant-form-item">
-    <div class="ant-row ant-form-row">
+  <div class="xy-form-item css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-form-item-row xy-row xy-form-item-row css-dev-only-do-not-override-1p3hq3p">
       <!---->
-      <div class="ant-col ant-col-12 ant-col-offset-5 ant-form-item-control">
-        <div class="ant-form-item-control-input">
-          <div class="ant-form-item-control-input-content"><button class="ant-btn ant-btn-primary" type="button">
-              <!----><span>Submit</span>
-            </button><button style="margin-left: 8px;" class="ant-btn ant-btn-default" type="button">
-              <!----><span>Reset</span>
-            </button></div>
+      <div class="xy-form-item-control xy-col xy-col-12 xy-col-offset-5 xy-form-item-control css-dev-only-do-not-override-1p3hq3p">
+        <div class="xy-form-item-control-input">
+          <div class="xy-form-item-control-input-content"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Submit</span></button><button style="margin-left: 8px;" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Reset</span></button></div>
         </div>
         <!---->
         <!---->
@@ -69,47 +61,47 @@ exports[`renders ./components/mentions/demo/form.vue correctly 1`] = `
     </div>
     <!---->
   </div>
-</form>
+</form>"
 `;
 
-exports[`renders ./components/mentions/demo/placement.vue correctly 1`] = `
-<div class="ant-mentions"><textarea dropdownclassname="" rows="1"></textarea>
+exports[`renders ./src/mentions/demo/placement.vue correctly 1`] = `
+"<div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" value=""></textarea>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/mentions/demo/prefix.vue correctly 1`] = `
-<div class="ant-mentions"><textarea dropdownclassname="" rows="1" placeholder="input @ to mention people, # to mention tag"></textarea>
+exports[`renders ./src/mentions/demo/prefix.vue correctly 1`] = `
+"<div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" placeholder="input @ to mention people, # to mention tag" value=""></textarea>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/mentions/demo/readonly.vue correctly 1`] = `
-<div>
+exports[`renders ./src/mentions/demo/readonly.vue correctly 1`] = `
+"<div>
   <div style="margin-bottom: 10px;">
-    <div class="ant-mentions ant-mentions-disabled"><textarea dropdownclassname="" disabled="" rows="1" placeholder="this is disabled Mentions"></textarea>
+    <div class="xy-mentions xy-mentions-disabled css-dev-only-do-not-override-1p3hq3p"><textarea disabled="" dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" placeholder="this is disabled Mentions" value=""></textarea>
       <!---->
     </div>
   </div>
-  <div class="ant-mentions"><textarea dropdownclassname="" rows="1" placeholder="this is readOnly a-mentions" readonly=""></textarea>
+  <div class="xy-mentions css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" rows="1" placeholder="this is readOnly a-mentions" readonly="" value=""></textarea>
     <!---->
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/mentions/demo/status.vue correctly 1`] = `
-<div class="ant-space ant-space-vertical">
-  <div class="ant-space-item" style="margin-bottom: 8px;">
-    <div class="ant-mentions ant-mentions-status-error"><textarea dropdownclassname="" autofocus="" rows="1" status="error"></textarea>
+exports[`renders ./src/mentions/demo/status.vue correctly 1`] = `
+"<div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-vertical">
+  <div class="xy-space-item" style="margin-bottom: 8px;">
+    <div class="xy-mentions xy-mentions-status-error css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" autofocus="" rows="1" status="error" value="@afc163"></textarea>
       <!---->
     </div>
   </div>
   <!---->
-  <div class="ant-space-item">
-    <div class="ant-mentions ant-mentions-status-warning"><textarea dropdownclassname="" autofocus="" rows="1" status="warning"></textarea>
+  <div class="xy-space-item">
+    <div class="xy-mentions xy-mentions-status-warning css-dev-only-do-not-override-1p3hq3p"><textarea dropdownclassname="css-dev-only-do-not-override-1p3hq3p" autofocus="" rows="1" status="warning" value="@afc163"></textarea>
       <!---->
     </div>
   </div>
   <!---->
-</div>
+</div>"
 `;

@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import DatePicker from '../';
 import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
-jest.mock('../../_util/Portal');
+vi.mock('../../_util/Portal');
 const { RangePicker } = DatePicker;
 
 describe('RangePicker', () => {
@@ -18,7 +18,7 @@ describe('RangePicker', () => {
   afterEach(() => {
     resetMockDate();
   });
-  xit('should not throw error when value is reset to `[]`', async () => {
+  it.skip('should not throw error when value is reset to `[]`', async () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(
       {
@@ -63,13 +63,13 @@ describe('RangePicker', () => {
     });
   });
 
-  fit('customize separator', async () => {
+  it('customize separator', async () => {
     const wrapper = mount(RangePicker, { props: { separator: 'test' } });
     await sleep();
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  fit('test WeekPicker valueFormat', async () => {
+  it('test WeekPicker valueFormat', async () => {
     const case1 = ['2023-22', '2023-24'];
     const case2 = ['2023-27', '2023-28'];
     const wrapper = mount(RangePicker, {

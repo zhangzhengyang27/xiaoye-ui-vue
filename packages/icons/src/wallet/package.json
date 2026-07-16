@@ -1,0 +1,11 @@
+{
+    "main": "./WalletIcon.vue",
+    "module": "./WalletIcon.vue",
+    "types": "./WalletIcon.d.ts",
+    "browser": {
+        "./sfc": "./WalletIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

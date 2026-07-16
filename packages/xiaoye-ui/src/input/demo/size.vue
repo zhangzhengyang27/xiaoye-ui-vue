@@ -27,7 +27,7 @@ import { ref } from 'vue';
 const value = ref<string>('');
 </script>
 <style scoped>
-.components-input-demo-size .ant-input {
+.components-input-demo-size .xy-input {
   width: 200px;
   margin: 0 8px 8px 0;
 }

@@ -14,11 +14,11 @@ describe('Slider', () => {
       attachTo: 'body',
     });
     await asyncExpect(() => {
-      wrapper.findAll('.ant-slider-handle')[0].trigger('mouseenter');
+      wrapper.findAll('.xy-slider-handle')[0].trigger('mouseenter');
     }, 1000);
     await asyncExpect(() => {
       expect(document.body.innerHTML).toMatchSnapshot();
-      wrapper.findAll('.ant-slider-handle')[0].trigger('mouseleave');
+      wrapper.findAll('.xy-slider-handle')[0].trigger('mouseleave');
     }, 1000);
     await asyncExpect(() => {
       expect(document.body.innerHTML).toMatchSnapshot();

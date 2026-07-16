@@ -111,7 +111,7 @@ const handleMenuClick: MenuProps['onClick'] = e => {
 };
 </script>
 <style lang="less" scoped>
-.demo-dropdown-wrap :deep(.ant-dropdown-button) {
+.demo-dropdown-wrap :deep(.xy-dropdown-button) {
   margin-right: 8px;
   margin-bottom: 8px;
 }

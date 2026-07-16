@@ -39,7 +39,7 @@ In this case, submit button is in the Modal which is out of Form. You can use `f
         </ul>
       </template>
       <template v-else>
-        <a-typography-text class="ant-form-text" type="secondary">
+        <a-typography-text class="xy-form-text" type="secondary">
           (
           <SmileOutlined />
           No user yet. )
@@ -118,11 +118,11 @@ const tailLayout = {
   margin-bottom: 8px;
 }
 
-#components-form-demo-form-context .user .ant-avatar {
+#components-form-demo-form-context .user .xy-avatar {
   margin-right: 8px;
 }
 
-.ant-row-rtl #components-form-demo-form-context .user .ant-avatar {
+.xy-row-rtl #components-form-demo-form-context .user .xy-avatar {
   margin-right: 0;
   margin-left: 8px;
 }

@@ -1,0 +1,11 @@
+{
+    "main": "./TagsIcon.vue",
+    "module": "./TagsIcon.vue",
+    "types": "./TagsIcon.d.ts",
+    "browser": {
+        "./sfc": "./TagsIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

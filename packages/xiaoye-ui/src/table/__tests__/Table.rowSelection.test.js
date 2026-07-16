@@ -1,9 +1,10 @@
+import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../../tests/utils';
 import Table from '..';
-jest.mock('../../_util/Portal');
+vi.mock('../../_util/Portal');
 describe('Table.rowSelection', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -48,7 +49,7 @@ describe('Table.rowSelection', () => {
     return [...wrapper.vm.table.selectedKeySet].sort();
   }
 
-  xit('select by checkbox', async () => {
+  it.skip('select by checkbox', async () => {
     const wrapper = mount(Table, getTableOptions());
     const checkboxes = wrapper.findAll('input');
     const checkboxAll = checkboxes[0];
@@ -69,7 +70,7 @@ describe('Table.rowSelection', () => {
     });
   });
 
-  xit('select by radio', async () => {
+  it.skip('select by radio', async () => {
     const wrapper = mount(Table, getTableOptions({ rowSelection: { type: 'radio' } }));
     const radios = wrapper.findAll('input');
 
@@ -146,7 +147,7 @@ describe('Table.rowSelection', () => {
     );
   });
 
-  xit('can be controlled', async () => {
+  it.skip('can be controlled', async () => {
     const wrapper = mount(Table, getTableOptions({ rowSelection: { selectedRowKeys: [0] } }));
 
     expect(getSelections(wrapper)).toEqual([0]);
@@ -158,8 +159,8 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires change & select events', async () => {
-    const handleChange = jest.fn();
-    const handleSelect = jest.fn();
+    const handleChange = vi.fn();
+    const handleSelect = vi.fn();
     const rowSelection = {
       onChange: handleChange,
       onSelect: handleSelect,
@@ -178,7 +179,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('fires selectAll event', async () => {
-    const handleSelectAll = jest.fn();
+    const handleSelectAll = vi.fn();
     const rowSelection = {
       onSelectAll: handleSelectAll,
     };
@@ -215,7 +216,7 @@ describe('Table.rowSelection', () => {
   });
 
   it('click select all selection', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const rowSelection = {
       onChange: handleChange,
       selections: true,
@@ -230,13 +231,13 @@ describe('Table.rowSelection', () => {
       },
       { sync: false },
     );
-    dropdownWrapper.findAll('.ant-dropdown-menu-item')[0].trigger('click');
+    dropdownWrapper.findAll('.xy-dropdown-menu-item')[0].trigger('click');
 
     expect(handleChange.mock.calls[0][0]).toEqual([0, 1, 2, 3]);
   });
 
   it('fires selectInvert event', async () => {
-    const handleSelectInvert = jest.fn();
+    const handleSelectInvert = vi.fn();
     const rowSelection = {
       onSelectInvert: handleSelectInvert,
       selections: true,
@@ -254,15 +255,15 @@ describe('Table.rowSelection', () => {
       },
       { sync: false },
     );
-    const div = dropdownWrapper.findAll('li.ant-dropdown-menu-item');
+    const div = dropdownWrapper.findAll('.xy-dropdown-menu-item');
     div[1].trigger('click');
 
     expect(handleSelectInvert).toBeCalledWith([1, 2, 3]);
   });
 
   it('fires selection event', async () => {
-    const handleSelectOdd = jest.fn();
-    const handleSelectEven = jest.fn();
+    const handleSelectOdd = vi.fn();
+    const handleSelectEven = vi.fn();
     const rowSelection = {
       selections: [
         Table.SELECTION_ALL,
@@ -290,12 +291,12 @@ describe('Table.rowSelection', () => {
       { sync: false },
     );
     await sleep();
-    expect(dropdownWrapper.findAll('.ant-dropdown-menu-item').length).toBe(4);
+    expect(dropdownWrapper.findAll('.xy-dropdown-menu-item').length).toBe(4);
 
-    dropdownWrapper.findAll('.ant-dropdown-menu-item')[2].trigger('click');
+    dropdownWrapper.findAll('.xy-dropdown-menu-item')[2].trigger('click');
     expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.findAll('.ant-dropdown-menu-item')[3].trigger('click');
+    dropdownWrapper.findAll('.xy-dropdown-menu-item')[3].trigger('click');
     expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
   });
 
@@ -322,12 +323,12 @@ describe('Table.rowSelection', () => {
       },
       { sync: false },
     );
-    expect(dropdownWrapper.findAll('.ant-dropdown-menu-item').length).toBe(2);
+    expect(dropdownWrapper.findAll('.xy-dropdown-menu-item').length).toBe(2);
   });
 
   it('handle custom selection onSelect correctly when hide default selection options', () => {
-    const handleSelectOdd = jest.fn();
-    const handleSelectEven = jest.fn();
+    const handleSelectOdd = vi.fn();
+    const handleSelectEven = vi.fn();
     const rowSelection = {
       hideDefaultSelections: true,
       selections: [
@@ -353,12 +354,12 @@ describe('Table.rowSelection', () => {
       },
       { sync: false },
     );
-    expect(dropdownWrapper.findAll('.ant-dropdown-menu-item').length).toBe(2);
+    expect(dropdownWrapper.findAll('.xy-dropdown-menu-item').length).toBe(2);
 
-    dropdownWrapper.findAll('.ant-dropdown-menu-item')[0].trigger('click');
+    dropdownWrapper.findAll('.xy-dropdown-menu-item')[0].trigger('click');
     expect(handleSelectOdd).toBeCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.findAll('.ant-dropdown-menu-item')[1].trigger('click');
+    dropdownWrapper.findAll('.xy-dropdown-menu-item')[1].trigger('click');
     expect(handleSelectEven).toBeCalledWith([0, 1, 2, 3]);
   });
 
@@ -424,7 +425,7 @@ describe('Table.rowSelection', () => {
     wrapper.findAll('input')[1].element.checked = true;
     wrapper.findAll('input')[1].trigger('change');
     await asyncExpect(() => {
-      expect(wrapper.findAll('tbody tr')[0].classes()).toContain('ant-table-row-selected');
+      expect(wrapper.findAll('tbody tr')[0].classes()).toContain('xy-table-row-selected');
     });
   });
 
@@ -524,7 +525,7 @@ describe('Table.rowSelection', () => {
       },
     ];
 
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const rowSelection = {
       onChange,
     };
@@ -538,29 +539,20 @@ describe('Table.rowSelection', () => {
       sync: false,
     });
 
-    const dropdownWrapper = mount(
-      {
-        render() {
-          return wrapper.findComponent({ name: 'Trigger' }).vm.getComponent();
-        },
-      },
-      { sync: false },
-    );
     await sleep();
     function clickFilter(indexList) {
+      const items = wrapper.findAll('.xy-dropdown-menu-item .xy-checkbox-wrapper');
       indexList.forEach(index => {
-        dropdownWrapper
-          .findAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')
-          [index].trigger('click');
+        items[index].trigger('click');
       });
-      dropdownWrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').trigger('click');
+      wrapper.find('.xy-table-filter-dropdown-btns .xy-btn-primary').trigger('click');
     }
 
     function clickItem() {
       wrapper.findAll(
-        'tbody .ant-table-selection-column .ant-checkbox-input',
+        'tbody .xy-table-selection-column .xy-checkbox-input',
       )[0].element.checked = true;
-      wrapper.findAll('tbody .ant-table-selection-column .ant-checkbox-input')[0].trigger('change');
+      wrapper.findAll('tbody .xy-table-selection-column .xy-checkbox-input')[0].trigger('change');
     }
 
     // Check Jack

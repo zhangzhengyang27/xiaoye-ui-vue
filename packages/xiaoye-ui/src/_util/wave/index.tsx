@@ -24,9 +24,9 @@ export default defineComponent({
   props: {
     disabled: Boolean,
   },
-  setup(props, { slots }) {
+  setup(props, { slots, expose }) {
     const instance = getCurrentInstance();
-    const { prefixCls, wave } = useConfigInject('wave', props);
+    const { prefixCls, wave, csp } = useConfigInject('wave', props);
 
     // ============================== Style ===============================
     const [, hashId] = useStyle(prefixCls);
@@ -36,6 +36,12 @@ export default defineComponent({
       computed(() => classNames(prefixCls.value, hashId.value)),
       wave,
     );
+
+    expose({
+      get csp() {
+        return csp.value;
+      },
+    });
     let onClick: (e: MouseEvent) => void;
     const clear = () => {
       const node = findDOMNode(instance) as HTMLElement;

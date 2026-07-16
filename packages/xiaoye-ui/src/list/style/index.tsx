@@ -104,7 +104,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
 const genBaseStyle: GenerateStyle<ListToken> = token => {
   const {
     componentCls,
-    antCls,
+    rootCls,
     controlHeight,
     minHeight,
     paddingSM,
@@ -137,7 +137,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         marginBlockStart: marginLG,
         textAlign: 'end',
 
-        [`${antCls}-pagination-options`]: {
+        [`${rootCls}-pagination-options`]: {
           textAlign: 'start',
         },
       },
@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         display: 'block',
       },
     },
-    [`${componentCls}-grid ${antCls}-col > ${componentCls}-item`]: {
+    [`${componentCls}-grid ${rootCls}-col > ${componentCls}-item`]: {
       display: 'block',
       maxWidth: '100%',
       marginBlockEnd: margin,
@@ -312,7 +312,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     [`${componentCls}-loading ${componentCls}-spin-nested-loading`]: {
       minHeight: controlHeight,
     },
-    [`${componentCls}-split${componentCls}-something-after-last-item ${antCls}-spin-container > ${componentCls}-items > ${componentCls}-item:last-child`]:
+    [`${componentCls}-split${componentCls}-something-after-last-item ${rootCls}-spin-container > ${componentCls}-items > ${componentCls}-item:last-child`]:
       {
         borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },

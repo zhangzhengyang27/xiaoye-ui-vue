@@ -4,7 +4,7 @@ import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { initMotion } from './motion';
 
-export const zoomIn = new Keyframes('antZoomIn', {
+export const zoomIn = new Keyframes('xyZoomIn', {
   '0%': {
     transform: 'scale(0.2)',
     opacity: 0,
@@ -16,7 +16,7 @@ export const zoomIn = new Keyframes('antZoomIn', {
   },
 });
 
-export const zoomOut = new Keyframes('antZoomOut', {
+export const zoomOut = new Keyframes('xyZoomOut', {
   '0%': {
     transform: 'scale(1)',
   },
@@ -27,7 +27,7 @@ export const zoomOut = new Keyframes('antZoomOut', {
   },
 });
 
-export const zoomBigIn = new Keyframes('antZoomBigIn', {
+export const zoomBigIn = new Keyframes('xyZoomBigIn', {
   '0%': {
     transform: 'scale(0.8)',
     opacity: 0,
@@ -39,7 +39,7 @@ export const zoomBigIn = new Keyframes('antZoomBigIn', {
   },
 });
 
-export const zoomBigOut = new Keyframes('antZoomBigOut', {
+export const zoomBigOut = new Keyframes('xyZoomBigOut', {
   '0%': {
     transform: 'scale(1)',
   },
@@ -50,7 +50,7 @@ export const zoomBigOut = new Keyframes('antZoomBigOut', {
   },
 });
 
-export const zoomUpIn = new Keyframes('antZoomUpIn', {
+export const zoomUpIn = new Keyframes('xyZoomUpIn', {
   '0%': {
     transform: 'scale(0.8)',
     transformOrigin: '50% 0%',
@@ -63,7 +63,7 @@ export const zoomUpIn = new Keyframes('antZoomUpIn', {
   },
 });
 
-export const zoomUpOut = new Keyframes('antZoomUpOut', {
+export const zoomUpOut = new Keyframes('xyZoomUpOut', {
   '0%': {
     transform: 'scale(1)',
     transformOrigin: '50% 0%',
@@ -76,7 +76,7 @@ export const zoomUpOut = new Keyframes('antZoomUpOut', {
   },
 });
 
-export const zoomLeftIn = new Keyframes('antZoomLeftIn', {
+export const zoomLeftIn = new Keyframes('xyZoomLeftIn', {
   '0%': {
     transform: 'scale(0.8)',
     transformOrigin: '0% 50%',
@@ -89,7 +89,7 @@ export const zoomLeftIn = new Keyframes('antZoomLeftIn', {
   },
 });
 
-export const zoomLeftOut = new Keyframes('antZoomLeftOut', {
+export const zoomLeftOut = new Keyframes('xyZoomLeftOut', {
   '0%': {
     transform: 'scale(1)',
     transformOrigin: '0% 50%',
@@ -102,7 +102,7 @@ export const zoomLeftOut = new Keyframes('antZoomLeftOut', {
   },
 });
 
-export const zoomRightIn = new Keyframes('antZoomRightIn', {
+export const zoomRightIn = new Keyframes('xyZoomRightIn', {
   '0%': {
     transform: 'scale(0.8)',
     transformOrigin: '100% 50%',
@@ -115,7 +115,7 @@ export const zoomRightIn = new Keyframes('antZoomRightIn', {
   },
 });
 
-export const zoomRightOut = new Keyframes('antZoomRightOut', {
+export const zoomRightOut = new Keyframes('xyZoomRightOut', {
   '0%': {
     transform: 'scale(1)',
     transformOrigin: '100% 50%',
@@ -128,7 +128,7 @@ export const zoomRightOut = new Keyframes('antZoomRightOut', {
   },
 });
 
-export const zoomDownIn = new Keyframes('antZoomDownIn', {
+export const zoomDownIn = new Keyframes('xyZoomDownIn', {
   '0%': {
     transform: 'scale(0.8)',
     transformOrigin: '50% 100%',
@@ -141,7 +141,7 @@ export const zoomDownIn = new Keyframes('antZoomDownIn', {
   },
 });
 
-export const zoomDownOut = new Keyframes('antZoomDownOut', {
+export const zoomDownOut = new Keyframes('xyZoomDownOut', {
   '0%': {
     transform: 'scale(1)',
     transformOrigin: '50% 100%',
@@ -197,8 +197,8 @@ export const initZoomMotion = (
   token: TokenWithCommonCls<AliasToken>,
   motionName: ZoomMotionTypes,
 ): CSSInterpolation => {
-  const { antCls } = token;
-  const motionCls = `${antCls}-${motionName}`;
+  const { rootCls } = token;
+  const motionCls = `${rootCls}-${motionName}`;
   const { inKeyframes, outKeyframes } = zoomMotion[motionName];
 
   return [

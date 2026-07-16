@@ -34,7 +34,7 @@ Click to upload user's avatar, and validate size and format of picture with `bef
     <div v-else>
       <loading-outlined v-if="loading"></loading-outlined>
       <plus-outlined v-else></plus-outlined>
-      <div class="ant-upload-text">Upload</div>
+      <div class="xy-upload-text">Upload</div>
     </div>
   </a-upload>
 </template>
@@ -85,16 +85,16 @@ const beforeUpload = (file: UploadProps['fileList'][number]) => {
 };
 </script>
 <style scoped>
-.avatar-uploader > .ant-upload {
+.avatar-uploader > .xy-upload {
   width: 128px;
   height: 128px;
 }
-.ant-upload-select-picture-card i {
+.xy-upload-select-picture-card i {
   font-size: 32px;
   color: #999;
 }
 
-.ant-upload-select-picture-card .ant-upload-text {
+.xy-upload-select-picture-card .xy-upload-text {
   margin-top: 8px;
   color: #666;
 }

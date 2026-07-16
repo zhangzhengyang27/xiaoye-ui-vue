@@ -42,13 +42,21 @@ export default defineComponent({
     onFocus: { type: Function as PropType<FocusEventHandler> },
   },
   emits: ['click', 'resize', 'remove', 'focus'],
-  setup(props, { expose, attrs }) {
+  setup(props, { expose, attrs, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const domRef = ref();
     function onInternalClick(e: MouseEvent | KeyboardEvent) {
       if (props.tab?.disabled) {
         return;
       }
-      props.onClick(e);
+      emit('click', e);
+      callEvent(props.onClick, e);
     }
     expose({
       domRef,

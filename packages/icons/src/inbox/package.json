@@ -1,0 +1,11 @@
+{
+    "main": "./InboxIcon.vue",
+    "module": "./InboxIcon.vue",
+    "types": "./InboxIcon.d.ts",
+    "browser": {
+        "./sfc": "./InboxIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

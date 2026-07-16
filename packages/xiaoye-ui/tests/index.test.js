@@ -1,8 +1,13 @@
 const OLD_NODE_ENV = process.env.NODE_ENV;
-process.env.NODE_ENV = 'development';
-const xiaoyeUI = require('..');
 
 describe('xiaoye-ui', () => {
+  let xiaoyeUI;
+
+  beforeAll(async () => {
+    process.env.NODE_ENV = 'development';
+    xiaoyeUI = await import('..');
+  });
+
   afterAll(() => {
     process.env.NODE_ENV = OLD_NODE_ENV;
   });

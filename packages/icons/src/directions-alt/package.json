@@ -1,0 +1,11 @@
+{
+    "main": "./DirectionsAltIcon.vue",
+    "module": "./DirectionsAltIcon.vue",
+    "types": "./DirectionsAltIcon.d.ts",
+    "browser": {
+        "./sfc": "./DirectionsAltIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

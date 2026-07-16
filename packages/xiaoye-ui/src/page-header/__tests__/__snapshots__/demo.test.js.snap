@@ -1,24 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
-<div>
+exports[`renders ./src/page-header/demo/actions.vue correctly 1`] = `
+<div
+  data-v-8a12aa2c=""
+>
   <div
-    class="ant-page-header ant-page-header-ghost demo-page-header"
+    class="demo-page-header xy-page-header xy-page-header-ghost demo-page-header css-dev-only-do-not-override-1p3hq3p"
+    data-v-8a12aa2c=""
     style="border: 1px solid rgb(235, 237, 240);"
   >
     <!---->
     <div
-      class="ant-page-header-heading"
+      class="xy-page-header-heading"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="xy-page-header-heading-left"
       >
         <div
-          class="ant-page-header-back"
+          class="xy-page-header-back"
         >
           <div
             aria-label="Back"
-            class="ant-page-header-back-button"
+            class="xy-page-header-back-button"
             role="button"
             style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
@@ -31,7 +34,6 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -43,19 +45,20 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                   d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
                 />
               </svg>
+              <!---->
             </span>
             
           </div>
         </div>
         <!---->
         <span
-          class="ant-page-header-heading-title"
+          class="xy-page-header-heading-title"
           title="Title"
         >
           Title
         </span>
         <span
-          class="ant-page-header-heading-sub-title"
+          class="xy-page-header-heading-sub-title"
           title="This is a subtitle"
         >
           This is a subtitle
@@ -63,22 +66,27 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
         <!---->
       </div>
       <span
-        class="ant-page-header-heading-extra"
+        class="xy-page-header-heading-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center"
         >
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -90,14 +98,19 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -109,13 +122,18 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Primary
@@ -130,37 +148,38 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-page-header-content"
+      class="xy-page-header-content"
     >
       
       <div
-        class="ant-descriptions ant-descriptions-small"
+        class="xy-descriptions xy-descriptions-small css-dev-only-do-not-override-1p3hq3p"
+        data-v-8a12aa2c=""
       >
         <!---->
         <div
-          class="ant-descriptions-view"
+          class="xy-descriptions-view"
         >
           <table>
             <tbody>
               
               <tr
-                class="ant-descriptions-row"
+                class="xy-descriptions-row"
               >
                 
                 <td
-                  class="ant-descriptions-item"
+                  class="xy-descriptions-item"
                   colspan="1"
                 >
                   <div
-                    class="ant-descriptions-item-container"
+                    class="xy-descriptions-item-container"
                   >
                     <span
-                      class="ant-descriptions-item-label"
+                      class="xy-descriptions-item-label"
                     >
                       Created
                     </span>
                     <span
-                      class="ant-descriptions-item-content"
+                      class="xy-descriptions-item-content"
                     >
                       
                       Lili Qu
@@ -169,22 +188,24 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-descriptions-item"
+                  class="xy-descriptions-item"
                   colspan="1"
                 >
                   <div
-                    class="ant-descriptions-item-container"
+                    class="xy-descriptions-item-container"
                   >
                     <span
-                      class="ant-descriptions-item-label"
+                      class="xy-descriptions-item-label"
                     >
                       Association
                     </span>
                     <span
-                      class="ant-descriptions-item-content"
+                      class="xy-descriptions-item-content"
                     >
                       
-                      <a>
+                      <a
+                        data-v-8a12aa2c=""
+                      >
                         421421
                       </a>
                       
@@ -192,19 +213,19 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-descriptions-item"
+                  class="xy-descriptions-item"
                   colspan="1"
                 >
                   <div
-                    class="ant-descriptions-item-container"
+                    class="xy-descriptions-item-container"
                   >
                     <span
-                      class="ant-descriptions-item-label"
+                      class="xy-descriptions-item-label"
                     >
                       Creation Time
                     </span>
                     <span
-                      class="ant-descriptions-item-content"
+                      class="xy-descriptions-item-content"
                     >
                       
                       2017-01-10
@@ -215,23 +236,23 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                 
               </tr>
               <tr
-                class="ant-descriptions-row"
+                class="xy-descriptions-row"
               >
                 
                 <td
-                  class="ant-descriptions-item"
+                  class="xy-descriptions-item"
                   colspan="1"
                 >
                   <div
-                    class="ant-descriptions-item-container"
+                    class="xy-descriptions-item-container"
                   >
                     <span
-                      class="ant-descriptions-item-label"
+                      class="xy-descriptions-item-label"
                     >
                       Effective Time
                     </span>
                     <span
-                      class="ant-descriptions-item-content"
+                      class="xy-descriptions-item-content"
                     >
                       
                       2017-10-10
@@ -240,19 +261,19 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-descriptions-item"
+                  class="xy-descriptions-item"
                   colspan="2"
                 >
                   <div
-                    class="ant-descriptions-item-container"
+                    class="xy-descriptions-item-container"
                   >
                     <span
-                      class="ant-descriptions-item-label"
+                      class="xy-descriptions-item-label"
                     >
                       Remarks
                     </span>
                     <span
-                      class="ant-descriptions-item-content"
+                      class="xy-descriptions-item-content"
                     >
                       
                        Gonghu Road, Xihu District, Hangzhou, Zhejiang, China 
@@ -271,23 +292,26 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
     </div>
     <!---->
   </div>
-  <br />
+  <br
+    data-v-8a12aa2c=""
+  />
   <div
-    class="ant-page-header ant-page-header-ghost"
+    class="xy-page-header xy-page-header-ghost css-dev-only-do-not-override-1p3hq3p"
+    data-v-8a12aa2c=""
   >
     <!---->
     <div
-      class="ant-page-header-heading"
+      class="xy-page-header-heading"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="xy-page-header-heading-left"
       >
         <div
-          class="ant-page-header-back"
+          class="xy-page-header-back"
         >
           <div
             aria-label="Back"
-            class="ant-page-header-back-button"
+            class="xy-page-header-back-button"
             role="button"
             style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
@@ -300,7 +324,6 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -312,29 +335,31 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
                   d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
                 />
               </svg>
+              <!---->
             </span>
             
           </div>
         </div>
         <!---->
         <span
-          class="ant-page-header-heading-title"
+          class="xy-page-header-heading-title"
           title="Title"
         >
           Title
         </span>
         <span
-          class="ant-page-header-heading-sub-title"
+          class="xy-page-header-heading-sub-title"
           title="This is a subtitle"
         >
           This is a subtitle
         </span>
         <span
-          class="ant-page-header-heading-tags"
+          class="xy-page-header-heading-tags"
         >
           
           <span
-            class="ant-tag ant-tag-blue"
+            class="xy-tag css-dev-only-do-not-override-1p3hq3p xy-tag-blue"
+            data-v-8a12aa2c=""
           >
             
             Running
@@ -345,22 +370,27 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-page-header-heading-extra"
+        class="xy-page-header-heading-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center"
         >
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -372,14 +402,19 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -391,13 +426,18 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary"
+              data-v-8a12aa2c=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Primary
@@ -412,29 +452,31 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-page-header-content"
+      class="xy-page-header-content"
     >
       
       <div
-        class="ant-row"
+        class="xy-row css-dev-only-do-not-override-1p3hq3p"
+        data-v-8a12aa2c=""
         type="flex"
       >
         
         <div
-          class="ant-statistic"
+          class="xy-statistic css-dev-only-do-not-override-1p3hq3p"
+          data-v-8a12aa2c=""
         >
           <div
-            class="ant-statistic-title"
+            class="xy-statistic-title"
           >
             Status
           </div>
           
           <div
-            class="ant-statistic-content"
+            class="xy-statistic-content"
           >
             <!---->
             <span
-              class="ant-statistic-content-value"
+              class="xy-statistic-content-value"
             >
               Pending
             </span>
@@ -443,35 +485,36 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
         </div>
         <div
-          class="ant-statistic"
+          class="xy-statistic css-dev-only-do-not-override-1p3hq3p"
+          data-v-8a12aa2c=""
           style="margin: 0px 32px;"
         >
           <div
-            class="ant-statistic-title"
+            class="xy-statistic-title"
           >
             Price
           </div>
           
           <div
-            class="ant-statistic-content"
+            class="xy-statistic-content"
           >
             <span
-              class="ant-statistic-content-prefix"
+              class="xy-statistic-content-prefix"
             >
               $
             </span>
             <span
-              class="ant-statistic-content-value"
+              class="xy-statistic-content-value"
             >
               
               <span
-                class="ant-statistic-content-value-int"
+                class="xy-statistic-content-value-int"
               >
                 
                 568
               </span>
               <span
-                class="ant-statistic-content-value-decimal"
+                class="xy-statistic-content-value-decimal"
               >
                 .08
               </span>
@@ -482,34 +525,35 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
           
         </div>
         <div
-          class="ant-statistic"
+          class="xy-statistic css-dev-only-do-not-override-1p3hq3p"
+          data-v-8a12aa2c=""
         >
           <div
-            class="ant-statistic-title"
+            class="xy-statistic-title"
           >
             Balance
           </div>
           
           <div
-            class="ant-statistic-content"
+            class="xy-statistic-content"
           >
             <span
-              class="ant-statistic-content-prefix"
+              class="xy-statistic-content-prefix"
             >
               $
             </span>
             <span
-              class="ant-statistic-content-value"
+              class="xy-statistic-content-value"
             >
               
               <span
-                class="ant-statistic-content-value-int"
+                class="xy-statistic-content-value-int"
               >
                 
                 3,345
               </span>
               <span
-                class="ant-statistic-content-value-decimal"
+                class="xy-statistic-content-value-decimal"
               >
                 .08
               </span>
@@ -528,24 +572,24 @@ exports[`renders ./components/page-header/demo/actions.vue correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/page-header/demo/basic.vue correctly 1`] = `
+exports[`renders ./src/page-header/demo/basic.vue correctly 1`] = `
 <div
-  class="ant-page-header ant-page-header-ghost"
+  class="xy-page-header xy-page-header-ghost css-dev-only-do-not-override-1p3hq3p"
   style="border: 1px solid rgb(235, 237, 240);"
 >
   <!---->
   <div
-    class="ant-page-header-heading"
+    class="xy-page-header-heading"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="xy-page-header-heading-left"
     >
       <div
-        class="ant-page-header-back"
+        class="xy-page-header-back"
       >
         <div
           aria-label="Back"
-          class="ant-page-header-back-button"
+          class="xy-page-header-back-button"
           role="button"
           style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
           tabindex="0"
@@ -558,7 +602,6 @@ exports[`renders ./components/page-header/demo/basic.vue correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              class=""
               data-icon="arrow-left"
               fill="currentColor"
               focusable="false"
@@ -570,19 +613,20 @@ exports[`renders ./components/page-header/demo/basic.vue correctly 1`] = `
                 d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
               />
             </svg>
+            <!---->
           </span>
           
         </div>
       </div>
       <!---->
       <span
-        class="ant-page-header-heading-title"
+        class="xy-page-header-heading-title"
         title="Title"
       >
         Title
       </span>
       <span
-        class="ant-page-header-heading-sub-title"
+        class="xy-page-header-heading-sub-title"
         title="This is a subtitle"
       >
         This is a subtitle
@@ -596,19 +640,19 @@ exports[`renders ./components/page-header/demo/basic.vue correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
+exports[`renders ./src/page-header/demo/breadcrumb.vue correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb ant-page-header-ghost"
+  class="xy-page-header has-breadcrumb xy-page-header-ghost css-dev-only-do-not-override-1p3hq3p"
   style="border: 1px solid rgb(235, 237, 240);"
 >
   <nav
-    class="ant-breadcrumb"
+    class="xy-breadcrumb css-dev-only-do-not-override-1p3hq3p"
   >
     <ol>
       
       <li>
         <span
-          class="ant-breadcrumb-link"
+          class="xy-breadcrumb-link"
         >
           
           <a
@@ -619,14 +663,14 @@ exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
           
         </span>
         <span
-          class="ant-breadcrumb-separator"
+          class="xy-breadcrumb-separator"
         >
           /
         </span>
       </li>
       <li>
         <span
-          class="ant-breadcrumb-link"
+          class="xy-breadcrumb-link"
         >
           
           <a
@@ -637,14 +681,14 @@ exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
           
         </span>
         <span
-          class="ant-breadcrumb-separator"
+          class="xy-breadcrumb-separator"
         >
           /
         </span>
       </li>
       <li>
         <span
-          class="ant-breadcrumb-link"
+          class="xy-breadcrumb-link"
         >
           
           <span>
@@ -653,7 +697,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
           
         </span>
         <span
-          class="ant-breadcrumb-separator"
+          class="xy-breadcrumb-separator"
         >
           /
         </span>
@@ -662,21 +706,21 @@ exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
     </ol>
   </nav>
   <div
-    class="ant-page-header-heading"
+    class="xy-page-header-heading"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="xy-page-header-heading-left"
     >
       <!---->
       <!---->
       <span
-        class="ant-page-header-heading-title"
+        class="xy-page-header-heading-title"
         title="Title"
       >
         Title
       </span>
       <span
-        class="ant-page-header-heading-sub-title"
+        class="xy-page-header-heading-sub-title"
         title="This is a subtitle"
       >
         This is a subtitle
@@ -690,21 +734,23 @@ exports[`renders ./components/page-header/demo/breadcrumb.vue correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
+exports[`renders ./src/page-header/demo/content.vue correctly 1`] = `
 <div
   class="components-page-header-demo-content"
+  data-v-e2e97d23=""
 >
   <div
-    class="ant-page-header has-breadcrumb ant-page-header-ghost site-page-header"
+    class="site-page-header xy-page-header has-breadcrumb xy-page-header-ghost site-page-header css-dev-only-do-not-override-1p3hq3p"
+    data-v-e2e97d23=""
   >
     <nav
-      class="ant-breadcrumb"
+      class="xy-breadcrumb css-dev-only-do-not-override-1p3hq3p"
     >
       <ol>
         
         <li>
           <span
-            class="ant-breadcrumb-link"
+            class="xy-breadcrumb-link"
           >
             
             <a
@@ -715,14 +761,14 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
             
           </span>
           <span
-            class="ant-breadcrumb-separator"
+            class="xy-breadcrumb-separator"
           >
             /
           </span>
         </li>
         <li>
           <span
-            class="ant-breadcrumb-link"
+            class="xy-breadcrumb-link"
           >
             
             <a
@@ -733,14 +779,14 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
             
           </span>
           <span
-            class="ant-breadcrumb-separator"
+            class="xy-breadcrumb-separator"
           >
             /
           </span>
         </li>
         <li>
           <span
-            class="ant-breadcrumb-link"
+            class="xy-breadcrumb-link"
           >
             
             <span>
@@ -749,7 +795,7 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
             
           </span>
           <span
-            class="ant-breadcrumb-separator"
+            class="xy-breadcrumb-separator"
           >
             /
           </span>
@@ -758,37 +804,38 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="ant-page-header-heading"
+      class="xy-page-header-heading"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="xy-page-header-heading-left"
       >
         <!---->
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
+          class="xy-avatar xy-avatar-circle xy-avatar-image css-dev-only-do-not-override-1p3hq3p"
         >
           <img
             src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
           />
         </span>
         <span
-          class="ant-page-header-heading-title"
+          class="xy-page-header-heading-title"
           title="Title"
         >
           Title
         </span>
         <span
-          class="ant-page-header-heading-sub-title"
+          class="xy-page-header-heading-sub-title"
           title="This is a subtitle"
         >
           This is a subtitle
         </span>
         <span
-          class="ant-page-header-heading-tags"
+          class="xy-page-header-heading-tags"
         >
           
           <span
-            class="ant-tag ant-tag-blue"
+            class="xy-tag css-dev-only-do-not-override-1p3hq3p xy-tag-blue"
+            data-v-e2e97d23=""
           >
             
             Running
@@ -799,22 +846,27 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-page-header-heading-extra"
+        class="xy-page-header-heading-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center"
         >
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-e2e97d23=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -826,14 +878,19 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-e2e97d23=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -845,14 +902,19 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary"
+              data-v-e2e97d23=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Primary
@@ -864,25 +926,30 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
           >
             
             <button
-              class="ant-btn ant-btn-default ant-dropdown-trigger"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default xy-dropdown-trigger"
+              data-v-e2e97d23=""
               style="padding: 0px;"
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span
                 aria-label="ellipsis"
                 class="anticon anticon-ellipsis"
+                data-v-e2e97d23=""
                 role="img"
                 style="font-size: 20px; vertical-align: top;"
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="ellipsis"
                   fill="currentColor"
                   focusable="false"
@@ -894,6 +961,7 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
                     d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
                   />
                 </svg>
+                <!---->
               </span>
               
             </button>
@@ -907,50 +975,64 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-page-header-content"
+      class="xy-page-header-content"
     >
       
       <div
-        class="ant-row content"
+        class="content xy-row content css-dev-only-do-not-override-1p3hq3p"
+        data-v-e2e97d23=""
       >
         
         <div
+          data-v-e2e97d23=""
           style="flex: 1;"
         >
-          <p>
-             Ant Design interprets the color system into two levels: a system-level color system and a product-level color system. 
+          <p
+            data-v-e2e97d23=""
+          >
+             Xiaoye UI interprets the color system into two levels: a system-level color system and a product-level color system. 
           </p>
-          <p>
-             Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams. 
+          <p
+            data-v-e2e97d23=""
+          >
+             Xiaoye UI's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams. 
           </p>
-          <div>
+          <div
+            data-v-e2e97d23=""
+          >
             
             <a
               class="example-link"
+              data-v-e2e97d23=""
             >
               <img
                 alt="Quick Start"
                 class="example-link-icon"
+                data-v-e2e97d23=""
                 src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
               />
                Quick Start
             </a>
             <a
               class="example-link"
+              data-v-e2e97d23=""
             >
               <img
                 alt="Product Info"
                 class="example-link-icon"
+                data-v-e2e97d23=""
                 src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
               />
                Product Info
             </a>
             <a
               class="example-link"
+              data-v-e2e97d23=""
             >
               <img
                 alt="Product Doc"
                 class="example-link-icon"
+                data-v-e2e97d23=""
                 src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
               />
                Product Doc
@@ -960,9 +1042,11 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
         </div>
         <div
           class="image"
+          data-v-e2e97d23=""
         >
           <img
             alt="content"
+            data-v-e2e97d23=""
             src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
             style="width: 100%;"
           />
@@ -976,31 +1060,33 @@ exports[`renders ./components/page-header/demo/content.vue correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
+exports[`renders ./src/page-header/demo/ghost.vue correctly 1`] = `
 <div
   data-v-app=""
 >
   
   <div
     class="demo-page-header"
+    data-v-ddf18d8d=""
     style="background-color: rgb(245, 245, 245); padding: 24px;"
   >
     <div
-      class="ant-page-header"
+      class="xy-page-header css-dev-only-do-not-override-1p3hq3p"
+      data-v-ddf18d8d=""
     >
       <!---->
       <div
-        class="ant-page-header-heading"
+        class="xy-page-header-heading"
       >
         <div
-          class="ant-page-header-heading-left"
+          class="xy-page-header-heading-left"
         >
           <div
-            class="ant-page-header-back"
+            class="xy-page-header-back"
           >
             <div
               aria-label="Back"
-              class="ant-page-header-back-button"
+              class="xy-page-header-back-button"
               role="button"
               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
               tabindex="0"
@@ -1013,7 +1099,6 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class=""
                   data-icon="arrow-left"
                   fill="currentColor"
                   focusable="false"
@@ -1025,19 +1110,20 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
                     d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
                   />
                 </svg>
+                <!---->
               </span>
               
             </div>
           </div>
           <!---->
           <span
-            class="ant-page-header-heading-title"
+            class="xy-page-header-heading-title"
             title="Title"
           >
             Title
           </span>
           <span
-            class="ant-page-header-heading-sub-title"
+            class="xy-page-header-heading-sub-title"
             title="This is a subtitle"
           >
             This is a subtitle
@@ -1045,22 +1131,27 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
           <!---->
         </div>
         <span
-          class="ant-page-header-heading-extra"
+          class="xy-page-header-heading-extra"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center"
           >
             
             
             <div
-              class="ant-space-item"
+              class="xy-space-item"
               style="margin-right: 8px;"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+                data-v-ddf18d8d=""
                 type="button"
               >
-                <!---->
+                <span
+                  style="display: contents;"
+                >
+                  <!---->
+                </span>
                 
                 <span>
                   Operation
@@ -1072,14 +1163,19 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
             
             
             <div
-              class="ant-space-item"
+              class="xy-space-item"
               style="margin-right: 8px;"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+                data-v-ddf18d8d=""
                 type="button"
               >
-                <!---->
+                <span
+                  style="display: contents;"
+                >
+                  <!---->
+                </span>
                 
                 <span>
                   Operation
@@ -1091,13 +1187,18 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
             
             
             <div
-              class="ant-space-item"
+              class="xy-space-item"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary"
+                data-v-ddf18d8d=""
                 type="button"
               >
-                <!---->
+                <span
+                  style="display: contents;"
+                >
+                  <!---->
+                </span>
                 
                 <span>
                   Primary
@@ -1112,37 +1213,38 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-page-header-content"
+        class="xy-page-header-content"
       >
         
         <div
-          class="ant-descriptions ant-descriptions-small"
+          class="xy-descriptions xy-descriptions-small css-dev-only-do-not-override-1p3hq3p"
+          data-v-ddf18d8d=""
         >
           <!---->
           <div
-            class="ant-descriptions-view"
+            class="xy-descriptions-view"
           >
             <table>
               <tbody>
                 
                 <tr
-                  class="ant-descriptions-row"
+                  class="xy-descriptions-row"
                 >
                   
                   <td
-                    class="ant-descriptions-item"
+                    class="xy-descriptions-item"
                     colspan="1"
                   >
                     <div
-                      class="ant-descriptions-item-container"
+                      class="xy-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label"
+                        class="xy-descriptions-item-label"
                       >
                         Created
                       </span>
                       <span
-                        class="ant-descriptions-item-content"
+                        class="xy-descriptions-item-content"
                       >
                         
                         Lili Qu
@@ -1151,22 +1253,24 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-descriptions-item"
+                    class="xy-descriptions-item"
                     colspan="1"
                   >
                     <div
-                      class="ant-descriptions-item-container"
+                      class="xy-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label"
+                        class="xy-descriptions-item-label"
                       >
                         Association
                       </span>
                       <span
-                        class="ant-descriptions-item-content"
+                        class="xy-descriptions-item-content"
                       >
                         
-                        <a>
+                        <a
+                          data-v-ddf18d8d=""
+                        >
                           421421
                         </a>
                         
@@ -1174,19 +1278,19 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-descriptions-item"
+                    class="xy-descriptions-item"
                     colspan="1"
                   >
                     <div
-                      class="ant-descriptions-item-container"
+                      class="xy-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label"
+                        class="xy-descriptions-item-label"
                       >
                         Creation Time
                       </span>
                       <span
-                        class="ant-descriptions-item-content"
+                        class="xy-descriptions-item-content"
                       >
                         
                         2017-01-10
@@ -1197,23 +1301,23 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
                   
                 </tr>
                 <tr
-                  class="ant-descriptions-row"
+                  class="xy-descriptions-row"
                 >
                   
                   <td
-                    class="ant-descriptions-item"
+                    class="xy-descriptions-item"
                     colspan="1"
                   >
                     <div
-                      class="ant-descriptions-item-container"
+                      class="xy-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label"
+                        class="xy-descriptions-item-label"
                       >
                         Effective Time
                       </span>
                       <span
-                        class="ant-descriptions-item-content"
+                        class="xy-descriptions-item-content"
                       >
                         
                         2017-10-10
@@ -1222,19 +1326,19 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
                     </div>
                   </td>
                   <td
-                    class="ant-descriptions-item"
+                    class="xy-descriptions-item"
                     colspan="2"
                   >
                     <div
-                      class="ant-descriptions-item-container"
+                      class="xy-descriptions-item-container"
                     >
                       <span
-                        class="ant-descriptions-item-label"
+                        class="xy-descriptions-item-label"
                       >
                         Remarks
                       </span>
                       <span
-                        class="ant-descriptions-item-content"
+                        class="xy-descriptions-item-content"
                       >
                         
                          Gonghu Road, Xihu District, Hangzhou, Zhejiang, China 
@@ -1255,18 +1359,19 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
     </div>
   </div>
   <label
-    class="ant-checkbox-wrapper"
+    class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"
+    data-v-ddf18d8d=""
     style="margin-top: 0.5rem;"
   >
     <span
-      class="ant-checkbox"
+      class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"
     >
       <input
-        class="ant-checkbox-input"
+        class="xy-checkbox-input"
         type="checkbox"
       />
       <span
-        class="ant-checkbox-inner"
+        class="xy-checkbox-inner"
       />
     </span>
     <span>
@@ -1279,27 +1384,29 @@ exports[`renders ./components/page-header/demo/ghost.vue correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
+exports[`renders ./src/page-header/demo/responsive.vue correctly 1`] = `
 <div
   class="components-page-header-demo-responsive"
+  data-v-b3ade95f=""
   style="border: 1px solid rgb(235, 237, 240);"
 >
   <div
-    class="ant-page-header has-footer ant-page-header-ghost"
+    class="xy-page-header has-footer xy-page-header-ghost css-dev-only-do-not-override-1p3hq3p"
+    data-v-b3ade95f=""
   >
     <!---->
     <div
-      class="ant-page-header-heading"
+      class="xy-page-header-heading"
     >
       <div
-        class="ant-page-header-heading-left"
+        class="xy-page-header-heading-left"
       >
         <div
-          class="ant-page-header-back"
+          class="xy-page-header-back"
         >
           <div
             aria-label="Back"
-            class="ant-page-header-back-button"
+            class="xy-page-header-back-button"
             role="button"
             style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
             tabindex="0"
@@ -1312,7 +1419,6 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class=""
                 data-icon="arrow-left"
                 fill="currentColor"
                 focusable="false"
@@ -1324,19 +1430,20 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                   d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
                 />
               </svg>
+              <!---->
             </span>
             
           </div>
         </div>
         <!---->
         <span
-          class="ant-page-header-heading-title"
+          class="xy-page-header-heading-title"
           title="Title"
         >
           Title
         </span>
         <span
-          class="ant-page-header-heading-sub-title"
+          class="xy-page-header-heading-sub-title"
           title="This is a subtitle"
         >
           This is a subtitle
@@ -1344,22 +1451,27 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
         <!---->
       </div>
       <span
-        class="ant-page-header-heading-extra"
+        class="xy-page-header-heading-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center"
         >
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-b3ade95f=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -1371,14 +1483,19 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
             style="margin-right: 8px;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default"
+              data-v-b3ade95f=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Operation
@@ -1390,13 +1507,18 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
           
           
           <div
-            class="ant-space-item"
+            class="xy-space-item"
           >
             <button
-              class="ant-btn ant-btn-primary"
+              class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary"
+              data-v-b3ade95f=""
               type="button"
             >
-              <!---->
+              <span
+                style="display: contents;"
+              >
+                <!---->
+              </span>
               
               <span>
                 Primary
@@ -1411,43 +1533,46 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-page-header-content"
+      class="xy-page-header-content"
     >
       
       <div
         class="content"
+        data-v-b3ade95f=""
       >
         <div
           class="main"
+          data-v-b3ade95f=""
         >
           <div
-            class="ant-descriptions ant-descriptions-small"
+            class="xy-descriptions xy-descriptions-small css-dev-only-do-not-override-1p3hq3p"
+            data-v-b3ade95f=""
           >
             <!---->
             <div
-              class="ant-descriptions-view"
+              class="xy-descriptions-view"
             >
               <table>
                 <tbody>
                   
                   <tr
-                    class="ant-descriptions-row"
+                    class="xy-descriptions-row"
                   >
                     
                     <td
-                      class="ant-descriptions-item"
+                      class="xy-descriptions-item"
                       colspan="1"
                     >
                       <div
-                        class="ant-descriptions-item-container"
+                        class="xy-descriptions-item-container"
                       >
                         <span
-                          class="ant-descriptions-item-label"
+                          class="xy-descriptions-item-label"
                         >
                           Created
                         </span>
                         <span
-                          class="ant-descriptions-item-content"
+                          class="xy-descriptions-item-content"
                         >
                           
                           Lili Qu
@@ -1456,22 +1581,24 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-descriptions-item"
+                      class="xy-descriptions-item"
                       colspan="1"
                     >
                       <div
-                        class="ant-descriptions-item-container"
+                        class="xy-descriptions-item-container"
                       >
                         <span
-                          class="ant-descriptions-item-label"
+                          class="xy-descriptions-item-label"
                         >
                           Association
                         </span>
                         <span
-                          class="ant-descriptions-item-content"
+                          class="xy-descriptions-item-content"
                         >
                           
-                          <a>
+                          <a
+                            data-v-b3ade95f=""
+                          >
                             421421
                           </a>
                           
@@ -1481,23 +1608,23 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                     
                   </tr>
                   <tr
-                    class="ant-descriptions-row"
+                    class="xy-descriptions-row"
                   >
                     
                     <td
-                      class="ant-descriptions-item"
+                      class="xy-descriptions-item"
                       colspan="1"
                     >
                       <div
-                        class="ant-descriptions-item-container"
+                        class="xy-descriptions-item-container"
                       >
                         <span
-                          class="ant-descriptions-item-label"
+                          class="xy-descriptions-item-label"
                         >
                           Creation Time
                         </span>
                         <span
-                          class="ant-descriptions-item-content"
+                          class="xy-descriptions-item-content"
                         >
                           
                           2017-01-10
@@ -1506,19 +1633,19 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-descriptions-item"
+                      class="xy-descriptions-item"
                       colspan="1"
                     >
                       <div
-                        class="ant-descriptions-item-container"
+                        class="xy-descriptions-item-container"
                       >
                         <span
-                          class="ant-descriptions-item-label"
+                          class="xy-descriptions-item-label"
                         >
                           Effective Time
                         </span>
                         <span
-                          class="ant-descriptions-item-content"
+                          class="xy-descriptions-item-content"
                         >
                           
                           2017-10-10
@@ -1529,23 +1656,23 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                     
                   </tr>
                   <tr
-                    class="ant-descriptions-row"
+                    class="xy-descriptions-row"
                   >
                     
                     <td
-                      class="ant-descriptions-item"
+                      class="xy-descriptions-item"
                       colspan="2"
                     >
                       <div
-                        class="ant-descriptions-item-container"
+                        class="xy-descriptions-item-container"
                       >
                         <span
-                          class="ant-descriptions-item-label"
+                          class="xy-descriptions-item-label"
                         >
                           Remarks
                         </span>
                         <span
-                          class="ant-descriptions-item-content"
+                          class="xy-descriptions-item-content"
                         >
                           
                            Gonghu Road, Xihu District, Hangzhou, Zhejiang, China 
@@ -1563,26 +1690,29 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
         </div>
         <div
           class="extra"
+          data-v-b3ade95f=""
         >
           <div
+            data-v-b3ade95f=""
             style="display: flex; justify-content: flex-end;"
           >
             <div
-              class="ant-statistic"
+              class="xy-statistic css-dev-only-do-not-override-1p3hq3p"
+              data-v-b3ade95f=""
               style="margin-right: 32px;"
             >
               <div
-                class="ant-statistic-title"
+                class="xy-statistic-title"
               >
                 Status
               </div>
               
               <div
-                class="ant-statistic-content"
+                class="xy-statistic-content"
               >
                 <!---->
                 <span
-                  class="ant-statistic-content-value"
+                  class="xy-statistic-content-value"
                 >
                   Pending
                 </span>
@@ -1591,34 +1721,35 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
               
             </div>
             <div
-              class="ant-statistic"
+              class="xy-statistic css-dev-only-do-not-override-1p3hq3p"
+              data-v-b3ade95f=""
             >
               <div
-                class="ant-statistic-title"
+                class="xy-statistic-title"
               >
                 Price
               </div>
               
               <div
-                class="ant-statistic-content"
+                class="xy-statistic-content"
               >
                 <span
-                  class="ant-statistic-content-prefix"
+                  class="xy-statistic-content-prefix"
                 >
                   $
                 </span>
                 <span
-                  class="ant-statistic-content-value"
+                  class="xy-statistic-content-value"
                 >
                   
                   <span
-                    class="ant-statistic-content-value-int"
+                    class="xy-statistic-content-value-int"
                   >
                     
                     568
                   </span>
                   <span
-                    class="ant-statistic-content-value-decimal"
+                    class="xy-statistic-content-value-decimal"
                   >
                     .08
                   </span>
@@ -1634,31 +1765,32 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
       
     </div>
     <div
-      class="ant-page-header-footer"
+      class="xy-page-header-footer"
     >
       
       <div
-        class="ant-tabs ant-tabs-top "
+        class="xy-tabs xy-tabs-top css-dev-only-do-not-override-1p3hq3p"
+        data-v-b3ade95f=""
       >
         <div
-          class="ant-tabs-nav"
+          class="xy-tabs-nav"
           role="tablist"
         >
           <!---->
           <div
-            class="ant-tabs-nav-wrap"
+            class="xy-tabs-nav-wrap"
           >
             <div
-              class="ant-tabs-nav-list"
+              class="xy-tabs-nav-list"
               style="transform: translate(0px, 0px);"
             >
               
               <div
-                class="ant-tabs-tab ant-tabs-tab-active"
+                class="xy-tabs-tab xy-tabs-tab-active"
               >
                 <div
                   aria-selected="true"
-                  class="ant-tabs-tab-btn"
+                  class="xy-tabs-tab-btn"
                   role="tab"
                   tabindex="0"
                 >
@@ -1667,11 +1799,11 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
                 <!---->
               </div>
               <div
-                class="ant-tabs-tab"
+                class="xy-tabs-tab"
               >
                 <div
                   aria-selected="false"
-                  class="ant-tabs-tab-btn"
+                  class="xy-tabs-tab-btn"
                   role="tab"
                   tabindex="0"
                 >
@@ -1682,63 +1814,25 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
               
               <!---->
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="xy-tabs-ink-bar xy-tabs-ink-bar-animated"
               />
             </div>
           </div>
-          <div
-            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-          >
-            
-            <button
-              aria-controls="null-more-popup"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-hidden="true"
-              class="ant-tabs-nav-more"
-              id="null-more"
-              style="visibility: hidden; order: 1;"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <!---->
-            
-            <!---->
-          </div>
+          <!---->
           <!---->
           <!---->
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="xy-tabs-content-holder"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="xy-tabs-content xy-tabs-content-top"
           >
             
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="xy-tabs-tabpane xy-tabs-tabpane-active"
+              data-v-b3ade95f=""
               role="tabpanel"
               tabindex="0"
             >
@@ -1746,7 +1840,8 @@ exports[`renders ./components/page-header/demo/responsive.vue correctly 1`] = `
             </div>
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane"
+              class="xy-tabs-tabpane"
+              data-v-b3ade95f=""
               role="tabpanel"
               style="display: none;"
               tabindex="-1"

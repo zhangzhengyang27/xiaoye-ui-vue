@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import * as Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../../tests/utils';
@@ -44,15 +45,13 @@ describe('Table.sorter', () => {
     });
   }
 
-  it('renders sorter icon correctly', done => {
+  it('renders sorter icon correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
-    Vue.nextTick(() => {
-      expect(wrapper.find('thead').html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.find('thead').html()).toMatchSnapshot();
   });
 
-  it('default sort order ascend', done => {
+  it('default sort order ascend', async () => {
     const wrapper = mount(
       Table,
       getTableOptions(
@@ -62,13 +61,11 @@ describe('Table.sorter', () => {
         },
       ),
     );
-    Vue.nextTick(() => {
-      expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-      done();
-    });
+    await Vue.nextTick();
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
-  it('default sort order descend', done => {
+  it('default sort order descend', async () => {
     const wrapper = mount(
       Table,
       getTableOptions(
@@ -78,51 +75,47 @@ describe('Table.sorter', () => {
         },
       ),
     );
-    Vue.nextTick(() => {
-      expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-      done();
-    });
+    await Vue.nextTick();
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
   it('sort records', async () => {
     const wrapper = mount(Table, getTableOptions());
     await asyncExpect(() => {
       // descent
-      wrapper.find('.ant-table-column-sorters').trigger('click');
+      wrapper.find('.xy-table-column-sorters').trigger('click');
     });
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-table-tbody').text()).toEqual(
+      expect(wrapper.find('.xy-table-tbody').text()).toEqual(
         ['Jack', 'Jerry', 'Lucy', 'Tom'].join(''),
       );
 
       // ascent
-      wrapper.find('.ant-table-column-sorters').trigger('click');
+      wrapper.find('.xy-table-column-sorters').trigger('click');
     });
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-table-tbody').text()).toEqual(
+      expect(wrapper.find('.xy-table-tbody').text()).toEqual(
         ['Tom', 'Lucy', 'Jack', 'Jerry'].join(''),
       );
     });
   });
 
-  it('can be controlled by sortOrder', done => {
+  it('can be controlled by sortOrder', async () => {
     const wrapper = mount(
       Table,
       getTableOptions({
         columns: [{ ...column, sortOrder: 'ascend' }],
       }),
     );
-    Vue.nextTick(() => {
-      expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-      done();
-    });
+    await Vue.nextTick();
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });
 
   it('fires change event', async () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const wrapper = mount(Table, getTableOptions({ onChange: handleChange }, {}));
 
-    wrapper.find('.ant-table-column-sorters').trigger('click');
+    wrapper.find('.xy-table-column-sorters').trigger('click');
     await asyncExpect(() => {
       const sorter1 = handleChange.mock.calls[0][2];
       expect(sorter1.column.dataIndex).toBe('name');
@@ -130,7 +123,7 @@ describe('Table.sorter', () => {
       expect(sorter1.field).toBe('name');
       expect(sorter1.columnKey).toBe('name');
     });
-    wrapper.find('.ant-table-column-sorters').trigger('click');
+    wrapper.find('.xy-table-column-sorters').trigger('click');
     await asyncExpect(() => {
       const sorter2 = handleChange.mock.calls[1][2];
       expect(sorter2.column.dataIndex).toBe('name');
@@ -139,7 +132,7 @@ describe('Table.sorter', () => {
       expect(sorter2.columnKey).toBe('name');
     });
 
-    wrapper.find('.ant-table-column-sorters').trigger('click');
+    wrapper.find('.xy-table-column-sorters').trigger('click');
     await asyncExpect(() => {
       const sorter3 = handleChange.mock.calls[2][2];
       expect(sorter3.column).toBe(undefined);
@@ -149,7 +142,7 @@ describe('Table.sorter', () => {
     });
   });
 
-  it('works with grouping columns in controlled mode', done => {
+  it('works with grouping columns in controlled mode', async () => {
     const columns = [
       {
         title: 'group',
@@ -183,9 +176,7 @@ describe('Table.sorter', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-      done();
-    });
+    await Vue.nextTick();
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 });

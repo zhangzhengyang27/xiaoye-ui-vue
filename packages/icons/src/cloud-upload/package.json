@@ -1,0 +1,11 @@
+{
+    "main": "./CloudUploadIcon.vue",
+    "module": "./CloudUploadIcon.vue",
+    "types": "./CloudUploadIcon.d.ts",
+    "browser": {
+        "./sfc": "./CloudUploadIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

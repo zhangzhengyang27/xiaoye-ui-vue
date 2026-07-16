@@ -26,20 +26,20 @@ describe('Result', () => {
 
   it('🙂  different status, different class', async () => {
     const wrapper = mount(Result, { props: { status: 'warning' }, sync: false });
-    expect(wrapper.findAll('.ant-result-warning')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result-warning')).toHaveLength(1);
 
     wrapper.setProps({
       status: 'error',
     });
 
     await sleep();
-    expect(wrapper.findAll('.ant-result-error')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result-error')).toHaveLength(1);
 
     wrapper.setProps({
       status: '500',
     });
     await sleep();
-    expect(wrapper.findAll('.ant-result-500')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result-500')).toHaveLength(1);
   });
 
   it('🙂  When status = 404, the icon is an image', () => {
@@ -48,7 +48,7 @@ describe('Result', () => {
         return <Result status="404" />;
       },
     });
-    expect(wrapper.findAll('.ant-result-404 .ant-result-image')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result-404 .xy-result-image')).toHaveLength(1);
   });
 
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
@@ -57,7 +57,7 @@ describe('Result', () => {
         return <Result status="404" />;
       },
     });
-    expect(wrapper.findAll('.ant-result-extra')).toHaveLength(0);
+    expect(wrapper.findAll('.xy-result-extra')).toHaveLength(0);
   });
 
   it('🙂  result should support className', () => {
@@ -66,6 +66,6 @@ describe('Result', () => {
         return <Result status="404" title="404" class="my-result" />;
       },
     });
-    expect(wrapper.findAll('.ant-result.my-result')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result.my-result')).toHaveLength(1);
   });
 });

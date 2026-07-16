@@ -1,0 +1,11 @@
+{
+    "main": "./IdCardIcon.vue",
+    "module": "./IdCardIcon.vue",
+    "types": "./IdCardIcon.d.ts",
+    "browser": {
+        "./sfc": "./IdCardIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

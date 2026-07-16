@@ -1,0 +1,11 @@
+{
+    "main": "./CircleXIcon.vue",
+    "module": "./CircleXIcon.vue",
+    "types": "./CircleXIcon.d.ts",
+    "browser": {
+        "./sfc": "./CircleXIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

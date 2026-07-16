@@ -1,0 +1,11 @@
+{
+    "main": "./CloudDownloadIcon.vue",
+    "module": "./CloudDownloadIcon.vue",
+    "types": "./CloudDownloadIcon.d.ts",
+    "browser": {
+        "./sfc": "./CloudDownloadIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,41 +1,29 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/app/demo/basic.vue correctly 1`] = `
-<div class="ant-app">
+exports[`renders ./src/app/demo/basic.vue correctly 1`] = `
+"<div class="css-dev-only-do-not-override-1p3hq3p xy-app">
   <!--teleport start-->
   <!--teleport end-->
   <!--teleport start-->
   <!--teleport end-->
-  <div class="ant-space ant-space-horizontal ant-space-align-center">
-    <div class="ant-space-item" style="margin-right: 8px;"><button class="ant-btn ant-btn-primary" type="button">
-        <!----><span>Open message</span>
-      </button></div>
+  <div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center">
+    <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open message</span></button></div>
     <!---->
-    <div class="ant-space-item" style="margin-right: 8px;"><button class="ant-btn ant-btn-primary" type="button">
-        <!----><span>Open modal</span>
-      </button></div>
+    <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open modal</span></button></div>
     <!---->
-    <div class="ant-space-item"><button class="ant-btn ant-btn-primary" type="button">
-        <!----><span>Open notification</span>
-      </button></div>
+    <div class="xy-space-item"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open notification</span></button></div>
     <!---->
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/app/demo/myPage.vue correctly 1`] = `
-<div class="ant-space ant-space-horizontal ant-space-align-center">
-  <div class="ant-space-item" style="margin-right: 8px;"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Open message</span>
-    </button></div>
+exports[`renders ./src/app/demo/myPage.vue correctly 1`] = `
+"<div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center">
+  <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open message</span></button></div>
   <!---->
-  <div class="ant-space-item" style="margin-right: 8px;"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Open modal</span>
-    </button></div>
+  <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open modal</span></button></div>
   <!---->
-  <div class="ant-space-item"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Open notification</span>
-    </button></div>
+  <div class="xy-space-item"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Open notification</span></button></div>
   <!---->
-</div>
+</div>"
 `;

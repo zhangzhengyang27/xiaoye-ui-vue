@@ -5,7 +5,7 @@ import { resetComponent } from '../../style';
 const genFilterStyle: GenerateStyle<TableToken> = token => {
   const {
     componentCls,
-    antCls,
+    rootCls,
     iconCls,
     tableFilterDropdownWidth,
     tableFilterDropdownSearchWidth,
@@ -30,9 +30,9 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
     controlItemBgActive,
     boxShadowSecondary,
   } = token;
-  const dropdownPrefixCls = `${antCls}-dropdown`;
+  const dropdownPrefixCls = `${rootCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
-  const treePrefixCls = `${antCls}-tree`;
+  const treePrefixCls = `${rootCls}-tree`;
   const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
 
   return [
@@ -69,7 +69,7 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
     },
     {
       // Dropdown
-      [`${antCls}-dropdown`]: {
+      [`${rootCls}-dropdown`]: {
         [tableFilterDropdownPrefixCls]: {
           ...resetComponent(token),
 
@@ -149,10 +149,10 @@ const genFilterStyle: GenerateStyle<TableToken> = token => {
     // Dropdown Menu & SubMenu
     {
       // submenu of table filter dropdown
-      [`${antCls}-dropdown ${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]:
+      [`${rootCls}-dropdown ${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]:
         {
           // Checkbox
-          [`${antCls}-checkbox-wrapper + span`]: {
+          [`${rootCls}-checkbox-wrapper + span`]: {
             paddingInlineStart: paddingXS,
             color: colorText,
           },

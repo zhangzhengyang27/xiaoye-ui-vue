@@ -15,7 +15,7 @@ interface CarouselToken extends FullToken<'Carousel'> {
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
-  const { componentCls, antCls, carouselArrowSize, carouselDotOffset, marginXXS } = token;
+  const { componentCls, rootCls, carouselArrowSize, carouselDotOffset, marginXXS } = token;
   const arrowOffset = -carouselArrowSize * 1.25;
 
   const carouselDotMargin = marginXXS;
@@ -56,14 +56,14 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
         '.slick-slide': {
           pointerEvents: 'none',
 
-          [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
+          [`input${rootCls}-radio-input, input${rootCls}-checkbox-input`]: {
             visibility: 'hidden',
           },
 
           '&.slick-active': {
             pointerEvents: 'auto',
 
-            [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
+            [`input${rootCls}-radio-input, input${rootCls}-checkbox-input`]: {
               visibility: 'visible',
             },
           },

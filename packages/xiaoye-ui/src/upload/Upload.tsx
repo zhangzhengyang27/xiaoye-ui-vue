@@ -36,7 +36,15 @@ export default defineComponent({
     listType: 'text', // or picture
     supportServerRender: true,
   }),
-  setup(props, { slots, attrs, expose }) {
+  emits: ['update:fileList', 'change', 'drop', 'preview', 'download', 'remove'],
+  setup(props, { slots, attrs, expose, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const formItemContext = useInjectFormItemContext();
     const { prefixCls, direction, disabled } = useConfigInject('upload', props);
 
@@ -103,8 +111,8 @@ export default defineComponent({
       if (event) {
         changeInfo.event = event;
       }
-      props['onUpdate:fileList']?.(changeInfo.fileList);
-      props.onChange?.(changeInfo);
+      emit('update:fileList', changeInfo.fileList);
+      emit('change', changeInfo);
       formItemContext.onFieldChange();
     };
 
@@ -254,6 +262,7 @@ export default defineComponent({
     const handleRemove = (file: UploadFile) => {
       let currentFile: UploadFile;
       const mergedRemove = props.onRemove || props.remove;
+      emit('remove', file);
       Promise.resolve(typeof mergedRemove === 'function' ? mergedRemove(file) : mergedRemove).then(
         ret => {
           // Prevent removing file
@@ -282,7 +291,8 @@ export default defineComponent({
     const onFileDrop = (e: DragEvent) => {
       dragState.value = e.type;
       if (e.type === 'drop') {
-        props.onDrop?.(e);
+        emit('drop', e);
+        callEvent(props.onDrop, e);
       }
     };
     expose({

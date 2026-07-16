@@ -126,6 +126,16 @@ const Selector = defineComponent<SelectorProps>({
     const inputRef = createRef();
     const compositionStatus = ref(false);
 
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+        return fn[0]?.(...args);
+      } else if (fn) {
+        return fn(...args);
+      }
+      return undefined;
+    };
+
     // ====================== Input ======================
     const [getInputMouseDown, setInputMouseDown] = useLock(0);
 
@@ -137,7 +147,7 @@ const Selector = defineComponent<SelectorProps>({
       }
 
       if (props.onInputKeyDown) {
-        props.onInputKeyDown(event);
+        callEvent(props.onInputKeyDown, event);
       }
 
       if (
@@ -148,11 +158,11 @@ const Selector = defineComponent<SelectorProps>({
       ) {
         // When menu isn't open, OptionList won't trigger a value change
         // So when enter is pressed, the tag's input value should be emitted here to let selector know
-        props.onSearchSubmit((event.target as HTMLInputElement).value);
+        callEvent(props.onSearchSubmit, (event.target as HTMLInputElement).value);
       }
 
       if (isValidateOpenKey(which)) {
-        props.onToggleOpen(true);
+        callEvent(props.onToggleOpen, true);
       }
     };
 
@@ -168,8 +178,8 @@ const Selector = defineComponent<SelectorProps>({
     let pastedText = null;
 
     const triggerOnSearch = (value: string) => {
-      if (props.onSearch(value, true, compositionStatus.value) !== false) {
-        props.onToggleOpen(true);
+      if (callEvent(props.onSearch, value, true, compositionStatus.value) !== false) {
+        callEvent(props.onToggleOpen, true);
       }
     };
 
@@ -234,9 +244,9 @@ const Selector = defineComponent<SelectorProps>({
 
       if ((props.mode !== 'combobox' && (!props.showSearch || !inputMouseDown)) || !props.open) {
         if (props.open) {
-          props.onSearch('', true, false);
+          callEvent(props.onSearch, '', true, false);
         }
-        props.onToggleOpen();
+        callEvent(props.onToggleOpen);
       }
     };
     expose({

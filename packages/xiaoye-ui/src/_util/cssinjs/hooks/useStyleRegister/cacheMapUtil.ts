@@ -1,7 +1,7 @@
 import canUseDom from '../../../../_util/canUseDom';
 import { ATTR_MARK } from '../../StyleContext';
 
-export const ATTR_CACHE_MAP = 'data-ant-cssinjs-cache-path';
+export const ATTR_CACHE_MAP = 'data-xy-cssinjs-cache-path';
 
 /**
  * This marks style from the css file.

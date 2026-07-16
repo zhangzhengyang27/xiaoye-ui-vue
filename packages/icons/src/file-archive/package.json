@@ -1,0 +1,11 @@
+{
+    "main": "./FileArchiveIcon.vue",
+    "module": "./FileArchiveIcon.vue",
+    "types": "./FileArchiveIcon.d.ts",
+    "browser": {
+        "./sfc": "./FileArchiveIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

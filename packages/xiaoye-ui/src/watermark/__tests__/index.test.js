@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 
 describe('Watermark', () => {
   mountTest(Watermark);
-  const mockSrcSet = jest.spyOn(Image.prototype, 'src', 'set');
+  const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set');
   beforeAll(() => {
     mockSrcSet.mockImplementation(function fn() {
       this.onload?.();

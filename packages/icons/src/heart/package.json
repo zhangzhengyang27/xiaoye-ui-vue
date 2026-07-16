@@ -1,0 +1,11 @@
+{
+    "main": "./HeartIcon.vue",
+    "module": "./HeartIcon.vue",
+    "types": "./HeartIcon.d.ts",
+    "browser": {
+        "./sfc": "./HeartIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

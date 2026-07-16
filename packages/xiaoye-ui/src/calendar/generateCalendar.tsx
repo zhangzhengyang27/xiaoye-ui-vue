@@ -75,7 +75,7 @@ export interface CalendarProps<DateType> {
 function generateCalendar<
   DateType,
   Props extends CalendarProps<DateType> = CalendarProps<DateType>,
->(generateConfig: GenerateConfig<DateType>) {
+>(generateConfig: GenerateConfig<DateType>): any {
   function isSameYear(date1: DateType, date2: DateType) {
     return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
   }
@@ -95,6 +95,7 @@ function generateCalendar<
   const Calendar = defineComponent<Props>({
     name: 'ACalendar',
     inheritAttrs: false,
+    emits: ['change', 'update:value', 'panelChange', 'select'],
     props: {
       prefixCls: String,
       locale: { type: Object as PropType<Props['locale']>, default: undefined as Props['locale'] },
@@ -221,9 +222,9 @@ function generateCalendar<
         triggerPanelChange(mergedValue.value, newMode);
       };
 
-      const onInternalSelect = (date: DateType, source: SelectInfo['source']) => {
+      const onInternalSelect = (date: DateType, _source: SelectInfo['source']) => {
         triggerChange(date);
-        emit('select', maybeToString(date), { source });
+        emit('select', maybeToString(date));
       };
       // ====================== Locale ======================
       const defaultLocale = computed(() => {

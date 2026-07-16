@@ -203,7 +203,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genInputGroupStyle = (token: InputToken): CSSObject => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
 
   return {
     position: 'relative',
@@ -268,11 +268,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         lineHeight: 1,
 
         // Reset Select's style in addon
-        [`${antCls}-select`]: {
+        [`${rootCls}-select`]: {
           margin: `-${token.inputPaddingVertical + 1}px -${token.inputPaddingHorizontal}px`,
 
-          [`&${antCls}-select-single:not(${antCls}-select-customize-input)`]: {
-            [`${antCls}-select-selector`]: {
+          [`&${rootCls}-select-single:not(${rootCls}-select-customize-input)`]: {
+            [`${rootCls}-select-selector`]: {
               backgroundColor: 'inherit',
               border: `${token.lineWidth}px ${token.lineType} transparent`,
               boxShadow: 'none',
@@ -280,16 +280,16 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
           },
 
           '&-open, &-focused': {
-            [`${antCls}-select-selector`]: {
+            [`${rootCls}-select-selector`]: {
               color: token.colorPrimary,
             },
           },
         },
 
-        [`${antCls}-cascader-picker`]: {
+        [`${rootCls}-cascader-picker`]: {
           margin: `-9px -${token.inputPaddingHorizontal}px`,
           backgroundColor: 'transparent',
-          [`${antCls}-cascader-input`]: {
+          [`${rootCls}-cascader-input`]: {
             textAlign: 'start',
             border: 0,
             boxShadow: 'none',
@@ -333,7 +333,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndEndRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${rootCls}-select ${rootCls}-select-selector`]: {
         borderStartEndRadius: 0,
         borderEndEndRadius: 0,
       },
@@ -356,7 +356,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       borderEndStartRadius: 0,
 
       // Reset Select's style in addon
-      [`${antCls}-select ${antCls}-select-selector`]: {
+      [`${rootCls}-select ${rootCls}-select-selector`]: {
         borderStartStartRadius: 0,
         borderEndStartRadius: 0,
       },
@@ -407,7 +407,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         display: 'inline-flex',
       },
 
-      [`& > ${antCls}-picker-range`]: {
+      [`& > ${rootCls}-picker-range`]: {
         display: 'inline-flex',
       },
 
@@ -422,9 +422,9 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-      [`& > ${antCls}-select > ${antCls}-select-selector,
-      & > ${antCls}-select-auto-complete ${componentCls},
-      & > ${antCls}-cascader-picker ${componentCls},
+      [`& > ${rootCls}-select > ${rootCls}-select-selector,
+      & > ${rootCls}-select-auto-complete ${componentCls},
+      & > ${rootCls}-cascader-picker ${componentCls},
       & > ${componentCls}-group-wrapper ${componentCls}`]: {
         borderInlineEndWidth: token.lineWidth,
         borderRadius: 0,
@@ -438,33 +438,33 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         },
       },
 
-      [`& > ${antCls}-select-focused`]: {
+      [`& > ${rootCls}-select-focused`]: {
         zIndex: 1,
       },
 
       // update z-index for arrow icon
-      [`& > ${antCls}-select > ${antCls}-select-arrow`]: {
+      [`& > ${rootCls}-select > ${rootCls}-select-arrow`]: {
         zIndex: 1,
       },
 
       [`& > *:first-child,
-      & > ${antCls}-select:first-child > ${antCls}-select-selector,
-      & > ${antCls}-select-auto-complete:first-child ${componentCls},
-      & > ${antCls}-cascader-picker:first-child ${componentCls}`]: {
+      & > ${rootCls}-select:first-child > ${rootCls}-select-selector,
+      & > ${rootCls}-select-auto-complete:first-child ${componentCls},
+      & > ${rootCls}-cascader-picker:first-child ${componentCls}`]: {
         borderStartStartRadius: token.borderRadius,
         borderEndStartRadius: token.borderRadius,
       },
 
       [`& > *:last-child,
-      & > ${antCls}-select:last-child > ${antCls}-select-selector,
-      & > ${antCls}-cascader-picker:last-child ${componentCls},
-      & > ${antCls}-cascader-picker-focused:last-child ${componentCls}`]: {
+      & > ${rootCls}-select:last-child > ${rootCls}-select-selector,
+      & > ${rootCls}-cascader-picker:last-child ${componentCls},
+      & > ${rootCls}-cascader-picker-focused:last-child ${componentCls}`]: {
         borderInlineEndWidth: token.lineWidth,
         borderStartEndRadius: token.borderRadius,
         borderEndEndRadius: token.borderRadius,
       },
 
-      [`& > ${antCls}-select-auto-complete ${componentCls}`]: {
+      [`& > ${rootCls}-select-auto-complete ${componentCls}`]: {
         verticalAlign: 'top',
       },
 
@@ -491,40 +491,40 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
     },
 
-    [`&&-sm ${antCls}-btn`]: {
+    [`&&-sm ${rootCls}-btn`]: {
       fontSize: token.fontSizeSM,
       height: token.controlHeightSM,
       lineHeight: 'normal',
     },
 
-    [`&&-lg ${antCls}-btn`]: {
+    [`&&-lg ${rootCls}-btn`]: {
       fontSize: token.fontSizeLG,
       height: token.controlHeightLG,
       lineHeight: 'normal',
     },
 
-    [`&&-lg ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&&-lg ${rootCls}-select-single ${rootCls}-select-selector`]: {
       height: `${token.controlHeightLG}px`,
 
-      [`${antCls}-select-selection-item, ${antCls}-select-selection-placeholder`]: {
+      [`${rootCls}-select-selection-item, ${rootCls}-select-selection-placeholder`]: {
         // -2 is for the border size & override default
         lineHeight: `${token.controlHeightLG - 2}px`,
       },
 
-      [`${antCls}-select-selection-search-input`]: {
+      [`${rootCls}-select-selection-search-input`]: {
         height: `${token.controlHeightLG}px`,
       },
     },
 
-    [`&&-sm ${antCls}-select-single ${antCls}-select-selector`]: {
+    [`&&-sm ${rootCls}-select-single ${rootCls}-select-selector`]: {
       height: `${token.controlHeightSM}px`,
 
-      [`${antCls}-select-selection-item, ${antCls}-select-selection-placeholder`]: {
+      [`${rootCls}-select-selection-item, ${rootCls}-select-selection-placeholder`]: {
         // -2 is for the border size & override default
         lineHeight: `${token.controlHeightSM - 2}px`,
       },
 
-      [`${antCls}-select-selection-search-input`]: {
+      [`${rootCls}-select-selection-search-input`]: {
         height: `${token.controlHeightSM}px`,
       },
     },
@@ -757,7 +757,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
   const searchPrefixCls = `${componentCls}-search`;
   return {
     [searchPrefixCls]: {
@@ -765,7 +765,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&:hover, &:focus': {
           borderColor: token.colorPrimaryHover,
 
-          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
+          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${rootCls}-btn-primary)`]: {
             borderInlineStartColor: token.colorPrimaryHover,
           },
         },
@@ -796,7 +796,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderEndStartRadius: 0,
           },
 
-          [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
+          [`${searchPrefixCls}-button:not(${rootCls}-btn-primary)`]: {
             color: token.colorTextDescription,
 
             '&:hover': {
@@ -807,7 +807,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
               color: token.colorPrimaryActive,
             },
 
-            [`&${antCls}-btn-loading::before`]: {
+            [`&${rootCls}-btn-loading::before`]: {
               insetInlineStart: 0,
               insetInlineEnd: 0,
               insetBlockStart: 0,

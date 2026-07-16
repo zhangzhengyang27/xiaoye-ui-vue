@@ -53,7 +53,7 @@ const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 </script>
 
 <style scoped>
-:deep(#components-a-tooltip-demo-color) .ant-btn {
+:deep(#components-a-tooltip-demo-color) .xy-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }

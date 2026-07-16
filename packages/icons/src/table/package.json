@@ -1,0 +1,11 @@
+{
+    "main": "./TableIcon.vue",
+    "module": "./TableIcon.vue",
+    "types": "./TableIcon.d.ts",
+    "browser": {
+        "./sfc": "./TableIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

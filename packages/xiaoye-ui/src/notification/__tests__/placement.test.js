@@ -2,7 +2,16 @@ import { asyncExpect } from '../../../tests/utils';
 import notification from '..';
 
 describe('Notification.placement', () => {
-  afterEach(() => notification.destroy());
+  beforeEach(() => {
+    vi.useFakeTimers();
+    document.body.outerHTML = '';
+  });
+
+  afterEach(() => {
+    notification.destroy();
+    vi.runAllTimers();
+    vi.useRealTimers();
+  });
 
   function $$(className) {
     return document.body.querySelectorAll(className);
@@ -41,7 +50,7 @@ describe('Notification.placement', () => {
         placement: 'topLeft',
       });
       await asyncExpect(() => {
-        style = getStyle($$('.ant-notification-topLeft')[0]);
+        style = getStyle($$('.xy-notification-topLeft')[0]);
         expect(style.top).toBe(defaultTop);
         expect(style.left).toBe('0px');
         expect(style.bottom).toBe('');
@@ -50,14 +59,14 @@ describe('Notification.placement', () => {
         placement: 'topLeft',
       });
       await asyncExpect(() => {
-        expect($$('.ant-notification-topLeft').length).toBe(1);
+        expect($$('.xy-notification-topLeft').length).toBe(1);
       });
       // topRight
       open({
         placement: 'topRight',
       });
       await asyncExpect(() => {
-        style = getStyle($$('.ant-notification-topRight')[0]);
+        style = getStyle($$('.xy-notification-topRight')[0]);
         expect(style.top).toBe(defaultTop);
         expect(style.right).toBe('0px');
         expect(style.bottom).toBe('');
@@ -66,7 +75,7 @@ describe('Notification.placement', () => {
         placement: 'topRight',
       });
       await asyncExpect(() => {
-        expect($$('.ant-notification-topRight').length).toBe(1);
+        expect($$('.xy-notification-topRight').length).toBe(1);
       });
       // bottomRight
       open({
@@ -74,7 +83,7 @@ describe('Notification.placement', () => {
         bottom: '100px',
       });
       await asyncExpect(() => {
-        style = getStyle($$('.ant-notification-bottomRight')[0]);
+        style = getStyle($$('.xy-notification-bottomRight')[0]);
         expect(style.top).toBe('');
         expect(style.right).toBe('0px');
         expect(style.bottom).toBe('100px');
@@ -83,14 +92,14 @@ describe('Notification.placement', () => {
         placement: 'bottomRight',
       });
       await asyncExpect(() => {
-        expect($$('.ant-notification-bottomRight').length).toBe(1);
+        expect($$('.xy-notification-bottomRight').length).toBe(1);
       });
       // bottomLeft
       open({
         placement: 'bottomLeft',
       });
       await asyncExpect(() => {
-        style = getStyle($$('.ant-notification-bottomLeft')[0]);
+        style = getStyle($$('.xy-notification-bottomLeft')[0]);
         expect(style.top).toBe('');
         expect(style.left).toBe('0px');
         expect(style.bottom).toBe(defaultBottom);
@@ -99,7 +108,7 @@ describe('Notification.placement', () => {
         placement: 'bottomLeft',
       });
       await asyncExpect(() => {
-        expect($$('.ant-notification-bottomLeft').length).toBe(1);
+        expect($$('.xy-notification-bottomLeft').length).toBe(1);
       });
       await asyncExpect(() => {});
       await asyncExpect(() => {});
@@ -114,7 +123,7 @@ describe('Notification.placement', () => {
         top: '50px',
         bottom: '50px',
       });
-      style = getStyle($$('.ant-notification-topLeft')[0]);
+      style = getStyle($$('.xy-notification-topLeft')[0]);
       expect(style.top).toBe('50px');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe('');
@@ -125,7 +134,7 @@ describe('Notification.placement', () => {
         top: '100px',
         bottom: '50px',
       });
-      style = getStyle($$('.ant-notification-topRight')[0]);
+      style = getStyle($$('.xy-notification-topRight')[0]);
       expect(style.top).toBe('100px');
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('');
@@ -136,7 +145,7 @@ describe('Notification.placement', () => {
         top: '50px',
         bottom: '100px',
       });
-      style = getStyle($$('.ant-notification-bottomRight')[0]);
+      style = getStyle($$('.xy-notification-bottomRight')[0]);
       expect(style.top).toBe('');
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('100px');
@@ -147,7 +156,7 @@ describe('Notification.placement', () => {
         top: 100,
         bottom: 50,
       });
-      style = getStyle($$('.ant-notification-bottomLeft')[0]);
+      style = getStyle($$('.xy-notification-bottomLeft')[0]);
       expect(style.top).toBe('');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe('50px');
@@ -163,7 +172,7 @@ describe('Notification.placement', () => {
         return $container;
       },
     });
-    expect($container.querySelector('.ant-notification')).not.toBe(null);
+    expect($container.querySelector('.xy-notification')).not.toBe(null);
     $container.remove();
   });
 });

@@ -1,0 +1,11 @@
+{
+    "main": "./SquareIcon.vue",
+    "module": "./SquareIcon.vue",
+    "types": "./SquareIcon.d.ts",
+    "browser": {
+        "./sfc": "./SquareIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

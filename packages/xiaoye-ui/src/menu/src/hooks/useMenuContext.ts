@@ -1,6 +1,6 @@
 import type { Key } from '../../../_util/type';
 import type { ComputedRef, InjectionKey, PropType, Ref } from 'vue';
-import { defineComponent, inject, provide, toRef } from 'vue';
+import { computed, defineComponent, inject, provide, ref, toRef } from 'vue';
 import type {
   BuiltinPlacements,
   MenuClickEventHandler,
@@ -84,7 +84,32 @@ const useProvideMenu = (props: MenuContextProps) => {
 };
 
 const useInjectMenu = () => {
-  return inject(MenuContextKey);
+  return (
+    inject(MenuContextKey) ||
+    ({
+      rootClassName: ref(''),
+      prefixCls: computed(() => ''),
+      openKeys: ref([]),
+      selectedKeys: ref([]),
+      selectedSubMenuKeys: ref([]),
+      inlineCollapsed: ref(false),
+      siderCollapsed: ref(false),
+      rtl: computed(() => false),
+      mode: ref('vertical'),
+      disabled: computed(() => false),
+      activeKeys: ref([]),
+      changeActiveKeys: () => {},
+      inlineIndent: computed(() => 24),
+      subMenuOpenDelay: computed(() => 0),
+      subMenuCloseDelay: computed(() => 0),
+      forceSubMenuRender: computed(() => false),
+      onItemClick: () => {},
+      onOpenChange: () => {},
+      getPopupContainer: computed(() => (node: HTMLElement) => node),
+      registerMenuInfo: () => {},
+      unRegisterMenuInfo: () => {},
+    } as MenuContextProps)
+  );
 };
 
 const ForceRenderKey: InjectionKey<boolean> = Symbol('ForceRenderKey');

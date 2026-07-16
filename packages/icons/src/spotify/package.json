@@ -1,0 +1,11 @@
+{
+    "main": "./SpotifyIcon.vue",
+    "module": "./SpotifyIcon.vue",
+    "types": "./SpotifyIcon.d.ts",
+    "browser": {
+        "./sfc": "./SpotifyIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

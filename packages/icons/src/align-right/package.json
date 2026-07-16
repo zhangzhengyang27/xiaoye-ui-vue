@@ -1,0 +1,11 @@
+{
+    "main": "./AlignRightIcon.vue",
+    "module": "./AlignRightIcon.vue",
+    "types": "./AlignRightIcon.d.ts",
+    "browser": {
+        "./sfc": "./AlignRightIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

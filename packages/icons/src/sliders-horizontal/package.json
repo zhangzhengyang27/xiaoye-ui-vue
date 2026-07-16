@@ -1,0 +1,11 @@
+{
+    "main": "./SlidersHorizontalIcon.vue",
+    "module": "./SlidersHorizontalIcon.vue",
+    "types": "./SlidersHorizontalIcon.d.ts",
+    "browser": {
+        "./sfc": "./SlidersHorizontalIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

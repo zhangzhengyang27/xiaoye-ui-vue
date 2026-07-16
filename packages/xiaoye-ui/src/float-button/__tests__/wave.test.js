@@ -5,11 +5,11 @@ import { asyncExpect, sleep } from '../../../tests/utils';
 describe('click wave effect', () => {
   async function clickFloatButton(wrapper) {
     await asyncExpect(() => {
-      wrapper.find('.ant-float-btn').trigger('click');
+      wrapper.find('.xy-float-btn').trigger('click');
     });
-    wrapper.find('.ant-float-btn').element.dispatchEvent(new Event('transitionstart'));
+    wrapper.find('.xy-float-btn').element.dispatchEvent(new Event('transitionstart'));
     await sleep(20);
-    wrapper.find('.ant-float-btn').element.dispatchEvent(new Event('animationend'));
+    wrapper.find('.xy-float-btn').element.dispatchEvent(new Event('animationend'));
     await sleep(20);
   }
 
@@ -21,7 +21,7 @@ describe('click wave effect', () => {
     });
     await clickFloatButton(wrapper);
     expect(
-      wrapper.find('.ant-float-btn').attributes('ant-click-animating-without-extra-node'),
+      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
     ).toBe('true');
   });
 
@@ -33,7 +33,7 @@ describe('click wave effect', () => {
     });
     await clickFloatButton(wrapper);
     expect(
-      wrapper.find('.ant-float-btn').attributes('ant-click-animating-without-extra-node'),
+      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
     ).toBe('true');
   });
 
@@ -45,7 +45,7 @@ describe('click wave effect', () => {
     });
     await clickFloatButton(wrapper);
     expect(
-      wrapper.find('.ant-float-btn').attributes('ant-click-animating-without-extra-node'),
+      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
     ).toBe(undefined);
   });
 
@@ -57,7 +57,7 @@ describe('click wave effect', () => {
     });
     await clickFloatButton(wrapper);
     expect(
-      wrapper.find('.ant-float-btn').attributes('ant-click-animating-without-extra-node'),
+      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
     ).toBe(undefined);
   });
 
@@ -68,10 +68,10 @@ describe('click wave effect', () => {
       },
     });
     await clickFloatButton(wrapper);
-    const buttonNode = wrapper.find('.ant-float-btn').element;
+    const buttonNode = wrapper.find('.xy-float-btn').element;
     buttonNode.dispatchEvent(new Event('transitionstart'));
     expect(
-      wrapper.find('.ant-float-btn').attributes('ant-click-animating-without-extra-node'),
+      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
     ).toBe('true');
     wrapper.unmount();
     buttonNode.dispatchEvent(new Event('transitionstart'));

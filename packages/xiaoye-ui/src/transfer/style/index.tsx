@@ -20,10 +20,10 @@ interface TransferToken extends FullToken<'Transfer'> {
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   token: TransferToken,
 ): CSSObject => {
-  const { antCls, componentCls, listHeight, controlHeightLG, marginXXS, margin } = token;
+  const { rootCls, componentCls, listHeight, controlHeightLG, marginXXS, margin } = token;
 
-  const tableCls = `${antCls}-table`;
-  const inputCls = `${antCls}-input`;
+  const tableCls = `${rootCls}-table`;
+  const inputCls = `${rootCls}-input`;
 
   return {
     [`${componentCls}-customize-list`]: {
@@ -281,7 +281,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
 const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
   const {
-    antCls,
+    rootCls,
     iconCls,
     componentCls,
     transferHeaderHeight,
@@ -316,7 +316,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         margin: `0 ${marginXS}px`,
         verticalAlign: 'middle',
 
-        [`${antCls}-btn`]: {
+        [`${rootCls}-btn`]: {
           display: 'block',
 
           '&:first-child': {
@@ -329,7 +329,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         },
       },
 
-      [`${antCls}-empty-image`]: {
+      [`${rootCls}-empty-image`]: {
         maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },

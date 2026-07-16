@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 describe('Tooltip', () => {
   mountTest(Tooltip);
   it('check `onOpenChange` arguments', async () => {
-    const onOpenChange = jest.fn();
+    const onOpenChange = vi.fn();
     const wrapper = mount(
       {
         props: ['title', 'open'],

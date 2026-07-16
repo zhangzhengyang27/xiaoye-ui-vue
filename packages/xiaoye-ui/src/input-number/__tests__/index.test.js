@@ -8,7 +8,7 @@ describe('InputNumber', () => {
   mountTest(InputNumber);
 
   it('should return null when blur a empty input number', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = mount(
       {
         render() {

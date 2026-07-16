@@ -1,0 +1,11 @@
+{
+    "main": "./MicrophoneIcon.vue",
+    "module": "./MicrophoneIcon.vue",
+    "types": "./MicrophoneIcon.d.ts",
+    "browser": {
+        "./sfc": "./MicrophoneIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

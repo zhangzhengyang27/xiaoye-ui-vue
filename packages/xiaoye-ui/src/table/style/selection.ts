@@ -5,7 +5,7 @@ import type { TableToken } from './index';
 const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const {
     componentCls,
-    antCls,
+    rootCls,
     iconCls,
     fontSizeIcon,
     paddingXS,
@@ -31,7 +31,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
         paddingInlineStart: token.paddingXS,
         textAlign: 'center',
 
-        [`${antCls}-radio-wrapper`]: {
+        [`${rootCls}-radio-wrapper`]: {
           marginInlineEnd: 0,
         },
       },

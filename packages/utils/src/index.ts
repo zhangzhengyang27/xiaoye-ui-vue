@@ -1,2 +1,10 @@
-// 占位：纯工具函数，阶段 2 从 _util/vc-util 抽取
-export {};
+export * from './classnames';
+export * from './date';
+export * from './dom';
+export * from './eventbus';
+export * from './mergeprops';
+export * from './object';
+export * from './storage';
+export * from './url';
+export * from './uuid';
+export * from './zindex';

@@ -29,7 +29,7 @@ export default defineComponent({
   inheritAttrs: false,
   __ANT_CHECKBOX: true,
   props: checkboxProps(),
-  // emits: ['change', 'update:checked'],
+  emits: ['change', 'update:checked', 'mouseenter', 'mouseleave'],
   setup(props, { emit, attrs, slots, expose }) {
     const formItemContext = useInjectFormItemContext();
     const formItemInputContext = FormItemInputContext.useInject();
@@ -124,8 +124,14 @@ export default defineComponent({
         <label
           class={classString}
           style={style as CSSProperties}
-          onMouseenter={onMouseenter as EventHandler}
-          onMouseleave={onMouseleave as EventHandler}
+          onMouseenter={(e: MouseEvent) => {
+            emit('mouseenter', e);
+            (onMouseenter as EventHandler)?.(e);
+          }}
+          onMouseleave={(e: MouseEvent) => {
+            emit('mouseleave', e);
+            (onMouseleave as EventHandler)?.(e);
+          }}
         >
           <VcCheckbox
             aria-checked={ariaChecked}

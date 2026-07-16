@@ -217,7 +217,15 @@ export default defineComponent({
     listItemHeight: 20,
     prefixCls: 'vc-tree-select',
   }),
-  setup(props, { attrs, expose, slots }) {
+  emits: ['change', 'search', 'select', 'deselect', 'dropdownVisibleChange', 'treeLoad', 'treeExpand'],
+  setup(props, { attrs, expose, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const mergedId = useId(toRef(props, 'id'));
     const treeConduction = computed(() => props.treeCheckable && !props.treeCheckStrictly);
     const mergedCheckable = computed(() => props.treeCheckable || props.treeCheckStrictly);
@@ -244,7 +252,8 @@ export default defineComponent({
 
     const onInternalSearch: BaseSelectProps['onSearch'] = searchText => {
       setSearchValue(searchText);
-      props.onSearch?.(searchText);
+      emit('search', searchText);
+      callEvent(props.onSearch, searchText);
     };
 
     // ============================ Data ============================
@@ -431,77 +440,77 @@ export default defineComponent({
       }
 
       // Generate rest parameters is costly, so only do it when necessary
-      if (props.onChange) {
-        let eventValues: RawValueType[] = newRawValues;
-        if (treeConduction.value) {
-          const formattedKeyList = formatStrategyValues(
-            newRawValues,
-            props.showCheckedStrategy,
-            keyEntities.value,
-            mergedFieldNames.value,
-          );
-          eventValues = formattedKeyList.map(key => {
-            const entity = valueEntities.value.get(key);
-            return entity ? entity.node[mergedFieldNames.value.value] : key;
-          });
-        }
-
-        const { triggerValue, selected } = extra || {
-          triggerValue: undefined,
-          selected: undefined,
-        };
-
-        let returnRawValues: (LabeledValueType | RawValueType)[] = eventValues;
-
-        // We need fill half check back
-        if (props.treeCheckStrictly) {
-          const halfValues = rawHalfLabeledValues.value.filter(
-            item => !eventValues.includes(item.value),
-          );
-
-          returnRawValues = [...returnRawValues, ...halfValues];
-        }
-
-        const returnLabeledValues = convert2LabelValues(returnRawValues);
-        const additionalInfo = {
-          // [Legacy] Always return as array contains label & value
-          preValue: rawLabeledValues.value,
-          triggerValue,
-        } as ChangeEventExtra;
-
-        // [Legacy] Fill legacy data if user query.
-        // This is expansive that we only fill when user query
-        // https://github.com/react-component/tree-select/blob/fe33eb7c27830c9ac70cd1fdb1ebbe7bc679c16a/src/Select.jsx
-        let showPosition = true;
-        if (props.treeCheckStrictly || (source === 'selection' && !selected)) {
-          showPosition = false;
-        }
-
-        fillAdditionalInfo(
-          additionalInfo,
-          triggerValue,
+      let eventValues: RawValueType[] = newRawValues;
+      if (treeConduction.value) {
+        const formattedKeyList = formatStrategyValues(
           newRawValues,
-          mergedTreeData.value,
-          showPosition,
+          props.showCheckedStrategy,
+          keyEntities.value,
           mergedFieldNames.value,
         );
-
-        if (mergedCheckable.value) {
-          additionalInfo.checked = selected;
-        } else {
-          additionalInfo.selected = selected;
-        }
-
-        const returnValues = mergedLabelInValue.value
-          ? returnLabeledValues
-          : returnLabeledValues.map(item => item.value);
-
-        props.onChange(
-          mergedMultiple.value ? returnValues : returnValues[0],
-          mergedLabelInValue.value ? null : returnLabeledValues.map(item => item.label),
-          additionalInfo,
-        );
+        eventValues = formattedKeyList.map(key => {
+          const entity = valueEntities.value.get(key);
+          return entity ? entity.node[mergedFieldNames.value.value] : key;
+        });
       }
+
+      const { triggerValue, selected } = extra || {
+        triggerValue: undefined,
+        selected: undefined,
+      };
+
+      let returnRawValues: (LabeledValueType | RawValueType)[] = eventValues;
+
+      // We need fill half check back
+      if (props.treeCheckStrictly) {
+        const halfValues = rawHalfLabeledValues.value.filter(
+          item => !eventValues.includes(item.value),
+        );
+
+        returnRawValues = [...returnRawValues, ...halfValues];
+      }
+
+      const returnLabeledValues = convert2LabelValues(returnRawValues);
+      const additionalInfo = {
+        // [Legacy] Always return as array contains label & value
+        preValue: rawLabeledValues.value,
+        triggerValue,
+      } as ChangeEventExtra;
+
+      // [Legacy] Fill legacy data if user query.
+      // This is expansive that we only fill when user query
+      // https://github.com/react-component/tree-select/blob/fe33eb7c27830c9ac70cd1fdb1ebbe7bc679c16a/src/Select.jsx
+      let showPosition = true;
+      if (props.treeCheckStrictly || (source === 'selection' && !selected)) {
+        showPosition = false;
+      }
+
+      fillAdditionalInfo(
+        additionalInfo,
+        triggerValue,
+        newRawValues,
+        mergedTreeData.value,
+        showPosition,
+        mergedFieldNames.value,
+      );
+
+      if (mergedCheckable.value) {
+        additionalInfo.checked = selected;
+      } else {
+        additionalInfo.selected = selected;
+      }
+
+      const returnValues = mergedLabelInValue.value
+        ? returnLabeledValues
+        : returnLabeledValues.map(item => item.value);
+
+      const changeValue = mergedMultiple.value ? returnValues : returnValues[0];
+      const changeLabelList = mergedLabelInValue.value
+        ? null
+        : returnLabeledValues.map(item => item.label);
+
+      emit('change', changeValue, changeLabelList, additionalInfo);
+      callEvent(props.onChange, changeValue, changeLabelList, additionalInfo);
     };
 
     // ========================== Options ===========================
@@ -562,26 +571,37 @@ export default defineComponent({
 
       // Trigger select event
       if (selected || !mergedMultiple.value) {
-        props.onSelect?.(selectedValue, fillLegacyProps(node));
+        emit('select', selectedValue, fillLegacyProps(node));
+        callEvent(props.onSelect, selectedValue, fillLegacyProps(node));
       } else {
-        props.onDeselect?.(selectedValue, fillLegacyProps(node));
+        emit('deselect', selectedValue, fillLegacyProps(node));
+        callEvent(props.onDeselect, selectedValue, fillLegacyProps(node));
       }
     };
 
     // ========================== Dropdown ==========================
     const onInternalDropdownVisibleChange = (open: boolean) => {
-      if (props.onDropdownVisibleChange) {
-        const legacyParam = {};
+      const legacyParam = {};
 
-        Object.defineProperty(legacyParam, 'documentClickClose', {
-          get() {
-            warning(false, 'Second param of `onDropdownVisibleChange` has been removed.');
-            return false;
-          },
-        });
+      Object.defineProperty(legacyParam, 'documentClickClose', {
+        get() {
+          warning(false, 'Second param of `onDropdownVisibleChange` has been removed.');
+          return false;
+        },
+      });
 
-        (props.onDropdownVisibleChange as any)(open, legacyParam);
-      }
+      emit('dropdownVisibleChange', open, legacyParam);
+      callEvent(props.onDropdownVisibleChange, open, legacyParam);
+    };
+
+    const onInternalTreeLoad = (loadedKeys: Key[]) => {
+      emit('treeLoad', loadedKeys);
+      callEvent(props.onTreeLoad, loadedKeys);
+    };
+
+    const onInternalTreeExpand = (keys: Key[]) => {
+      emit('treeExpand', keys);
+      callEvent(props.onTreeExpand, keys);
     };
 
     // ====================== Display Change ========================
@@ -604,13 +624,11 @@ export default defineComponent({
       // Data
       loadData,
       treeLoadedKeys,
-      onTreeLoad,
 
       // Expanded
       treeDefaultExpandAll,
       treeExpandedKeys,
       treeDefaultExpandedKeys,
-      onTreeExpand,
 
       // Options
       virtual,
@@ -634,13 +652,13 @@ export default defineComponent({
 
         loadData,
         treeLoadedKeys,
-        onTreeLoad,
+        onTreeLoad: onInternalTreeLoad,
         checkedKeys: rawCheckedValues,
         halfCheckedKeys: rawHalfCheckedValues,
         treeDefaultExpandAll,
         treeExpandedKeys,
         treeDefaultExpandedKeys,
-        onTreeExpand,
+        onTreeExpand: onInternalTreeExpand,
         treeIcon,
         treeMotion,
         showTreeIcon,

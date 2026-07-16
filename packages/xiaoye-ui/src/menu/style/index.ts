@@ -200,7 +200,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
 // =============================== Base ===============================
 const getBaseStyle: GenerateStyle<MenuToken> = token => {
   const {
-    antCls,
+    rootCls,
     componentCls,
     fontSize,
     motionDurationSlow,
@@ -417,7 +417,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
 
     // Integration with header element so menu items have the same height
     {
-      [`${antCls}-layout-header`]: {
+      [`${rootCls}-layout-header`]: {
         [componentCls]: {
           lineHeight: 'inherit',
         },

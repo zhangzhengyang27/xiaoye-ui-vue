@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Table from '..';
 import * as Vue from 'vue';
@@ -38,12 +39,10 @@ describe('Table.pagination', () => {
     });
   }
 
-  it('renders pagination correctly', done => {
+  it('renders pagination correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', async () => {
@@ -52,27 +51,27 @@ describe('Table.pagination', () => {
       getTableOptions({ pagination: { pageSize: 3, hideOnSinglePage: true } }),
     );
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
       wrapper.setProps({ pagination: { pageSize: 3, hideOnSinglePage: false } });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
       wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: true } });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
       wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: false } });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
       wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: true } });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
       wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: false } });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
     });
   });
 
@@ -94,9 +93,9 @@ describe('Table.pagination', () => {
     });
   });
 
-  it('fires change event', done => {
-    const handleChange = jest.fn();
-    const handlePaginationChange = jest.fn();
+  it('fires change event', async () => {
+    const handleChange = vi.fn();
+    const handlePaginationChange = vi.fn();
     const noop = () => {};
     const wrapper = mount(
       Table,
@@ -109,118 +108,110 @@ describe('Table.pagination', () => {
         onChange: handleChange,
       }),
     );
-    Vue.nextTick(() => {
-      const pager = wrapper.findAllComponents({ name: 'Pager' });
-      pager[pager.length - 1].trigger('click');
+    await Vue.nextTick();
+    const pager = wrapper.findAllComponents({ name: 'Pager' });
+    pager[pager.length - 1].trigger('click');
 
-      expect(handleChange).toBeCalledWith(
-        {
-          class: 'my-page',
-          current: 2,
-          pageSize: 2,
-        },
-        {},
-        {},
-        {
-          currentDataSource: [
-            { key: 0, name: 'Jack' },
-            { key: 1, name: 'Lucy' },
-            { key: 2, name: 'Tom' },
-            { key: 3, name: 'Jerry' },
-          ],
-          action: 'paginate',
-        },
-      );
+    expect(handleChange).toBeCalledWith(
+      {
+        class: 'my-page',
+        current: 2,
+        pageSize: 2,
+      },
+      {},
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+        action: 'paginate',
+      },
+    );
 
-      expect(handlePaginationChange).toBeCalledWith(2, 2);
-      done();
-    });
+    expect(handlePaginationChange).toBeCalledWith(2, 2);
   });
 
   // https://codepen.io/afc163/pen/dVeNoP?editors=001
-  it('should have pager when change pagination from false to undefined', done => {
+  it('should have pager when change pagination from false to undefined', async () => {
     const wrapper = mount(Table, getTableOptions({ pagination: false }));
-    Vue.nextTick(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
-      wrapper.setProps({ pagination: undefined });
-      Vue.nextTick(() => {
-        expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
-        expect(wrapper.findAll('.ant-pagination-item-active')).toHaveLength(1);
-        done();
-      });
-    });
+    await Vue.nextTick();
+    expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: undefined });
+    await Vue.nextTick();
+    expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-pagination-item-active')).toHaveLength(1);
   });
 
   // https://codepen.io/afc163/pen/pWVRJV?editors=001
   it('should display pagination as prop pagination change between true and false', async () => {
     const wrapper = mount(Table, getTableOptions());
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
-      expect(wrapper.findAll('.ant-pagination-item')).toHaveLength(2);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination-item')).toHaveLength(2);
       wrapper.setProps({ pagination: false });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
       wrapper.setProps({ pagination });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
-      expect(wrapper.findAll('.ant-pagination-item')).toHaveLength(2);
-      wrapper.find('.ant-pagination-item-2').trigger('click');
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination-item')).toHaveLength(2);
+      wrapper.find('.xy-pagination-item-2').trigger('click');
     });
     await asyncExpect(() => {
       expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
       wrapper.setProps({ pagination: false });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
       wrapper.setProps({ pagination: true });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
-      expect(wrapper.findAll('.ant-pagination-item')).toHaveLength(2); // pageSize will be 10
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-pagination-item')).toHaveLength(2); // pageSize will be 10
       expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
     });
   });
 
-  it('change to correct page when data source changes', done => {
+  it('change to correct page when data source changes', async () => {
     const wrapper = mount(Table, getTableOptions({ pagination: { pageSize: 1 } }));
-    Vue.nextTick(() => {
-      wrapper.find('.ant-pagination-item-3').trigger('click');
-      wrapper.setProps({ dataSource: [data[0]] });
-      Vue.nextTick(() => {
-        expect(wrapper.find('.ant-pagination-item-1').classes()).toContain(
-          'ant-pagination-item-active',
-        );
-        done();
-      });
-    });
+    await Vue.nextTick();
+    wrapper.find('.xy-pagination-item-3').trigger('click');
+    wrapper.setProps({ dataSource: [data[0]] });
+    await Vue.nextTick();
+    expect(wrapper.find('.xy-pagination-item-1').classes()).toContain(
+      'xy-pagination-item-active',
+    );
   });
 
   it('specify the position of pagination', async () => {
     const wrapper = mount(Table, getTableOptions({ pagination: { position: ['topLeft'] } }));
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-spin-container > *')).toHaveLength(2);
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-spin-container > *')).toHaveLength(2);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
       wrapper.setProps({ pagination: { position: 'bottomRight' } });
     }, 0);
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-spin-container > *')).toHaveLength(2);
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-spin-container > *')).toHaveLength(2);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
       wrapper.setProps({ pagination: { position: ['topLeft', 'bottomRight'] } });
     }, 0);
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-spin-container > *')).toHaveLength(3);
-      expect(wrapper.findAll('.ant-pagination')).toHaveLength(2);
+      expect(wrapper.findAll('.xy-spin-container > *')).toHaveLength(3);
+      expect(wrapper.findAll('.xy-pagination')).toHaveLength(2);
     }, 0);
     wrapper.setProps({ pagination: { position: ['none', 'none'] } });
     await sleep();
-    expect(wrapper.findAll('.ant-pagination')).toHaveLength(0);
+    expect(wrapper.findAll('.xy-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination: { position: ['invalid'] } });
     await sleep();
-    expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
     wrapper.setProps({ pagination: { position: ['invalid', 'invalid'] } });
     await sleep();
-    expect(wrapper.findAll('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-pagination')).toHaveLength(1);
   });
 });

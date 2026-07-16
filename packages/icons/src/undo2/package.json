@@ -1,0 +1,11 @@
+{
+    "main": "./Undo2Icon.vue",
+    "module": "./Undo2Icon.vue",
+    "types": "./Undo2Icon.d.ts",
+    "browser": {
+        "./sfc": "./Undo2Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

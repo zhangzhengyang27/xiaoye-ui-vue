@@ -78,6 +78,23 @@ const Select = defineComponent({
     listHeight: 256,
     listItemHeight: 24,
   }),
+  emits: [
+    'update:value',
+    'change',
+    'focus',
+    'blur',
+    'search',
+    'select',
+    'deselect',
+    'clear',
+    'dropdownVisibleChange',
+    'popupScroll',
+    'mouseenter',
+    'mouseleave',
+    'inputKeyDown',
+    'keydown',
+    'keyup',
+  ],
   SECRET_COMBOBOX_MODE_DO_NOT_USE,
   slots: Object as CustomSlotsType<{
     notFoundContent: any;

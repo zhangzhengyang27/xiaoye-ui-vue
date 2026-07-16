@@ -18,7 +18,7 @@ The default is to close the menu when you click on menu items, this feature can 
 
 <template>
   <a-dropdown v-model:open="visible">
-    <a class="ant-dropdown-link" @click.prevent>
+    <a class="xy-dropdown-link" @click.prevent>
       Hover me
       <DownOutlined />
     </a>

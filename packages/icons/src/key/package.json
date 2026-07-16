@@ -1,0 +1,11 @@
+{
+    "main": "./KeyIcon.vue",
+    "module": "./KeyIcon.vue",
+    "types": "./KeyIcon.d.ts",
+    "browser": {
+        "./sfc": "./KeyIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./ZoomOutIcon.vue",
+    "module": "./ZoomOutIcon.vue",
+    "types": "./ZoomOutIcon.d.ts",
+    "browser": {
+        "./sfc": "./ZoomOutIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

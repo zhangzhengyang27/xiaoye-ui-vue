@@ -1,0 +1,11 @@
+{
+    "main": "./Volume2Icon.vue",
+    "module": "./Volume2Icon.vue",
+    "types": "./Volume2Icon.d.ts",
+    "browser": {
+        "./sfc": "./Volume2Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

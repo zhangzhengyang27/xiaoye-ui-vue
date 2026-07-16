@@ -1,0 +1,11 @@
+{
+    "main": "./Heading3Icon.vue",
+    "module": "./Heading3Icon.vue",
+    "types": "./Heading3Icon.d.ts",
+    "browser": {
+        "./sfc": "./Heading3Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

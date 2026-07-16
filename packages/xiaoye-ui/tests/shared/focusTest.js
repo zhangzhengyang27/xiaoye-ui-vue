@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { vi } from 'vitest';
 import { sleep } from '../utils';
 
 export default function focusTest(Component) {
@@ -14,7 +15,7 @@ export default function focusTest(Component) {
     });
 
     it('focus() and onFocus', async () => {
-      const handleFocus = jest.fn();
+      const handleFocus = vi.fn();
       const wrapper = mount(
         {
           render() {
@@ -30,8 +31,8 @@ export default function focusTest(Component) {
     });
 
     it('blur() and onBlur', async () => {
-      const handleBlur = jest.fn();
-      const handleFocus = jest.fn();
+      const handleBlur = vi.fn();
+      const handleFocus = vi.fn();
       const wrapper = mount(
         {
           render() {
@@ -47,7 +48,7 @@ export default function focusTest(Component) {
     });
 
     it('autofocus', async () => {
-      const handleFocus = jest.fn();
+      const handleFocus = vi.fn();
       const wrapper = mount(
         {
           render() {

@@ -14,7 +14,7 @@ describe('Image', () => {
         );
       },
     });
-    expect(wrapper.find('.ant-image').element.style.width).toBe('200px');
+    expect(wrapper.find('.xy-image').element.style.width).toBe('200px');
   });
   it('image size number', () => {
     const wrapper = mount({
@@ -27,6 +27,6 @@ describe('Image', () => {
         );
       },
     });
-    expect(wrapper.find('.ant-image').element.style.width).toBe('200px');
+    expect(wrapper.find('.xy-image').element.style.width).toBe('200px');
   });
 });

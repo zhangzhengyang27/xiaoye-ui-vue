@@ -78,8 +78,15 @@ const Popconfirm = defineComponent({
     okButton?: any;
     default?: any;
   }>,
-  // emits: ['update:open', 'visibleChange'],
+  emits: ['update:open', 'openChange', 'visibleChange', 'confirm', 'cancel'],
   setup(props: PopconfirmProps, { slots, emit, expose, attrs }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const rootRef = ref();
     warning(
       props.visible === undefined,
@@ -102,6 +109,7 @@ const Popconfirm = defineComponent({
 
       emit('update:open', value);
       emit('openChange', value, e);
+      emit('visibleChange', value, e);
     };
 
     const close = (e: MouseEvent) => {
@@ -109,12 +117,14 @@ const Popconfirm = defineComponent({
     };
 
     const onConfirm = (e: MouseEvent) => {
-      return props.onConfirm?.(e);
+      emit('confirm', e);
+      return callEvent(props.onConfirm, e);
     };
 
     const onCancel = (e: MouseEvent) => {
       settingOpen(false, e);
-      props.onCancel?.(e);
+      emit('cancel', e);
+      callEvent(props.onCancel, e);
     };
 
     const onKeyDown = (e: KeyboardEvent) => {

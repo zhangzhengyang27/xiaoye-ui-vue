@@ -52,7 +52,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
   return [
     {
       [`${componentCls}-root`]: {
-        [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
+        [`${componentCls}${token.rootCls}-zoom-enter, ${componentCls}${token.rootCls}-zoom-appear`]: {
           // reset scale avoid mousePosition bug
           transform: 'none',
           opacity: 0,
@@ -60,7 +60,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           userSelect: 'none',
         },
 
-        [`${componentCls}${token.antCls}-zoom-leave ${componentCls}-content`]: {
+        [`${componentCls}${token.rootCls}-zoom-leave ${componentCls}-content`]: {
           pointerEvents: 'none',
         },
 
@@ -230,7 +230,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           background: token.modalFooterBg,
           marginTop: token.marginSM,
 
-          [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
+          [`${token.rootCls}-btn + ${token.rootCls}-btn:not(${token.rootCls}-dropdown-trigger)`]: {
             marginBottom: 0,
             marginInlineStart: token.marginXS,
           },
@@ -275,7 +275,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
       '&-rtl': {
         direction: 'rtl',
       },
-      [`${token.antCls}-modal-header`]: {
+      [`${token.rootCls}-modal-header`]: {
         display: 'none',
       },
       [`${confirmComponentCls}-body-wrapper`]: {
@@ -328,7 +328,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
         textAlign: 'end',
         marginTop: token.marginSM,
 
-        [`${token.antCls}-btn + ${token.antCls}-btn`]: {
+        [`${token.rootCls}-btn + ${token.rootCls}-btn`]: {
           marginBottom: 0,
           marginInlineStart: token.marginXS,
         },
@@ -374,7 +374,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
 };
 
 const genWireframeStyle: GenerateStyle<ModalToken> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
 
   return {
@@ -402,7 +402,7 @@ const genWireframeStyle: GenerateStyle<ModalToken> = token => {
     },
 
     [confirmComponentCls]: {
-      [`${antCls}-modal-body`]: {
+      [`${rootCls}-modal-body`]: {
         padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
       },
       [`${confirmComponentCls}-body`]: {

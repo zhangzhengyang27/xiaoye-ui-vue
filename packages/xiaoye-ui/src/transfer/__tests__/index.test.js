@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Transfer from '..';
 import * as Vue from 'vue';
@@ -98,8 +99,8 @@ describe('Transfer', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('should move selected keys to corresponding list', done => {
-    const handleChange = jest.fn();
+  it('should move selected keys to corresponding list', async () => {
+    const handleChange = vi.fn();
 
     const wrapper = mount(
       {
@@ -111,14 +112,12 @@ describe('Transfer', () => {
         sync: false,
       },
     );
-    Vue.nextTick(() => {
-      wrapper.findAll('.ant-btn')[0].trigger('click'); // move selected keys to right list
-      expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
-      done();
-    });
+    await Vue.nextTick();
+    wrapper.findAll('.xy-btn')[0].trigger('click'); // move selected keys to right list
+    expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
-  it('should move selected keys expect disabled to corresponding list', done => {
-    const handleChange = jest.fn();
+  it('should move selected keys expect disabled to corresponding list', async () => {
+    const handleChange = vi.fn();
     const wrapper = mount(
       {
         setup() {
@@ -129,15 +128,13 @@ describe('Transfer', () => {
         sync: false,
       },
     );
-    Vue.nextTick(() => {
-      wrapper.findAll('.ant-btn')[0].trigger('click');
-      expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
-      done();
-    });
+    await Vue.nextTick();
+    wrapper.findAll('.xy-btn')[0].trigger('click');
+    expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
   it('should uncheck checkbox when click on checked item', async () => {
-    const handleSelectChange = jest.fn();
+    const handleSelectChange = vi.fn();
 
     const wrapper = mount(
       {
@@ -151,12 +148,12 @@ describe('Transfer', () => {
     );
 
     await sleep();
-    wrapper.findAll('.ant-transfer-list-content-item')[0].trigger('click');
+    wrapper.findAll('.xy-transfer-list-content-item')[0].trigger('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith([], []);
   });
 
   it('should check checkbox when click on unchecked item', async () => {
-    const handleSelectChange = jest.fn();
+    const handleSelectChange = vi.fn();
 
     const wrapper = mount(
       {
@@ -170,13 +167,13 @@ describe('Transfer', () => {
     );
 
     await sleep();
-    wrapper.findAll('.ant-transfer-list-content-item')[2].trigger('click');
+    wrapper.findAll('.xy-transfer-list-content-item')[2].trigger('click');
     await sleep();
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
   });
 
   it('should not check checkbox when click on disabled item', async () => {
-    const handleSelectChange = jest.fn();
+    const handleSelectChange = vi.fn();
 
     const wrapper = mount(
       {
@@ -190,12 +187,12 @@ describe('Transfer', () => {
     );
 
     await sleep();
-    wrapper.findAll('.ant-transfer-list-content-item')[1].trigger('click');
+    wrapper.findAll('.xy-transfer-list-content-item')[1].trigger('click');
     expect(handleSelectChange).not.toHaveBeenCalled();
   });
 
-  xit('should check all item when click on check all', done => {
-    const handleSelectChange = jest.fn();
+  it.skip('should check all item when click on check all', async () => {
+    const handleSelectChange = vi.fn();
     const wrapper = mount(Transfer, {
       props: listCommonProps,
       listeners: {
@@ -203,20 +200,18 @@ describe('Transfer', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      wrapper
-        .findAll('.ant-transfer-list-header input[type="checkbox"]')
-        .filter(n => {
-          return !n.vnode.data.domProps.checked;
-        })
-        .trigger('change');
-      expect(handleSelectChange).toHaveBeenCalledWith(['a'], ['b']);
-      done();
-    });
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .filter(n => {
+        return !n.vnode.data.domProps.checked;
+      })
+      .trigger('change');
+    expect(handleSelectChange).toHaveBeenCalledWith(['a'], ['b']);
   });
 
-  xit('should uncheck all item when click on uncheck all', done => {
-    const handleSelectChange = jest.fn();
+  it.skip('should uncheck all item when click on uncheck all', async () => {
+    const handleSelectChange = vi.fn();
     const wrapper = mount(Transfer, {
       props: listCommonProps,
       listeners: {
@@ -224,19 +219,17 @@ describe('Transfer', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      wrapper
-        .findAll('.ant-transfer-list-header input[type="checkbox"]')
-        .filter(n => {
-          return n.vnode.data.domProps.checked;
-        })
-        .trigger('change');
-      expect(handleSelectChange).toHaveBeenCalledWith([], []);
-      done();
-    });
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .filter(n => {
+        return n.vnode.data.domProps.checked;
+      })
+      .trigger('change');
+    expect(handleSelectChange).toHaveBeenCalledWith([], []);
   });
 
-  it('should call `filterOption` when use input in search box', done => {
+  it('should call `filterOption` when use input in search box', async () => {
     const filterOption = (inputValue, option) => inputValue === option.title;
 
     const wrapper = mount(
@@ -258,23 +251,20 @@ describe('Transfer', () => {
       },
     );
 
-    Vue.nextTick(() => {
-      const input = wrapper.findAll('.ant-transfer-list-body-search-wrapper input')[0];
-      input.element.value = 'a';
-      input.trigger('input');
-      Vue.nextTick(() => {
-        expect(
-          wrapper
-            .findAll('.ant-transfer-list-content')[0]
-            .find('.ant-transfer-list-content-item')
-            .findAll('input[type="checkbox"]'),
-        ).toHaveLength(1);
-        done();
-      });
-    });
+    await Vue.nextTick();
+    const input = wrapper.findAll('.xy-transfer-list-body-search-wrapper input')[0];
+    input.element.value = 'a';
+    input.trigger('input');
+    await Vue.nextTick();
+    expect(
+      wrapper
+        .findAll('.xy-transfer-list-content')[0]
+        .find('.xy-transfer-list-content-item')
+        .findAll('input[type="checkbox"]'),
+    ).toHaveLength(1);
   });
 
-  it('should display the correct count of items when filter by input', done => {
+  it('should display the correct count of items when filter by input', async () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
     const wrapper = mount(
@@ -297,27 +287,24 @@ describe('Transfer', () => {
       },
     );
 
-    Vue.nextTick(() => {
-      const input = wrapper.findAll('.ant-transfer-list-body-search-wrapper input')[0];
-      input.element.value = 'content2';
-      input.trigger('input');
-      Vue.nextTick(() => {
-        expect(
-          wrapper
-            .findAll('.ant-transfer-list')[0]
-            .findAll('.ant-transfer-list-header-selected > span')[0]
-            .text()
-            .trim(),
-        ).toEqual('1 item');
-        done();
-      });
-    });
+    await Vue.nextTick();
+    const input = wrapper.findAll('.xy-transfer-list-body-search-wrapper input')[0];
+    input.element.value = 'content2';
+    input.trigger('input');
+    await Vue.nextTick();
+    expect(
+      wrapper
+        .findAll('.xy-transfer-list')[0]
+        .findAll('.xy-transfer-list-header-selected > span')[0]
+        .text()
+        .trim(),
+    ).toEqual('1 item');
   });
 
-  xit('should just check the filtered item when click on check all after search by input', done => {
+  it.skip('should just check the filtered item when click on check all after search by input', async () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
-    const handleSelectChange = jest.fn();
+    const handleSelectChange = vi.fn();
     const wrapper = mount(Transfer, {
       props: {
         ...searchTransferProps,
@@ -330,28 +317,25 @@ describe('Transfer', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      const input = wrapper.findAll('.ant-transfer-list-body-search-wrapper input')[0];
-      input.element.value = 'content2';
-      input.trigger('input');
-      Vue.nextTick(() => {
-        wrapper
-          .findAll('.ant-transfer-list')[0]
-          .findAll('.ant-transfer-list-header input[type="checkbox"]')
-          .filter(n => {
-            return !n.vnode.data.domProps.checked;
-          })
-          .trigger('change');
-        expect(handleSelectChange).toHaveBeenCalledWith(['1'], []);
-        done();
-      });
-    });
+    await Vue.nextTick();
+    const input = wrapper.findAll('.xy-transfer-list-body-search-wrapper input')[0];
+    input.element.value = 'content2';
+    input.trigger('input');
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list')[0]
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .filter(n => {
+        return !n.vnode.data.domProps.checked;
+      })
+      .trigger('change');
+    expect(handleSelectChange).toHaveBeenCalledWith(['1'], []);
   });
 
-  xit('should transfer just the filtered item after search by input', done => {
+  it.skip('should transfer just the filtered item after search by input', async () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
       wrapper.setProps({
         selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],
@@ -370,32 +354,28 @@ describe('Transfer', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      const input = wrapper.findAll('.ant-transfer-list-body-search-wrapper input')[0];
-      input.element.value = 'content2';
-      input.trigger('input');
-      Vue.nextTick(() => {
-        wrapper
-          .findAll('.ant-transfer-list')[0]
-          .findAll('.ant-transfer-list-header input[type="checkbox"]')
-          .filter(n => {
-            return !n.element.checked;
-          })
-          .trigger('change');
-        Vue.nextTick(() => {
-          wrapper.findAll('.ant-btn')[0].trigger('click');
-          expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
-          done();
-        });
-      });
-    });
+    await Vue.nextTick();
+    const input = wrapper.findAll('.xy-transfer-list-body-search-wrapper input')[0];
+    input.element.value = 'content2';
+    input.trigger('input');
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list')[0]
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .filter(n => {
+        return !n.element.checked;
+      })
+      .trigger('change');
+    await Vue.nextTick();
+    wrapper.findAll('.xy-btn')[0].trigger('click');
+    expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 
-  xit('should check correctly when there is a search text', done => {
+  it.skip('should check correctly when there is a search text', async () => {
     const newProps = { ...listCommonProps };
     delete newProps.targetKeys;
     delete newProps.selectedKeys;
-    const handleSelectChange = jest.fn();
+    const handleSelectChange = vi.fn();
     const wrapper = mount(Transfer, {
       props: {
         ...newProps,
@@ -407,34 +387,30 @@ describe('Transfer', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      wrapper
-        .findAll('.ant-transfer-list-content-item')
-        .filter(n => {
-          return n.vnode.data.key === 'b';
-        })
-        .trigger('click');
-      expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list-content-item')
+      .filter(n => {
+        return n.vnode.data.key === 'b';
+      })
+      .trigger('click');
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
 
-      const input = wrapper.findAll('.ant-transfer-list-body-search-wrapper input')[0];
-      input.element.value = 'a';
-      input.trigger('input');
-      Vue.nextTick(() => {
-        wrapper
-          .findAll('.ant-transfer-list')[0]
-          .findAll('.ant-transfer-list-header input[type="checkbox"]')
-          .trigger('change');
-        Vue.nextTick(() => {
-          expect(handleSelectChange).toHaveBeenLastCalledWith(['b', 'a'], []);
-          wrapper
-            .findAll('.ant-transfer-list')[0]
-            .findAll('.ant-transfer-list-header input[type="checkbox"]')
-            .trigger('change');
-          expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
-          done();
-        });
-      });
-    });
+    const input = wrapper.findAll('.xy-transfer-list-body-search-wrapper input')[0];
+    input.element.value = 'a';
+    input.trigger('input');
+    await Vue.nextTick();
+    wrapper
+      .findAll('.xy-transfer-list')[0]
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .trigger('change');
+    await Vue.nextTick();
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b', 'a'], []);
+    wrapper
+      .findAll('.xy-transfer-list')[0]
+      .findAll('.xy-transfer-list-header input[type="checkbox"]')
+      .trigger('change');
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
   });
 
   it('should show sorted targetkey', () => {
@@ -490,11 +466,11 @@ describe('Transfer', () => {
       { sync: false },
     );
     await asyncExpect(() => {
-      const wrapper = component.find('.ant-transfer');
-      // const list = component.findAll('.ant-transfer-list');
+      const wrapper = component.find('.xy-transfer');
+      // const list = component.findAll('.xy-transfer-list');
       // const listSource = list[0];
       // const listTarget = list[list.length - 1];
-      // const operation = component.findAll('.ant-transfer-operation')[0];
+      // const operation = component.findAll('.xy-transfer-operation')[0];
       expect(wrapper.element.style).toHaveProperty('backgroundColor', 'red');
       // expect(listSource.element.style).toHaveProperty('backgroundColor', 'blue');
       // expect(listTarget.element.style).toHaveProperty('backgroundColor', 'blue');

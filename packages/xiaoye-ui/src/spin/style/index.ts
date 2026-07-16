@@ -15,11 +15,11 @@ interface SpinToken extends FullToken<'Spin'> {
   spinDotSizeLG: number;
 }
 
-const antSpinMove = new Keyframes('antSpinMove', {
+const xySpinMove = new Keyframes('xySpinMove', {
   to: { opacity: 1 },
 });
 
-const antRotate = new Keyframes('antRotate', {
+const xyRotate = new Keyframes('xyRotate', {
   to: { transform: 'rotate(405deg)' },
 });
 
@@ -155,7 +155,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         transform: 'scale(0.75)',
         transformOrigin: '50% 50%',
         opacity: 0.3,
-        animationName: antSpinMove,
+        animationName: xySpinMove,
         animationDuration: '1s',
         animationIterationCount: 'infinite',
         animationTimingFunction: 'linear',
@@ -187,7 +187,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
       '&-spin': {
         transform: 'rotate(45deg)',
-        animationName: antRotate,
+        animationName: xyRotate,
         animationDuration: '1.2s',
         animationIterationCount: 'infinite',
         animationTimingFunction: 'linear',

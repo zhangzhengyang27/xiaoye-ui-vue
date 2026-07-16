@@ -100,8 +100,7 @@ function DatePanel<DateType>(_props: DatePanelProps<DateType>) {
         }}
       />
       <DateBody
-        {...props}
-        onSelect={date => onSelect(date, 'mouse')}
+        {...(props as any)}
         prefixCls={prefixCls}
         value={value}
         viewDate={viewDate}

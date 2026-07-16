@@ -13,6 +13,6 @@ describe('Tour', () => {
         };
       },
     });
-    expect(wrapper.find('.Tour').exists()).toBe(true);
+    expect(wrapper.findComponent(Tour).exists()).toBe(true);
   });
 });

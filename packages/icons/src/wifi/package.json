@@ -1,0 +1,11 @@
+{
+    "main": "./WifiIcon.vue",
+    "module": "./WifiIcon.vue",
+    "types": "./WifiIcon.d.ts",
+    "browser": {
+        "./sfc": "./WifiIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

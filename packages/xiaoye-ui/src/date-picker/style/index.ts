@@ -918,7 +918,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
 const genPickerStyle: GenerateStyle<PickerToken> = token => {
   const {
     componentCls,
-    antCls,
+    rootCls,
     boxShadowPopoverArrow,
     controlHeight,
     fontSize,
@@ -1196,30 +1196,30 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
             },
           },
 
-          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topRight`]:
+          [`&${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+          &${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-topRight,
+          &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft,
+          &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-topRight`]:
             {
               animationName: slideDownIn,
             },
 
-          [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomRight`]:
+          [`&${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
+          &${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomRight,
+          &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft,
+          &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomRight`]:
             {
               animationName: slideUpIn,
             },
 
-          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
+          [`&${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
+          &${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
             {
               animationName: slideDownOut,
             },
 
-          [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomRight`]:
+          [`&${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft,
+          &${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomRight`]:
             {
               animationName: slideUpOut,
             },
@@ -1244,7 +1244,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
               display: 'inline-block',
             },
 
-            [`${componentCls}-preset > ${antCls}-tag-blue`]: {
+            [`${componentCls}-preset > ${rootCls}-tag-blue`]: {
               color: colorPrimary,
               background: controlItemBgActive,
               borderColor: colorPrimaryBorder,

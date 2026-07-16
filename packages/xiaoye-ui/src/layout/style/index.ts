@@ -21,8 +21,8 @@ export interface LayoutToken extends FullToken<'Layout'> {
 
 const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
   const {
-    antCls, // .ant
-    componentCls, // .ant-layout
+    rootCls, // .ant
+    componentCls, // .xy-layout
     colorText,
     colorTextLightSolid,
     colorBgHeader,
@@ -75,7 +75,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
         background: colorBgHeader,
         // Other components/menu/style/index.less line:686
         // Integration with header element so menu items have the same height
-        [`${antCls}-menu`]: {
+        [`${rootCls}-menu`]: {
           lineHeight: 'inherit',
         },
       },
@@ -109,7 +109,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
           marginTop: -0.1,
           paddingTop: 0.1,
 
-          [`${antCls}-menu${antCls}-menu-inline-collapsed`]: {
+          [`${rootCls}-menu${rootCls}-menu-inline-collapsed`]: {
             width: 'auto',
           },
         },

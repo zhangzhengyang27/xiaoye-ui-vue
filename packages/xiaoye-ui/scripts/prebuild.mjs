@@ -18,10 +18,19 @@ const srcDir = resolve(pkgRoot, 'src');
 const typingsDir = resolve(pkgRoot, 'typings');
 
 // 非组件目录，不扫描
-const EXCLUDE_DIRS = ['_util', '_shared', 'style', 'theme', 'locale', 'version', 'components'];
+const EXCLUDE_DIRS = ['_util', '_shared', 'style', 'theme', 'locale', 'version', 'components', 'config'];
 
 // 不作为对外导出的组件目录（内部实现）
 const HIDDEN_DIRS = ['vc-'];
+
+// 不生成 export * 的组件目录：这些模块与其他模块存在同名命名导出（类型）冲突
+const EXPORT_STAR_EXCEPTIONS = ['cascader', 'list', 'select', 'message', 'notification'];
+
+// 替代 export * 的显式命名导出语句（key 为组件目录名）
+const NAMED_EXPORT_OVERRIDES = {
+  message: "export { message } from './message';",
+  notification: "export { notification } from './notification';",
+};
 
 /**
  * 判断目录是否为组件目录
@@ -87,8 +96,14 @@ function generateComponentsTs(components) {
 
   for (const comp of components) {
     const pascalName = toPascalCase(comp.name);
-    // 聚合所有命名导出（含类型）
-    lines.push(`export * from './${comp.name}';`);
+    // 聚合所有命名导出（含类型）；黑名单中的模块因存在跨模块同名导出冲突，跳过 export *
+    if (EXPORT_STAR_EXCEPTIONS.includes(comp.name)) {
+      if (NAMED_EXPORT_OVERRIDES[comp.name]) {
+        lines.push(NAMED_EXPORT_OVERRIDES[comp.name]);
+      }
+    } else {
+      lines.push(`export * from './${comp.name}';`);
+    }
     // default 导出转为命名导出
     lines.push(`export { default as ${pascalName} } from './${comp.name}';`);
     if (comp.hasStyle) {

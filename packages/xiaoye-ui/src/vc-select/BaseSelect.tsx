@@ -261,8 +261,31 @@ export default defineComponent({
   name: 'BaseSelect',
   inheritAttrs: false,
   props: initDefaultProps(baseSelectProps(), { showAction: [], notFoundContent: 'Not Found' }),
-  setup(props, { attrs, expose, slots }) {
+  emits: [
+    'change',
+    'displayValuesChange',
+    'activeValueChange',
+    'search',
+    'searchSplit',
+    'dropdownVisibleChange',
+    'clear',
+    'focus',
+    'blur',
+    'keydown',
+    'keyup',
+    'mousedown',
+  ],
+  setup(props, { attrs, expose, slots, emit }) {
     const multiple = computed(() => isMultiple(props.mode));
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+        return fn[0]?.(...args);
+      } else if (fn) {
+        return fn(...args);
+      }
+      return undefined;
+    };
 
     const mergedShowSearch = computed(() =>
       props.showSearch !== undefined
@@ -342,7 +365,8 @@ export default defineComponent({
 
       if (mergedOpen.value !== nextOpen && !props.disabled) {
         setInnerOpen(nextOpen);
-        props.onDropdownVisibleChange && props.onDropdownVisibleChange(nextOpen);
+        emit('dropdownVisibleChange', nextOpen);
+        callEvent(props.onDropdownVisibleChange, nextOpen);
 
         if (!nextOpen && popupFocused.value) {
           popupFocused.value = false;
@@ -361,7 +385,8 @@ export default defineComponent({
     const onInternalSearch = (searchText: string, fromTyping: boolean, isCompositing: boolean) => {
       let ret = true;
       let newSearchText = searchText;
-      props.onActiveValueChange?.(null);
+      emit('activeValueChange', null);
+      callEvent(props.onActiveValueChange, null);
 
       // Check if match the `tokenSeparators`
       const patchLabels: string[] = isCompositing
@@ -372,7 +397,8 @@ export default defineComponent({
       if (props.mode !== 'combobox' && patchLabels) {
         newSearchText = '';
 
-        props.onSearchSplit?.(patchLabels);
+        emit('searchSplit', patchLabels);
+        callEvent(props.onSearchSplit, patchLabels);
 
         // Should close when paste finish
         onToggleOpen(false);
@@ -381,8 +407,11 @@ export default defineComponent({
         ret = false;
       }
 
-      if (props.onSearch && mergedSearchValue.value !== newSearchText) {
-        props.onSearch(newSearchText, {
+      if (mergedSearchValue.value !== newSearchText) {
+        emit('search', newSearchText, {
+          source: fromTyping ? 'typing' : 'effect',
+        });
+        callEvent(props.onSearch, newSearchText, {
           source: fromTyping ? 'typing' : 'effect',
         });
       }
@@ -398,7 +427,8 @@ export default defineComponent({
       if (!searchText || !searchText.trim()) {
         return;
       }
-      props.onSearch?.(searchText, { source: 'submit' });
+      emit('search', searchText, { source: 'submit' });
+      callEvent(props.onSearch, searchText, { source: 'submit' });
     };
 
     // Close will clean up single mode search text
@@ -477,7 +507,11 @@ export default defineComponent({
         }
 
         if (removedDisplayValue) {
-          props.onDisplayValuesChange(cloneDisplayValues, {
+          emit('displayValuesChange', cloneDisplayValues, {
+            type: 'remove',
+            values: [removedDisplayValue],
+          });
+          callEvent(props.onDisplayValuesChange, cloneDisplayValues, {
             type: 'remove',
             values: [removedDisplayValue],
           });
@@ -488,7 +522,8 @@ export default defineComponent({
         listRef.value.onKeydown(event, ...rest);
       }
 
-      props.onKeydown?.(event, ...rest);
+      emit('keydown', event, ...rest);
+      callEvent(props.onKeydown, event, ...rest);
     };
 
     // KeyUp
@@ -497,16 +532,19 @@ export default defineComponent({
         listRef.value.onKeyup(event, ...rest);
       }
 
-      if (props.onKeyup) {
-        props.onKeyup(event, ...rest);
-      }
+      emit('keyup', event, ...rest);
+      callEvent(props.onKeyup, event, ...rest);
     };
 
     // ============================ Selector ============================
     const onSelectorRemove = (val: DisplayValueType) => {
       const newValues = props.displayValues.filter(i => i !== val);
 
-      props.onDisplayValuesChange(newValues, {
+      emit('displayValuesChange', newValues, {
+        type: 'remove',
+        values: [val],
+      });
+      callEvent(props.onDisplayValuesChange, newValues, {
         type: 'remove',
         values: [val],
       });
@@ -519,8 +557,9 @@ export default defineComponent({
       setMockFocused(true);
 
       if (!props.disabled) {
-        if (props.onFocus && !focusRef.value) {
-          props.onFocus(...args);
+        if (!focusRef.value) {
+          emit('focus', ...args);
+          callEvent(props.onFocus, ...args);
         }
 
         // `showAction` should handle `focus` if set
@@ -550,18 +589,21 @@ export default defineComponent({
       if (searchVal) {
         // `tags` mode should move `searchValue` into values
         if (props.mode === 'tags') {
-          props.onSearch(searchVal, { source: 'submit' });
+          emit('search', searchVal, { source: 'submit' });
+          callEvent(props.onSearch, searchVal, { source: 'submit' });
         } else if (props.mode === 'multiple') {
           // `multiple` mode only clean the search value but not trigger event
-          props.onSearch('', {
+          emit('search', '', {
+            source: 'blur',
+          });
+          callEvent(props.onSearch, '', {
             source: 'blur',
           });
         }
       }
 
-      if (props.onBlur) {
-        props.onBlur(...args);
-      }
+      emit('blur', ...args);
+      callEvent(props.onBlur, ...args);
     };
     const onPopupFocusin = () => {
       popupFocused.value = true;
@@ -608,7 +650,7 @@ export default defineComponent({
         activeTimeoutIds.push(timeoutId);
       }
 
-      props.onMousedown?.(event, ...restArgs);
+      callEvent(props.onMousedown, event, ...restArgs);
     };
 
     // ============================= Dropdown ==============================

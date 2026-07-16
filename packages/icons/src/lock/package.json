@@ -1,0 +1,11 @@
+{
+    "main": "./LockIcon.vue",
+    "module": "./LockIcon.vue",
+    "types": "./LockIcon.d.ts",
+    "browser": {
+        "./sfc": "./LockIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

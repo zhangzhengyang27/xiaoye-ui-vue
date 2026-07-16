@@ -41,7 +41,7 @@ export default defineComponent({
     spinning: true,
     wrapperClassName: '',
   }),
-  setup(props, { attrs, slots }) {
+  setup(props, { attrs, slots, expose }) {
     const { prefixCls, size, direction } = useConfigInject('spin', props);
     const [wrapSSR, hashId] = useStyle(prefixCls);
     const sSpinning = shallowRef(props.spinning && !shouldDelay(props.spinning, props.delay));
@@ -50,10 +50,14 @@ export default defineComponent({
       [() => props.spinning, () => props.delay],
       () => {
         updateSpinning?.cancel();
-        updateSpinning = debounce(props.delay, () => {
+        if (props.delay) {
+          updateSpinning = debounce(props.delay, () => {
+            sSpinning.value = props.spinning;
+          });
+          updateSpinning?.();
+        } else {
           sSpinning.value = props.spinning;
-        });
-        updateSpinning?.();
+        }
       },
       {
         immediate: true,
@@ -62,6 +66,12 @@ export default defineComponent({
     );
     onBeforeUnmount(() => {
       updateSpinning?.cancel();
+    });
+    expose({
+      updateSpinning,
+      get spinning() {
+        return sSpinning.value;
+      },
     });
     return () => {
       const { class: cls, ...divProps } = attrs;

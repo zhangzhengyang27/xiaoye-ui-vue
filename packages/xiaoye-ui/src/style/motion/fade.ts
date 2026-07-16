@@ -4,7 +4,7 @@ import type { AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { initMotion } from './motion';
 
-export const fadeIn = new Keyframes('antFadeIn', {
+export const fadeIn = new Keyframes('xyFadeIn', {
   '0%': {
     opacity: 0,
   },
@@ -13,7 +13,7 @@ export const fadeIn = new Keyframes('antFadeIn', {
   },
 });
 
-export const fadeOut = new Keyframes('antFadeOut', {
+export const fadeOut = new Keyframes('xyFadeOut', {
   '0%': {
     opacity: 1,
   },
@@ -26,8 +26,8 @@ export const initFadeMotion = (
   token: TokenWithCommonCls<AliasToken>,
   sameLevel = false,
 ): CSSInterpolation => {
-  const { antCls } = token;
-  const motionCls = `${antCls}-fade`;
+  const { rootCls } = token;
+  const motionCls = `${rootCls}-fade`;
   const sameLevelPrefix = sameLevel ? '&' : '';
 
   return [

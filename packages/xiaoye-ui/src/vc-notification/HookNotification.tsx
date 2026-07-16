@@ -143,7 +143,7 @@ const Notification = defineComponent<HookNotificationProps>({
         const noticesForPlacement = placements.value[placement];
         const classes = props.getClassName?.(placement);
         const styles = props.getStyles?.(placement);
-        const noticeNodesForPlacement = noticesForPlacement.map(
+        const noticeNodesForPlacement = (noticesForPlacement as any[]).map(
           ({ notice, holderCallback }, index) => {
             const updateMark = index === notices.value.length - 1 ? notice.updateMark : undefined;
             const { key, userPassKey } = notice;

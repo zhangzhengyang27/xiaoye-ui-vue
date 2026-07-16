@@ -25,30 +25,30 @@ interface BadgeToken extends FullToken<'Badge'> {
   badgeRibbonCornerFilter: string;
 }
 
-const antStatusProcessing = new Keyframes('antStatusProcessing', {
+const xyStatusProcessing = new Keyframes('xyStatusProcessing', {
   '0%': { transform: 'scale(0.8)', opacity: 0.5 },
   '100%': { transform: 'scale(2.4)', opacity: 0 },
 });
 
-const antZoomBadgeIn = new Keyframes('antZoomBadgeIn', {
+const xyZoomBadgeIn = new Keyframes('xyZoomBadgeIn', {
   '0%': { transform: 'scale(0) translate(50%, -50%)', opacity: 0 },
   '100%': { transform: 'scale(1) translate(50%, -50%)' },
 });
 
-const antZoomBadgeOut = new Keyframes('antZoomBadgeOut', {
+const xyZoomBadgeOut = new Keyframes('xyZoomBadgeOut', {
   '0%': { transform: 'scale(1) translate(50%, -50%)' },
   '100%': { transform: 'scale(0) translate(50%, -50%)', opacity: 0 },
 });
 
-const antNoWrapperZoomBadgeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
+const xyNoWrapperZoomBadgeIn = new Keyframes('xyNoWrapperZoomBadgeIn', {
   '0%': { transform: 'scale(0)', opacity: 0 },
   '100%': { transform: 'scale(1)' },
 });
-const antNoWrapperZoomBadgeOut = new Keyframes('antNoWrapperZoomBadgeOut', {
+const xyNoWrapperZoomBadgeOut = new Keyframes('xyNoWrapperZoomBadgeOut', {
   '0%': { transform: 'scale(1)' },
   '100%': { transform: 'scale(0)', opacity: 0 },
 });
-const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
+const xyBadgeLoadingCircle = new Keyframes('xyBadgeLoadingCircle', {
   '0%': { transformOrigin: '50%' },
   '100%': {
     transform: 'translate(50%, -50%) rotate(360deg)',
@@ -60,7 +60,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
   const {
     componentCls,
     iconCls,
-    antCls,
+    rootCls,
     badgeFontHeight,
     badgeShadowSize,
     badgeHeightSm,
@@ -69,9 +69,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     marginXS,
     badgeRibbonOffset,
   } = token;
-  const numberPrefixCls = `${antCls}-scroll-number`;
-  const ribbonPrefixCls = `${antCls}-ribbon`;
-  const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
+  const numberPrefixCls = `${rootCls}-scroll-number`;
+  const ribbonPrefixCls = `${rootCls}-ribbon`;
+  const ribbonWrapperPrefixCls = `${rootCls}-ribbon-wrapper`;
 
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
@@ -154,7 +154,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
         [`&${iconCls}-spin`]: {
-          animationName: antBadgeLoadingCircle,
+          animationName: xyBadgeLoadingCircle,
           animationDuration: '1s',
           animationIterationCount: 'infinite',
           animationTimingFunction: 'linear',
@@ -192,7 +192,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             borderStyle: 'solid',
             borderColor: 'inherit',
             borderRadius: '50%',
-            animationName: antStatusProcessing,
+            animationName: xyStatusProcessing,
             animationDuration: token.badgeProcessingDuration,
             animationIterationCount: 'infinite',
             animationTimingFunction: 'ease-in-out',
@@ -218,26 +218,26 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       },
       ...colorPreset,
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
-        animationName: antZoomBadgeIn,
+        animationName: xyZoomBadgeIn,
         animationDuration: token.motionDurationSlow,
         animationTimingFunction: token.motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`${componentCls}-zoom-leave`]: {
-        animationName: antZoomBadgeOut,
+        animationName: xyZoomBadgeOut,
         animationDuration: token.motionDurationSlow,
         animationTimingFunction: token.motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`&${componentCls}-not-a-wrapper`]: {
         [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
-          animationName: antNoWrapperZoomBadgeIn,
+          animationName: xyNoWrapperZoomBadgeIn,
           animationDuration: token.motionDurationSlow,
           animationTimingFunction: token.motionEaseOutBack,
         },
 
         [`${componentCls}-zoom-leave`]: {
-          animationName: antNoWrapperZoomBadgeOut,
+          animationName: xyNoWrapperZoomBadgeOut,
           animationDuration: token.motionDurationSlow,
           animationTimingFunction: token.motionEaseOutBack,
         },

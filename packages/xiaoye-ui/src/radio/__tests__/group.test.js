@@ -37,8 +37,8 @@ describe('Radio', () => {
   }
 
   it('responses hover events', () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const wrapper = mount({
       render() {
@@ -58,7 +58,7 @@ describe('Radio', () => {
   });
 
   it('fire change events when value changes', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const props = { onChange };
     const wrapper = mount(createRadioGroup(props), { sync: false });
     let radios = null;
@@ -80,8 +80,8 @@ describe('Radio', () => {
   });
 
   it('both of radio and radioGroup will trigger onchange event when they exists', async () => {
-    const onChange = jest.fn();
-    const onChangeRadioGroup = jest.fn();
+    const onChange = vi.fn();
+    const onChangeRadioGroup = vi.fn();
 
     const wrapper = mount(
       {
@@ -123,7 +123,7 @@ describe('Radio', () => {
   });
 
   it('Trigger onChange when both of radioButton and radioGroup exists', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const props = { onChange };
     const wrapper = mount(createRadioGroup(props), { sync: false });
     const radios = wrapper.findAll('input');
@@ -141,7 +141,7 @@ describe('Radio', () => {
   });
 
   // it('should only trigger once when in group with options', () => {
-  //   const onChange = jest.fn();
+  //   const onChange = vi.fn();
   //   const options = [{ label: 'Bamboo', value: 'Bamboo' }];
   //   const wrapper = mount(<RadioGroup options={options} onChange={onChange} />);
 
@@ -150,7 +150,7 @@ describe('Radio', () => {
   // });
 
   // it('won\'t fire change events when value not changes', async () => {
-  //   const onChange = jest.fn()
+  //   const onChange = vi.fn()
 
   //   const wrapper = mount(
   //     createRadioGroup({}, {
@@ -209,8 +209,8 @@ describe('Radio', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  fit('when onChange do not change the value, change event can be also triggered.', async () => {
-    const onChange = jest.fn();
+  it('when onChange do not change the value, change event can be also triggered.', async () => {
+    const onChange = vi.fn();
     const onChangeRadioGroup = () => {
       onChange();
       wrapper.setProps({ value: 'A' });

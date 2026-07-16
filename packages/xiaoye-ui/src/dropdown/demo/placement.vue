@@ -57,7 +57,7 @@ const placements = [
 ] as DropdownProps['placement'][];
 </script>
 <style scoped>
-#components-dropdown-demo-placement .ant-btn {
+#components-dropdown-demo-placement .xy-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }

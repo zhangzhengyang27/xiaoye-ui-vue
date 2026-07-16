@@ -1,0 +1,11 @@
+{
+    "main": "./ClockIcon.vue",
+    "module": "./ClockIcon.vue",
+    "types": "./ClockIcon.d.ts",
+    "browser": {
+        "./sfc": "./ClockIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

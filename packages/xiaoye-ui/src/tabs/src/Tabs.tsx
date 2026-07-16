@@ -148,8 +148,15 @@ const InternalTabs = defineComponent({
     renderTabBar?: any;
     default: any;
   }>,
-  // emits: ['tabClick', 'tabScroll', 'change', 'update:activeKey'],
-  setup(props, { attrs, slots }) {
+  emits: ['tabClick', 'tabScroll', 'change', 'update:activeKey', 'edit'],
+  setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     devWarning(
       !(props.onPrevClick !== undefined) && !(props.onNextClick !== undefined),
       'Tabs',
@@ -239,11 +246,13 @@ const InternalTabs = defineComponent({
 
     // ======================== Events ========================
     const onInternalTabClick = (key: Key, e: MouseEvent | KeyboardEvent) => {
-      props.onTabClick?.(key, e);
+      emit('tabClick', key, e);
+      callEvent(props.onTabClick, key, e);
       const isActiveChanged = key !== mergedActiveKey.value;
       setMergedActiveKey(key);
       if (isActiveChanged) {
-        props.onChange?.(key);
+        emit('change', key);
+        callEvent(props.onChange, key);
       }
     };
 
@@ -279,7 +288,9 @@ const InternalTabs = defineComponent({
       if (type === 'editable-card') {
         editable = {
           onEdit: (editType, { key, event }) => {
-            props.onEdit?.(editType === 'add' ? event : key!, editType);
+            const editParams = editType === 'add' ? event : key!;
+            emit('edit', editParams, editType);
+            callEvent(props.onEdit, editParams, editType);
           },
           removeIcon: () => <CloseOutlined />,
           addIcon: slots.addIcon ? slots.addIcon : () => <PlusOutlined />,
@@ -367,7 +378,7 @@ export default defineComponent({
     renderTabBar?: any;
     default?: any;
   }>,
-  // emits: ['tabClick', 'tabScroll', 'change', 'update:activeKey'],
+  emits: ['tabClick', 'tabScroll', 'change', 'update:activeKey', 'edit'],
   setup(props, { attrs, slots, emit }) {
     const handleChange = (key: string) => {
       emit('update:activeKey', key);
@@ -380,6 +391,9 @@ export default defineComponent({
           {...omit(props, ['onUpdate:activeKey'])}
           {...attrs}
           onChange={handleChange}
+          onTabClick={(key, e) => emit('tabClick', key, e)}
+          onEdit={(e, action) => emit('edit', e, action)}
+          onTabScroll={info => emit('tabScroll', info)}
           tabs={tabs}
           v-slots={slots}
         />

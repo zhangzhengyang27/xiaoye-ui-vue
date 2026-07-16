@@ -1,0 +1,11 @@
+{
+    "main": "./AtSignIcon.vue",
+    "module": "./AtSignIcon.vue",
+    "types": "./AtSignIcon.d.ts",
+    "browser": {
+        "./sfc": "./AtSignIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

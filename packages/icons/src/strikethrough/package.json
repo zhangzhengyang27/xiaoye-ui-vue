@@ -1,0 +1,11 @@
+{
+    "main": "./StrikethroughIcon.vue",
+    "module": "./StrikethroughIcon.vue",
+    "types": "./StrikethroughIcon.d.ts",
+    "browser": {
+        "./sfc": "./StrikethroughIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

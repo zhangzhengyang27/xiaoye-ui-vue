@@ -1,0 +1,11 @@
+{
+    "main": "./LogOutIcon.vue",
+    "module": "./LogOutIcon.vue",
+    "types": "./LogOutIcon.d.ts",
+    "browser": {
+        "./sfc": "./LogOutIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

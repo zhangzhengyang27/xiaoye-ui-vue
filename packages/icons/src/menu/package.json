@@ -1,0 +1,11 @@
+{
+    "main": "./MenuIcon.vue",
+    "module": "./MenuIcon.vue",
+    "types": "./MenuIcon.d.ts",
+    "browser": {
+        "./sfc": "./MenuIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

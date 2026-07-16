@@ -104,7 +104,7 @@ There are 12 placement options available.
 const buttonWidth = 70;
 </script>
 <style scoped>
-:deep(#components-a-tooltip-demo-placement) .ant-btn {
+:deep(#components-a-tooltip-demo-placement) .xy-btn {
   width: 70px;
   text-align: center;
   padding: 0;

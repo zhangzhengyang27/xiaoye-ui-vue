@@ -1,0 +1,11 @@
+{
+    "main": "./ListIcon.vue",
+    "module": "./ListIcon.vue",
+    "types": "./ListIcon.d.ts",
+    "browser": {
+        "./sfc": "./ListIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

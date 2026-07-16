@@ -7,10 +7,10 @@
   "module": "./src/index.ts",
   "types": "./src/index.ts",
   "sideEffects": false,
-  "scripts": {
-    "build": "tsup",
-    "typecheck": "tsc --noEmit"
-  },
+"scripts": {
+        "build": "tsup src/index.ts --format esm --no-dts",
+        "typecheck": "tsc --noEmit"
+    },
   "dependencies": {
     "@xiaoye-ui/auto-import-resolver": "workspace:*"
   },

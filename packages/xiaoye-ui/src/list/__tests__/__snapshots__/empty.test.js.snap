@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`List renders empty list 1`] = `
-<div class="ant-list ant-list-split">
+exports[`List > renders empty list 1`] = `
+"<div class="xy-list xy-list-split css-dev-only-do-not-override-1p3hq3p">
   <!---->
   <!---->
-  <div class="ant-spin-nested-loading">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-spin-container">
-      <div class="ant-list-empty-text">
-        <div class="ant-empty ant-empty-normal">
-          <div class="ant-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+    <div class="xy-spin-container">
+      <div class="xy-list-empty-text">
+        <div class="xy-empty css-dev-only-do-not-override-1p3hq3p xy-empty-normal">
+          <div class="xy-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
                 <ellipse fill="#f5f5f5" cx="32" cy="33" rx="32" ry="7"></ellipse>
                 <g fill-rule="nonzero" stroke="#d9d9d9">
@@ -18,7 +18,7 @@ exports[`List renders empty list 1`] = `
                 </g>
               </g>
             </svg></div>
-          <p class="ant-empty-description">No data</p>
+          <p class="xy-empty-description">No data</p>
           <!---->
         </div>
       </div>
@@ -26,5 +26,5 @@ exports[`List renders empty list 1`] = `
   </div>
   <!---->
   <!---->
-</div>
+</div>"
 `;

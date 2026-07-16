@@ -1,0 +1,11 @@
+{
+    "main": "./HomeIcon.vue",
+    "module": "./HomeIcon.vue",
+    "types": "./HomeIcon.d.ts",
+    "browser": {
+        "./sfc": "./HomeIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

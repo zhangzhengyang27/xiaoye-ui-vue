@@ -30,7 +30,7 @@ const value2 = ref<[number, number]>([20, 50]);
 const disabled = ref<boolean>(false);
 </script>
 <style scoped>
-.code-box-demo .ant-slider {
+.code-box-demo .xy-slider {
   margin-bottom: 16px;
 }
 </style>

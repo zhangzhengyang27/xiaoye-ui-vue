@@ -51,11 +51,11 @@ describe('Input.Search', () => {
         return <Search placeholder="input search text" enterButton disabled />;
       },
     });
-    expect(wrapper.findAll('.ant-btn-primary[disabled]')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-btn-primary[disabled]')).toHaveLength(1);
   });
 
   // it('should trigger onSearch when click search icon', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" onSearch={onSearch} />
   //   );
@@ -68,7 +68,7 @@ describe('Input.Search', () => {
   // });
 
   // it('should trigger onSearch when click search button', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" enterButton onSearch={onSearch} />
   //   );
@@ -81,7 +81,7 @@ describe('Input.Search', () => {
   // });
 
   // it('should trigger onSearch when click search button with text', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" enterButton="button text" onSearch={onSearch} />
   //   );
@@ -94,7 +94,7 @@ describe('Input.Search', () => {
   // });
 
   // it('should trigger onSearch when click search button with customize button', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" enterButton={<Button>xiaoye-ui button</Button>} onSearch={onSearch} />
   //   );
@@ -107,7 +107,7 @@ describe('Input.Search', () => {
   // });
 
   // it('should trigger onSearch when click search button of native', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" enterButton={<button type="button">xiaoye-ui button</button>} onSearch={onSearch} />
   //   );
@@ -120,7 +120,7 @@ describe('Input.Search', () => {
   // });
 
   // it('should trigger onSearch when press enter', () => {
-  //   const onSearch = jest.fn();
+  //   const onSearch = vi.fn();
   //   const wrapper = mount(
   //     <Search defaultValue="search text" onSearch={onSearch} />
   //   );

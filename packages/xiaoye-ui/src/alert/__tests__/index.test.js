@@ -3,16 +3,16 @@ import Alert from '..';
 
 describe('Alert', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('could be closed', () => {
-    const onClose = jest.fn();
-    const afterClose = jest.fn();
+    const onClose = vi.fn();
+    const afterClose = vi.fn();
     const wrapper = mount({
       render() {
         return (
@@ -27,9 +27,9 @@ describe('Alert', () => {
         );
       },
     });
-    wrapper.find('.ant-alert-close-icon').trigger('click');
+    wrapper.find('.xy-alert-close-icon').trigger('click');
     expect(onClose).toHaveBeenCalled();
-    jest.runAllTimers();
+    vi.runAllTimers();
     wrapper.vm.$refs.alert.animationEnd();
     expect(afterClose).toHaveBeenCalled();
   });
@@ -41,7 +41,7 @@ describe('Alert', () => {
           return <Alert data-test="test-id" data-id="12345" />;
         },
       });
-      const input = wrapper.find('.ant-alert').element;
+      const input = wrapper.find('.xy-alert').element;
       expect(input.getAttribute('data-test')).toBe('test-id');
       expect(input.getAttribute('data-id')).toBe('12345');
     });
@@ -53,7 +53,7 @@ describe('Alert', () => {
         },
       });
 
-      const input = wrapper.find('.ant-alert').element;
+      const input = wrapper.find('.xy-alert').element;
       expect(input.getAttribute('aria-describedby')).toBe('some-label');
     });
 
@@ -64,7 +64,7 @@ describe('Alert', () => {
         },
       });
 
-      const input = wrapper.find('.ant-alert').element;
+      const input = wrapper.find('.xy-alert').element;
       expect(input.getAttribute('role')).toBe('status');
     });
   });

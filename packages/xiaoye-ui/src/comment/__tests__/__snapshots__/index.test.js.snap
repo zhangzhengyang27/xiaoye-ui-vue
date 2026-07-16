@@ -1,21 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Comment Comment can be used as editor, user can customize the editor component. 1`] = `
-<div>
-  <div class="ant-list ant-list-split">
+exports[`Comment > Comment can be used as editor, user can customize the editor component. 1`] = `
+"<div>
+  <div class="xy-list xy-list-split css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-list-header">1 reply</div>
-    <div class="ant-spin-nested-loading">
+    <div class="xy-list-header">1 reply</div>
+    <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
       <!---->
-      <div class="ant-spin-container">
-        <ul class="ant-list-items">
-          <li class="ant-list-item">
-            <div class="ant-comment">
-              <div class="ant-comment-inner">
-                <div class="ant-comment-avatar"><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="comment-avatar"></div>
-                <div class="ant-comment-content">
-                  <div class="ant-comment-content-author"><span class="ant-comment-content-author-name">Han Solo</span><span class="ant-comment-content-author-time">a few seconds ago</span></div>
-                  <div class="ant-comment-content-detail">222</div>
+      <div class="xy-spin-container">
+        <ul class="xy-list-items">
+          <li class="xy-list-item">
+            <div class="xy-comment css-dev-only-do-not-override-1p3hq3p">
+              <div class="xy-comment-inner">
+                <div class="xy-comment-avatar"><img src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="comment-avatar"></div>
+                <div class="xy-comment-content">
+                  <div class="xy-comment-content-author"><span class="xy-comment-content-author-name">Han Solo</span><span class="xy-comment-content-author-time">a few seconds ago</span></div>
+                  <div class="xy-comment-content-detail">222</div>
                   <!---->
                 </div>
               </div>
@@ -30,24 +30,24 @@ exports[`Comment Comment can be used as editor, user can customize the editor co
     <!---->
     <!---->
   </div>
-  <div class="ant-comment">
-    <div class="ant-comment-inner">
-      <div class="ant-comment-avatar">
+  <div class="xy-comment css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-comment-inner">
+      <div class="xy-comment-avatar">
         <!---->
       </div>
-      <div class="ant-comment-content">
-        <div class="ant-comment-content-author">
+      <div class="xy-comment-content">
+        <div class="xy-comment-content-author">
           <!---->
           <!---->
         </div>
-        <div class="ant-comment-content-detail">
+        <div class="xy-comment-content-detail">
           <div>
-            <div class="ant-form-item">
-              <div class="ant-row ant-form-row">
+            <div class="xy-form-item css-dev-only-do-not-override-1p3hq3p">
+              <div class="xy-form-item-row xy-row xy-form-item-row css-dev-only-do-not-override-1p3hq3p">
                 <!---->
-                <div class="ant-col ant-form-item-control">
-                  <div class="ant-form-item-control-input">
-                    <div class="ant-form-item-control-input-content"><textarea rows="4" class="ant-input"></textarea></div>
+                <div class="xy-form-item-control xy-col xy-form-item-control css-dev-only-do-not-override-1p3hq3p">
+                  <div class="xy-form-item-control-input">
+                    <div class="xy-form-item-control-input-content"><textarea class="xy-input css-dev-only-do-not-override-1p3hq3p" rows="4" value=""></textarea></div>
                   </div>
                   <!---->
                   <!---->
@@ -55,14 +55,12 @@ exports[`Comment Comment can be used as editor, user can customize the editor co
               </div>
               <!---->
             </div>
-            <div class="ant-form-item">
-              <div class="ant-row ant-form-row">
+            <div class="xy-form-item css-dev-only-do-not-override-1p3hq3p">
+              <div class="xy-form-item-row xy-row xy-form-item-row css-dev-only-do-not-override-1p3hq3p">
                 <!---->
-                <div class="ant-col ant-form-item-control">
-                  <div class="ant-form-item-control-input">
-                    <div class="ant-form-item-control-input-content"><button class="ant-btn ant-btn-primary" type="submit">
-                        <!----><span>Add Comment</span>
-                      </button></div>
+                <div class="xy-form-item-control xy-col xy-form-item-control css-dev-only-do-not-override-1p3hq3p">
+                  <div class="xy-form-item-control-input">
+                    <div class="xy-form-item-control-input-content"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="submit"><span style="display: contents;"><!----></span><span>Add Comment</span></button></div>
                   </div>
                   <!---->
                   <!---->
@@ -77,5 +75,5 @@ exports[`Comment Comment can be used as editor, user can customize the editor co
     </div>
     <!---->
   </div>
-</div>
+</div>"
 `;

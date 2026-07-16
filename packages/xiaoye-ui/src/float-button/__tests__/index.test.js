@@ -20,7 +20,7 @@ describe('FloatButton', () => {
         return <FloatButton type="primary">按钮</FloatButton>;
       },
     });
-    expect(wrapper.find('.ant-float-btn-primary').exists()).toBe(true);
+    expect(wrapper.find('.xy-float-btn-primary').exists()).toBe(true);
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {

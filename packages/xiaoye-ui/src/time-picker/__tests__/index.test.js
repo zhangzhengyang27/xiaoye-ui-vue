@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
 
 describe('TimePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   beforeEach(() => {
     document.body.innerHTML = '';
   });

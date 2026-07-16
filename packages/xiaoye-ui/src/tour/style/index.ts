@@ -40,7 +40,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
     colorBgTextHover,
     tourCloseSize,
     motionDurationSlow,
-    antCls,
+    rootCls,
   } = token;
 
   return [
@@ -148,7 +148,7 @@ const genBaseStyle: GenerateStyle<TourToken> = token => {
             },
             [`${componentCls}-buttons`]: {
               marginInlineStart: 'auto',
-              [`${antCls}-btn`]: {
+              [`${rootCls}-btn`]: {
                 marginInlineStart: marginXS,
               },
             },

@@ -24,6 +24,7 @@ export default defineComponent({
   name: 'AInput',
   inheritAttrs: false,
   props: inputProps(),
+  emits: ['update:value', 'change', 'input', 'focus', 'blur', 'pressEnter', 'keydown', 'keyup'],
   setup(props, { slots, attrs, expose, emit }) {
     const inputRef = ref();
     const formItemContext = useInjectFormItemContext();

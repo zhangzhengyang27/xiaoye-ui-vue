@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/result/demo/403.vue correctly 1`] = `
-<div class="ant-result ant-result-403">
-  <div class="ant-result-icon ant-result-image"><svg width="251" height="294">
+exports[`renders ./src/result/demo/403.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-403">
+  <div class="xy-result-icon xy-result-image"><svg width="251" height="294">
       <g fill="none" fill-rule="evenodd">
         <path d="M0 129.023v-2.084C0 58.364 55.591 2.774 124.165 2.774h2.085c68.574 0 124.165 55.59 124.165 124.165v2.084c0 68.575-55.59 124.166-124.165 124.166h-2.085C55.591 253.189 0 197.598 0 129.023" fill="#E4EBF7"></path>
         <path d="M41.417 132.92a8.231 8.231 0 1 1-16.38-1.65 8.231 8.231 0 0 1 16.38 1.65" fill="#FFF"></path>
@@ -60,18 +60,16 @@ exports[`renders ./components/result/demo/403.vue correctly 1`] = `
         <path d="M101.485 273.933h12.272M102.652 269.075c.006 3.368.04 5.759.11 6.47M102.667 263.125c-.009 1.53-.015 2.98-.016 4.313M102.204 174.024l.893 44.402s.669 1.561-.224 2.677c-.892 1.116 2.455.67.893 2.231-1.562 1.562.893 1.116 0 3.347-.592 1.48-.988 20.987-1.09 34.956" stroke="#648BD8" stroke-width="1.051" stroke-linecap="round" stroke-linejoin="round"></path>
       </g>
     </svg></div>
-  <div class="ant-result-title">403</div>
-  <div class="ant-result-subtitle">Sorry, you are not authorized to access this page.</div>
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Back Home</span>
-    </button></div>
+  <div class="xy-result-title">403</div>
+  <div class="xy-result-subtitle">Sorry, you are not authorized to access this page.</div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Back Home</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/404.vue correctly 1`] = `
-<div class="ant-result ant-result-404">
-  <div class="ant-result-icon ant-result-image"><svg width="252" height="294">
+exports[`renders ./src/result/demo/404.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-404">
+  <div class="xy-result-icon xy-result-image"><svg width="252" height="294">
       <defs>
         <path d="M0 .387h251.772v251.772H0z"></path>
       </defs>
@@ -137,18 +135,16 @@ exports[`renders ./components/result/demo/404.vue correctly 1`] = `
         <path d="M88.979 89.48s7.776 5.384 16.6 2.842" stroke="#E4EBF7" stroke-width="1.101" stroke-linecap="round" stroke-linejoin="round"></path>
       </g>
     </svg></div>
-  <div class="ant-result-title">404</div>
-  <div class="ant-result-subtitle">Sorry, the page you visited does not exist.</div>
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Back Home</span>
-    </button></div>
+  <div class="xy-result-title">404</div>
+  <div class="xy-result-subtitle">Sorry, the page you visited does not exist.</div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Back Home</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/500.vue correctly 1`] = `
-<div class="ant-result ant-result-500">
-  <div class="ant-result-icon ant-result-image"><svg width="254" height="294">
+exports[`renders ./src/result/demo/500.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-500">
+  <div class="xy-result-icon xy-result-image"><svg width="254" height="294">
       <defs>
         <path d="M0 .335h253.49v253.49H0z"></path>
         <path d="M0 293.665h253.49V.401H0z"></path>
@@ -221,81 +217,65 @@ exports[`renders ./components/result/demo/500.vue correctly 1`] = `
         <path d="M181.31 293.666h-27.712a3.209 3.209 0 0 1-3.209-3.21V269.79a3.209 3.209 0 0 1 3.209-3.21h27.711a3.209 3.209 0 0 1 3.209 3.21v20.668a3.209 3.209 0 0 1-3.209 3.209" fill="#F2D7AD" mask="url(#d)"></path>
       </g>
     </svg></div>
-  <div class="ant-result-title">500</div>
-  <div class="ant-result-subtitle">Sorry, the server is wrong.</div>
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Back Home</span>
-    </button></div>
+  <div class="xy-result-title">500</div>
+  <div class="xy-result-subtitle">Sorry, the server is wrong.</div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Back Home</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/customIcon.vue correctly 1`] = `
-<div class="ant-result ant-result-info">
-  <div class="ant-result-icon"><span role="img" aria-label="smile" class="anticon anticon-smile"><svg focusable="false" class="" data-icon="smile" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" fill="#1890ff"></path><path d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zM288 421a48.01 48.01 0 0196 0 48.01 48.01 0 01-96 0zm224 272c-85.5 0-155.6-67.3-160-151.6a8 8 0 018-8.4h48.1c4.2 0 7.8 3.2 8.1 7.4C420 589.9 461.5 629 512 629s92.1-39.1 95.8-88.6c.3-4.2 3.9-7.4 8.1-7.4H664a8 8 0 018 8.4C667.6 625.7 597.5 693 512 693zm176-224a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" fill="#e6f7ff"></path><path d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm376 112h-48.1c-4.2 0-7.8 3.2-8.1 7.4-3.7 49.5-45.3 88.6-95.8 88.6s-92-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4zm-24-112a48 48 0 1096 0 48 48 0 10-96 0z" fill="#1890ff"></path></svg></span></div>
-  <div class="ant-result-title">Great, we have done all the operations!</div>
+exports[`renders ./src/result/demo/customIcon.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-info">
+  <div class="xy-result-icon"><span role="img" aria-label="smile" class="anticon anticon-smile"><svg focusable="false" data-icon="smile" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z" fill="#1890ff"></path><path d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zM288 421a48.01 48.01 0 0196 0 48.01 48.01 0 01-96 0zm224 272c-85.5 0-155.6-67.3-160-151.6a8 8 0 018-8.4h48.1c4.2 0 7.8 3.2 8.1 7.4C420 589.9 461.5 629 512 629s92.1-39.1 95.8-88.6c.3-4.2 3.9-7.4 8.1-7.4H664a8 8 0 018 8.4C667.6 625.7 597.5 693 512 693zm176-224a48.01 48.01 0 010-96 48.01 48.01 0 010 96z" fill="#e6f7ff"></path><path d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm376 112h-48.1c-4.2 0-7.8 3.2-8.1 7.4-3.7 49.5-45.3 88.6-95.8 88.6s-92-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4zm-24-112a48 48 0 1096 0 48 48 0 10-96 0z" fill="#1890ff"></path></svg><!----></span></div>
+  <div class="xy-result-title">Great, we have done all the operations!</div>
   <!---->
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Next</span>
-    </button></div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Next</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/error.vue correctly 1`] = `
-<div class="ant-result ant-result-error">
-  <div class="ant-result-icon"><span role="img" aria-label="close-circle" class="anticon anticon-close-circle"><svg focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"></path></svg></span></div>
-  <div class="ant-result-title">Submission Failed</div>
-  <div class="ant-result-subtitle">Please check and modify the following information before resubmitting.</div>
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Go Console</span>
-    </button><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Buy Again</span>
-    </button></div>
-  <div class="ant-result-content">
-    <div class="desc">
-      <p style="font-size: 16px;"><strong>The content you submitted has the following error:</strong></p>
-      <p><span role="img" aria-label="close-circle" style="color: red;" class="anticon anticon-close-circle"><svg focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg></span> Your account has been frozen <a>Thaw immediately &gt;</a></p>
-      <p><span role="img" aria-label="close-circle" style="color: red;" class="anticon anticon-close-circle"><svg focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"></path><path d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg></span> Your account is not yet eligible to apply <a>Apply Unlock &gt;</a></p>
+exports[`renders ./src/result/demo/error.vue correctly 1`] = `
+"<div data-v-bd5dbb3c="" class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-error">
+  <div class="xy-result-icon"><span role="img" aria-label="close-circle" class="anticon anticon-close-circle"><svg focusable="false" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" fill-rule="evenodd" viewBox="64 64 896 896"><path d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"></path></svg><!----></span></div>
+  <div class="xy-result-title">Submission Failed</div>
+  <div class="xy-result-subtitle">Please check and modify the following information before resubmitting.</div>
+  <div class="xy-result-extra"><button data-v-bd5dbb3c="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Go Console</span></button><button data-v-bd5dbb3c="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Buy Again</span></button></div>
+  <div class="xy-result-content">
+    <div data-v-bd5dbb3c="" class="desc">
+      <p data-v-bd5dbb3c="" style="font-size: 16px;"><strong data-v-bd5dbb3c="">The content you submitted has the following error:</strong></p>
+      <p data-v-bd5dbb3c=""><span data-v-bd5dbb3c="" role="img" aria-label="close-circle" style="color: red;" class="anticon anticon-close-circle"><svg focusable="false" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" fill-rule="evenodd" viewBox="64 64 896 896"><path d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"></path></svg><!----></span> Your account has been frozen <a data-v-bd5dbb3c="">Thaw immediately &gt;</a></p>
+      <p data-v-bd5dbb3c=""><span data-v-bd5dbb3c="" role="img" aria-label="close-circle" style="color: red;" class="anticon anticon-close-circle"><svg focusable="false" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" fill-rule="evenodd" viewBox="64 64 896 896"><path d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"></path></svg><!----></span> Your account is not yet eligible to apply <a data-v-bd5dbb3c="">Apply Unlock &gt;</a></p>
     </div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/info.vue correctly 1`] = `
-<div class="ant-result ant-result-info">
-  <div class="ant-result-icon"><span role="img" aria-label="exclamation-circle" class="anticon anticon-exclamation-circle"><svg focusable="false" class="" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"></path></svg></span></div>
-  <div class="ant-result-title">Your operation has been executed</div>
+exports[`renders ./src/result/demo/info.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-info">
+  <div class="xy-result-icon"><span role="img" aria-label="exclamation-circle" class="anticon anticon-exclamation-circle"><svg focusable="false" data-icon="exclamation-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"></path></svg><!----></span></div>
+  <div class="xy-result-title">Your operation has been executed</div>
   <!---->
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Go Console</span>
-    </button></div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Go Console</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/success.vue correctly 1`] = `
-<div class="ant-result ant-result-success">
-  <div class="ant-result-icon"><span role="img" aria-label="check-circle" class="anticon anticon-check-circle"><svg focusable="false" class="" data-icon="check-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"></path></svg></span></div>
-  <div class="ant-result-title">Successfully Purchased Cloud Server ECS!</div>
-  <div class="ant-result-subtitle">Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.</div>
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Go Console</span>
-    </button><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Buy Again</span>
-    </button></div>
+exports[`renders ./src/result/demo/success.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-success">
+  <div class="xy-result-icon"><span role="img" aria-label="check-circle" class="anticon anticon-check-circle"><svg focusable="false" data-icon="check-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"></path></svg><!----></span></div>
+  <div class="xy-result-title">Successfully Purchased Cloud Server ECS!</div>
+  <div class="xy-result-subtitle">Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.</div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Go Console</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Buy Again</span></button></div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/result/demo/warning.vue correctly 1`] = `
-<div class="ant-result ant-result-warning">
-  <div class="ant-result-icon"><span role="img" aria-label="warning" class="anticon anticon-warning"><svg focusable="false" class="" data-icon="warning" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M955.7 856l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zM480 416c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v184c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V416zm32 352a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"></path></svg></span></div>
-  <div class="ant-result-title">There are some problems with your operation.</div>
+exports[`renders ./src/result/demo/warning.vue correctly 1`] = `
+"<div class="xy-result css-dev-only-do-not-override-1p3hq3p xy-result-warning">
+  <div class="xy-result-icon"><span role="img" aria-label="warning" class="anticon anticon-warning"><svg focusable="false" data-icon="warning" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M955.7 856l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zM480 416c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v184c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V416zm32 352a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"></path></svg><!----></span></div>
+  <div class="xy-result-title">There are some problems with your operation.</div>
   <!---->
-  <div class="ant-result-extra"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Go Console</span>
-    </button></div>
+  <div class="xy-result-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Go Console</span></button></div>
   <!---->
-</div>
+</div>"
 `;

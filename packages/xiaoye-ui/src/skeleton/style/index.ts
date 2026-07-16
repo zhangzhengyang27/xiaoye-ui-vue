@@ -8,7 +8,7 @@ export type ComponentToken = {
   colorGradientEnd: string;
 };
 
-const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
+const skeletonClsLoading = new Keyframes(`xy-skeleton-loading`, {
   '0%': {
     transform: 'translateX(-37.5%)',
   },

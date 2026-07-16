@@ -117,7 +117,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
 
 const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const { componentCls, motionDurationSlow } = token;
-  const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
+  const stepsItemCls = `${componentCls}-item`; // .xy-steps-item
 
   return {
     [stepsItemCls]: {
@@ -287,7 +287,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 };
 
 const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const { componentCls } = token; // .ant-steps
+  const { componentCls } = token; // .xy-steps
 
   return {
     [componentCls]: {

@@ -1,0 +1,11 @@
+{
+    "main": "./ClipboardIcon.vue",
+    "module": "./ClipboardIcon.vue",
+    "types": "./ClipboardIcon.d.ts",
+    "browser": {
+        "./sfc": "./ClipboardIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

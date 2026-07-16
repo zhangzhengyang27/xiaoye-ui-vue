@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Switch should has click wave effect 1`] = `
-<button type="button" role="switch" aria-checked="true" class="ant-switch-checked ant-switch">
-  <div class="ant-switch-handle">
+exports[`Switch > should has click wave effect 1`] = `
+"<button type="button" role="switch" aria-checked="false" class="xy-switch css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-switch-handle">
     <!---->
-  </div><span class="ant-switch-inner"><span class="ant-switch-inner-checked"><!----></span><span class="ant-switch-inner-unchecked"><!----></span></span>
-</button>
+  </div><span class="xy-switch-inner"><span class="xy-switch-inner-checked"><!----></span><span class="xy-switch-inner-unchecked"><!----></span></span>
+</button>"
 `;

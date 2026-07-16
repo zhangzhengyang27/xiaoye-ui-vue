@@ -1,0 +1,11 @@
+{
+    "main": "./EuroIcon.vue",
+    "module": "./EuroIcon.vue",
+    "types": "./EuroIcon.d.ts",
+    "browser": {
+        "./sfc": "./EuroIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -10,7 +10,7 @@ describe('Popconfirm', () => {
   //   preventDefault: expect.any(Function),
   // })
   it('should popup Popconfirm dialog', async () => {
-    const onVisibleChange = jest.fn();
+    const onVisibleChange = vi.fn();
 
     mount(
       {

@@ -1,0 +1,11 @@
+{
+    "main": "./SaveIcon.vue",
+    "module": "./SaveIcon.vue",
+    "types": "./SaveIcon.d.ts",
+    "browser": {
+        "./sfc": "./SaveIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,2 +1,4 @@
-// 占位：组件元数据，阶段 9 由 prebuild 脚本生成
-export {};
+export * from './shared.ts';
+export * from './components/index.ts';
+export * from './composables/index.ts';
+export * from './directives/index.ts';

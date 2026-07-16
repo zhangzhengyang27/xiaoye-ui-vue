@@ -10,7 +10,7 @@ describe('Badge', () => {
         return <Badge count={10} dot />;
       },
     });
-    expect(badge.findAll('.ant-card-multiple-words').length).toBe(0);
+    expect(badge.findAll('.xy-card-multiple-words').length).toBe(0);
   });
   it('badge should support float number', () => {
     let wrapper = mount({
@@ -32,7 +32,7 @@ describe('Badge', () => {
         return <Badge count={0} dot />;
       },
     });
-    expect(badge.findAll('.ant-badge-dot').length).toBe(0);
+    expect(badge.findAll('.xy-badge-dot').length).toBe(0);
   });
 
   it('should have an overriden title attribute', () => {
@@ -41,7 +41,7 @@ describe('Badge', () => {
         return <Badge count={10} title="Custom title" />;
       },
     });
-    expect(badge.find('.ant-scroll-number').element.attributes.getNamedItem('title').value).toEqual(
+    expect(badge.find('.xy-scroll-number').element.attributes.getNamedItem('title').value).toEqual(
       'Custom title',
     );
   });
@@ -161,7 +161,7 @@ describe('Ribbon', () => {
         },
       });
 
-      expect(wrapperStart.findAll('.ant-ribbon-placement-start').length).toEqual(1);
+      expect(wrapperStart.findAll('.xy-ribbon-placement-start').length).toEqual(1);
 
       const wrapperEnd = mount({
         render() {
@@ -172,7 +172,7 @@ describe('Ribbon', () => {
           );
         },
       });
-      expect(wrapperEnd.findAll('.ant-ribbon-placement-end').length).toEqual(1);
+      expect(wrapperEnd.findAll('.xy-ribbon-placement-end').length).toEqual(1);
     });
   });
 
@@ -187,7 +187,7 @@ describe('Ribbon', () => {
           );
         },
       });
-      expect(wrapper.findAll('.ant-ribbon-color-green').length).toEqual(1);
+      expect(wrapper.findAll('.xy-ribbon-color-green').length).toEqual(1);
     });
   });
 
@@ -202,7 +202,7 @@ describe('Ribbon', () => {
           );
         },
       });
-      expect(wrapper.find('.ant-ribbon').text()).toEqual('cool');
+      expect(wrapper.find('.xy-ribbon').text()).toEqual('cool');
     });
     it('works with element', () => {
       const wrapper = mount({

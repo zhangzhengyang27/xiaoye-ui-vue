@@ -65,7 +65,15 @@ const Card = defineComponent({
     customTab: CardTabListType;
     default: any;
   }>,
-  setup(props, { slots, attrs }) {
+  emits: ['tabChange'],
+  setup(props, { slots, attrs, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const { prefixCls, direction, size } = useConfigInject('card', props);
     const [wrapSSR, hashId] = useStyle(prefixCls);
     const getAction = (actions: VNodeTypes[]) => {
@@ -79,7 +87,8 @@ const Card = defineComponent({
       return actionList;
     };
     const triggerTabChange = (key: string) => {
-      props.onTabChange?.(key);
+      emit('tabChange', key);
+      callEvent(props.onTabChange, key);
     };
     const isContainGrid = (obj: VNode[] = []) => {
       let containGrid: boolean;

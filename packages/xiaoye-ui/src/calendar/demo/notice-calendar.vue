@@ -81,7 +81,7 @@ const getMonthData = (value: Dayjs) => {
   margin: 0;
   padding: 0;
 }
-.events .ant-badge-status {
+.events .xy-badge-status {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;

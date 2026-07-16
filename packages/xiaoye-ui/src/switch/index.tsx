@@ -67,7 +67,7 @@ const Switch = defineComponent({
     unCheckedChildren: any;
     default: any;
   }>,
-  // emits: ['update:checked', 'mouseup', 'change', 'click', 'keydown', 'blur'],
+  emits: ['update:checked', 'mouseup', 'change', 'click', 'keydown', 'blur', 'mouseenter', 'mouseleave'],
   setup(props, { attrs, slots, expose, emit }) {
     const formItemContext = useInjectFormItemContext();
     const disabledContext = useInjectDisabled();
@@ -123,11 +123,13 @@ const Switch = defineComponent({
       }
       emit('update:checked', check);
       emit('change', check, e);
+      props.onChange?.(check, e as MouseEvent);
       formItemContext.onFieldChange();
     };
 
     const handleBlur = (e: FocusEvent) => {
       emit('blur', e);
+      props.onBlur?.(e);
     };
 
     const handleClick = (e: MouseEvent) => {
@@ -135,6 +137,7 @@ const Switch = defineComponent({
       const newChecked = checkedStatus.value ? props.unCheckedValue : props.checkedValue;
       setChecked(newChecked, e);
       emit('click', newChecked, e);
+      props.onClick?.(newChecked, e);
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -144,11 +147,13 @@ const Switch = defineComponent({
         setChecked(props.checkedValue, e);
       }
       emit('keydown', e);
+      props.onKeydown?.(e);
     };
 
     const handleMouseUp = (e: MouseEvent) => {
       refSwitchNode.value?.blur();
       emit('mouseup', e);
+      props.onMouseup?.(e);
     };
 
     const classNames = computed(() => ({
@@ -183,6 +188,12 @@ const Switch = defineComponent({
             onClick={handleClick}
             onBlur={handleBlur}
             onMouseup={handleMouseUp}
+            onMouseenter={(e: MouseEvent) => {
+              emit('mouseenter', e);
+            }}
+            onMouseleave={(e: MouseEvent) => {
+              emit('mouseleave', e);
+            }}
             type="button"
             role="switch"
             aria-checked={checked.value as any}

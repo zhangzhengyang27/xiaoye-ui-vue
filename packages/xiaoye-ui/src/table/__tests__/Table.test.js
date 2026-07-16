@@ -23,7 +23,7 @@ describe('Table', () => {
     },
   ];
 
-  it('renders JSX correctly', done => {
+  it('renders JSX correctly', async () => {
     const wrapper = mount(
       {
         render() {
@@ -41,10 +41,8 @@ describe('Table', () => {
       { sync: false },
     );
 
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('updates columns when receiving props', async () => {
@@ -85,19 +83,19 @@ describe('Table', () => {
       sync: false,
     });
     await sleep();
-    expect(wrapper.findAll('.ant-spin')).toHaveLength(0);
-    expect(wrapper.find('.ant-table-placeholder').text()).not.toEqual('');
+    expect(wrapper.findAll('.xy-spin')).toHaveLength(0);
+    expect(wrapper.find('.xy-table-placeholder').text()).not.toEqual('');
 
     loading.spinning = true;
     wrapper.setProps({ loading: { ...loading } });
     await sleep();
-    expect(wrapper.findAll('.ant-spin')).toHaveLength(0);
+    expect(wrapper.findAll('.xy-spin')).toHaveLength(0);
 
     await sleep(500);
-    expect(wrapper.findAll('.ant-spin')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-spin')).toHaveLength(1);
   });
 
-  it('align column should not override cell style', done => {
+  it('align column should not override cell style', async () => {
     const columns = [
       { title: 'Name', dataIndex: 'name', key: 'name' },
       {
@@ -121,9 +119,7 @@ describe('Table', () => {
       },
       sync: false,
     });
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

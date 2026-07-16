@@ -4,6 +4,7 @@ import * as components from './components';
 import { default as version } from './version';
 import cssinjs from './_util/cssinjs';
 export * from './components';
+export { Theme } from './_util/cssinjs';
 export * from './_util/cssinjs';
 
 export { default as theme } from './theme';

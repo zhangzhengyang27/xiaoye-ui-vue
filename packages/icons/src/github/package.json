@@ -1,0 +1,11 @@
+{
+    "main": "./GithubIcon.vue",
+    "module": "./GithubIcon.vue",
+    "types": "./GithubIcon.d.ts",
+    "browser": {
+        "./sfc": "./GithubIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

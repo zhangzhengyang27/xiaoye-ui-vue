@@ -1,0 +1,11 @@
+{
+    "main": "./CloudIcon.vue",
+    "module": "./CloudIcon.vue",
+    "types": "./CloudIcon.d.ts",
+    "browser": {
+        "./sfc": "./CloudIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

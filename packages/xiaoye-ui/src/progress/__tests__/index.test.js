@@ -14,17 +14,17 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(0);
     });
 
     wrapper.setProps({ percent: 50, success: { percent: 100 } });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(1);
+      expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(1);
     });
 
     wrapper.setProps({ percent: 100, success: { percent: 0 } });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(0);
+      expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(0);
     });
   });
 
@@ -179,7 +179,7 @@ describe('Progress', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
     );
-    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1890FF, #1890FF)');
+    expect(handleGradient({}).backgroundImage).toBe('linear-gradient(to right, #1677FF, #1677FF)');
     expect(handleGradient({ from: 'test', to: 'test', '0%': 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test 0%)',
     );
@@ -200,7 +200,7 @@ describe('Progress', () => {
         return <Progress percent={100} />;
       },
     });
-    expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(1);
   });
 
   it('should show success status when percent is 100 and status is undefined', () => {
@@ -209,17 +209,17 @@ describe('Progress', () => {
         return <Progress percent={100} status={undefined} />;
       },
     });
-    expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(1);
   });
 
   // it('should show success status when status is invalid', () => {
-  //   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  //   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   //   const wrapper = mount({
   //     render() {
   //       return <Progress percent={100} status="invalid" />;
   //     },
   //   });
-  //   expect(wrapper.findAll('.ant-progress-status-success')).toHaveLength(1);
+  //   expect(wrapper.findAll('.xy-progress-status-success')).toHaveLength(1);
   //   errorSpy.mockRestore();
   // });
 
@@ -238,10 +238,10 @@ describe('Progress', () => {
         return <Progress steps={5} percent={60} />;
       },
     });
-    expect(wrapper.findAll('.ant-progress-steps-item-active').length).toBe(3);
+    expect(wrapper.findAll('.xy-progress-steps-item-active').length).toBe(3);
     wrapper.setProps({ percent: 40 });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-steps-item-active').length).toBe(2);
+      expect(wrapper.findAll('.xy-progress-steps-item-active').length).toBe(2);
     });
   });
 
@@ -251,13 +251,13 @@ describe('Progress', () => {
         return <Progress steps={5} percent={60} strokeColor="#1890ff" />;
       },
     });
-    expect(wrapper.findAll('.ant-progress-steps-item')[0].element.style.backgroundColor).toBe(
+    expect(wrapper.findAll('.xy-progress-steps-item')[0].element.style.backgroundColor).toBe(
       'rgb(24, 144, 255)',
     );
     wrapper.setProps({ percent: 40 });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-steps-item')[2].element.style.backgroundColor).toBe('');
-      expect(wrapper.findAll('.ant-progress-steps-item')[1].element.style.backgroundColor).toBe(
+      expect(wrapper.findAll('.xy-progress-steps-item')[2].element.style.backgroundColor).toBe('');
+      expect(wrapper.findAll('.xy-progress-steps-item')[1].element.style.backgroundColor).toBe(
         'rgb(24, 144, 255)',
       );
     });
@@ -265,7 +265,7 @@ describe('Progress', () => {
 
   it('steps should support trailColor', () => {
     const wrapper = mount(<Progress steps={5} percent={20} trailColor="#1890ee" />);
-    expect(wrapper.findAll('.ant-progress-steps-item')[1].element.style.backgroundColor).toBe(
+    expect(wrapper.findAll('.xy-progress-steps-item')[1].element.style.backgroundColor).toBe(
       'rgb(24, 144, 238)',
     );
   });
@@ -276,14 +276,14 @@ describe('Progress', () => {
         return <Progress steps={9} percent={22.22} />;
       },
     });
-    expect(wrapper.findAll('.ant-progress-steps-item-active').length).toBe(2);
+    expect(wrapper.findAll('.xy-progress-steps-item-active').length).toBe(2);
     wrapper.setProps({ percent: 33.33 });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-steps-item-active').length).toBe(3);
+      expect(wrapper.findAll('.xy-progress-steps-item-active').length).toBe(3);
     });
     wrapper.setProps({ percent: 44.44 });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-progress-steps-item-active').length).toBe(4);
+      expect(wrapper.findAll('.xy-progress-steps-item-active').length).toBe(4);
     });
   });
 
@@ -297,7 +297,7 @@ describe('Progress', () => {
   });
 
   it('should warning if use `progress` in success', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [xiaoye-ui: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
@@ -305,7 +305,7 @@ describe('Progress', () => {
   });
 
   it('should warning if use `progress` in success in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return <Progress percent={60} success={{ progress: 30 }} type="circle" />;

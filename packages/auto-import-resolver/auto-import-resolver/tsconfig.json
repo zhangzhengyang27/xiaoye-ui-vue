@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "module": "es2022",
+        "moduleResolution": "bundler",
+        "paths": {
+            "@xiaoye-ui/auto-import-resolver/*": ["./src/*"],
+            "@xiaoye-ui/metadata/*": ["../../packages/metadata/src/*"]
+        }
+    },
+    "exclude": ["node_modules", "dist"]
+}

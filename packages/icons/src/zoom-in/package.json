@@ -1,0 +1,11 @@
+{
+    "main": "./ZoomInIcon.vue",
+    "module": "./ZoomInIcon.vue",
+    "types": "./ZoomInIcon.d.ts",
+    "browser": {
+        "./sfc": "./ZoomInIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

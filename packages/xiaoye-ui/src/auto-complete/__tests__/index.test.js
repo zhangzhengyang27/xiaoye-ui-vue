@@ -29,6 +29,6 @@ describe('AutoComplete with Custom Input Element Render', () => {
     input.element.value = '123';
     input.trigger('input');
     await sleep(100);
-    expect($$('.ant-select-item-option').length).toBe(3);
+    expect($$('.xy-select-item-option').length).toBe(3);
   });
 });

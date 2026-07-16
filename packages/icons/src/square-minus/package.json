@@ -1,0 +1,11 @@
+{
+    "main": "./SquareMinusIcon.vue",
+    "module": "./SquareMinusIcon.vue",
+    "types": "./SquareMinusIcon.d.ts",
+    "browser": {
+        "./sfc": "./SquareMinusIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

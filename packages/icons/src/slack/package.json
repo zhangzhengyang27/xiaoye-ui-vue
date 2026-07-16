@@ -1,0 +1,11 @@
+{
+    "main": "./SlackIcon.vue",
+    "module": "./SlackIcon.vue",
+    "types": "./SlackIcon.d.ts",
+    "browser": {
+        "./sfc": "./SlackIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

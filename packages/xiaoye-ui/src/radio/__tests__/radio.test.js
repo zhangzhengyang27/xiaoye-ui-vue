@@ -20,8 +20,8 @@ describe('Radio', () => {
   });
 
   it('responses hover events', async () => {
-    const onMouseEnter = jest.fn();
-    const onMouseLeave = jest.fn();
+    const onMouseEnter = vi.fn();
+    const onMouseLeave = vi.fn();
 
     const wrapper = mount(
       {

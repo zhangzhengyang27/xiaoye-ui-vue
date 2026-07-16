@@ -1,0 +1,11 @@
+{
+    "main": "./LanguagesIcon.vue",
+    "module": "./LanguagesIcon.vue",
+    "types": "./LanguagesIcon.d.ts",
+    "browser": {
+        "./sfc": "./LanguagesIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

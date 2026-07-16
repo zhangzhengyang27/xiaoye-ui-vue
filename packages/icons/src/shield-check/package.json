@@ -1,0 +1,11 @@
+{
+    "main": "./ShieldCheckIcon.vue",
+    "module": "./ShieldCheckIcon.vue",
+    "types": "./ShieldCheckIcon.d.ts",
+    "browser": {
+        "./sfc": "./ShieldCheckIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

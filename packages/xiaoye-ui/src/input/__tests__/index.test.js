@@ -30,17 +30,17 @@ describe('Input', () => {
       props: { allowClear: true, defaultValue: '111', disabled: true },
       sync: false,
     });
-    expect(wrapper.findAll('.ant-input-clear-icon-hidden').length).toBeTruthy();
+    expect(wrapper.findAll('.xy-input-clear-icon-hidden').length).toBeTruthy();
   });
 });
 
 describe('TextArea', () => {
-  xit('should auto calculate height according to content length', async () => {
+  it.skip('should auto calculate height according to content length', async () => {
     const wrapper = mount(TextArea, {
       props: { value: '', readonly: true, autoSize: true },
       sync: false,
     });
-    const mockFunc = jest.spyOn(wrapper.vm.resizableTextArea, 'resizeTextarea');
+    const mockFunc = vi.spyOn(wrapper.vm.resizableTextArea, 'resizeTextarea');
     await asyncExpect(() => {
       wrapper.setProps({ value: '1111\n2222\n3333' });
     });
@@ -75,7 +75,7 @@ describe('TextArea', () => {
       props: { showCount: true, defaultValue: '111', maxlength: 10 },
       sync: false,
     });
-    expect(wrapper.find('.ant-input-textarea-show-count')).toBeTruthy();
+    expect(wrapper.find('.xy-input-textarea-show-count')).toBeTruthy();
     await asyncExpect(() => {
       expect(wrapper.html()).toMatchSnapshot();
     });
@@ -172,7 +172,7 @@ describe('Input.Password', () => {
   });
 
   it('should support visible', async () => {
-    const cbMock = jest.fn();
+    const cbMock = vi.fn();
     const wrapper = mount({
       render() {
         return <Password {...{ 'onUpdate:visible': cbMock }} visible="false"></Password>;

@@ -21,7 +21,7 @@ const FloatButton = defineComponent({
   inheritAttrs: false,
   props: initDefaultProps(floatButtonProps(), { type: 'default', shape: 'circle' }),
   setup(props, { attrs, slots }) {
-    const { prefixCls, direction } = useConfigInject(floatButtonPrefixCls, props);
+    const { prefixCls, direction, rootPrefixCls } = useConfigInject(floatButtonPrefixCls, props);
     const [wrapSSR, hashId] = useStyle(prefixCls);
     const { shape: groupShape } = useInjectFloatButtonGroupContext();
 
@@ -30,6 +30,20 @@ const FloatButton = defineComponent({
     const mergeShape = computed(() => {
       return groupShape?.value || props.shape;
     });
+
+    const isUnBorderedButtonType = (type: string | undefined) =>
+      type === 'text' || type === 'link';
+
+    const handleClick = (e: MouseEvent) => {
+      if (isUnBorderedButtonType(props.type)) {
+        return;
+      }
+      const node = floatButtonRef.value;
+      if (node) {
+        node.setAttribute(`${rootPrefixCls.value}-click-animating-without-extra-node`, 'true');
+      }
+      (attrs.onClick as any)?.(e);
+    };
 
     return () => {
       const {
@@ -86,13 +100,20 @@ const FloatButton = defineComponent({
         );
       }
 
+      const buttonProps = {
+        ...attrs,
+        ...restProps,
+        class: classString,
+        onClick: handleClick,
+      };
+
       return wrapSSR(
         props.href ? (
-          <a ref={floatButtonRef} {...attrs} {...(restProps as any)} class={classString}>
+          <a ref={floatButtonRef} {...buttonProps}>
             {buttonNode}
           </a>
         ) : (
-          <button ref={floatButtonRef} {...attrs} {...restProps} class={classString} type="button">
+          <button ref={floatButtonRef} {...buttonProps} type="button">
             {buttonNode}
           </button>
         ),

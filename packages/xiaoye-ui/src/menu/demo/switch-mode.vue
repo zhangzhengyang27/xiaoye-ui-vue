@@ -20,7 +20,7 @@ Show the dynamic switching mode (between `inline` and `vertical`).
   <div>
     <a-switch :checked="state.mode === 'vertical'" @change="changeMode" />
     Change Mode
-    <span class="ant-divider" style="margin: 0 1em" />
+    <span class="xy-divider" style="margin: 0 1em" />
     <a-switch :checked="state.theme === 'dark'" @change="changeTheme" />
     Change Theme
     <br />

@@ -1,0 +1,11 @@
+{
+    "main": "./HighlighterIcon.vue",
+    "module": "./HighlighterIcon.vue",
+    "types": "./HighlighterIcon.d.ts",
+    "browser": {
+        "./sfc": "./HighlighterIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

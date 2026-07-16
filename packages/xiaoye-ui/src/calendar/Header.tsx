@@ -18,7 +18,7 @@ interface SharedProps<DateType> {
   locale: Locale;
   fullscreen: boolean;
   divRef: Ref<HTMLDivElement>;
-  onChange: (year: DateType) => void;
+  onChange?: (year: DateType) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
@@ -46,29 +46,33 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
       options={options}
       value={year}
       class={`${prefixCls}-year-select`}
-      onChange={(numYear: number) => {
-        let newDate = generateConfig.setYear(value, numYear);
+      onChange={
+        onChange
+          ? (numYear: number) => {
+              let newDate = generateConfig.setYear(value, numYear);
 
-        if (validRange) {
-          const [startDate, endDate] = validRange;
-          const newYear = generateConfig.getYear(newDate);
-          const newMonth = generateConfig.getMonth(newDate);
-          if (
-            newYear === generateConfig.getYear(endDate) &&
-            newMonth > generateConfig.getMonth(endDate)
-          ) {
-            newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(endDate));
-          }
-          if (
-            newYear === generateConfig.getYear(startDate) &&
-            newMonth < generateConfig.getMonth(startDate)
-          ) {
-            newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(startDate));
-          }
-        }
+              if (validRange) {
+                const [startDate, endDate] = validRange;
+                const newYear = generateConfig.getYear(newDate);
+                const newMonth = generateConfig.getMonth(newDate);
+                if (
+                  newYear === generateConfig.getYear(endDate) &&
+                  newMonth > generateConfig.getMonth(endDate)
+                ) {
+                  newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(endDate));
+                }
+                if (
+                  newYear === generateConfig.getYear(startDate) &&
+                  newMonth < generateConfig.getMonth(startDate)
+                ) {
+                  newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(startDate));
+                }
+              }
 
-        onChange(newDate);
-      }}
+              onChange(newDate);
+            }
+          : undefined
+      }
       getPopupContainer={() => divRef!.value!}
     />
   );
@@ -109,9 +113,13 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       class={`${prefixCls}-month-select`}
       value={month}
       options={options}
-      onChange={(newMonth: number) => {
-        onChange(generateConfig.setMonth(value, newMonth));
-      }}
+      onChange={
+        onChange
+          ? (newMonth: number) => {
+              onChange(generateConfig.setMonth(value, newMonth));
+            }
+          : undefined
+      }
       getPopupContainer={() => divRef!.value!}
     />
   );
@@ -121,16 +129,20 @@ MonthSelect.inheritAttrs = false;
 
 interface ModeSwitchProps<DateType> extends Omit<SharedProps<DateType>, 'onChange'> {
   mode: CalendarMode;
-  onModeChange: (type: CalendarMode) => void;
+  onModeChange?: (type: CalendarMode) => void;
 }
 
 function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
   const { prefixCls, locale, mode, fullscreen, onModeChange } = props;
   return (
     <Group
-      onChange={({ target: { value } }) => {
-        onModeChange(value);
-      }}
+      onChange={
+        onModeChange
+          ? ({ target: { value } }) => {
+              onModeChange(value);
+            }
+          : undefined
+      }
       value={mode}
       size={fullscreen ? undefined : 'small'}
       class={`${prefixCls}-mode-switch`}
@@ -150,13 +162,14 @@ export interface CalendarHeaderProps<DateType> {
   locale: Locale;
   mode: CalendarMode;
   fullscreen: boolean;
-  onChange: (date: DateType, source: SelectInfo['source']) => void;
-  onModeChange: (mode: CalendarMode) => void;
+  onChange?: (date: DateType, source: SelectInfo['source']) => void;
+  onModeChange?: (mode: CalendarMode) => void;
 }
 
 export default defineComponent<CalendarHeaderProps<any>>({
   name: 'CalendarHeader',
   inheritAttrs: false,
+  emits: ['change', 'modeChange'],
   props: [
     'mode',
     'prefixCls',
@@ -167,14 +180,14 @@ export default defineComponent<CalendarHeaderProps<any>>({
     'mode',
     'fullscreen',
   ] as any,
-  setup(_props, { attrs }) {
+  setup(_props, { attrs, emit }) {
     const divRef = ref<HTMLDivElement>(null);
     const formItemInputContext = FormItemInputContext.useInject();
     FormItemInputContext.useProvide(formItemInputContext, { isFormItemInput: false });
 
     return () => {
       const props = { ..._props, ...attrs };
-      const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
+      const { prefixCls, fullscreen, mode } = props;
       const sharedProps = {
         ...props,
         fullscreen,
@@ -186,18 +199,23 @@ export default defineComponent<CalendarHeaderProps<any>>({
           <YearSelect
             {...sharedProps}
             onChange={v => {
-              onChange(v, 'year');
+              emit('change', v);
             }}
           />
           {mode === 'month' && (
             <MonthSelect
               {...sharedProps}
               onChange={v => {
-                onChange(v, 'month');
+                emit('change', v);
               }}
             />
           )}
-          <ModeSwitch {...sharedProps} onModeChange={onModeChange} />
+          <ModeSwitch
+            {...sharedProps}
+            onModeChange={v => {
+              emit('modeChange', v);
+            }}
+          />
         </div>
       );
     };

@@ -14,7 +14,7 @@ type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = token => {
-  const { prefixCls, componentCls, antCls } = token;
+  const { prefixCls, componentCls, rootCls } = token;
   const cascaderMenuItemCls = `${componentCls}-menu-item`;
   const iconCls = `
     &${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
@@ -42,7 +42,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = token => {
         // ==================== Checkbox ====================
         getCheckboxStyle(`${prefixCls}-checkbox`, token),
         {
-          [`&${antCls}-select-dropdown`]: {
+          [`&${rootCls}-select-dropdown`]: {
             padding: 0,
           },
         },

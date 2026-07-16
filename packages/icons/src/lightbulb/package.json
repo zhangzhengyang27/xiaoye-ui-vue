@@ -1,0 +1,11 @@
+{
+    "main": "./LightbulbIcon.vue",
+    "module": "./LightbulbIcon.vue",
+    "types": "./LightbulbIcon.d.ts",
+    "browser": {
+        "./sfc": "./LightbulbIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

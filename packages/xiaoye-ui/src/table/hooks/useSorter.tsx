@@ -195,7 +195,7 @@ function injectSorter<RecordType>(
             });
 
             if (originOnClick) {
-              originOnClick(event);
+              originOnClick(event as PointerEvent);
             }
           };
           cell.onKeydown = (event: KeyboardEvent) => {

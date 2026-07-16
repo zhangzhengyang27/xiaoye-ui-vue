@@ -11,7 +11,15 @@ export default defineComponent({
     onClick: Function,
     onHover: Function,
   },
-  setup(props) {
+  emits: ['click', 'hover'],
+  setup(props, { emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     return () => {
       if (!props.presets.length) {
         return null;
@@ -24,13 +32,16 @@ export default defineComponent({
                 key={index}
                 onClick={e => {
                   e.stopPropagation();
-                  props.onClick(value);
+                  emit('click', value);
+                  callEvent(props.onClick, value);
                 }}
                 onMouseenter={() => {
-                  props.onHover?.(value);
+                  emit('hover', value);
+                  callEvent(props.onHover, value);
                 }}
                 onMouseleave={() => {
-                  props.onHover?.(null);
+                  emit('hover', null);
+                  callEvent(props.onHover, null);
                 }}
               >
                 {label}

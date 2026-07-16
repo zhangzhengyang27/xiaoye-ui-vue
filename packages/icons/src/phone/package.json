@@ -1,0 +1,11 @@
+{
+    "main": "./PhoneIcon.vue",
+    "module": "./PhoneIcon.vue",
+    "types": "./PhoneIcon.d.ts",
+    "browser": {
+        "./sfc": "./PhoneIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

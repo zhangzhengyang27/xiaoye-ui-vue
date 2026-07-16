@@ -1,0 +1,11 @@
+{
+    "main": "./FileTextIcon.vue",
+    "module": "./FileTextIcon.vue",
+    "types": "./FileTextIcon.d.ts",
+    "browser": {
+        "./sfc": "./FileTextIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

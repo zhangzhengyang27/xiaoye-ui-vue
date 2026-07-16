@@ -21,6 +21,7 @@ export default defineComponent({
   name: 'VCInput',
   inheritAttrs: false,
   props: inputProps(),
+  emits: ['change', 'input', 'focus', 'blur', 'keydown', 'keyup', 'pressEnter'],
   setup(props, { slots, attrs, expose, emit }) {
     const stateValue = shallowRef(props.value === undefined ? props.defaultValue : props.value);
     const focused = shallowRef(false);
@@ -191,7 +192,7 @@ export default defineComponent({
       if (!inputProps.autofocus) {
         delete inputProps.autofocus;
       }
-      const inputNode = <BaseInputCore {...omit(inputProps, ['size'])} />;
+      const inputNode = <BaseInputCore {...(omit(inputProps, ['size']) as any)} />;
       return inputNode;
     };
     const getSuffix = () => {

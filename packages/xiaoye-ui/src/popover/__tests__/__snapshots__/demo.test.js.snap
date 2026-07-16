@@ -1,99 +1,53 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/popover/demo/arrow-point-at-center.vue correctly 1`] = `
-<div class="ant-space ant-space-horizontal ant-space-align-center">
-  <div class="ant-space-item" style="margin-right: 8px;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Align edge / 边缘对齐</span>
-    </button>
+exports[`renders ./src/popover/demo/arrow-point-at-center.vue correctly 1`] = `
+"<div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center">
+  <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Align edge / 边缘对齐</span></button>
+    <!---->
   </div>
   <!---->
-  <div class="ant-space-item">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Arrow points to center / 箭头指向中心</span>
-    </button>
+  <div class="xy-space-item"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Arrow points to center / 箭头指向中心</span></button>
+    <!---->
   </div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/popover/demo/basic.vue correctly 1`] = `
-<button class="ant-btn ant-btn-primary" type="button">
-  <!----><span>Hover me</span>
-</button>
-`;
+exports[`renders ./src/popover/demo/basic.vue correctly 1`] = `"<button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Hover me</span></button>"`;
 
-exports[`renders ./components/popover/demo/control.vue correctly 1`] = `
-<button class="ant-btn ant-btn-primary" type="button">
-  <!----><span>Click me</span>
-</button>
-`;
+exports[`renders ./src/popover/demo/control.vue correctly 1`] = `"<button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Click me</span></button>"`;
 
-exports[`renders ./components/popover/demo/hover-with-click.vue correctly 1`] = `
-<button class="ant-btn ant-btn-default" type="button">
-  <!----><span>Hover and click / 悬停并单击</span>
-</button>
-`;
+exports[`renders ./src/popover/demo/hover-with-click.vue correctly 1`] = `"<button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Hover and click / 悬停并单击</span></button>"`;
 
-exports[`renders ./components/popover/demo/placement.vue correctly 1`] = `
-<div id="components-popover-demo-placement">
-  <div style="margin-left: 70px; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Top</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TR</span>
-    </button>
+exports[`renders ./src/popover/demo/placement.vue correctly 1`] = `
+"<div data-v-cbbc3fd4="" id="components-popover-demo-placement">
+  <div data-v-cbbc3fd4="" style="margin-left: 70px; white-space: nowrap;"><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TL</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Top</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TR</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; float: left;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Left</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LB</span>
-    </button>
+  <div data-v-cbbc3fd4="" style="width: 70px; float: left;"><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LT</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Left</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LB</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; margin-left: 304px;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Right</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RB</span>
-    </button>
+  <div data-v-cbbc3fd4="" style="width: 70px; margin-left: 304px;"><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RT</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Right</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RB</span></button>
+    <!---->
   </div>
-  <div style="margin-left: 70px; clear: both; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Bottom</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BR</span>
-    </button>
+  <div data-v-cbbc3fd4="" style="margin-left: 70px; clear: both; white-space: nowrap;"><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BL</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Bottom</span></button>
+    <!----><button data-v-cbbc3fd4="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BR</span></button>
+    <!---->
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/popover/demo/triggerType.vue correctly 1`] = `
-<div>
-  <!----><button class="ant-btn ant-btn-default" type="button">
-    <!----><span>Hover me</span>
-  </button>
-  <!----><button class="ant-btn ant-btn-default" type="button">
-    <!----><span>Focus me</span>
-  </button>
-  <!----><button class="ant-btn ant-btn-default" type="button">
-    <!----><span>Click me</span>
-  </button>
-</div>
+exports[`renders ./src/popover/demo/triggerType.vue correctly 1`] = `
+"<div data-v-1002fd75=""><button data-v-1002fd75="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Hover me</span></button>
+  <!----><button data-v-1002fd75="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Focus me</span></button>
+  <!----><button data-v-1002fd75="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Click me</span></button>
+  <!---->
+</div>"
 `;

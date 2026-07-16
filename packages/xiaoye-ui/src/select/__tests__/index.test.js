@@ -41,12 +41,12 @@ describe('Select', () => {
       },
     );
     await asyncExpect(() => {
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-select-item-option').length).toBe(0);
-      expect($$('.ant-empty-description')[0].innerHTML).toBe('No data');
+      expect($$('.xy-select-item-option').length).toBe(0);
+      expect($$('.xy-empty-description')[0].innerHTML).toBe('No data');
     }, 100);
   });
 
@@ -63,11 +63,11 @@ describe('Select', () => {
       },
     );
     await asyncExpect(() => {
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-select-item-option').length).toBe(0);
+      expect($$('.xy-select-item-option').length).toBe(0);
     });
   });
 
@@ -84,11 +84,11 @@ describe('Select', () => {
       },
     );
     await asyncExpect(() => {
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-select-item-option').length).toBe(0);
+      expect($$('.xy-select-item-option').length).toBe(0);
     });
   });
 
@@ -106,18 +106,18 @@ describe('Select', () => {
       },
     );
     await asyncExpect(() => {
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
     });
 
     await asyncExpect(() => {
-      expect($$('.ant-select-item-option').length).toBe(0);
-      expect($$('.ant-select-item-empty').length).toBe(1);
-      // expect($$('.ant-select-item-option')[0].innerHTML).toMatchSnapshot();
+      expect($$('.xy-select-item-option').length).toBe(0);
+      expect($$('.xy-select-item-empty').length).toBe(1);
+      // expect($$('.xy-select-item-option')[0].innerHTML).toMatchSnapshot();
     }, 100);
   });
 
   it('should be controlled by open prop', async () => {
-    const onDropdownVisibleChange = jest.fn();
+    const onDropdownVisibleChange = vi.fn();
     const wrapper = mount(
       {
         props: {
@@ -138,24 +138,24 @@ describe('Select', () => {
     );
 
     await asyncExpect(() => {
-      expect(getStyle($$('.ant-select-dropdown')[0], 'display')).toBe('block');
+      expect(getStyle($$('.xy-select-dropdown')[0], 'display')).toBe('block');
     }, 100);
     await asyncExpect(() => {
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
     });
     await asyncExpect(() => {
       expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(false);
     });
     await asyncExpect(() => {
-      expect(getStyle($$('.ant-select-dropdown')[0], 'display')).toBe('block');
+      expect(getStyle($$('.xy-select-dropdown')[0], 'display')).toBe('block');
       wrapper.setProps({ open: false });
     });
 
     await asyncExpect(() => {
-      expect(getStyle($$('.ant-select-dropdown')[0], 'display')).toBe('none');
-      wrapper.findAll('.ant-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
+      expect(getStyle($$('.xy-select-dropdown')[0], 'display')).toBe('none');
+      wrapper.findAll('.xy-select-selector')[0].element.dispatchEvent(new MouseEvent('mousedown'));
       expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
-      expect(getStyle($$('.ant-select-dropdown')[0], 'display')).toBe('none');
+      expect(getStyle($$('.xy-select-dropdown')[0], 'display')).toBe('none');
     }, 500);
   });
 
@@ -178,30 +178,29 @@ describe('Select', () => {
       },
     );
     await asyncExpect(async () => {
-      await wrapper.find('.ant-select-selector').trigger('mousedown');
-      await wrapper.find('.ant-select-selection-search-input').trigger('focus');
+      await wrapper.find('.xy-select-selector').trigger('mousedown');
+      await wrapper.find('.xy-select-selection-search-input').trigger('focus');
     });
 
     await asyncExpect(async () => {
-      const el = wrapper.find('.ant-select');
+      const el = wrapper.find('.xy-select');
 
-      expect(el.classes()).toContain('ant-select-focused');
+      expect(el.classes()).toContain('xy-select-focused');
       $$('#dropdownRenderInput')[0].focus();
 
-      expect(el.classes()).toContain('ant-select-focused');
+      expect(el.classes()).toContain('xy-select-focused');
 
       document.body.dispatchEvent(
         new MouseEvent('mousedown', {
           bubbles: true,
           cancelable: true,
-          view: window,
         }),
       );
     }, 100);
 
     await asyncExpect(async () => {
-      const el = wrapper.find('.ant-select');
-      expect(el.classes()).not.toContain('ant-select-focused');
+      const el = wrapper.find('.xy-select');
+      expect(el.classes()).not.toContain('xy-select-focused');
     }, 200);
   });
 

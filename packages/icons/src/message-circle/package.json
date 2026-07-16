@@ -1,0 +1,11 @@
+{
+    "main": "./MessageCircleIcon.vue",
+    "module": "./MessageCircleIcon.vue",
+    "types": "./MessageCircleIcon.d.ts",
+    "browser": {
+        "./sfc": "./MessageCircleIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

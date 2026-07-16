@@ -1,14 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Space should render correct with children 1`] = `
-<div class="ant-space ant-space-horizontal ant-space-align-center">
-  <div class="ant-space-item" style="margin-right: 8px;">text1</div>
+exports[`Space > should render correct with children 1`] = `
+"<div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center">
+  <div class="xy-space-item" style="margin-right: 8px;">text1</div>
   <!---->
-  <div class="ant-space-item" style="margin-right: 8px;"><span>text1</span></div>
+  <div class="xy-space-item" style="margin-right: 8px;"><span>text1</span></div>
   <!---->
-  <div class="ant-space-item">text3</div>
+  <div class="xy-space-item">text3</div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`Space should render width empty children 1`] = `""`;
+exports[`Space > should render width empty children 1`] = `""`;

@@ -47,18 +47,18 @@ const handleOk = (e: MouseEvent) => {
 </script>
 <style lang="less">
 .full-modal {
-  .ant-modal {
+  .xy-modal {
     max-width: 100%;
     top: 0;
     padding-bottom: 0;
     margin: 0;
   }
-  .ant-modal-content {
+  .xy-modal-content {
     display: flex;
     flex-direction: column;
     height: calc(100vh);
   }
-  .ant-modal-body {
+  .xy-modal-body {
     flex: 1;
   }
 }

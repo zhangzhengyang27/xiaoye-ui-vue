@@ -9,6 +9,14 @@ import Link from '../Link';
 import mountTest from '../../../tests/shared/mountTest';
 import { nextTick, createTextVNode, ref } from 'vue';
 
+vi.mock('../../_util/copy-to-clipboard', () => {
+  const fn = vi.fn(text => {
+    fn.lastStr = text;
+    return true;
+  });
+  return { default: fn };
+});
+
 const Base = Typography.Base;
 describe('Typography', () => {
   mountTest(Paragraph);
@@ -17,13 +25,13 @@ describe('Typography', () => {
   mountTest(Link);
 
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   // Mock offsetHeight
   const originOffsetHeight = Object.getOwnPropertyDescriptor(
     HTMLElement.prototype,
     'offsetHeight',
   ).get;
-  const mockGetBoundingClientRect = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
+  const mockGetBoundingClientRect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   beforeAll(() => {
     Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
       get() {
@@ -67,8 +75,8 @@ describe('Typography', () => {
       const fullStr =
         'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
 
-      // xit('should trigger update', async () => {
-      //   const onEllipsis = jest.fn();
+      // it.skip('should trigger update', async () => {
+      //   const onEllipsis = vi.fn();
       //   const wrapper = mount(Base, {
       //     props: {
       //       ellipsis: { onEllipsis },
@@ -161,7 +169,7 @@ describe('Typography', () => {
       // });
 
       it('should expandable work', async () => {
-        const onExpand = jest.fn();
+        const onExpand = vi.fn();
         const wrapper = mount(Base, {
           props: {
             ellipsis: {
@@ -176,7 +184,7 @@ describe('Typography', () => {
         });
 
         await sleep(20);
-        wrapper.find('.ant-typography-expand').trigger('click');
+        wrapper.find('.xy-typography-expand').trigger('click');
         expect(onExpand).toHaveBeenCalled();
         await sleep(20);
 
@@ -197,7 +205,7 @@ describe('Typography', () => {
         });
 
         await sleep(20);
-        expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
+        expect(wrapper.find('.xy-typography-expand').text()).toEqual('more');
       });
 
       it('can use css ellipsis', async () => {
@@ -209,7 +217,7 @@ describe('Typography', () => {
         });
 
         await sleep(20);
-        expect(wrapper.findAll('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+        expect(wrapper.findAll('.xy-typography-ellipsis-single-line').length).toBeTruthy();
       });
     });
 
@@ -217,56 +225,58 @@ describe('Typography', () => {
       // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
       function copyTest(name, text, target, icon) {
         it(name, async () => {
-          jest.useFakeTimers();
-          const onCopy = jest.fn();
-          const wrapper = mount(Base, {
-            props: {
-              component: 'p',
-              copyable: { text, onCopy },
-            },
-            slots: {
-              default: [createTextVNode('test copy')],
-              copyableIcon: icon ? () => icon : undefined,
-            },
-          });
+          vi.useFakeTimers();
+          try {
+            const onCopy = vi.fn();
+            const wrapper = mount(Base, {
+              props: {
+                component: 'p',
+                copyable: { text, onCopy },
+              },
+              slots: {
+                default: [createTextVNode('test copy')],
+                ...(icon ? { copyableIcon: () => icon } : {}),
+              },
+            });
 
-          if (icon) {
-            expect(wrapper.findAll('.anticon-smile').length).toBeTruthy();
-          } else {
-            expect(wrapper.findAll('.anticon-copy').length).toBeTruthy();
+            if (icon) {
+              expect(wrapper.findAll('.anticon-smile').length).toBeTruthy();
+            } else {
+              expect(wrapper.findAll('.anticon-copy').length).toBeTruthy();
+            }
+
+            wrapper.find('.xy-typography-copy').trigger('click');
+
+            await asyncExpect(() => {
+              expect(copy.lastStr).toEqual(target);
+            });
+
+            await asyncExpect(() => {
+              expect(onCopy).toHaveBeenCalled();
+            });
+
+            expect(wrapper.findAll('.anticon-check').length).toBeTruthy();
+
+            vi.runAllTimers();
+
+            // Will set back when 3 seconds pass
+            await nextTick();
+            expect(wrapper.findAll('.anticon-check').length).toBeFalsy();
+          } finally {
+            vi.useRealTimers();
           }
-
-          wrapper.find('.ant-typography-copy').trigger('click');
-
-          await asyncExpect(() => {
-            expect(copy.lastStr).toEqual(target);
-          });
-
-          await asyncExpect(() => {
-            expect(onCopy).toHaveBeenCalled();
-          });
-
-          expect(wrapper.findAll('.anticon-check').length).toBeTruthy();
-
-          jest.runAllTimers();
-
-          // Will set back when 3 seconds pass
-          await nextTick();
-          expect(wrapper.findAll('.anticon-check').length).toBeFalsy();
-
-          jest.useRealTimers();
         });
       }
 
-      //copyTest('basic copy', undefined, 'test copy');
-      //copyTest('customize copy', 'bamboo', 'bamboo');
+      copyTest('basic copy', undefined, 'test copy');
+      copyTest('customize copy', 'bamboo', 'bamboo');
     });
 
     describe('editable', () => {
       function testStep(name, submitFunc, expectFunc) {
         it(name, async () => {
-          const onStart = jest.fn();
-          const onChange = jest.fn();
+          const onStart = vi.fn();
+          const onChange = vi.fn();
 
           const className = 'test';
 
@@ -300,7 +310,7 @@ describe('Typography', () => {
           expect(component.element.style.color).toEqual('red');
           expect(component.classes()).toContain(className);
 
-          wrapper.find('.ant-typography-edit').trigger('click');
+          wrapper.find('.xy-typography-edit').trigger('click');
           await sleep(20);
           expect(onStart).toHaveBeenCalled();
 
@@ -346,7 +356,7 @@ describe('Typography', () => {
       });
     });
 
-    xit('should focus at the end of textarea', async () => {
+    it.skip('should focus at the end of textarea', async () => {
       const wrapper = mount(Paragraph, {
         props: {
           editable: true,
@@ -354,7 +364,7 @@ describe('Typography', () => {
         },
       });
       await sleep();
-      wrapper.find('.ant-typography-edit').trigger('click');
+      wrapper.find('.xy-typography-edit').trigger('click');
       await sleep();
       const textareaNode = wrapper.find('textarea').element;
       expect(textareaNode.selectionStart).toBe(7);

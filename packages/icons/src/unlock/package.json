@@ -1,0 +1,11 @@
+{
+    "main": "./UnlockIcon.vue",
+    "module": "./UnlockIcon.vue",
+    "types": "./UnlockIcon.d.ts",
+    "browser": {
+        "./sfc": "./UnlockIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -59,7 +59,7 @@ type AvatarToken = FullToken<'Avatar'> & {
 
 const genBaseStyle: GenerateStyle<AvatarToken> = token => {
   const {
-    antCls,
+    rootCls,
     componentCls,
     iconCls,
     avatarBg,
@@ -122,7 +122,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
         background: 'transparent',
       },
 
-      [`${antCls}-image-img`]: {
+      [`${rootCls}-image-img`]: {
         display: 'block',
       },
 

@@ -1,0 +1,11 @@
+{
+    "main": "./FoldVerticalIcon.vue",
+    "module": "./FoldVerticalIcon.vue",
+    "types": "./FoldVerticalIcon.d.ts",
+    "browser": {
+        "./sfc": "./FoldVerticalIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -66,7 +66,7 @@ function MonthPanel<DateType>(_props: MonthPanelProps<DateType>) {
         }}
       />
       <MonthBody<DateType>
-        {...props}
+        {...{ ...props, onSelect: undefined }}
         prefixCls={prefixCls}
         onSelect={date => {
           onSelect(date, 'mouse');

@@ -1,0 +1,11 @@
+{
+    "main": "./FolderOpenIcon.vue",
+    "module": "./FolderOpenIcon.vue",
+    "types": "./FolderOpenIcon.d.ts",
+    "browser": {
+        "./sfc": "./FolderOpenIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

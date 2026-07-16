@@ -13,7 +13,7 @@ export default defineComponent({
   name: 'ACheckboxGroup',
   inheritAttrs: false,
   props: checkboxGroupProps(),
-  // emits: ['change', 'update:value'],
+  emits: ['change', 'update:value', 'mouseenter', 'mouseleave'],
   setup(props, { slots, attrs, emit, expose }) {
     const formItemContext = useInjectFormItemContext();
     const { prefixCls, direction } = useConfigInject('checkbox', props);
@@ -122,6 +122,12 @@ export default defineComponent({
             hashId.value,
           ]}
           id={id}
+          onMouseenter={(e: MouseEvent) => {
+            emit('mouseenter', e);
+          }}
+          onMouseleave={(e: MouseEvent) => {
+            emit('mouseleave', e);
+          }}
         >
           {children || slots.default?.()}
         </div>,

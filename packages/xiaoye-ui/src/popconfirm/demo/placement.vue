@@ -123,7 +123,7 @@ const confirm = () => {
 };
 </script>
 <style scoped>
-:deep(#components-a-popconfirm-demo-placement) .ant-btn {
+:deep(#components-a-popconfirm-demo-placement) .xy-btn {
   width: 70px;
   text-align: center;
   padding: 0;

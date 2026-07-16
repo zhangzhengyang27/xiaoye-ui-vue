@@ -1,0 +1,11 @@
+{
+    "main": "./MegaphoneIcon.vue",
+    "module": "./MegaphoneIcon.vue",
+    "types": "./MegaphoneIcon.d.ts",
+    "browser": {
+        "./sfc": "./MegaphoneIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

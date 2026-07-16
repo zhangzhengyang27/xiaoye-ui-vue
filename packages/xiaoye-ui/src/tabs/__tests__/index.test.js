@@ -7,7 +7,7 @@ describe('Tabs', () => {
     let wrapper;
 
     beforeEach(() => {
-      handleEdit = jest.fn();
+      handleEdit = vi.fn();
       wrapper = mount({
         render() {
           return (
@@ -22,7 +22,7 @@ describe('Tabs', () => {
     });
 
     it('add card', () => {
-      wrapper.find('.ant-tabs-nav-add').trigger('click');
+      wrapper.find('.xy-tabs-nav-add').trigger('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 

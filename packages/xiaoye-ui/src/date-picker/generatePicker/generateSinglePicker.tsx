@@ -50,11 +50,19 @@ export default function generateSinglePicker<DateType, ExtraProps = {}>(
         clearIcon?: any;
         default?: any;
       }>,
+      emits: ['update:value', 'change', 'update:open', 'openChange', 'focus', 'blur', 'panelChange', 'ok'],
       setup(_props, { slots, expose, attrs, emit }) {
         // 兼容 vue 3.2.7
         const props = _props as unknown as CommonProps<DateType> &
           DatePickerProps<DateType> &
           ExtraProps;
+        const callEvent = (fn: any, ...args: any[]) => {
+          if (Array.isArray(fn)) {
+            fn.forEach(f => f?.(...args));
+          } else {
+            fn?.(...args);
+          }
+        };
         const formItemContext = useInjectFormItemContext();
         const formItemInputContext = FormItemInputContext.useInject();
         // =================== Warning =====================
@@ -106,26 +114,32 @@ export default function generateSinglePicker<DateType, ExtraProps = {}>(
           const value = maybeToString(date);
           emit('update:value', value);
           emit('change', value, dateString);
+          callEvent(props.onChange, value, dateString);
           formItemContext.onFieldChange();
         };
         const onOpenChange = (open: boolean) => {
           emit('update:open', open);
           emit('openChange', open);
+          callEvent(props.onOpenChange, open);
         };
         const onFocus = (e: FocusEvent) => {
           emit('focus', e);
+          callEvent(props.onFocus, e);
         };
         const onBlur = (e: FocusEvent) => {
           emit('blur', e);
+          callEvent(props.onBlur, e);
           formItemContext.onFieldBlur();
         };
         const onPanelChange = (date: DateType, mode: PanelMode | null) => {
           const value = maybeToString(date);
           emit('panelChange', value, mode);
+          callEvent(props.onPanelChange, value, mode);
         };
         const onOk = (date: DateType) => {
           const value = maybeToString(date);
           emit('ok', value);
+          callEvent(props.onOk, value);
         };
 
         const [contextLocale] = useLocaleReceiver('DatePicker', enUS);

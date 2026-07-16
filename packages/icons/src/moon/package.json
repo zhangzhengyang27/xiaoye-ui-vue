@@ -1,0 +1,11 @@
+{
+    "main": "./MoonIcon.vue",
+    "module": "./MoonIcon.vue",
+    "types": "./MoonIcon.d.ts",
+    "browser": {
+        "./sfc": "./MoonIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

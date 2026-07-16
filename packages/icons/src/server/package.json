@@ -1,0 +1,11 @@
+{
+    "main": "./ServerIcon.vue",
+    "module": "./ServerIcon.vue",
+    "types": "./ServerIcon.d.ts",
+    "browser": {
+        "./sfc": "./ServerIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

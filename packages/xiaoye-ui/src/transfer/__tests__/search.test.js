@@ -4,7 +4,7 @@ import Search from '../search';
 import Transfer from '../index';
 
 describe('Search', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -48,7 +48,7 @@ describe('Search', () => {
       },
     ];
 
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = mount(
       {
         render() {
@@ -69,7 +69,7 @@ describe('Search', () => {
       },
     );
     await asyncExpect(() => {
-      const input = wrapper.findAll('.ant-input')[0];
+      const input = wrapper.findAll('.xy-input')[0];
       input.element.value = 'a';
       input.trigger('input');
     });
@@ -80,7 +80,7 @@ describe('Search', () => {
 
     onSearch.mockReset();
 
-    wrapper.findAll('.ant-input-clear-icon')[0].trigger('click');
+    wrapper.findAll('.xy-input-clear-icon')[0].trigger('click');
     expect(onSearch).toBeCalledWith('left', '');
   });
 });

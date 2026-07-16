@@ -1,0 +1,11 @@
+{
+    "main": "./LayoutGridIcon.vue",
+    "module": "./LayoutGridIcon.vue",
+    "types": "./LayoutGridIcon.d.ts",
+    "browser": {
+        "./sfc": "./LayoutGridIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

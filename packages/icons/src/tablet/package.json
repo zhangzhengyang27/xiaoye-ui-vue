@@ -1,0 +1,11 @@
+{
+    "main": "./TabletIcon.vue",
+    "module": "./TabletIcon.vue",
+    "types": "./TabletIcon.d.ts",
+    "browser": {
+        "./sfc": "./TabletIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -146,6 +146,7 @@ export interface CommonProps<DateType> {
   onOk?: (value: DateType | string | null) => void;
   onOpenChange?: (open: boolean) => void;
   'onUpdate:open'?: (open: boolean) => void;
+  onPanelChange?: (value: DateType | string | null, mode: PanelMode | null) => void;
   onFocus?: FocusEventHandler;
   onBlur?: FocusEventHandler;
   onMousedown?: MouseEventHandler;

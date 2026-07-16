@@ -45,7 +45,7 @@ export default defineComponent({
   name: 'ARadioGroup',
   inheritAttrs: false,
   props: radioGroupProps(),
-  // emits: ['update:value', 'change'],
+  emits: ['update:value', 'change', 'mouseenter', 'mouseleave'],
   setup(props, { slots, emit, attrs }) {
     const formItemContext = useInjectFormItemContext();
     const { prefixCls, direction, size } = useConfigInject('radio', props);
@@ -139,7 +139,17 @@ export default defineComponent({
         children = slots.default?.();
       }
       return wrapSSR(
-        <div {...attrs} class={classString} id={id}>
+        <div
+          {...attrs}
+          class={classString}
+          id={id}
+          onMouseenter={(e: MouseEvent) => {
+            emit('mouseenter', e);
+          }}
+          onMouseleave={(e: MouseEvent) => {
+            emit('mouseleave', e);
+          }}
+        >
           {children}
         </div>,
       );

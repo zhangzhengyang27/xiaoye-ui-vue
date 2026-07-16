@@ -1,0 +1,11 @@
+{
+    "main": "./ImageIcon.vue",
+    "module": "./ImageIcon.vue",
+    "types": "./ImageIcon.d.ts",
+    "browser": {
+        "./sfc": "./ImageIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./MailIcon.vue",
+    "module": "./MailIcon.vue",
+    "types": "./MailIcon.d.ts",
+    "browser": {
+        "./sfc": "./MailIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

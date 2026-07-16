@@ -18,7 +18,7 @@ describe('Statistic', () => {
   });
 
   it('customize formatter', () => {
-    const formatter = jest.fn(() => 93);
+    const formatter = vi.fn(() => 93);
     const props = {
       props: {
         value: 1128,
@@ -27,7 +27,7 @@ describe('Statistic', () => {
     };
     const wrapper = mount(Statistic, props);
     expect(formatter).toBeCalledWith(expect.objectContaining({ value: 1128 }));
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
+    expect(wrapper.find('.xy-statistic-content-value').text()).toEqual('93');
   });
 
   it('groupSeparator', () => {
@@ -38,7 +38,7 @@ describe('Statistic', () => {
       },
     };
     const wrapper = mount(Statistic, props);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('1__TEST__128');
+    expect(wrapper.find('.xy-statistic-content-value').text()).toEqual('1__TEST__128');
   });
 
   it('not a number', () => {
@@ -48,7 +48,7 @@ describe('Statistic', () => {
       },
     };
     const wrapper = mount(Statistic, props);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('bamboo');
+    expect(wrapper.find('.xy-statistic-content-value').text()).toEqual('bamboo');
   });
 
   it('support negetive number', () => {
@@ -80,7 +80,7 @@ describe('Statistic', () => {
           },
         };
         const wrapper = mount(Statistic.Countdown, props);
-        expect(wrapper.find('.ant-statistic-content-value').text()).toEqual(value);
+        expect(wrapper.find('.xy-statistic-content-value').text()).toEqual(value);
       });
     });
   });

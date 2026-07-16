@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import Button from '../index';
 import SearchOutlined from '@ant-design/icons-vue/SearchOutlined';
 import { mount } from '@vue/test-utils';
@@ -26,10 +27,10 @@ describe('Button', () => {
         return <Button type="primary">按钮</Button>;
       },
     });
-    expect(wrapper.find('.ant-btn-primary').exists()).toBe(true);
+    expect(wrapper.find('.xy-btn-primary').exists()).toBe(true);
   });
 
-  it('renders Chinese characters correctly', done => {
+  it('renders Chinese characters correctly', async () => {
     const wrapper = mount({
       render() {
         return <Button>按钮</Button>;
@@ -101,11 +102,9 @@ describe('Button', () => {
         );
       },
     });
-    nextTick(() => {
-      // expect(wrapper6.find('.ant-btn-two-chinese-chars').exists()).toBe(true);
-      expect(wrapper6.html()).toMatchSnapshot();
-      done();
-    });
+    await nextTick();
+    // expect(wrapper6.find('.xy-btn-two-chinese-chars').exists()).toBe(true);
+    expect(wrapper6.html()).toMatchSnapshot();
   });
   it('should change loading state instantly by default', async () => {
     const DefaultButton = {
@@ -133,7 +132,7 @@ describe('Button', () => {
       wrapper.trigger('click');
     });
     await asyncExpect(() => {
-      expect(wrapper.findAll('.ant-btn-loading').length).toBe(1);
+      expect(wrapper.findAll('.xy-btn-loading').length).toBe(1);
     });
   });
 
@@ -163,11 +162,11 @@ describe('Button', () => {
       wrapper.trigger('click');
     });
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+      expect(wrapper.find('.xy-btn-loading').exists()).toBe(false);
     });
   });
   it('should not clickable when button is loading', () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const wrapper = mount({
       render() {
         return (
@@ -233,18 +232,18 @@ describe('Button', () => {
     const wrapper = mount(Button);
     wrapper.setProps({ loading: true });
     await sleep();
-    expect(wrapper.findAll('.ant-btn-loading').length).toBe(1);
+    expect(wrapper.findAll('.xy-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
     await sleep();
-    expect(wrapper.findAll('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.findAll('.xy-btn-loading').length).toBe(0);
     wrapper.setProps({ loading: { delay: 50 } });
     await sleep();
-    expect(wrapper.findAll('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.findAll('.xy-btn-loading').length).toBe(0);
     await sleep(50);
-    expect(wrapper.findAll('.ant-btn-loading').length).toBe(1);
+    expect(wrapper.findAll('.xy-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
     await sleep(50);
-    expect(wrapper.findAll('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.findAll('.xy-btn-loading').length).toBe(0);
     expect(() => {
       wrapper.unmount();
     }).not.toThrow();
@@ -252,7 +251,7 @@ describe('Button', () => {
 
   it('should warning when pass type=link and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return <Button type="link" ghost />;
@@ -266,7 +265,7 @@ describe('Button', () => {
 
   it('should warning when pass type=text and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return <Button type="text" ghost />;
@@ -279,7 +278,7 @@ describe('Button', () => {
   });
 
   it('should not redirect when button is disabled', async () => {
-    const onClick = jest.fn();
+    const onClick = vi.fn();
     const wrapper = mount({
       render() {
         return (

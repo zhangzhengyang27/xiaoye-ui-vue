@@ -1,0 +1,11 @@
+{
+    "main": "./ExternalLinkIcon.vue",
+    "module": "./ExternalLinkIcon.vue",
+    "types": "./ExternalLinkIcon.d.ts",
+    "browser": {
+        "./sfc": "./ExternalLinkIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

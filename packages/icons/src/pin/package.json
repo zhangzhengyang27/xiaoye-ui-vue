@@ -1,0 +1,11 @@
+{
+    "main": "./PinIcon.vue",
+    "module": "./PinIcon.vue",
+    "types": "./PinIcon.d.ts",
+    "browser": {
+        "./sfc": "./PinIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

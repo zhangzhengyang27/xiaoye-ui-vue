@@ -6,7 +6,7 @@ import { resetWarned } from '../../_util/warning';
 import { asyncExpect } from '../../../tests/utils';
 
 describe('Descriptions', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
     MockDate.reset();
@@ -179,7 +179,7 @@ describe('Descriptions', () => {
     );
     await asyncExpect(() => {
       expect(wrapper.findAll('tr')).toHaveLength(5);
-      expect(wrapper.findAll('.ant-descriptions-item-label')).toHaveLength(4);
+      expect(wrapper.findAll('.xy-descriptions-item-label')).toHaveLength(4);
     });
 
     wrapper.unmount();
@@ -259,8 +259,8 @@ describe('Descriptions', () => {
       },
     });
 
-    expect(wrapper.find('th').classes()).toContain('ant-descriptions-item-label');
-    expect(wrapper.find('td').classes()).toContain('ant-descriptions-item-content');
+    expect(wrapper.find('th').classes()).toContain('xy-descriptions-item-label');
+    expect(wrapper.find('td').classes()).toContain('xy-descriptions-item-content');
   });
 
   it('Descriptions support extra', async () => {
@@ -280,13 +280,13 @@ describe('Descriptions', () => {
     });
 
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(true);
+      expect(wrapper.find('.xy-descriptions-extra').exists()).toBe(true);
     });
 
     wrapper.setProps({ extra: undefined });
 
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
+      expect(wrapper.find('.xy-descriptions-extra').exists()).toBe(false);
     });
   });
 });

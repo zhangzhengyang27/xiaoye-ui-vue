@@ -120,11 +120,11 @@ const rowColHtml = computed(() => {
 });
 </script>
 <style scoped>
-:deep(#components-grid-demo-playground) [class~='ant-col'] {
+:deep(#components-grid-demo-playground) [class~='xy-col'] {
   background: transparent;
   border: 0;
 }
-:deep(#components-grid-demo-playground) [class~='ant-col'] > div {
+:deep(#components-grid-demo-playground) [class~='xy-col'] > div {
   height: 120px;
   font-size: 14px;
   line-height: 120px;
@@ -140,7 +140,7 @@ const rowColHtml = computed(() => {
 :deep(#components-grid-demo-playground) pre.demo-code {
   direction: ltr;
 }
-:deep(#components-grid-demo-playground) .ant-col {
+:deep(#components-grid-demo-playground) .xy-col {
   padding: 0;
 }
 </style>

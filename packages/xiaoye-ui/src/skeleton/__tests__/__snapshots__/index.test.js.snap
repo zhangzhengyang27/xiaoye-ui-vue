@@ -1,89 +1,89 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Skeleton avatar shape 1`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > shape 1`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-lg xy-skeleton-avatar-circle"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton avatar shape 2`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > shape 2`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-lg xy-skeleton-avatar-square"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton avatar size 1`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > size 1`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-sm xy-skeleton-avatar-circle"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton avatar size 2`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-circle"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > size 2`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-circle"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton avatar size 3`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > size 3`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-lg xy-skeleton-avatar-circle"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton avatar size 4`] = `
-<div class="ant-skeleton ant-skeleton-with-avatar ">
-  <div class="ant-skeleton-header"><span class="ant-skeleton-avatar ant-skeleton-avatar-circle" style="width: 20px; height: 20px; line-height: 20px;"></span></div>
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 50%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+exports[`Skeleton > avatar > size 4`] = `
+"<div class="xy-skeleton xy-skeleton-with-avatar css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-skeleton-header"><span class="xy-skeleton-avatar xy-skeleton-avatar-circle" style="width: 20px; height: 20px; line-height: 20px;"></span></div>
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 50%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton paragraph rows 1`] = `
-<div class="ant-skeleton ">
+exports[`Skeleton > paragraph > rows 1`] = `
+"<div class="xy-skeleton css-dev-only-do-not-override-1p3hq3p">
   <!---->
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 38%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 38%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
       <li></li>
@@ -91,47 +91,47 @@ exports[`Skeleton paragraph rows 1`] = `
       <li style="width: 61%;"></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton paragraph width 1`] = `
-<div class="ant-skeleton ">
+exports[`Skeleton > paragraph > width 1`] = `
+"<div class="xy-skeleton css-dev-only-do-not-override-1p3hq3p">
   <!---->
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 38%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 38%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
       <li style="width: 93%;"></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton paragraph width 2`] = `
-<div class="ant-skeleton ">
+exports[`Skeleton > paragraph > width 2`] = `
+"<div class="xy-skeleton css-dev-only-do-not-override-1p3hq3p">
   <!---->
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 38%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 38%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li style="width: 28%;"></li>
       <li style="width: 93%;"></li>
       <li></li>
     </ul>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Skeleton title width 1`] = `
-<div class="ant-skeleton ">
+exports[`Skeleton > title > width 1`] = `
+"<div class="xy-skeleton css-dev-only-do-not-override-1p3hq3p">
   <!---->
-  <div class="ant-skeleton-content">
-    <h3 class="ant-skeleton-title" style="width: 93%;"></h3>
-    <ul class="ant-skeleton-paragraph">
+  <div class="xy-skeleton-content">
+    <h3 class="xy-skeleton-title" style="width: 93%;"></h3>
+    <ul class="xy-skeleton-paragraph">
       <li></li>
       <li></li>
       <li style="width: 61%;"></li>
     </ul>
   </div>
-</div>
+</div>"
 `;

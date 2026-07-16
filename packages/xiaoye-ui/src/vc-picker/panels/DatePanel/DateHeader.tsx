@@ -37,7 +37,7 @@ function DateHeader<DateType>(_props: DateHeaderProps<DateType>) {
   } = props;
 
   const { hideHeader } = useInjectPanel();
-  if (hideHeader.value) {
+  if (hideHeader?.value) {
     return null;
   }
 

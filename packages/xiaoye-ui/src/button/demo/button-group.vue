@@ -75,7 +75,7 @@ import {
 #components-button-demo-button-group > h4:first-child {
   margin-top: 0;
 }
-#components-button-demo-button-group .ant-btn-group {
+#components-button-demo-button-group .xy-btn-group {
   margin-right: 8px;
 }
 </style>

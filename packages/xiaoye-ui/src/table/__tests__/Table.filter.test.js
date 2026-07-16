@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import * as Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../../tests/utils';
@@ -58,15 +59,13 @@ describe('Table.filter', () => {
     });
   }
 
-  it('renders filter correctly', done => {
+  it('renders filter correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  xit('renders menu correctly', async () => {
+  it.skip('renders menu correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
     let dropdownWrapper = null;
     await asyncExpect(() => {
@@ -84,7 +83,7 @@ describe('Table.filter', () => {
     });
   });
 
-  xit('renders radio filter correctly', async () => {
+  it.skip('renders radio filter correctly', async () => {
     const wrapper = mount(
       Table,
       getTableOptions({
@@ -112,7 +111,7 @@ describe('Table.filter', () => {
     });
   });
 
-  xit('renders custom content correctly', done => {
+  it.skip('renders custom content correctly', async () => {
     const wrapper = mount(Table, {
       ...getTableOptions({
         columns: [
@@ -129,18 +128,16 @@ describe('Table.filter', () => {
       },
     });
 
-    Vue.nextTick(() => {
-      const dropdownWrapper = mount({
-        render() {
-          return wrapper.find({ name: 'Trigger' }).vm.getComponent();
-        },
-      });
-      expect(dropdownWrapper.html()).toMatchSnapshot();
-      done();
+    await Vue.nextTick();
+    const dropdownWrapper = mount({
+      render() {
+        return wrapper.find({ name: 'Trigger' }).vm.getComponent();
+      },
     });
+    expect(dropdownWrapper.html()).toMatchSnapshot();
   });
   // TODO
-  xit('can be controlled by filterDropdownOpen', done => {
+  it.skip('can be controlled by filterDropdownOpen', async () => {
     const wrapper = mount(
       Table,
       getTableOptions({
@@ -164,15 +161,13 @@ describe('Table.filter', () => {
         },
       ],
     });
-    Vue.nextTick(() => {
-      dropdown = wrapper.find({ name: 'ADropdown' });
-      expect(dropdown.props().visible).toBe(false);
-      done();
-    });
+    await Vue.nextTick();
+    dropdown = wrapper.find({ name: 'ADropdown' });
+    expect(dropdown.props().visible).toBe(false);
   });
 
   it('fires change event when visible change', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
     const wrapper = mount(
       Table,
       getTableOptions({
@@ -185,12 +180,12 @@ describe('Table.filter', () => {
       }),
     );
 
-    wrapper.findAll('.ant-dropdown-trigger')[0].trigger('click');
+    wrapper.findAll('.xy-dropdown-trigger')[0].trigger('click');
 
     expect(handleChange).toBeCalledWith(true);
   });
 
-  it('can be controlled by filteredValue', done => {
+  it('can be controlled by filteredValue', async () => {
     const wrapper = mount(
       Table,
       getTableOptions({
@@ -212,13 +207,11 @@ describe('Table.filter', () => {
         },
       ],
     });
-    Vue.nextTick(() => {
-      expect(wrapper.findAll('tbody tr').length).toBe(4);
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.findAll('tbody tr').length).toBe(4);
   });
 
-  it('can be controlled by filteredValue null', done => {
+  it('can be controlled by filteredValue null', async () => {
     const wrapper = mount(
       Table,
       getTableOptions({
@@ -240,14 +233,12 @@ describe('Table.filter', () => {
         },
       ],
     });
-    Vue.nextTick(() => {
-      expect(wrapper.findAll('tbody tr').length).toBe(4);
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.findAll('tbody tr').length).toBe(4);
   });
 
-  xit('fires change event', async () => {
-    const handleChange = jest.fn();
+  it.skip('fires change event', async () => {
+    const handleChange = vi.fn();
     const wrapper = mount(Table, getTableOptions({ onChange: handleChange }));
     const dropdownWrapper = mount(
       {
@@ -273,7 +264,7 @@ describe('Table.filter', () => {
     });
   });
 
-  xit('three levels menu', async () => {
+  it.skip('three levels menu', async () => {
     const filters = [
       { text: 'Upper', value: 'Upper' },
       { text: 'Lower', value: 'Lower' },
@@ -307,16 +298,16 @@ describe('Table.filter', () => {
       }),
     );
     await asyncExpect(() => {
-      $$('.ant-dropdown-trigger')[0].click();
+      $$('.xy-dropdown-trigger')[0].click();
     });
     await asyncExpect(() => {
-      $$('.ant-dropdown-menu-submenu-title')[0].dispatchEvent(new MouseEvent('mouseenter'));
+      $$('.xy-dropdown-menu-submenu-title')[0].dispatchEvent(new MouseEvent('mouseenter'));
     }, 0);
     await asyncExpect(() => {
-      $$('.ant-dropdown-menu-submenu-title')[1].dispatchEvent(new MouseEvent('mouseenter'));
+      $$('.xy-dropdown-menu-submenu-title')[1].dispatchEvent(new MouseEvent('mouseenter'));
     }, 500);
     await asyncExpect(() => {
-      const menuItem = $$('.ant-dropdown-menu-item');
+      const menuItem = $$('.xy-dropdown-menu-item');
       menuItem[menuItem.length - 1].click();
     }, 500);
 
@@ -328,7 +319,7 @@ describe('Table.filter', () => {
     }, 500);
   });
 
-  xit('works with JSX in controlled mode', async () => {
+  it.skip('works with JSX in controlled mode', async () => {
     const { Column } = Table;
 
     const App = {
@@ -383,7 +374,7 @@ describe('Table.filter', () => {
     }, 500);
   });
 
-  xit('works with grouping columns in controlled mode', async () => {
+  it.skip('works with grouping columns in controlled mode', async () => {
     const columns = [
       {
         title: 'group',
@@ -425,8 +416,8 @@ describe('Table.filter', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
-  fit('confirm filter when dropdown hidden', async () => {
-    const handleChange = jest.fn();
+  it('confirm filter when dropdown hidden', async () => {
+    const handleChange = vi.fn();
     const wrapper = mount(Table, {
       ...getTableOptions({
         columns: [
@@ -443,13 +434,13 @@ describe('Table.filter', () => {
       attachTo: 'body',
     });
     await asyncExpect(() => {
-      wrapper.find('.ant-dropdown-trigger').trigger('click');
+      wrapper.find('.xy-dropdown-trigger').trigger('click');
     }, 0);
     await asyncExpect(() => {
-      $$('.ant-dropdown-menu-item')[0].click();
+      $$('.xy-dropdown-menu-item')[0].click();
     }, 500);
     await asyncExpect(() => {
-      wrapper.find('.ant-dropdown-trigger').trigger('click');
+      wrapper.find('.xy-dropdown-trigger').trigger('click');
     }, 500);
     await asyncExpect(() => {
       expect(handleChange).toBeCalled();

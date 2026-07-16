@@ -1,0 +1,11 @@
+{
+    "main": "./BadgeCheckIcon.vue",
+    "module": "./BadgeCheckIcon.vue",
+    "types": "./BadgeCheckIcon.d.ts",
+    "browser": {
+        "./sfc": "./BadgeCheckIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

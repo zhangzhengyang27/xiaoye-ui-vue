@@ -1,0 +1,11 @@
+{
+    "main": "./PoundSterlingIcon.vue",
+    "module": "./PoundSterlingIcon.vue",
+    "types": "./PoundSterlingIcon.d.ts",
+    "browser": {
+        "./sfc": "./PoundSterlingIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

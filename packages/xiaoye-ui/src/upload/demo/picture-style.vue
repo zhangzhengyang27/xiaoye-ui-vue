@@ -82,12 +82,12 @@ const fileList1 = ref<UploadProps['fileList']>([
 </script>
 <style scoped>
 /* tile uploaded pictures */
-.upload-list-inline :deep(.ant-upload-list-item) {
+.upload-list-inline :deep(.xy-upload-list-item) {
   float: left;
   width: 200px;
   margin-right: 8px;
 }
-.upload-list-inline [class*='-upload-list-rtl'] :deep(.ant-upload-list-item) {
+.upload-list-inline [class*='-upload-list-rtl'] :deep(.xy-upload-list-item) {
   float: right;
 }
 </style>

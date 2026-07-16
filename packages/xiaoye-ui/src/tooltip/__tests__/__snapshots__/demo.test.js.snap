@@ -1,142 +1,112 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.vue correctly 1`] = `
-<div class="ant-space ant-space-horizontal ant-space-align-center">
-  <div class="ant-space-item" style="margin-right: 8px;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Align edge / 边缘对齐</span>
-    </button>
+exports[`renders ./src/tooltip/demo/arrow.vue correctly 1`] = `
+"<div data-v-88e38299="" id="components-a-tooltip-demo-arrow">
+  <div data-v-88e38299="" style="margin-bottom: 24px;">
+    <div data-v-88e38299="" class="xy-segmented css-dev-only-do-not-override-1p3hq3p">
+      <div class="xy-segmented-group"><span style="display: contents;"><!----></span><label class="xy-segmented-item xy-segmented-item-selected"><input class="xy-segmented-item-input" type="radio" checked="">
+          <div class="xy-segmented-item-label" title="">Show</div>
+        </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+          <div class="xy-segmented-item-label" title="">Hide</div>
+        </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+          <div class="xy-segmented-item-label" title="">Center</div>
+        </label></div>
+    </div>
+  </div>
+  <div data-v-88e38299="" style="margin-left: 70px; white-space: nowrap;"><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TL</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Top</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TR</span></button>
+    <!---->
+  </div>
+  <div data-v-88e38299="" style="width: 70px; float: left;"><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LT</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Left</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LB</span></button>
+    <!---->
+  </div>
+  <div data-v-88e38299="" style="width: 70px; margin-left: 304px;"><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RT</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Right</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RB</span></button>
+    <!---->
+  </div>
+  <div data-v-88e38299="" style="margin-left: 70px; clear: both; white-space: nowrap;"><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BL</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Bottom</span></button>
+    <!----><button data-v-88e38299="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BR</span></button>
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`renders ./src/tooltip/demo/arrow-point-at-center.vue correctly 1`] = `
+"<div class="xy-space css-dev-only-do-not-override-1p3hq3p xy-space-horizontal xy-space-align-center">
+  <div class="xy-space-item" style="margin-right: 8px;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Align edge / 边缘对齐</span></button>
+    <!---->
   </div>
   <!---->
-  <div class="ant-space-item">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Arrow points to center / 箭头指向中心</span>
-    </button>
+  <div class="xy-space-item"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Arrow points to center / 箭头指向中心</span></button>
+    <!---->
   </div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/tooltip/demo/auto-adjust-overflow.vue correctly 1`] = `
-<div style="overflow: hidden; position: relative; padding: 24px; border: 1px solid #e9e9e9;">
-  <!----><button class="ant-btn ant-btn-default" type="button">
-    <!----><span>Adjust automatically / 自动调整</span>
-  </button><br>
-  <!----><button style="margin-top: 10px;" class="ant-btn ant-btn-default" type="button">
-    <!----><span>Ingore / 不处理</span>
-  </button>
-</div>
+exports[`renders ./src/tooltip/demo/auto-adjust-overflow.vue correctly 1`] = `
+"<div style="overflow: hidden; position: relative; padding: 24px; border: 1px solid #e9e9e9;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Adjust automatically / 自动调整</span></button>
+  <!----><br><button style="margin-top: 10px;" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Ingore / 不处理</span></button>
+  <!---->
+</div>"
 `;
 
-exports[`renders ./components/tooltip/demo/basic.vue correctly 1`] = `<span> Tooltip will show when mouse enter. </span>`;
+exports[`renders ./src/tooltip/demo/basic.vue correctly 1`] = `"<span> Tooltip will show when mouse enter. </span>"`;
 
-exports[`renders ./components/tooltip/demo/color.vue correctly 1`] = `
-<div id="components-a-tooltip-demo-color">
-  <div class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left" role="separator"><span class="ant-divider-inner-text">Presets</span></div>
-  <div>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>pink</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>red</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>yellow</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>orange</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>cyan</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>green</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>blue</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>purple</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>geekblue</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>magenta</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>volcano</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>gold</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>lime</span>
-    </button>
+exports[`renders ./src/tooltip/demo/color.vue correctly 1`] = `
+"<div data-v-b865b477="" id="components-a-tooltip-demo-color">
+  <div data-v-b865b477="" class="xy-divider css-dev-only-do-not-override-1p3hq3p xy-divider-horizontal xy-divider-with-text xy-divider-with-text-left" role="separator"><span class="xy-divider-inner-text">Presets</span></div>
+  <div data-v-b865b477=""><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>pink</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>red</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>yellow</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>orange</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>cyan</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>green</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>blue</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>purple</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>geekblue</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>magenta</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>volcano</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>gold</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>lime</span></button>
+    <!---->
   </div>
-  <div class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left" role="separator"><span class="ant-divider-inner-text">Custom</span></div>
-  <div>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>#f50</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>#2db7f5</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>#87d068</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>#108ee9</span>
-    </button>
+  <div data-v-b865b477="" class="xy-divider css-dev-only-do-not-override-1p3hq3p xy-divider-horizontal xy-divider-with-text xy-divider-with-text-left" role="separator"><span class="xy-divider-inner-text">Custom</span></div>
+  <div data-v-b865b477=""><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>#f50</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>#2db7f5</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>#87d068</span></button>
+    <!----><button data-v-b865b477="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>#108ee9</span></button>
+    <!---->
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/tooltip/demo/placement.vue correctly 1`] = `
-<div id="components-a-tooltip-demo-placement">
-  <div style="margin-left: 70px; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Top</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>TR</span>
-    </button>
+exports[`renders ./src/tooltip/demo/placement.vue correctly 1`] = `
+"<div data-v-347fd526="" id="components-a-tooltip-demo-placement">
+  <div data-v-347fd526="" style="margin-left: 70px; white-space: nowrap;"><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TL</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Top</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>TR</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; float: left;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Left</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>LB</span>
-    </button>
+  <div data-v-347fd526="" style="width: 70px; float: left;"><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LT</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Left</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>LB</span></button>
+    <!---->
   </div>
-  <div style="width: 70px; margin-left: 304px;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RT</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Right</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>RB</span>
-    </button>
+  <div data-v-347fd526="" style="width: 70px; margin-left: 304px;"><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RT</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Right</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>RB</span></button>
+    <!---->
   </div>
-  <div style="margin-left: 70px; clear: both; white-space: nowrap;">
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BL</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Bottom</span>
-    </button>
-    <!----><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>BR</span>
-    </button>
+  <div data-v-347fd526="" style="margin-left: 70px; clear: both; white-space: nowrap;"><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BL</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Bottom</span></button>
+    <!----><button data-v-347fd526="" class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>BR</span></button>
+    <!---->
   </div>
-</div>
+</div>"
 `;

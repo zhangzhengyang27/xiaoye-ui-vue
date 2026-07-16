@@ -11,7 +11,7 @@ interface CheckboxToken extends FullToken<'Checkbox'> {
 }
 
 // ============================== Motion ==============================
-const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
+const xyCheckboxEffect = new Keyframes('xyCheckboxEffect', {
   '0%': {
     transform: 'scale(1)',
     opacity: 0.5,
@@ -40,7 +40,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
         columnGap: token.marginXS,
 
         // Group > Grid
-        [`> ${token.antCls}-row`]: {
+        [`> ${token.rootCls}-row`]: {
           flex: 1,
         },
       },
@@ -220,7 +220,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           borderRadius: token.borderRadiusSM,
           visibility: 'hidden',
           border: `${token.lineWidthBold}px solid ${token.colorPrimary}`,
-          animationName: antCheckboxEffect,
+          animationName: xyCheckboxEffect,
           animationDuration: token.motionDurationSlow,
           animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',

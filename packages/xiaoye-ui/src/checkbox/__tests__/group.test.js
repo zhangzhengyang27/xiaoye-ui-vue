@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
   it('should work basically', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = mount(
       {
         render() {
@@ -17,22 +17,22 @@ describe('CheckboxGroup', () => {
         sync: false,
       },
     );
-    wrapper.findAll('.ant-checkbox-input')[0].trigger('change');
+    wrapper.findAll('.xy-checkbox-input')[0].trigger('change');
     await sleep();
     expect(onChange).toHaveBeenCalledWith(['Apple']);
-    wrapper.findAll('.ant-checkbox-input')[1].trigger('change');
+    wrapper.findAll('.xy-checkbox-input')[1].trigger('change');
     await sleep();
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear']);
-    wrapper.findAll('.ant-checkbox-input')[2].trigger('change');
+    wrapper.findAll('.xy-checkbox-input')[2].trigger('change');
     await sleep();
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Pear', 'Orange']);
-    wrapper.findAll('.ant-checkbox-input')[1].trigger('change');
+    wrapper.findAll('.xy-checkbox-input')[1].trigger('change');
     await sleep();
     expect(onChange).toHaveBeenCalledWith(['Apple', 'Orange']);
   });
 
   it('does not trigger onChange callback of both Checkbox and CheckboxGroup when CheckboxGroup is disabled', () => {
-    const onChangeGroup = jest.fn();
+    const onChangeGroup = vi.fn();
 
     const options = [
       { label: 'Apple', value: 'Apple' },
@@ -49,14 +49,14 @@ describe('CheckboxGroup', () => {
         sync: false,
       },
     );
-    groupWrapper.findAll('.ant-checkbox-input')[0].trigger('change');
+    groupWrapper.findAll('.xy-checkbox-input')[0].trigger('change');
     expect(onChangeGroup).not.toBeCalled();
-    groupWrapper.findAll('.ant-checkbox-input')[1].trigger('change');
+    groupWrapper.findAll('.xy-checkbox-input')[1].trigger('change');
     expect(onChangeGroup).not.toBeCalled();
   });
 
   it('does not prevent onChange callback from Checkbox when CheckboxGroup is not disabled', () => {
-    const onChangeGroup = jest.fn();
+    const onChangeGroup = vi.fn();
 
     const options = [
       { label: 'Apple', value: 'Apple' },
@@ -73,9 +73,9 @@ describe('CheckboxGroup', () => {
         sync: false,
       },
     );
-    groupWrapper.findAll('.ant-checkbox-input')[0].trigger('change');
+    groupWrapper.findAll('.xy-checkbox-input')[0].trigger('change');
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
-    groupWrapper.findAll('.ant-checkbox-input')[1].trigger('change');
+    groupWrapper.findAll('.xy-checkbox-input')[1].trigger('change');
     expect(onChangeGroup).toHaveBeenCalledWith(['Apple']);
   });
 
@@ -111,7 +111,7 @@ describe('CheckboxGroup', () => {
   });
 
   it('should trigger onChange in sub Checkbox', () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = mount({
       render() {
         return (
@@ -121,7 +121,7 @@ describe('CheckboxGroup', () => {
         );
       },
     });
-    wrapper.findAll('.ant-checkbox-input')[0].trigger('change');
+    wrapper.findAll('.xy-checkbox-input')[0].trigger('change');
     expect(onChange).toBeCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });

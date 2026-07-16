@@ -1,0 +1,11 @@
+{
+    "main": "./BarChart3Icon.vue",
+    "module": "./BarChart3Icon.vue",
+    "types": "./BarChart3Icon.d.ts",
+    "browser": {
+        "./sfc": "./BarChart3Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

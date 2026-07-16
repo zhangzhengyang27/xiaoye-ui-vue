@@ -51,7 +51,7 @@ set resizable for drag column
           <a-divider type="vertical" />
           <a>Delete</a>
           <a-divider type="vertical" />
-          <a class="ant-dropdown-link">
+          <a class="xy-dropdown-link">
             More actions
             <down-outlined />
           </a>

@@ -1,0 +1,11 @@
+{
+    "main": "./BanknoteIcon.vue",
+    "module": "./BanknoteIcon.vue",
+    "types": "./BanknoteIcon.d.ts",
+    "browser": {
+        "./sfc": "./BanknoteIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

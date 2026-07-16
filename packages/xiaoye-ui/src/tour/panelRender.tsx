@@ -16,14 +16,23 @@ const panelRender = defineComponent({
   name: 'ATourPanel',
   inheritAttrs: false,
   props: tourStepProps(),
-  setup(props, { attrs, slots }) {
+  emits: ['prev', 'next', 'finish', 'close'],
+  setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const { current, total } = toRefs(props);
 
     const isLastStep = computed(() => current.value === total.value - 1);
 
     const prevBtnClick = e => {
       const prevButtonProps = props.prevButtonProps as TourBtnProps;
-      props.onPrev?.(e);
+      emit('prev', e);
+      callEvent(props.onPrev, e);
       if (typeof prevButtonProps?.onClick === 'function') {
         prevButtonProps?.onClick();
       }
@@ -32,17 +41,24 @@ const panelRender = defineComponent({
     const nextBtnClick = e => {
       const nextButtonProps = props.nextButtonProps as TourBtnProps;
       if (isLastStep.value) {
-        props.onFinish?.(e);
+        emit('finish', e);
+        callEvent(props.onFinish, e);
       } else {
-        props.onNext?.(e);
+        emit('next', e);
+        callEvent(props.onNext, e);
       }
       if (typeof nextButtonProps?.onClick === 'function') {
         nextButtonProps?.onClick();
       }
     };
 
+    const handleClose = e => {
+      emit('close', e);
+      callEvent(props.onClose, e);
+    };
+
     return () => {
-      const { prefixCls, title, onClose, cover, description, type: stepType, arrow } = props;
+      const { prefixCls, title, cover, description, type: stepType, arrow } = props;
 
       const prevButtonProps = props.prevButtonProps as TourBtnProps;
       const nextButtonProps = props.nextButtonProps as TourBtnProps;
@@ -103,7 +119,7 @@ const panelRender = defineComponent({
             >
               {arrow && <div class={`${prefixCls}-arrow`} key="arrow" />}
               <div class={`${prefixCls}-inner`}>
-                <CloseOutlined class={`${prefixCls}-close`} onClick={onClose} />
+                <CloseOutlined class={`${prefixCls}-close`} onClick={handleClose} />
                 {coverNode}
                 {headerNode}
                 {descriptionNode}

@@ -2,20 +2,20 @@ import type { DropdownToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genButtonStyle: GenerateStyle<DropdownToken> = token => {
-  const { componentCls, antCls, paddingXS, opacityLoading } = token;
+  const { componentCls, rootCls, paddingXS, opacityLoading } = token;
 
   return {
     [`${componentCls}-button`]: {
       whiteSpace: 'nowrap',
 
-      [`&${antCls}-btn-group > ${antCls}-btn`]: {
-        [`&-loading, &-loading + ${antCls}-btn`]: {
+      [`&${rootCls}-btn-group > ${rootCls}-btn`]: {
+        [`&-loading, &-loading + ${rootCls}-btn`]: {
           cursor: 'default',
           pointerEvents: 'none',
           opacity: opacityLoading,
         },
 
-        [`&:last-child:not(:first-child):not(${antCls}-btn-icon-only)`]: {
+        [`&:last-child:not(:first-child):not(${rootCls}-btn-icon-only)`]: {
           paddingInline: paddingXS,
         },
       },

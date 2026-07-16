@@ -1,0 +1,11 @@
+{
+    "main": "./PrimeIcon.vue",
+    "module": "./PrimeIcon.vue",
+    "types": "./PrimeIcon.d.ts",
+    "browser": {
+        "./sfc": "./PrimeIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

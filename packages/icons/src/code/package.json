@@ -1,0 +1,11 @@
+{
+    "main": "./CodeIcon.vue",
+    "module": "./CodeIcon.vue",
+    "types": "./CodeIcon.d.ts",
+    "browser": {
+        "./sfc": "./CodeIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./BookmarkIcon.vue",
+    "module": "./BookmarkIcon.vue",
+    "types": "./BookmarkIcon.d.ts",
+    "browser": {
+        "./sfc": "./BookmarkIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

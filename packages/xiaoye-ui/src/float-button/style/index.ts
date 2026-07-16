@@ -33,7 +33,7 @@ type FloatButtonToken = FullToken<'FloatButton'> & {
 const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
   const { componentCls, floatButtonSize, motionDurationSlow, motionEaseInOutCirc } = token;
   const groupPrefixCls = `${componentCls}-group`;
-  const moveDownIn = new Keyframes('antFloatButtonMoveDownIn', {
+  const moveDownIn = new Keyframes('xyFloatButtonMoveDownIn', {
     '0%': {
       transform: `translate3d(0, ${floatButtonSize}px, 0)`,
       transformOrigin: '0 0',
@@ -46,7 +46,7 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
       opacity: 1,
     },
   });
-  const moveDownOut = new Keyframes('antFloatButtonMoveDownOut', {
+  const moveDownOut = new Keyframes('xyFloatButtonMoveDownOut', {
     '0%': {
       transform: 'translate3d(0, 0, 0)',
       transformOrigin: '0 0',
@@ -87,7 +87,7 @@ const initFloatButtonGroupMotion = (token: FloatButtonToken) => {
 // ============================== Group ==============================
 const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const {
-    antCls,
+    rootCls,
     componentCls,
     floatButtonSize,
     margin,
@@ -150,8 +150,8 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
         '&:not(:last-child)': {
           borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         },
-        [`${antCls}-badge`]: {
-          [`${antCls}-badge-count`]: {
+        [`${rootCls}-badge`]: {
+          [`${rootCls}-badge-count`]: {
             top: -(floatButtonBodyPadding + badgeOffset),
             insetInlineEnd: -(floatButtonBodyPadding + badgeOffset),
           },
@@ -206,7 +206,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = token 
 // ============================== Shared ==============================
 const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token => {
   const {
-    antCls,
+    rootCls,
     componentCls,
     floatButtonBodyPadding,
     floatButtonIconSize,
@@ -241,10 +241,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       '&:empty': {
         display: 'none',
       },
-      [`${antCls}-badge`]: {
+      [`${rootCls}-badge`]: {
         width: '100%',
         height: '100%',
-        [`${antCls}-badge-count`]: {
+        [`${rootCls}-badge-count`]: {
           transform: 'translate(0, 0)',
           transformOrigin: 'center',
           top: -badgeOffset,
@@ -283,8 +283,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
     [`${componentCls}-circle`]: {
       height: floatButtonSize,
       borderRadius: '50%',
-      [`${antCls}-badge`]: {
-        [`${antCls}-badge-dot`]: {
+      [`${rootCls}-badge`]: {
+        [`${rootCls}-badge-dot`]: {
           top: dotOffsetInCircle,
           insetInlineEnd: dotOffsetInCircle,
         },
@@ -297,8 +297,8 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = token
       height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: borderRadiusLG,
-      [`${antCls}-badge`]: {
-        [`${antCls}-badge-dot`]: {
+      [`${rootCls}-badge`]: {
+        [`${rootCls}-badge-dot`]: {
           top: dotOffsetInSquare,
           insetInlineEnd: dotOffsetInSquare,
         },

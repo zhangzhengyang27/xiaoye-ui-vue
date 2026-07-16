@@ -47,6 +47,13 @@ export default defineComponent({
     appendActionVisible: true,
   }),
   setup(props, { slots, expose }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const motionAppear = shallowRef(false);
     onMounted(() => {
       motionAppear.value == true;
@@ -101,19 +108,19 @@ export default defineComponent({
         return;
       }
       e?.preventDefault();
-      return props.onPreview(file);
+      return callEvent(props.onPreview, file);
     };
 
     const onInternalDownload = (file: UploadFile) => {
       if (typeof props.onDownload === 'function') {
-        props.onDownload(file);
+        callEvent(props.onDownload, file);
       } else if (file.url) {
         window.open(file.url);
       }
     };
 
     const onInternalClose = (file: UploadFile) => {
-      props.onRemove?.(file);
+      callEvent(props.onRemove, file);
     };
 
     const internalIconRender = ({ file }: { file: UploadFile }) => {

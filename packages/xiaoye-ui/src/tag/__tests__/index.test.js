@@ -7,7 +7,7 @@ describe('Tag', () => {
   mountTest(Tag);
   mountTest(Tag.CheckableTag);
   it('should be closable', async () => {
-    const onClose = jest.fn();
+    const onClose = vi.fn();
     const wrapper = mount(
       {
         render() {
@@ -19,7 +19,7 @@ describe('Tag', () => {
     await asyncExpect(() => {
       expect(wrapper.findAll('.anticon-close').length).toBe(1);
       expect(
-        wrapper.findAll('.ant-tag').filter(w => w.element.classList.contains('ant-tag-hidden'))
+        wrapper.findAll('.xy-tag').filter(w => w.element.classList.contains('xy-tag-hidden'))
           .length,
       ).toBe(0);
       wrapper.find('.anticon-close').trigger('click');
@@ -27,7 +27,7 @@ describe('Tag', () => {
     });
     await asyncExpect(() => {
       expect(
-        wrapper.findAll('.ant-tag').filter(w => w.element.classList.contains('ant-tag-hidden'))
+        wrapper.findAll('.xy-tag').filter(w => w.element.classList.contains('xy-tag-hidden'))
           .length,
       ).toBe(1);
     });
@@ -48,14 +48,14 @@ describe('Tag', () => {
     await asyncExpect(() => {
       expect(wrapper.findAll('.anticon-close').length).toBe(1);
       expect(
-        wrapper.findAll('.ant-tag').filter(w => w.element.classList.contains('ant-tag-hidden'))
+        wrapper.findAll('.xy-tag').filter(w => w.element.classList.contains('xy-tag-hidden'))
           .length,
       ).toBe(0);
       wrapper.find('.anticon-close').trigger('click');
     });
     // await asyncExpect(() => {
     //   expect(
-    //     wrapper.findAll('.ant-tag').filter(w => {
+    //     wrapper.findAll('.xy-tag').filter(w => {
     //       const style = window.getComputedStyle(w.element, null);
     //       return style.display !== 'none';
     //     }).length,

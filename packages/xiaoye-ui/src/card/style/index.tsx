@@ -21,7 +21,7 @@ interface CardToken extends FullToken<'Card'> {
 
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { antCls, componentCls, cardHeadHeight, cardPaddingBase, cardHeadTabsMarginBottom } = token;
+  const { rootCls, componentCls, cardHeadHeight, cardPaddingBase, cardHeadTabsMarginBottom } = token;
 
   return {
     display: 'flex',
@@ -60,7 +60,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
     },
 
-    [`${antCls}-tabs-top`]: {
+    [`${rootCls}-tabs-top`]: {
       clear: 'both',
       marginBottom: cardHeadTabsMarginBottom,
       color: token.colorText,

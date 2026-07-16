@@ -30,7 +30,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 };
 
 const genSingleStyle: GenerateStyle<SelectToken> = token => {
-  const { antCls, componentCls } = token;
+  const { rootCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
 
@@ -55,25 +55,25 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         boxShadow: token.boxShadowSecondary,
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft
+            &${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-bottomLeft,
+            &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-bottomLeft
           `]: {
           animationName: slideUpIn,
         },
 
         [`
-            &${antCls}-slide-up-enter${antCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
-            &${antCls}-slide-up-appear${antCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft
+            &${rootCls}-slide-up-enter${rootCls}-slide-up-enter-active${componentCls}-dropdown-placement-topLeft,
+            &${rootCls}-slide-up-appear${rootCls}-slide-up-appear-active${componentCls}-dropdown-placement-topLeft
           `]: {
           animationName: slideDownIn,
         },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft`]:
+        [`&${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-bottomLeft`]:
           {
             animationName: slideUpOut,
           },
 
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft`]:
+        [`&${rootCls}-slide-up-leave${rootCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft`]:
           {
             animationName: slideDownOut,
           },

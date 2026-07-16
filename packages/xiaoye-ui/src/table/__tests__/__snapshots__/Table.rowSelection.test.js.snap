@@ -1,85 +1,85 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table.rowSelection fix selection column on the left 1`] = `
-<div class="ant-table-wrapper">
-  <div class="ant-spin-nested-loading">
+exports[`Table.rowSelection > fix selection column on the left 1`] = `
+"<div class="xy-table-wrapper css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-spin-container">
+    <div class="xy-spin-container">
       <!---->
-      <div class="ant-table ant-table-has-fix-left">
+      <div class="xy-table xy-table-has-fix-left">
         <!---->
-        <div class="ant-table-container">
-          <div class="ant-table-content">
+        <div class="xy-table-container">
+          <div class="xy-table-content">
             <table style="table-layout: auto;">
               <colgroup>
-                <col class="ant-table-selection-col">
+                <col class="xy-table-selection-col">
               </colgroup>
-              <thead class="ant-table-thead">
+              <thead class="xy-table-thead">
                 <tr>
-                  <th class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-selection-column" style="position: sticky; left: 0px;" colstart="0" colend="0">
+                  <th class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last xy-table-selection-column" style="position: sticky; left: 0px;" colstart="0" colend="0">
                     <!---->
-                    <div class="ant-table-selection"><label class="ant-checkbox-wrapper"><span class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input" aria-label="Select all"><span class="ant-checkbox-inner"></span></span>
+                    <div class="xy-table-selection"><label class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"><input type="checkbox" class="xy-checkbox-input" aria-label="Select all"><span class="xy-checkbox-inner"></span></span>
                         <!---->
                       </label>
                       <!---->
                     </div>
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="1" colend="1">
+                  <th class="xy-table-cell" colstart="1" colend="1">
                     <!---->Name
                     <!---->
                   </th>
                 </tr>
               </thead>
-              <tbody class="ant-table-tbody">
+              <tbody class="xy-table-tbody">
                 <!---->
-                <tr data-row-key="0" class="ant-table-row ant-table-row-level-0">
-                  <td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-selection-column" style="position: sticky; left: 0px;">
-                    <!----><label class="ant-checkbox-wrapper"><span class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input"><span class="ant-checkbox-inner"></span></span>
+                <tr data-row-key="0" class="xy-table-row xy-table-row-level-0">
+                  <td class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last xy-table-selection-column" style="position: sticky; left: 0px;">
+                    <!----><label class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"><input type="checkbox" class="xy-checkbox-input"><span class="xy-checkbox-inner"></span></span>
                       <!---->
                     </label>
                     <!---->
                   </td>
-                  <td class="ant-table-cell">
+                  <td class="xy-table-cell">
                     <!---->Jack
                     <!---->
                   </td>
                 </tr>
                 <!---->
-                <tr data-row-key="1" class="ant-table-row ant-table-row-level-0">
-                  <td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-selection-column" style="position: sticky; left: 0px;">
-                    <!----><label class="ant-checkbox-wrapper"><span class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input"><span class="ant-checkbox-inner"></span></span>
+                <tr data-row-key="1" class="xy-table-row xy-table-row-level-0">
+                  <td class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last xy-table-selection-column" style="position: sticky; left: 0px;">
+                    <!----><label class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"><input type="checkbox" class="xy-checkbox-input"><span class="xy-checkbox-inner"></span></span>
                       <!---->
                     </label>
                     <!---->
                   </td>
-                  <td class="ant-table-cell">
+                  <td class="xy-table-cell">
                     <!---->Lucy
                     <!---->
                   </td>
                 </tr>
                 <!---->
-                <tr data-row-key="2" class="ant-table-row ant-table-row-level-0">
-                  <td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-selection-column" style="position: sticky; left: 0px;">
-                    <!----><label class="ant-checkbox-wrapper"><span class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input"><span class="ant-checkbox-inner"></span></span>
+                <tr data-row-key="2" class="xy-table-row xy-table-row-level-0">
+                  <td class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last xy-table-selection-column" style="position: sticky; left: 0px;">
+                    <!----><label class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"><input type="checkbox" class="xy-checkbox-input"><span class="xy-checkbox-inner"></span></span>
                       <!---->
                     </label>
                     <!---->
                   </td>
-                  <td class="ant-table-cell">
+                  <td class="xy-table-cell">
                     <!---->Tom
                     <!---->
                   </td>
                 </tr>
                 <!---->
-                <tr data-row-key="3" class="ant-table-row ant-table-row-level-0">
-                  <td class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-selection-column" style="position: sticky; left: 0px;">
-                    <!----><label class="ant-checkbox-wrapper"><span class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input"><span class="ant-checkbox-inner"></span></span>
+                <tr data-row-key="3" class="xy-table-row xy-table-row-level-0">
+                  <td class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last xy-table-selection-column" style="position: sticky; left: 0px;">
+                    <!----><label class="xy-checkbox-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-checkbox css-dev-only-do-not-override-1p3hq3p"><input type="checkbox" class="xy-checkbox-input"><span class="xy-checkbox-inner"></span></span>
                       <!---->
                     </label>
                     <!---->
                   </td>
-                  <td class="ant-table-cell">
+                  <td class="xy-table-cell">
                     <!---->Jerry
                     <!---->
                   </td>
@@ -92,71 +92,34 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         </div>
         <!---->
       </div>
-      <ul unselectable="on" class="ant-pagination ant-table-pagination ant-table-pagination-right">
+      <ul unselectable="on" class="xy-pagination xy-table-pagination xy-table-pagination-right css-dev-only-do-not-override-1p3hq3p">
         <!---->
-        <li title="Previous Page" class="ant-pagination-prev ant-pagination-disabled" aria-disabled="true"><button class="ant-pagination-item-link" type="button" tabindex="-1" disabled=""><span role="img" aria-label="left" class="anticon anticon-left"><svg focusable="false" class="" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg></span></button></li>
-        <li title="1" tabindex="0" class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"><a rel="nofollow">1</a></li>
-        <li title="Next Page" class="ant-pagination-next ant-pagination-disabled" aria-disabled="true"><button class="ant-pagination-item-link" type="button" tabindex="-1" disabled=""><span role="img" aria-label="right" class="anticon anticon-right"><svg focusable="false" class="" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"></path></svg></span></button></li>
+        <li title="Previous Page" class="xy-pagination-prev xy-pagination-disabled" aria-disabled="true"><button class="xy-pagination-item-link" type="button" tabindex="-1" disabled=""><span role="img" aria-label="left" class="anticon anticon-left"><svg focusable="false" data-icon="left" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"></path></svg><!----></span></button></li>
+        <li title="1" tabindex="0" class="xy-pagination-item xy-pagination-item-1 xy-pagination-item-active"><a rel="nofollow">1</a></li>
+        <li title="Next Page" class="xy-pagination-next xy-pagination-disabled" aria-disabled="true"><button class="xy-pagination-item-link" type="button" tabindex="-1" disabled=""><span role="img" aria-label="right" class="anticon anticon-right"><svg focusable="false" data-icon="right" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896"><path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"></path></svg><!----></span></button></li>
         <!---->
       </ul>
     </div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Table.rowSelection render with default selection correctly 1`] = `
-<div>
+exports[`Table.rowSelection > render with default selection correctly 1`] = `
+"<div>
+  <!----><span style="display: contents;" enterfromclass="xy-slide-up-enter xy-slide-up-enter-prepare xy-slide-up-enter-start" enteractiveclass="xy-slide-up-enter xy-slide-up-enter-prepare" entertoclass="xy-slide-up-enter xy-slide-up-enter-active" leavefromclass=" xy-slide-up-leave" leaveactiveclass="xy-slide-up-leave xy-slide-up-leave-active" leavetoclass="xy-slide-up-leave xy-slide-up-leave-active"><div class="xy-dropdown css-dev-only-do-not-override-1p3hq3p" style="pointer-events: none; display: none;"><!----><ul class="xy-dropdown-menu xy-dropdown-menu-root xy-dropdown-menu-vertical xy-dropdown-menu-light css-dev-only-do-not-override-1p3hq3p" role="menu" data-menu-list="true"><li class="xy-dropdown-menu-item xy-dropdown-menu-item-only-child" data-menu-id="all" aria-disabled="false" role="menuitem" tabindex="-1"><!----><span class="xy-dropdown-menu-title-content">Select all data</span></li>
   <!---->
-  <div class="ant-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up-enter-start" style="pointer-events: none; display: none;">
-    <!---->
-    <ul class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light" role="menu" data-menu-list="true">
-      <div>
-        <!---->
-        <div class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast-enter-start" style="pointer-events: none; display: none;">
-          <div class="ant-tooltip-content">
-            <div class="ant-tooltip-arrow"><span class="ant-tooltip-arrow-content"></span></div>
-            <div class="ant-tooltip-inner" role="tooltip">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" data-menu-id="all" aria-disabled="false" role="menuitem" tabindex="-1">
-        <!----><span class="ant-dropdown-menu-title-content">Select all data</span>
-      </li>
-      <div>
-        <!---->
-        <div class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast-enter-start" style="pointer-events: none; display: none;">
-          <div class="ant-tooltip-content">
-            <div class="ant-tooltip-arrow"><span class="ant-tooltip-arrow-content"></span></div>
-            <div class="ant-tooltip-inner" role="tooltip">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" data-menu-id="invert" aria-disabled="false" role="menuitem" tabindex="-1">
-        <!----><span class="ant-dropdown-menu-title-content">Invert current page</span>
-      </li>
-      <div>
-        <!---->
-        <div class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip ant-zoom-big-fast-enter ant-zoom-big-fast-enter-prepare ant-zoom-big-fast-enter-start" style="pointer-events: none; display: none;">
-          <div class="ant-tooltip-content">
-            <div class="ant-tooltip-arrow"><span class="ant-tooltip-arrow-content"></span></div>
-            <div class="ant-tooltip-inner" role="tooltip">
-              <!---->
-            </div>
-          </div>
-        </div>
-      </div>
-      <li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" data-menu-id="none" aria-disabled="false" role="menuitem" tabindex="-1">
-        <!----><span class="ant-dropdown-menu-title-content">Clear all data</span>
-      </li>
-      <!---->
-      <!---->
-      <!--teleport start-->
-      <!--teleport end-->
-    </ul>
-  </div>
-</div>
+  <li class="xy-dropdown-menu-item xy-dropdown-menu-item-only-child" data-menu-id="invert" aria-disabled="false" role="menuitem" tabindex="-1">
+    <!----><span class="xy-dropdown-menu-title-content">Invert current page</span>
+  </li>
+  <!---->
+  <li class="xy-dropdown-menu-item xy-dropdown-menu-item-only-child" data-menu-id="none" aria-disabled="false" role="menuitem" tabindex="-1">
+    <!----><span class="xy-dropdown-menu-title-content">Clear all data</span>
+  </li>
+  <!---->
+  <!---->
+  <!---->
+  <!--teleport start-->
+  <!--teleport end-->
+  </ul>
+</div></span></div>"
 `;

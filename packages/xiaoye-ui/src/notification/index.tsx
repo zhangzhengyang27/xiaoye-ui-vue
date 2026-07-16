@@ -36,7 +36,7 @@ export interface ConfigProps {
   maxCount?: number;
 }
 
-const notificationInstance: { [key: string]: VCNotificationInstance } = {};
+const notificationInstance: { [key: string]: VCNotificationInstance | Promise<VCNotificationInstance> } = {};
 let defaultDuration = 4.5;
 let defaultTop = '24px';
 let defaultBottom = '24px';
@@ -95,12 +95,22 @@ function getNotificationInstance(
   const cacheKey = `${prefixCls}-${placement}-${rtl}`;
   const cacheInstance = notificationInstance[cacheKey];
   if (cacheInstance) {
-    Promise.resolve(cacheInstance).then(instance => {
-      callback(instance);
-    });
+    if (cacheInstance instanceof Promise) {
+      cacheInstance.then(instance => {
+        callback(instance);
+      });
+    } else {
+      callback(cacheInstance);
+    }
 
     return;
   }
+
+  let resolveInstance: (instance: VCNotificationInstance) => void;
+  const pendingInstance = new Promise<VCNotificationInstance>(resolve => {
+    resolveInstance = resolve;
+  });
+  notificationInstance[cacheKey] = pendingInstance;
 
   const notificationClass = classNames(`${prefixCls}-${placement}`, {
     [`${prefixCls}-rtl`]: rtl === true,
@@ -127,6 +137,7 @@ function getNotificationInstance(
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
+      resolveInstance(notification);
       callback(notification);
     },
   );
@@ -251,5 +262,7 @@ export interface NotificationApi extends NotificationInstance {
 /** @private test Only function. Not work on production */
 export const getInstance = async (cacheKey: string) =>
   process.env.NODE_ENV === 'test' ? notificationInstance[cacheKey] : null;
+
+export const notification = api;
 
 export default api as NotificationApi;

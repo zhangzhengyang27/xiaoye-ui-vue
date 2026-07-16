@@ -1,21 +1,5 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Popover should show overlay when trigger is clicked 1`] = `
-<div class="ant-popover-content">
-  <div class="ant-popover-arrow"><span class="ant-popover-arrow-content"></span></div>
-  <div class="ant-popover-inner" role="tooltip">
-    <div class="ant-popover-title">code</div>
-    <div class="ant-popover-inner-content">console.log('hello world')</div>
-  </div>
-</div>
-`;
+exports[`Popover > should show overlay when trigger is clicked 1`] = `"<div class="xy-popover css-dev-only-do-not-override-1p3hq3p css-dev-only-do-not-override-1p3hq3p" style=""><div class="xy-popover-content"><div class="xy-popover-arrow"><span class="xy-popover-arrow-content"></span></div><div class="xy-popover-inner" role="tooltip"><div class="xy-popover-title">code</div><div class="xy-popover-inner-content">console.log('hello world')</div></div></div></div>"`;
 
-exports[`Popover should show overlay when trigger is clicked 2`] = `
-<div class="ant-popover-content">
-  <div class="ant-popover-arrow"><span class="ant-popover-arrow-content"></span></div>
-  <div class="ant-popover-inner" role="tooltip">
-    <div class="ant-popover-title">code</div>
-    <div class="ant-popover-inner-content">console.log('hello world')</div>
-  </div>
-</div>
-`;
+exports[`Popover > should show overlay when trigger is clicked 2`] = `"<div class="xy-popover css-dev-only-do-not-override-1p3hq3p css-dev-only-do-not-override-1p3hq3p" style=""><div class="xy-popover-content"><div class="xy-popover-arrow"><span class="xy-popover-arrow-content"></span></div><div class="xy-popover-inner" role="tooltip"><div class="xy-popover-title">code</div><div class="xy-popover-inner-content">console.log('hello world')</div></div></div></div>"`;

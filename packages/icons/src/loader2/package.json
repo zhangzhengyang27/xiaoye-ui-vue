@@ -1,0 +1,11 @@
+{
+    "main": "./Loader2Icon.vue",
+    "module": "./Loader2Icon.vue",
+    "types": "./Loader2Icon.d.ts",
+    "browser": {
+        "./sfc": "./Loader2Icon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./LandmarkIcon.vue",
+    "module": "./LandmarkIcon.vue",
+    "types": "./LandmarkIcon.d.ts",
+    "browser": {
+        "./sfc": "./LandmarkIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

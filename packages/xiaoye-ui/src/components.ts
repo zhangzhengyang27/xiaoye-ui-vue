@@ -48,7 +48,6 @@ export * from './carousel';
 export { default as Carousel } from './carousel';
 import './carousel/style';
 
-export * from './cascader';
 export { default as Cascader } from './cascader';
 import './cascader/style';
 
@@ -131,7 +130,6 @@ export * from './layout';
 export { default as Layout } from './layout';
 import './layout/style';
 
-export * from './list';
 export { default as List } from './list';
 import './list/style';
 
@@ -146,16 +144,14 @@ export * from './menu';
 export { default as Menu } from './menu';
 import './menu/style';
 
-export * from './message';
-export { default as Message } from './message';
+export { message } from './message';
 import './message/style';
 
 export * from './modal';
 export { default as Modal } from './modal';
 import './modal/style';
 
-export * from './notification';
-export { default as Notification } from './notification';
+export { notification } from './notification';
 import './notification/style';
 
 export * from './page-header';
@@ -202,7 +198,6 @@ export * from './segmented';
 export { default as Segmented } from './segmented';
 import './segmented/style';
 
-export * from './select';
 export { default as Select } from './select';
 import './select/style';
 

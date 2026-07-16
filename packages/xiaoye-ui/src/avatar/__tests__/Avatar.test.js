@@ -3,7 +3,7 @@ import { asyncExpect } from '../../../tests/utils';
 import Avatar from '..';
 import useBreakpoint from '../../_util/hooks/useBreakpoint';
 
-jest.mock('../../_util/hooks/useBreakpoint');
+vi.mock('../../_util/hooks/useBreakpoint');
 
 describe('Avatar Render', () => {
   let originOffsetWidth;
@@ -14,7 +14,7 @@ describe('Avatar Render', () => {
     originOffsetWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetWidth').get;
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
-        if (this.className === 'ant-avatar-string') {
+        if (this.className === 'xy-avatar-string') {
           return 100;
         }
         return 80;
@@ -34,7 +34,7 @@ describe('Avatar Render', () => {
         default: () => 'TestString',
       },
     });
-    const children = wrapper.findAll('.ant-avatar-string');
+    const children = wrapper.findAll('.xy-avatar-string');
     expect(children.length).toBe(1);
   });
   it('should render fallback string correctly', async () => {
@@ -52,7 +52,7 @@ describe('Avatar Render', () => {
       wrapper.find('img').trigger('error');
     }, 0);
     await asyncExpect(() => {
-      const children = wrapper.findAll('.ant-avatar-string');
+      const children = wrapper.findAll('.xy-avatar-string');
       expect(children.length).toBe(1);
       expect(children[0].text()).toBe('Fallback');
     });
@@ -118,7 +118,7 @@ describe('Avatar Render', () => {
     }, 0);
     await asyncExpect(() => {
       expect(wrapper.findComponent({ name: 'AAvatar' }).findAll('img').length).toBe(0);
-      expect(wrapper.findAll('.ant-avatar-string').length).toBe(1);
+      expect(wrapper.findAll('.xy-avatar-string').length).toBe(1);
     }, 0);
 
     await asyncExpect(() => {
@@ -126,7 +126,7 @@ describe('Avatar Render', () => {
     });
     await asyncExpect(() => {
       expect(wrapper.findComponent({ name: 'AAvatar' }).findAll('img').length).toBe(1);
-      expect(wrapper.findAll('.ant-avatar-image').length).toBe(1);
+      expect(wrapper.findAll('.xy-avatar-image').length).toBe(1);
     }, 0);
   });
 
@@ -138,12 +138,12 @@ describe('Avatar Render', () => {
     });
 
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-avatar-string').html()).toMatchSnapshot();
+      expect(wrapper.find('.xy-avatar-string').html()).toMatchSnapshot();
     }, 0);
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
-        if (this.className === 'ant-avatar-string') {
+        if (this.className === 'xy-avatar-string') {
           return 100;
         }
         return 40;
@@ -155,7 +155,7 @@ describe('Avatar Render', () => {
       },
     });
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-avatar-string').html()).toMatchSnapshot();
+      expect(wrapper.find('.xy-avatar-string').html()).toMatchSnapshot();
     }, 0);
   });
 

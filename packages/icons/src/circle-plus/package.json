@@ -1,0 +1,11 @@
+{
+    "main": "./CirclePlusIcon.vue",
+    "module": "./CirclePlusIcon.vue",
+    "types": "./CirclePlusIcon.d.ts",
+    "browser": {
+        "./sfc": "./CirclePlusIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

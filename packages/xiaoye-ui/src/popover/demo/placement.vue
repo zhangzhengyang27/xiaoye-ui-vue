@@ -153,7 +153,7 @@ import { ref } from 'vue';
 const buttonWidth = ref<number>(70);
 </script>
 <style scoped>
-#components-popover-demo-placement .ant-btn {
+#components-popover-demo-placement .xy-btn {
   width: 70px;
   text-align: center;
   padding: 0;

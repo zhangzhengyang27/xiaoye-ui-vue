@@ -1,10 +1,10 @@
 import Modal from '..';
 import { sleep } from '../../../tests/utils';
 const { confirm } = Modal;
-jest.mock('../../_util/Portal');
+vi.mock('../../_util/Portal');
 
 describe('Modal.confirm triggers callbacks correctly', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   document.createDocumentFragment = () => {
     const container = document.createElement('div');
     document.body.appendChild(container);
@@ -25,40 +25,40 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   }
 
   function open(args) {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     confirm({
       title: 'Want to delete these items?',
       content: 'some descriptions',
       ...args,
     });
-    jest.runAllTimers();
-    jest.useRealTimers();
+    vi.runAllTimers();
+    vi.useRealTimers();
   }
 
   it('trigger onCancel once when click on cancel button', async () => {
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
     open({
       onCancel,
       onOk,
     });
     await sleep();
     // first Modal
-    $$('.ant-btn')[0].click();
+    $$('.xy-btn')[0].click();
     expect(onCancel.mock.calls.length).toBe(1);
     expect(onOk.mock.calls.length).toBe(0);
   });
 
   it('trigger onOk once when click on ok button', async () => {
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
     open({
       onCancel,
       onOk,
     });
     await sleep();
     // second Modal
-    $$('.ant-btn-primary')[0].click();
+    $$('.xy-btn-primary')[0].click();
     expect(onCancel.mock.calls.length).toBe(0);
     expect(onOk.mock.calls.length).toBe(1);
   });
@@ -67,7 +67,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     open();
     await sleep();
     // Third Modal
-    $$('.ant-btn')[0].click();
+    $$('.xy-btn')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
@@ -75,15 +75,15 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     open();
     await sleep();
     // Fourth Modal
-    $$('.ant-btn-primary')[0].click();
+    $$('.xy-btn-primary')[0].click();
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
   it('ok only', async () => {
     open({ okCancel: false });
     await sleep();
-    expect($$('.ant-btn')).toHaveLength(1);
-    expect($$('.ant-btn')[0].innerHTML).toContain('OK');
+    expect($$('.xy-btn')).toHaveLength(1);
+    expect($$('.xy-btn')[0].innerHTML).toContain('OK');
   });
 
   it('allows extra props on buttons', async () => {
@@ -92,14 +92,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       cancelButtonProps: { 'data-test': 'baz' },
     });
     await sleep();
-    expect($$('.ant-btn')).toHaveLength(2);
-    expect($$('.ant-btn')[0].attributes['data-test'].value).toBe('baz');
-    expect($$('.ant-btn')[1].disabled).toBe(true);
+    expect($$('.xy-btn')).toHaveLength(2);
+    expect($$('.xy-btn')[0].attributes['data-test'].value).toBe('baz');
+    expect($$('.xy-btn')[1].disabled).toBe(true);
   });
 
   it('trigger onCancel once when click on cancel button', async () => {
-    const onCancel = jest.fn();
-    const onOk = jest.fn();
+    const onCancel = vi.fn();
+    const onOk = vi.fn();
     await open({
       title: 'title',
       content: 'content',
@@ -107,7 +107,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       onOk,
     });
     await sleep();
-    $$('.ant-btn')[0].click();
+    $$('.xy-btn')[0].click();
     expect(onCancel.mock.calls.length).toBe(1);
     expect(onOk.mock.calls.length).toBe(0);
   });

@@ -48,6 +48,13 @@ const Input = defineComponent({
   setup(props) {
     let blurTimeout = null;
     const VCSelectContainerEvent = inject('VCSelectContainerEvent') as any;
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else if (fn) {
+        fn(...args);
+      }
+    };
     return () => {
       const {
         prefixCls,
@@ -147,13 +154,13 @@ const Input = defineComponent({
             onFocus: (...args: any[]) => {
               clearTimeout(blurTimeout);
               onOriginFocus && onOriginFocus(args[0]);
-              onFocus && onFocus(args[0]);
+              callEvent(onFocus, args[0]);
               VCSelectContainerEvent?.focus(args[0]);
             },
             onBlur: (...args: any[]) => {
               blurTimeout = setTimeout(() => {
                 onOriginBlur && onOriginBlur(args[0]);
-                onBlur && onBlur(args[0]);
+                callEvent(onBlur, args[0]);
                 VCSelectContainerEvent?.blur(args[0]);
               }, 100);
             },

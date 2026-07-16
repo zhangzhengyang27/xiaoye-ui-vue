@@ -190,7 +190,15 @@ export default defineComponent({
   name: 'Cascader',
   inheritAttrs: false,
   props: initDefaultProps(internalCascaderProps(), {}),
-  setup(props, { attrs, expose, slots }) {
+  emits: ['change', 'search', 'dropdownVisibleChange', 'popupVisibleChange'],
+  setup(props, { attrs, expose, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const mergedId = useId(toRef(props, 'id'));
     const multiple = computed(() => !!props.checkable);
 
@@ -233,7 +241,8 @@ export default defineComponent({
       setSearchValue(searchText);
 
       if (info.source !== 'blur' && props.onSearch) {
-        props.onSearch(searchText);
+        emit('search', searchText);
+        callEvent(props.onSearch, searchText);
       }
     };
 
@@ -327,7 +336,8 @@ export default defineComponent({
         const triggerValues = multiple.value ? nextRawValues : nextRawValues[0];
         const triggerOptions = multiple.value ? valueOptions : valueOptions[0];
 
-        props.onChange(triggerValues, triggerOptions);
+        emit('change', triggerValues, triggerOptions);
+        callEvent(props.onChange, triggerValues, triggerOptions);
       }
     };
 
@@ -440,8 +450,10 @@ export default defineComponent({
     const mergedPlacement = computed(() => props.placement || props.popupPlacement);
 
     const onInternalDropdownVisibleChange = (nextVisible: boolean) => {
-      props.onDropdownVisibleChange?.(nextVisible);
-      props.onPopupVisibleChange?.(nextVisible);
+      emit('dropdownVisibleChange', nextVisible);
+      emit('popupVisibleChange', nextVisible);
+      callEvent(props.onDropdownVisibleChange, nextVisible);
+      callEvent(props.onPopupVisibleChange, nextVisible);
     };
     const {
       changeOnSelect,

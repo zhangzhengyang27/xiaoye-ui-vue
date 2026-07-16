@@ -6,7 +6,7 @@ import { operationUnit } from '../../style';
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const {
     componentCls,
-    antCls,
+    rootCls,
     controlInteractiveSize: checkboxSize,
     motionDurationSlow,
     lineWidth,
@@ -128,7 +128,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
           },
         },
 
-        [`${antCls}-descriptions-view`]: {
+        [`${rootCls}-descriptions-view`]: {
           display: 'flex',
 
           table: {

@@ -1,0 +1,11 @@
+{
+    "main": "./UserPlusIcon.vue",
+    "module": "./UserPlusIcon.vue",
+    "types": "./UserPlusIcon.d.ts",
+    "browser": {
+        "./sfc": "./UserPlusIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

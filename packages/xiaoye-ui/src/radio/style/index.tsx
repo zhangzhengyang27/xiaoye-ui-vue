@@ -30,14 +30,14 @@ interface RadioToken extends FullToken<'Radio'> {
 }
 
 // ============================== Styles ==============================
-const antRadioEffect = new Keyframes('antRadioEffect', {
+const xyRadioEffect = new Keyframes('xyRadioEffect', {
   '0%': { transform: 'scale(1)', opacity: 0.5 },
   '100%': { transform: 'scale(1.6)', opacity: 0 },
 });
 
 // styles from RadioGroup only
 const getGroupRadioStyle: GenerateStyle<RadioToken> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
   const groupPrefixCls = `${componentCls}-group`;
 
   return {
@@ -51,11 +51,11 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = token => {
         direction: 'rtl',
       },
 
-      [`${antCls}-badge ${antCls}-badge-count`]: {
+      [`${rootCls}-badge ${rootCls}-badge-count`]: {
         zIndex: 1,
       },
 
-      [`> ${antCls}-badge:not(:first-child) > ${antCls}-button-wrapper`]: {
+      [`> ${rootCls}-badge:not(:first-child) > ${rootCls}-button-wrapper`]: {
         borderInlineStart: 'none',
       },
     },
@@ -125,7 +125,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
         border: `${lineWidth}px ${lineType} ${radioCheckedColor}`,
         borderRadius: '50%',
         visibility: 'hidden',
-        animationName: antRadioEffect,
+        animationName: xyRadioEffect,
         animationDuration: motionDurationSlow,
         animationTimingFunction: motionEaseInOut,
         animationFillMode: 'both',

@@ -1,0 +1,11 @@
+{
+    "main": "./ThumbsUpIcon.vue",
+    "module": "./ThumbsUpIcon.vue",
+    "types": "./ThumbsUpIcon.d.ts",
+    "browser": {
+        "./sfc": "./ThumbsUpIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

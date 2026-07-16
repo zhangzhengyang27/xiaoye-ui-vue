@@ -1,0 +1,11 @@
+{
+    "main": "./CreditCardIcon.vue",
+    "module": "./CreditCardIcon.vue",
+    "types": "./CreditCardIcon.d.ts",
+    "browser": {
+        "./sfc": "./CreditCardIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

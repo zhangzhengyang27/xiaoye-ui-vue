@@ -525,13 +525,13 @@ const rateValue = ref(2);
 <style lang="less" scoped>
 .direction-components {
   width: 100%;
-  .button-demo .ant-btn,
-  .button-demo .ant-btn-group {
+  .button-demo .xy-btn,
+  .button-demo .xy-btn-group {
     margin-right: 8px;
     margin-bottom: 12px;
   }
-  .button-demo .ant-btn-group > .ant-btn,
-  .button-demo .ant-btn-group > span > .ant-btn {
+  .button-demo .xy-btn-group > .xy-btn,
+  .button-demo .xy-btn-group > span > .xy-btn {
     margin-right: 0;
     margin-left: 0;
   }
@@ -545,10 +545,10 @@ const rateValue = ref(2);
     border-radius: 4px;
   }
 
-  .ant-badge:not(.ant-badge-not-a-wrapper) {
+  .xy-badge:not(.xy-badge-not-a-wrapper) {
     margin-right: 20px;
   }
-  .ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
+  .xy-badge-rtl:not(.xy-badge-not-a-wrapper) {
     margin-right: 0;
     margin-left: 20px;
   }

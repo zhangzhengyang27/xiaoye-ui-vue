@@ -7,11 +7,11 @@ import mountTest from '../../../tests/shared/mountTest';
 describe('Carousel', () => {
   mountTest(Carousel);
   // beforeEach(() => {
-  //   jest.useFakeTimers();
+  //   vi.useFakeTimers();
   // });
 
   // afterEach(() => {
-  //   jest.useRealTimers();
+  //   vi.useRealTimers();
   // });
   it('should has innerSlider', () => {
     const props = {
@@ -75,7 +75,7 @@ describe('Carousel', () => {
   //   };
   //   const wrapper = mount(Carousel, props);
   //   await sleep(100);
-  //   const spy = jest.spyOn(wrapper.componentVM.innerSlider, 'handleAutoPlay');
+  //   const spy = vi.spyOn(wrapper.componentVM.innerSlider, 'handleAutoPlay');
   //   window.resizeTo(1000);
   //   expect(spy).not.toHaveBeenCalled();
   //   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -97,7 +97,7 @@ describe('Carousel', () => {
       sync: false,
     };
     const wrapper = mount(Carousel, props);
-    const spy = jest.spyOn(window, 'removeEventListener');
+    const spy = vi.spyOn(window, 'removeEventListener');
     wrapper.unmount();
     expect(spy).toHaveBeenCalled();
   });
@@ -124,7 +124,7 @@ describe('Carousel', () => {
   });
 
   it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return (

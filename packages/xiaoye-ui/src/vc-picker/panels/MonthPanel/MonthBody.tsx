@@ -85,5 +85,15 @@ function MonthBody<DateType>(_props: MonthBodyProps<DateType>) {
 
 MonthBody.displayName = 'MonthBody';
 MonthBody.inheritAttrs = false;
+MonthBody.props = [
+  'prefixCls',
+  'locale',
+  'generateConfig',
+  'value',
+  'viewDate',
+  'disabledDate',
+  'monthCellRender',
+  'onSelect',
+];
 
 export default MonthBody;

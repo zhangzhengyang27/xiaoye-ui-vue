@@ -9,7 +9,7 @@ describe('QRCode test', () => {
         return <QRCode value="test" />;
       },
     });
-    expect(wrapper.find('.ant-qrcode')).toBeTruthy();
+    expect(wrapper.find('.xy-qrcode')).toBeTruthy();
     expect(wrapper.find('canvas')).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
@@ -20,7 +20,7 @@ describe('QRCode test', () => {
         return <QRCode value="test" icon="test" />;
       },
     });
-    expect(wrapper.find('.ant-qrcode')).toBeTruthy();
+    expect(wrapper.find('.xy-qrcode')).toBeTruthy();
     expect(wrapper.find('image')).toBeTruthy();
   });
 
@@ -35,13 +35,13 @@ describe('QRCode test', () => {
   });
 
   it('support refresh', async () => {
-    const refresh = jest.fn();
+    const refresh = vi.fn();
     const wrapper = mount({
       render() {
         return <QRCode value="test" status="expired" onRefresh={refresh} />;
       },
     });
-    await wrapper.find('.ant-btn-link').trigger('click');
+    await wrapper.find('.xy-btn-link').trigger('click');
     expect(refresh).toHaveBeenCalled();
   });
 
@@ -64,7 +64,7 @@ describe('QRCode test', () => {
       },
     });
     await wrapper.find('button').trigger('click');
-    expect(wrapper.find('.ant-spin-spinning')).toBeTruthy();
+    expect(wrapper.find('.xy-spin-spinning')).toBeTruthy();
   });
 
   it('support bordered', () => {
@@ -77,7 +77,7 @@ describe('QRCode test', () => {
   });
 
   it('should console Error when icon exist && errorLevel is `L`', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return <QRCode value="test" icon="test" errorLevel="L" />;

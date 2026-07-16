@@ -84,6 +84,7 @@ export default defineComponent({
     ...inputNumberProps(),
     lazy: Boolean,
   },
+  emits: ['change', 'pressEnter', 'step', 'blur', 'focus', 'input', 'keydown', 'keyup'],
   slots: Object as CustomSlotsType<{
     upHandler: any;
     downHandler: any;
@@ -95,6 +96,14 @@ export default defineComponent({
     const userTypingRef = shallowRef(false);
     const compositionRef = shallowRef(false);
     const decimalValue = shallowRef(getMiniDecimal(props.value));
+
+    const callPropEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else if (typeof fn === 'function') {
+        fn(...args);
+      }
+    };
 
     function setUncontrolledDecimalValue(newDecimal: DecimalClass) {
       if (props.value === undefined) {
@@ -275,9 +284,11 @@ export default defineComponent({
         // Trigger event
         if (!updateValue.equals(decimalValue.value)) {
           setUncontrolledDecimalValue(updateValue);
-          props.onChange?.(
-            updateValue.isEmpty() ? null : getDecimalValue(props.stringMode, updateValue),
-          );
+          const changeValue = updateValue.isEmpty()
+            ? null
+            : getDecimalValue(props.stringMode, updateValue);
+          emit('change', changeValue);
+          callPropEvent(props.onChange, changeValue);
 
           // Reformat input if value is not controlled
           if (props.value === undefined) {
@@ -310,7 +321,8 @@ export default defineComponent({
       }
 
       // Trigger onInput later to let user customize value if they want do handle something after onChange
-      props.onInput?.(inputStr);
+      emit('input', inputStr);
+      callPropEvent(props.onInput, inputStr);
 
       // optimize for chinese input experience
       onNextPromise(() => {
@@ -361,10 +373,10 @@ export default defineComponent({
 
       const updatedValue = triggerValueUpdate(target, false);
 
-      props.onStep?.(getDecimalValue(props.stringMode, updatedValue), {
-        offset: props.step,
-        type: up ? 'up' : 'down',
-      });
+      const stepValue = getDecimalValue(props.stringMode, updatedValue);
+      const stepInfo = { offset: props.step, type: up ? 'up' : 'down' };
+      emit('step', stepValue, stepInfo);
+      callPropEvent(props.onStep, stepValue, stepInfo);
 
       inputRef.value?.focus();
     };
@@ -408,8 +420,12 @@ export default defineComponent({
           userTypingRef.value = false;
         }
         flushInputValue(false);
-        props.onPressEnter?.(event);
+        emit('pressEnter', event);
+        callPropEvent(props.onPressEnter, event);
       }
+
+      emit('keydown', event);
+      callPropEvent(props.onKeydown, event);
 
       if (props.keyboard === false) {
         return;
@@ -422,8 +438,10 @@ export default defineComponent({
       }
     };
 
-    const onKeyUp = () => {
+    const onKeyUp = event => {
       userTypingRef.value = false;
+      emit('keyup', event);
+      callPropEvent(props.onKeyup, event);
     };
 
     // >>> Focus & Blur
@@ -432,6 +450,7 @@ export default defineComponent({
       focus.value = false;
       userTypingRef.value = false;
       emit('blur', e);
+      callPropEvent(props.onBlur, e);
     };
 
     // ========================== Controlled ==========================
@@ -576,6 +595,7 @@ export default defineComponent({
               onFocus={(e: FocusEvent) => {
                 focus.value = true;
                 emit('focus', e);
+                callPropEvent(props.onFocus, e);
               }}
               {...eventProps}
               onBlur={onBlur}

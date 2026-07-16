@@ -103,7 +103,7 @@ const onChecked = (
 };
 </script>
 <style scoped>
-.tree-transfer .ant-transfer-list:first-child {
+.tree-transfer .xy-transfer-list:first-child {
   width: 50%;
   flex: none;
 }

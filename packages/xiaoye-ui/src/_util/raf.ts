@@ -1,10 +1,15 @@
-let raf = (callback: FrameRequestCallback) => setTimeout(callback, 16) as any;
-let caf = (num: number) => clearTimeout(num);
-
-if (typeof window !== 'undefined' && 'requestAnimationFrame' in window) {
-  raf = (callback: FrameRequestCallback) => window.requestAnimationFrame(callback);
-  caf = (handle: number) => window.cancelAnimationFrame(handle);
-}
+let raf = (callback: FrameRequestCallback) => {
+  if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+    return window.requestAnimationFrame(callback);
+  }
+  return setTimeout(callback, 16) as any;
+};
+let caf = (num: number) => {
+  if (typeof window !== 'undefined' && window.cancelAnimationFrame) {
+    return window.cancelAnimationFrame(num);
+  }
+  return clearTimeout(num);
+};
 
 let rafUUID = 0;
 const rafIds = new Map<number, number>();

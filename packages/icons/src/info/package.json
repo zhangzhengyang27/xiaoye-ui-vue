@@ -1,0 +1,11 @@
+{
+    "main": "./InfoIcon.vue",
+    "module": "./InfoIcon.vue",
+    "types": "./InfoIcon.d.ts",
+    "browser": {
+        "./sfc": "./InfoIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

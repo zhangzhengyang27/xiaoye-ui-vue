@@ -1,0 +1,11 @@
+{
+    "main": "./TextIcon.vue",
+    "module": "./TextIcon.vue",
+    "types": "./TextIcon.d.ts",
+    "browser": {
+        "./sfc": "./TextIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

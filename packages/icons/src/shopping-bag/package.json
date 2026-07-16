@@ -1,0 +1,11 @@
+{
+    "main": "./ShoppingBagIcon.vue",
+    "module": "./ShoppingBagIcon.vue",
+    "types": "./ShoppingBagIcon.d.ts",
+    "browser": {
+        "./sfc": "./ShoppingBagIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

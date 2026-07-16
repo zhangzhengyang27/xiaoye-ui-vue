@@ -3,11 +3,11 @@ import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, rootCls } = token;
   return {
     [`${componentCls}-wrapper`]: {
       // ========================== Pagination ==========================
-      [`${componentCls}-pagination${antCls}-pagination`]: {
+      [`${componentCls}-pagination${rootCls}-pagination`]: {
         margin: `${token.margin}px 0`,
       },
 

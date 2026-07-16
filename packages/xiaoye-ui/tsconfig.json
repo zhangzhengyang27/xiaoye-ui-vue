@@ -12,5 +12,6 @@
       "@xiaoye-ui/utils": ["../utils/src/index.ts"]
     }
   },
-  "include": ["src/**/*", "tests/**/*"]
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["src/**/demo/**"]
 }

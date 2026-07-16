@@ -25,8 +25,8 @@ describe('Space', () => {
         );
       },
     });
-    expect(wrapper.findAll('.ant-space-item')[0].element.style.marginRight).toBe('10px');
-    expect(wrapper.findAll('.ant-space-item')[1].element.style.marginRight).toBe('');
+    expect(wrapper.findAll('.xy-space-item')[0].element.style.marginRight).toBe('10px');
+    expect(wrapper.findAll('.xy-space-item')[1].element.style.marginRight).toBe('');
   });
 
   it('should render vertical space width customize size', () => {
@@ -40,8 +40,8 @@ describe('Space', () => {
         );
       },
     });
-    expect(wrapper.findAll('.ant-space-item')[0].element.style.marginBottom).toBe('10px');
-    expect(wrapper.findAll('.ant-space-item')[1].element.style.marginBottom).toBe('');
+    expect(wrapper.findAll('.xy-space-item')[0].element.style.marginBottom).toBe('10px');
+    expect(wrapper.findAll('.xy-space-item')[1].element.style.marginBottom).toBe('');
   });
 
   it('should render correct with children', () => {
@@ -71,6 +71,6 @@ describe('Space', () => {
       },
     });
 
-    expect(wrapper.findAll('.ant-space-item').length).toBe(3);
+    expect(wrapper.findAll('.xy-space-item').length).toBe(3);
   });
 });

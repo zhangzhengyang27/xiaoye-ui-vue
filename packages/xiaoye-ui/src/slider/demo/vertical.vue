@@ -46,7 +46,7 @@ const marks = ref<Record<number, any>>({
 });
 </script>
 <style scoped>
-.code-box-demo .ant-slider {
+.code-box-demo .xy-slider {
   margin-bottom: 16px;
 }
 </style>

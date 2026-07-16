@@ -82,6 +82,7 @@ export default defineComponent({
         mouseEnterDelay,
         mouseLeaveDelay,
         open: open ?? visible,
+        visible,
         overlayClassName,
         overlayStyle,
         destroyPopupOnHide,

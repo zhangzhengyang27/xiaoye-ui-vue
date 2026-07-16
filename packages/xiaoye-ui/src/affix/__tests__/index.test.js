@@ -7,7 +7,7 @@ const events = {};
 const AffixMounter = {
   props: ['offsetBottom', 'offsetTop'],
   mounted() {
-    this.$refs.container.addEventListener = jest.fn().mockImplementation((event, cb) => {
+    this.$refs.container.addEventListener = vi.fn().mockImplementation((event, cb) => {
       events[event] = cb;
     });
   },
@@ -38,7 +38,7 @@ describe('Affix Render', () => {
   };
   beforeAll(() => {
     document.body.innerHTML = '';
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     domMock = spyElementPrototype(HTMLElement, 'getBoundingClientRect', function mockBounding() {
       return (
         classRect[this.className] || {
@@ -49,7 +49,7 @@ describe('Affix Render', () => {
     });
   });
   afterAll(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
     domMock.mockRestore();
   });
   const movePlaceholder = top => {
@@ -60,11 +60,11 @@ describe('Affix Render', () => {
     events.scroll({
       type: 'scroll',
     });
-    jest.runAllTimers();
+    vi.runAllTimers();
   };
   it('Anchor render perfectly', () => {
     wrapper = mount(AffixMounter, { attachTo: 'body' });
-    jest.runAllTimers();
+    vi.runAllTimers();
 
     movePlaceholder(0);
     expect(wrapper.vm.$refs.affix.affixStyle).toBeFalsy();
@@ -83,7 +83,7 @@ describe('Affix Render', () => {
       },
     });
 
-    jest.runAllTimers();
+    vi.runAllTimers();
 
     movePlaceholder(300);
     //expect(wrapper.vm.$refs.affix.affixStyle).toBeTruthy();
@@ -103,14 +103,14 @@ describe('Affix Render', () => {
   //     },
   //   });
 
-  //   jest.runAllTimers();
+  //   vi.runAllTimers();
 
   //   movePlaceholder(-100);
   //   expect(wrapper.vm.$refs.affix.affixStyle.top).toBe('0px');
   //   wrapper.setProps({
   //     offsetTop: 10,
   //   });
-  //   jest.runAllTimers();
+  //   vi.runAllTimers();
   //   expect(wrapper.vm.$refs.affix.affixStyle.top).toBe('10px');
   // });
 });

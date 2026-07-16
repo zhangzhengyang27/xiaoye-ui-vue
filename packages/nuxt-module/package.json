@@ -1,23 +1,92 @@
 {
-  "name": "@xiaoye-ui/nuxt-module",
-  "version": "6.0.0",
-  "description": "XiaoyeUI Nuxt 3 module",
-  "type": "module",
-  "main": "./src/module.ts",
-  "module": "./src/module.ts",
-  "types": "./src/module.ts",
-  "sideEffects": false,
-  "scripts": {
-    "build": "nuxt-module-build build",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@nuxt/kit": "^3.0.0",
-    "@xiaoye-ui/auto-import-resolver": "workspace:*",
-    "@xiaoye-ui/vite-plugin": "workspace:*"
-  },
-  "publishConfig": {
-    "access": "public",
-    "directory": "dist"
-  }
+    "name": "@xiaoye-ui/nuxt-module",
+    "version": "6.0.0",
+    "description": "Nuxt module for XiaoyeUI",
+    "homepage": "https://xiaoye-ui.github.io/",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
+        "directory": "packages/nuxt-module"
+    },
+    "bugs": {
+        "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
+    },
+    "keywords": [
+        "vue",
+        "vue.js",
+        "vue3",
+        "nuxt",
+        "nuxt3",
+        "xiaoye-ui",
+        "xiaoye-ui nuxt module",
+        "xiaoye-ui nuxt3"
+    ],
+    "type": "module",
+    "sideEffects": false,
+    "main": "./src/module.ts",
+    "module": "./src/module.ts",
+    "types": "./src/types.d.ts",
+    "exports": {
+        ".": {
+            "types": "./src/types.d.ts",
+            "import": "./src/module.ts"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "build": {
+        "externals": [
+            "xiaoye-ui",
+            "@xiaoye-ui/metadata",
+            "@xiaoye-ui/auto-import-resolver",
+            "unplugin-vue-components",
+            "@xiaoye-ui/utils",
+            "@xiaoye-ui/utils/object",
+            "@xiaoye-ui/utils/dom"
+        ]
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "NODE_ENV=production INPUT_DIR=src/ OUTPUT_DIR=dist/ pnpm run build:package",
+        "build:package": "pnpm run build:prebuild && pnpm run prepack && pnpm run build:postbuild",
+        "build:prebuild": "node ./scripts/prebuild.mjs",
+        "build:postbuild": "node ./scripts/postbuild.mjs",
+        "prepack": "nuxt-module-build build",
+        "dev": "nuxi dev playground",
+        "dev:build": "nuxi build playground",
+        "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+        "dev:link": "pnpm link --global && npm link",
+        "test": "vitest run",
+        "test:watch": "vitest watch",
+        "test:types": "vue-tsc --noEmit && nuxi prepare playground && cd playground && vue-tsc --noEmit -p tsconfig.typecheck.json"
+    },
+    "dependencies": {
+        "@nuxt/kit": "^4",
+        "@xiaoye-ui/auto-import-resolver": "workspace:*",
+        "@xiaoye-ui/metadata": "workspace:*",
+        "@xiaoye-ui/utils": "workspace:*",
+        "pathe": "^2.0.3",
+        "unplugin-vue-components": "^32.0.0",
+        "xiaoye-ui": "workspace:*"
+    },
+    "devDependencies": {
+        "@nuxt/devtools": "^3.2.4",
+        "@nuxt/eslint-config": "^1.1.0",
+        "@nuxt/module-builder": "^1.0.2",
+        "@nuxt/schema": "^4",
+        "@nuxt/test-utils": "^4.0.3",
+        "@types/node": "^25.9.5",
+        "@vue/compiler-dom": "^3.5.33",
+        "changelogen": "^0.6.0",
+        "nuxt": "^3.16.0",
+        "vitest": "^4.1.5",
+        "vue-tsc": "^3.2.8"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
 }

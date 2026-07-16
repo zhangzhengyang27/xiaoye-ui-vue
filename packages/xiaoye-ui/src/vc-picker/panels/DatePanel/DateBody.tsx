@@ -105,15 +105,15 @@ DateBody.inheritAttrs = false;
 DateBody.props = [
   'prefixCls',
   'generateConfig',
-  'value?',
+  'value',
   'viewDate',
   'locale',
   'rowCount',
   'onSelect',
-  'dateRender?',
-  'disabledDate?',
-  // Used for week panel
-  'prefixColumn?',
-  'rowClassName?',
+  'dateRender',
+  'disabledDate',
+  // Used for week
+  'prefixColumn',
+  'rowClassName',
 ];
 export default DateBody;

@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Watermark The watermark should render successfully  1`] = `
-<div class="watermark" style="position: relative;">
+exports[`Watermark > The watermark should render successfully  1`] = `
+"<div class="watermark watermark" style="position: relative;">
   <!---->
-</div>
+</div>"
 `;

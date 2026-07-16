@@ -1,0 +1,11 @@
+{
+    "main": "./SmileFillIcon.vue",
+    "module": "./SmileFillIcon.vue",
+    "types": "./SmileFillIcon.d.ts",
+    "browser": {
+        "./sfc": "./SmileFillIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

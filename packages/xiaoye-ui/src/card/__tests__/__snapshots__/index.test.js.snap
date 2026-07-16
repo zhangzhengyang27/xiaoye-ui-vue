@@ -1,15 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
-<div class="ant-card  ant-card-loading ant-card-bordered">
+exports[`Card > should still have padding when card which set padding to 0 is loading 1`] = `
+"<div class="xy-card css-dev-only-do-not-override-1p3hq3p xy-card-loading xy-card-bordered">
   <!---->
   <!---->
-  <div class="ant-card-body" style="padding: 0px;">
-    <div class="ant-skeleton ant-skeleton-active ">
+  <div class="xy-card-body" style="padding: 0px;">
+    <div class="xy-skeleton xy-skeleton-active css-dev-only-do-not-override-1p3hq3p">
       <!---->
-      <div class="ant-skeleton-content">
+      <div class="xy-skeleton-content">
         <!---->
-        <ul class="ant-skeleton-paragraph">
+        <ul class="xy-skeleton-paragraph">
           <li></li>
           <li></li>
           <li></li>
@@ -19,24 +19,22 @@ exports[`Card should still have padding when card which set padding to 0 is load
     </div>
   </div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`Card title should be vertically aligned 1`] = `
-<div style="width: 300px;" class="ant-card  ant-card-bordered">
-  <div class="ant-card-head">
-    <div class="ant-card-head-wrapper">
-      <div class="ant-card-head-title">Card title</div>
-      <div class="ant-card-extra"><button class="ant-btn ant-btn-default" type="button">
-          <!----><span>Button</span>
-        </button></div>
+exports[`Card > title should be vertically aligned 1`] = `
+"<div style="width: 300px;" class="xy-card css-dev-only-do-not-override-1p3hq3p xy-card-bordered">
+  <div class="xy-card-head">
+    <div class="xy-card-head-wrapper">
+      <div class="xy-card-head-title">Card title</div>
+      <div class="xy-card-extra"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Button</span></button></div>
     </div>
     <!---->
   </div>
   <!---->
-  <div class="ant-card-body">
+  <div class="xy-card-body">
     <p>Card content</p>
   </div>
   <!---->
-</div>
+</div>"
 `;

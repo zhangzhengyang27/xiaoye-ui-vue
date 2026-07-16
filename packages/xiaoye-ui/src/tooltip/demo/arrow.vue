@@ -134,7 +134,7 @@ const mergedArrow = computed(() => {
 });
 </script>
 <style scoped>
-:deep(#components-a-tooltip-demo-arrow) .ant-btn {
+:deep(#components-a-tooltip-demo-arrow) .xy-btn {
   width: 70px;
   text-align: center;
   padding: 0;

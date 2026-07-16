@@ -24,7 +24,7 @@ describe('Layout', () => {
       { sync: false },
     );
     await sleep();
-    expect(wrapper.find('.ant-layout').classes()).toContain('ant-layout-has-sider');
+    expect(wrapper.find('.xy-layout').classes()).toContain('xy-layout-has-sider');
   });
 
   it('detect the sider inside the children', async () => {
@@ -44,10 +44,10 @@ describe('Layout', () => {
       { sync: false },
     );
     await sleep();
-    expect(wrapper.find('.ant-layout').classes()).toContain('ant-layout-has-sider');
+    expect(wrapper.find('.xy-layout').classes()).toContain('xy-layout-has-sider');
   });
 
-  it('detect ant-layout-sider-has-trigger class in sider when ant-layout-sider-trigger div tag exists', async () => {
+  it('detect xy-layout-sider-has-trigger class in sider when xy-layout-sider-trigger div tag exists', async () => {
     const wrapper = mount(
       {
         render() {
@@ -64,6 +64,6 @@ describe('Layout', () => {
       { sync: false },
     );
     await sleep();
-    expect(wrapper.find('.ant-layout-sider').classes()).toContain('ant-layout-sider-has-trigger');
+    expect(wrapper.find('.xy-layout-sider').classes()).toContain('xy-layout-sider-has-trigger');
   });
 });

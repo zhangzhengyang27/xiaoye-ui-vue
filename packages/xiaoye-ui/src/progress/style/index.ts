@@ -16,7 +16,7 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressActiveMotionDuration: string;
 }
 
-const antProgressActive = new Keyframes('antProgressActive', {
+const xyProgressActive = new Keyframes('xyProgressActive', {
   '0%': {
     transform: 'translateX(-100%) scaleX(0)',
     opacity: 0.1,
@@ -116,7 +116,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = token => {
           backgroundColor: token.colorBgContainer,
           borderRadius: token.progressLineRadius,
           opacity: 0,
-          animationName: antProgressActive,
+          animationName: xyProgressActive,
           animationDuration: token.progressActiveMotionDuration,
           animationTimingFunction: token.motionEaseOutQuint,
           animationIterationCount: 'infinite',

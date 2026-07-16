@@ -3,7 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const { antCls, componentCls } = token;
+  const { rootCls, componentCls } = token;
 
   return {
     [`&${componentCls}-with-progress`]: {
@@ -45,7 +45,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`${componentCls}-item-icon`]: {
         position: 'relative',
 
-        [`${antCls}-progress`]: {
+        [`${rootCls}-progress`]: {
           position: 'absolute',
           insetBlockStart:
             (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,

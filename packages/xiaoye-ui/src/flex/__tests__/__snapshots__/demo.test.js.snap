@@ -1,146 +1,74 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders ./components/flex/demo/align.vue correctly 1`] = `
-<div class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical">
+exports[`renders ./src/flex/demo/align.vue correctly 1`] = `
+"<div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-align-start xy-flex-gap-middle xy-flex-vertical">
   <p>Select justify :</p>
-  <div class="ant-segmented ">
-    <div class="ant-segmented-group">
-      <!----><label class="ant-segmented-item ant-segmented-item-selected"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="flex-start">flex-start</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="center">center</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="flex-end">flex-end</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="space-between">space-between</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="space-around">space-around</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="space-evenly">space-evenly</div>
-      </label>
-    </div>
+  <div class="xy-segmented css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-segmented-group"><span style="display: contents;"><!----></span><label class="xy-segmented-item xy-segmented-item-selected"><input class="xy-segmented-item-input" type="radio" checked="">
+        <div class="xy-segmented-item-label" title="flex-start">flex-start</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="center">center</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="flex-end">flex-end</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="space-between">space-between</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="space-around">space-around</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="space-evenly">space-evenly</div>
+      </label></div>
   </div>
   <p>Select align :</p>
-  <div class="ant-segmented ">
-    <div class="ant-segmented-group">
-      <!----><label class="ant-segmented-item ant-segmented-item-selected"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="flex-start">flex-start</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="center">center</div>
-      </label><label class="ant-segmented-item"><input class="ant-segmented-item-input" type="radio">
-        <div class="ant-segmented-item-label" title="flex-end">flex-end</div>
-      </label>
-    </div>
+  <div class="xy-segmented css-dev-only-do-not-override-1p3hq3p">
+    <div class="xy-segmented-group"><span style="display: contents;"><!----></span><label class="xy-segmented-item xy-segmented-item-selected"><input class="xy-segmented-item-input" type="radio" checked="">
+        <div class="xy-segmented-item-label" title="flex-start">flex-start</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="center">center</div>
+      </label><label class="xy-segmented-item"><input class="xy-segmented-item-input" type="radio">
+        <div class="xy-segmented-item-label" title="flex-end">flex-end</div>
+      </label></div>
   </div>
-  <div class="ant-flex ant-flex-align-flex-start ant-flex-justify-flex-start" style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Primary</span>
-    </button><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Primary</span>
-    </button><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Primary</span>
-    </button><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Primary</span>
-    </button></div>
-</div>
+  <div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-align-flex-start xy-flex-justify-flex-start" style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Primary</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Primary</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Primary</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Primary</span></button></div>
+</div>"
 `;
 
-exports[`renders ./components/flex/demo/basic.vue correctly 1`] = `
-<div class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical">
-  <div class="ant-radio-group ant-radio-group-outline"><label class="ant-radio-wrapper ant-radio-wrapper-checked"><span class="ant-radio ant-radio-checked"><input type="radio" class="ant-radio-input" value="horizontal"><span class="ant-radio-inner"></span></span><span>horizontal</span></label><label class="ant-radio-wrapper"><span class="ant-radio"><input type="radio" class="ant-radio-input" value="vertical"><span class="ant-radio-inner"></span></span><span>vertical</span></label></div>
-  <div class="ant-flex">
+exports[`renders ./src/flex/demo/basic.vue correctly 1`] = `
+"<div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-align-stretch xy-flex-gap-middle xy-flex-vertical">
+  <div class="xy-radio-group xy-radio-group-outline css-dev-only-do-not-override-1p3hq3p"><label class="xy-radio-wrapper xy-radio-wrapper-checked css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio xy-radio-checked"><input type="radio" class="xy-radio-input" checked="" value="horizontal"><span class="xy-radio-inner"></span></span><span>horizontal</span></label><label class="xy-radio-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio"><input type="radio" class="xy-radio-input" value="vertical"><span class="xy-radio-inner"></span></span><span>vertical</span></label></div>
+  <div class="xy-flex css-dev-only-do-not-override-1p3hq3p">
     <div style="width: 25%; height: 54px; background: rgba(22, 119, 255, 0.749);"></div>
     <div style="width: 25%; height: 54px; background: rgb(22, 119, 255);"></div>
     <div style="width: 25%; height: 54px; background: rgba(22, 119, 255, 0.749);"></div>
     <div style="width: 25%; height: 54px; background: rgb(22, 119, 255);"></div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`renders ./components/flex/demo/combination.vue correctly 1`] = `
-<div style="width: 620px;" class="ant-card  ant-card-bordered">
+exports[`renders ./src/flex/demo/combination.vue correctly 1`] = `
+"<div style="width: 620px;" class="xy-card css-dev-only-do-not-override-1p3hq3p xy-card-bordered">
   <!---->
   <!---->
-  <div class="ant-card-body" style="padding: 0px; overflow: hidden;">
-    <div class="ant-flex ant-flex-justify-space-between"><img alt="avatar" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" style="display: block; width: 273px;">
-      <div class="ant-flex ant-flex-align-flex-end ant-flex-justify-space-between ant-flex-vertical" style="padding: 32px;">
-        <article class="ant-typography">
-          <h3 class="ant-typography"> “antd is an enterprise-class UI design language and Vue UI library.”
+  <div class="xy-card-body" style="padding: 0px; overflow: hidden;">
+    <div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-justify-space-between"><img alt="avatar" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" style="display: block; width: 273px;">
+      <div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-align-flex-end xy-flex-justify-space-between xy-flex-vertical" style="padding: 32px;">
+        <article class="xy-typography css-dev-only-do-not-override-1p3hq3p">
+          <h3 class="xy-typography css-dev-only-do-not-override-1p3hq3p"> “xiaoye-ui is an enterprise-class UI design language and Vue UI library.”
             <!---->
           </h3>
-        </article><a class="ant-btn ant-btn-primary" href="https://antdv.com" target="_blank">
-          <!----><span>Get Start</span>
-        </a>
+        </article><a class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" href="https://xiaoye-ui.github.io" target="_blank"><span style="display: contents;"><!----></span><span>Get Start</span></a>
       </div>
     </div>
   </div>
   <!---->
-</div>
+</div>"
 `;
 
-exports[`renders ./components/flex/demo/gap.vue correctly 1`] = `
-<div class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical">
-  <div class="ant-radio-group ant-radio-group-outline"><label class="ant-radio-wrapper ant-radio-wrapper-checked"><span class="ant-radio ant-radio-checked"><input type="radio" class="ant-radio-input" value="small"><span class="ant-radio-inner"></span></span><span>small</span></label><label class="ant-radio-wrapper"><span class="ant-radio"><input type="radio" class="ant-radio-input" value="middle"><span class="ant-radio-inner"></span></span><span>middle</span></label><label class="ant-radio-wrapper"><span class="ant-radio"><input type="radio" class="ant-radio-input" value="large"><span class="ant-radio-inner"></span></span><span>large</span></label><label class="ant-radio-wrapper"><span class="ant-radio"><input type="radio" class="ant-radio-input" value="customize"><span class="ant-radio-inner"></span></span><span>customize</span></label></div>
+exports[`renders ./src/flex/demo/gap.vue correctly 1`] = `
+"<div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-align-stretch xy-flex-gap-middle xy-flex-vertical">
+  <div class="xy-radio-group xy-radio-group-outline css-dev-only-do-not-override-1p3hq3p"><label class="xy-radio-wrapper xy-radio-wrapper-checked css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio xy-radio-checked"><input type="radio" class="xy-radio-input" checked="" value="small"><span class="xy-radio-inner"></span></span><span>small</span></label><label class="xy-radio-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio"><input type="radio" class="xy-radio-input" value="middle"><span class="xy-radio-inner"></span></span><span>middle</span></label><label class="xy-radio-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio"><input type="radio" class="xy-radio-input" value="large"><span class="xy-radio-inner"></span></span><span>large</span></label><label class="xy-radio-wrapper css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio"><input type="radio" class="xy-radio-input" value="customize"><span class="xy-radio-inner"></span></span><span>customize</span></label></div>
   <!--v-if-->
-  <div class="ant-flex ant-flex-gap-small"><button class="ant-btn ant-btn-primary" type="button">
-      <!----><span>Primary</span>
-    </button><button class="ant-btn ant-btn-default" type="button">
-      <!----><span>Default</span>
-    </button><button class="ant-btn ant-btn-dashed" type="button">
-      <!----><span>Dashed</span>
-    </button><button class="ant-btn ant-btn-link" type="button">
-      <!----><span>Link</span>
-    </button></div>
-</div>
+  <div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-gap-small"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Primary</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-default" type="button"><span style="display: contents;"><!----></span><span>Default</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-dashed" type="button"><span style="display: contents;"><!----></span><span>Dashed</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-link" type="button"><span style="display: contents;"><!----></span><span>Link</span></button></div>
+</div>"
 `;
 
-exports[`renders ./components/flex/demo/wrap.vue correctly 1`] = `
-<div class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button><button class="ant-btn ant-btn-primary" type="button">
-    <!----><span>Button</span>
-  </button></div>
-`;
+exports[`renders ./src/flex/demo/wrap.vue correctly 1`] = `"<div class="xy-flex css-dev-only-do-not-override-1p3hq3p xy-flex-wrap-wrap xy-flex-gap-small"><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button><button class="css-dev-only-do-not-override-1p3hq3p xy-btn xy-btn-primary" type="button"><span style="display: contents;"><!----></span><span>Button</span></button></div>"`;

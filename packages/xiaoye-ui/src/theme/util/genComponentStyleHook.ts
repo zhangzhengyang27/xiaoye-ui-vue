@@ -30,8 +30,8 @@ export type TokenWithCommonCls<T> = T & {
   prefixCls: string;
   /** Wrap icon class with `.` prefix */
   iconCls: string;
-  /** Wrap ant prefixCls class with `.` prefix */
-  antCls: string;
+  /** Wrap root prefixCls class with `.` prefix */
+  rootCls: string;
 };
 export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
   GlobalTokenWithComponent<ComponentName>
@@ -91,7 +91,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             componentCls,
             prefixCls: prefixCls.value,
             iconCls: `.${iconPrefixCls.value}`,
-            antCls: `.${rootPrefixCls.value}`,
+            rootCls: `.${rootPrefixCls.value}`,
           },
           mergedComponentToken,
         );

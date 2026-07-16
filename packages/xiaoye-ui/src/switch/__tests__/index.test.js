@@ -24,7 +24,7 @@ describe('Switch', () => {
         };
       },
     });
-    wrapper.find('.ant-switch').trigger('click');
+    wrapper.find('.xy-switch').trigger('click');
     await new Promise(resolve => setTimeout(resolve, 0));
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -32,7 +32,7 @@ describe('Switch', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     mount({
       render() {
         return <Switch value="" />;
@@ -93,12 +93,12 @@ describe('Switch', () => {
       wrapper.find('button').trigger('click');
     });
     expect(checked.value).toBe(2);
-    expect(wrapper.find('.ant-switch-inner').text()).toBe('onoff');
+    expect(wrapper.find('.xy-switch-inner').text()).toBe('onoff');
 
     await asyncExpect(() => {
       wrapper.find('button').trigger('click');
     });
     expect(checked.value).toBe(1);
-    expect(wrapper.find('.ant-switch-inner').text()).toBe('onoff');
+    expect(wrapper.find('.xy-switch-inner').text()).toBe('onoff');
   });
 });

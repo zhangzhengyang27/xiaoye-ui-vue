@@ -2,11 +2,11 @@ import glob from 'glob';
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
-import antd from '../../components';
+import antd from '../../src/index';
 
 export default function demoTest(component, options = {}) {
   const suffix = options.suffix || 'vue';
-  const files = glob.sync(`./components/${component}/demo/*.${suffix}`);
+  const files = glob.sync(`./src/${component}/demo/*.${suffix}`);
   files.forEach(file => {
     if (file.includes('index.vue')) {
       return;
@@ -16,9 +16,10 @@ export default function demoTest(component, options = {}) {
     if (Array.isArray(options.skip) && options.skip.some(c => file.includes(c))) {
       testMethod = test.skip;
     }
-    testMethod(`renders ${file} correctly`, () => {
+    testMethod(`renders ${file} correctly`, async () => {
       MockDate.set(dayjs('2016-11-22').valueOf());
-      const demo = require(`../.${file}`).default || require(`../.${file}`);
+      const demoModule = await import(`../.${file}`);
+      const demo = demoModule.default || demoModule;
       document.body.innerHTML = '';
       const wrapper = mount(demo, {
         global: { plugins: [antd] },

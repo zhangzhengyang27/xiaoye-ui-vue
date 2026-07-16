@@ -84,7 +84,7 @@ describe('Anchor Render', () => {
     });
 
       it('Anchor render perfectly for complete href - scrollTo', async () => {
-        const scrollToSpy = jest.spyOn(window, 'scrollTo');
+        const scrollToSpy = vi.spyOn(window, 'scrollTo');
         const wrapper = mount(
           {
             render() {
@@ -124,7 +124,7 @@ describe('Anchor Render', () => {
           { sync: false, attachTo: 'body' },
         );
         await asyncExpect(() => {
-          const removeListenerSpy = jest.spyOn(wrapper.vm.$refs.anchor.scrollEvent, 'remove');
+          const removeListenerSpy = vi.spyOn(wrapper.vm.$refs.anchor.scrollEvent, 'remove');
           wrapper.unmount();
           expect(removeListenerSpy).toHaveBeenCalled();
         });

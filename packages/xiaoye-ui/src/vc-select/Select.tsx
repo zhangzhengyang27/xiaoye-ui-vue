@@ -166,6 +166,23 @@ export default defineComponent({
   compatConfig: { MODE: 3 },
   name: 'VcSelect',
   inheritAttrs: false,
+  emits: [
+    'update:value',
+    'change',
+    'focus',
+    'blur',
+    'search',
+    'select',
+    'deselect',
+    'clear',
+    'dropdownVisibleChange',
+    'popupScroll',
+    'mouseenter',
+    'mouseleave',
+    'inputKeyDown',
+    'keydown',
+    'keyup',
+  ],
   props: initDefaultProps(selectProps(), {
     prefixCls: 'vc-select',
     autoClearSearchValue: true,
@@ -173,7 +190,17 @@ export default defineComponent({
     listItemHeight: 20,
     dropdownMatchSelectWidth: true,
   }),
-  setup(props, { expose, attrs, slots }) {
+  setup(props, { expose, attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+        return fn[0]?.(...args);
+      } else if (fn) {
+        return fn(...args);
+      }
+      return undefined;
+    };
+
     const mergedId = useId(toRef(props, 'id'));
     const multiple = computed(() => isMultiple(props.mode));
     const childrenAsData = computed(() => !!(!props.options && props.children));
@@ -388,11 +415,10 @@ export default defineComponent({
       const labeledValues = convert2LabelValues(values);
       setInternalValue(labeledValues);
 
+      // Trigger event only when value changed
       if (
-        props.onChange &&
-        // Trigger event only when value changed
-        (labeledValues.length !== mergedValues.value.length ||
-          labeledValues.some((newVal, index) => mergedValues.value[index]?.value !== newVal?.value))
+        labeledValues.length !== mergedValues.value.length ||
+        labeledValues.some((newVal, index) => mergedValues.value[index]?.value !== newVal?.value)
       ) {
         const returnValues = props.labelInValue
           ? labeledValues.map(v => {
@@ -407,12 +433,10 @@ export default defineComponent({
           injectPropsWithOption(getMixedOption(v.value)),
         );
 
-        props.onChange(
-          // Value
-          multiple.value ? returnValues : returnValues[0],
-          // Option
-          multiple.value ? returnOptions : returnOptions[0],
-        );
+        const changeValue = multiple.value ? returnValues : returnValues[0];
+        const changeOption = multiple.value ? returnOptions : returnOptions[0];
+        emit('change', changeValue, changeOption);
+        callEvent(props.onChange, changeValue, changeOption);
       }
     };
 
@@ -451,12 +475,14 @@ export default defineComponent({
         ];
       };
 
-      if (selected && props.onSelect) {
+      if (selected) {
         const [wrappedValue, option] = getSelectEnt();
-        props.onSelect(wrappedValue, option);
-      } else if (!selected && props.onDeselect) {
+        emit('select', wrappedValue, option);
+        callEvent(props.onSelect, wrappedValue, option);
+      } else {
         const [wrappedValue, option] = getSelectEnt();
-        props.onDeselect(wrappedValue, option);
+        emit('deselect', wrappedValue, option);
+        callEvent(props.onDeselect, wrappedValue, option);
       }
     };
 
@@ -522,6 +548,7 @@ export default defineComponent({
           triggerChange(searchText);
         }
 
+        emit('search', searchText);
         props.onSearch?.(searchText);
       }
     };

@@ -45,7 +45,7 @@ const columnsFixed = [
 ];
 
 describe('Table', () => {
-  it('renders empty table', done => {
+  it('renders empty table', async () => {
     const wrapper = mount(
       {
         render() {
@@ -54,13 +54,11 @@ describe('Table', () => {
       },
       { sync: false },
     );
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders empty table with fixed columns', done => {
+  it('renders empty table with fixed columns', async () => {
     const wrapper = mount(
       {
         render() {
@@ -69,13 +67,11 @@ describe('Table', () => {
       },
       { sync: false },
     );
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders empty table with custom emptyText', done => {
+  it('renders empty table with custom emptyText', async () => {
     const wrapper = mount(
       {
         render() {
@@ -91,13 +87,11 @@ describe('Table', () => {
       },
       { sync: false },
     );
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('renders empty table without emptyText when loading', done => {
+  it('renders empty table without emptyText when loading', async () => {
     const wrapper = mount(
       {
         render() {
@@ -106,9 +100,7 @@ describe('Table', () => {
       },
       { sync: false },
     );
-    Vue.nextTick(() => {
-      expect(wrapper.html()).toMatchSnapshot();
-      done();
-    });
+    await Vue.nextTick();
+    expect(wrapper.html()).toMatchSnapshot();
   });
 });

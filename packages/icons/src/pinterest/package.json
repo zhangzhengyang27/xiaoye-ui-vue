@@ -1,0 +1,11 @@
+{
+    "main": "./PinterestIcon.vue",
+    "module": "./PinterestIcon.vue",
+    "types": "./PinterestIcon.d.ts",
+    "browser": {
+        "./sfc": "./PinterestIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "main": "./BookIcon.vue",
+    "module": "./BookIcon.vue",
+    "types": "./BookIcon.d.ts",
+    "browser": {
+        "./sfc": "./BookIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

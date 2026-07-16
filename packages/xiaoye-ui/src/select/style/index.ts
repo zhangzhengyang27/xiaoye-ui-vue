@@ -60,7 +60,7 @@ const genStatusStyle = (
   rootSelectCls: string,
   token: {
     componentCls: string;
-    antCls: string;
+    rootCls: string;
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
@@ -68,7 +68,7 @@ const genStatusStyle = (
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { componentCls, borderHoverColor, outlineColor, antCls } = token;
+  const { componentCls, borderHoverColor, outlineColor, rootCls } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
@@ -80,7 +80,7 @@ const genStatusStyle = (
 
   return {
     [rootSelectCls]: {
-      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
+      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${rootCls}-pagination-size-changer)`]:
         {
           ...overwriteStyle,
 

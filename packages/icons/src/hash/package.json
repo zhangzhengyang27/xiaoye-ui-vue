@@ -1,0 +1,11 @@
+{
+    "main": "./HashIcon.vue",
+    "module": "./HashIcon.vue",
+    "types": "./HashIcon.d.ts",
+    "browser": {
+        "./sfc": "./HashIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

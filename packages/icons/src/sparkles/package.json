@@ -1,0 +1,11 @@
+{
+    "main": "./SparklesIcon.vue",
+    "module": "./SparklesIcon.vue",
+    "types": "./SparklesIcon.d.ts",
+    "browser": {
+        "./sfc": "./SparklesIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

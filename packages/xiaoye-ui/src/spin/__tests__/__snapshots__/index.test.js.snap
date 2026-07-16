@@ -1,21 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Spin should only affect the spin element when set style to a nested <Spin>xx</Spin> 1`] = `
-<div class="ant-spin-nested-loading">
+exports[`Spin > should only affect the spin element when set style to a nested <Spin>xx</Spin> 1`] = `
+"<div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
   <div>
-    <div style="background: red;" class="ant-spin ant-spin-spinning" aria-live="polite" aria-busy="true"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span>
+    <div style="background: red;" class="css-dev-only-do-not-override-1p3hq3p xy-spin xy-spin-spinning" aria-live="polite" aria-busy="true"><span class="xy-spin-dot xy-spin-dot-spin"><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i></span>
       <!---->
     </div>
   </div>
-  <div class="ant-spin-container ant-spin-blur">
+  <div class="xy-spin-container xy-spin-blur">
     <div>content</div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Spin should render custom indicator when it's set 1`] = `
-<div class="ant-spin ant-spin-spinning" aria-live="polite" aria-busy="true">
-  <div class="custom-indicator ant-spin-dot"></div>
+exports[`Spin > should render custom indicator when it's set 1`] = `
+"<div class="css-dev-only-do-not-override-1p3hq3p xy-spin xy-spin-spinning" aria-live="polite" aria-busy="true">
+  <div class="custom-indicator xy-spin-dot"></div>
   <!---->
-</div>
+</div>"
 `;

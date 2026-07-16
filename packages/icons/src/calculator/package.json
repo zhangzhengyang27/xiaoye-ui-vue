@@ -1,0 +1,11 @@
+{
+    "main": "./CalculatorIcon.vue",
+    "module": "./CalculatorIcon.vue",
+    "types": "./CalculatorIcon.d.ts",
+    "browser": {
+        "./sfc": "./CalculatorIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

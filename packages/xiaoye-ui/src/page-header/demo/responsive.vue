@@ -77,7 +77,7 @@ Under different screen sizes, there should be different performance
 #components-page-header-demo-responsive .content {
   display: flex;
 }
-#components-page-header-demo-responsive .ant-statistic-content {
+#components-page-header-demo-responsive .xy-statistic-content {
   font-size: 20px;
   line-height: 28px;
 }

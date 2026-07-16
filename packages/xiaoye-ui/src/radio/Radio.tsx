@@ -39,6 +39,7 @@ export default defineComponent({
   name: 'ARadio',
   inheritAttrs: false,
   props: radioProps(),
+  emits: ['change', 'update:checked', 'update:value', 'mouseenter', 'mouseleave', 'focus', 'blur', 'click'],
   setup(props, { emit, expose, slots, attrs }) {
     const formItemContext = useInjectFormItemContext();
     const formItemInputContext = FormItemInputContext.useInject();
@@ -104,6 +105,18 @@ export default defineComponent({
       } else {
         rProps.onChange = handleChange;
       }
+      rProps.onFocus = (e: FocusEvent) => {
+        emit('focus', e);
+        props.onFocus?.(e);
+      };
+      rProps.onBlur = (e: FocusEvent) => {
+        emit('blur', e);
+        props.onBlur?.(e);
+      };
+      rProps.onClick = (e: MouseEvent) => {
+        emit('click', e);
+        props.onClick?.(e);
+      };
       const wrapperClassString = classNames(
         {
           [`${prefixCls.value}-wrapper`]: true,
@@ -117,7 +130,16 @@ export default defineComponent({
       );
 
       return wrapSSR(
-        <label {...attrs} class={wrapperClassString}>
+        <label
+          {...attrs}
+          class={wrapperClassString}
+          onMouseenter={(e: MouseEvent) => {
+            emit('mouseenter', e);
+          }}
+          onMouseleave={(e: MouseEvent) => {
+            emit('mouseleave', e);
+          }}
+        >
           <VcCheckbox {...rProps} type="radio" ref={vcCheckbox} />
           {slots.default && <span>{slots.default()}</span>}
         </label>,

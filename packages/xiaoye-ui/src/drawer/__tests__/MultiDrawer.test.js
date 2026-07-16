@@ -112,7 +112,7 @@ describe('Drawer', () => {
       wrapper.find('#open_two_drawer').trigger('click');
     }, 0);
     await asyncExpect(() => {
-      const translateX = wrapper.find('.test_drawer').element.style.transform;
+      const translateX = wrapper.find('.test_drawer').element.parentElement.style.transform;
       expect(translateX).toEqual('translateX(-180px)');
       expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
     }, 1000);
@@ -133,7 +133,7 @@ describe('Drawer', () => {
       wrapper.find('#open_two_drawer').trigger('click');
     }, 0);
     await asyncExpect(() => {
-      const translateX = wrapper.find('.test_drawer').element.style.transform;
+      const translateX = wrapper.find('.test_drawer').element.parentElement.style.transform;
       expect(translateX).toEqual('translateX(180px)');
       expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
     }, 1000);
@@ -153,7 +153,7 @@ describe('Drawer', () => {
       wrapper.find('#open_two_drawer').trigger('click');
     }, 0);
     await asyncExpect(() => {
-      const translateY = wrapper.find('.test_drawer').element.style.transform;
+      const translateY = wrapper.find('.test_drawer').element.parentElement.style.transform;
       expect(translateY).toEqual('translateY(180px)');
       expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
     }, 1000);

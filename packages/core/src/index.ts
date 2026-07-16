@@ -1,2 +1,5 @@
-// 占位：运行时核心插件，阶段 2 从 _util/config-provider 抽取
-export {};
+// Core runtime exports
+export * from './composables';
+export * from './config';
+export * from './utils';
+export * from './api';

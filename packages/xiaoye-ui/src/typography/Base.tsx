@@ -202,7 +202,7 @@ const Base = defineComponent({
     function getChildrenText(): string {
       return props.ellipsis || props.editable
         ? props.content
-        : findDOMNode(contentRef.value)?.innerText;
+        : findDOMNode(contentRef.value)?.textContent;
     }
 
     // =============== Expand ===============

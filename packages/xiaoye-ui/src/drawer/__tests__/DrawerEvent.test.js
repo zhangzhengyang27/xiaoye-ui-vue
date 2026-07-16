@@ -54,10 +54,10 @@ describe('Drawer', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      const body = wrapper.find('.ant-drawer-body').exists();
+      const body = wrapper.find('.xy-drawer-body').exists();
       expect(body).toBe(true);
-      wrapper.find('.ant-btn').trigger('click');
-      const content = wrapper.find('.ant-drawer-body').element.innerHTML;
+      wrapper.find('.xy-btn').trigger('click');
+      const content = wrapper.find('.xy-drawer-body').element.innerHTML;
       expect(content).toBe('Here is content of Drawer');
 
       expect(wrapper.html()).toMatchSnapshot();
@@ -70,10 +70,10 @@ describe('Drawer', () => {
     });
 
     await asyncExpect(() => {
-      wrapper.find('button.ant-btn').trigger('click');
+      wrapper.find('button.xy-btn').trigger('click');
       expect(wrapper.vm.visible).toBe(true);
 
-      wrapper.find('.ant-drawer-mask').trigger('click');
+      wrapper.find('.xy-drawer-mask').trigger('click');
       expect(wrapper.vm.visible).toBe(false);
     });
   });
@@ -83,10 +83,10 @@ describe('Drawer', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      wrapper.find('button.ant-btn').trigger('click');
+      wrapper.find('button.xy-btn').trigger('click');
       expect(wrapper.vm.visible).toBe(true);
 
-      wrapper.find('.ant-drawer-close').trigger('click');
+      wrapper.find('.xy-drawer-close').trigger('click');
       expect(wrapper.vm.visible).toBe(false);
     });
   });
@@ -99,15 +99,15 @@ describe('Drawer', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      wrapper.find('button.ant-btn').trigger('click');
+      wrapper.find('button.xy-btn').trigger('click');
       expect(wrapper.vm.visible).toBe(true);
 
-      wrapper.find('.ant-drawer-mask').trigger('click');
+      wrapper.find('.xy-drawer-mask').trigger('click');
       expect(wrapper.vm.visible).toBe(true);
     });
   });
 
-  fit('destroyOnClose is true onClose', async () => {
+  it('destroyOnClose is true onClose', async () => {
     const wrapper = mount(DrawerEventTester, {
       props: {
         destroyOnClose: true,
@@ -115,16 +115,16 @@ describe('Drawer', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      wrapper.find('button.ant-btn').trigger('click');
-      expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+      wrapper.find('button.xy-btn').trigger('click');
+      expect(wrapper.find('.xy-drawer-wrapper-body').exists()).toBe(true);
 
       wrapper.vm.visible = false;
       wrapper
-        .find('.ant-drawer-content-wrapper')
+        .find('.xy-drawer-content-wrapper')
         .trigger('transitionend', { propertyName: 'transform' });
     });
     await asyncExpect(() => {
-      expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(false);
+      expect(wrapper.find('.xy-drawer-wrapper-body').exists()).toBe(false);
     });
   });
 
@@ -136,10 +136,10 @@ describe('Drawer', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      wrapper.find('button.ant-btn').trigger('click');
+      wrapper.find('button.xy-btn').trigger('click');
       expect(wrapper.vm.visible).toBe(true);
 
-      wrapper.find('.ant-drawer-close').trigger('click');
+      wrapper.find('.xy-drawer-close').trigger('click');
       expect(wrapper.vm.visible).toBe(false);
     });
   });

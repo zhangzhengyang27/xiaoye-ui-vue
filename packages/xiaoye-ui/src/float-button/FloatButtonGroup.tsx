@@ -23,7 +23,15 @@ const FloatButtonGroup = defineComponent({
     type: 'default',
     shape: 'circle',
   } as FloatButtonGroupProps),
+  emits: ['update:open', 'openChange'],
   setup(props, { attrs, slots, emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const { prefixCls, direction } = useConfigInject(floatButtonPrefixCls, props);
 
     // style
@@ -41,12 +49,14 @@ const FloatButtonGroup = defineComponent({
       onMouseenter() {
         setOpen(true);
         emit('update:open', true);
-        props.onOpenChange?.(true);
+        emit('openChange', true);
+        callEvent(props.onOpenChange, true);
       },
       onMouseleave() {
         setOpen(false);
         emit('update:open', false);
-        props.onOpenChange?.(false);
+        emit('openChange', false);
+        callEvent(props.onOpenChange, false);
       },
     };
     const hoverAction = computed(() => {
@@ -56,7 +66,8 @@ const FloatButtonGroup = defineComponent({
     const handleOpenChange = () => {
       const nextOpen = !open.value;
       emit('update:open', nextOpen);
-      props.onOpenChange?.(nextOpen);
+      emit('openChange', nextOpen);
+      callEvent(props.onOpenChange, nextOpen);
       setOpen(nextOpen);
     };
 
@@ -69,7 +80,8 @@ const FloatButtonGroup = defineComponent({
       }
       setOpen(false);
       emit('update:open', false);
-      props.onOpenChange?.(false);
+      emit('openChange', false);
+      callEvent(props.onOpenChange, false);
     };
 
     watch(

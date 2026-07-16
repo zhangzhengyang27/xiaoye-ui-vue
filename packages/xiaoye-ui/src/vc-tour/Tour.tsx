@@ -35,7 +35,7 @@ export const tourProps = () => {
   return {
     builtinPlacements,
     popupAlign,
-    steps: arrayType<TourStepInfo[]>(),
+    steps: arrayType<TourStepInfo[]>([]),
     open: booleanType(),
     defaultCurrent: { type: Number },
     current: { type: Number },
@@ -61,7 +61,15 @@ const Tour = defineComponent({
   name: 'Tour',
   inheritAttrs: false,
   props: initDefaultProps(tourProps(), {}),
-  setup(props) {
+  emits: ['update:current', 'update:open', 'change', 'close', 'finish'],
+  setup(props, { emit }) {
+    const callEvent = (fn: any, ...args: any[]) => {
+      if (Array.isArray(fn)) {
+        fn.forEach(f => f?.(...args));
+      } else {
+        fn?.(...args);
+      }
+    };
     const { defaultCurrent, placement, mask, scrollIntoViewOptions, open, gap, arrow } =
       toRefs(props);
 
@@ -75,7 +83,7 @@ const Tour = defineComponent({
     const [mergedOpen, setMergedOpen] = useMergedState(undefined, {
       value: computed(() => props.open),
       postState: origin =>
-        mergedCurrent.value < 0 || mergedCurrent.value >= props.steps.length
+        mergedCurrent.value < 0 || mergedCurrent.value >= (props.steps?.length || 0)
           ? false
           : origin ?? true,
     });
@@ -88,7 +96,7 @@ const Tour = defineComponent({
       openRef.value = mergedOpen.value;
     });
 
-    const curStep = computed(() => (props.steps[mergedCurrent.value] || {}) as TourStepInfo);
+    const curStep = computed(() => (props.steps?.[mergedCurrent.value] || {}) as TourStepInfo);
 
     const mergedPlacement = computed(() => curStep.value.placement ?? placement.value);
     const mergedMask = computed(() => mergedOpen.value && (curStep.value.mask ?? mask.value));
@@ -124,7 +132,10 @@ const Tour = defineComponent({
     // ========================= Change =========================
     const onInternalChange = (nextCurrent: number) => {
       setMergedCurrent(nextCurrent);
-      props.onChange?.(nextCurrent);
+      emit('change', nextCurrent);
+      emit('update:current', nextCurrent);
+      callEvent(props.onChange, nextCurrent);
+      callEvent(props['onUpdate:current'], nextCurrent);
     };
 
     return () => {
@@ -148,7 +159,10 @@ const Tour = defineComponent({
 
       const handleClose = () => {
         setMergedOpen(false);
-        onClose?.(mergedCurrent.value);
+        emit('close', mergedCurrent.value);
+        emit('update:open', false);
+        callEvent(onClose, mergedCurrent.value);
+        callEvent(props['onUpdate:open'], false);
       };
 
       const mergedShowMask =
@@ -165,7 +179,7 @@ const Tour = defineComponent({
           arrow={mergedArrow.value}
           key="content"
           prefixCls={prefixCls}
-          total={steps.length}
+          total={steps?.length || 0}
           renderPanel={renderPanel}
           onPrev={() => {
             onInternalChange(mergedCurrent.value - 1);
@@ -177,7 +191,8 @@ const Tour = defineComponent({
           current={mergedCurrent.value}
           onFinish={() => {
             handleClose();
-            onFinish?.();
+            emit('finish');
+            callEvent(onFinish);
           }}
           {...curStep.value}
         />

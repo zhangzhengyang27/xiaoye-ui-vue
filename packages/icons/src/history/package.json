@@ -1,0 +1,11 @@
+{
+    "main": "./HistoryIcon.vue",
+    "module": "./HistoryIcon.vue",
+    "types": "./HistoryIcon.d.ts",
+    "browser": {
+        "./sfc": "./HistoryIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}

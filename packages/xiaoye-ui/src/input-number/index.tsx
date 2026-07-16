@@ -49,7 +49,7 @@ const InputNumber = defineComponent({
   name: 'AInputNumber',
   inheritAttrs: false,
   props: inputNumberProps(),
-  // emits: ['focus', 'blur', 'change', 'input', 'update:value'],
+  emits: ['focus', 'blur', 'change', 'input', 'update:value'],
   slots: Object as CustomSlotsType<{
     addonBefore?: any;
     addonAfter?: any;

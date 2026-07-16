@@ -50,8 +50,16 @@ export default function generateRangePicker<DateType, ExtraProps = {}>(
       separator?: any;
       clearIcon?: any;
     }>,
+    emits: ['update:value', 'change', 'update:open', 'openChange', 'focus', 'blur', 'panelChange', 'ok', 'calendarChange'],
     setup(_props, { expose, slots, attrs, emit }) {
       const props = _props as unknown as CommonProps<DateType> & RangePickerProps<DateType>;
+      const callEvent = (fn: any, ...args: any[]) => {
+        if (Array.isArray(fn)) {
+          fn.forEach(f => f?.(...args));
+        } else {
+          fn?.(...args);
+        }
+      };
       const formItemContext = useInjectFormItemContext();
       const formItemInputContext = FormItemInputContext.useInject();
 
@@ -91,26 +99,32 @@ export default function generateRangePicker<DateType, ExtraProps = {}>(
         const values = maybeToStrings(dates);
         emit('update:value', values);
         emit('change', values, dateStrings);
+        callEvent(props.onChange, values, dateStrings);
         formItemContext.onFieldChange();
       };
       const onOpenChange = (open: boolean) => {
         emit('update:open', open);
         emit('openChange', open);
+        callEvent(props.onOpenChange, open);
       };
       const onFocus = (e: FocusEvent) => {
         emit('focus', e);
+        callEvent(props.onFocus, e);
       };
       const onBlur = (e: FocusEvent) => {
         emit('blur', e);
+        callEvent(props.onBlur, e);
         formItemContext.onFieldBlur();
       };
       const onPanelChange = (dates: RangeValue<DateType>, modes: [PanelMode, PanelMode]) => {
         const values = maybeToStrings(dates);
         emit('panelChange', values, modes);
+        callEvent(props.onPanelChange, values, modes);
       };
       const onOk = (dates: DateType[]) => {
         const value = maybeToStrings(dates);
         emit('ok', value);
+        callEvent(props.onOk, value);
       };
       const onCalendarChange: RangePickerSharedProps<DateType>['onCalendarChange'] = (
         dates: [DateType, DateType],
@@ -119,6 +133,7 @@ export default function generateRangePicker<DateType, ExtraProps = {}>(
       ) => {
         const values = maybeToStrings(dates);
         emit('calendarChange', values, dateStrings, info);
+        callEvent(props.onCalendarChange, values, dateStrings, info);
       };
       const [contextLocale] = useLocaleReceiver('DatePicker', enUS);
 

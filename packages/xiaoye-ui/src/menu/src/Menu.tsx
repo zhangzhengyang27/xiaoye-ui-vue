@@ -379,7 +379,7 @@ export default defineComponent({
         newOpenKeys = uniq(newOpenKeys.filter(k => !subPathKeys.includes(k)));
       }
 
-      if (!shallowEqual(mergedOpenKeys, newOpenKeys)) {
+      if (!shallowEqual(mergedOpenKeys.value, newOpenKeys)) {
         triggerOpenKeys(newOpenKeys);
       }
     };

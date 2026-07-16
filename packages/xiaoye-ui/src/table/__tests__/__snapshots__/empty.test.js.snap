@@ -1,60 +1,60 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table renders empty table 1`] = `
-<div class="ant-table-wrapper">
-  <div class="ant-spin-nested-loading">
+exports[`Table > renders empty table 1`] = `
+"<div class="xy-table-wrapper css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-spin-container">
+    <div class="xy-spin-container">
       <!---->
-      <div class="ant-table ant-table-empty">
+      <div class="xy-table xy-table-empty">
         <!---->
-        <div class="ant-table-container">
-          <div class="ant-table-content">
+        <div class="xy-table-container">
+          <div class="xy-table-content">
             <table style="table-layout: auto;">
               <colgroup></colgroup>
-              <thead class="ant-table-thead">
+              <thead class="xy-table-thead">
                 <tr>
-                  <th class="ant-table-cell" colstart="0" colend="0">
+                  <th class="xy-table-cell" colstart="0" colend="0">
                     <!---->Column 1
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="1" colend="1">
+                  <th class="xy-table-cell" colstart="1" colend="1">
                     <!---->Column 2
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="2" colend="2">
+                  <th class="xy-table-cell" colstart="2" colend="2">
                     <!---->Column 3
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="3" colend="3">
+                  <th class="xy-table-cell" colstart="3" colend="3">
                     <!---->Column 4
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="4" colend="4">
+                  <th class="xy-table-cell" colstart="4" colend="4">
                     <!---->Column 5
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="5" colend="5">
+                  <th class="xy-table-cell" colstart="5" colend="5">
                     <!---->Column 6
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="6" colend="6">
+                  <th class="xy-table-cell" colstart="6" colend="6">
                     <!---->Column 7
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="7" colend="7">
+                  <th class="xy-table-cell" colstart="7" colend="7">
                     <!---->Column 8
                     <!---->
                   </th>
                 </tr>
               </thead>
-              <tbody class="ant-table-tbody">
+              <tbody class="xy-table-tbody">
                 <!---->
-                <tr class="ant-table-placeholder">
-                  <td colspan="8" class="ant-table-cell">
+                <tr class="xy-table-placeholder">
+                  <td colspan="8" class="xy-table-cell">
                     <!---->
-                    <div class="ant-empty ant-empty-normal">
-                      <div class="ant-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+                    <div class="xy-empty css-dev-only-do-not-override-1p3hq3p xy-empty-normal">
+                      <div class="xy-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
                           <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
                             <ellipse fill="#f5f5f5" cx="32" cy="33" rx="32" ry="7"></ellipse>
                             <g fill-rule="nonzero" stroke="#d9d9d9">
@@ -63,7 +63,7 @@ exports[`Table renders empty table 1`] = `
                             </g>
                           </g>
                         </svg></div>
-                      <p class="ant-empty-description">No data</p>
+                      <p class="xy-empty-description">No data</p>
                       <!---->
                     </div>
                     <!---->
@@ -79,61 +79,61 @@ exports[`Table renders empty table 1`] = `
       <!---->
     </div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Table renders empty table with custom emptyText 1`] = `
-<div class="ant-table-wrapper">
-  <div class="ant-spin-nested-loading">
+exports[`Table > renders empty table with custom emptyText 1`] = `
+"<div class="xy-table-wrapper css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-spin-container">
+    <div class="xy-spin-container">
       <!---->
-      <div class="ant-table ant-table-empty">
+      <div class="xy-table xy-table-empty">
         <!---->
-        <div class="ant-table-container">
-          <div class="ant-table-content">
+        <div class="xy-table-container">
+          <div class="xy-table-content">
             <table style="table-layout: auto;">
               <colgroup></colgroup>
-              <thead class="ant-table-thead">
+              <thead class="xy-table-thead">
                 <tr>
-                  <th class="ant-table-cell" colstart="0" colend="0">
+                  <th class="xy-table-cell" colstart="0" colend="0">
                     <!---->Column 1
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="1" colend="1">
+                  <th class="xy-table-cell" colstart="1" colend="1">
                     <!---->Column 2
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="2" colend="2">
+                  <th class="xy-table-cell" colstart="2" colend="2">
                     <!---->Column 3
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="3" colend="3">
+                  <th class="xy-table-cell" colstart="3" colend="3">
                     <!---->Column 4
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="4" colend="4">
+                  <th class="xy-table-cell" colstart="4" colend="4">
                     <!---->Column 5
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="5" colend="5">
+                  <th class="xy-table-cell" colstart="5" colend="5">
                     <!---->Column 6
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="6" colend="6">
+                  <th class="xy-table-cell" colstart="6" colend="6">
                     <!---->Column 7
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="7" colend="7">
+                  <th class="xy-table-cell" colstart="7" colend="7">
                     <!---->Column 8
                     <!---->
                   </th>
                 </tr>
               </thead>
-              <tbody class="ant-table-tbody">
+              <tbody class="xy-table-tbody">
                 <!---->
-                <tr class="ant-table-placeholder">
-                  <td colspan="8" class="ant-table-cell">
+                <tr class="xy-table-placeholder">
+                  <td colspan="8" class="xy-table-cell">
                     <!---->custom empty text
                     <!---->
                   </td>
@@ -148,19 +148,19 @@ exports[`Table renders empty table with custom emptyText 1`] = `
       <!---->
     </div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Table renders empty table with fixed columns 1`] = `
-<div class="ant-table-wrapper">
-  <div class="ant-spin-nested-loading">
+exports[`Table > renders empty table with fixed columns 1`] = `
+"<div class="xy-table-wrapper css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <!---->
-    <div class="ant-spin-container">
+    <div class="xy-spin-container">
       <!---->
-      <div class="ant-table ant-table-has-fix-left ant-table-has-fix-right ant-table-empty">
+      <div class="xy-table xy-table-has-fix-left xy-table-has-fix-right xy-table-empty">
         <!---->
-        <div class="ant-table-container">
-          <div class="ant-table-content">
+        <div class="xy-table-container">
+          <div class="xy-table-content">
             <table style="table-layout: auto;">
               <colgroup>
                 <col style="width: 100px;">
@@ -175,61 +175,61 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 <col>
                 <col style="width: 100px;">
               </colgroup>
-              <thead class="ant-table-thead">
+              <thead class="xy-table-thead">
                 <tr>
-                  <th class="ant-table-cell ant-table-cell-fix-left" style="position: sticky; left: 0px;" colstart="0" colend="0">
+                  <th class="xy-table-cell xy-table-cell-fix-left" style="position: sticky; left: 0px;" colstart="0" colend="0">
                     <!---->Full Name
                     <!---->
                   </th>
-                  <th class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last" style="position: sticky; left: 0px;" colstart="1" colend="1">
+                  <th class="xy-table-cell xy-table-cell-fix-left xy-table-cell-fix-left-last" style="position: sticky; left: 0px;" colstart="1" colend="1">
                     <!---->Age
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="2" colend="2">
+                  <th class="xy-table-cell" colstart="2" colend="2">
                     <!---->Column 1
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="3" colend="3">
+                  <th class="xy-table-cell" colstart="3" colend="3">
                     <!---->Column 2
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="4" colend="4">
+                  <th class="xy-table-cell" colstart="4" colend="4">
                     <!---->Column 3
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="5" colend="5">
+                  <th class="xy-table-cell" colstart="5" colend="5">
                     <!---->Column 4
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="6" colend="6">
+                  <th class="xy-table-cell" colstart="6" colend="6">
                     <!---->Column 5
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="7" colend="7">
+                  <th class="xy-table-cell" colstart="7" colend="7">
                     <!---->Column 6
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="8" colend="8">
+                  <th class="xy-table-cell" colstart="8" colend="8">
                     <!---->Column 7
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="9" colend="9">
+                  <th class="xy-table-cell" colstart="9" colend="9">
                     <!---->Column 8
                     <!---->
                   </th>
-                  <th class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first" style="position: sticky; right: 0px;" colstart="10" colend="10">
+                  <th class="xy-table-cell xy-table-cell-fix-right xy-table-cell-fix-right-first" style="position: sticky; right: 0px;" colstart="10" colend="10">
                     <!---->Action
                     <!---->
                   </th>
                 </tr>
               </thead>
-              <tbody class="ant-table-tbody">
+              <tbody class="xy-table-tbody">
                 <!---->
-                <tr class="ant-table-placeholder">
-                  <td colspan="11" class="ant-table-cell">
+                <tr class="xy-table-placeholder">
+                  <td colspan="11" class="xy-table-cell">
                     <!---->
-                    <div class="ant-empty ant-empty-normal">
-                      <div class="ant-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+                    <div class="xy-empty css-dev-only-do-not-override-1p3hq3p xy-empty-normal">
+                      <div class="xy-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
                           <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
                             <ellipse fill="#f5f5f5" cx="32" cy="33" rx="32" ry="7"></ellipse>
                             <g fill-rule="nonzero" stroke="#d9d9d9">
@@ -238,7 +238,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                             </g>
                           </g>
                         </svg></div>
-                      <p class="ant-empty-description">No data</p>
+                      <p class="xy-empty-description">No data</p>
                       <!---->
                     </div>
                     <!---->
@@ -254,68 +254,68 @@ exports[`Table renders empty table with fixed columns 1`] = `
       <!---->
     </div>
   </div>
-</div>
+</div>"
 `;
 
-exports[`Table renders empty table without emptyText when loading 1`] = `
-<div class="ant-table-wrapper">
-  <div class="ant-spin-nested-loading">
+exports[`Table > renders empty table without emptyText when loading 1`] = `
+"<div class="xy-table-wrapper css-dev-only-do-not-override-1p3hq3p">
+  <div class="xy-spin-nested-loading css-dev-only-do-not-override-1p3hq3p">
     <div>
-      <div class="ant-spin ant-spin-spinning" aria-live="polite" aria-busy="true"><span class="ant-spin-dot ant-spin-dot-spin"><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i></span>
+      <div class="css-dev-only-do-not-override-1p3hq3p xy-spin xy-spin-spinning" aria-live="polite" aria-busy="true"><span class="xy-spin-dot xy-spin-dot-spin"><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i><i class="xy-spin-dot-item"></i></span>
         <!---->
       </div>
     </div>
-    <div class="ant-spin-container ant-spin-blur">
+    <div class="xy-spin-container xy-spin-blur">
       <!---->
-      <div class="ant-table ant-table-empty">
+      <div class="xy-table xy-table-empty">
         <!---->
-        <div class="ant-table-container">
-          <div class="ant-table-content">
+        <div class="xy-table-container">
+          <div class="xy-table-content">
             <table style="table-layout: auto;">
               <colgroup></colgroup>
-              <thead class="ant-table-thead">
+              <thead class="xy-table-thead">
                 <tr>
-                  <th class="ant-table-cell" colstart="0" colend="0">
+                  <th class="xy-table-cell" colstart="0" colend="0">
                     <!---->Column 1
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="1" colend="1">
+                  <th class="xy-table-cell" colstart="1" colend="1">
                     <!---->Column 2
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="2" colend="2">
+                  <th class="xy-table-cell" colstart="2" colend="2">
                     <!---->Column 3
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="3" colend="3">
+                  <th class="xy-table-cell" colstart="3" colend="3">
                     <!---->Column 4
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="4" colend="4">
+                  <th class="xy-table-cell" colstart="4" colend="4">
                     <!---->Column 5
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="5" colend="5">
+                  <th class="xy-table-cell" colstart="5" colend="5">
                     <!---->Column 6
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="6" colend="6">
+                  <th class="xy-table-cell" colstart="6" colend="6">
                     <!---->Column 7
                     <!---->
                   </th>
-                  <th class="ant-table-cell" colstart="7" colend="7">
+                  <th class="xy-table-cell" colstart="7" colend="7">
                     <!---->Column 8
                     <!---->
                   </th>
                 </tr>
               </thead>
-              <tbody class="ant-table-tbody">
+              <tbody class="xy-table-tbody">
                 <!---->
-                <tr class="ant-table-placeholder">
-                  <td colspan="8" class="ant-table-cell">
+                <tr class="xy-table-placeholder">
+                  <td colspan="8" class="xy-table-cell">
                     <!---->
-                    <div class="ant-empty ant-empty-normal">
-                      <div class="ant-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
+                    <div class="xy-empty css-dev-only-do-not-override-1p3hq3p xy-empty-normal">
+                      <div class="xy-empty-image"><svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
                           <g transform="translate(0 1)" fill="none" fill-rule="evenodd">
                             <ellipse fill="#f5f5f5" cx="32" cy="33" rx="32" ry="7"></ellipse>
                             <g fill-rule="nonzero" stroke="#d9d9d9">
@@ -324,7 +324,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                             </g>
                           </g>
                         </svg></div>
-                      <p class="ant-empty-description">No data</p>
+                      <p class="xy-empty-description">No data</p>
                       <!---->
                     </div>
                     <!---->
@@ -340,5 +340,5 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       <!---->
     </div>
   </div>
-</div>
+</div>"
 `;

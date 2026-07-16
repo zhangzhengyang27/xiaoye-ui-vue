@@ -1,0 +1,32 @@
+.xy-icon {
+    display: inline-block;
+    vertical-align: baseline;
+    flex-shrink: 0;
+}
+
+.xy-icon--spin {
+    -webkit-animation: xy-icon-spin 2s infinite linear;
+    animation: xy-icon-spin 2s infinite linear;
+}
+
+@-webkit-keyframes xy-icon-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes xy-icon-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

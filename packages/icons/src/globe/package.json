@@ -1,0 +1,11 @@
+{
+    "main": "./GlobeIcon.vue",
+    "module": "./GlobeIcon.vue",
+    "types": "./GlobeIcon.d.ts",
+    "browser": {
+        "./sfc": "./GlobeIcon.vue"
+    },
+    "sideEffects": [
+        "*.vue"
+    ]
+}
