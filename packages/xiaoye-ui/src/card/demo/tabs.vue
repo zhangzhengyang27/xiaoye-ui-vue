@@ -53,7 +53,7 @@ More content can be hosted
 </template>
 
 <script lang="ts" setup>
-import { HomeOutlined } from '@ant-design/icons-vue';
+import { HomeOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const tabList = [
   {

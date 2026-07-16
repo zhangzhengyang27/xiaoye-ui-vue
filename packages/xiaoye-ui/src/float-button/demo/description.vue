@@ -57,5 +57,5 @@ Setting `description` prop to show FloatButton with description.
 </template>
 
 <script lang="ts" setup>
-import { FileTextOutlined } from '@ant-design/icons-vue';
+import { FileTextOutlined } from '@xiaoye-ui/icons';
 </script>

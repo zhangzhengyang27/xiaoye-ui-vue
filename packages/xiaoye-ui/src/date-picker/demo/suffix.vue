@@ -45,7 +45,7 @@ Customize the suffix icon through `suffixIcon`
   </a-space>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 import { Dayjs } from 'dayjs';
 const onChange = (date: Dayjs | string, dateString: string) => {
   console.log(date, dateString);

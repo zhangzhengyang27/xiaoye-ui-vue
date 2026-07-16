@@ -1,6 +1,6 @@
 import { asyncExpect } from '../../../tests/utils';
 import notification, { getInstance } from '..';
-import { StepBackwardOutlined } from '@ant-design/icons-vue';
+import { StepBackwardOutlined } from '@xiaoye-ui/icons';
 
 describe('notification', () => {
   beforeEach(() => {

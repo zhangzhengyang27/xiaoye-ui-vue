@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons-vue';
+import { MinusOutlined, PlusOutlined } from '@xiaoye-ui/icons';
 
 const size = ref(160);
 const decline = () => {

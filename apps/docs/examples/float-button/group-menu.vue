@@ -24,5 +24,5 @@
 </template>
 
 <script lang="ts" setup>
-import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons-vue';
+import { CustomerServiceOutlined, CommentOutlined } from '@xiaoye-ui/icons';
 </script>

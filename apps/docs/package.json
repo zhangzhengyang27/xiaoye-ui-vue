@@ -13,6 +13,8 @@
     "typescript": "^5.8.3",
     "markdown-it-container": "^4.0.0",
     "unplugin-vue-components": "^28.4.1",
+    "@ant-design/icons-vue": "^7.0.0",
+    "@xiaoye-ui/icons": "workspace:*",
     "@vueuse/core": "^11.0.0",
     "@vitejs/plugin-vue-jsx": "^5.1.0",
     "@iconify-json/ri": "^1.2.10",

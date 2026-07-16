@@ -35,5 +35,5 @@ Image, Icon and letter are supported, and the latter two kinds avatar can have c
 </template>
 
 <script lang="ts" setup>
-import { UserOutlined } from '@ant-design/icons-vue';
+import { UserOutlined } from '@xiaoye-ui/icons';
 </script>

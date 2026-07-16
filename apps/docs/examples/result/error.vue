@@ -27,7 +27,7 @@
   </a-result>
 </template>
 <script lang="ts" setup>
-import { CloseCircleOutlined } from '@ant-design/icons-vue';
+import { CloseCircleOutlined } from '@xiaoye-ui/icons';
 </script>
 <style scoped>
 .desc p {

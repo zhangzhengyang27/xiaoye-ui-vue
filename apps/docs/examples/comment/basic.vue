@@ -49,7 +49,7 @@
 </template>
 <script lang="ts" setup>
 import dayjs from 'dayjs';
-import { LikeFilled, LikeOutlined, DislikeFilled, DislikeOutlined } from '@ant-design/icons-vue';
+import { LikeFilled, LikeOutlined, DislikeFilled, DislikeOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);

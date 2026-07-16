@@ -49,7 +49,7 @@
 <script lang="ts" setup>
 import { reactive, ref, watch, toRaw } from 'vue';
 import type { FormInstance } from 'xiaoye-ui';
-import { SmileOutlined, UserOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined, UserOutlined } from '@xiaoye-ui/icons';
 
 interface UserType {
   name?: string;

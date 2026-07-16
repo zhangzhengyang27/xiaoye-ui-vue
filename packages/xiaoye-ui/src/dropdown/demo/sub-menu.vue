@@ -39,5 +39,5 @@ The menu has multiple levels.
   </a-dropdown>
 </template>
 <script lang="ts" setup>
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 </script>

@@ -43,7 +43,7 @@ import {
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import type { MenuTheme } from 'xiaoye-ui';
 const theme = ref<MenuTheme>('dark');
 const selectedKeys = ref(['1']);

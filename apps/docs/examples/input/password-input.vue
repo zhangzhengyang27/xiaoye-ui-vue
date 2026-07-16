@@ -24,7 +24,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons-vue';
+import { EyeTwoTone, EyeInvisibleOutlined } from '@xiaoye-ui/icons';
 const value = ref<string>('');
 const value2 = ref<string>('');
 const value3 = ref<string>('');

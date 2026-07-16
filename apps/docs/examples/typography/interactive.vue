@@ -62,7 +62,7 @@ import {
   SmileOutlined,
   SmileFilled,
   CheckOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 
 const editableStr = ref('This is an editable text.');
 watch(editableStr, () => {

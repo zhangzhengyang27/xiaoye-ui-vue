@@ -90,7 +90,7 @@ Show all props provided by PageHeader.
 </template>
 
 <script lang="ts" setup>
-import { EllipsisOutlined } from '@ant-design/icons-vue';
+import { EllipsisOutlined } from '@xiaoye-ui/icons';
 
 const routes = [
   {

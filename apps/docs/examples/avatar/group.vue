@@ -80,5 +80,5 @@
 </template>
 
 <script lang="ts" setup>
-import { UserOutlined, AntDesignOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, AntDesignOutlined } from '@xiaoye-ui/icons';
 </script>

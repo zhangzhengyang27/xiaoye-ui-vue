@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import request from 'umi-request';
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 import message from 'xiaoye-ui/message';
 import type { UploadProps } from 'xiaoye-ui';
 

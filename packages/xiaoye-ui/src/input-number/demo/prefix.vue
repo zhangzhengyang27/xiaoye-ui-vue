@@ -31,7 +31,7 @@ Add a prefix inside input.
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UserOutlined } from '@ant-design/icons-vue';
+import { UserOutlined } from '@xiaoye-ui/icons';
 const value1 = ref<number>(1);
 const value2 = ref<number>(2);
 const value3 = ref<number>(3);

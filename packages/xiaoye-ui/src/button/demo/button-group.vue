@@ -62,7 +62,7 @@ import {
   RightOutlined,
   CloudDownloadOutlined,
   CloudOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 </script>
 
 <style scoped>

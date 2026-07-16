@@ -33,5 +33,5 @@ Crowded components horizontal spacing.
   </a-space>
 </template>
 <script lang="ts" setup>
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 </script>

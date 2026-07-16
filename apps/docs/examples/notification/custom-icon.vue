@@ -2,7 +2,7 @@
   <a-button type="primary" @click="openNotification">Open the notification box</a-button>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 import notification from 'xiaoye-ui/notification';
 import { h } from 'vue';
 

@@ -46,6 +46,6 @@ The most basic usage.
 </template>
 
 <script lang="ts" setup>
-import { CustomerServiceOutlined } from '@ant-design/icons-vue';
+import { CustomerServiceOutlined } from '@xiaoye-ui/icons';
 const handleClick = () => console.log('click');
 </script>

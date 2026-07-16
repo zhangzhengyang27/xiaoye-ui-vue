@@ -147,7 +147,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
   </a-form>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 
 const formItemLayout = {
   labelCol: {

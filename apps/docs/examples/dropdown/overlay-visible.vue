@@ -15,7 +15,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import type { MenuProps } from 'xiaoye-ui';
 const visible = ref(false);
 const handleMenuClick: MenuProps['onClick'] = e => {

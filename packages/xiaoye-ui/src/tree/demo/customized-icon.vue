@@ -35,7 +35,7 @@ You can customize icons for different nodes.
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { DownOutlined, SmileOutlined, FrownOutlined, FrownFilled } from '@ant-design/icons-vue';
+import { DownOutlined, SmileOutlined, FrownOutlined, FrownFilled } from '@xiaoye-ui/icons';
 import type { TreeProps } from 'xiaoye-ui';
 
 const treeData: TreeProps['treeData'] = [

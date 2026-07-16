@@ -6,7 +6,7 @@
   </a-space>
 </template>
 <script lang="ts" setup>
-import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons-vue';
+import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@xiaoye-ui/icons';
 </script>
 <style scoped>
 .icons-list :deep(.anticon) {

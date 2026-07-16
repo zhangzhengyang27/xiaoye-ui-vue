@@ -89,7 +89,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 import type { Rule } from 'xiaoye-ui/form';
 const form = reactive({
   name: '',

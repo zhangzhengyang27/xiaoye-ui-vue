@@ -65,7 +65,7 @@ Normal login form which can contain more elements.
 </template>
 <script lang="ts" setup>
 import { reactive, computed } from 'vue';
-import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, LockOutlined } from '@xiaoye-ui/icons';
 interface FormState {
   username: string;
   password: string;

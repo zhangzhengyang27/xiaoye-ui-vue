@@ -26,7 +26,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue';
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 
 const inputRef = ref();
 const state = reactive({

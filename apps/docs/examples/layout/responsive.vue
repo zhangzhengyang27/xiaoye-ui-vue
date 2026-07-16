@@ -39,7 +39,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, VideoCameraOutlined, UploadOutlined } from '@xiaoye-ui/icons';
 const onCollapse = (collapsed: boolean, type: string) => {
   console.log(collapsed, type);
 };

@@ -41,5 +41,5 @@ Divider and disabled menu item.
   </a-dropdown>
 </template>
 <script lang="ts" setup>
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 </script>

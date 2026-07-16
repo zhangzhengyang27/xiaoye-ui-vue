@@ -19,7 +19,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { InboxOutlined } from '@ant-design/icons-vue';
+import { InboxOutlined } from '@xiaoye-ui/icons';
 import message from 'xiaoye-ui/message';
 import type { UploadChangeParam } from 'xiaoye-ui';
 const fileList = ref([]);

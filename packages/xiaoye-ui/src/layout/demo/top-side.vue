@@ -95,7 +95,7 @@ Both the top navigation and the sidebar, commonly used in documentation site.
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@xiaoye-ui/icons';
 const selectedKeys1 = ref<string[]>(['2']);
 const selectedKeys2 = ref<string[]>(['1']);
 const openKeys = ref<string[]>(['sub1']);

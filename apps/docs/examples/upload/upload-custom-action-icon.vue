@@ -15,7 +15,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadOutlined, StarOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined, StarOutlined } from '@xiaoye-ui/icons';
 import type { UploadChangeParam, UploadProps } from 'xiaoye-ui';
 
 const fileList = ref<UploadProps['fileList']>([

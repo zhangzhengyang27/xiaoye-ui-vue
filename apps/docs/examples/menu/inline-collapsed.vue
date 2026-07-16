@@ -25,7 +25,7 @@ import {
   DesktopOutlined,
   InboxOutlined,
   AppstoreOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 const state = reactive({
   collapsed: false,
   selectedKeys: ['1'],

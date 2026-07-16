@@ -29,7 +29,7 @@
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';
 import type { Ref, UnwrapRef } from 'vue';
-import { CheckOutlined, EditOutlined } from '@ant-design/icons-vue';
+import { CheckOutlined, EditOutlined } from '@xiaoye-ui/icons';
 import { cloneDeep } from 'lodash-es';
 
 interface DataItem {

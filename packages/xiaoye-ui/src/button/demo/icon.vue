@@ -47,5 +47,5 @@ If you want specific control over the positioning and placement of the `Icon`, t
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';
-import { SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@xiaoye-ui/icons';
 </script>

@@ -28,5 +28,5 @@ Right alternate timeline.
   </a-timeline>
 </template>
 <script lang="ts" setup>
-import { ClockCircleOutlined } from '@ant-design/icons-vue';
+import { ClockCircleOutlined } from '@xiaoye-ui/icons';
 </script>

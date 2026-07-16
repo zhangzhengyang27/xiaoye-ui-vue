@@ -11,5 +11,5 @@
   </a-breadcrumb>
 </template>
 <script lang="ts" setup>
-import { HomeOutlined, UserOutlined } from '@ant-design/icons-vue';
+import { HomeOutlined, UserOutlined } from '@xiaoye-ui/icons';
 </script>

@@ -31,7 +31,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UserOutlined } from '@ant-design/icons-vue';
+import { UserOutlined } from '@xiaoye-ui/icons';
 import ASegmented from 'xiaoye-ui/segmented/src/segmented';
 const data = ref([
   {

@@ -157,7 +157,7 @@ import {
   AppstoreOutlined,
   TeamOutlined,
   ShopOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 const selectedKeys = ref<string[]>(['4']);
 </script>
 

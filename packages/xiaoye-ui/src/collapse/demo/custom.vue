@@ -37,7 +37,7 @@ Customize the background, border and margin styles and icon for each panel.
   </a-collapse>
 </template>
 <script lang="ts" setup>
-import { CaretRightOutlined } from '@ant-design/icons-vue';
+import { CaretRightOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 
 const activeKey = ref(['1']);

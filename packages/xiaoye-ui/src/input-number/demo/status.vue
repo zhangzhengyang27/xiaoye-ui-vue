@@ -30,5 +30,5 @@ Add status to InputNumber with `status`, which could be `error` or `warning`.
 </template>
 
 <script lang="ts" setup>
-import { ClockCircleOutlined } from '@ant-design/icons-vue';
+import { ClockCircleOutlined } from '@xiaoye-ui/icons';
 </script>

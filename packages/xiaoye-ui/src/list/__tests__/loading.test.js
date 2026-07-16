@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import List from '..';
-import { LoadingOutlined } from '@ant-design/icons-vue';
+import { LoadingOutlined } from '@xiaoye-ui/icons';
 
 describe('List', () => {
   it('renders empty loading', () => {

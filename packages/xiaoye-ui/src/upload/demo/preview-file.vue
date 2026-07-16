@@ -32,7 +32,7 @@ Customize local preview. Can handle with non-image format files such as video.
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 import type { UploadProps } from 'xiaoye-ui';
 
 const previewFile: UploadProps['previewFile'] = async file => {

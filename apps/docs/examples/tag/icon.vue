@@ -30,5 +30,5 @@ import {
   YoutubeOutlined,
   FacebookOutlined,
   LinkedinOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 </script>

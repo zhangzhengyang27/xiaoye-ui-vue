@@ -35,7 +35,7 @@ import {
   RadiusBottomrightOutlined,
   BorderTopOutlined,
   BorderBottomOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import notification from 'xiaoye-ui/notification';
 import type { NotificationPlacement } from 'xiaoye-ui';
 const openNotification = (placement: NotificationPlacement) => {

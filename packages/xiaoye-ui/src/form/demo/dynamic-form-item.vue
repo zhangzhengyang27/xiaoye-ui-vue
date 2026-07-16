@@ -59,7 +59,7 @@ Add or remove form items dynamically.
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons-vue';
+import { MinusCircleOutlined, PlusOutlined } from '@xiaoye-ui/icons';
 import type { FormInstance } from 'xiaoye-ui';
 
 interface Domain {

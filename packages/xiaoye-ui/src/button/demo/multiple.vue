@@ -36,7 +36,7 @@ If you need several buttons, we recommend that you use 1 primary button + n seco
 </template>
 
 <script lang="ts" setup>
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import type { MenuProps } from 'xiaoye-ui';
 const handleMenuClick: MenuProps['onClick'] = e => {
   console.log('click', e);

@@ -40,7 +40,7 @@ We can upload serveral files at once by giving the input the `multiple` attribut
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { InboxOutlined } from '@ant-design/icons-vue';
+import { InboxOutlined } from '@xiaoye-ui/icons';
 import { message } from 'xiaoye-ui';
 import type { UploadChangeParam } from 'xiaoye-ui';
 const fileList = ref([]);

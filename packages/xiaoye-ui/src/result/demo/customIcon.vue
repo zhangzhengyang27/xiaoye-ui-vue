@@ -27,5 +27,5 @@ Custom icon.
   </a-result>
 </template>
 <script lang="ts" setup>
-import { SmileTwoTone } from '@ant-design/icons-vue';
+import { SmileTwoTone } from '@xiaoye-ui/icons';
 </script>

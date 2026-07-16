@@ -7,5 +7,5 @@
   </a-badge>
 </template>
 <script lang="ts" setup>
-import { NotificationOutlined } from '@ant-design/icons-vue';
+import { NotificationOutlined } from '@xiaoye-ui/icons';
 </script>

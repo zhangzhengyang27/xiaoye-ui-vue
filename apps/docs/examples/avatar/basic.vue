@@ -32,5 +32,5 @@
 </template>
 
 <script lang="ts" setup>
-import { UserOutlined } from '@ant-design/icons-vue';
+import { UserOutlined } from '@xiaoye-ui/icons';
 </script>

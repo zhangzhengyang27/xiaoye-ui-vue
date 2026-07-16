@@ -22,7 +22,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { PoweroffOutlined } from '@ant-design/icons-vue';
+import { PoweroffOutlined } from '@xiaoye-ui/icons';
 
 interface DelayLoading {
   delay: number;

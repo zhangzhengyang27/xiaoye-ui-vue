@@ -116,5 +116,5 @@ import {
   CommentOutlined,
   StarOutlined,
   ShareAltOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 </script>

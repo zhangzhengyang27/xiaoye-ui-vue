@@ -355,7 +355,7 @@ import {
   RightOutlined,
   MinusOutlined,
   PlusOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import type { TreeProps, TreeSelectProps, CascaderProps } from 'xiaoye-ui';
 
 const state = reactive({

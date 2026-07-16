@@ -3,7 +3,7 @@
 </template>
 <script lang="ts" setup>
 import { h, ref } from 'vue';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@xiaoye-ui/icons';
 import { MenuProps } from 'xiaoye-ui';
 const current = ref<string[]>(['mail']);
 const items = ref<MenuProps['items']>([

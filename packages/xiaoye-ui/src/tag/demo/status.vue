@@ -73,5 +73,5 @@ import {
   ExclamationCircleOutlined,
   ClockCircleOutlined,
   MinusCircleOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 </script>

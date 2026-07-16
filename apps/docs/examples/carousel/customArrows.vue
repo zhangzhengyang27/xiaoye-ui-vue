@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
+import { LeftCircleOutlined, RightCircleOutlined } from '@xiaoye-ui/icons';
 </script>
 
 <style scoped>

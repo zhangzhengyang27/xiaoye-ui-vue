@@ -144,7 +144,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined, InboxOutlined } from '@xiaoye-ui/icons';
 
 const formItemLayout = {
   labelCol: { span: 6 },

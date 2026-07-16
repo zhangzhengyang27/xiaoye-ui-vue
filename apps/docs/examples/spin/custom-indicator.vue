@@ -2,7 +2,7 @@
   <a-spin :indicator="indicator" />
 </template>
 <script lang="ts" setup>
-import { LoadingOutlined } from '@ant-design/icons-vue';
+import { LoadingOutlined } from '@xiaoye-ui/icons';
 import { h } from 'vue';
 const indicator = h(LoadingOutlined, {
   style: {

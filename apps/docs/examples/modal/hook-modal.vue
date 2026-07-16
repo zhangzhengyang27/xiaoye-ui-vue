@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { Modal } from 'xiaoye-ui';
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
+import { ExclamationCircleOutlined } from '@xiaoye-ui/icons';
 import { h } from 'vue';
 const [modal, contextHolder] = Modal.useModal();
 const showConfirm = () => {

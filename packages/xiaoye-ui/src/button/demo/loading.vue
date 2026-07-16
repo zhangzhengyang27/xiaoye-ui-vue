@@ -39,7 +39,7 @@ A loading indicator can be added to a button by setting the `loading` property o
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { PoweroffOutlined } from '@ant-design/icons-vue';
+import { PoweroffOutlined } from '@xiaoye-ui/icons';
 
 interface DelayLoading {
   delay: number;

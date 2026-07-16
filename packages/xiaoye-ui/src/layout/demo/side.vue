@@ -83,7 +83,7 @@ import {
   UserOutlined,
   TeamOutlined,
   FileOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const collapsed = ref<boolean>(false);
 const selectedKeys = ref<string[]>(['1']);

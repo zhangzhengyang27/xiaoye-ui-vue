@@ -33,7 +33,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons-vue';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 interface DataItem {
   href: string;

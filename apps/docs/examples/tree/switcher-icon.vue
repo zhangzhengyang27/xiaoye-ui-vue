@@ -10,7 +10,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import type { TreeProps } from 'xiaoye-ui';
 const expandedKeys = ref<string[]>(['0-0-0']);
 const selectedKeys = ref<string[]>([]);

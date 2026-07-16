@@ -44,7 +44,7 @@
   </a-space>
 </template>
 <script lang="ts" setup>
-import { DownloadOutlined } from '@ant-design/icons-vue';
+import { DownloadOutlined } from '@xiaoye-ui/icons';
 import type { SizeType } from 'xiaoye-ui/config-provider';
 import { ref } from 'vue';
 const size = ref<SizeType>('large');

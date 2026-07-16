@@ -74,7 +74,7 @@ Implement a customized column search example via `customFilterDropdown`.
 </template>
 
 <script lang="ts" setup>
-import { SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@xiaoye-ui/icons';
 import { reactive, ref } from 'vue';
 const data = [
   {

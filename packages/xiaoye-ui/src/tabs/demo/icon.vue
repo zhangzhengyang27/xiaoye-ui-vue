@@ -39,7 +39,7 @@ The Tab with Icon.
   </a-tabs>
 </template>
 <script lang="ts" setup>
-import { AppleOutlined, AndroidOutlined } from '@ant-design/icons-vue';
+import { AppleOutlined, AndroidOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const activeKey = ref('1');
 </script>

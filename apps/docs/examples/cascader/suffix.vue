@@ -18,7 +18,7 @@
   </a-space>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 import type { CascaderProps } from 'xiaoye-ui';
 const options: CascaderProps['options'] = [

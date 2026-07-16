@@ -33,7 +33,7 @@ Use `progress` for customize progress bar.
 </template>
 <script lang="ts" setup>
 import { message } from 'xiaoye-ui';
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 import type { UploadChangeParam, UploadProps } from 'xiaoye-ui';
 const handleChange = (info: UploadChangeParam) => {

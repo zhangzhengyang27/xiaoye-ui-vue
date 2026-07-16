@@ -43,7 +43,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 import type { TreeSelectProps } from 'xiaoye-ui';
 const value = ref<string>();
 const value1 = ref<string[]>([]);

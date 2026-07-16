@@ -26,5 +26,5 @@
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';
-import { SearchOutlined } from '@ant-design/icons-vue';
+import { SearchOutlined } from '@xiaoye-ui/icons';
 </script>

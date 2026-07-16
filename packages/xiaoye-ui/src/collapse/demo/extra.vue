@@ -39,7 +39,7 @@ More than one panel can be expanded at a time, the first panel is initialized to
   </a-select>
 </template>
 <script lang="ts" setup>
-import { SettingOutlined } from '@ant-design/icons-vue';
+import { SettingOutlined } from '@xiaoye-ui/icons';
 import { ref, watch } from 'vue';
 import type { CollapseProps } from 'xiaoye-ui';
 

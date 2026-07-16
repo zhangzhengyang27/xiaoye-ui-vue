@@ -39,7 +39,7 @@ You can config SubMenu theme with `theme` prop to enable different theme color e
 </template>
 <script lang="ts" setup>
 import { computed, ref, VueElement, ComputedRef, h } from 'vue';
-import { MailOutlined } from '@ant-design/icons-vue';
+import { MailOutlined } from '@xiaoye-ui/icons';
 import type { MenuProps } from 'xiaoye-ui';
 
 const selectedKeys = ref<string[]>(['1']);

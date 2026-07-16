@@ -7,7 +7,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { FrownOutlined, SmileOutlined } from '@ant-design/icons-vue';
+import { FrownOutlined, SmileOutlined } from '@xiaoye-ui/icons';
 const sliderValue = ref<number>(0);
 const min = ref<number>(0);
 const max = ref<number>(20);

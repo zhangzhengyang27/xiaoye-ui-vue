@@ -20,7 +20,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons-vue';
+import { MinusOutlined, PlusOutlined } from '@xiaoye-ui/icons';
 const count = ref<number>(5);
 const show = ref<boolean>(true);
 const decline = () => {

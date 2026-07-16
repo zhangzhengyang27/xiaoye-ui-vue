@@ -62,7 +62,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
-import { DownOutlined, UpOutlined } from '@ant-design/icons-vue';
+import { DownOutlined, UpOutlined } from '@xiaoye-ui/icons';
 import type { FormInstance } from 'xiaoye-ui';
 const expand = ref(false);
 const formRef = ref<FormInstance>();

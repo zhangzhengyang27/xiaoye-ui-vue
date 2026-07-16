@@ -34,7 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 const customize = ref<boolean>(false);
 
 const style = { width: '200px' };

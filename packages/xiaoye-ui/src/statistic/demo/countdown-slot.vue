@@ -49,7 +49,7 @@ Countdown component slots.
   </a-row>
 </template>
 <script lang="ts" setup>
-import { QuestionCircleTwoTone } from '@ant-design/icons-vue';
+import { QuestionCircleTwoTone } from '@xiaoye-ui/icons';
 const onFinish = () => {
   console.log('finished!');
 };

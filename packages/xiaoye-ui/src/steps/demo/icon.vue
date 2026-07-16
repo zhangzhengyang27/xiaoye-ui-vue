@@ -24,7 +24,7 @@ import {
   SolutionOutlined,
   LoadingOutlined,
   SmileOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import { StepProps } from 'xiaoye-ui';
 const items = [
   {

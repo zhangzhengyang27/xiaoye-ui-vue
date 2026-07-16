@@ -59,7 +59,7 @@ Simple table with actions.
   </a-table>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined, DownOutlined } from '@xiaoye-ui/icons';
 const columns = [
   {
     name: 'Name',

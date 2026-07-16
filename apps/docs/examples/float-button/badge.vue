@@ -19,5 +19,5 @@
   </a-float-button-group>
 </template>
 <script setup>
-import { QuestionCircleOutlined } from '@ant-design/icons-vue';
+import { QuestionCircleOutlined } from '@xiaoye-ui/icons';
 </script>

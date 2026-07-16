@@ -97,7 +97,7 @@
 import { ref, watch } from 'vue';
 import { Modal, theme } from 'xiaoye-ui';
 import type { TourProps, UploadFile } from 'xiaoye-ui';
-import { EllipsisOutlined } from '@ant-design/icons-vue';
+import { EllipsisOutlined } from '@xiaoye-ui/icons';
 import enUS from 'xiaoye-ui/locale/en_US';
 import zhCN from 'xiaoye-ui/locale/zh_CN';
 import dayjs from 'dayjs';

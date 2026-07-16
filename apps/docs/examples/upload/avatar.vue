@@ -19,7 +19,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { PlusOutlined, LoadingOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined, LoadingOutlined } from '@xiaoye-ui/icons';
 import message from 'xiaoye-ui/message';
 import type { UploadChangeParam, UploadProps } from 'xiaoye-ui';
 

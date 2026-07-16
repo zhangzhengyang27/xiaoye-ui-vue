@@ -28,7 +28,7 @@ Vertical menu with inline submenus.
 </template>
 <script lang="ts" setup>
 import { reactive, ref, watch, VueElement, h } from 'vue';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@xiaoye-ui/icons';
 import type { MenuProps, ItemType } from 'xiaoye-ui';
 
 const selectedKeys = ref<string[]>(['1']);

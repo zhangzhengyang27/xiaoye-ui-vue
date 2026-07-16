@@ -21,7 +21,7 @@
   </a-select>
 </template>
 <script lang="ts" setup>
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 import { defineComponent, ref } from 'vue';
 
 const VNodes = defineComponent({

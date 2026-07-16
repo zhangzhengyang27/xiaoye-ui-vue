@@ -50,7 +50,7 @@ Tree with connected line between nodes, turn on by `showLine`, customize the pre
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CarryOutOutlined, SmileTwoTone } from '@ant-design/icons-vue';
+import { CarryOutOutlined, SmileTwoTone } from '@xiaoye-ui/icons';
 import type { TreeProps } from 'xiaoye-ui';
 const showLine = ref<boolean>(true);
 const showIcon = ref<boolean>(false);

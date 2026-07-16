@@ -44,7 +44,7 @@ Using `OptGroup` or `options.options` to group the options.
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UserOutlined } from '@ant-design/icons-vue';
+import { UserOutlined } from '@xiaoye-ui/icons';
 import type { SelectProps } from 'xiaoye-ui';
 
 const handleChange = (value: string) => {

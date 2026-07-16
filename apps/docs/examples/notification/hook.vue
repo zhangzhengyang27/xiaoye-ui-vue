@@ -29,7 +29,7 @@ import {
   RadiusBottomrightOutlined,
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import notification from 'xiaoye-ui/notification';
 import { NotificationPlacement } from 'xiaoye-ui';
 const [api, contextHolder] = notification.useNotification();

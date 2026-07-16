@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { AntDesignOutlined } from '@ant-design/icons-vue';
+import { AntDesignOutlined } from '@xiaoye-ui/icons';
 </script>

@@ -79,7 +79,7 @@ Set component disabled, only works for xiaoye-ui components.
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 import type { TreeSelectProps, CascaderProps } from 'xiaoye-ui';
 
 const componentDisabled = ref(true);

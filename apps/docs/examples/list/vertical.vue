@@ -33,7 +33,7 @@
   </a-list>
 </template>
 <script lang="ts" setup>
-import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons-vue';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@xiaoye-ui/icons';
 const listData: Record<string, string>[] = [];
 
 for (let i = 0; i < 23; i++) {

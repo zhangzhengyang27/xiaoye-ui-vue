@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { UserOutlined, InfoCircleOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, InfoCircleOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const userName = ref<string>('');
 </script>

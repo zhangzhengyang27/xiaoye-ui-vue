@@ -33,7 +33,7 @@ import {
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import type { MenuProps } from 'xiaoye-ui';
 
 const selectedKeys = ref([]);

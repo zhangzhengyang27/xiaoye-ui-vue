@@ -28,5 +28,5 @@ Set a node as an icon or other custom element.
   </a-timeline>
 </template>
 <script lang="ts" setup>
-import { ClockCircleOutlined } from '@ant-design/icons-vue';
+import { ClockCircleOutlined } from '@xiaoye-ui/icons';
 </script>

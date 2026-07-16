@@ -56,7 +56,7 @@ A loading indicator can be added to a button by setting the `loading` property o
 </template>
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
-import { DownOutlined } from '@ant-design/icons-vue';
+import { DownOutlined } from '@xiaoye-ui/icons';
 const loading1 = ref(false);
 const loading2 = ref(false);
 const enterLoading = (loading: Ref<boolean>) => {

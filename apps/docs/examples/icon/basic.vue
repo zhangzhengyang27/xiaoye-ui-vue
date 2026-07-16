@@ -15,5 +15,5 @@ import {
   SmileOutlined,
   SyncOutlined,
   LoadingOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 </script>

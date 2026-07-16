@@ -43,7 +43,7 @@ Limit files with `maxCount`. Will replace current one when `maxCount` is `1`.
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 import type { UploadProps } from 'xiaoye-ui';
 const fileList = ref<UploadProps['fileList']>([]);
 const fileList2 = ref<UploadProps['fileList']>([]);

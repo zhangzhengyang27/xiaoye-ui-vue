@@ -17,7 +17,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 import type { UploadProps } from 'xiaoye-ui';
 

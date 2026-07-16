@@ -28,7 +28,7 @@
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, LockOutlined } from '@xiaoye-ui/icons';
 import type { UnwrapRef } from 'vue';
 import type { FormProps } from 'xiaoye-ui';
 

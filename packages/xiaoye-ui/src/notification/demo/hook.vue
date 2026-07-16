@@ -46,7 +46,7 @@ import {
   RadiusBottomrightOutlined,
   RadiusUpleftOutlined,
   RadiusUprightOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import { NotificationPlacement, notification } from 'xiaoye-ui';
 const [api, contextHolder] = notification.useNotification();
 const open = (placement: NotificationPlacement) => openNotification(placement);

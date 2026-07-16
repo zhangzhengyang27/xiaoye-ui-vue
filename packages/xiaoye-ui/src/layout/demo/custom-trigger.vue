@@ -59,7 +59,7 @@ import {
   UploadOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 const selectedKeys = ref<string[]>(['1']);
 const collapsed = ref<boolean>(false);
 </script>

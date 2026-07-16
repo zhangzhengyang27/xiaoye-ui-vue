@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../../tests/utils';
 import Menu from '..';
-import { InboxOutlined, PieChartOutlined } from '@ant-design/icons-vue';
+import { InboxOutlined, PieChartOutlined } from '@xiaoye-ui/icons';
 import mountTest from '../../../tests/shared/mountTest';
 
 const { SubMenu } = Menu;

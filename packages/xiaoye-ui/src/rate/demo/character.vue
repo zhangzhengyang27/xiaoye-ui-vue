@@ -30,7 +30,7 @@ Replace the default star to other character like alphabet, digit, iconfont or ev
   </div>
 </template>
 <script lang="ts" setup>
-import { HeartOutlined } from '@ant-design/icons-vue';
+import { HeartOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const value1 = ref<number>(2);
 const value2 = ref<number>(2.5);

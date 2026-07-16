@@ -49,7 +49,7 @@ Using pre & post tabs example.
 </template>
 
 <script lang="ts" setup>
-import { SettingOutlined } from '@ant-design/icons-vue';
+import { SettingOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const value1 = ref<string>('mysite');
 const value2 = ref<string>('mysite');

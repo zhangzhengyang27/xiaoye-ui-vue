@@ -69,5 +69,5 @@ Custom Icon make information more clear and more friendly.
 </template>
 
 <script lang="ts" setup>
-import { SmileOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined } from '@xiaoye-ui/icons';
 </script>

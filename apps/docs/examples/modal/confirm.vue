@@ -7,7 +7,7 @@
   </a-space>
 </template>
 <script lang="ts" setup>
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
+import { ExclamationCircleOutlined } from '@xiaoye-ui/icons';
 import { createVNode } from 'vue';
 import { Modal } from 'xiaoye-ui';
 const showConfirm = () => {

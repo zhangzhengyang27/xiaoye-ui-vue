@@ -28,7 +28,7 @@ To customize the text of the buttons, you need to set `okText` and `cancelText` 
   </div>
 </template>
 <script lang="ts" setup>
-import { ExclamationCircleOutlined } from '@ant-design/icons-vue';
+import { ExclamationCircleOutlined } from '@xiaoye-ui/icons';
 import { ref, createVNode } from 'vue';
 import { Modal } from 'xiaoye-ui';
 const open = ref<boolean>(false);

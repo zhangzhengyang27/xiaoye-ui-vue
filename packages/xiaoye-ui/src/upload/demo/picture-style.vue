@@ -45,7 +45,7 @@ If uploaded file is a picture, the thumbnail can be shown.
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { UploadOutlined } from '@ant-design/icons-vue';
+import { UploadOutlined } from '@xiaoye-ui/icons';
 import type { UploadProps } from 'xiaoye-ui';
 const fileList = ref<UploadProps['fileList']>([
   {

@@ -3,7 +3,7 @@ import { asyncExpect } from '../../../tests/utils';
 import Input from '..';
 // import Form from '../../form';
 import focusTest from '../../../tests/shared/focusTest';
-import { WifiOutlined, SyncOutlined } from '@ant-design/icons-vue';
+import { WifiOutlined, SyncOutlined } from '@xiaoye-ui/icons';
 
 const { TextArea, Password } = Input;
 

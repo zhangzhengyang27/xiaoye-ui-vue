@@ -12,7 +12,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons-vue';
+import { MinusOutlined, PlusOutlined } from '@xiaoye-ui/icons';
 import { ref } from 'vue';
 const defaultPercent = ref<number>(0);
 

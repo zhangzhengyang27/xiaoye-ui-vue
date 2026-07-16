@@ -29,7 +29,7 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SettingOutlined } from '@ant-design/icons-vue';
+import { SettingOutlined } from '@xiaoye-ui/icons';
 const value1 = ref(100);
 const value2 = ref(100);
 const value3 = ref(100);

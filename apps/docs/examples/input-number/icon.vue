@@ -12,6 +12,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons-vue';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@xiaoye-ui/icons';
 const value = ref<number>(3);
 </script>

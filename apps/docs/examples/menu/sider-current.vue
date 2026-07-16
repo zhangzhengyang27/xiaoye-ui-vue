@@ -12,7 +12,7 @@
 </template>
 <script lang="ts" setup>
 import { VueElement, h, reactive } from 'vue';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons-vue';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@xiaoye-ui/icons';
 import { ItemType } from 'xiaoye-ui';
 
 function getItem(

@@ -170,7 +170,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { CopyOutlined } from '@ant-design/icons-vue';
+import { CopyOutlined } from '@xiaoye-ui/icons';
 import { TreeSelectProps } from 'xiaoye-ui';
 
 const treeData = ref<TreeSelectProps['treeData']>([

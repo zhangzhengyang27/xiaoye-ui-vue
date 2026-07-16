@@ -24,7 +24,7 @@ import {
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
-} from '@ant-design/icons-vue';
+} from '@xiaoye-ui/icons';
 import type { MenuMode, MenuTheme } from 'xiaoye-ui';
 import { ItemType } from 'xiaoye-ui';
 

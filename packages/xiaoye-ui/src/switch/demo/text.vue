@@ -28,7 +28,7 @@ With text and icon.
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';
-import { CheckOutlined, CloseOutlined } from '@ant-design/icons-vue';
+import { CheckOutlined, CloseOutlined } from '@xiaoye-ui/icons';
 const state = reactive({
   checked1: true,
   checked2: false,

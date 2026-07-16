@@ -62,7 +62,7 @@ set resizable for drag column
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined, DownOutlined } from '@xiaoye-ui/icons';
 import type { TableColumnsType } from 'xiaoye-ui';
 
 const data = [

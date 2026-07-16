@@ -26,5 +26,5 @@
 </template>
 
 <script lang="ts" setup>
-import { QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons-vue';
+import { QuestionCircleOutlined, SyncOutlined } from '@xiaoye-ui/icons';
 </script>

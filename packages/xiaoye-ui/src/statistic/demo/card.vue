@@ -55,5 +55,5 @@ Display statistic data in Card.
   </div>
 </template>
 <script lang="ts" setup>
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons-vue';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@xiaoye-ui/icons';
 </script>

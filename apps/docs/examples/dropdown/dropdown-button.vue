@@ -83,7 +83,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { UserOutlined, DownOutlined } from '@ant-design/icons-vue';
+import { UserOutlined, DownOutlined } from '@xiaoye-ui/icons';
 import type { MenuProps } from 'xiaoye-ui';
 const handleButtonClick = (e: Event) => {
   console.log('click left button', e);

@@ -6,7 +6,7 @@ import { useLocaleReceiver } from '../locale/LocaleReceiver';
 import { withInstall } from '../_util/type';
 import Spin from '../spin';
 import Button from '../button';
-import { ReloadOutlined } from '@ant-design/icons-vue';
+import { ReloadOutlined } from '@xiaoye-ui/icons';
 import { useToken } from '../theme/internal';
 import { QRCodeCanvas, QRCodeSVG } from './QRCode';
 import warning from '../_util/warning';

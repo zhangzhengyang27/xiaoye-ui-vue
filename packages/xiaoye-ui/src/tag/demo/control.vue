@@ -44,7 +44,7 @@ Generating a set of Tags by array, you can add and remove dynamically.
 </template>
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue';
-import { PlusOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined } from '@xiaoye-ui/icons';
 
 const inputRef = ref();
 const state = reactive({

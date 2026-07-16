@@ -40,7 +40,7 @@ Click to upload user's avatar, and validate size and format of picture with `bef
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { PlusOutlined, LoadingOutlined } from '@ant-design/icons-vue';
+import { PlusOutlined, LoadingOutlined } from '@xiaoye-ui/icons';
 import { message } from 'xiaoye-ui';
 import type { UploadChangeParam, UploadProps } from 'xiaoye-ui';
 

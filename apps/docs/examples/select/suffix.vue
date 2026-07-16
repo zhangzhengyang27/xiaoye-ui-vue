@@ -14,7 +14,7 @@
   </a-space>
 </template>
 <script lang="ts" setup>
-import { SmileOutlined, MehOutlined } from '@ant-design/icons-vue';
+import { SmileOutlined, MehOutlined } from '@xiaoye-ui/icons';
 import type { SelectProps } from 'xiaoye-ui';
 import { ref } from 'vue';
 
