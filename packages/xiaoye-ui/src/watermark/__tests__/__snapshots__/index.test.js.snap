@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`Watermark > The watermark should render successfully  1`] = `
-"<div class="watermark watermark" style="position: relative;">
-  <!---->
-</div>"
-`;

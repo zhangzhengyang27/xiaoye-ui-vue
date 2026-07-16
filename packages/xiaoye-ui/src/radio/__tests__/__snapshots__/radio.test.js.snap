@@ -1,3 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`Radio > should render correctly 1`] = `"<label class="customized xy-radio-wrapper customized css-dev-only-do-not-override-1p3hq3p"><span class="xy-radio"><input type="radio" class="xy-radio-input"><span class="xy-radio-inner"></span></span><span>Test</span></label>"`;
