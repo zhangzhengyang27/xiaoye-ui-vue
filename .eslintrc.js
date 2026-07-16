@@ -26,6 +26,20 @@ module.exports = {
   globals: {
     h: true,
     defineProps: 'readonly',
+    // vitest 全局变量
+    vi: 'readonly',
+    describe: 'readonly',
+    it: 'readonly',
+    test: 'readonly',
+    expect: 'readonly',
+    beforeEach: 'readonly',
+    afterEach: 'readonly',
+    beforeAll: 'readonly',
+    afterAll: 'readonly',
+    globalThis: 'readonly',
+    // xiaoye-ui 全局方法（App.useApp 提供）
+    message: 'readonly',
+    notification: 'readonly',
   },
   overrides: [
     {
@@ -77,7 +91,38 @@ module.exports = {
     'import/no-named-as-default': 'off',
     'import/namespace': [2, { allowComputed: true }],
     'import/no-named-as-default-member': 'off',
-    'import/no-unresolved': [2, { ignore: ['xiaoye-ui'] }],
+    'import/no-unresolved': [
+      2,
+      {
+        ignore: [
+          'xiaoye-ui',
+          '@xiaoye-ui/icons',
+          '@xiaoye-ui/utils',
+          '@xiaoye-ui/core',
+          '@xiaoye-ui/metadata',
+          '@xiaoye-ui/vite-plugin',
+          '@xiaoye-ui/auto-import-resolver',
+          '@xiaoye-ui/nuxt-module',
+          '@xiaoye-ui/mcp',
+          // 构建工具配置文件引用的依赖（monorepo hoisting 导致 eslint 无法解析）
+          'vite',
+          'vitest/config',
+          '@vitejs/plugin-vue',
+          '@vitejs/plugin-vue-jsx',
+          // 可选依赖（demo/test 使用，非核心依赖）
+          'moment',
+          'xhr-mock',
+          'umi-request',
+          'fetch-jsonp',
+          'vue-request',
+          'axios',
+          '@nuxt/kit',
+          'nuxt/app',
+          'unplugin-vue-components/nuxt',
+          'valibot',
+        ],
+      },
+    ],
     'comma-dangle': [2, 'always-multiline'],
     'no-var': 'error',
     'no-console': [2, { allow: ['warn', 'error'] }],
