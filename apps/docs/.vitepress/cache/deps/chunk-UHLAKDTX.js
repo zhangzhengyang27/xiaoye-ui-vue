@@ -1,0 +1,80 @@
+import {
+  flatRest_default
+} from "./chunk-XE5AWOLC.js";
+import {
+  hasIn_default
+} from "./chunk-YG635LTE.js";
+import {
+  baseGet_default,
+  castPath_default,
+  toKey_default
+} from "./chunk-6SKWHXUR.js";
+import {
+  assignValue_default
+} from "./chunk-TIBE6ILK.js";
+import {
+  isIndex_default
+} from "./chunk-ASB7QRIM.js";
+import {
+  isObject_default
+} from "./chunk-RDHO654O.js";
+
+// ../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_baseSet.js
+function baseSet(object, path, value, customizer) {
+  if (!isObject_default(object)) {
+    return object;
+  }
+  path = castPath_default(path, object);
+  var index = -1, length = path.length, lastIndex = length - 1, nested = object;
+  while (nested != null && ++index < length) {
+    var key = toKey_default(path[index]), newValue = value;
+    if (key === "__proto__" || key === "constructor" || key === "prototype") {
+      return object;
+    }
+    if (index != lastIndex) {
+      var objValue = nested[key];
+      newValue = customizer ? customizer(objValue, key, nested) : void 0;
+      if (newValue === void 0) {
+        newValue = isObject_default(objValue) ? objValue : isIndex_default(path[index + 1]) ? [] : {};
+      }
+    }
+    assignValue_default(nested, key, newValue);
+    nested = nested[key];
+  }
+  return object;
+}
+var baseSet_default = baseSet;
+
+// ../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_basePickBy.js
+function basePickBy(object, paths, predicate) {
+  var index = -1, length = paths.length, result = {};
+  while (++index < length) {
+    var path = paths[index], value = baseGet_default(object, path);
+    if (predicate(value, path)) {
+      baseSet_default(result, castPath_default(path, object), value);
+    }
+  }
+  return result;
+}
+var basePickBy_default = basePickBy;
+
+// ../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_basePick.js
+function basePick(object, paths) {
+  return basePickBy_default(object, paths, function(value, path) {
+    return hasIn_default(object, path);
+  });
+}
+var basePick_default = basePick;
+
+// ../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/pick.js
+var pick = flatRest_default(function(object, paths) {
+  return object == null ? {} : basePick_default(object, paths);
+});
+var pick_default = pick;
+
+export {
+  baseSet_default,
+  basePickBy_default,
+  pick_default
+};
+//# sourceMappingURL=chunk-UHLAKDTX.js.map

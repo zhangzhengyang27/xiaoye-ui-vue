@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_assignValue.js"],
+  "sourcesContent": ["import baseAssignValue from './_baseAssignValue.js';\nimport eq from './eq.js';\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/**\n * Assigns `value` to `key` of `object` if the existing value is not equivalent\n * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)\n * for equality comparisons.\n *\n * @private\n * @param {Object} object The object to modify.\n * @param {string} key The key of the property to assign.\n * @param {*} value The value to assign.\n */\nfunction assignValue(object, key, value) {\n  var objValue = object[key];\n  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||\n      (value === undefined && !(key in object))) {\n    baseAssignValue(object, key, value);\n  }\n}\n\nexport default assignValue;\n"],
+  "mappings": ";;;;;;;;AAIA,IAAI,cAAc,OAAO;AAGzB,IAAI,iBAAiB,YAAY;AAYjC,SAAS,YAAY,QAAQ,KAAK,OAAO;AACvC,MAAI,WAAW,OAAO,GAAG;AACzB,MAAI,EAAE,eAAe,KAAK,QAAQ,GAAG,KAAK,WAAG,UAAU,KAAK,MACvD,UAAU,UAAa,EAAE,OAAO,SAAU;AAC7C,4BAAgB,QAAQ,KAAK,KAAK;AAAA,EACpC;AACF;AAEA,IAAO,sBAAQ;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_defineProperty.js"],
+  "sourcesContent": ["import getNative from './_getNative.js';\n\nvar defineProperty = (function() {\n  try {\n    var func = getNative(Object, 'defineProperty');\n    func({}, '', {});\n    return func;\n  } catch (e) {}\n}());\n\nexport default defineProperty;\n"],
+  "mappings": ";;;;;AAEA,IAAI,iBAAkB,WAAW;AAC/B,MAAI;AACF,QAAI,OAAO,kBAAU,QAAQ,gBAAgB;AAC7C,SAAK,CAAC,GAAG,IAAI,CAAC,CAAC;AACf,WAAO;AAAA,EACT,SAAS,GAAG;AAAA,EAAC;AACf,EAAE;AAEF,IAAO,yBAAQ;",
+  "names": []
+}

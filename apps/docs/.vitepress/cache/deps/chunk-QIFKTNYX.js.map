@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_arrayMap.js", "../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/identity.js"],
+  "sourcesContent": ["/**\n * A specialized version of `_.map` for arrays without support for iteratee\n * shorthands.\n *\n * @private\n * @param {Array} [array] The array to iterate over.\n * @param {Function} iteratee The function invoked per iteration.\n * @returns {Array} Returns the new mapped array.\n */\nfunction arrayMap(array, iteratee) {\n  var index = -1,\n      length = array == null ? 0 : array.length,\n      result = Array(length);\n\n  while (++index < length) {\n    result[index] = iteratee(array[index], index, array);\n  }\n  return result;\n}\n\nexport default arrayMap;\n", "/**\n * This method returns the first argument it receives.\n *\n * @static\n * @since 0.1.0\n * @memberOf _\n * @category Util\n * @param {*} value Any value.\n * @returns {*} Returns `value`.\n * @example\n *\n * var object = { 'a': 1 };\n *\n * console.log(_.identity(object) === object);\n * // => true\n */\nfunction identity(value) {\n  return value;\n}\n\nexport default identity;\n"],
+  "mappings": ";AASA,SAAS,SAAS,OAAO,UAAU;AACjC,MAAI,QAAQ,IACR,SAAS,SAAS,OAAO,IAAI,MAAM,QACnC,SAAS,MAAM,MAAM;AAEzB,SAAO,EAAE,QAAQ,QAAQ;AACvB,WAAO,KAAK,IAAI,SAAS,MAAM,KAAK,GAAG,OAAO,KAAK;AAAA,EACrD;AACA,SAAO;AACT;AAEA,IAAO,mBAAQ;;;ACJf,SAAS,SAAS,OAAO;AACvB,SAAO;AACT;AAEA,IAAO,mBAAQ;",
+  "names": []
+}
