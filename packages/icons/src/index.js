@@ -1124,6 +1124,87 @@ export { default as WifiOutlined } from './wifi';
 // YoutubeOutlined (映射自 YoutubeIcon)
 export { default as YoutubeOutlined } from './youtube';
 
+// AppstoreOutlined (近似映射自 LayoutGridIcon)
+export { default as AppstoreOutlined } from './layout-grid';
+
+// BarChartOutlined (映射自 BarChart3Icon)
+export { default as BarChartOutlined } from './bar-chart3';
+
+// CalendarOutlined (映射自 CalendarIcon)
+export { default as CalendarOutlined } from './calendar';
+
+// CaretRightOutlined (近似映射自 ChevronRightIcon)
+export { default as CaretRightOutlined } from './chevronright';
+
+// CheckCircleTwoTone (映射自 CircleCheckIcon，无 TwoTone 变体，使用普通版本)
+export { default as CheckCircleTwoTone } from './circle-check';
+
+// CloudDownloadOutlined (映射自 CloudDownloadIcon)
+export { default as CloudDownloadOutlined } from './cloud-download';
+
+// CloudOutlined (映射自 CloudIcon)
+export { default as CloudOutlined } from './cloud';
+
+// DesktopOutlined (映射自 MonitorIcon)
+export { default as DesktopOutlined } from './monitor';
+
+// DislikeFilled (映射自 ThumbsDownFillIcon)
+export { default as DislikeFilled } from './thumbs-down-fill';
+
+// DislikeOutlined (映射自 ThumbsDownIcon)
+export { default as DislikeOutlined } from './thumbs-down';
+
+// FileOutlined (映射自 FileIcon)
+export { default as FileOutlined } from './file';
+
+// HeartTwoTone (映射自 HeartIcon，无 TwoTone 变体，使用普通版本)
+export { default as HeartTwoTone } from './heart';
+
+// LaptopOutlined (近似映射自 MonitorIcon)
+export { default as LaptopOutlined } from './monitor';
+
+// LikeFilled (映射自 ThumbsUpFillIcon)
+export { default as LikeFilled } from './thumbs-up-fill';
+
+// MailOutlined (映射自 MailIcon)
+export { default as MailOutlined } from './mail';
+
+// MehOutlined (近似映射自 SmileIcon，表情图标)
+export { default as MehOutlined } from './smile';
+
+// MenuFoldOutlined (近似映射自 FoldVerticalIcon)
+export { default as MenuFoldOutlined } from './fold-vertical';
+
+// MenuUnfoldOutlined (近似映射自 UnfoldVerticalIcon)
+export { default as MenuUnfoldOutlined } from './unfold-vertical';
+
+// PieChartOutlined (近似映射自 LineChartIcon)
+export { default as PieChartOutlined } from './line-chart';
+
+// QuestionCircleTwoTone (映射自 CircleHelpIcon，无 TwoTone 变体，使用普通版本)
+export { default as QuestionCircleTwoTone } from './circle-help';
+
+// SearchOutlined (映射自 SearchIcon)
+export { default as SearchOutlined } from './search';
+
+// SettingFilled (映射自 SettingsIcon，无 Filled 变体，使用普通版本)
+export { default as SettingFilled } from './settings';
+
+// ShopOutlined (近似映射自 ShoppingBagIcon)
+export { default as ShopOutlined } from './shopping-bag';
+
+// StarFilled (映射自 StarFillIcon)
+export { default as StarFilled } from './starfill';
+
+// StarTwoTone (映射自 StarIcon，无 TwoTone 变体，使用普通版本)
+export { default as StarTwoTone } from './star';
+
+// TeamOutlined (映射自 UsersIcon)
+export { default as TeamOutlined } from './users';
+
+// VideoCameraOutlined (映射自 VideoIcon)
+export { default as VideoCameraOutlined } from './video';
+
 /*
  * 以下 @ant-design/icons-vue 的特殊 API 在 xiaoye-ui/icons 中没有对应实现：
  * - createFromIconfontCN: iconfont 图标工厂函数，xiaoye-ui/icons 中没有对应实现
