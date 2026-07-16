@@ -1,5 +1,5 @@
 import { defineComponent, nextTick, Transition } from 'vue';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
+import { LoadingOutlined } from '@xiaoye-ui/icons';
 const getCollapsedWidth = (node: HTMLSpanElement) => {
   if (node) {
     node.style.width = '0px';

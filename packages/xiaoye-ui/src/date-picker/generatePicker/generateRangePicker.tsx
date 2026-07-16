@@ -1,7 +1,9 @@
-import CalendarOutlined from '@ant-design/icons-vue/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons-vue/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import SwapRightOutlined from '@ant-design/icons-vue/SwapRightOutlined';
+import {
+  CalendarOutlined,
+  ClockCircleOutlined,
+  CloseCircleFilled,
+  SwapRightOutlined,
+} from '@xiaoye-ui/icons';
 import { RangePicker as VCRangePicker } from '../../vc-picker';
 import type { GenerateConfig } from '../../vc-picker/generate/index';
 import enUS from '../locale/en_US';

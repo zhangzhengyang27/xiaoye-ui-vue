@@ -1,4 +1,4 @@
-import VerticalAlignTopOutlined from '@ant-design/icons-vue/VerticalAlignTopOutlined';
+import { VerticalAlignTopOutlined } from '@xiaoye-ui/icons';
 import { getTransitionProps } from '../_util/transition';
 import {
   defineComponent,

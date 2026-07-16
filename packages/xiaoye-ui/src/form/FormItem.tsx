@@ -18,10 +18,12 @@ import {
   onBeforeUnmount,
   toRaw,
 } from 'vue';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
+import {
+  LoadingOutlined,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+} from '@xiaoye-ui/icons';
 import cloneDeep from 'lodash-es/cloneDeep';
 import PropTypes from '../_util/vue-types';
 import Row from '../grid/Row';

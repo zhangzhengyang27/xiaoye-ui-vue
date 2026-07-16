@@ -1,5 +1,5 @@
 import classNames from '../_util/classNames';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
+import { CloseCircleFilled } from '@xiaoye-ui/icons';
 import PropTypes from '../_util/vue-types';
 import { cloneElement } from '../_util/vnode';
 import type { CSSProperties, PropType, VNode } from 'vue';

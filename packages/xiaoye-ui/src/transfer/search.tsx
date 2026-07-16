@@ -1,5 +1,5 @@
 import initDefaultProps from '../_util/props-util/initDefaultProps';
-import SearchOutlined from '@ant-design/icons-vue/SearchOutlined';
+import { SearchOutlined } from '@xiaoye-ui/icons';
 import Input from '../input';
 import type { ExtractPropTypes } from 'vue';
 import { defineComponent } from 'vue';

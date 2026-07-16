@@ -1,7 +1,7 @@
 import { shallowRef, computed, defineComponent } from 'vue';
 import { useNotification as useVcNotification } from '../vc-notification';
 import type { NotificationAPI } from '../vc-notification';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import { CloseOutlined } from '@xiaoye-ui/icons';
 import useStyle from './style';
 import type {
   MessageInstance,

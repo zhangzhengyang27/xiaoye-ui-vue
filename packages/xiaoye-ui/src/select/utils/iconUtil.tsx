@@ -1,9 +1,11 @@
-import DownOutlined from '@ant-design/icons-vue/DownOutlined';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import CheckOutlined from '@ant-design/icons-vue/CheckOutlined';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import SearchOutlined from '@ant-design/icons-vue/SearchOutlined';
+import {
+  DownOutlined,
+  LoadingOutlined,
+  CheckOutlined,
+  CloseOutlined,
+  CloseCircleFilled,
+  SearchOutlined,
+} from '@xiaoye-ui/icons';
 
 export default function getIcons(props: any, slots: any = {}) {
   const { loading, multiple, prefixCls, hasFeedback, feedbackIcon, showArrow } = props;

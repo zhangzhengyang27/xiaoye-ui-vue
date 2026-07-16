@@ -4,14 +4,16 @@ import type { ExtractPropTypes } from 'vue';
 import { computed, defineComponent } from 'vue';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 
-import RotateLeftOutlined from '@ant-design/icons-vue/RotateLeftOutlined';
-import RotateRightOutlined from '@ant-design/icons-vue/RotateRightOutlined';
-import ZoomInOutlined from '@ant-design/icons-vue/ZoomInOutlined';
-import ZoomOutOutlined from '@ant-design/icons-vue/ZoomOutOutlined';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import LeftOutlined from '@ant-design/icons-vue/LeftOutlined';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
-import SwapOutlined from '@ant-design/icons-vue/SwapOutlined';
+import {
+  RotateLeftOutlined,
+  RotateRightOutlined,
+  ZoomInOutlined,
+  ZoomOutOutlined,
+  CloseOutlined,
+  LeftOutlined,
+  RightOutlined,
+  SwapOutlined,
+} from '@xiaoye-ui/icons';
 import { getTransitionName } from '../_util/transition';
 import useStyle from './style';
 import { anyType } from '../_util/type';

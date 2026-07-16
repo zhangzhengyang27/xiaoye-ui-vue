@@ -1,5 +1,4 @@
-import CaretDownOutlined from '@ant-design/icons-vue/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons-vue/CaretUpOutlined';
+import { CaretDownOutlined, CaretUpOutlined } from '@xiaoye-ui/icons';
 import type {
   TransformColumns,
   ColumnsType,

@@ -14,7 +14,7 @@ import { getPropsSlot, initDefaultProps } from '../_util/props-util';
 import classnames from '../_util/classNames';
 import VcDrawer from '../vc-drawer';
 import PropTypes from '../_util/vue-types';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import { CloseOutlined } from '@xiaoye-ui/icons';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import { objectType, withInstall } from '../_util/type';
 import type { CustomSlotsType } from '../_util/type';

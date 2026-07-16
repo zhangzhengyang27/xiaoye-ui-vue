@@ -2,11 +2,13 @@ import Notice from '../vc-notification/Notice';
 import type { NoticeProps } from '../vc-notification/Notice';
 import useStyle from './style';
 import type { NoticeType } from './interface';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons-vue/InfoCircleFilled';
+import {
+  LoadingOutlined,
+  ExclamationCircleFilled,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  InfoCircleFilled,
+} from '@xiaoye-ui/icons';
 import type { VueNode } from '../_util/type';
 import classNames from '../_util/classNames';
 import { useConfigContextInject } from '../config-provider/context';

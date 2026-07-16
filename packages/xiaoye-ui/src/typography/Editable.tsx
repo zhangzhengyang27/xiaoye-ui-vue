@@ -1,6 +1,6 @@
 import KeyCode from '../_util/KeyCode';
 import TextArea from '../input/TextArea';
-import EnterOutlined from '@ant-design/icons-vue/EnterOutlined';
+import { EnterOutlined } from '@xiaoye-ui/icons';
 import type { ExtractPropTypes, PropType } from 'vue';
 import { defineComponent, ref, reactive, watch, onMounted, toRefs } from 'vue';
 import type { Direction } from '../config-provider';

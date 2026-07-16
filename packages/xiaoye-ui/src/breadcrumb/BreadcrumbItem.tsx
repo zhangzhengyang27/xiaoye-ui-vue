@@ -4,7 +4,7 @@ import PropTypes from '../_util/vue-types';
 import { getPropsSlot } from '../_util/props-util';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
-import DownOutlined from '@ant-design/icons-vue/DownOutlined';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import type { MouseEventHandler } from '../_util/EventInterface';
 import { eventType, objectType } from '../_util/type';

@@ -5,7 +5,7 @@ import abstractTooltipProps from '../tooltip/abstractTooltipProps';
 import { initDefaultProps } from '../_util/props-util';
 import type { ButtonProps, LegacyButtonType } from '../button/buttonTypes';
 import { convertLegacyProps } from '../button/buttonTypes';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
+import { ExclamationCircleFilled } from '@xiaoye-ui/icons';
 import Button from '../button';
 import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 

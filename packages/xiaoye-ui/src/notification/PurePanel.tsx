@@ -6,12 +6,14 @@ import Notice from '../vc-notification/Notice';
 import classNames from '../_util/classNames';
 import type { NoticeProps } from '../vc-notification/Notice';
 import type { VueNode } from '../_util/type';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons-vue/InfoCircleFilled';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import {
+  LoadingOutlined,
+  ExclamationCircleFilled,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  InfoCircleFilled,
+  CloseOutlined,
+} from '@xiaoye-ui/icons';
 import { renderHelper } from '../_util/util';
 
 export function getCloseIcon(prefixCls: string, closeIcon?: VueNode) {

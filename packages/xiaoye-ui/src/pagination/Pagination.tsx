@@ -1,9 +1,11 @@
 import type { ExtractPropTypes } from 'vue';
 import { computed, toRef, defineComponent } from 'vue';
-import LeftOutlined from '@ant-design/icons-vue/LeftOutlined';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
-import DoubleLeftOutlined from '@ant-design/icons-vue/DoubleLeftOutlined';
-import DoubleRightOutlined from '@ant-design/icons-vue/DoubleRightOutlined';
+import {
+  LeftOutlined,
+  RightOutlined,
+  DoubleLeftOutlined,
+  DoubleRightOutlined,
+} from '@xiaoye-ui/icons';
 import MiniSelect, { MiddleSelect } from './Select';
 import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import VcPagination from '../vc-pagination';

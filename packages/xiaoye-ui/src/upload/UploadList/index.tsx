@@ -1,7 +1,4 @@
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import PaperClipOutlined from '@ant-design/icons-vue/PaperClipOutlined';
-import PictureTwoTone from '@ant-design/icons-vue/PictureTwoTone';
-import FileTwoTone from '@ant-design/icons-vue/FileTwoTone';
+import { LoadingOutlined, PaperClipOutlined, PictureTwoTone, FileTwoTone } from '@xiaoye-ui/icons';
 import type { InternalUploadFile, UploadFile } from '../interface';
 import { uploadListProps } from '../interface';
 import { previewImage, isImageUrl } from '../utils';

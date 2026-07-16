@@ -4,9 +4,7 @@ import VcCascader, {
   SHOW_CHILD,
   SHOW_PARENT,
 } from '../vc-cascader';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import LeftOutlined from '@ant-design/icons-vue/LeftOutlined';
+import { RightOutlined, LoadingOutlined, LeftOutlined } from '@xiaoye-ui/icons';
 import getIcons from '../select/utils/iconUtil';
 import type { VueNode } from '../_util/type';
 import { withInstall } from '../_util/type';

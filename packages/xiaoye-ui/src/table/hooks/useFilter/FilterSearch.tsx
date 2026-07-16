@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import SearchOutlined from '@ant-design/icons-vue/SearchOutlined';
+import { SearchOutlined } from '@xiaoye-ui/icons';
 import type { FilterSearchType, TableLocale } from '../../interface';
 import Input from '../../../input';
 import { stringType, someType, functionType, objectType } from '../../../_util/type';

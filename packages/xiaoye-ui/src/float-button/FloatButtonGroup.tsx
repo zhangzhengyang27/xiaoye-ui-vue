@@ -1,6 +1,5 @@
 import { defineComponent, ref, computed, watch, onBeforeUnmount, Transition } from 'vue';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import FileTextOutlined from '@ant-design/icons-vue/FileTextOutlined';
+import { CloseOutlined, FileTextOutlined } from '@xiaoye-ui/icons';
 import classNames from '../_util/classNames';
 import { getTransitionProps } from '../_util/transition';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';

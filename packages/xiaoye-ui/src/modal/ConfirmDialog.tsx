@@ -1,7 +1,9 @@
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons-vue/InfoCircleFilled';
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  ExclamationCircleFilled,
+  InfoCircleFilled,
+} from '@xiaoye-ui/icons';
 import classNames from '../_util/classNames';
 import type { ModalFuncProps, ModalLocale } from './Modal';
 import Dialog from './Modal';

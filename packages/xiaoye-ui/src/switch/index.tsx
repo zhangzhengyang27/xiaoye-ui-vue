@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue';
 import { defineComponent, onBeforeMount, ref, computed, onMounted, nextTick, watch } from 'vue';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
+import { LoadingOutlined } from '@xiaoye-ui/icons';
 import PropTypes from '../_util/vue-types';
 import KeyCode from '../_util/KeyCode';
 import Wave from '../_util/wave';

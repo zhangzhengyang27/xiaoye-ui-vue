@@ -1,9 +1,11 @@
 import { computed, defineComponent } from 'vue';
 import initDefaultProps from '../_util/props-util/initDefaultProps';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import CheckOutlined from '@ant-design/icons-vue/CheckOutlined';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
+import {
+  CloseOutlined,
+  CheckOutlined,
+  CheckCircleFilled,
+  CloseCircleFilled,
+} from '@xiaoye-ui/icons';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';

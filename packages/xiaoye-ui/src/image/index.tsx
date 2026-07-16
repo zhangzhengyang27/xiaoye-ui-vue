@@ -5,7 +5,7 @@ import { imageProps } from '../vc-image/src/Image';
 import defaultLocale from '../locale/en_US';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import PreviewGroup, { icons } from './PreviewGroup';
-import EyeOutlined from '@ant-design/icons-vue/EyeOutlined';
+import { EyeOutlined } from '@xiaoye-ui/icons';
 import { getTransitionName } from '../_util/transition';
 import useStyle from './style';
 import classNames from '../_util/classNames';

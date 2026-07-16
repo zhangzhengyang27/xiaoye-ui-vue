@@ -13,9 +13,7 @@ import PropTypes from '../_util/vue-types';
 import { tuple } from '../_util/type';
 import initDefaultProps from '../_util/props-util/initDefaultProps';
 import isNumeric from '../_util/isNumeric';
-import BarsOutlined from '@ant-design/icons-vue/BarsOutlined';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
-import LeftOutlined from '@ant-design/icons-vue/LeftOutlined';
+import { BarsOutlined, RightOutlined, LeftOutlined } from '@xiaoye-ui/icons';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import { SiderCollapsedKey, SiderHookProviderKey } from './injectionKey';
 

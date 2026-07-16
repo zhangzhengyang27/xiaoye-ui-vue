@@ -1,8 +1,10 @@
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
-import FileOutlined from '@ant-design/icons-vue/FileOutlined';
-import MinusSquareOutlined from '@ant-design/icons-vue/MinusSquareOutlined';
-import PlusSquareOutlined from '@ant-design/icons-vue/PlusSquareOutlined';
-import CaretDownFilled from '@ant-design/icons-vue/CaretDownFilled';
+import {
+  LoadingOutlined,
+  FileOutlined,
+  MinusSquareOutlined,
+  PlusSquareOutlined,
+  CaretDownFilled,
+} from '@xiaoye-ui/icons';
 import type { AntTreeNodeProps } from '../Tree';
 import { isValidElement } from '../../_util/props-util';
 

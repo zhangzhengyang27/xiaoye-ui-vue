@@ -1,7 +1,7 @@
 import classNames from '../_util/classNames';
 import PropTypes from '../_util/vue-types';
 import { isValidElement, splitAttrs, filterEmpty } from '../_util/props-util';
-import DownOutlined from '@ant-design/icons-vue/DownOutlined';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import Checkbox from '../checkbox';
 import Menu from '../menu';
 import Dropdown from '../dropdown';

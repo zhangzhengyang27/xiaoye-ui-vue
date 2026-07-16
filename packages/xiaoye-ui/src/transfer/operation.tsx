@@ -1,6 +1,5 @@
 import type { CSSProperties, FunctionalComponent } from 'vue';
-import LeftOutlined from '@ant-design/icons-vue/LeftOutlined';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
+import { LeftOutlined, RightOutlined } from '@xiaoye-ui/icons';
 import Button from '../button';
 import type { Direction } from '../config-provider';
 

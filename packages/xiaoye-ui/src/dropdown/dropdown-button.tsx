@@ -5,7 +5,7 @@ import Dropdown from './dropdown';
 import classNames from '../_util/classNames';
 import { initDefaultProps } from '../_util/props-util';
 import { dropdownButtonProps } from './props';
-import EllipsisOutlined from '@ant-design/icons-vue/EllipsisOutlined';
+import { EllipsisOutlined } from '@xiaoye-ui/icons';
 
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';

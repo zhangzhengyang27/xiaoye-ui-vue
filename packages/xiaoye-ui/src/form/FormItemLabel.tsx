@@ -9,7 +9,7 @@ import classNames from '../_util/classNames';
 import type { VueNode } from '../_util/type';
 import type { FunctionalComponent, HTMLAttributes } from 'vue';
 import Tooltip from '../tooltip';
-import QuestionCircleOutlined from '@ant-design/icons-vue/QuestionCircleOutlined';
+import { QuestionCircleOutlined } from '@xiaoye-ui/icons';
 
 export interface FormItemLabelProps {
   colon?: boolean;

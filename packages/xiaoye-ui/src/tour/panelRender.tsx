@@ -1,7 +1,7 @@
 import { computed, defineComponent, toRefs } from 'vue';
 import classNames from '../_util/classNames';
 import { isFunction } from '../_util/util';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import { CloseOutlined } from '@xiaoye-ui/icons';
 import { tourStepProps } from './interface';
 import type { TourBtnProps } from './interface';
 

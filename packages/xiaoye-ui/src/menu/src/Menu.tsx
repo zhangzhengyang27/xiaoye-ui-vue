@@ -34,7 +34,7 @@ import { flattenChildren } from '../../_util/props-util';
 import Overflow from '../../vc-overflow';
 import MenuItem from './MenuItem';
 import SubMenu from './SubMenu';
-import EllipsisOutlined from '@ant-design/icons-vue/EllipsisOutlined';
+import { EllipsisOutlined } from '@xiaoye-ui/icons';
 import { cloneElement } from '../../_util/vnode';
 import { OVERFLOW_KEY, PathContext } from './hooks/useKeyPath';
 import type { FocusEventHandler, MouseEventHandler } from '../../_util/EventInterface';

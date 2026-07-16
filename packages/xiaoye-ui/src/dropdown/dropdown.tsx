@@ -6,7 +6,7 @@ import { cloneElement } from '../_util/vnode';
 import classNames from '../_util/classNames';
 import { isValidElement, initDefaultProps } from '../_util/props-util';
 import { dropdownProps } from './props';
-import RightOutlined from '@ant-design/icons-vue/RightOutlined';
+import { RightOutlined } from '@xiaoye-ui/icons';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import devWarning from '../vc-util/devWarning';
 import omit from '../_util/omit';

@@ -1,7 +1,6 @@
 import type { App, ExtractPropTypes } from 'vue';
 import { computed, defineComponent } from 'vue';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import CheckOutlined from '@ant-design/icons-vue/CheckOutlined';
+import { CloseOutlined, CheckOutlined } from '@xiaoye-ui/icons';
 import type { VueNode, CustomSlotsType } from '../_util/type';
 import { anyType, booleanType, stringType, functionType, someType, arrayType } from '../_util/type';
 import initDefaultProps from '../_util/props-util/initDefaultProps';

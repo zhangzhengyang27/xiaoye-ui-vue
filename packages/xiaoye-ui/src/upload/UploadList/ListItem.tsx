@@ -8,9 +8,7 @@ import {
   Transition,
 } from 'vue';
 import type { ExtractPropTypes, CSSProperties } from 'vue';
-import EyeOutlined from '@ant-design/icons-vue/EyeOutlined';
-import DeleteOutlined from '@ant-design/icons-vue/DeleteOutlined';
-import DownloadOutlined from '@ant-design/icons-vue/DownloadOutlined';
+import { EyeOutlined, DeleteOutlined, DownloadOutlined } from '@xiaoye-ui/icons';
 import Tooltip from '../../tooltip';
 import Progress from '../../progress';
 

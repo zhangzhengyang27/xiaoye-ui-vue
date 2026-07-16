@@ -5,7 +5,7 @@ import PropTypes from '../_util/vue-types';
 import { filterEmpty } from '../_util/props-util';
 import initDefaultProps from '../_util/props-util/initDefaultProps';
 import TimelineItem from './TimelineItem';
-import LoadingOutlined from '@ant-design/icons-vue/LoadingOutlined';
+import { LoadingOutlined } from '@xiaoye-ui/icons';
 
 import { tuple, booleanType } from '../_util/type';
 import useConfigInject from '../config-provider/hooks/useConfigInject';

@@ -1,7 +1,7 @@
 import PropTypes from '../_util/vue-types';
 import classNames from '../_util/classNames';
 import type { TransferLocale } from '.';
-import DeleteOutlined from '@ant-design/icons-vue/DeleteOutlined';
+import { DeleteOutlined } from '@xiaoye-ui/icons';
 import defaultLocale from '../locale/en_US';
 import Checkbox from '../checkbox';
 import TransButton from '../_util/transButton';

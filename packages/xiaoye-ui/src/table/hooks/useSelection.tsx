@@ -1,4 +1,4 @@
-import DownOutlined from '@ant-design/icons-vue/DownOutlined';
+import { DownOutlined } from '@xiaoye-ui/icons';
 import type { DataNode } from '../../tree';
 import { INTERNAL_COL_DEFINE } from '../../vc-table';
 import type { FixedType } from '../../vc-table/interface';

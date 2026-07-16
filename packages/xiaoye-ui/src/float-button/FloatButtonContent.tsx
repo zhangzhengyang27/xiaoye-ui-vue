@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import FileTextOutlined from '@ant-design/icons-vue/FileTextOutlined';
+import { FileTextOutlined } from '@xiaoye-ui/icons';
 import { floatButtonContentProps } from './interface';
 import { filterEmpty } from '../_util/props-util';
 

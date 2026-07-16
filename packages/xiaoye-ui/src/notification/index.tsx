@@ -1,10 +1,12 @@
 import type { CSSProperties } from 'vue';
 import Notification from '../vc-notification';
-import CheckCircleOutlined from '@ant-design/icons-vue/CheckCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons-vue/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons-vue/CloseCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons-vue/ExclamationCircleOutlined';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import {
+  CheckCircleOutlined,
+  InfoCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  CloseOutlined,
+} from '@xiaoye-ui/icons';
 import type { VueNode } from '../_util/type';
 import { renderHelper } from '../_util/util';
 import { globalConfig } from '../config-provider';

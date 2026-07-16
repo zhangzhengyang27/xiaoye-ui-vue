@@ -1,8 +1,7 @@
 import type { ExtractPropTypes, HTMLAttributes, App } from 'vue';
 import { watch, defineComponent, shallowRef, computed } from 'vue';
 import classNames from '../_util/classNames';
-import UpOutlined from '@ant-design/icons-vue/UpOutlined';
-import DownOutlined from '@ant-design/icons-vue/DownOutlined';
+import { UpOutlined, DownOutlined } from '@xiaoye-ui/icons';
 import VcInputNumber, { inputNumberProps as baseInputNumberProps } from './src/InputNumber';
 import type { SizeType } from '../config-provider';
 import {

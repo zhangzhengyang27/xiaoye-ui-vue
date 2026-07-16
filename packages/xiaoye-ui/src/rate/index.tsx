@@ -6,7 +6,7 @@ import { getOffsetLeft } from './util';
 import classNames from '../_util/classNames';
 import PropTypes from '../_util/vue-types';
 import KeyCode from '../_util/KeyCode';
-import StarFilled from '@ant-design/icons-vue/StarFilled';
+import { StarFilled } from '@xiaoye-ui/icons';
 import Tooltip from '../tooltip';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 

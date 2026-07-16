@@ -4,7 +4,7 @@ import classNames from '../_util/classNames';
 import Dialog from '../vc-dialog';
 import PropTypes from '../_util/vue-types';
 import addEventListener from '../vc-util/Dom/addEventListener';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import { CloseOutlined } from '@xiaoye-ui/icons';
 import Button from '../button';
 import type { ButtonProps as ButtonPropsType, LegacyButtonType } from '../button/buttonTypes';
 import { convertLegacyProps } from '../button/buttonTypes';

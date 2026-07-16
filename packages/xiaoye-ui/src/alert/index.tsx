@@ -1,14 +1,16 @@
 import type { CSSProperties, ExtractPropTypes, PropType } from 'vue';
 import { computed, defineComponent, shallowRef, Transition } from 'vue';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
-import CheckCircleOutlined from '@ant-design/icons-vue/CheckCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons-vue/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons-vue/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons-vue/CloseCircleOutlined';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons-vue/InfoCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
+import {
+  CloseOutlined,
+  CheckCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+  CloseCircleOutlined,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+  InfoCircleFilled,
+  CloseCircleFilled,
+} from '@xiaoye-ui/icons';
 import classNames from '../_util/classNames';
 import PropTypes from '../_util/vue-types';
 import { getTransitionProps } from '../_util/transition';

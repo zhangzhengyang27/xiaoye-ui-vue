@@ -1,10 +1,12 @@
 import type { App, VNodeTypes, Plugin, ExtractPropTypes, PropType } from 'vue';
 import { defineComponent, computed } from 'vue';
 import PropTypes from '../_util/vue-types';
-import CheckCircleFilled from '@ant-design/icons-vue/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons-vue/ExclamationCircleFilled';
-import WarningFilled from '@ant-design/icons-vue/WarningFilled';
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  ExclamationCircleFilled,
+  WarningFilled,
+} from '@xiaoye-ui/icons';
 import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';

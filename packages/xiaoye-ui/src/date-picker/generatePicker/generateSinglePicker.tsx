@@ -1,6 +1,4 @@
-import CalendarOutlined from '@ant-design/icons-vue/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons-vue/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
+import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@xiaoye-ui/icons';
 import RCPicker from '../../vc-picker';
 import type { PanelMode, PickerMode } from '../../vc-picker/interface';
 import type { GenerateConfig } from '../../vc-picker/generate/index';

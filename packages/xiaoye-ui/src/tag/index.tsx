@@ -2,7 +2,7 @@ import type { HTMLAttributes, App, PropType, ExtractPropTypes, Plugin, CSSProper
 import { shallowRef, defineComponent, watchEffect, computed } from 'vue';
 import classNames from '../_util/classNames';
 import PropTypes from '../_util/vue-types';
-import CloseOutlined from '@ant-design/icons-vue/CloseOutlined';
+import { CloseOutlined } from '@xiaoye-ui/icons';
 import Wave from '../_util/wave';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';

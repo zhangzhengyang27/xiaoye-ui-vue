@@ -12,7 +12,7 @@ import { hasPrefixSuffix } from '../vc-input/utils/commonUtils';
 import VcInput from '../vc-input/Input';
 import inputProps from './inputProps';
 import omit from '../_util/omit';
-import CloseCircleFilled from '@ant-design/icons-vue/CloseCircleFilled';
+import { CloseCircleFilled } from '@xiaoye-ui/icons';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 
 // CSSINJS

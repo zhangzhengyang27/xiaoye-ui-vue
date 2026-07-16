@@ -10,7 +10,7 @@ import classNames from '../../../_util/classNames';
 import { defineComponent, watch, computed, onMounted } from 'vue';
 import PropTypes from '../../../_util/vue-types';
 import useState from '../../../_util/hooks/useState';
-import EllipsisOutlined from '@ant-design/icons-vue/EllipsisOutlined';
+import { EllipsisOutlined } from '@xiaoye-ui/icons';
 import { useProvideOverride } from '../../../menu/src/OverrideContext';
 
 export const operationNodeProps = {
