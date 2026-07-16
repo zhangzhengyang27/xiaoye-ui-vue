@@ -1,218 +1,167 @@
-/**
- * 共享构建工具
- * 参考 xiaoye-ui-vue 项目的 scripts/build-helper.mjs
- */
-import {
-  readFileSync,
-  writeFileSync,
-  existsSync,
-  rmSync,
-  mkdirSync,
-  copyFileSync,
-  readdirSync,
-  statSync,
-} from 'node:fs';
-import { resolve, dirname, basename, join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from 'fs-extra';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-export const projectRoot = resolve(__dirname, '..');
+export function resolvePath(metaUrl) {
+    const __dirname = path.dirname(fileURLToPath(metaUrl || import.meta.url));
+    const __workspace = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../');
+    const { INPUT_DIR, OUTPUT_DIR } = process.env;
+    const INPUT_PATH = path.resolve(__dirname, process.env.INPUT_DIR);
+    const OUTPUT_PATH = path.resolve(__dirname, process.env.OUTPUT_DIR);
 
-/**
- * 解析项目根目录下的路径
- */
-export function resolvePath(...paths) {
-  return resolve(projectRoot, ...paths);
-}
-
-/**
- * 读取 JSON 文件
- */
-export function readJson(filePath) {
-  const content = readFileSync(filePath, 'utf-8');
-  return JSON.parse(content);
-}
-
-/**
- * 写入 JSON 文件
- */
-export function writeJson(filePath, data) {
-  const content = JSON.stringify(data, null, 2) + '\n';
-  writeFileSync(filePath, content, 'utf-8');
-}
-
-/**
- * 删除构建产物目录
- */
-export function removeBuild(buildDir) {
-  const target = resolvePath(buildDir);
-  if (existsSync(target)) {
-    rmSync(target, { recursive: true, force: true });
-    console.log(`[build-helper] 已删除 ${buildDir}`);
-  }
-}
-
-/**
- * 更新 package.json
- */
-export function updatePackageJson(pkgPath, updater) {
-  const pkg = readJson(pkgPath);
-  const result = updater(pkg);
-  writeJson(pkgPath, result || pkg);
-}
-
-/**
- * 清理 package.json 中的临时字段
- */
-export function clearPackageJson(pkgPath) {
-  updatePackageJson(pkgPath, pkg => {
-    delete pkg.scripts;
-    delete pkg.devDependencies;
-    return pkg;
-  });
-}
-
-/**
- * 将 workspace:* 协议转换为 ^x.y.z
- */
-export function normalizeWorkspaceDependencies(pkgPath) {
-  updatePackageJson(pkgPath, pkg => {
-    const normalize = deps => {
-      if (!deps) return deps;
-      const result = {};
-      for (const [name, version] of Object.entries(deps)) {
-        if (version === 'workspace:*') {
-          // 从对应 workspace 包的 package.json 读取版本
-          const depPkgPath = resolvePath(
-            'packages',
-            name.replace('@xiaoye-ui/', ''),
-            'package.json',
-          );
-          if (existsSync(depPkgPath)) {
-            const depPkg = readJson(depPkgPath);
-            result[name] = `^${depPkg.version}`;
-          } else {
-            result[name] = version;
-          }
-        } else {
-          result[name] = version;
-        }
-      }
-      return result;
+    return {
+        __dirname,
+        __workspace,
+        INPUT_DIR,
+        OUTPUT_DIR,
+        INPUT_PATH,
+        OUTPUT_PATH
     };
-    if (pkg.dependencies) pkg.dependencies = normalize(pkg.dependencies);
-    if (pkg.peerDependencies) pkg.peerDependencies = normalize(pkg.peerDependencies);
-    return pkg;
-  });
 }
 
-/**
- * 应用 publishConfig：将开发期指向 src 的入口重写为发布期指向 dist
- */
-export function applyPublishConfig(pkgPath) {
-  updatePackageJson(pkgPath, pkg => {
-    const { publishConfig } = pkg;
-    if (!publishConfig) return pkg;
+export function removeBuild(metaUrl) {
+    const { OUTPUT_DIR } = resolvePath(metaUrl);
 
-    if (publishConfig.main) pkg.main = publishConfig.main;
-    if (publishConfig.module) pkg.module = publishConfig.module;
-    if (publishConfig.types) pkg.types = publishConfig.types;
-    if (publishConfig.exports) pkg.exports = publishConfig.exports;
-
-    return pkg;
-  });
+    fs.remove(OUTPUT_DIR);
 }
 
-/**
- * 复制依赖项
- */
-export function copyDependencies(from, to) {
-  const fromPkg = readJson(resolvePath(from, 'package.json'));
-  updatePackageJson(resolvePath(to, 'package.json'), pkg => {
-    pkg.dependencies = fromPkg.dependencies;
-    pkg.peerDependencies = fromPkg.peerDependencies;
-    return pkg;
-  });
+export function updatePackageJson(localPackageJson) {
+    const { __workspace } = resolvePath();
+    const packageJson = JSON.parse(fs.readFileSync(path.resolve(__workspace, './package.json'), { encoding: 'utf8', flag: 'r' }));
+    const pkg = JSON.parse(fs.readFileSync(localPackageJson, { encoding: 'utf8', flag: 'r' }));
+
+    pkg.version = packageJson.version;
+    pkg.author = packageJson.author;
+    pkg.homepage = packageJson.homepage;
+    pkg.license = packageJson.license;
+    pkg.repository = { ...pkg.repository, ...packageJson.repository };
+    pkg.bugs = { ...pkg.bugs, ...packageJson.bugs };
+    pkg.engines = { ...pkg.engines, ...packageJson.engines };
+
+    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
 }
 
-/**
- * 重命名 .d.ts 文件
- */
-export function renameDTSFile(dir, from, to) {
-  const fromPath = resolvePath(dir, from);
-  const toPath = resolvePath(dir, to);
-  if (existsSync(fromPath)) {
-    copyFileSync(fromPath, toPath);
-    rmSync(fromPath);
-    console.log(`[build-helper] 重命名 ${from} -> ${to}`);
-  }
+export function clearPackageJson(localPackageJson) {
+    const { __workspace } = resolvePath();
+    const pkg = JSON.parse(fs.readFileSync(localPackageJson, { encoding: 'utf8', flag: 'r' }));
+
+    applyPublishConfig(pkg);
+    normalizeWorkspaceDependencies(pkg, __workspace);
+
+    delete pkg?.scripts;
+    delete pkg?.devDependencies;
+    delete pkg?.publishConfig?.directory;
+    delete pkg?.publishConfig?.linkDirectory;
+
+    fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
 }
 
-/**
- * 递归复制目录
- */
-export function copyDir(src, dest) {
-  if (!existsSync(src)) return;
-  mkdirSync(dest, { recursive: true });
-  const entries = readdirSync(src);
-  for (const entry of entries) {
-    const srcPath = join(src, entry);
-    const destPath = join(dest, entry);
-    if (statSync(srcPath).isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      copyFileSync(srcPath, destPath);
-    }
-  }
+export function normalizeWorkspaceDependencies(pkg, workspaceRoot) {
+    const workspaceVersions = getWorkspacePackageVersions(workspaceRoot);
+    const dependencyFields = ['dependencies', 'peerDependencies', 'optionalDependencies', 'devDependencies'];
+
+    dependencyFields.forEach((field) => {
+        const dependencies = pkg[field];
+
+        if (!dependencies) return;
+
+        Object.entries(dependencies).forEach(([name, version]) => {
+            if (typeof version !== 'string' || !version.startsWith('workspace:')) return;
+
+            const localVersion = workspaceVersions.get(name);
+
+            if (!localVersion) return;
+
+            dependencies[name] = resolveWorkspaceRange(version, localVersion);
+        });
+    });
 }
 
-/**
- * 扫描组件目录生成入口映射
- */
-export function scanComponentEntries(
-  srcDir,
-  excludeDirs = [
-    '_util',
-    'style',
-    'theme',
-    'locale',
-    'locale-provider',
-    'config-provider',
-    'version',
-  ],
-) {
-  const entries = {};
-  const componentsRoot = resolvePath(srcDir);
+function applyPublishConfig(pkg) {
+    const publishConfig = pkg.publishConfig;
 
-  if (!existsSync(componentsRoot)) return entries;
+    if (!publishConfig) return;
 
-  const dirs = readdirSync(componentsRoot).filter(name => {
-    if (name.startsWith('_') || name.startsWith('.')) return false;
-    if (name.startsWith('vc-')) return false;
-    if (excludeDirs.includes(name)) return false;
-    return statSync(join(componentsRoot, name)).isDirectory();
-  });
+    ['main', 'module', 'types', 'exports'].forEach((key) => {
+        if (publishConfig[key] !== undefined) {
+            pkg[key] = publishConfig[key];
+        }
+    });
+}
 
-  for (const dir of dirs) {
-    // 主入口
-    const possibleEntries = ['index.ts', 'index.tsx', `${dir}.ts`, `${dir}.tsx`];
-    for (const entry of possibleEntries) {
-      const entryPath = join(componentsRoot, dir, entry);
-      if (existsSync(entryPath)) {
-        entries[dir] = entryPath;
-        break;
-      }
+function resolveWorkspaceRange(range, version) {
+    const specifier = range.replace(/^workspace:/, '');
+
+    if (!specifier || specifier === '*' || specifier === '^') {
+        return `^${version}`;
     }
 
-    // style 入口
-    const styleEntry = join(componentsRoot, dir, 'style', 'index.ts');
-    const styleEntryTsx = join(componentsRoot, dir, 'style', 'index.tsx');
-    if (existsSync(styleEntry)) {
-      entries[`${dir}/style`] = styleEntry;
-    } else if (existsSync(styleEntryTsx)) {
-      entries[`${dir}/style`] = styleEntryTsx;
+    if (specifier === '~') {
+        return `~${version}`;
     }
-  }
 
-  return entries;
+    return specifier;
+}
+
+function getWorkspacePackageVersions(workspaceRoot) {
+    const packagesRoot = path.resolve(workspaceRoot, 'packages');
+    const versions = new Map();
+
+    if (!fs.existsSync(packagesRoot)) return versions;
+
+    fs.readdirSync(packagesRoot, { withFileTypes: true }).forEach((entry) => {
+        if (!entry.isDirectory()) return;
+
+        const packageJsonPath = path.resolve(packagesRoot, entry.name, 'package.json');
+
+        if (!fs.existsSync(packageJsonPath)) return;
+
+        const workspacePkg = JSON.parse(fs.readFileSync(packageJsonPath, { encoding: 'utf8', flag: 'r' }));
+
+        if (workspacePkg.name && workspacePkg.version) {
+            versions.set(workspacePkg.name, workspacePkg.version);
+        }
+    });
+
+    return versions;
+}
+
+export function copyDependencies(inFolder, outFolder, subFolder) {
+    fs.readdirSync(inFolder, { withFileTypes: true }).forEach((entry) => {
+        const fileName = entry.name;
+        const sourcePath = path.join(inFolder, fileName);
+        const destPath = path.join(outFolder, fileName);
+
+        if (entry.isDirectory()) {
+            copyDependencies(sourcePath, destPath, subFolder);
+        } else {
+            if (fileName.endsWith('d.ts') || fileName.endsWith('.vue')) {
+                if (subFolder && sourcePath.includes(subFolder)) {
+                    const subDestPath = path.join(outFolder, fileName.replace(subFolder, ''));
+
+                    fs.ensureDirSync(path.dirname(subDestPath));
+                    fs.copyFileSync(sourcePath, subDestPath);
+                } else {
+                    fs.ensureDirSync(path.dirname(destPath));
+                    fs.copyFileSync(sourcePath, destPath);
+                }
+            }
+        }
+    });
+}
+
+export async function renameDTSFile(dir, newName, resolver) {
+    const entries = await fs.readdir(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+
+        if (entry.isDirectory()) {
+            await renameDTSFile(fullPath, newName);
+        } else if (entry.name.endsWith('.d.ts') && (resolver?.(entry.name, dir) ?? true)) {
+            const newFullPath = path.join(dir, `${newName}.d.ts`);
+
+            await fs.rename(fullPath, newFullPath);
+        }
+    }
 }

@@ -75,6 +75,11 @@ site/dev.js
 # IDE 语法提示临时文件
 vetur/
 
+# Nuxt 临时构建目录
+.nuxt/
+.nitro/
+.output/
+
 report.html
 
 site/src/router/demoRoutes.js
@@ -84,3 +89,6 @@ components/version/version.tsx
 components/version/token.json
 components/version/token-meta.json
 ~component-api.json
+
+# TRAE IDE 内部工作文档（迁移计划等），不纳入版本控制
+.trae/

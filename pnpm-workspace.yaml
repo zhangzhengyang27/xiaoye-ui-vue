@@ -1,9 +1,5 @@
 packages:
   - 'packages/*'
   - 'apps/*'
-
-catalogs:
-  app:
-    vue: '^3.4.0'
-    vite: '^7.0.0'
-    typescript: '^5.5.0'
+  - 'docs'
+  - 'docs-element-plus'

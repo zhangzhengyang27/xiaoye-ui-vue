@@ -1,4 +1,4 @@
-import { transformSync } from '@babel/core';
+import { transform } from 'esbuild';
 import { ESLint } from 'eslint';
 import path from 'path';
 const engine = new ESLint({
@@ -10,16 +10,9 @@ const tsToJs = async (content: string): Promise<string> => {
   if (!content) {
     return '';
   }
-  const { code } = transformSync(content, {
-    configFile: false,
-    plugins: [
-      [
-        require.resolve('@babel/plugin-transform-typescript'),
-        {
-          isTSX: false,
-        },
-      ],
-    ],
+  const { code } = await transform(content, {
+    loader: 'ts',
+    sourcemap: false,
   });
   const report = await engine.lintText(code);
   let output = report[0].output;
