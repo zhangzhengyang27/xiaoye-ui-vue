@@ -80,19 +80,18 @@ interface ChangeEventInfo<RecordType = DefaultRecordType> {
   resetPagination: Function;
 }
 
-export interface TableProps<RecordType = DefaultRecordType>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'canExpandable'
-    | 'onUpdateInternalRefs'
-  > {
+export interface TableProps<RecordType = DefaultRecordType> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'canExpandable'
+  | 'onUpdateInternalRefs'
+> {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;

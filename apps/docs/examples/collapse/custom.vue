@@ -1,6 +1,6 @@
 <template>
   <a-collapse
-    v-model:activeKey="activeKey"
+    v-model:active-key="activeKey"
     :bordered="false"
     style="background: rgb(255, 255, 255)"
   >

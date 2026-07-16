@@ -19,12 +19,7 @@ You can use your own custom icons by setting the property `icon` for `Steps.Step
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';
-import {
-  UserOutlined,
-  SolutionOutlined,
-  LoadingOutlined,
-  SmileOutlined,
-} from '@xiaoye-ui/icons';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@xiaoye-ui/icons';
 import { StepProps } from 'xiaoye-ui';
 const items = [
   {

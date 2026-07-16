@@ -1,8 +1,8 @@
 import type { DefineComponent, EmitFn } from '@xiaoye-ui/core';
 
 export interface IconProps {
-    label?: string | undefined;
-    spin?: boolean;
+  label?: string | undefined;
+  spin?: boolean;
 }
 
 export interface IconSlots {}

@@ -13,8 +13,7 @@ export default class Theme<DesignToken extends TokenType, DerivativeToken extend
 
   constructor(
     derivatives:
-      | DerivativeFunc<DesignToken, DerivativeToken>
-      | DerivativeFunc<DesignToken, DerivativeToken>[],
+      DerivativeFunc<DesignToken, DerivativeToken> | DerivativeFunc<DesignToken, DerivativeToken>[],
   ) {
     this.derivatives = Array.isArray(derivatives) ? derivatives : [derivatives];
     this.id = uuid;

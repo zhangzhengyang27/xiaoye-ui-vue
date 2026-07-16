@@ -138,7 +138,7 @@ const panelRender = defineComponent({
                       >
                         {isFunction(prevButtonProps?.children)
                           ? prevButtonProps.children()
-                          : prevButtonProps?.children ?? contextLocale.Previous}
+                          : (prevButtonProps?.children ?? contextLocale.Previous)}
                       </Button>
                     ) : null}
                     <Button
@@ -151,8 +151,8 @@ const panelRender = defineComponent({
                       {isFunction(nextButtonProps?.children)
                         ? nextButtonProps?.children()
                         : isLastStep.value
-                        ? contextLocale.Finish
-                        : contextLocale.Next}
+                          ? contextLocale.Finish
+                          : contextLocale.Next}
                     </Button>
                   </div>
                 </div>

@@ -174,9 +174,7 @@ export type RangePickerTimeProps<DateType> = {
   OmitPickerProps<PickerTimeProps<DateType>>;
 
 export type RangePickerProps<DateType> =
-  | RangePickerBaseProps<DateType>
-  | RangePickerDateProps<DateType>
-  | RangePickerTimeProps<DateType>;
+  RangePickerBaseProps<DateType> | RangePickerDateProps<DateType> | RangePickerTimeProps<DateType>;
 
 // TMP type to fit for ts 3.9.2
 type OmitType<DateType> = Omit<RangePickerBaseProps<DateType>, 'picker'> &

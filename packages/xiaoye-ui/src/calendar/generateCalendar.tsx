@@ -37,9 +37,7 @@ export type PickerPanelDateProps<DateType> = InjectDefaultProps<RCPickerPanelDat
 export type PickerPanelTimeProps<DateType> = InjectDefaultProps<RCPickerPanelTimeProps<DateType>>;
 
 export type PickerProps<DateType> =
-  | PickerPanelBaseProps<DateType>
-  | PickerPanelDateProps<DateType>
-  | PickerPanelTimeProps<DateType>;
+  PickerPanelBaseProps<DateType> | PickerPanelDateProps<DateType> | PickerPanelTimeProps<DateType>;
 
 export type CalendarMode = 'year' | 'month';
 export type HeaderRender<DateType> = (config: {
@@ -95,7 +93,6 @@ function generateCalendar<
   const Calendar = defineComponent<Props>({
     name: 'ACalendar',
     inheritAttrs: false,
-    emits: ['change', 'update:value', 'panelChange', 'select'],
     props: {
       prefixCls: String,
       locale: { type: Object as PropType<Props['locale']>, default: undefined as Props['locale'] },
@@ -128,6 +125,7 @@ function generateCalendar<
       onSelect: { type: Function as PropType<Props['onSelect']>, default: undefined },
       valueFormat: { type: String, default: undefined },
     } as any,
+    emits: ['change', 'update:value', 'panelChange', 'select'],
     slots: Object as CustomSlotsType<{
       dateFullCellRender?: { current: DateType };
       dateCellRender?: { current: DateType };

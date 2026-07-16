@@ -1,8 +1,8 @@
 <template>
   <a-tree
-    v-model:expandedKeys="expandedKeys"
-    v-model:selectedKeys="selectedKeys"
-    v-model:checkedKeys="checkedKeys"
+    v-model:expanded-keys="expandedKeys"
+    v-model:selected-keys="selectedKeys"
+    v-model:checked-keys="checkedKeys"
     checkable
     :tree-data="treeData"
     :field-names="fieldNames"

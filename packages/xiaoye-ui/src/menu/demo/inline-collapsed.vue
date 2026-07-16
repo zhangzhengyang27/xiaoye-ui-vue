@@ -27,8 +27,8 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
       <MenuFoldOutlined v-else />
     </a-button>
     <a-menu
-      v-model:openKeys="state.openKeys"
-      v-model:selectedKeys="state.selectedKeys"
+      v-model:open-keys="state.openKeys"
+      v-model:selected-keys="state.selectedKeys"
       mode="inline"
       theme="dark"
       :inline-collapsed="state.collapsed"

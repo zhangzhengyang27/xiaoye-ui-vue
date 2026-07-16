@@ -1,8 +1,8 @@
 <template>
   <a-menu
     id="dddddd"
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
+    v-model:open-keys="openKeys"
+    v-model:selected-keys="selectedKeys"
     style="width: 256px"
     mode="inline"
     :items="items"

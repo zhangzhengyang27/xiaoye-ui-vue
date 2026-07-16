@@ -15,12 +15,7 @@ import useNotification from './useNotification';
 import { getPlacementStyle } from './util';
 
 export type NotificationPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+  'top' | 'topLeft' | 'topRight' | 'bottom' | 'bottomLeft' | 'bottomRight';
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
@@ -36,7 +31,9 @@ export interface ConfigProps {
   maxCount?: number;
 }
 
-const notificationInstance: { [key: string]: VCNotificationInstance | Promise<VCNotificationInstance> } = {};
+const notificationInstance: {
+  [key: string]: VCNotificationInstance | Promise<VCNotificationInstance>;
+} = {};
 let defaultDuration = 4.5;
 let defaultTop = '24px';
 let defaultBottom = '24px';

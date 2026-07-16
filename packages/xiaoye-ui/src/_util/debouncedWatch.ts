@@ -61,8 +61,7 @@ function createFilterWrapper<T extends FunctionArgs>(filter: EventFilter, fn: T)
   return wrapper as any as T;
 }
 export interface WatchWithFilterOptions<Immediate>
-  extends WatchOptions<Immediate>,
-    ConfigurableEventFilter {}
+  extends WatchOptions<Immediate>, ConfigurableEventFilter {}
 // implementation
 export function watchWithFilter<Immediate extends Readonly<boolean> = false>(
   source: any,

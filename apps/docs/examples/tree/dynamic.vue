@@ -1,7 +1,7 @@
 <template>
   <a-tree
-    v-model:expandedKeys="expandedKeys"
-    v-model:selectedKeys="selectedKeys"
+    v-model:expanded-keys="expandedKeys"
+    v-model:selected-keys="selectedKeys"
     :load-data="onLoadData"
     :tree-data="treeData"
   />

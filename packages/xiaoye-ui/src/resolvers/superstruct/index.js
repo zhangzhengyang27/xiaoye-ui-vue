@@ -2,29 +2,29 @@ import { isNotEmpty } from '@xiaoye-ui/utils';
 import { toValues } from '../../utils/forms';
 
 export const superStructResolver =
-    (schema, schemaOptions, resolverOptions) =>
-    async ({ values, name }) => {
-        const { raw = false } = resolverOptions || {};
-        const [errors, data] = schema.validate(values, schemaOptions);
+  (schema, schemaOptions, resolverOptions) =>
+  async ({ values, name }) => {
+    const { raw = false } = resolverOptions || {};
+    const [errors, data] = schema.validate(values, schemaOptions);
 
-        if (errors) {
-            return {
-                values: toValues(undefined, name),
-                errors: errors.failures().reduce((acc, error) => {
-                    const pathKey = isNotEmpty(error.path) ? error.path.join('.') : name;
+    if (errors) {
+      return {
+        values: toValues(undefined, name),
+        errors: errors.failures().reduce((acc, error) => {
+          const pathKey = isNotEmpty(error.path) ? error.path.join('.') : name;
 
-                    if (pathKey) {
-                        acc[pathKey] ||= [];
-                        acc[pathKey].push(error);
-                    }
+          if (pathKey) {
+            acc[pathKey] ||= [];
+            acc[pathKey].push(error);
+          }
 
-                    return acc;
-                }, {})
-            };
-        }
+          return acc;
+        }, {}),
+      };
+    }
 
-        return {
-            values: toValues(raw ? values : data, name),
-            errors: {}
-        };
+    return {
+      values: toValues(raw ? values : data, name),
+      errors: {},
     };
+  };

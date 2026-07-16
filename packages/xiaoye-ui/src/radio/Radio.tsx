@@ -39,7 +39,16 @@ export default defineComponent({
   name: 'ARadio',
   inheritAttrs: false,
   props: radioProps(),
-  emits: ['change', 'update:checked', 'update:value', 'mouseenter', 'mouseleave', 'focus', 'blur', 'click'],
+  emits: [
+    'change',
+    'update:checked',
+    'update:value',
+    'mouseenter',
+    'mouseleave',
+    'focus',
+    'blur',
+    'click',
+  ],
   setup(props, { emit, expose, slots, attrs }) {
     const formItemContext = useInjectFormItemContext();
     const formItemInputContext = FormItemInputContext.useInject();

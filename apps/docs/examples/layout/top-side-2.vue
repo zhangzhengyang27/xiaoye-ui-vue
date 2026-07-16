@@ -3,7 +3,7 @@
     <a-layout-header class="header">
       <div class="logo" />
       <a-menu
-        v-model:selectedKeys="selectedKeys1"
+        v-model:selected-keys="selectedKeys1"
         theme="dark"
         mode="horizontal"
         :style="{ lineHeight: '64px' }"
@@ -16,8 +16,8 @@
     <a-layout>
       <a-layout-sider width="200" style="background: #fff">
         <a-menu
-          v-model:selectedKeys="selectedKeys2"
-          v-model:openKeys="openKeys"
+          v-model:selected-keys="selectedKeys2"
+          v-model:open-keys="openKeys"
           mode="inline"
           :style="{ height: '100%', borderRight: 0 }"
         >

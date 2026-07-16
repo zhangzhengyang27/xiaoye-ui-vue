@@ -70,14 +70,12 @@ export interface ColumnTitleProps<RecordType> {
 
 type ColumnTitleNode = VueNode | VNodeArrayChildren;
 export type ColumnTitle<RecordType> =
-  | ColumnTitleNode
-  | ((props: ColumnTitleProps<RecordType>) => ColumnTitleNode);
+  ColumnTitleNode | ((props: ColumnTitleProps<RecordType>) => ColumnTitleNode);
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
 export type FilterSearchType<RecordType = Record<string, any>> =
-  | boolean
-  | ((input: string, record: RecordType) => boolean);
+  boolean | ((input: string, record: RecordType) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -99,8 +97,10 @@ export interface FilterDropdownProps<RecordType> {
   column: ColumnType<RecordType>;
 }
 
-export interface ColumnType<RecordType = DefaultRecordType>
-  extends Omit<RcColumnType<RecordType>, 'title'> {
+export interface ColumnType<RecordType = DefaultRecordType> extends Omit<
+  RcColumnType<RecordType>,
+  'title'
+> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -145,8 +145,7 @@ export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>
 }
 
 export type ColumnsType<RecordType = DefaultRecordType> = (
-  | ColumnGroupType<RecordType>
-  | ColumnType<RecordType>
+  ColumnGroupType<RecordType> | ColumnType<RecordType>
 )[];
 
 export interface SelectionItem {
@@ -210,12 +209,7 @@ export interface SorterResult<RecordType = DefaultRecordType> {
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
 type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
+  'topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 
 export interface TablePaginationConfig extends PaginationProps {
   position?: TablePaginationPosition[];

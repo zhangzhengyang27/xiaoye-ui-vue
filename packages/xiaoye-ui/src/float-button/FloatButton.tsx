@@ -31,8 +31,7 @@ const FloatButton = defineComponent({
       return groupShape?.value || props.shape;
     });
 
-    const isUnBorderedButtonType = (type: string | undefined) =>
-      type === 'text' || type === 'link';
+    const isUnBorderedButtonType = (type: string | undefined) => type === 'text' || type === 'link';
 
     const handleClick = (e: MouseEvent) => {
       if (isUnBorderedButtonType(props.type)) {

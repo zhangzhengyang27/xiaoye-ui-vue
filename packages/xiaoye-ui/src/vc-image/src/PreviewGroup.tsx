@@ -15,8 +15,10 @@ import Preview from './Preview';
 import type { PreviewProps } from './Preview';
 import useMergedState from '../../_util/hooks/useMergedState';
 
-export interface PreviewGroupPreview
-  extends Omit<ImagePreviewType, 'icons' | 'mask' | 'maskClassName'> {
+export interface PreviewGroupPreview extends Omit<
+  ImagePreviewType,
+  'icons' | 'mask' | 'maskClassName'
+> {
   /**
    * If Preview the show img index
    * @default 0

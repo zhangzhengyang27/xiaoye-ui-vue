@@ -4,7 +4,7 @@
       :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }"
     >
       <div class="logo" />
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+      <a-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
         <a-menu-item key="1">
           <user-outlined />
           <span class="nav-text">nav 1</span>

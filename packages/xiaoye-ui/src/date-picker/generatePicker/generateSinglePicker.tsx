@@ -50,7 +50,16 @@ export default function generateSinglePicker<DateType, ExtraProps = {}>(
         clearIcon?: any;
         default?: any;
       }>,
-      emits: ['update:value', 'change', 'update:open', 'openChange', 'focus', 'blur', 'panelChange', 'ok'],
+      emits: [
+        'update:value',
+        'change',
+        'update:open',
+        'openChange',
+        'focus',
+        'blur',
+        'panelChange',
+        'ok',
+      ],
       setup(_props, { slots, expose, attrs, emit }) {
         // 兼容 vue 3.2.7
         const props = _props as unknown as CommonProps<DateType> &

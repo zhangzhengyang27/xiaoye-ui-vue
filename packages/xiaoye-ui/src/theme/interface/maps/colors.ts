@@ -406,7 +406,8 @@ interface ColorErrorMapToken {
 }
 
 export interface ColorMapToken
-  extends ColorNeutralMapToken,
+  extends
+    ColorNeutralMapToken,
     ColorPrimaryMapToken,
     ColorSuccessMapToken,
     ColorWarningMapToken,

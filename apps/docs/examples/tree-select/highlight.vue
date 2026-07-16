@@ -1,7 +1,7 @@
 <template>
   <a-tree-select
     v-model:value="value"
-    v-model:searchValue="searchValue"
+    v-model:search-value="searchValue"
     show-search
     style="width: 100%"
     :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"

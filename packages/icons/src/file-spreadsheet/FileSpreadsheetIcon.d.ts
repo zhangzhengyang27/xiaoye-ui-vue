@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class FileSpreadsheetIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        FileSpreadsheetIcon: DefineComponent<FileSpreadsheetIcon>;
-    }
+  export interface GlobalComponents {
+    FileSpreadsheetIcon: DefineComponent<FileSpreadsheetIcon>;
+  }
 }
 
 export default FileSpreadsheetIcon;

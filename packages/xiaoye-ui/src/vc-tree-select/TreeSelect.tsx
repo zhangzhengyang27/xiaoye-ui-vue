@@ -217,7 +217,15 @@ export default defineComponent({
     listItemHeight: 20,
     prefixCls: 'vc-tree-select',
   }),
-  emits: ['change', 'search', 'select', 'deselect', 'dropdownVisibleChange', 'treeLoad', 'treeExpand'],
+  emits: [
+    'change',
+    'search',
+    'select',
+    'deselect',
+    'dropdownVisibleChange',
+    'treeLoad',
+    'treeExpand',
+  ],
   setup(props, { attrs, expose, slots, emit }) {
     const callEvent = (fn: any, ...args: any[]) => {
       if (Array.isArray(fn)) {

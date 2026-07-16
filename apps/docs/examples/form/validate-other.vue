@@ -113,7 +113,7 @@
 
     <a-form-item name="upload" label="Upload" extra="longgggggggggggggggggggggggggggggggggg">
       <a-upload
-        v-model:fileList="formState.upload"
+        v-model:file-list="formState.upload"
         name="logo"
         action="/upload.do"
         list-type="picture"
@@ -127,7 +127,7 @@
 
     <a-form-item label="Dragger">
       <a-form-item name="dragger" no-style>
-        <a-upload-dragger v-model:fileList="formState.dragger" name="files" action="/upload.do">
+        <a-upload-dragger v-model:file-list="formState.dragger" name="files" action="/upload.do">
           <p class="xy-upload-drag-icon">
             <InboxOutlined />
           </p>

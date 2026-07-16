@@ -17,7 +17,7 @@ Horizontal top navigation menu.
 </docs>
 
 <template>
-  <a-menu v-model:selectedKeys="current" mode="horizontal" :items="items" />
+  <a-menu v-model:selected-keys="current" mode="horizontal" :items="items" />
 </template>
 <script lang="ts" setup>
 import { h, ref } from 'vue';

@@ -2,34 +2,37 @@ import { isNotEmpty } from '@xiaoye-ui/utils';
 import { toValues } from '../../utils/forms';
 
 export const yupResolver =
-    (schema, schemaOptions, resolverOptions) =>
-    async ({ values, name }) => {
-        const { sync = false, raw = false } = resolverOptions || {};
+  (schema, schemaOptions, resolverOptions) =>
+  async ({ values, name }) => {
+    const { sync = false, raw = false } = resolverOptions || {};
 
-        try {
-            const result = await schema[sync ? 'validateSync' : 'validate'](values, { abortEarly: false, ...schemaOptions });
+    try {
+      const result = await schema[sync ? 'validateSync' : 'validate'](values, {
+        abortEarly: false,
+        ...schemaOptions,
+      });
 
-            return {
-                values: toValues(raw ? values : result, name),
-                errors: {}
-            };
-        } catch (e) {
-            if (e?.inner) {
-                return {
-                    values: toValues(raw ? values : undefined, name),
-                    errors: e.inner.reduce((acc, error) => {
-                        const pathKey = isNotEmpty(error.path) ? error.path : name;
+      return {
+        values: toValues(raw ? values : result, name),
+        errors: {},
+      };
+    } catch (e) {
+      if (e?.inner) {
+        return {
+          values: toValues(raw ? values : undefined, name),
+          errors: e.inner.reduce((acc, error) => {
+            const pathKey = isNotEmpty(error.path) ? error.path : name;
 
-                        if (pathKey) {
-                            acc[pathKey] ||= [];
-                            acc[pathKey].push(error);
-                        }
-
-                        return acc;
-                    }, {})
-                };
+            if (pathKey) {
+              acc[pathKey] ||= [];
+              acc[pathKey].push(error);
             }
 
-            throw e;
-        }
-    };
+            return acc;
+          }, {}),
+        };
+      }
+
+      throw e;
+    }
+  };

@@ -520,30 +520,26 @@ export default defineComponent({
       // Update drag position
 
       if (dragNode.eventKey === dropTargetKey && dropLevelOffset === 0) {
-        if (
-          !(
-            dragState.dropPosition === null &&
-            dragState.dropLevelOffset === null &&
-            dragState.dropTargetKey === null &&
-            dragState.dropContainerKey === null &&
-            dragState.dropTargetPos === null &&
-            dragState.dropAllowed === false &&
-            dragState.dragOverNodeKey === null
-          )
-        ) {
+        if (!(
+          dragState.dropPosition === null &&
+          dragState.dropLevelOffset === null &&
+          dragState.dropTargetKey === null &&
+          dragState.dropContainerKey === null &&
+          dragState.dropTargetPos === null &&
+          dragState.dropAllowed === false &&
+          dragState.dragOverNodeKey === null
+        )) {
           resetDragState();
         }
-      } else if (
-        !(
-          dropPosition === dragState.dropPosition &&
-          dropLevelOffset === dragState.dropLevelOffset &&
-          dropTargetKey === dragState.dropTargetKey &&
-          dropContainerKey === dragState.dropContainerKey &&
-          dropTargetPos === dragState.dropTargetPos &&
-          dropAllowed === dragState.dropAllowed &&
-          dragOverNodeKey === dragState.dragOverNodeKey
-        )
-      ) {
+      } else if (!(
+        dropPosition === dragState.dropPosition &&
+        dropLevelOffset === dragState.dropLevelOffset &&
+        dropTargetKey === dragState.dropTargetKey &&
+        dropContainerKey === dragState.dropContainerKey &&
+        dropTargetPos === dragState.dropTargetPos &&
+        dropAllowed === dragState.dropAllowed &&
+        dragOverNodeKey === dragState.dragOverNodeKey
+      )) {
         Object.assign(dragState, {
           dropPosition,
           dropLevelOffset,

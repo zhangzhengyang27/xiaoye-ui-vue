@@ -50,7 +50,17 @@ export default function generateRangePicker<DateType, ExtraProps = {}>(
       separator?: any;
       clearIcon?: any;
     }>,
-    emits: ['update:value', 'change', 'update:open', 'openChange', 'focus', 'blur', 'panelChange', 'ok', 'calendarChange'],
+    emits: [
+      'update:value',
+      'change',
+      'update:open',
+      'openChange',
+      'focus',
+      'blur',
+      'panelChange',
+      'ok',
+      'calendarChange',
+    ],
     setup(_props, { expose, slots, attrs, emit }) {
       const props = _props as unknown as CommonProps<DateType> & RangePickerProps<DateType>;
       const callEvent = (fn: any, ...args: any[]) => {

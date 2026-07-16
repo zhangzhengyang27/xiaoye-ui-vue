@@ -7,7 +7,7 @@
       @breakpoint="onBreakpoint"
     >
       <div class="logo" />
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+      <a-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
         <a-menu-item key="1">
           <user-outlined />
           <span class="nav-text">nav 1</span>

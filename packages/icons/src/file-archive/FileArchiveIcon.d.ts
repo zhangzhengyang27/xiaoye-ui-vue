@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class FileArchiveIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        FileArchiveIcon: DefineComponent<FileArchiveIcon>;
-    }
+  export interface GlobalComponents {
+    FileArchiveIcon: DefineComponent<FileArchiveIcon>;
+  }
 }
 
 export default FileArchiveIcon;

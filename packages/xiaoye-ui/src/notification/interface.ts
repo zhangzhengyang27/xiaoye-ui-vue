@@ -2,12 +2,7 @@ import type { CSSProperties } from 'vue';
 import type { Key, VueNode } from '../_util/type';
 
 export type NotificationPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+  'top' | 'topLeft' | 'topRight' | 'bottom' | 'bottomLeft' | 'bottomRight';
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 

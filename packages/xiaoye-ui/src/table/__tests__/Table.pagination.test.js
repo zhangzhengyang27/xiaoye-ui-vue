@@ -183,9 +183,7 @@ describe('Table.pagination', () => {
     wrapper.find('.xy-pagination-item-3').trigger('click');
     wrapper.setProps({ dataSource: [data[0]] });
     await Vue.nextTick();
-    expect(wrapper.find('.xy-pagination-item-1').classes()).toContain(
-      'xy-pagination-item-active',
-    );
+    expect(wrapper.find('.xy-pagination-item-1').classes()).toContain('xy-pagination-item-active');
   });
 
   it('specify the position of pagination', async () => {

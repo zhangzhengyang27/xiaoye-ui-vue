@@ -5,7 +5,7 @@
       <a-radio-button value="left">Vertical</a-radio-button>
     </a-radio-group>
     <a-tabs
-      v-model:activeKey="activeKey"
+      v-model:active-key="activeKey"
       :tab-position="mode"
       :style="{ height: '200px' }"
       @tabScroll="callback"

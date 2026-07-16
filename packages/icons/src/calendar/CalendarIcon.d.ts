@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class CalendarIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        CalendarIcon: DefineComponent<CalendarIcon>;
-    }
+  export interface GlobalComponents {
+    CalendarIcon: DefineComponent<CalendarIcon>;
+  }
 }
 
 export default CalendarIcon;

@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class WifiIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        WifiIcon: DefineComponent<WifiIcon>;
-    }
+  export interface GlobalComponents {
+    WifiIcon: DefineComponent<WifiIcon>;
+  }
 }
 
 export default WifiIcon;

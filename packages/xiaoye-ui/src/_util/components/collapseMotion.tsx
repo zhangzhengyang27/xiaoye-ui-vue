@@ -49,4 +49,3 @@ const collapseMotion = (name = 'xy-motion-collapse', appear = true): CSSMotionPr
 };
 export default collapseMotion;
 export { collapseMotion };
-

@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class LoadingIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        LoadingIcon: DefineComponent<LoadingIcon>;
-    }
+  export interface GlobalComponents {
+    LoadingIcon: DefineComponent<LoadingIcon>;
+  }
 }
 
 export default LoadingIcon;

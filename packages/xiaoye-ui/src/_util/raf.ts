@@ -1,10 +1,10 @@
-let raf = (callback: FrameRequestCallback) => {
+const raf = (callback: FrameRequestCallback) => {
   if (typeof window !== 'undefined' && window.requestAnimationFrame) {
     return window.requestAnimationFrame(callback);
   }
   return setTimeout(callback, 16) as any;
 };
-let caf = (num: number) => {
+const caf = (num: number) => {
   if (typeof window !== 'undefined' && window.cancelAnimationFrame) {
     return window.cancelAnimationFrame(num);
   }

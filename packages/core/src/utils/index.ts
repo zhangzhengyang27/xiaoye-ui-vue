@@ -1,8 +1,8 @@
 // Placeholder for EventBus
 class EventBusClass {
-    on() {}
-    off() {}
-    emit() {}
+  on() {}
+  off() {}
+  emit() {}
 }
 const EventBus = () => new EventBusClass();
 export { EventBus };

@@ -44,8 +44,7 @@ export const PureContent = defineComponent<PureContentProps>({
 });
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey'>,
-    Omit<PureContentProps, 'prefixCls'> {
+  extends Omit<NoticeProps, 'prefixCls' | 'eventKey'>, Omit<PureContentProps, 'prefixCls'> {
   prefixCls?: string;
 }
 

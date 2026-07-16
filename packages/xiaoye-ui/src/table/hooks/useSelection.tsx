@@ -50,10 +50,7 @@ interface UseSelectionConfig<RecordType> {
 }
 
 export type INTERNAL_SELECTION_ITEM =
-  | SelectionItem
-  | typeof SELECTION_ALL
-  | typeof SELECTION_INVERT
-  | typeof SELECTION_NONE;
+  SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT | typeof SELECTION_NONE;
 
 function flattenData<RecordType>(childrenColumnName: string, data: RecordType[]): RecordType[] {
   let list: RecordType[] = [];

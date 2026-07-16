@@ -67,7 +67,16 @@ const Switch = defineComponent({
     unCheckedChildren: any;
     default: any;
   }>,
-  emits: ['update:checked', 'mouseup', 'change', 'click', 'keydown', 'blur', 'mouseenter', 'mouseleave'],
+  emits: [
+    'update:checked',
+    'mouseup',
+    'change',
+    'click',
+    'keydown',
+    'blur',
+    'mouseenter',
+    'mouseleave',
+  ],
   setup(props, { attrs, slots, expose, emit }) {
     const formItemContext = useInjectFormItemContext();
     const disabledContext = useInjectDisabled();

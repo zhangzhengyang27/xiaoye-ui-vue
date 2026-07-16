@@ -1,5 +1,5 @@
 <template>
-  <a-collapse v-model:activeKey="activeKey" :expand-icon-position="expandIconPosition">
+  <a-collapse v-model:active-key="activeKey" :expand-icon-position="expandIconPosition">
     <a-collapse-panel key="1" header="This is panel header 1">
       <p>{{ text }}</p>
       <template #extra><setting-outlined @click="handleClick" /></template>

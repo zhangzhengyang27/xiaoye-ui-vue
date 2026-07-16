@@ -62,8 +62,7 @@ export interface ListStyle {
 }
 
 export type SelectAllLabel =
-  | VueNode
-  | ((info: { selectedCount: number; totalCount: number }) => VueNode);
+  VueNode | ((info: { selectedCount: number; totalCount: number }) => VueNode);
 
 export interface TransferLocale {
   titles?: VueNode[];

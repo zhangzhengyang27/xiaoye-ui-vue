@@ -169,7 +169,6 @@ export interface CalendarHeaderProps<DateType> {
 export default defineComponent<CalendarHeaderProps<any>>({
   name: 'CalendarHeader',
   inheritAttrs: false,
-  emits: ['change', 'modeChange'],
   props: [
     'mode',
     'prefixCls',
@@ -180,6 +179,7 @@ export default defineComponent<CalendarHeaderProps<any>>({
     'mode',
     'fullscreen',
   ] as any,
+  emits: ['change', 'modeChange'],
   setup(_props, { attrs, emit }) {
     const divRef = ref<HTMLDivElement>(null);
     const formItemInputContext = FormItemInputContext.useInject();

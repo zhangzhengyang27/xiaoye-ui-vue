@@ -59,9 +59,7 @@ export type PickerDateProps<DateType> = InjectDefaultProps<RCPickerDateProps<Dat
 export type PickerTimeProps<DateType> = InjectDefaultProps<RCPickerTimeProps<DateType>>;
 
 export type PickerProps<DateType> =
-  | PickerBaseProps<DateType>
-  | PickerDateProps<DateType>
-  | PickerTimeProps<DateType>;
+  PickerBaseProps<DateType> | PickerDateProps<DateType> | PickerTimeProps<DateType>;
 
 // Range Picker Props
 export type RangePickerBaseProps<DateType> = InjectDefaultProps<RCRangePickerBaseProps<DateType>>;
@@ -69,6 +67,4 @@ export type RangePickerDateProps<DateType> = InjectDefaultProps<RCRangePickerDat
 export type RangePickerTimeProps<DateType> = InjectDefaultProps<RCRangePickerTimeProps<DateType>>;
 
 export type RangePickerProps<DateType> =
-  | RangePickerBaseProps<DateType>
-  | RangePickerDateProps<DateType>
-  | RangePickerTimeProps<DateType>;
+  RangePickerBaseProps<DateType> | RangePickerDateProps<DateType> | RangePickerTimeProps<DateType>;

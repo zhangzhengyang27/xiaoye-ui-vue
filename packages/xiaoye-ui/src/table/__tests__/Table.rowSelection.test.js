@@ -549,9 +549,8 @@ describe('Table.rowSelection', () => {
     }
 
     function clickItem() {
-      wrapper.findAll(
-        'tbody .xy-table-selection-column .xy-checkbox-input',
-      )[0].element.checked = true;
+      wrapper.findAll('tbody .xy-table-selection-column .xy-checkbox-input')[0].element.checked =
+        true;
       wrapper.findAll('tbody .xy-table-selection-column .xy-checkbox-input')[0].trigger('change');
     }
 

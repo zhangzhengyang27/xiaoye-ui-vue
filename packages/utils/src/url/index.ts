@@ -23,24 +23,24 @@ const URL_SCHEME_REGEX = /^([a-z0-9.+-]+):/i;
  * - `javascript:` / `data:` / `vbscript:` 等 → 不安全
  */
 export function isSafeUrl(url?: string | null): boolean {
-    if (!url) {
-        return false;
-    }
+  if (!url) {
+    return false;
+  }
 
-    const trimmed = url.trim();
+  const trimmed = url.trim();
 
-    if (!trimmed) {
-        return false;
-    }
+  if (!trimmed) {
+    return false;
+  }
 
-    const match = URL_SCHEME_REGEX.exec(trimmed);
+  const match = URL_SCHEME_REGEX.exec(trimmed);
 
-    // 没有 scheme 视为相对路径 / 锚点，安全
-    if (!match) {
-        return true;
-    }
+  // 没有 scheme 视为相对路径 / 锚点，安全
+  if (!match) {
+    return true;
+  }
 
-    return SAFE_URL_PROTOCOLS.includes(match[1].toLowerCase());
+  return SAFE_URL_PROTOCOLS.includes(match[1].toLowerCase());
 }
 
 /**
@@ -49,7 +49,7 @@ export function isSafeUrl(url?: string | null): boolean {
  * - 不安全（危险协议）→ 返回 `undefined`，用于「不渲染 href」以中和导航
  */
 export function sanitizeUrl(url?: string | null): string | undefined {
-    return isSafeUrl(url) ? (url ?? undefined) : undefined;
+  return isSafeUrl(url) ? (url ?? undefined) : undefined;
 }
 
 export default sanitizeUrl;

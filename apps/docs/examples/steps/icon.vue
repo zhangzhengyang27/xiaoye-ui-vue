@@ -3,12 +3,7 @@
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';
-import {
-  UserOutlined,
-  SolutionOutlined,
-  LoadingOutlined,
-  SmileOutlined,
-} from '@xiaoye-ui/icons';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@xiaoye-ui/icons';
 import { StepProps } from 'xiaoye-ui';
 const items = [
   {

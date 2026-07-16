@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class MegaphoneIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        MegaphoneIcon: DefineComponent<MegaphoneIcon>;
-    }
+  export interface GlobalComponents {
+    MegaphoneIcon: DefineComponent<MegaphoneIcon>;
+  }
 }
 
 export default MegaphoneIcon;

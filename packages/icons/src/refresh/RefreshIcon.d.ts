@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class RefreshIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        RefreshIcon: DefineComponent<RefreshIcon>;
-    }
+  export interface GlobalComponents {
+    RefreshIcon: DefineComponent<RefreshIcon>;
+  }
 }
 
 export default RefreshIcon;

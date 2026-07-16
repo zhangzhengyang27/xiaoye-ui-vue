@@ -3,7 +3,7 @@
     <a-layout-header>
       <div class="logo" />
       <a-menu
-        v-model:selectedKeys="selectedKeys"
+        v-model:selected-keys="selectedKeys"
         theme="dark"
         mode="horizontal"
         :style="{ lineHeight: '64px' }"

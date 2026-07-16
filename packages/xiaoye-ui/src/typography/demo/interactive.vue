@@ -73,12 +73,7 @@ Provide additional interactive capacity of editable and copyable.
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import {
-  HighlightOutlined,
-  SmileOutlined,
-  SmileFilled,
-  CheckOutlined,
-} from '@xiaoye-ui/icons';
+import { HighlightOutlined, SmileOutlined, SmileFilled, CheckOutlined } from '@xiaoye-ui/icons';
 
 const editableStr = ref('This is an editable text.');
 watch(editableStr, () => {

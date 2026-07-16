@@ -20,9 +20,9 @@ describe('click wave effect', () => {
       },
     });
     await clickFloatButton(wrapper);
-    expect(
-      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
-    ).toBe('true');
+    expect(wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node')).toBe(
+      'true',
+    );
   });
 
   it('should have click wave effect for default button', async () => {
@@ -32,9 +32,9 @@ describe('click wave effect', () => {
       },
     });
     await clickFloatButton(wrapper);
-    expect(
-      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
-    ).toBe('true');
+    expect(wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node')).toBe(
+      'true',
+    );
   });
 
   it('should not have click wave effect for link type button', async () => {
@@ -44,9 +44,9 @@ describe('click wave effect', () => {
       },
     });
     await clickFloatButton(wrapper);
-    expect(
-      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
-    ).toBe(undefined);
+    expect(wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node')).toBe(
+      undefined,
+    );
   });
 
   it('should not have click wave effect for text type button', async () => {
@@ -56,9 +56,9 @@ describe('click wave effect', () => {
       },
     });
     await clickFloatButton(wrapper);
-    expect(
-      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
-    ).toBe(undefined);
+    expect(wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node')).toBe(
+      undefined,
+    );
   });
 
   it('should handle transitionstart', async () => {
@@ -70,9 +70,9 @@ describe('click wave effect', () => {
     await clickFloatButton(wrapper);
     const buttonNode = wrapper.find('.xy-float-btn').element;
     buttonNode.dispatchEvent(new Event('transitionstart'));
-    expect(
-      wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node'),
-    ).toBe('true');
+    expect(wrapper.find('.xy-float-btn').attributes('xy-click-animating-without-extra-node')).toBe(
+      'true',
+    );
     wrapper.unmount();
     buttonNode.dispatchEvent(new Event('transitionstart'));
   });

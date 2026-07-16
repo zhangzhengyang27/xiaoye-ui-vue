@@ -106,9 +106,7 @@ export type PickerPanelTimeProps<DateType> = {
   SharedTimeProps<DateType>;
 
 export type PickerPanelProps<DateType> =
-  | PickerPanelBaseProps<DateType>
-  | PickerPanelDateProps<DateType>
-  | PickerPanelTimeProps<DateType>;
+  PickerPanelBaseProps<DateType> | PickerPanelDateProps<DateType> | PickerPanelTimeProps<DateType>;
 
 // TMP type to fit for ts 3.9.2
 type OmitType<DateType> = Omit<PickerPanelBaseProps<DateType>, 'picker'> &

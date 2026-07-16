@@ -85,7 +85,7 @@ const Tour = defineComponent({
       postState: origin =>
         mergedCurrent.value < 0 || mergedCurrent.value >= (props.steps?.length || 0)
           ? false
-          : origin ?? true,
+          : (origin ?? true),
     });
 
     const openRef = shallowRef(mergedOpen.value);
@@ -229,7 +229,7 @@ const Tour = defineComponent({
             builtinPlacements={
               !curStep.value.target
                 ? undefined
-                : restProps.builtinPlacements ?? getPlacements(arrowPointAtCenter.value)
+                : (restProps.builtinPlacements ?? getPlacements(arrowPointAtCenter.value))
             }
             ref={triggerRef}
             popupStyle={

@@ -4,9 +4,9 @@ import type { Icon } from '@xiaoye-ui/icons/baseicon';
 declare class SmartphoneIcon extends Icon {}
 
 declare module 'vue' {
-    export interface GlobalComponents {
-        SmartphoneIcon: DefineComponent<SmartphoneIcon>;
-    }
+  export interface GlobalComponents {
+    SmartphoneIcon: DefineComponent<SmartphoneIcon>;
+  }
 }
 
 export default SmartphoneIcon;

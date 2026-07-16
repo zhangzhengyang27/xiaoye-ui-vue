@@ -152,11 +152,7 @@ interface DependenciesUpdateInfo {
 }
 
 export type NotifyInfo =
-  | ValueUpdateInfo
-  | ValidateFinishInfo
-  | ResetInfo
-  | SetFieldInfo
-  | DependenciesUpdateInfo;
+  ValueUpdateInfo | ValidateFinishInfo | ResetInfo | SetFieldInfo | DependenciesUpdateInfo;
 
 export type ValuedNotifyInfo = NotifyInfo & {
   store: Store;
