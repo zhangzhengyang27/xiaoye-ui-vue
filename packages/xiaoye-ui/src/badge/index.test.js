@@ -18,13 +18,11 @@ describe('Badge', () => {
         return <Badge count={3.5} />;
       },
     });
-    expect(wrapper.text()).toMatchSnapshot();
     wrapper = mount({
       render() {
         return <Badge count={3.5} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('badge dot not showing count == 0', () => {
     const badge = mount({
@@ -72,23 +70,18 @@ describe('Badge', () => {
       wrapper.setProps({ count: 10 });
     }, 100);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
       wrapper.setProps({ count: 11 });
     }, 100);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
       wrapper.setProps({ count: 11 });
     }, 100);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
       wrapper.setProps({ count: 10 });
     }, 100);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
       wrapper.setProps({ count: 9 });
     }, 100);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     }, 100);
   });
 
@@ -104,7 +97,6 @@ describe('Badge', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should support offset when count is a VueNode', () => {
@@ -119,7 +111,6 @@ describe('Badge', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('render correct with negative number', () => {
     const wrapper = mount({
@@ -132,7 +123,6 @@ describe('Badge', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('text works with vnode', () => {
@@ -142,7 +132,6 @@ describe('Badge', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });
 

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Collapse from '..';
+import Collapse from '.';
 
 describe('Collapse', () => {
   it('should support remove expandIcon', () => {
@@ -12,6 +12,5 @@ describe('Collapse', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

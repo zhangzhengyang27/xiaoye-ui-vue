@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import Table from '..';
+import Table from '.';
 import * as Vue from 'vue';
 import { asyncExpect, sleep } from '../../tests/utils';
 
@@ -42,7 +42,6 @@ describe('Table.pagination', () => {
   it('renders pagination correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', async () => {

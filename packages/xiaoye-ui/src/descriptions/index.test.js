@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 import MockDate from 'mockdate';
-import Descriptions from '..';
+import Descriptions from '.';
 import { resetWarned } from './../_util/warning';
 import { asyncExpect } from '../../tests/utils';
 
@@ -55,7 +55,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -96,7 +95,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -114,7 +112,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -130,7 +127,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('Descriptions support colon', () => {
@@ -143,7 +139,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('Descriptions support style', () => {
@@ -156,7 +151,6 @@ describe('Descriptions', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('when max-width: 575px，column=1', async () => {

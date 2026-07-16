@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Empty from '..';
+import Empty from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Empty', () => {

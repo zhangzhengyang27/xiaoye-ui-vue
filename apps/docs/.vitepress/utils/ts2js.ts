@@ -1,10 +1,8 @@
-import { transpileModule, JsxEmit, ModuleKind, ScriptTarget } from 'typescript'
+import { JsxEmit, ModuleKind, transpileModule } from 'typescript'
 
-/**
- * 将 SFC 中的 TypeScript 转换为 JavaScript
- */
 export function sfcTs2js(content: string): string {
-  const scriptReg = /<script[\s\S]*?(?:lang="(ts|tsx)")[\s\S]*?>([\s\S]*?)<\/script>/
+  const scriptReg =
+    /<script[\s\S]*?(?:lang="(ts|tsx)")[\s\S]*?>([\s\S]*?)<\/script>/
   const matched = content.match(scriptReg)
   if (matched && matched.index !== undefined) {
     const lang = matched[1]
@@ -18,14 +16,17 @@ export function sfcTs2js(content: string): string {
 }
 
 function ts2Js(content: string): string {
-  const beforeTransformContent = content.replace(/\n(\s)*\n/g, '\n')
+  const beforeTransformContent = content.replace(
+    /\n(\s)*\n/g,
+    '\n// blankline\n'
+  )
   const result = transpileModule(beforeTransformContent, {
     compilerOptions: {
       module: ModuleKind.ESNext,
-      target: ScriptTarget.ESNext,
+      target: 99,
       verbatimModuleSyntax: true,
       jsx: JsxEmit.Preserve,
     },
   })
-  return result.outputText.trim()
+  return result.outputText.trim().replace(/(\/\/ blankline(\n)?)+/g, '\n')
 }

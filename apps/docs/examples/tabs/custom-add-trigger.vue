@@ -3,7 +3,7 @@
     <div :style="{ marginBottom: '16px' }">
       <a-button @click="add">ADD</a-button>
     </div>
-    <a-tabs v-model:active-key="activeKey" hide-add type="editable-card" @edit="onEdit">
+    <a-tabs v-model:active-key="activeKey" hide-add type="editable-card" @edit="handleEdit">
       <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
         {{ pane.content }}
       </a-tab-pane>
@@ -13,17 +13,15 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const panes = ref<{ title: string; content: string; key: string; closable?: boolean }[]>(
-  new Array(2).fill(null).map((_, index) => {
-    const id = String(index + 1);
-    return { title: `Tab ${id}`, content: `Content of Tab Pane ${id}`, key: id };
-  }),
-);
+const panes = ref([
+  { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
+  { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
+]);
 const activeKey = ref(panes.value[0].key);
 const newTabIndex = ref(0);
 
 const add = () => {
-  activeKey.value = `newTab${newTabIndex.value++}`;
+  activeKey.value = `newTab${++newTabIndex.value}`;
   panes.value.push({
     title: `New Tab ${activeKey.value}`,
     content: `Content of new Tab ${activeKey.value}`,
@@ -48,7 +46,11 @@ const remove = (targetKey: string) => {
   }
 };
 
-const onEdit = (targetKey: string) => {
-  remove(targetKey);
+const handleEdit = (targetKey: string | MouseEvent, action: string) => {
+  if (action === 'add') {
+    add();
+  } else if (typeof targetKey === 'string') {
+    remove(targetKey);
+  }
 };
 </script>

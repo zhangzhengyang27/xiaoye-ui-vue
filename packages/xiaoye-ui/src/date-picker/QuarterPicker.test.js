@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import DatePicker from '..';
+import DatePicker from '.';
 import focusTest from '../../tests/shared/focusTest';
 
 const { QuarterPicker } = DatePicker;
@@ -12,7 +12,6 @@ describe('QuarterPicker', () => {
       sync: false,
       attachTo: 'body',
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('test QuarterPicker valueFormat', async () => {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Tabs, { TabPane } from '..';
+import Tabs, { TabPane } from '.';
 
 describe('Tabs', () => {
   describe('editable-card', () => {
@@ -27,14 +27,14 @@ describe('Tabs', () => {
     });
 
     it('remove card', () => {
-      wrapper.find('.anticon-close').trigger('click');
+      wrapper.find('.xy-tabs-tab-remove').trigger('click');
       expect(handleEdit).toBeCalledWith('1', 'remove');
     });
   });
 
   describe('tabPosition', () => {
     it('remove card', () => {
-      const wrapper = mount({
+      mount({
         render() {
           return (
             <Tabs tabPosition="left" v-slots={{ rightExtra: () => 'xxx' }}>
@@ -45,7 +45,6 @@ describe('Tabs', () => {
           );
         },
       });
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 });

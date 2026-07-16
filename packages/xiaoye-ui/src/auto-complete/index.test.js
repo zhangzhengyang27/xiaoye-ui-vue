@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { sleep } from '../../tests/utils';
-import AutoComplete from '..';
+import AutoComplete from '.';
 import focusTest from '../../tests/shared/focusTest';
 
 describe('AutoComplete with Custom Input Element Render', () => {

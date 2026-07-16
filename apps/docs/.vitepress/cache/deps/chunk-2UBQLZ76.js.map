@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_getPrototype.js"],
-  "sourcesContent": ["import overArg from './_overArg.js';\n\n/** Built-in value references. */\nvar getPrototype = overArg(Object.getPrototypeOf, Object);\n\nexport default getPrototype;\n"],
-  "mappings": ";;;;;AAGA,IAAI,eAAe,gBAAQ,OAAO,gBAAgB,MAAM;AAExD,IAAO,uBAAQ;",
-  "names": []
-}

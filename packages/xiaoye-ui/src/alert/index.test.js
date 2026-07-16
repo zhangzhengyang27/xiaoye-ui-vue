@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Alert from '..';
+import Alert from '.';
 
 describe('Alert', () => {
   beforeAll(() => {

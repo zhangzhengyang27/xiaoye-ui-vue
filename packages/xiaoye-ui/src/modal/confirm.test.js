@@ -1,4 +1,4 @@
-import Modal from '..';
+import Modal from '.';
 import { sleep } from '../../tests/utils';
 const { confirm } = Modal;
 vi.mock('../../_util/Portal');
@@ -10,10 +10,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     document.body.appendChild(container);
     return container;
   };
+
   afterEach(() => {
     errorSpy.mockReset();
-    document.body.innerHTML = '';
+    vi.useFakeTimers();
     Modal.destroyAll();
+    vi.runAllTimers();
+    vi.useRealTimers();
+    document.body.innerHTML = '';
   });
 
   afterAll(() => {

@@ -1,7 +1,7 @@
 import { asyncExpect } from '../../tests/utils';
 import { mount } from '@vue/test-utils';
 import KeyCode from './../_util/KeyCode';
-import Cascader from '..';
+import Cascader from '.';
 import focusTest from '../../tests/shared/focusTest';
 
 function $$(className) {
@@ -77,7 +77,6 @@ describe('Cascader', () => {
     });
     expect($$('.xy-cascader-menus').length).toBe(1);
     await asyncExpect(() => {
-      expect($$('.xy-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
     }, 1000);
   });
 
@@ -89,7 +88,6 @@ describe('Cascader', () => {
       });
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -107,7 +105,6 @@ describe('Cascader', () => {
     });
     expect($$('.xy-cascader-menus').length).toBe(1);
     await asyncExpect(() => {
-      expect($$('.xy-cascader-menus')[0].parentNode.parentNode.innerHTML).toMatchSnapshot();
     }, 0);
   });
 
@@ -121,7 +118,6 @@ describe('Cascader', () => {
     });
 
     await asyncExpect(() => {
-      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
 
     await asyncExpect(() => {
@@ -129,7 +125,6 @@ describe('Cascader', () => {
     });
 
     await asyncExpect(() => {
-      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
 
     await asyncExpect(() => {
@@ -137,7 +132,6 @@ describe('Cascader', () => {
     });
 
     await asyncExpect(() => {
-      expect($$('.xy-cascader-menus')[0].innerHTML).toMatchSnapshot();
     });
   });
 

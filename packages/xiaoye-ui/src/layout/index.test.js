@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Layout from '..';
+import Layout from '.';
 import mountTest from '../../tests/shared/mountTest';
 import { sleep } from '../../tests/utils';
 

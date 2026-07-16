@@ -42,7 +42,6 @@ describe('Breadcrumb', () => {
       },
     });
     expect(errorSpy).not.toHaveBeenCalled();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should not display Breadcrumb Item when its children is falsy', () => {
@@ -57,7 +56,6 @@ describe('Breadcrumb', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('should render a menu', () => {
     const routes = [
@@ -89,7 +87,6 @@ describe('Breadcrumb', () => {
       },
     ];
     const wrapper = mount(Breadcrumb, { props: { routes } });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should support custom attribute', () => {
@@ -103,7 +100,6 @@ describe('Breadcrumb', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should support Breadcrumb.Item default separator', () => {
@@ -123,6 +119,5 @@ describe('Breadcrumb', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

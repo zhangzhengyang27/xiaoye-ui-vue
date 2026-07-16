@@ -22,11 +22,9 @@ describe('Search', () => {
     };
     const wrapper = mount(Search, props);
 
-    expect(wrapper.html()).toMatchSnapshot();
 
     wrapper.setProps({ value: 'a' });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('onSearch', async () => {

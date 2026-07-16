@@ -21,7 +21,7 @@ describe('Result', () => {
         );
       },
     });
-    expect(wrapper.findAll('.anticon-check-circle')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-result-icon')).toHaveLength(1);
   });
 
   it('🙂  different status, different class', async () => {

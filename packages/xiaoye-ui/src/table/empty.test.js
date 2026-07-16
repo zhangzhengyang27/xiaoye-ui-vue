@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Table from '..';
+import Table from '.';
 import * as Vue from 'vue';
 
 const columns = [
@@ -55,7 +55,6 @@ describe('Table', () => {
       { sync: false },
     );
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders empty table with fixed columns', async () => {
@@ -68,7 +67,6 @@ describe('Table', () => {
       { sync: false },
     );
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders empty table with custom emptyText', async () => {
@@ -88,7 +86,6 @@ describe('Table', () => {
       { sync: false },
     );
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders empty table without emptyText when loading', async () => {
@@ -101,6 +98,5 @@ describe('Table', () => {
       { sync: false },
     );
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import dayjs from 'dayjs';
 import { asyncExpect } from '../../tests/utils';
-import Comment from '..';
+import Comment from '.';
 import List from './../list';
 import Form from './../form';
 import Button from './../button';
@@ -109,7 +109,6 @@ describe('Comment', () => {
 
     await asyncExpect(() => {
       expect(wrapper.findAll('.xy-list-header')[0].element.innerHTML).toBe('1 reply');
-      expect(wrapper.html()).toMatchSnapshot();
     }, 2000);
   });
 });

@@ -1,29 +1,30 @@
 import DefaultTheme from 'vitepress/theme'
+import VPApp from '../vitepress/components/vp-app.vue'
 import { globals } from '../vitepress'
 import XiaoyeUI from 'xiaoye-ui'
-import { camelize } from '@vue/shared'
 import '../styles/tailwind.css'
 import './custom.css'
 
-// Example components: 基于 examples/ 目录自动注册 Xy<Component><Demo> 与 xy-<comp>-<demo>
-// docs/.vitepress/plugins/markdown-transform.ts 会为 *.md 注入
-// import Xy<Comp><Demo> from '/examples/<comp>/<demo>.vue'
-// docs/.vitepress/plugins/demo.ts 则在 :::demo 容器里渲染 <xy-<comp>-<demo>/>。
+// Example components: 基于 examples/ 目录自动注册 xy-<comp>-<demo>
+// docs/.vitepress/plugins/demo.ts 使用 xy-<comp>-<demo> 格式来渲染组件
 const exampleModules = import.meta.glob('/examples/**/!(*index).vue', { eager: true })
 
 const exampleComponents = Object.fromEntries(
   Object.entries(exampleModules).map(([path, mod]) => {
-    // path: /examples/<comp>/<demo>.vue
+    // path: /examples/<comp>/<demo>.vue -> xy-<comp>-<demo>
     const segments = path.split('/').filter(Boolean)
     const component = segments[1]
     const demoFile = segments[segments.length - 1].replace(/\.vue$/, '')
-    const camel = camelize(`Xy-${component}-${demoFile}`)
-    return [camel, (mod as any).default]
+    const kebab = `xy-${component}-${demoFile}`
+    return [kebab, (mod as any).default]
   })
 )
 
 export default {
   ...DefaultTheme,
+  // 使用自定义 Layout 替代 VitePress 默认 Layout
+  // 自定义 Layout 用 .doc-content 替代 .vp-doc，避免样式污染
+  Layout: VPApp,
   enhanceApp({ app }) {
     app.use(XiaoyeUI)
     Object.entries(globals).forEach(([name, Comp]) => {

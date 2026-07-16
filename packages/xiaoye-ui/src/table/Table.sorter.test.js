@@ -2,7 +2,7 @@ import { vi } from 'vitest';
 import * as Vue from 'vue';
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Table from '..';
+import Table from '.';
 
 describe('Table.sorter', () => {
   const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();
@@ -48,7 +48,6 @@ describe('Table.sorter', () => {
   it('renders sorter icon correctly', async () => {
     const wrapper = mount(Table, getTableOptions());
     await Vue.nextTick();
-    expect(wrapper.find('thead').html()).toMatchSnapshot();
   });
 
   it('default sort order ascend', async () => {

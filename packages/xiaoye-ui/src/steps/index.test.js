@@ -1,4 +1,4 @@
-import Steps from '..';
+import Steps from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Steps', () => {

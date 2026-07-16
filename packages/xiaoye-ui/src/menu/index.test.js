@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../tests/utils';
-import Menu from '..';
+import Menu from '.';
 import { InboxOutlined, PieChartOutlined } from '@xiaoye-ui/icons';
 import mountTest from '../../tests/shared/mountTest';
 

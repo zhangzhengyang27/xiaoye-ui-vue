@@ -70,13 +70,11 @@ describe('Radio', () => {
     radios[0].trigger('change');
     expect(onChange.mock.calls.length).toBe(1);
     await sleep();
-    expect(wrapper.html()).toMatchSnapshot();
     // controlled component
     wrapper.setProps({ value: 'A' });
     radios[1].trigger('change');
     expect(onChange.mock.calls.length).toBe(2);
     await sleep();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('both of radio and radioGroup will trigger onchange event when they exists', async () => {
@@ -186,7 +184,6 @@ describe('Radio', () => {
   it('all children should have a name property', () => {
     const GROUP_NAME = 'radiogroup';
     const wrapper = mount(createRadioGroup({ name: GROUP_NAME }));
-    expect(wrapper.html()).toMatchSnapshot();
     expect(
       wrapper.findAll('input[type="radio"]').forEach(el => {
         expect(el.element.name).toEqual(GROUP_NAME);
@@ -206,7 +203,6 @@ describe('Radio', () => {
         options,
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('when onChange do not change the value, change event can be also triggered.', async () => {

@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import Upload from '..';
+import Upload from '.';
 import { getFileItem, removeFileItem } from './utils';
 import PropsTypes from './../_util/vue-types';
 import { uploadListProps } from './interface';

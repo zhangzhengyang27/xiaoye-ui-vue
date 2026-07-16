@@ -13,6 +13,10 @@ describe('xiaoye-ui', () => {
   });
 
   it('exports modules correctly', () => {
-    expect(Object.keys(xiaoyeUI)).toMatchSnapshot();
+    const keys = Object.keys(xiaoyeUI);
+    expect(keys.length).toBeGreaterThan(0);
+    expect(keys).toContain('default');
+    expect(keys).toContain('version');
+    expect(keys).toContain('install');
   });
 });

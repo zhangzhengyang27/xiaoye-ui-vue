@@ -15,36 +15,28 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import jsonp from 'fetch-jsonp';
 
-let timeout: any;
+let timeout: ReturnType<typeof setTimeout>;
 let currentValue = '';
 
-function fetch(value: string, callback: any) {
+function fetchData(searchValue: string, callback: (data: any[]) => void) {
   if (timeout) {
     clearTimeout(timeout);
     timeout = null;
   }
-  currentValue = value;
+  currentValue = searchValue;
 
   function fake() {
-    const params = new URLSearchParams({
-      code: 'utf-8',
-      q: value,
-    });
-    jsonp(`https://suggest.taobao.com/sug?${params}`)
+    fetch(`https://api.github.com/search/repositories?q=${searchValue}&per_page=5`)
       .then(response => response.json())
       .then(d => {
-        if (currentValue === value) {
-          const result = d.result;
-          const data: any[] = [];
-          result.forEach((r: any) => {
-            data.push({
-              value: r[0],
-              label: r[0],
-            });
-          });
-          callback(data);
+        if (currentValue === searchValue) {
+          const result = d.items || [];
+          const resultData: any[] = result.map((r: any) => ({
+            value: r.full_name,
+            label: r.full_name,
+          }));
+          callback(resultData);
         }
       });
   }
@@ -53,14 +45,14 @@ function fetch(value: string, callback: any) {
 }
 
 const data = ref<any[]>([]);
-const value = ref();
+const value = ref<string>();
 
 const handleSearch = (val: string) => {
-  fetch(val, (d: any[]) => (data.value = d));
+  fetchData(val, d => (data.value = d));
 };
 const handleChange = (val: string) => {
   console.log(val);
   value.value = val;
-  fetch(val, (d: any[]) => (data.value = d));
+  fetchData(val, d => (data.value = d));
 };
 </script>

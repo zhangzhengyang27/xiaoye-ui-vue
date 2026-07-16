@@ -9,19 +9,20 @@
     "preview": "vitepress preview ."
   },
   "devDependencies": {
-    "vitepress": "^1.6.4",
-    "typescript": "^5.8.3",
-    "markdown-it-container": "^4.0.0",
-    "unplugin-vue-components": "^28.4.1",
     "@ant-design/icons-vue": "^7.0.0",
-    "@xiaoye-ui/icons": "workspace:*",
-    "@vueuse/core": "^11.0.0",
-    "@vitejs/plugin-vue-jsx": "^5.1.0",
     "@iconify-json/ri": "^1.2.10",
-    "unplugin-icons": "^23.0.1",
     "@prettier/sync": "^0.6.1",
-    "tailwindcss": "^4.1.0",
     "@tailwindcss/vite": "^4.1.0",
-    "normalize.css": "^8.0.1"
+    "@vitejs/plugin-vue-jsx": "^5.1.0",
+    "@vueuse/core": "^11.0.0",
+    "@xiaoye-ui/icons": "workspace:*",
+    "markdown-it-container": "^4.0.0",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.101.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.3",
+    "unplugin-icons": "^23.0.1",
+    "unplugin-vue-components": "^28.4.1",
+    "vitepress": "^1.6.4"
   }
 }

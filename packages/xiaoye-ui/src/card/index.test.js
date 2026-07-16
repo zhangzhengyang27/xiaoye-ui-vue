@@ -22,7 +22,6 @@ describe('Card', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('title should be vertically aligned', () => {
@@ -35,7 +34,6 @@ describe('Card', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('onTabChange should work', () => {

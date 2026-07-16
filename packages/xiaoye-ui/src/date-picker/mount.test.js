@@ -1,4 +1,4 @@
-import DatePicker from '..';
+import DatePicker from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 const { MonthPicker, WeekPicker, RangePicker } = DatePicker;

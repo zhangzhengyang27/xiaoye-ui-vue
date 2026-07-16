@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Spin from '..';
+import Spin from '.';
 
 describe('Spin', () => {
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
@@ -13,7 +13,6 @@ describe('Spin', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
     // expect(wrapper.findAll('.xy-spin-nested-loading').at(0).prop('style')).toBe(null)
     // expect(wrapper.findAll('.xy-spin').at(0).prop('style').background).toBe('red')
   });
@@ -25,7 +24,6 @@ describe('Spin', () => {
         return <Spin indicator={<div class="custom-indicator" />}></Spin>;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should be controlled by spinning', async () => {

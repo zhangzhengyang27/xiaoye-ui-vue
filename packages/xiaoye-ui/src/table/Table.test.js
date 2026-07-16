@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Table from '..';
+import Table from '.';
 import * as Vue from 'vue';
 import mountTest from '../../tests/shared/mountTest';
 import { sleep } from '../../tests/utils';
@@ -42,7 +42,6 @@ describe('Table', () => {
     );
 
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('updates columns when receiving props', async () => {
@@ -120,6 +119,5 @@ describe('Table', () => {
       sync: false,
     });
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

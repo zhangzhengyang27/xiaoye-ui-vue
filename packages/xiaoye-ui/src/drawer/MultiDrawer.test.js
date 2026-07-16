@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Drawer from '..';
+import Drawer from '.';
 import Button from './../button';
 import { asyncExpect } from '../../tests/utils';
 export function $$(className) {

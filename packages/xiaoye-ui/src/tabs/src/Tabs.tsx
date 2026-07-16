@@ -34,6 +34,7 @@ import {
   functionType,
   objectType,
   booleanType,
+  eventType,
 } from '../../_util/type';
 import type { CustomSlotsType, Key } from '../../_util/type';
 import pick from 'lodash-es/pick';
@@ -69,7 +70,7 @@ export const tabsProps = () => {
     type: stringType<TabsType>(),
     size: stringType<SizeType>(),
     centered: Boolean,
-    onEdit: functionType<(e: MouseEvent | KeyboardEvent | Key, action: 'add' | 'remove') => void>(),
+    onEdit: eventType<(e: MouseEvent | KeyboardEvent | Key, action: 'add' | 'remove') => void>(),
     onChange: functionType<(activeKey: Key) => void>(),
     onTabClick: functionType<(activeKey: Key, e: KeyboardEvent | MouseEvent) => void>(),
     onTabScroll: functionType<OnTabScroll>(),

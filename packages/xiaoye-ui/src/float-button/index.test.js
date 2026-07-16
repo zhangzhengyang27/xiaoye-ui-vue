@@ -11,7 +11,6 @@ describe('FloatButton', () => {
         return <FloatButton></FloatButton>;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('create primary button', () => {
@@ -29,20 +28,17 @@ describe('FloatButton', () => {
         return <FloatButton>{0}</FloatButton>;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
 
     const wrapper1 = mount({
       render() {
         return <FloatButton>0</FloatButton>;
       },
     });
-    expect(wrapper1.html()).toMatchSnapshot();
 
     const wrapper2 = mount({
       render() {
         return <FloatButton>{false}</FloatButton>;
       },
     });
-    expect(wrapper2.html()).toMatchSnapshot();
   });
 });

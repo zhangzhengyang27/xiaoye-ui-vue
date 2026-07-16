@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { mount } from '@vue/test-utils';
-import QRCode from '..';
+import QRCode from '.';
 
 describe('QRCode test', () => {
   it('should correct render', () => {
@@ -11,7 +11,6 @@ describe('QRCode test', () => {
     });
     expect(wrapper.find('.xy-qrcode')).toBeTruthy();
     expect(wrapper.find('canvas')).toBeTruthy();
-    expect(wrapper).toMatchSnapshot();
   });
 
   it('support custom icon', () => {

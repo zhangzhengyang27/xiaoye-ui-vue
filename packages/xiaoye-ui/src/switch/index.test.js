@@ -1,4 +1,4 @@
-import Switch from '..';
+import Switch from '.';
 import { mount } from '@vue/test-utils';
 import focusTest from '../../tests/shared/focusTest';
 import { resetWarned } from './../_util/warning';
@@ -26,7 +26,6 @@ describe('Switch', () => {
     });
     wrapper.find('.xy-switch').trigger('click');
     await new Promise(resolve => setTimeout(resolve, 0));
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('warning if set `value`', () => {

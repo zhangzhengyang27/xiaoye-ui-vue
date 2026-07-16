@@ -1,5 +1,5 @@
 import { asyncExpect } from '../../tests/utils';
-import notification, { getInstance } from '..';
+import notification, { getInstance } from '.';
 import { StepBackwardOutlined } from '@xiaoye-ui/icons';
 
 describe('notification', () => {
@@ -104,7 +104,7 @@ describe('notification', () => {
       });
     });
     await asyncExpect(() => {
-      expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
+      expect(document.querySelectorAll('.xy-notification-close-x svg').length).toBe(1);
     }, 100);
   });
 
@@ -120,7 +120,7 @@ describe('notification', () => {
       });
     });
     await asyncExpect(() => {
-      expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
+      expect(document.querySelectorAll('.xy-notification-close-x svg').length).toBe(1);
     }, 100);
   });
 });

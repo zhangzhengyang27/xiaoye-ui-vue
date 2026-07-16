@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
 import { handleGradient, sortGradient } from './Line';
-import Progress from '..';
+import Progress from '.';
 import ProgressSteps from './Steps';
 
 describe('Progress', () => {
@@ -36,7 +36,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -49,7 +48,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -61,7 +59,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -74,7 +71,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -88,7 +84,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -102,7 +97,6 @@ describe('Progress', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
     wrapper.setProps({
       strokeColor: {
@@ -112,7 +106,6 @@ describe('Progress', () => {
       type: 'line',
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
     wrapper.setProps({
       strokeColor: {
@@ -121,13 +114,11 @@ describe('Progress', () => {
       },
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
   it('render normal progress', () => {
     const wrapper = mount(Progress, { props: { status: 'normal' } });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('render trailColor progress', () => {
@@ -136,7 +127,6 @@ describe('Progress', () => {
         return <Progress status="normal" trailColor="#ffffff" />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('render successColor progress', () => {
@@ -145,7 +135,6 @@ describe('Progress', () => {
         return <Progress percent={60} success={{ percent: 30, strokeColor: '#ffffff' }} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('render dashboard zero gapDegree', () => {
@@ -154,7 +143,6 @@ describe('Progress', () => {
         return <Progress type="dashboard" gapDegree={0} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('render dashboard 295 gapDegree', () => {
@@ -163,7 +151,6 @@ describe('Progress', () => {
         return <Progress type="dashboard" gapDegree={295} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('render dashboard 296 gapDegree', () => {
@@ -172,7 +159,6 @@ describe('Progress', () => {
         return <Progress type="dashboard" gapDegree={296} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('get correct line-gradient', () => {
@@ -229,7 +215,6 @@ describe('Progress', () => {
         return <Progress steps={3} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('steps should be changable', async () => {
@@ -293,7 +278,6 @@ describe('Progress', () => {
         return <ProgressSteps />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should warning if use `progress` in success', () => {

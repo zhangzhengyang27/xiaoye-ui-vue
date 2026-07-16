@@ -1,4 +1,4 @@
-import Divider from '..';
+import Divider from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Divider', () => {

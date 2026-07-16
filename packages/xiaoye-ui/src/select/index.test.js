@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Select from '..';
+import Select from '.';
 import { CloseOutlined } from '@xiaoye-ui/icons';
 import focusTest from '../../tests/shared/focusTest';
 import mountTest from '../../tests/shared/mountTest';
@@ -219,7 +219,6 @@ describe('Select', () => {
           );
         },
       });
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 });

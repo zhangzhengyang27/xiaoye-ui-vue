@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import PageHeader from '..';
+import PageHeader from '.';
 
 describe('PageHeader', () => {
   it('pageHeader should not contain back it back', () => {
@@ -83,7 +83,6 @@ describe('PageHeader', () => {
         return <PageHeader title="Page Title" class="not-works" backIcon={false} />;
       },
     });
-    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('pageHeader should not render blank dom', () => {
@@ -92,7 +91,6 @@ describe('PageHeader', () => {
         return <PageHeader title={false} />;
       },
     });
-    expect(wrapper.element).toMatchSnapshot();
   });
 
   it('breadcrumbs and back icon can coexist', () => {

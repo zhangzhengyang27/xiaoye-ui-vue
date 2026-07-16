@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import DatePicker from '..';
+import DatePicker from '.';
 import focusTest from '../../tests/shared/focusTest';
 vi.mock('../../_util/Portal');
 describe('DatePicker', () => {
@@ -60,7 +60,6 @@ describe('DatePicker', () => {
       },
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 });

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import InputNumber from '..';
+import InputNumber from '.';
 import focusTest from '../../tests/shared/focusTest';
 import mountTest from '../../tests/shared/mountTest';
 

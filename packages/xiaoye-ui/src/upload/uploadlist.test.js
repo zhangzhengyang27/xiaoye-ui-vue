@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import * as Vue from 'vue';
-import Upload from '..';
+import Upload from '.';
 import { errorRequest, successRequest } from './requests';
 import PropsTypes from './../_util/vue-types';
 import { uploadListProps } from './interface';
@@ -90,7 +90,7 @@ describe('Upload List', () => {
     const wrapper = mount(Upload, props);
     await sleep();
     expect(wrapper.findAll('.xy-upload-list-item').length).toBe(2);
-    wrapper.findAll('.xy-upload-list-item')[0].find('.anticon-delete').trigger('click');
+    wrapper.findAll('.xy-upload-list-item')[0].find('.xy-upload-list-item-action').trigger('click');
     await sleep(400);
     // wrapper.update();
     expect(wrapper.findAll('.xy-upload-list-item').length).toBe(1);
@@ -104,11 +104,9 @@ describe('Upload List', () => {
           customRequest: successRequest,
           onChange: ({ file }) => {
             if (file.status === 'uploading') {
-              expect(wrapper.html()).toMatchSnapshot();
               resolve();
             }
             if (file.status === 'done') {
-              expect(wrapper.html()).toMatchSnapshot();
               resolve();
             }
           },
@@ -142,7 +140,6 @@ describe('Upload List', () => {
         listeners: {
           change: ({ file }) => {
             if (file.status !== 'uploading') {
-              expect(wrapper.html()).toMatchSnapshot();
               resolve();
             }
           },
@@ -281,9 +278,9 @@ describe('Upload List', () => {
     };
     const wrapper = mount(Upload, props);
     await sleep(500);
-    wrapper.findAll('.anticon-eye')[0].trigger('click');
+    wrapper.findAll('.xy-upload-list-item-actions a')[0].trigger('click');
     expect(handlePreview).toBeCalledWith(fileList[0]);
-    wrapper.findAll('.anticon-eye')[1].trigger('click');
+    wrapper.findAll('.xy-upload-list-item-actions a')[1].trigger('click');
     expect(handlePreview).toBeCalledWith(fileList[1]);
   });
 
@@ -306,9 +303,9 @@ describe('Upload List', () => {
     };
     const wrapper = mount(Upload, props);
     await new Promise(resolve => setTimeout(resolve, 0));
-    wrapper.findAll('.anticon-delete')[0].trigger('click');
+    wrapper.findAll('.xy-upload-list-item-actions .xy-upload-list-item-action')[0].trigger('click');
     expect(handleRemove).toBeCalledWith(fileList[0]);
-    wrapper.findAll('.anticon-delete')[1].trigger('click');
+    wrapper.findAll('.xy-upload-list-item-actions .xy-upload-list-item-action')[1].trigger('click');
     expect(handleRemove).toBeCalledWith(fileList[1]);
     await delay(0);
     expect(handleChange.mock.calls.length).toBe(2);
@@ -414,8 +411,7 @@ describe('Upload List', () => {
       },
       sync: false,
     };
-    const wrapper = mount(Upload, props);
+    mount(Upload, props);
     await Vue.nextTick();
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

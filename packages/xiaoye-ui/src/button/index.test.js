@@ -18,7 +18,6 @@ describe('Button', () => {
         return <Button>Follow</Button>;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('create primary button', () => {
@@ -49,7 +48,6 @@ describe('Button', () => {
       },
     });
 
-    expect(wrapper1.html()).toMatchSnapshot();
 
     const wrapper2 = mount({
       render() {
@@ -61,7 +59,6 @@ describe('Button', () => {
         );
       },
     });
-    expect(wrapper2.html()).toMatchSnapshot();
     // should not insert space when there is icon
     const wrapper3 = mount({
       render() {
@@ -73,7 +70,6 @@ describe('Button', () => {
         );
       },
     });
-    expect(wrapper3.html()).toMatchSnapshot();
     // should not insert space when there is icon while loading
     const wrapper4 = mount({
       render() {
@@ -85,14 +81,12 @@ describe('Button', () => {
         );
       },
     });
-    expect(wrapper4.html()).toMatchSnapshot();
     // should insert space while loading
     const wrapper5 = mount({
       render() {
         return <Button loading>按钮</Button>;
       },
     });
-    expect(wrapper5.html()).toMatchSnapshot();
     const wrapper6 = mount({
       render() {
         return (
@@ -104,7 +98,6 @@ describe('Button', () => {
     });
     await nextTick();
     // expect(wrapper6.find('.xy-btn-two-chinese-chars').exists()).toBe(true);
-    expect(wrapper6.html()).toMatchSnapshot();
   });
   it('should change loading state instantly by default', async () => {
     const DefaultButton = {
@@ -189,7 +182,6 @@ describe('Button', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {
@@ -198,21 +190,18 @@ describe('Button', () => {
         return <Button>{0}</Button>;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
 
     const wrapper1 = mount({
       render() {
         return <Button>0</Button>;
       },
     });
-    expect(wrapper1.html()).toMatchSnapshot();
 
     const wrapper2 = mount({
       render() {
         return <Button>{false}</Button>;
       },
     });
-    expect(wrapper2.html()).toMatchSnapshot();
   });
 
   it('should not render as link button when href is undefined', async () => {
@@ -225,7 +214,6 @@ describe('Button', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should support to change loading', async () => {

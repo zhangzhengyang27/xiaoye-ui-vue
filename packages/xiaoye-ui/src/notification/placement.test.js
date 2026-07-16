@@ -1,5 +1,5 @@
 import { asyncExpect } from '../../tests/utils';
-import notification from '..';
+import notification from '.';
 
 describe('Notification.placement', () => {
   beforeEach(() => {
@@ -21,7 +21,15 @@ describe('Notification.placement', () => {
     const style = window.getComputedStyle ? window.getComputedStyle(el) : el.currentStyle;
 
     // If a css property's value is `auto`, it will return an empty string.
-    return prop ? style[prop] : style;
+    const normalize = value => (value === 'auto' ? '' : value);
+    if (prop) {
+      return normalize(style[prop]);
+    }
+    return new Proxy(style, {
+      get(target, key) {
+        return normalize(target[key]);
+      },
+    });
   }
 
   function open(args) {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Mentions from '..';
+import Mentions from '.';
 import focusTest from '../../tests/shared/focusTest';
 import { sleep } from '../../tests/utils';
 import KeyCode from './../_util/KeyCode';

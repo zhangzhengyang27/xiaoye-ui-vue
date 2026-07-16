@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { camelize } from '@vue/shared'
 import { fileURLToPath } from 'url'
 import type { Plugin } from 'vite'
 
@@ -72,9 +71,8 @@ const getExampleImports = (componentId: string) => {
   for (const item of files) {
     if (!/\.vue$/.test(item)) continue
     const file = item.replace(/\.vue$/, '')
-    const name = camelize(`Xy-${componentId}-${file}`)
+    const name = `xy-${componentId}-${file}`
 
-    // 相对路径从 docs 目录算起
     imports.push(
       `import ${name} from '/examples/${componentId}/${file}.vue'`
     )

@@ -1,5 +1,5 @@
 <template>
-  <a-tabs v-model:active-key="activeKey" type="editable-card" @edit="onEdit">
+  <a-tabs v-model:active-key="activeKey" type="editable-card" @edit="handleEdit">
     <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
       {{ pane.content }}
     </a-tab-pane>
@@ -7,7 +7,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-const panes = ref<{ title: string; content: string; key: string; closable?: boolean }[]>([
+
+const panes = ref([
   { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
   { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
   { title: 'Tab 3', content: 'Content of Tab 3', key: '3', closable: false },
@@ -39,11 +40,11 @@ const remove = (targetKey: string) => {
   }
 };
 
-const onEdit = (targetKey: string | MouseEvent, action: string) => {
+const handleEdit = (targetKey: string | MouseEvent, action: string) => {
   if (action === 'add') {
     add();
-  } else {
-    remove(targetKey as string);
+  } else if (typeof targetKey === 'string') {
+    remove(targetKey);
   }
 };
 </script>

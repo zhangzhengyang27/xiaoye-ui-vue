@@ -69,6 +69,8 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     siteTitle: 'XiaoyeUI',
+    repo: 'xiaoye-ui/xiaoye-ui',
+    repoLabel: 'GitHub',
     nav: [
       { text: '指南', link: '/guide/' },
       { text: '组件', link: '/components/button' },

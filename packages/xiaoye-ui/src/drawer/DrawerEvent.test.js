@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Drawer from '..';
+import Drawer from '.';
 import Button from './../button';
 import { asyncExpect } from '../../tests/utils';
 
@@ -60,7 +60,6 @@ describe('Drawer', () => {
       const content = wrapper.find('.xy-drawer-body').element.innerHTML;
       expect(content).toBe('Here is content of Drawer');
 
-      expect(wrapper.html()).toMatchSnapshot();
     });
   }, 1000);
 

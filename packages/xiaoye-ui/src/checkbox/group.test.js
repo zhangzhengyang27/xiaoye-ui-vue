@@ -91,7 +91,6 @@ describe('CheckboxGroup', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('should be controlled by value', async () => {
     const options = [

@@ -1,5 +1,6 @@
 <template>
-  <svg
+    <span class="xyicon">
+    <svg
     width="14"
     height="14"
     viewBox="0 0 14 14"
@@ -12,6 +13,7 @@
       fill="currentColor"
     />
   </svg>
+  </span>
 </template>
 
 <script setup lang="ts">

@@ -1,4 +1,4 @@
-import TreeSelect from '..';
+import TreeSelect from '.';
 import focusTest from '../../tests/shared/focusTest';
 import mountTest from '../../tests/shared/mountTest';
 

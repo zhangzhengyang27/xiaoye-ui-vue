@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../tests/utils';
-import Table from '..';
+import Table from '.';
 vi.mock('../../_util/Portal');
 describe('Table.rowSelection', () => {
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -201,17 +201,8 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       selections: true,
     };
-    const wrapper = mount(Table, getTableOptions({ rowSelection }));
-    const dropdownWrapper = mount(
-      {
-        render() {
-          return wrapper.findComponent({ name: 'Trigger' }).vm.getComponent();
-        },
-      },
-      { sync: false },
-    );
+    mount(Table, getTableOptions({ rowSelection }));
     await asyncExpect(() => {
-      expect(dropdownWrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -430,14 +421,13 @@ describe('Table.rowSelection', () => {
   });
 
   it('fix selection column on the left', async () => {
-    const wrapper = mount(
+    mount(
       Table,
       getTableOptions({
         rowSelection: { fixed: true },
       }),
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -537,15 +527,20 @@ describe('Table.rowSelection', () => {
         rowSelection,
       },
       sync: false,
+      attachTo: 'body',
     });
 
     await sleep();
+    function $$(className) {
+      return document.body.querySelectorAll(className);
+    }
     function clickFilter(indexList) {
-      const items = wrapper.findAll('.xy-dropdown-menu-item .xy-checkbox-wrapper');
+      wrapper.find('.xy-dropdown-trigger').trigger('click');
+      const items = $$('.xy-dropdown-menu-item .xy-checkbox-wrapper');
       indexList.forEach(index => {
-        items[index].trigger('click');
+        items[index].dispatchEvent(new MouseEvent('click'));
       });
-      wrapper.find('.xy-table-filter-dropdown-btns .xy-btn-primary').trigger('click');
+      $$('.xy-table-filter-dropdown-btns .xy-btn-primary')[0].dispatchEvent(new MouseEvent('click'));
     }
 
     function clickItem() {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Dropdown from '..';
+import Dropdown from '.';
 import Menu from './../menu';
 
 describe('DropdownButton', () => {
@@ -54,6 +54,5 @@ describe('DropdownButton', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import List from '..';
+import List from '.';
 import { LoadingOutlined } from '@xiaoye-ui/icons';
 
 describe('List', () => {
@@ -42,6 +42,6 @@ describe('List', () => {
         );
       },
     });
-    expect(wrapper.findAll('.anticon-loading')).toHaveLength(1);
+    expect(wrapper.findAll('.xy-spin svg')).toHaveLength(1);
   });
 });

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Flex from '..';
+import Flex from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Flex', () => {

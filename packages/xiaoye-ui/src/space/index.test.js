@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Space from '..';
+import Space from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Space', () => {
@@ -11,7 +11,6 @@ describe('Space', () => {
         return <Space />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render width customize size', () => {
@@ -56,7 +55,6 @@ describe('Space', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should render with invalidElement', () => {

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/flatten.js", "../../../../../node_modules/.pnpm/lodash-es@4.18.1/node_modules/lodash-es/_flatRest.js"],
-  "sourcesContent": ["import baseFlatten from './_baseFlatten.js';\n\n/**\n * Flattens `array` a single level deep.\n *\n * @static\n * @memberOf _\n * @since 0.1.0\n * @category Array\n * @param {Array} array The array to flatten.\n * @returns {Array} Returns the new flattened array.\n * @example\n *\n * _.flatten([1, [2, [3, [4]], 5]]);\n * // => [1, 2, [3, [4]], 5]\n */\nfunction flatten(array) {\n  var length = array == null ? 0 : array.length;\n  return length ? baseFlatten(array, 1) : [];\n}\n\nexport default flatten;\n", "import flatten from './flatten.js';\nimport overRest from './_overRest.js';\nimport setToString from './_setToString.js';\n\n/**\n * A specialized version of `baseRest` which flattens the rest array.\n *\n * @private\n * @param {Function} func The function to apply a rest parameter to.\n * @returns {Function} Returns the new function.\n */\nfunction flatRest(func) {\n  return setToString(overRest(func, undefined, flatten), func + '');\n}\n\nexport default flatRest;\n"],
-  "mappings": ";;;;;;;;;AAgBA,SAAS,QAAQ,OAAO;AACtB,MAAI,SAAS,SAAS,OAAO,IAAI,MAAM;AACvC,SAAO,SAAS,oBAAY,OAAO,CAAC,IAAI,CAAC;AAC3C;AAEA,IAAO,kBAAQ;;;ACVf,SAAS,SAAS,MAAM;AACtB,SAAO,oBAAY,iBAAS,MAAM,QAAW,eAAO,GAAG,OAAO,EAAE;AAClE;AAEA,IAAO,mBAAQ;",
-  "names": []
-}

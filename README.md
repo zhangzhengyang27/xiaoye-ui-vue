@@ -1,36 +1,36 @@
 # Xiaoye UI
 
-An enterprise-class UI design language and Vue-based implementation.
+企业级 UI 设计语言和 Vue 实现。
 
-[简体中文](./README-zh_CN.md)
+[English](./README.md)
 
-## Features
+## 特性
 
-- An enterprise-class UI design language for desktop applications.
-- A set of high-quality Vue components out of the box.
-- Server-side rendering support.
+- 企业级中后台产品的交互语言和视觉风格。
+- 开箱即用的高质量 Vue 组件。
+- 支持服务端渲染。
 
-## Environment Support
+## 支持环境
 
 - Vue >= 3.2.0
 - Node >= 12.22.0
-- Modern browsers
-- Server-side Rendering
+- 现代浏览器
+- 支持服务端渲染
 - [Electron](https://electronjs.org/)
 
-## Installation
+## 安装
 
 ```bash
 npm install xiaoye-ui
 ```
 
-or
+或
 
 ```bash
 yarn add xiaoye-ui
 ```
 
-## Usage
+## 使用示例
 
 ```vue
 <template>
@@ -42,11 +42,11 @@ import { Button } from 'xiaoye-ui';
 </script>
 ```
 
-## Links
+## 链接
 
-- [Home page](https://xiaoye-ui.github.io/)
-- [Vue](https://vuejs.org/)
+- [首页](https://xiaoye-ui.github.io/)
+- [Vue 官方文档](https://cn.vuejs.org/)
 
-## License
+## 许可证
 
 [MIT](./LICENSE)

@@ -1,5 +1,6 @@
 <template>
-  <svg
+    <span class="xyicon">
+    <svg
     :width="size"
     :height="size"
     viewBox="0 0 24 24"
@@ -18,6 +19,7 @@
       <line x1="4" x2="20" y1="20" y2="20" />
     </g>
   </svg>
+  </span>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,6 @@
 <template>
-  <svg
+    <span class="xyicon">
+    <svg
     width="14"
     height="14"
     viewBox="0 0 14 14"
@@ -13,6 +14,7 @@
       transform="scale(0.5833)"
     />
   </svg>
+  </span>
 </template>
 
 <script setup lang="ts">

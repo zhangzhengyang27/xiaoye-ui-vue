@@ -203,6 +203,7 @@
   },
   "devDependencies": {
     "@types/minimatch": "^6.0.0",
-    "jsdom": "^24.0.0"
+    "jsdom": "^24.0.0",
+    "xhr-mock": "^2.5.1"
   }
 }

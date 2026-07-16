@@ -1,4 +1,4 @@
-import TimeLine from '..';
+import TimeLine from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Tag', () => {

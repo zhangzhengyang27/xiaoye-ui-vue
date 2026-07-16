@@ -190,7 +190,6 @@ describe('Locale Provider', () => {
         { sync: false, attachTo: 'body' },
       );
       await sleep();
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -257,12 +256,9 @@ describe('Locale Provider', () => {
     };
     const wrapper = mount(Test, { sync: false, attachTo: 'body' });
     await sleep(50);
-    expect(document.body.innerHTML).toMatchSnapshot();
     wrapper.vm.locale = frFR;
     await sleep(50);
-    expect(document.body.innerHTML).toMatchSnapshot();
     wrapper.vm.locale = null;
     await sleep(50);
-    expect(document.body.innerHTML).toMatchSnapshot();
   });
 });

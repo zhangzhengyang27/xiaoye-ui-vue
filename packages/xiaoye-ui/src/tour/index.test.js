@@ -1,4 +1,4 @@
-import Tour from '..';
+import Tour from '.';
 import mountTest from '../../tests/shared/mountTest';
 import { mount } from '@vue/test-utils';
 

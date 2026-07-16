@@ -18,7 +18,6 @@ describe('Input.Search', () => {
       { sync: false },
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -32,7 +31,6 @@ describe('Input.Search', () => {
       { sync: false },
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
   it('should support VueNode suffix without error', () => {

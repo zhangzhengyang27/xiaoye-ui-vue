@@ -1,4 +1,4 @@
-import Image from '..';
+import Image from '.';
 import mountTest from '../../tests/shared/mountTest';
 import { mount } from '@vue/test-utils';
 describe('Image', () => {

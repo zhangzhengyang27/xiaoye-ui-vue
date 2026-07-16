@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import { asyncExpect } from '../../tests/utils';
-import message, { getInstance } from '..';
+import message, { getInstance } from '.';
 import { SmileOutlined } from '@xiaoye-ui/icons';
 
 describe('message', () => {
@@ -118,7 +118,7 @@ describe('message', () => {
   it('should allow custom icon', async () => {
     message.open({ content: 'Message', icon: <SmileOutlined /> });
     await Promise.resolve();
-    expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
+    expect(document.querySelectorAll('.xy-message-custom-content svg').length).toBe(1);
   });
 
   it('should have no icon', async () => {

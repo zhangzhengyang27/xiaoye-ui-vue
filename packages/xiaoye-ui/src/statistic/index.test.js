@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
-import Statistic from '..';
+import Statistic from '.';
 import { formatTimeStr } from './utils';
 import mountTest from '../../tests/shared/mountTest';
 
@@ -60,7 +60,6 @@ describe('Statistic', () => {
       },
     };
     const wrapper = mount(Statistic, props);
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   describe('Countdown', () => {

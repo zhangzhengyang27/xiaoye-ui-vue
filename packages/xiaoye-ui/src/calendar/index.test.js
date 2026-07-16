@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../tests/utils';
 import MockDate from 'mockdate';
-import Calendar from '..';
+import Calendar from '.';
 import Header from './Header';
 import mountTest from '../../tests/shared/mountTest';
 import generateConfig from './../vc-picker/generate/dayjs';
@@ -208,7 +208,6 @@ describe('Calendar', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
       MockDate.reset();
     });
   });

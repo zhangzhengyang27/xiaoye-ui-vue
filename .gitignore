@@ -70,6 +70,9 @@ pnpm-lock.yaml
 .nitro/
 .output/
 
+# VitePress 缓存
+.vitepress/cache/
+
 report.html
 
 # TRAE IDE 内部工作文档（迁移计划等），不纳入版本控制

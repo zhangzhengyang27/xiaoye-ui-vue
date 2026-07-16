@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Spin from '..';
+import Spin from '.';
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", async () => {

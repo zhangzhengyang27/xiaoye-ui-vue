@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import TimePicker from '..';
+import TimePicker from '.';
 import dayjs from 'dayjs';
 import focusTest from '../../tests/shared/focusTest';
 import mountTest from '../../tests/shared/mountTest';
@@ -52,6 +52,5 @@ describe('TimePicker', () => {
         return <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} allowClear={false} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

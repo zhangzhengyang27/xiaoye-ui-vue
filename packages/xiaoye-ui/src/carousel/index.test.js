@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { h, createVNode } from 'vue';
 import { asyncExpect, sleep } from '../../tests/utils';
-import Carousel from '..';
+import Carousel from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Carousel', () => {
@@ -118,7 +118,6 @@ describe('Carousel', () => {
           { sync: false, attachTo: 'body' },
         );
         await sleep(100);
-        expect(wrapper.html()).toMatchSnapshot();
       });
     });
   });

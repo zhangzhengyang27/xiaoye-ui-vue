@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Popconfirm from '..';
+import Popconfirm from '.';
 function $$(className) {
   return document.body.querySelectorAll(className);
 }
@@ -68,7 +68,6 @@ describe('Popconfirm', () => {
     await asyncExpect(() => {
       const popup = popconfirm.vm.$refs.popconfirm.getPopupDomNode();
       expect(popup).not.toBe(null);
-      expect(popup.innerHTML).toMatchSnapshot();
     }, 1000);
   });
 

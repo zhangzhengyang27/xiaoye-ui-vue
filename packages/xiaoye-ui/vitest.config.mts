@@ -2,19 +2,26 @@ import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
+import { existsSync, readFileSync } from 'node:fs';
 
 export default defineConfig({
   plugins: [
-    {
-      name: 'ignore-vue-docs-block',
-      enforce: 'pre',
-      load(id) {
-        if (/\.vue\?vue&type=docs/.test(id)) {
-          return 'export default {}';
-        }
+    vue({
+      script: {
+        fs: {
+          fileExists(file) {
+            return existsSync(file);
+          },
+          readFile(file) {
+            try {
+              return existsSync(file) ? readFileSync(file, 'utf-8') : undefined;
+            } catch {
+              return undefined;
+            }
+          },
+        },
       },
-    },
-    vue(),
+    }),
     vueJsx({
       include: [/\.test\.[jt]sx?$/, /\.jsx?$/, /\.tsx?$/],
     }),
@@ -26,13 +33,8 @@ export default defineConfig({
     include: [
       'tests/**/*.test.{js,ts,jsx,tsx}',
       'src/**/*.test.{js,ts,jsx,tsx}',
-      'src/**/__tests__/*.{js,ts,jsx,tsx}',
     ],
-    exclude: [
-      'src/upload/__tests__/mock.js',
-      'src/upload/__tests__/requests.js',
-      'src/**/__tests__/utils.js',
-    ],
+    exclude: [],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],

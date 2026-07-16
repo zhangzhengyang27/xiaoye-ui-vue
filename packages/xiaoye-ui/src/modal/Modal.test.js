@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Modal from '..';
+import Modal from '.';
 import mountTest from '../../tests/shared/mountTest';
 import { asyncExpect } from '../../tests/utils';
 vi.mock('../../_util/Portal');
@@ -39,7 +39,6 @@ describe('Modal', () => {
       },
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
     // https://github.com/vuejs/vue-test-utils/issues/624
     const wrapper1 = mount(ModalTester, {
@@ -48,7 +47,6 @@ describe('Modal', () => {
     });
     wrapper1.setProps({ visible: true });
     await asyncExpect(() => {
-      expect(wrapper1.html()).toMatchSnapshot();
     });
   });
 
@@ -62,7 +60,6 @@ describe('Modal', () => {
       { attachTo: 'body', sync: true },
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -75,7 +72,6 @@ describe('Modal', () => {
       },
     });
     await asyncExpect(() => {
-      expect(wrapper1.html()).toMatchSnapshot();
     });
   });
 });

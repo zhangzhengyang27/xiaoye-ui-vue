@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { ref } from 'vue';
 import { sleep } from '../../tests/utils';
-import Anchor from '..';
+import Anchor from '.';
 
 const { Link } = Anchor;
 

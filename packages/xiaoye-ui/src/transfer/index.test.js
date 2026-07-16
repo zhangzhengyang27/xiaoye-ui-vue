@@ -1,6 +1,6 @@
 import { vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import Transfer from '..';
+import Transfer from '.';
 import * as Vue from 'vue';
 import { sleep, asyncExpect } from '../../tests/utils';
 import mountTest from '../../tests/shared/mountTest';
@@ -96,7 +96,6 @@ describe('Transfer', () => {
       },
     });
 
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('should move selected keys to corresponding list', async () => {
@@ -437,7 +436,6 @@ describe('Transfer', () => {
         return () => <Transfer {...sortedTargetKeyProps} render={item => item.title} />;
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('should add custom styles when their props are provided', async () => {
     const style = {

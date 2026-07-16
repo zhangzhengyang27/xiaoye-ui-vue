@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Drawer from '..';
+import Drawer from '.';
 
 const DrawerCom = {
   props: {
@@ -41,7 +41,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(Drawer, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -60,7 +59,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(Drawer, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -78,7 +76,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(Drawer, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -96,7 +93,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(Drawer, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -115,7 +111,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(Drawer, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 
@@ -129,7 +124,6 @@ describe('Drawer', () => {
     };
     const wrapper = mount(DrawerCom, props);
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 });

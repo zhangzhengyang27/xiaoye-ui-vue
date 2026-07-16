@@ -19,7 +19,6 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import request from 'umi-request';
 import { UploadOutlined } from '@xiaoye-ui/icons';
 import message from 'xiaoye-ui/message';
 import type { UploadProps } from 'xiaoye-ui';
@@ -46,10 +45,9 @@ const handleUpload = () => {
   });
   uploading.value = true;
 
-  // You can use any AJAX library you like
-  request('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
-    method: 'post',
-    data: formData,
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: formData,
   })
     .then(() => {
       fileList.value = [];

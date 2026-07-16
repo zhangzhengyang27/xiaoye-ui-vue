@@ -1,4 +1,4 @@
-import Rate from '..';
+import Rate from '.';
 import focusTest from '../../tests/shared/focusTest';
 import mountTest from '../../tests/shared/mountTest';
 

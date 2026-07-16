@@ -2,14 +2,14 @@ import { mount } from '@vue/test-utils';
 import { asyncExpect, sleep } from '../../tests/utils';
 import KeyCode from './../_util/KeyCode';
 import copy from './../_util/copy-to-clipboard';
-import Typography from '..';
+import Typography from '.';
 import Title from './Title';
 import Paragraph from './Paragraph';
 import Link from './Link';
 import mountTest from '../../tests/shared/mountTest';
 import { nextTick, createTextVNode, ref } from 'vue';
 
-vi.mock('../../_util/copy-to-clipboard', () => {
+vi.mock('../_util/copy-to-clipboard', () => {
   const fn = vi.fn(text => {
     fn.lastStr = text;
     return true;
@@ -240,9 +240,9 @@ describe('Typography', () => {
             });
 
             if (icon) {
-              expect(wrapper.findAll('.anticon-smile').length).toBeTruthy();
+              expect(wrapper.findAll('.xy-typography-copy svg').length).toBeTruthy();
             } else {
-              expect(wrapper.findAll('.anticon-copy').length).toBeTruthy();
+              expect(wrapper.findAll('.xy-typography-copy svg').length).toBeTruthy();
             }
 
             wrapper.find('.xy-typography-copy').trigger('click');
@@ -255,13 +255,17 @@ describe('Typography', () => {
               expect(onCopy).toHaveBeenCalled();
             });
 
-            expect(wrapper.findAll('.anticon-check').length).toBeTruthy();
+            expect(
+              wrapper.find('.xy-typography-copy').element.classList.contains('xy-typography-copy-success'),
+            ).toBe(true);
 
             vi.runAllTimers();
 
             // Will set back when 3 seconds pass
             await nextTick();
-            expect(wrapper.findAll('.anticon-check').length).toBeFalsy();
+            expect(
+              wrapper.find('.xy-typography-copy').element.classList.contains('xy-typography-copy-success'),
+            ).toBe(false);
           } finally {
             vi.useRealTimers();
           }

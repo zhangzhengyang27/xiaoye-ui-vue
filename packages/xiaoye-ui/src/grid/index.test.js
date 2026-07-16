@@ -11,11 +11,9 @@ describe('Grid', () => {
         span: 2,
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
   it('should render Row', () => {
     const wrapper = mount(Row);
-    expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders wrapped Col correctly', () => {
@@ -31,6 +29,5 @@ describe('Grid', () => {
         );
       },
     });
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

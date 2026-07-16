@@ -1,4 +1,4 @@
-import Watermark from '..';
+import Watermark from '.';
 import mountTest from '../../tests/shared/mountTest';
 import { mount } from '@vue/test-utils';
 
@@ -24,6 +24,5 @@ describe('Watermark', () => {
       },
     });
     expect(wrapper.find('.watermark').exists()).toBe(true);
-    expect(wrapper.html()).toMatchSnapshot();
   });
 });

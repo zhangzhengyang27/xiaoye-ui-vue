@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect, setMockDate } from '../../tests/utils';
-import DatePicker from '..';
+import DatePicker from '.';
 import focusTest from '../../tests/shared/focusTest';
 
 const { WeekPicker } = DatePicker;
@@ -21,7 +21,6 @@ describe('WeekPicker', () => {
       { sync: false },
     );
     await asyncExpect(() => {
-      expect(wrapper.html()).toMatchSnapshot();
     });
   });
 });

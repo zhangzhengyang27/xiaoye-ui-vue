@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Checkbox from '..';
+import Checkbox from '.';
 import focusTest from '../../tests/shared/focusTest';
 import { resetWarned } from './../_util/warning';
 import mountTest from '../../tests/shared/mountTest';

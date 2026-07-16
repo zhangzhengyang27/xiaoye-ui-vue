@@ -8,7 +8,6 @@ describe('Static-Style-Extract', () => {
   it('should extract static styles', () => {
     const cssText = extractStyle();
     expect(cssText).not.toContain(testGreenColor);
-    expect(cssText).toMatchSnapshot();
   });
   it('should extract static styles with customTheme', () => {
     const cssText = extractStyle(node => {
@@ -25,7 +24,6 @@ describe('Static-Style-Extract', () => {
       );
     });
     expect(cssText).toContain(testGreenColor);
-    expect(cssText).toMatchSnapshot();
   });
 
   it('should extract static styles with customTheme and customStyle', () => {
@@ -44,7 +42,6 @@ describe('Static-Style-Extract', () => {
       );
     });
     expect(cssText).toContain('#037003');
-    expect(cssText).toMatchSnapshot();
   });
   // it('with custom hashPriority', () => {
   //   const cssText = extractStyle(

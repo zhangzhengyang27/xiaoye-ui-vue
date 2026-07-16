@@ -1,8 +1,22 @@
-import Affix from '..';
+import Affix from '.';
 import Button from './../button';
 import { mount } from '@vue/test-utils';
 function spyElementPrototype(proto, method, impl) {
-  return vi.spyOn(proto, method).mockImplementation(impl);
+  const original = Object.getOwnPropertyDescriptor(proto.prototype, method);
+  Object.defineProperty(proto.prototype, method, {
+    value: impl,
+    configurable: true,
+    writable: true,
+  });
+  return {
+    mockRestore() {
+      if (original) {
+        Object.defineProperty(proto.prototype, method, original);
+      } else {
+        delete proto.prototype[method];
+      }
+    },
+  };
 }
 const events = {};
 

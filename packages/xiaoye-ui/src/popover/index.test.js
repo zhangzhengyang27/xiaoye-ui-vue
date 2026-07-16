@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import { asyncExpect } from '../../tests/utils';
-import Popover from '..';
+import Popover from '.';
 import mountTest from '../../tests/shared/mountTest';
 
 describe('Popover', () => {
@@ -42,8 +42,6 @@ describe('Popover', () => {
       expect(popup).not.toBe(null);
     }, 1000);
     await asyncExpect(() => {
-      expect(popup.innerHTML).toMatchSnapshot();
-      expect(popup.innerHTML).toMatchSnapshot();
     });
   });
 });

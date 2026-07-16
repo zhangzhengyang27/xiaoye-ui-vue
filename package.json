@@ -93,6 +93,8 @@
     "*.{js,mjs,jsx,ts,tsx,json,md,css,less,vue}": "prettier --write"
   },
   "pnpm": {
-    "overrides": {}
+    "overrides": {
+      "typescript": "~5.8.3"
+    }
   }
 }
