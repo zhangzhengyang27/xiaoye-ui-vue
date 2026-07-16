@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/icons-vue": "^7.0.0",
     "@ctrl/tinycolor": "^4.0.0",
     "@emotion/hash": "^0.9.0",
     "@emotion/unitless": "^0.8.0",
