@@ -1,0 +1,11 @@
+{
+  "main": "./SwapIcon.vue",
+  "module": "./SwapIcon.vue",
+  "types": "./SwapIcon.d.ts",
+  "browser": {
+    "./sfc": "./SwapIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
+}

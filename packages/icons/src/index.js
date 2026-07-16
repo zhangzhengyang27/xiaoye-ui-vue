@@ -940,6 +940,18 @@ export { default as ZoomInIcon } from './zoom-in';
 export * from './zoom-out';
 export { default as ZoomOutIcon } from './zoom-out';
 
+// AndroidIcon (新建组件，对应 @ant-design/icons-vue 的 AndroidOutlined)
+export * from './android';
+export { default as AndroidIcon } from './android';
+
+// EnterIcon (新建组件，对应 @ant-design/icons-vue 的 EnterOutlined)
+export * from './enter';
+export { default as EnterIcon } from './enter';
+
+// SwapIcon (新建组件，对应 @ant-design/icons-vue 的 SwapOutlined)
+export * from './swap';
+export { default as SwapIcon } from './swap';
+
 /***************** @ant-design/icons-vue 兼容层 *****************/
 /*
  * 该区块用于兼容 @ant-design/icons-vue 的命名风格（XxxOutlined），
@@ -1204,6 +1216,123 @@ export { default as TeamOutlined } from './users';
 
 // VideoCameraOutlined (映射自 VideoIcon)
 export { default as VideoCameraOutlined } from './video';
+
+// AndroidOutlined (映射自新建的 AndroidIcon)
+export { default as AndroidOutlined } from './android';
+
+// AppleOutlined (映射自 AppleIcon)
+export { default as AppleOutlined } from './apple';
+
+// BarsOutlined (映射自 BarsIcon)
+export { default as BarsOutlined } from './bars';
+
+// CaretDownFilled (近似映射自 ChevronDownIcon，无 Filled 变体)
+export { default as CaretDownFilled } from './chevrondown';
+
+// CaretDownOutlined (近似映射自 ChevronDownIcon)
+export { default as CaretDownOutlined } from './chevrondown';
+
+// CaretUpOutlined (近似映射自 ChevronUpIcon)
+export { default as CaretUpOutlined } from './chevronup';
+
+// CarryOutOutlined (近似映射自 CheckSquareIcon)
+export { default as CarryOutOutlined } from './check-square';
+
+// CheckCircleFilled (映射自 CircleCheckIcon，无 Filled 变体)
+export { default as CheckCircleFilled } from './circle-check';
+
+// CloseCircleFilled (映射自 CircleXIcon，无 Filled 变体)
+export { default as CloseCircleFilled } from './circle-x';
+
+// CopyOutlined (映射自 CopyIcon)
+export { default as CopyOutlined } from './copy';
+
+// DeleteOutlined (近似映射自 TrashIcon)
+export { default as DeleteOutlined } from './trash';
+
+// DoubleLeftOutlined (映射自 AngleDoubleLeftIcon)
+export { default as DoubleLeftOutlined } from './angledoubleleft';
+
+// DoubleRightOutlined (映射自 AngleDoubleRightIcon)
+export { default as DoubleRightOutlined } from './angledoubleright';
+
+// EnterOutlined (映射自新建的 EnterIcon)
+export { default as EnterOutlined } from './enter';
+
+// ExclamationCircleFilled (映射自 CircleAlertIcon，无 Filled 变体)
+export { default as ExclamationCircleFilled } from './circle-alert';
+
+// EyeOutlined (映射自 EyeIcon)
+export { default as EyeOutlined } from './eye';
+
+// FileTwoTone (映射自 FileIcon，无 TwoTone 变体)
+export { default as FileTwoTone } from './file';
+
+// FilterFilled (映射自 FilterFillIcon)
+export { default as FilterFilled } from './filterfill';
+
+// FolderOpenOutlined (映射自 FolderOpenIcon)
+export { default as FolderOpenOutlined } from './folder-open';
+
+// FolderOutlined (映射自 FolderIcon)
+export { default as FolderOutlined } from './folder';
+
+// FrownFilled (近似映射自 SmileFillIcon，无 Frown 填充变体)
+export { default as FrownFilled } from './smile-fill';
+
+// InfoCircleFilled (映射自 InfoCircleIcon，无 Filled 变体)
+export { default as InfoCircleFilled } from './infocircle';
+
+// MinusSquareOutlined (近似映射自 SquareMinusIcon)
+export { default as MinusSquareOutlined } from './square-minus';
+
+// PaperClipOutlined (映射自 PaperclipIcon)
+export { default as PaperClipOutlined } from './paperclip';
+
+// PictureTwoTone (映射自 ImageIcon，无 TwoTone 变体)
+export { default as PictureTwoTone } from './image';
+
+// PlusSquareOutlined (近似映射自 PlusIcon，无方形变体)
+export { default as PlusSquareOutlined } from './plus';
+
+// PoweroffOutlined (映射自 PowerIcon)
+export { default as PoweroffOutlined } from './power';
+
+// RotateLeftOutlined (映射自 RotateCcwIcon)
+export { default as RotateLeftOutlined } from './rotate-ccw';
+
+// RotateRightOutlined (近似映射自 RedoIcon，无 rotate-cw)
+export { default as RotateRightOutlined } from './redo';
+
+// SolutionOutlined (映射自 SolutionIcon)
+export { default as SolutionOutlined } from './solution';
+
+// SwapOutlined (映射自新建的 SwapIcon)
+export { default as SwapOutlined } from './swap';
+
+// SwapRightOutlined (近似映射自 ArrowRightIcon，无 swap-right)
+export { default as SwapRightOutlined } from './arrow-right';
+
+// UpOutlined (近似映射自 ArrowUpIcon，无 up)
+export { default as UpOutlined } from './arrowup';
+
+// VerticalAlignTopOutlined (近似映射自 ArrowUpNarrowWideIcon)
+export { default as VerticalAlignTopOutlined } from './arrow-up-narrow-wide';
+
+// WarningFilled (映射自 ExclamationTriangleIcon，无 Filled 变体)
+export { default as WarningFilled } from './exclamationtriangle';
+
+// ZoomInOutlined (映射自 ZoomInIcon)
+export { default as ZoomInOutlined } from './zoom-in';
+
+// ZoomOutOutlined (映射自 ZoomOutIcon)
+export { default as ZoomOutOutlined } from './zoom-out';
+
+// ArrowLeftOutlined (近似映射自 ChevronLeftIcon，无 arrow-left)
+export { default as ArrowLeftOutlined } from './chevronleft';
+
+// ArrowRightOutlined (映射自 ArrowRightIcon)
+export { default as ArrowRightOutlined } from './arrow-right';
 
 /*
  * 以下 @ant-design/icons-vue 的特殊 API 在 xiaoye-ui/icons 中没有对应实现：

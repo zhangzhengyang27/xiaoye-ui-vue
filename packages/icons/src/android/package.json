@@ -1,0 +1,11 @@
+{
+  "main": "./AndroidIcon.vue",
+  "module": "./AndroidIcon.vue",
+  "types": "./AndroidIcon.d.ts",
+  "browser": {
+    "./sfc": "./AndroidIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
+}

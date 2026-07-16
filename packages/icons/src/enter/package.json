@@ -1,0 +1,11 @@
+{
+  "main": "./EnterIcon.vue",
+  "module": "./EnterIcon.vue",
+  "types": "./EnterIcon.d.ts",
+  "browser": {
+    "./sfc": "./EnterIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
+}
