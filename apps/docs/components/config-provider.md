@@ -84,7 +84,7 @@ config-provider/theme
 |  input  |  设置 Input 组件的通用属性  |  \{ autocomplete?: string \}  |  -  |  3.0  |
 |  locale  |  语言包配置，语言包可到 [xiaoye-ui/es/locale](http://unpkg.com/xiaoye-ui/es/locale/) 目录下寻找  |  object  |  -  |  1.5.0  |
 |  pageHeader  |  统一设置 pageHeader 的 ghost，参考 [pageHeader](<(/components/page-header)>)  |  \{ ghost: boolean \}  |  'true'  |  1.5.0  |
-|  prefixCls  |  设置统一样式前缀。注意：需要配合 `less` 变量 `@ant-prefix` 使用  |  string  |  `ant`  |    |
+|  prefixCls  |  设置统一样式前缀。注意：需要配合 `less` 变量 `@xy-prefix` 使用  |  string  |  `xy`  |    |
 |  renderEmpty  |  自定义组件空状态。参考 [空状态](/components/empty/)  |  slot \ |  Function(componentName: string): VNode  |  -  |    |
 |  space  |  设置 Space 的 `size`，参考 [Space](/components/space)  |  \{ size: `small` \ |  `middle` \ |  `large` \ |  `number` \}  |  -  |  3.0  |
 |  transformCellText  |  Table 数据渲染前可以再次改变，一般用户空数据的默认配置  |  Function(\{ text, column, record, index \}) => any  |  -  |  1.5.4  |

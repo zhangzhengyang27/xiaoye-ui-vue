@@ -7,7 +7,7 @@
     @finish="onFinish"
   >
     <a-form-item label="Plain Text">
-      <span class="ant-form-text">China</span>
+      <span class="xy-form-text">China</span>
     </a-form-item>
     <a-form-item
       name="select"
@@ -41,7 +41,7 @@
       <a-form-item name="input-number" no-style>
         <a-input-number v-model:value="formState['input-number']" :min="1" :max="10" />
       </a-form-item>
-      <span class="ant-form-text">machines</span>
+      <span class="xy-form-text">machines</span>
     </a-form-item>
 
     <a-form-item name="switch" label="Switch">
@@ -128,11 +128,11 @@
     <a-form-item label="Dragger">
       <a-form-item name="dragger" no-style>
         <a-upload-dragger v-model:fileList="formState.dragger" name="files" action="/upload.do">
-          <p class="ant-upload-drag-icon">
+          <p class="xy-upload-drag-icon">
             <InboxOutlined />
           </p>
-          <p class="ant-upload-text">Click or drag file to this area to upload</p>
-          <p class="ant-upload-hint">Support for a single or bulk upload.</p>
+          <p class="xy-upload-text">Click or drag file to this area to upload</p>
+          <p class="xy-upload-hint">Support for a single or bulk upload.</p>
         </a-upload-dragger>
       </a-form-item>
     </a-form-item>

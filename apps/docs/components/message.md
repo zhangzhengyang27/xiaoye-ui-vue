@@ -143,7 +143,7 @@ message.config({
 |  duration  |  默认自动关闭延时，单位秒  |  number  |  3  |    |    |
 |  getContainer  |  配置渲染节点的输出位置  |  () => HTMLElement  |  () => document.body  |    |    |
 |  maxCount  |  最大显示数, 超过限制时，最早的消息会被自动关闭  |  number  |  -  |    |    |
-|  prefixCls  |  消息节点的 className 前缀  |  string  |  `ant-message`  |  3.0  |    |
+|  prefixCls  |  消息节点的 className 前缀  |  string  |  `xy-message`  |  3.0  |    |
 |  rtl  |  是否开启 RTL 模式  |  boolean  |  false  |    |    |
 |  top  |  消息距离顶部的位置  |  string  |  `8px`  |    |    |
 

@@ -30,8 +30,8 @@
             "import": "./src/index.ts"
         },
         "./object": {
-            "types": "./src/object.ts",
-            "import": "./src/object.ts"
+            "types": "./src/object/index.ts",
+            "import": "./src/object/index.ts"
         },
         "./dom": {
             "types": "./src/dom.ts",

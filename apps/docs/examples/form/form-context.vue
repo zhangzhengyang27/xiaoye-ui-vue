@@ -22,7 +22,7 @@
         </ul>
       </template>
       <template v-else>
-        <a-typography-text class="ant-form-text" type="secondary">
+        <a-typography-text class="xy-form-text" type="secondary">
           (
           <SmileOutlined />
           No user yet. )

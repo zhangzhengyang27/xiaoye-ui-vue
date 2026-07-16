@@ -1,10 +1,10 @@
 <template>
   <div>
     <a-rate v-model:value="value1" />
-    <span class="ant-rate-text">allowClear: true</span>
+    <span class="xy-rate-text">allowClear: true</span>
     <br />
     <a-rate v-model:value="value2" :allow-clear="false" />
-    <span class="ant-rate-text">allowClear: false</span>
+    <span class="xy-rate-text">allowClear: false</span>
   </div>
 </template>
 <script lang="ts" setup>

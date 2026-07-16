@@ -51,7 +51,7 @@
 </template>
 
 <style lang="less" scoped>
-:deep(#components-grid-demo-flex) [class~='ant-row'] {
+:deep(#components-grid-demo-flex) [class~='xy-row'] {
   background: rgba(128, 128, 128, 0.08);
 }
 </style>

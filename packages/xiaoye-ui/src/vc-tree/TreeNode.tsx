@@ -534,7 +534,6 @@ export default defineComponent({
 
       const dragging = draggingNodeKey === eventKey;
       const ariaSelected = selectable !== undefined ? { 'aria-selected': !!selectable } : undefined;
-      // console.log(1);
       return (
         <div
           ref={domRef}

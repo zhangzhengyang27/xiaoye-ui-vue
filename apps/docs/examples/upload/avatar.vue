@@ -13,7 +13,7 @@
     <div v-else>
       <loading-outlined v-if="loading"></loading-outlined>
       <plus-outlined v-else></plus-outlined>
-      <div class="ant-upload-text">Upload</div>
+      <div class="xy-upload-text">Upload</div>
     </div>
   </a-upload>
 </template>

@@ -6,10 +6,10 @@
       :options="options1"
       @change="handleChange"
     >
-      <template #suffixIcon><smile-outlined class="ant-select-suffix" /></template>
+      <template #suffixIcon><smile-outlined class="xy-select-suffix" /></template>
     </a-select>
     <a-select v-model:value="value2" style="width: 120px" disabled :options="options2">
-      <template #suffixIcon><meh-outlined class="ant-select-suffix" /></template>
+      <template #suffixIcon><meh-outlined class="xy-select-suffix" /></template>
     </a-select>
   </a-space>
 </template>

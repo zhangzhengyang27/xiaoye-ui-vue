@@ -1,13 +1,13 @@
 <template>
   <a-table
-    class="ant-table-striped"
+    class="xy-table-striped"
     size="middle"
     :columns="columns"
     :data-source="data"
     :row-class-name="(_record, index) => (index % 2 === 1 ? 'table-striped' : null)"
   />
   <a-table
-    class="ant-table-striped"
+    class="xy-table-striped"
     size="middle"
     :columns="columns"
     :data-source="data"

@@ -3,7 +3,7 @@
     <a-form
       ref="formRef"
       name="advanced_search"
-      class="ant-advanced-search-form"
+      class="xy-advanced-search-form"
       :model="formState"
       @finish="onFinish"
     >

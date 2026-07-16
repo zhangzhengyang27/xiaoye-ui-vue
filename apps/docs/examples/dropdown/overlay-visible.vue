@@ -1,6 +1,6 @@
 <template>
   <a-dropdown v-model:open="visible">
-    <a class="ant-dropdown-link" @click.prevent>
+    <a class="xy-dropdown-link" @click.prevent>
       Hover me
       <DownOutlined />
     </a>

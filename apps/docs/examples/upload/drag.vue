@@ -7,11 +7,11 @@
     @change="handleChange"
     @drop="handleDrop"
   >
-    <p class="ant-upload-drag-icon">
+    <p class="xy-upload-drag-icon">
       <inbox-outlined></inbox-outlined>
     </p>
-    <p class="ant-upload-text">Click or drag file to this area to upload</p>
-    <p class="ant-upload-hint">
+    <p class="xy-upload-text">Click or drag file to this area to upload</p>
+    <p class="xy-upload-hint">
       Support for a single or bulk upload. Strictly prohibit from uploading company data or other
       band files
     </p>
