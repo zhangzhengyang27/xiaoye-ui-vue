@@ -939,3 +939,193 @@ export { default as ZoomInIcon } from './zoom-in';
 // ZoomOutIcon
 export * from './zoom-out';
 export { default as ZoomOutIcon } from './zoom-out';
+
+/***************** @ant-design/icons-vue 兼容层 *****************/
+/*
+ * 该区块用于兼容 @ant-design/icons-vue 的命名风格（XxxOutlined），
+ * 实际导出的是 @xiaoye-ui/icons 的对应图标。
+ * 对于无对应映射的图标，以注释形式说明。
+ */
+
+// AntDesignOutlined (近似映射自 AppleIcon，品牌图标)
+export { default as AntDesignOutlined } from './apple';
+
+// ArrowDownOutlined (映射自 ArrowDownIcon)
+export { default as ArrowDownOutlined } from './arrowdown';
+
+// ArrowUpOutlined (映射自 ArrowUpIcon)
+export { default as ArrowUpOutlined } from './arrowup';
+
+// BorderBottomOutlined (近似映射自 AlignJustifyIcon)
+export { default as BorderBottomOutlined } from './align-justify';
+
+// BorderTopOutlined (近似映射自 AlignJustifyIcon)
+export { default as BorderTopOutlined } from './align-justify';
+
+// CheckCircleOutlined (映射自 CircleCheckIcon)
+export { default as CheckCircleOutlined } from './circle-check';
+
+// CheckOutlined (映射自 CheckIcon)
+export { default as CheckOutlined } from './check';
+
+// ClockCircleOutlined (映射自 ClockIcon)
+export { default as ClockCircleOutlined } from './clock';
+
+// CloseCircleOutlined (映射自 CircleXIcon)
+export { default as CloseCircleOutlined } from './circle-x';
+
+// CloseOutlined (映射自 TimesIcon)
+export { default as CloseOutlined } from './times';
+
+// CommentOutlined (映射自 MessageSquareIcon)
+export { default as CommentOutlined } from './message-square';
+
+// CustomerServiceOutlined (近似映射自 BellIcon)
+export { default as CustomerServiceOutlined } from './bell';
+
+// DownloadOutlined (映射自 DownloadIcon)
+export { default as DownloadOutlined } from './download';
+
+// DownOutlined (映射自 ChevronDownIcon)
+export { default as DownOutlined } from './chevrondown';
+
+// EditOutlined (映射自 PencilIcon)
+export { default as EditOutlined } from './pencil';
+
+// EllipsisOutlined (映射自 MoreHorizontalIcon)
+export { default as EllipsisOutlined } from './more-horizontal';
+
+// ExclamationCircleOutlined (映射自 CircleAlertIcon)
+export { default as ExclamationCircleOutlined } from './circle-alert';
+
+// EyeInvisibleOutlined (映射自 EyeSlashIcon)
+export { default as EyeInvisibleOutlined } from './eyeslash';
+
+// EyeTwoTone (映射自 EyeIcon，无 TwoTone 变体，使用普通版本)
+export { default as EyeTwoTone } from './eye';
+
+// FacebookOutlined (映射自 FacebookIcon)
+export { default as FacebookOutlined } from './facebook';
+
+// FileTextOutlined (映射自 FileTextIcon)
+export { default as FileTextOutlined } from './file-text';
+
+// FrownOutlined (近似映射自 SmileIcon，表情图标)
+export { default as FrownOutlined } from './smile';
+
+// HeartOutlined (映射自 HeartIcon)
+export { default as HeartOutlined } from './heart';
+
+// HighlightOutlined (映射自 HighlighterIcon)
+export { default as HighlightOutlined } from './highlighter';
+
+// HomeOutlined (映射自 HomeIcon)
+export { default as HomeOutlined } from './home';
+
+// InboxOutlined (映射自 InboxIcon)
+export { default as InboxOutlined } from './inbox';
+
+// InfoCircleOutlined (映射自 InfoCircleIcon)
+export { default as InfoCircleOutlined } from './infocircle';
+
+// LeftCircleOutlined (近似映射自 ChevronLeftIcon)
+export { default as LeftCircleOutlined } from './chevronleft';
+
+// LeftOutlined (映射自 ChevronLeftIcon)
+export { default as LeftOutlined } from './chevronleft';
+
+// LikeOutlined (映射自 ThumbsUpIcon)
+export { default as LikeOutlined } from './thumbs-up';
+
+// LinkedinOutlined (映射自 LinkedinIcon)
+export { default as LinkedinOutlined } from './linkedin';
+
+// LoadingOutlined (映射自 LoadingIcon)
+export { default as LoadingOutlined } from './loading';
+
+// LockOutlined (映射自 LockIcon)
+export { default as LockOutlined } from './lock';
+
+// MessageOutlined (映射自 MessageCircleIcon)
+export { default as MessageOutlined } from './message-circle';
+
+// MinusCircleOutlined (映射自 CircleMinusIcon)
+export { default as MinusCircleOutlined } from './circle-minus';
+
+// MinusOutlined (映射自 MinusIcon)
+export { default as MinusOutlined } from './minus';
+
+// NotificationOutlined (映射自 BellIcon)
+export { default as NotificationOutlined } from './bell';
+
+// PlusOutlined (映射自 PlusIcon)
+export { default as PlusOutlined } from './plus';
+
+// QuestionCircleOutlined (映射自 CircleHelpIcon)
+export { default as QuestionCircleOutlined } from './circle-help';
+
+// RadiusBottomleftOutlined (近似映射自 SquareIcon)
+export { default as RadiusBottomleftOutlined } from './square';
+
+// RadiusBottomrightOutlined (近似映射自 SquareIcon)
+export { default as RadiusBottomrightOutlined } from './square';
+
+// RadiusUpleftOutlined (近似映射自 SquareIcon)
+export { default as RadiusUpleftOutlined } from './square';
+
+// RadiusUprightOutlined (近似映射自 SquareIcon)
+export { default as RadiusUprightOutlined } from './square';
+
+// ReloadOutlined (映射自 RefreshIcon)
+export { default as ReloadOutlined } from './refresh';
+
+// RightCircleOutlined (近似映射自 ChevronRightIcon)
+export { default as RightCircleOutlined } from './chevronright';
+
+// RightOutlined (映射自 ChevronRightIcon)
+export { default as RightOutlined } from './chevronright';
+
+// ShareAltOutlined (映射自 Share2Icon)
+export { default as ShareAltOutlined } from './share2';
+
+// SettingOutlined (映射自 SettingsIcon)
+export { default as SettingOutlined } from './settings';
+
+// SmileFilled (映射自 SmileFillIcon)
+export { default as SmileFilled } from './smile-fill';
+
+// SmileOutlined (映射自 SmileIcon)
+export { default as SmileOutlined } from './smile';
+
+// SmileTwoTone (映射自 SmileIcon，无 TwoTone 变体，使用普通版本)
+export { default as SmileTwoTone } from './smile';
+
+// StarOutlined (映射自 StarIcon)
+export { default as StarOutlined } from './star';
+
+// StepBackwardOutlined (映射自 AngleDoubleLeftIcon)
+export { default as StepBackwardOutlined } from './angledoubleleft';
+
+// SyncOutlined (映射自 RefreshCwIcon)
+export { default as SyncOutlined } from './refresh-cw';
+
+// TwitterOutlined (映射自 TwitterIcon)
+export { default as TwitterOutlined } from './twitter';
+
+// UploadOutlined (映射自 UploadIcon)
+export { default as UploadOutlined } from './upload';
+
+// UserOutlined (映射自 UserIcon)
+export { default as UserOutlined } from './user';
+
+// WifiOutlined (映射自 WifiIcon)
+export { default as WifiOutlined } from './wifi';
+
+// YoutubeOutlined (映射自 YoutubeIcon)
+export { default as YoutubeOutlined } from './youtube';
+
+/*
+ * 以下 @ant-design/icons-vue 的特殊 API 在 xiaoye-ui/icons 中没有对应实现：
+ * - createFromIconfontCN: iconfont 图标工厂函数，xiaoye-ui/icons 中没有对应实现
+ * - Icon (默认导出): 自定义图标组件，xiaoye-ui/icons 中没有对应实现
+ */
