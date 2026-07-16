@@ -10,7 +10,17 @@
       "@xiaoye-ui/icons": ["packages/icons/src/index.ts"],
       "@xiaoye-ui/icons/*": ["packages/icons/src/*"],
       "@xiaoye-ui/utils": ["packages/utils/src/index.ts"],
-      "@xiaoye-ui/utils/*": ["packages/utils/src/*"]
+      "@xiaoye-ui/utils/*": ["packages/utils/src/*"],
+      "@xiaoye-ui/metadata": ["packages/metadata/src/index.ts"],
+      "@xiaoye-ui/metadata/*": ["packages/metadata/src/*"],
+      "@xiaoye-ui/vite-plugin": ["packages/vite-plugin/src/index.ts"],
+      "@xiaoye-ui/vite-plugin/*": ["packages/vite-plugin/src/*"],
+      "@xiaoye-ui/auto-import-resolver": ["packages/auto-import-resolver/src/index.ts"],
+      "@xiaoye-ui/auto-import-resolver/*": ["packages/auto-import-resolver/src/*"],
+      "@xiaoye-ui/mcp": ["packages/mcp/src/index.ts"],
+      "@xiaoye-ui/mcp/*": ["packages/mcp/src/*"],
+      "@xiaoye-ui/nuxt-module": ["packages/nuxt-module/src/module.ts"],
+      "@xiaoye-ui/nuxt-module/*": ["packages/nuxt-module/src/*"]
     },
     "strictNullChecks": false,
     "moduleResolution": "node",
@@ -19,5 +29,5 @@
     "target": "es6",
     "allowJs": true
   },
-  "exclude": ["node_modules", "**/dist/**/*", "**/lib/**/*", "**/es/**/*", "site/dist"]
+  "exclude": ["node_modules", "**/dist/**/*", "**/lib/**/*", "**/es/**/*"]
 }

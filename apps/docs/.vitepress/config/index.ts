@@ -120,7 +120,7 @@ export default defineConfig({
       vueTypeStubs(),
     ],
     ssr: {
-      noExternal: ['xiaoye-ui', '@xiaoye-ui', /^@xiaoye-ui\//, 'ant-design-vue', '@ant-design/icons-vue'],
+      noExternal: ['xiaoye-ui', '@xiaoye-ui', /^@xiaoye-ui\//, '@ant-design/icons-vue'],
     },
   },
   markdown: {

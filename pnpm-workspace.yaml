@@ -1,5 +1,3 @@
 packages:
   - 'packages/*'
   - 'apps/*'
-  - 'docs'
-  - 'docs-element-plus'

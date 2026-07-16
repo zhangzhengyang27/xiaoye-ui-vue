@@ -59,21 +59,11 @@ jspm_packages/
 dist
 lib
 es
-/locale
 _site
 yarn.lock
 package-lock.json
 pnpm-lock.yaml
 /coverage
-
-# 备份文件
-/components/test/*
-list.txt
-
-site/dev.js
-
-# IDE 语法提示临时文件
-vetur/
 
 # Nuxt 临时构建目录
 .nuxt/
@@ -81,14 +71,6 @@ vetur/
 .output/
 
 report.html
-
-site/src/router/demoRoutes.js
-
-components/version/version.ts
-components/version/version.tsx
-components/version/token.json
-components/version/token-meta.json
-~component-api.json
 
 # TRAE IDE 内部工作文档（迁移计划等），不纳入版本控制
 .trae/

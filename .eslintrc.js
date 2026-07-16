@@ -22,7 +22,7 @@ module.exports = {
   //   '@vue/typescript/recommended',
   //   '@vue/prettier',
   // ],
-  plugins: ['markdown', 'jest', '@typescript-eslint', 'import'],
+  plugins: ['markdown', '@typescript-eslint', 'import'],
   globals: {
     h: true,
     defineProps: 'readonly',

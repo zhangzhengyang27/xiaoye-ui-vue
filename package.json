@@ -16,10 +16,10 @@
     "xiaoye-ui"
   ],
   "scripts": {
-    "dev": "pnpm --filter showcase dev",
+    "dev": "pnpm --filter xiaoye-ui-docs dev",
     "build": "pnpm run build:packages && pnpm run build:apps",
     "build:packages": "pnpm --filter @xiaoye-ui/metadata build && pnpm --filter @xiaoye-ui/utils build && pnpm --filter @xiaoye-ui/core build && pnpm --filter @xiaoye-ui/icons build && pnpm --filter xiaoye-ui build && pnpm --filter @xiaoye-ui/auto-import-resolver build && pnpm --filter @xiaoye-ui/vite-plugin build && pnpm --filter @xiaoye-ui/nuxt-module build && pnpm --filter @xiaoye-ui/mcp build",
-    "build:apps": "pnpm --filter showcase build",
+    "build:apps": "pnpm --filter xiaoye-ui-docs build",
     "test:unit": "pnpm --filter xiaoye-ui test:unit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -137,7 +137,6 @@
     "postcss": "^8.2.12",
     "postcss-loader": "^6.0.0",
     "prettier": "^3.9.5",
-    "pretty-quick": "^3.0.0",
     "prismjs": "^1.23.0",
     "progress": "^2.0.3",
     "raw-loader": "^4.0.2",
@@ -193,10 +192,11 @@
     "webpackbar": "^5.0.2",
     "xhr-mock": "^2.5.1"
   },
+  "lint-staged": {
+    "*.{js,mjs,jsx,ts,tsx,vue}": "eslint --fix",
+    "*.{js,mjs,jsx,ts,tsx,json,md,css,less,vue}": "prettier --write"
+  },
   "pnpm": {
     "overrides": {}
-  },
-  "dependencies": {
-    "xiaoye-ui": "^5.1.0"
   }
 }
