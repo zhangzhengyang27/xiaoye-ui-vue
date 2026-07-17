@@ -115,7 +115,6 @@ module.exports = {
           '@xiaoye-ui/vite-plugin',
           '@xiaoye-ui/auto-import-resolver',
           '@xiaoye-ui/nuxt-module',
-          '@xiaoye-ui/mcp',
           // 构建工具配置文件引用的依赖（monorepo hoisting 导致 eslint 无法解析）
           'vite',
           'vitest/config',

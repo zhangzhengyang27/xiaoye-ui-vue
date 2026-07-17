@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "pnpm --filter xiaoye-ui-docs dev",
     "build": "pnpm run build:packages && pnpm run build:apps",
-    "build:packages": "pnpm --filter @xiaoye-ui/metadata build && pnpm --filter @xiaoye-ui/utils build && pnpm --filter @xiaoye-ui/core build && pnpm --filter @xiaoye-ui/icons build && pnpm --filter xiaoye-ui build && pnpm --filter @xiaoye-ui/auto-import-resolver build && pnpm --filter @xiaoye-ui/vite-plugin build && pnpm --filter @xiaoye-ui/nuxt-module build && pnpm --filter @xiaoye-ui/mcp build",
+    "build:packages": "pnpm --filter @xiaoye-ui/metadata build && pnpm --filter @xiaoye-ui/utils build && pnpm --filter @xiaoye-ui/core build && pnpm --filter @xiaoye-ui/icons build && pnpm --filter xiaoye-ui build && pnpm --filter @xiaoye-ui/auto-import-resolver build && pnpm --filter @xiaoye-ui/vite-plugin build && pnpm --filter @xiaoye-ui/nuxt-module build",
     "build:apps": "pnpm --filter xiaoye-ui-docs build",
     "test:unit": "pnpm --filter xiaoye-ui test:unit",
     "lint": "eslint .",

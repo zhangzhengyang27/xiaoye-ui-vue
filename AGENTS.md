@@ -36,8 +36,7 @@ XiaoyeUI 是一个基于 Vue 3 的企业级 UI 组件库，采用 monorepo 架�
 │   ├── metadata/               # 组件元数据
 │   ├── vite-plugin/            # Vite 插件（自动导入）
 │   ├── auto-import-resolver/   # 自动导入解析器
-│   ├── nuxt-module/            # Nuxt.js 模块
-│   └── mcp/                    # MCP 服务器
+│   └── nuxt-module/            # Nuxt.js 模块
 ├── apps/
 │   └── docs/                   # VitePress 文档
 └── pnpm-workspace.yaml
@@ -90,7 +89,6 @@ src/
 | `@xiaoye-ui/icons`                | 图标库                            |
 | `@xiaoye-ui/vite-plugin`          | Vite 插件，提供组件和样式自动导入 |
 | `@xiaoye-ui/auto-import-resolver` | 自动导入解析器                    |
-| `@xiaoye-ui/mcp`                  | Cursor MCP 服务器                 |
 
 ---
 

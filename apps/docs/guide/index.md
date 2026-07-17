@@ -43,8 +43,7 @@ packages/
 ├── metadata/               # 组件元数据
 ├── vite-plugin/            # Vite 自动导入插件
 ├── auto-import-resolver/   # 自动导入解析器
-├── nuxt-module/            # Nuxt.js 模块
-└── mcp/                    # MCP 服务器
+└── nuxt-module/            # Nuxt.js 模块
 ```
 
 ### AI / LLM 友好

@@ -24,10 +24,10 @@
 
 ### 包与发布
 
-- 新增 `@xiaoye-ui/icons`、`@xiaoye-ui/utils`、`@xiaoye-ui/metadata`、`@xiaoye-ui/vite-plugin`、`@xiaoye-ui/auto-import-resolver`、`@xiaoye-ui/nuxt-module`、`@xiaoye-ui/mcp` 等子包
+- 新增 `@xiaoye-ui/icons`、`@xiaoye-ui/utils`、`@xiaoye-ui/metadata`、`@xiaoye-ui/vite-plugin`、`@xiaoye-ui/auto-import-resolver`、`@xiaoye-ui/nuxt-module` 等子包
 - 新增 `scripts/prepare-dist-package.mjs`，为所有子包自动生成带正确入口、exports 和版本号的 `dist/package.json`
 - 修复 Nuxt 模块构建产物路径与 `unbuild` 警告问题
-- MCP 包标记为 `private`，避免发布空实现
+- 删除空的 MCP 包
 
 ### 类型与测试
 
