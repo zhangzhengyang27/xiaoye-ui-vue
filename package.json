@@ -27,7 +27,8 @@
     "format:check": "prettier --check \"**/*.{js,mjs,jsx,ts,tsx,json,md}\"",
     "typecheck": "pnpm -r run typecheck",
     "generate:llms": "node scripts/generate-llms-txt.mjs",
-    "release": "pnpm run build && pnpm recursive publish --filter './packages/*' --no-git-checks --report-summary",
+    "release:login": "npm login --auth-type=web",
+    "release": "pnpm recursive publish --filter './packages/*' --report-summary --publish-branch $(git branch --show-current)",
     "prepare": "husky"
   },
   "browserslist": [
