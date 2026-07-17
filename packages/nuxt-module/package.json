@@ -63,7 +63,7 @@
     "build:package": "pnpm run build:prebuild && pnpm run prepack && pnpm run build:postbuild",
     "build:prebuild": "node ./scripts/prebuild.mjs",
     "build:postbuild": "node ./scripts/postbuild.mjs && node ../../scripts/prepare-dist-package.mjs",
-    "prepack": "unbuild",
+    "prepack": "unbuild && node ../../scripts/prepare-dist-package.mjs",
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
