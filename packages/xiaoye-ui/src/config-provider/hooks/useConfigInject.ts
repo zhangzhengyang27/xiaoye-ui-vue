@@ -45,6 +45,7 @@ export default (name: string, props: Record<any, any>) => {
   const wave = computed<{
     disabled?: boolean;
   }>(() => props.wave ?? configProvider.wave?.value);
+  const ripple = computed<boolean>(() => props.ripple ?? configProvider.ripple?.value ?? true);
 
   return {
     configProvider,
@@ -68,5 +69,6 @@ export default (name: string, props: Record<any, any>) => {
     disabled,
     select: configProvider.select,
     wave,
+    ripple,
   };
 };

@@ -14,6 +14,8 @@ import inputProps from './inputProps';
 import omit from '../_util/omit';
 import { CloseCircleFilled } from '@xiaoye-ui/icons';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useKeyFilter } from '../key-filter/useKeyFilter';
+import type { KeyFilterPattern, KeyFilterPreset } from '../key-filter/keyFilterTypes';
 
 // CSSINJS
 import useStyle from './style';
@@ -41,6 +43,19 @@ export default defineComponent({
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const disabled = useInjectDisabled();
+
+    // ===================== KeyFilter 集成 =====================
+    // 仅当传入 keyFilterPreset 或 keyFilterPattern 时生效；不破坏既有 Input 行为
+    const keyFilterTarget = computed<HTMLElement | null>(() => {
+      return (inputRef.value?.input as HTMLElement | null) || null;
+    });
+
+    useKeyFilter({
+      target: keyFilterTarget,
+      preset: computed(() => props.keyFilterPreset as KeyFilterPreset | undefined),
+      pattern: computed(() => props.keyFilterPattern as KeyFilterPattern | string | undefined),
+      validateOnly: computed(() => props.keyFilterValidateOnly),
+    });
 
     const focus = (option?: InputFocusOptions) => {
       inputRef.value?.focus(option);
@@ -136,7 +151,16 @@ export default defineComponent({
       return wrapSSR(
         <VcInput
           {...attrs}
-          {...omit(rest, ['onUpdate:value', 'onChange', 'onInput', 'onBlur', 'onFocus'])}
+          {...omit(rest, [
+            'onUpdate:value',
+            'onChange',
+            'onInput',
+            'onBlur',
+            'onFocus',
+            'keyFilterPreset',
+            'keyFilterPattern',
+            'keyFilterValidateOnly',
+          ])}
           onChange={triggerChange}
           id={id}
           disabled={props.disabled ?? disabled.value}

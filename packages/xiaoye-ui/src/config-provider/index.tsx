@@ -198,6 +198,7 @@ const ConfigProvider = defineComponent({
     const componentSize = computed(() => props.componentSize);
     const componentDisabled = computed(() => props.componentDisabled);
     const wave = computed(() => props.wave ?? parentContext.wave?.value);
+    const ripple = computed(() => props.ripple ?? parentContext.ripple?.value ?? true);
     const configProvider: ConfigProviderInnerProps = {
       csp,
       autoInsertSpaceInButton,
@@ -223,6 +224,7 @@ const ConfigProvider = defineComponent({
       componentDisabled,
       transformCellText: computed(() => props.transformCellText),
       wave,
+      ripple,
     };
 
     // ================================ Dynamic theme ================================

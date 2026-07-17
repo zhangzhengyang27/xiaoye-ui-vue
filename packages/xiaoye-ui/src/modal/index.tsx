@@ -3,10 +3,13 @@ import type { ModalFunc, ModalFuncProps } from './Modal';
 import Modal from './Modal';
 import confirm, { withWarn, withInfo, withSuccess, withError, withConfirm } from './confirm';
 import useModal from './useModal';
+import useDynamicModal from './useDynamicModal';
 import destroyFns from './destroyFns';
 import { registerComponent } from '../_util/registerComponent';
 export type { ActionButtonProps } from '../_util/ActionButton';
 export type { ModalProps, ModalFuncProps } from './Modal';
+export type { DynamicModalInstance, DynamicModalOptions, DynamicModalRef } from './useDynamicModal';
+export { useDynamicModal };
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));

@@ -41,22 +41,54 @@
     "@ctrl/tinycolor": "^4.0.0",
     "@emotion/hash": "^0.9.0",
     "@emotion/unitless": "^0.8.0",
+    "@floating-ui/dom": "^1.7.6",
     "@simonwep/pickr": "^1.8.0",
+    "@tiptap/core": "^3.22.4",
+    "@tiptap/extension-bubble-menu": "^3.22.4",
+    "@tiptap/extension-code": "^3.22.4",
+    "@tiptap/extension-drag-handle": "^3.22.4",
+    "@tiptap/extension-drag-handle-vue-3": "^3.22.4",
+    "@tiptap/extension-floating-menu": "^3.22.4",
+    "@tiptap/extension-highlight": "^3.23.5",
+    "@tiptap/extension-horizontal-rule": "^3.22.4",
+    "@tiptap/extension-image": "^3.22.4",
+    "@tiptap/extension-link": "^3.22.4",
+    "@tiptap/extension-mention": "^3.22.4",
+    "@tiptap/extension-placeholder": "^3.22.4",
+    "@tiptap/extension-strike": "^3.23.5",
+    "@tiptap/extension-table": "^3.23.5",
+    "@tiptap/extension-table-cell": "^3.23.5",
+    "@tiptap/extension-table-header": "^3.23.5",
+    "@tiptap/extension-table-row": "^3.23.5",
+    "@tiptap/extension-task-item": "^3.22.4",
+    "@tiptap/extension-task-list": "^3.22.4",
+    "@tiptap/extension-text-align": "^3.22.4",
+    "@tiptap/extension-text-style": "^3.23.5",
+    "@tiptap/extension-underline": "^3.23.5",
+    "@tiptap/markdown": "^3.22.4",
+    "@tiptap/pm": "^3.22.4",
+    "@tiptap/starter-kit": "^3.22.4",
+    "@tiptap/suggestion": "^3.22.4",
+    "@tiptap/vue-3": "^3.22.4",
     "@xiaoye-ui/core": "workspace:*",
     "@xiaoye-ui/icons": "workspace:*",
     "@xiaoye-ui/utils": "workspace:*",
     "array-tree-filter": "^2.0.0",
     "async-validator": "^4.0.0",
+    "chart.js": "^4.4.0",
     "csstype": "^3.1.0",
     "dayjs": "^1.11.0",
+    "defu": "^6.1.7",
     "dom-align": "^1.12.0",
     "dom-scroll-into-view": "^2.0.1",
     "lodash-es": "^4.17.21",
+    "quill": "^2.0.0",
     "resize-observer-polyfill": "^1.5.0",
     "scroll-into-view-if-needed": "^3.0.0",
     "shallow-equal": "^3.0.0",
     "stylis": "^4.0.0",
     "throttle-debounce": "^5.0.0",
+    "tiptap-extension-code-block-shiki": "^1.2.0",
     "vue-types": "^5.0.0",
     "warning": "^4.0.0"
   },
@@ -144,6 +176,11 @@
       "import": "./src/cascader/index.tsx"
     },
     "./cascader/style": "./src/cascader/style/index.ts",
+    "./chart": {
+      "types": "./src/chart/index.ts",
+      "import": "./src/chart/index.ts"
+    },
+    "./chart/style": "./src/chart/style/index.ts",
     "./checkbox": {
       "types": "./src/checkbox/index.ts",
       "import": "./src/checkbox/index.ts"
@@ -159,6 +196,11 @@
       "import": "./src/collapse/index.ts"
     },
     "./collapse/style": "./src/collapse/style/index.tsx",
+    "./color-picker": {
+      "types": "./src/color-picker/index.ts",
+      "import": "./src/color-picker/index.ts"
+    },
+    "./color-picker/style": "./src/color-picker/style/index.ts",
     "./comment": {
       "types": "./src/comment/index.tsx",
       "import": "./src/comment/index.tsx"
@@ -169,6 +211,16 @@
       "import": "./src/config-provider/index.tsx"
     },
     "./config-provider/style": "./src/config-provider/style/index.ts",
+    "./context-menu": {
+      "types": "./src/context-menu/index.ts",
+      "import": "./src/context-menu/index.ts"
+    },
+    "./context-menu/style": "./src/context-menu/style/index.ts",
+    "./data-view": {
+      "types": "./src/data-view/index.ts",
+      "import": "./src/data-view/index.ts"
+    },
+    "./data-view/style": "./src/data-view/style/index.ts",
     "./date-picker": {
       "types": "./src/date-picker/index.tsx",
       "import": "./src/date-picker/index.tsx"
@@ -194,11 +246,21 @@
       "import": "./src/dropdown/index.ts"
     },
     "./dropdown/style": "./src/dropdown/style/index.ts",
+    "./editor": {
+      "types": "./src/editor/index.ts",
+      "import": "./src/editor/index.ts"
+    },
+    "./editor/style": "./src/editor/style/index.ts",
     "./empty": {
       "types": "./src/empty/index.tsx",
       "import": "./src/empty/index.tsx"
     },
     "./empty/style": "./src/empty/style/index.ts",
+    "./fieldset": {
+      "types": "./src/fieldset/index.ts",
+      "import": "./src/fieldset/index.ts"
+    },
+    "./fieldset/style": "./src/fieldset/style/index.ts",
     "./flex": {
       "types": "./src/flex/index.tsx",
       "import": "./src/flex/index.tsx"
@@ -209,11 +271,26 @@
       "import": "./src/float-button/index.ts"
     },
     "./float-button/style": "./src/float-button/style/index.ts",
+    "./focus-trap": {
+      "types": "./src/focus-trap/index.ts",
+      "import": "./src/focus-trap/index.ts"
+    },
+    "./focus-trap/style": "./src/focus-trap/style/index.ts",
     "./form": {
       "types": "./src/form/index.tsx",
       "import": "./src/form/index.tsx"
     },
     "./form/style": "./src/form/style/index.ts",
+    "./form-list": {
+      "types": "./src/form-list/index.ts",
+      "import": "./src/form-list/index.ts"
+    },
+    "./form-list/style": "./src/form-list/style/index.ts",
+    "./galleria": {
+      "types": "./src/galleria/index.ts",
+      "import": "./src/galleria/index.ts"
+    },
+    "./galleria/style": "./src/galleria/style/index.ts",
     "./grid": {
       "types": "./src/grid/index.ts",
       "import": "./src/grid/index.ts"
@@ -238,6 +315,11 @@
       "import": "./src/input-number/index.tsx"
     },
     "./input-number/style": "./src/input-number/style/index.tsx",
+    "./key-filter": {
+      "types": "./src/key-filter/index.ts",
+      "import": "./src/key-filter/index.ts"
+    },
+    "./key-filter/style": "./src/key-filter/style/index.ts",
     "./layout": {
       "types": "./src/layout/index.ts",
       "import": "./src/layout/index.ts"
@@ -277,6 +359,16 @@
       "import": "./src/notification/index.tsx"
     },
     "./notification/style": "./src/notification/style/index.ts",
+    "./organization-chart": {
+      "types": "./src/organization-chart/index.ts",
+      "import": "./src/organization-chart/index.ts"
+    },
+    "./organization-chart/style": "./src/organization-chart/style/index.ts",
+    "./overlay-badge": {
+      "types": "./src/overlay-badge/index.ts",
+      "import": "./src/overlay-badge/index.ts"
+    },
+    "./overlay-badge/style": "./src/overlay-badge/style/index.ts",
     "./page-header": {
       "types": "./src/page-header/index.tsx",
       "import": "./src/page-header/index.tsx"
@@ -287,6 +379,11 @@
       "import": "./src/pagination/index.ts"
     },
     "./pagination/style": "./src/pagination/style/index.tsx",
+    "./panel": {
+      "types": "./src/panel/index.ts",
+      "import": "./src/panel/index.ts"
+    },
+    "./panel/style": "./src/panel/style/index.ts",
     "./popconfirm": {
       "types": "./src/popconfirm/index.tsx",
       "import": "./src/popconfirm/index.tsx"
@@ -297,6 +394,11 @@
       "import": "./src/popover/index.tsx"
     },
     "./popover/style": "./src/popover/style/index.ts",
+    "./portal": {
+      "types": "./src/portal/index.ts",
+      "import": "./src/portal/index.ts"
+    },
+    "./portal/style": "./src/portal/style/index.ts",
     "./progress": {
       "types": "./src/progress/index.ts",
       "import": "./src/progress/index.ts"
@@ -322,6 +424,16 @@
       "import": "./src/result/index.tsx"
     },
     "./result/style": "./src/result/style/index.tsx",
+    "./rich-text-editor": {
+      "types": "./src/rich-text-editor/index.ts",
+      "import": "./src/rich-text-editor/index.ts"
+    },
+    "./rich-text-editor/style": "./src/rich-text-editor/style/index.ts",
+    "./ripple": {
+      "types": "./src/ripple/index.ts",
+      "import": "./src/ripple/index.ts"
+    },
+    "./ripple/style": "./src/ripple/style/index.ts",
     "./row": {
       "types": "./src/row/index.ts",
       "import": "./src/row/index.ts"
@@ -357,6 +469,11 @@
       "import": "./src/spin/index.ts"
     },
     "./spin/style": "./src/spin/style/index.ts",
+    "./splitter": {
+      "types": "./src/splitter/index.ts",
+      "import": "./src/splitter/index.ts"
+    },
+    "./splitter/style": "./src/splitter/style/index.ts",
     "./statistic": {
       "types": "./src/statistic/index.ts",
       "import": "./src/statistic/index.ts"
@@ -377,6 +494,10 @@
       "import": "./src/table/index.tsx"
     },
     "./table/style": "./src/table/style/index.ts",
+    "./table-core": {
+      "types": "./src/table-core/index.ts",
+      "import": "./src/table-core/index.ts"
+    },
     "./tabs": {
       "types": "./src/tabs/index.ts",
       "import": "./src/tabs/index.ts"
@@ -396,6 +517,11 @@
       "import": "./src/timeline/index.tsx"
     },
     "./timeline/style": "./src/timeline/style/index.tsx",
+    "./toolbar": {
+      "types": "./src/toolbar/index.ts",
+      "import": "./src/toolbar/index.ts"
+    },
+    "./toolbar/style": "./src/toolbar/style/index.ts",
     "./tooltip": {
       "types": "./src/tooltip/index.ts",
       "import": "./src/tooltip/index.ts"
@@ -416,11 +542,21 @@
       "import": "./src/tree/index.tsx"
     },
     "./tree/style": "./src/tree/style/index.ts",
+    "./tree-chart": {
+      "types": "./src/tree-chart/index.ts",
+      "import": "./src/tree-chart/index.ts"
+    },
+    "./tree-chart/style": "./src/tree-chart/style/index.ts",
     "./tree-select": {
       "types": "./src/tree-select/index.tsx",
       "import": "./src/tree-select/index.tsx"
     },
     "./tree-select/style": "./src/tree-select/style/index.tsx",
+    "./tree-table": {
+      "types": "./src/tree-table/index.ts",
+      "import": "./src/tree-table/index.ts"
+    },
+    "./tree-table/style": "./src/tree-table/style/index.ts",
     "./typography": {
       "types": "./src/typography/index.tsx",
       "import": "./src/typography/index.tsx"
@@ -431,6 +567,11 @@
       "import": "./src/upload/index.tsx"
     },
     "./upload/style": "./src/upload/style/index.ts",
+    "./virtual-scroller": {
+      "types": "./src/virtual-scroller/index.ts",
+      "import": "./src/virtual-scroller/index.ts"
+    },
+    "./virtual-scroller/style": "./src/virtual-scroller/style/index.ts",
     "./watermark": {
       "types": "./src/watermark/index.tsx",
       "import": "./src/watermark/index.tsx"

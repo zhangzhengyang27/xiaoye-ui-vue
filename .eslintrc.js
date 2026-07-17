@@ -141,6 +141,8 @@ module.exports = {
           'unplugin-vue-components/nuxt',
           'unbuild',
           'valibot',
+          // tiptap 子路径导出（eslint-plugin-import 无法解析 exports 字段）
+          '@tiptap/vue-3/menus',
         ],
       },
     ],

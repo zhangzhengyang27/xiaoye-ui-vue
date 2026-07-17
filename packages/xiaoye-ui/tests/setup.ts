@@ -110,6 +110,8 @@ if (typeof window !== 'undefined') {
         matches: query.includes('max-width'),
         addListener: () => {},
         removeListener: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
       }),
     });
   }

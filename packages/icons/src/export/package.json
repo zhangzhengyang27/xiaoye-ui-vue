@@ -1,0 +1,11 @@
+{
+  "main": "./ExportIcon.vue",
+  "module": "./ExportIcon.vue",
+  "types": "./ExportIcon.d.ts",
+  "browser": {
+    "./sfc": "./ExportIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
+}

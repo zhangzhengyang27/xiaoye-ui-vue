@@ -35,7 +35,17 @@ const categories = [
   {
     name: 'general',
     label: '通用',
-    components: ['button', 'icon', 'typography', 'grid', 'space', 'flex'],
+    components: [
+      'button',
+      'icon',
+      'typography',
+      'grid',
+      'space',
+      'flex',
+      'portal',
+      'ripple',
+      'toolbar',
+    ],
   },
   {
     name: 'layout',
@@ -50,6 +60,10 @@ const categories = [
       'steps',
       'tabs',
       'layout',
+      'splitter',
+      'panel',
+      'fieldset',
+      'virtual-scroller',
     ],
   },
   { name: 'navigation', label: '导航', components: ['anchor', 'app'] },
@@ -74,6 +88,12 @@ const categories = [
       'transfer',
       'tree-select',
       'upload',
+      'color-picker',
+      'key-filter',
+      'focus-trap',
+      'editor',
+      'rich-text-editor',
+      'form-list',
     ],
   },
   {
@@ -103,12 +123,28 @@ const categories = [
       'tooltip',
       'tree',
       'watermark',
+      'organization-chart',
+      'tree-chart',
+      'data-view',
+      'galleria',
+      'overlay-badge',
+      'tree-table',
+      'chart',
     ],
   },
   {
     name: 'feedback',
     label: '反馈',
-    components: ['alert', 'message', 'modal', 'notification', 'popconfirm', 'spin', 'tour'],
+    components: [
+      'alert',
+      'message',
+      'modal',
+      'notification',
+      'popconfirm',
+      'spin',
+      'tour',
+      'context-menu',
+    ],
   },
   {
     name: 'other',
@@ -240,6 +276,9 @@ export default defineConfig({
     },
   },
   markdown: {
+    headers: {
+      level: [2, 3],
+    },
     config(md) {
       md.use(markdownContainer, 'demo', createDemoContainer(md));
     },

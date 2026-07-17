@@ -52,6 +52,10 @@ import './carousel/style';
 export { default as Cascader } from './cascader';
 import './cascader/style';
 
+export * from './chart';
+export { default as Chart } from './chart';
+import './chart/style';
+
 export * from './checkbox';
 export { default as Checkbox } from './checkbox';
 import './checkbox/style';
@@ -63,6 +67,10 @@ export * from './collapse';
 export { default as Collapse } from './collapse';
 import './collapse/style';
 
+export * from './color-picker';
+export { default as ColorPicker } from './color-picker';
+import './color-picker/style';
+
 export * from './comment';
 export { default as Comment } from './comment';
 import './comment/style';
@@ -70,6 +78,14 @@ import './comment/style';
 export * from './config-provider';
 export { default as ConfigProvider } from './config-provider';
 import './config-provider/style';
+
+export * from './context-menu';
+export { default as ContextMenu } from './context-menu';
+import './context-menu/style';
+
+export * from './data-view';
+export { default as DataView } from './data-view';
+import './data-view/style';
 
 export { default as DatePicker } from './date-picker';
 import './date-picker/style';
@@ -90,9 +106,17 @@ export * from './dropdown';
 export { default as Dropdown } from './dropdown';
 import './dropdown/style';
 
+export * from './editor';
+export { default as Editor } from './editor';
+import './editor/style';
+
 export * from './empty';
 export { default as Empty } from './empty';
 import './empty/style';
+
+export * from './fieldset';
+export { default as Fieldset } from './fieldset';
+import './fieldset/style';
 
 export * from './flex';
 export { default as Flex } from './flex';
@@ -102,9 +126,21 @@ export * from './float-button';
 export { default as FloatButton } from './float-button';
 import './float-button/style';
 
+export * from './focus-trap';
+export { default as FocusTrap } from './focus-trap';
+import './focus-trap/style';
+
 export * from './form';
 export { default as Form } from './form';
 import './form/style';
+
+export * from './form-list';
+export { default as FormList } from './form-list';
+import './form-list/style';
+
+export * from './galleria';
+export { default as Galleria } from './galleria';
+import './galleria/style';
 
 export * from './grid';
 export { default as Grid } from './grid';
@@ -123,6 +159,10 @@ import './input/style';
 export * from './input-number';
 export { default as InputNumber } from './input-number';
 import './input-number/style';
+
+export * from './key-filter';
+export { default as KeyFilter } from './key-filter';
+import './key-filter/style';
 
 export * from './layout';
 export { default as Layout } from './layout';
@@ -153,6 +193,14 @@ export { notification } from './notification';
 export { default as Notification } from './notification';
 import './notification/style';
 
+export * from './organization-chart';
+export { default as OrganizationChart } from './organization-chart';
+import './organization-chart/style';
+
+export * from './overlay-badge';
+export { default as OverlayBadge } from './overlay-badge';
+import './overlay-badge/style';
+
 export * from './page-header';
 export { default as PageHeader } from './page-header';
 import './page-header/style';
@@ -161,6 +209,10 @@ export * from './pagination';
 export { default as Pagination } from './pagination';
 import './pagination/style';
 
+export * from './panel';
+export { default as Panel } from './panel';
+import './panel/style';
+
 export * from './popconfirm';
 export { default as Popconfirm } from './popconfirm';
 import './popconfirm/style';
@@ -168,6 +220,10 @@ import './popconfirm/style';
 export * from './popover';
 export { default as Popover } from './popover';
 import './popover/style';
+
+export * from './portal';
+export { default as Portal } from './portal';
+import './portal/style';
 
 export * from './progress';
 export { default as Progress } from './progress';
@@ -187,6 +243,14 @@ import './rate/style';
 export * from './result';
 export { default as Result } from './result';
 import './result/style';
+
+export * from './rich-text-editor';
+export { default as RichTextEditor } from './rich-text-editor';
+import './rich-text-editor/style';
+
+export * from './ripple';
+export { default as Ripple } from './ripple';
+import './ripple/style';
 
 export { default as Row } from './row';
 import './row/style';
@@ -214,6 +278,10 @@ export * from './spin';
 export { default as Spin } from './spin';
 import './spin/style';
 
+export * from './splitter';
+export { default as Splitter } from './splitter';
+import './splitter/style';
+
 export * from './statistic';
 export { default as Statistic } from './statistic';
 import './statistic/style';
@@ -230,6 +298,8 @@ export * from './table';
 export { default as Table } from './table';
 import './table/style';
 
+export * from './table-core';
+
 export * from './tabs';
 export { default as Tabs } from './tabs';
 import './tabs/style';
@@ -244,6 +314,10 @@ export { default as TimePicker } from './time-picker';
 export * from './timeline';
 export { default as Timeline } from './timeline';
 import './timeline/style';
+
+export * from './toolbar';
+export { default as Toolbar } from './toolbar';
+import './toolbar/style';
 
 export * from './tooltip';
 export { default as Tooltip } from './tooltip';
@@ -261,9 +335,17 @@ export * from './tree';
 export { default as Tree } from './tree';
 import './tree/style';
 
+export * from './tree-chart';
+export { default as TreeChart } from './tree-chart';
+import './tree-chart/style';
+
 export * from './tree-select';
 export { default as TreeSelect } from './tree-select';
 import './tree-select/style';
+
+export * from './tree-table';
+export { default as TreeTable } from './tree-table';
+import './tree-table/style';
 
 export * from './typography';
 export { default as Typography } from './typography';
@@ -272,6 +354,10 @@ import './typography/style';
 export * from './upload';
 export { default as Upload } from './upload';
 import './upload/style';
+
+export * from './virtual-scroller';
+export { default as VirtualScroller } from './virtual-scroller';
+import './virtual-scroller/style';
 
 export * from './watermark';
 export { default as Watermark } from './watermark';

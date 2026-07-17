@@ -250,6 +250,83 @@ router.beforeEach((to, from, next) => {
 </script>
 ```
 
+## useDynamicModal 动态弹窗
+
+`useDynamicModal` 是一个 composable，用于在 setup 函数中创建命令式调用的弹窗。与 `useModal` 不同，`useDynamicModal` 通过 `open(component, options)` 接收一个 Vue 组件作为弹窗内容，更适合需要渲染自定义组件（而非简单文本）的场景。
+
+### 与 useModal 的区别
+
+| 特性     | useModal                         | useDynamicModal                  |
+| -------- | -------------------------------- | -------------------------------- |
+| 调用方式 | `modal.info(config)` 等 5 种类型 | `modal.open(component, options)` |
+| 内容类型 | 文本、VNode 或函数               | Vue 组件（可响应式更新 props）   |
+| 适用场景 | 简单确认框、提示框               | 需要复杂组件交互的弹窗           |
+| 实例方法 | `destroy`、`update`              | `destroy`、`update`              |
+
+### 基础用法
+
+:::demo 调用 `useDynamicModal()` 返回 `[modal, holder]` 元组。`holder` 是一个渲染函数，必须渲染到模板中（例如通过 `<holder />`）。通过 `modal.open(component, options)` 打开弹窗，`options.componentProps` 会作为 props 传给内容组件，`options.modalProps` 会传给底层 Modal 组件。
+
+modal/dynamic-modal-basic
+
+:::
+
+### 模拟确认对话框
+
+:::demo `useDynamicModal` 没有内置 info/success/error/warning/confirm 方法，但可以通过传入自定义组件实现类似效果。本示例展示如何用一个 ConfirmContent 组件配合不同的 `componentProps` 和 `modalProps` 实现五种类型的确认框。
+
+modal/dynamic-modal-confirm
+
+:::
+
+### 动态更新
+
+:::demo `modal.open()` 返回的实例包含 `update(options)` 和 `destroy()` 方法。`update` 可用于动态更新 `componentProps` 和 `modalProps`，实现弹窗内容和标题的实时变化。
+
+modal/dynamic-modal-update
+
+:::
+
+### 自定义弹窗样式
+
+:::demo 通过 `modalProps` 可以透传所有 [Modal](#api) 的属性，例如 `width`、`footer`、`mask`、`centered` 等，实现各种自定义样式。
+
+modal/dynamic-modal-custom
+
+:::
+
+### API
+
+#### useDynamicModal()
+
+返回元组 `[modal, holder]`：
+
+- `modal`: 对象，包含 `open(component, options)` 方法
+- `holder`: Vue 渲染函数，必须渲染到模板中（例如 `<holder />`）
+
+#### modal.open(component, options)
+
+| 参数      | 说明         | 类型                | 默认值 |
+| --------- | ------------ | ------------------- | ------ |
+| component | 弹窗内容组件 | Component           | -      |
+| options   | 配置项       | DynamicModalOptions | `{}`   |
+
+#### DynamicModalOptions
+
+| 属性           | 说明                    | 类型                | 默认值 |
+| -------------- | ----------------------- | ------------------- | ------ |
+| componentProps | 传给内容组件的 props    | Record<string, any> | `{}`   |
+| modalProps     | 传给底层 Modal 的 props | [ModalProps](#api)  | `{}`   |
+
+#### modal.open() 返回值
+
+调用 `modal.open()` 返回 `{ destroy, update }` 实例：
+
+| 方法            | 说明         | 参数                           |
+| --------------- | ------------ | ------------------------------ |
+| destroy()       | 销毁当前弹窗 | -                              |
+| update(options) | 更新弹窗配置 | (options: DynamicModalOptions) |
+
 ## FAQ
 
 ### 为什么 Modal 方法不能获取 全局注册组件、context、vuex 等内容和 ConfigProvider `locale/prefixCls/theme` 配置， 以及不能响应式更新数据 ？

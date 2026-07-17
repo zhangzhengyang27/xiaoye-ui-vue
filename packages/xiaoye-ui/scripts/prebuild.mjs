@@ -49,6 +49,11 @@ const EXPORT_STAR_EXCEPTIONS = [
   'row', // 实际来自 grid，与 grid 冲突
 ];
 
+// 没有默认导出的模块：不生成 default 转命名导出（纯逻辑/工具模块）
+const NO_DEFAULT_EXPORT_DIRS = [
+  'table-core', // 纯逻辑模块，只有命名导出，无默认导出
+];
+
 // 替代 export * 的显式命名导出语句（key 为组件目录名）
 const NAMED_EXPORT_OVERRIDES = {
   message: "export { message } from './message';",
@@ -132,8 +137,10 @@ function generateComponentsTs(components) {
     } else {
       lines.push(`export * from './${comp.name}';`);
     }
-    // default 导出转为命名导出
-    lines.push(`export { default as ${pascalName} } from './${comp.name}';`);
+    // default 导出转为命名导出（跳过没有默认导出的纯逻辑模块）
+    if (!NO_DEFAULT_EXPORT_DIRS.includes(comp.name)) {
+      lines.push(`export { default as ${pascalName} } from './${comp.name}';`);
+    }
     if (comp.hasStyle) {
       lines.push(`import './${comp.name}/style';`);
     }
@@ -156,6 +163,8 @@ function generateGlobalDts(components) {
   ];
 
   for (const comp of components) {
+    // 跳过没有默认导出的纯逻辑模块（不是组件，不应注册为全局组件）
+    if (NO_DEFAULT_EXPORT_DIRS.includes(comp.name)) continue;
     const pascalName = toPascalCase(comp.name);
     const xyName = `XY${pascalName}`;
     lines.push(`    ${xyName}: (typeof import('xiaoye-ui'))['${pascalName}'];`);

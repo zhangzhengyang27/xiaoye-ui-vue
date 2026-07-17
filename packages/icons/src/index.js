@@ -268,6 +268,10 @@ export { default as EthereumIcon } from './ethereum';
 export * from './euro';
 export { default as EuroIcon } from './euro';
 
+// ExportIcon
+export * from './export';
+export { default as ExportIcon } from './export';
+
 // ExclamationTriangleIcon
 export * from './exclamationtriangle';
 export { default as ExclamationTriangleIcon } from './exclamationtriangle';
@@ -1333,6 +1337,15 @@ export { default as ArrowLeftOutlined } from './chevronleft';
 
 // ArrowRightOutlined (映射自 ArrowRightIcon)
 export { default as ArrowRightOutlined } from './arrow-right';
+
+// BellOutlined (映射自 BellIcon)
+export { default as BellOutlined } from './bell';
+
+// PrinterOutlined (映射自 PrinterIcon)
+export { default as PrinterOutlined } from './printer';
+
+// ExportOutlined (映射自 ExportIcon)
+export { default as ExportOutlined } from './export';
 
 // 以下 @ant-design/icons-vue 的特殊 API 通过兼容层透传，便于文档/业务统一从 @xiaoye-ui/icons 引入
 export {

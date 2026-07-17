@@ -34,8 +34,16 @@
       "import": "./src/object/index.ts"
     },
     "./dom": {
-      "types": "./src/dom.ts",
-      "import": "./src/dom.ts"
+      "types": "./src/dom/index.ts",
+      "import": "./src/dom/index.ts"
+    },
+    "./eventbus": {
+      "types": "./src/eventbus/index.ts",
+      "import": "./src/eventbus/index.ts"
+    },
+    "./zindex": {
+      "types": "./src/zindex/index.ts",
+      "import": "./src/zindex/index.ts"
     }
   },
   "sideEffects": false,

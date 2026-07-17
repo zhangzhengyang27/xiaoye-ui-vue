@@ -108,6 +108,7 @@ export const configProviderProps = () => ({
   wave: objectType<{
     disabled?: boolean;
   }>(),
+  ripple: { type: Boolean, default: undefined },
 });
 
 export type ConfigProviderProps = Partial<ExtractPropTypes<ReturnType<typeof configProviderProps>>>;
@@ -151,6 +152,7 @@ export interface ConfigProviderInnerProps {
   wave?: ComputedRef<{
     disabled?: boolean;
   }>;
+  ripple?: ComputedRef<boolean>;
   flex?: ComputedRef<{
     vertical?: boolean;
   }>;

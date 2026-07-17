@@ -118,4 +118,29 @@ export interface ComponentTokenMap {
 
   //   /** @private Internal TS definition. Do not use. */
   Wave?: WaveToken;
+
+  // 迁移占位：以下 ComponentToken 为后续批次新组件预留，目前为空接口，
+  // 待对应组件 style/index.ts 实现 ComponentToken 后再替换为具体类型。
+  Portal?: {};
+  VirtualScroller?: {};
+  Panel?: {};
+  Toolbar?: {};
+  Fieldset?: {};
+  Splitter?: {};
+  SplitterPanel?: {};
+  ContextMenu?: {};
+  Galleria?: {};
+  OrganizationChart?: {};
+  TreeChart?: {};
+  ColorPicker?: {};
+  FormList?: {};
+  DataView?: {};
+  TreeTable?: {};
+  Editor?: {};
+  RichTextEditor?: {};
+  Chart?: {};
+  FocusTrap?: {};
+  Ripple?: {};
+  KeyFilter?: {};
+  OverlayBadge?: {};
 }
