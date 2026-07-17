@@ -53,7 +53,7 @@ export type CardProps = Partial<ExtractPropTypes<ReturnType<typeof cardProps>>>;
 
 const Card = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACard',
+  name: 'XYCard',
   inheritAttrs: false,
   props: cardProps(),
   slots: Object as CustomSlotsType<{
@@ -93,7 +93,7 @@ const Card = defineComponent({
     const isContainGrid = (obj: VNode[] = []) => {
       let containGrid: boolean;
       obj.forEach(element => {
-        if (element && isPlainObject(element.type) && (element.type as any).__ANT_CARD_GRID) {
+        if (element && isPlainObject(element.type) && (element.type as any).__XY_CARD_GRID) {
           containGrid = true;
         }
       });

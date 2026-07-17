@@ -90,7 +90,6 @@ describe('CheckboxGroup', () => {
         return <Checkbox.Group prefixCls="my-checkbox" options={options} />;
       },
     });
-
   });
   it('should be controlled by value', async () => {
     const options = [

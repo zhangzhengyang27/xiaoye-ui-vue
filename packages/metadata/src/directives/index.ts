@@ -1,5 +1,5 @@
-import type { MetaType } from '../shared.ts';
-import { toMeta } from '../shared.ts';
+import type { MetaType } from '../shared';
+import { toMeta } from '../shared';
 
 export const directives: MetaType[] = toMeta([
   { name: 'badge', as: 'BadgeDirective', from: 'xiaoye-ui/badgedirective' },

@@ -1,11 +1,11 @@
 {
-    "main": "./BellIcon.vue",
-    "module": "./BellIcon.vue",
-    "types": "./BellIcon.d.ts",
-    "browser": {
-        "./sfc": "./BellIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./BellIcon.vue",
+  "module": "./BellIcon.vue",
+  "types": "./BellIcon.d.ts",
+  "browser": {
+    "./sfc": "./BellIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

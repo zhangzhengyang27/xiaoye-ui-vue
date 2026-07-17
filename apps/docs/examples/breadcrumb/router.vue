@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-breadcrumb :routes="routes">
+    <xy-breadcrumb :routes="routes">
       <template #itemRender="{ route, paths }">
         <span v-if="routes.indexOf(route) === routes.length - 1">
           {{ route.breadcrumbName }}
@@ -9,7 +9,7 @@
           {{ route.breadcrumbName }}
         </router-link>
       </template>
-    </a-breadcrumb>
+    </xy-breadcrumb>
   </div>
 </template>
 <script lang="ts" setup>

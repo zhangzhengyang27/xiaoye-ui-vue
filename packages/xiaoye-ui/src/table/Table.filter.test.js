@@ -77,8 +77,7 @@ describe('Table.filter', () => {
         { sync: false },
       );
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it.skip('renders radio filter correctly', async () => {
@@ -104,8 +103,7 @@ describe('Table.filter', () => {
         { sync: false },
       );
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it.skip('renders custom content correctly', async () => {
@@ -146,7 +144,7 @@ describe('Table.filter', () => {
       }),
     );
 
-    let dropdown = wrapper.find({ name: 'ADropdown' });
+    let dropdown = wrapper.find({ name: 'XYDropdown' });
     expect(dropdown.props().visible).toBe(true);
 
     wrapper.setProps({
@@ -158,7 +156,7 @@ describe('Table.filter', () => {
       ],
     });
     await Vue.nextTick();
-    dropdown = wrapper.find({ name: 'ADropdown' });
+    dropdown = wrapper.find({ name: 'XYDropdown' });
     expect(dropdown.props().visible).toBe(false);
   });
 

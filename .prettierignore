@@ -28,4 +28,8 @@ yarn-error.log
 .gitmodules
 *.png
 v2-doc/
+trace/
+.playwright-cli/
+test-results/
+playwright-report/
 

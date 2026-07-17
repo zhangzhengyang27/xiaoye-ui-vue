@@ -1,12 +1,12 @@
 <template>
-  <a-tree
+  <xy-tree
     v-model:expanded-keys="expandedKeys"
     v-model:selected-keys="selectedKeys"
     show-line
     :tree-data="treeData"
   >
     <template #switcherIcon="{ switcherCls }"><down-outlined :class="switcherCls" /></template>
-  </a-tree>
+  </xy-tree>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

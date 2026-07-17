@@ -1,16 +1,16 @@
 <template>
-  <a-radio-group v-model:value="placement">
-    <a-radio-button value="topLeft">topLeft</a-radio-button>
-    <a-radio-button value="topRight">topRight</a-radio-button>
-    <a-radio-button value="bottomLeft">bottomLeft</a-radio-button>
-    <a-radio-button value="bottomRight">bottomRight</a-radio-button>
-  </a-radio-group>
+  <xy-radio-group v-model:value="placement">
+    <xy-radio-button value="topLeft">topLeft</xy-radio-button>
+    <xy-radio-button value="topRight">topRight</xy-radio-button>
+    <xy-radio-button value="bottomLeft">bottomLeft</xy-radio-button>
+    <xy-radio-button value="bottomRight">bottomRight</xy-radio-button>
+  </xy-radio-group>
   <br />
   <br />
-  <a-space direction="vertical" :size="12">
-    <a-time-picker v-model:value="value1" :placement="placement" />
-    <a-time-range-picker v-model:value="value2" :placement="placement" />
-  </a-space>
+  <xy-space direction="vertical" :size="12">
+    <xy-time-picker v-model:value="value1" :placement="placement" />
+    <xy-time-range-picker v-model:value="value2" :placement="placement" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

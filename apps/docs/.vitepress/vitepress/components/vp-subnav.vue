@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useSidebar } from '../composables/sidebar'
-import { useBackTop } from '../composables/back-top'
-import ToggleSidebarBtn from './subnav/toggle-sidebar-btn.vue'
+import { useSidebar } from '../composables/sidebar';
+import { useBackTop } from '../composables/back-top';
+import ToggleSidebarBtn from './subnav/toggle-sidebar-btn.vue';
 
 defineProps<{
-  isSidebarOpen: boolean
-}>()
-defineEmits(['open-menu'])
+  isSidebarOpen: boolean;
+}>();
+defineEmits(['open-menu']);
 
-const { hasSidebar } = useSidebar()
-const { shouldShow, scrollToTop } = useBackTop()
+const { hasSidebar } = useSidebar();
+const { shouldShow, scrollToTop } = useBackTop();
 </script>
 
 <template>
@@ -20,14 +20,14 @@ const { shouldShow, scrollToTop } = useBackTop()
       @click="$emit('open-menu')"
     />
     <Transition name="shifting">
-      <a-button
+      <xy-button
         :class="{ 'go-back-top': true, show: shouldShow }"
         type="link"
         class="height-5"
         @click.prevent.stop="scrollToTop"
       >
         Back to top
-      </a-button>
+      </xy-button>
     </Transition>
   </div>
 </template>

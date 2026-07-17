@@ -1,16 +1,16 @@
 <template>
   <p :style="{ marginBottom: '20px' }">
-    <a-checkbox v-model:checked="checked" :disabled="disabled">
+    <xy-checkbox v-model:checked="checked" :disabled="disabled">
       {{ label }}
-    </a-checkbox>
+    </xy-checkbox>
   </p>
   <p>
-    <a-button type="primary" size="small" @click="toggleChecked">
+    <xy-button type="primary" size="small" @click="toggleChecked">
       {{ !checked ? 'Check' : 'Uncheck' }}
-    </a-button>
-    <a-button :style="{ marginLeft: '10px' }" type="primary" size="small" @click="toggleDisable">
+    </xy-button>
+    <xy-button :style="{ marginLeft: '10px' }" type="primary" size="small" @click="toggleDisable">
       {{ !disabled ? 'Disable' : 'Enable' }}
-    </a-button>
+    </xy-button>
   </p>
 </template>
 <script lang="ts" setup>

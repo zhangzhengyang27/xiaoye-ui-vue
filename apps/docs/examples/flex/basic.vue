@@ -1,17 +1,17 @@
 <template>
-  <a-flex gap="middle" vertical>
-    <a-radio-group v-model:value="value">
-      <a-radio value="horizontal">horizontal</a-radio>
-      <a-radio value="vertical">vertical</a-radio>
-    </a-radio-group>
-    <a-flex :vertical="value === 'vertical'">
+  <xy-flex gap="middle" vertical>
+    <xy-radio-group v-model:value="value">
+      <xy-radio value="horizontal">horizontal</xy-radio>
+      <xy-radio value="vertical">vertical</xy-radio>
+    </xy-radio-group>
+    <xy-flex :vertical="value === 'vertical'">
       <div
         v-for="(item, index) in new Array(4)"
         :key="item"
         :style="{ ...baseStyle, background: `${index % 2 ? '#1677ff' : '#1677ffbf'}` }"
       />
-    </a-flex>
-  </a-flex>
+    </xy-flex>
+  </xy-flex>
 </template>
 
 <script setup lang="ts">

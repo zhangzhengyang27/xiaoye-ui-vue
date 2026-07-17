@@ -1,16 +1,16 @@
 <template>
-  <a-space direction="vertical">
-    <a-time-picker v-model:value="value" v-model:open="open" @openChange="handleOpenChange">
+  <xy-space direction="vertical">
+    <xy-time-picker v-model:value="value" v-model:open="open" @openChange="handleOpenChange">
       <template #renderExtraFooter="{ prefixCls }">
-        <a-button size="small" type="primary" @click="handleClose">OK {{ prefixCls }}</a-button>
+        <xy-button size="small" type="primary" @click="handleClose">OK {{ prefixCls }}</xy-button>
       </template>
-    </a-time-picker>
-    <a-time-picker v-model:value="value" v-model:open="open2">
+    </xy-time-picker>
+    <xy-time-picker v-model:value="value" v-model:open="open2">
       <template #renderExtraFooter>
-        <a-button size="small" type="primary" @click="handleClose">OK</a-button>
+        <xy-button size="small" type="primary" @click="handleClose">OK</xy-button>
       </template>
-    </a-time-picker>
-  </a-space>
+    </xy-time-picker>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

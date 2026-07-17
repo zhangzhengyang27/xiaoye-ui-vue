@@ -256,7 +256,9 @@ describe('Typography', () => {
             });
 
             expect(
-              wrapper.find('.xy-typography-copy').element.classList.contains('xy-typography-copy-success'),
+              wrapper
+                .find('.xy-typography-copy')
+                .element.classList.contains('xy-typography-copy-success'),
             ).toBe(true);
 
             vi.runAllTimers();
@@ -264,7 +266,9 @@ describe('Typography', () => {
             // Will set back when 3 seconds pass
             await nextTick();
             expect(
-              wrapper.find('.xy-typography-copy').element.classList.contains('xy-typography-copy-success'),
+              wrapper
+                .find('.xy-typography-copy')
+                .element.classList.contains('xy-typography-copy-success'),
             ).toBe(false);
           } finally {
             vi.useRealTimers();

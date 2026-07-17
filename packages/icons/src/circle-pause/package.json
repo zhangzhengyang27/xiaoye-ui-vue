@@ -1,11 +1,11 @@
 {
-    "main": "./CirclePauseIcon.vue",
-    "module": "./CirclePauseIcon.vue",
-    "types": "./CirclePauseIcon.d.ts",
-    "browser": {
-        "./sfc": "./CirclePauseIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CirclePauseIcon.vue",
+  "module": "./CirclePauseIcon.vue",
+  "types": "./CirclePauseIcon.d.ts",
+  "browser": {
+    "./sfc": "./CirclePauseIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

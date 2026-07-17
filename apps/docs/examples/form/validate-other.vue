@@ -1,55 +1,55 @@
 <template>
-  <a-form
+  <xy-form
     :model="formState"
     name="validate_other"
     v-bind="formItemLayout"
     @finishFailed="onFinishFailed"
     @finish="onFinish"
   >
-    <a-form-item label="Plain Text">
+    <xy-form-item label="Plain Text">
       <span class="xy-form-text">China</span>
-    </a-form-item>
-    <a-form-item
+    </xy-form-item>
+    <xy-form-item
       name="select"
       label="Select"
       has-feedback
       :rules="[{ required: true, message: 'Please select your country!' }]"
     >
-      <a-select v-model:value="formState.select" placeholder="Please select a country">
-        <a-select-option value="china">China</a-select-option>
-        <a-select-option value="usa">U.S.A</a-select-option>
-      </a-select>
-    </a-form-item>
+      <xy-select v-model:value="formState.select" placeholder="Please select a country">
+        <xy-select-option value="china">China</xy-select-option>
+        <xy-select-option value="usa">U.S.A</xy-select-option>
+      </xy-select>
+    </xy-form-item>
 
-    <a-form-item
+    <xy-form-item
       name="select-multiple"
       label="Select[multiple]"
       :rules="[{ required: true, message: 'Please select your favourite colors!', type: 'array' }]"
     >
-      <a-select
+      <xy-select
         v-model:value="formState['select-multiple']"
         mode="multiple"
         placeholder="Please select favourite colors"
       >
-        <a-select-option value="red">Red</a-select-option>
-        <a-select-option value="green">Green</a-select-option>
-        <a-select-option value="blue">Blue</a-select-option>
-      </a-select>
-    </a-form-item>
+        <xy-select-option value="red">Red</xy-select-option>
+        <xy-select-option value="green">Green</xy-select-option>
+        <xy-select-option value="blue">Blue</xy-select-option>
+      </xy-select>
+    </xy-form-item>
 
-    <a-form-item label="InputNumber">
-      <a-form-item name="input-number" no-style>
-        <a-input-number v-model:value="formState['input-number']" :min="1" :max="10" />
-      </a-form-item>
+    <xy-form-item label="InputNumber">
+      <xy-form-item name="input-number" no-style>
+        <xy-input-number v-model:value="formState['input-number']" :min="1" :max="10" />
+      </xy-form-item>
       <span class="xy-form-text">machines</span>
-    </a-form-item>
+    </xy-form-item>
 
-    <a-form-item name="switch" label="Switch">
-      <a-switch v-model:checked="formState.switch" />
-    </a-form-item>
+    <xy-form-item name="switch" label="Switch">
+      <xy-switch v-model:checked="formState.switch" />
+    </xy-form-item>
 
-    <a-form-item name="slider" label="Slider">
-      <a-slider
+    <xy-form-item name="slider" label="Slider">
+      <xy-slider
         v-model:value="formState.slider"
         :marks="{
           0: 'A',
@@ -60,87 +60,87 @@
           100: 'F',
         }"
       />
-    </a-form-item>
+    </xy-form-item>
 
-    <a-form-item name="radio-group" label="Radio.Group">
-      <a-radio-group v-model:value="formState['radio-group']">
-        <a-radio value="a">item 1</a-radio>
-        <a-radio value="b">item 2</a-radio>
-        <a-radio value="c">item 3</a-radio>
-      </a-radio-group>
-    </a-form-item>
+    <xy-form-item name="radio-group" label="Radio.Group">
+      <xy-radio-group v-model:value="formState['radio-group']">
+        <xy-radio value="a">item 1</xy-radio>
+        <xy-radio value="b">item 2</xy-radio>
+        <xy-radio value="c">item 3</xy-radio>
+      </xy-radio-group>
+    </xy-form-item>
 
-    <a-form-item
+    <xy-form-item
       name="radio-button"
       label="Radio.Button"
       :rules="[{ required: true, message: 'Please pick an item!' }]"
     >
-      <a-radio-group v-model:value="formState['radio-button']">
-        <a-radio-button value="a">item 1</a-radio-button>
-        <a-radio-button value="b">item 2</a-radio-button>
-        <a-radio-button value="c">item 3</a-radio-button>
-      </a-radio-group>
-    </a-form-item>
+      <xy-radio-group v-model:value="formState['radio-button']">
+        <xy-radio-button value="a">item 1</xy-radio-button>
+        <xy-radio-button value="b">item 2</xy-radio-button>
+        <xy-radio-button value="c">item 3</xy-radio-button>
+      </xy-radio-group>
+    </xy-form-item>
 
-    <a-form-item name="checkbox-group" label="Checkbox.Group">
-      <a-checkbox-group v-model:value="formState['checkbox-group']">
-        <a-row>
-          <a-col :span="8">
-            <a-checkbox value="A" style="line-height: 32px">A</a-checkbox>
-          </a-col>
-          <a-col :span="8">
-            <a-checkbox value="B" style="line-height: 32px" disabled>B</a-checkbox>
-          </a-col>
-          <a-col :span="8">
-            <a-checkbox value="C" style="line-height: 32px">C</a-checkbox>
-          </a-col>
-          <a-col :span="8">
-            <a-checkbox value="D" style="line-height: 32px">D</a-checkbox>
-          </a-col>
-          <a-col :span="8">
-            <a-checkbox value="E" style="line-height: 32px">E</a-checkbox>
-          </a-col>
-          <a-col :span="8">
-            <a-checkbox value="F" style="line-height: 32px">F</a-checkbox>
-          </a-col>
-        </a-row>
-      </a-checkbox-group>
-    </a-form-item>
+    <xy-form-item name="checkbox-group" label="Checkbox.Group">
+      <xy-checkbox-group v-model:value="formState['checkbox-group']">
+        <xy-row>
+          <xy-col :span="8">
+            <xy-checkbox value="A" style="line-height: 32px">A</xy-checkbox>
+          </xy-col>
+          <xy-col :span="8">
+            <xy-checkbox value="B" style="line-height: 32px" disabled>B</xy-checkbox>
+          </xy-col>
+          <xy-col :span="8">
+            <xy-checkbox value="C" style="line-height: 32px">C</xy-checkbox>
+          </xy-col>
+          <xy-col :span="8">
+            <xy-checkbox value="D" style="line-height: 32px">D</xy-checkbox>
+          </xy-col>
+          <xy-col :span="8">
+            <xy-checkbox value="E" style="line-height: 32px">E</xy-checkbox>
+          </xy-col>
+          <xy-col :span="8">
+            <xy-checkbox value="F" style="line-height: 32px">F</xy-checkbox>
+          </xy-col>
+        </xy-row>
+      </xy-checkbox-group>
+    </xy-form-item>
 
-    <a-form-item name="rate" label="Rate">
-      <a-rate v-model:value="formState.rate" allow-half />
-    </a-form-item>
+    <xy-form-item name="rate" label="Rate">
+      <xy-rate v-model:value="formState.rate" allow-half />
+    </xy-form-item>
 
-    <a-form-item name="upload" label="Upload" extra="longgggggggggggggggggggggggggggggggggg">
-      <a-upload
+    <xy-form-item name="upload" label="Upload" extra="longgggggggggggggggggggggggggggggggggg">
+      <xy-upload
         v-model:file-list="formState.upload"
         name="logo"
         action="/upload.do"
         list-type="picture"
       >
-        <a-button>
+        <xy-button>
           <template #icon><UploadOutlined /></template>
           Click to upload
-        </a-button>
-      </a-upload>
-    </a-form-item>
+        </xy-button>
+      </xy-upload>
+    </xy-form-item>
 
-    <a-form-item label="Dragger">
-      <a-form-item name="dragger" no-style>
-        <a-upload-dragger v-model:file-list="formState.dragger" name="files" action="/upload.do">
+    <xy-form-item label="Dragger">
+      <xy-form-item name="dragger" no-style>
+        <xy-upload-dragger v-model:file-list="formState.dragger" name="files" action="/upload.do">
           <p class="xy-upload-drag-icon">
             <InboxOutlined />
           </p>
           <p class="xy-upload-text">Click or drag file to this area to upload</p>
           <p class="xy-upload-hint">Support for a single or bulk upload.</p>
-        </a-upload-dragger>
-      </a-form-item>
-    </a-form-item>
+        </xy-upload-dragger>
+      </xy-form-item>
+    </xy-form-item>
 
-    <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
-      <a-button type="primary" html-type="submit">Submit</a-button>
-    </a-form-item>
-  </a-form>
+    <xy-form-item :wrapper-col="{ span: 12, offset: 6 }">
+      <xy-button type="primary" html-type="submit">Submit</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

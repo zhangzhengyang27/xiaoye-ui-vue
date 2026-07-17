@@ -34,7 +34,7 @@ export const watermarkProps = () => ({
 });
 export type WatermarkProps = Partial<ExtractPropTypes<ReturnType<typeof watermarkProps>>>;
 const Watermark = defineComponent({
-  name: 'AWatermark',
+  name: 'XYWatermark',
   inheritAttrs: false,
   props: initDefaultProps(watermarkProps(), {
     zIndex: 9,

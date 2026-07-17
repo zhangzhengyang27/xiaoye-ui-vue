@@ -1,28 +1,28 @@
 <template>
-  <a-tag color="#55acee">
+  <xy-tag color="#55acee">
     <template #icon>
       <twitter-outlined />
     </template>
     Twitter
-  </a-tag>
-  <a-tag color="#cd201f">
+  </xy-tag>
+  <xy-tag color="#cd201f">
     <template #icon>
       <youtube-outlined />
     </template>
     Youtube
-  </a-tag>
-  <a-tag color="#3b5999">
+  </xy-tag>
+  <xy-tag color="#3b5999">
     <template #icon>
       <facebook-outlined />
     </template>
     Facebook
-  </a-tag>
-  <a-tag color="#55acee">
+  </xy-tag>
+  <xy-tag color="#55acee">
     <template #icon>
       <linkedin-outlined />
     </template>
     LinkedIn
-  </a-tag>
+  </xy-tag>
 </template>
 <script lang="ts" setup>
 import {

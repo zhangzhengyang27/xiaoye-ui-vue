@@ -68,7 +68,7 @@ export type ColProps = Partial<ExtractPropTypes<ReturnType<typeof colProps>>>;
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACol',
+  name: 'XYCol',
   inheritAttrs: false,
   props: colProps(),
   setup(props, { slots, attrs }) {

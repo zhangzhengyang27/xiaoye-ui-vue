@@ -1,5 +1,5 @@
 <template>
-  <a-alert
+  <xy-alert
     v-if="visible"
     message="Alert Message Text"
     type="success"

@@ -17,8 +17,7 @@ describe('Input.Search', () => {
       },
       { sync: false },
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('should support custom Button', async () => {
@@ -30,8 +29,7 @@ describe('Input.Search', () => {
       },
       { sync: false },
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
   it('should support VueNode suffix without error', () => {
     const fn = () => {

@@ -1,53 +1,53 @@
 <template>
-  <a-form
+  <xy-form
     ref="formRef"
     :model="formState"
     :rules="rules"
     :label-col="labelCol"
     :wrapper-col="wrapperCol"
   >
-    <a-form-item ref="name" label="Activity name" name="name">
-      <a-input v-model:value="formState.name" />
-    </a-form-item>
-    <a-form-item label="Activity zone" name="region">
-      <a-select v-model:value="formState.region" placeholder="please select your zone">
-        <a-select-option value="shanghai">Zone one</a-select-option>
-        <a-select-option value="beijing">Zone two</a-select-option>
-      </a-select>
-    </a-form-item>
-    <a-form-item label="Activity time" required name="date1">
-      <a-date-picker
+    <xy-form-item ref="name" label="Activity name" name="name">
+      <xy-input v-model:value="formState.name" />
+    </xy-form-item>
+    <xy-form-item label="Activity zone" name="region">
+      <xy-select v-model:value="formState.region" placeholder="please select your zone">
+        <xy-select-option value="shanghai">Zone one</xy-select-option>
+        <xy-select-option value="beijing">Zone two</xy-select-option>
+      </xy-select>
+    </xy-form-item>
+    <xy-form-item label="Activity time" required name="date1">
+      <xy-date-picker
         v-model:value="formState.date1"
         show-time
         type="date"
         placeholder="Pick a date"
         style="width: 100%"
       />
-    </a-form-item>
-    <a-form-item label="Instant delivery" name="delivery">
-      <a-switch v-model:checked="formState.delivery" />
-    </a-form-item>
-    <a-form-item label="Activity type" name="type">
-      <a-checkbox-group v-model:value="formState.type">
-        <a-checkbox value="1" name="type">Online</a-checkbox>
-        <a-checkbox value="2" name="type">Promotion</a-checkbox>
-        <a-checkbox value="3" name="type">Offline</a-checkbox>
-      </a-checkbox-group>
-    </a-form-item>
-    <a-form-item label="Resources" name="resource">
-      <a-radio-group v-model:value="formState.resource">
-        <a-radio value="1">Sponsor</a-radio>
-        <a-radio value="2">Venue</a-radio>
-      </a-radio-group>
-    </a-form-item>
-    <a-form-item label="Activity form" name="desc">
-      <a-textarea v-model:value="formState.desc" />
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-      <a-button type="primary" @click="onSubmit">Create</a-button>
-      <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>
-    </a-form-item>
-  </a-form>
+    </xy-form-item>
+    <xy-form-item label="Instant delivery" name="delivery">
+      <xy-switch v-model:checked="formState.delivery" />
+    </xy-form-item>
+    <xy-form-item label="Activity type" name="type">
+      <xy-checkbox-group v-model:value="formState.type">
+        <xy-checkbox value="1" name="type">Online</xy-checkbox>
+        <xy-checkbox value="2" name="type">Promotion</xy-checkbox>
+        <xy-checkbox value="3" name="type">Offline</xy-checkbox>
+      </xy-checkbox-group>
+    </xy-form-item>
+    <xy-form-item label="Resources" name="resource">
+      <xy-radio-group v-model:value="formState.resource">
+        <xy-radio value="1">Sponsor</xy-radio>
+        <xy-radio value="2">Venue</xy-radio>
+      </xy-radio-group>
+    </xy-form-item>
+    <xy-form-item label="Activity form" name="desc">
+      <xy-textarea v-model:value="formState.desc" />
+    </xy-form-item>
+    <xy-form-item :wrapper-col="{ span: 14, offset: 4 }">
+      <xy-button type="primary" @click="onSubmit">Create</xy-button>
+      <xy-button style="margin-left: 10px" @click="resetForm">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { Dayjs } from 'dayjs';

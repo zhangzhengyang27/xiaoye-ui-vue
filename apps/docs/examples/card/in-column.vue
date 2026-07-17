@@ -1,21 +1,21 @@
 <template>
   <div style="background-color: #ececec; padding: 20px">
-    <a-row :gutter="16">
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
+    <xy-row :gutter="16">
+      <xy-col :span="8">
+        <xy-card title="Card title" :bordered="false">
           <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
+        </xy-card>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-card title="Card title" :bordered="false">
           <p>card content</p>
-        </a-card>
-      </a-col>
-      <a-col :span="8">
-        <a-card title="Card title" :bordered="false">
+        </xy-card>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-card title="Card title" :bordered="false">
           <p>card content</p>
-        </a-card>
-      </a-col>
-    </a-row>
+        </xy-card>
+      </xy-col>
+    </xy-row>
   </div>
 </template>

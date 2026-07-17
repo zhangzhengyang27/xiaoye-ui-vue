@@ -53,7 +53,7 @@ describe('Badge', () => {
   //     },
   //   }, { sync: false })
   //   await asyncExpect(() => {
-  //     wrapper.find({ name: 'ABadge' }).trigger('mouseenter')
+  //     wrapper.find({ name: 'XYBadge' }).trigger('mouseenter')
   //   }, 0)
 
   //   expect(wrapper.vm.$refs.tooltip.sVisible).toBe(true)
@@ -81,8 +81,7 @@ describe('Badge', () => {
     await asyncExpect(() => {
       wrapper.setProps({ count: 9 });
     }, 100);
-    await asyncExpect(() => {
-    }, 100);
+    await asyncExpect(() => {}, 100);
   });
 
   it('should be compatible with borderColor style', () => {
@@ -96,7 +95,6 @@ describe('Badge', () => {
         );
       },
     });
-
   });
 
   it('should support offset when count is a VueNode', () => {
@@ -131,7 +129,6 @@ describe('Badge', () => {
         return <Badge status="success" text={<span>hello</span>} />;
       },
     });
-
   });
 });
 

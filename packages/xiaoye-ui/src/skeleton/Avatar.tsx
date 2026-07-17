@@ -17,7 +17,7 @@ export type SkeletonAvatarProps = Partial<ExtractPropTypes<ReturnType<typeof ava
 
 const SkeletonAvatar = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASkeletonAvatar',
+  name: 'XYSkeletonAvatar',
   props: initDefaultProps(avatarProps(), {
     size: 'default',
     shape: 'circle',

@@ -1,19 +1,19 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-alert
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-alert
       message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
       closable
       @close="onClose"
     />
-    <a-alert
+    <xy-alert
       message="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
       closable
       @close="onClose"
     />
-  </a-space>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

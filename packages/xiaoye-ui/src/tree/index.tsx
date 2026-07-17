@@ -2,6 +2,7 @@ import type { App } from 'vue';
 import Tree from './Tree';
 import { TreeNode as VcTreeNode } from '../vc-tree';
 import DirectoryTree from './DirectoryTree';
+import { registerComponent } from '../_util/registerComponent';
 
 export type { EventDataNode, DataNode } from '../vc-tree/interface';
 
@@ -32,9 +33,9 @@ export default Object.assign(Tree, {
   DirectoryTree,
   TreeNode,
   install: (app: App) => {
-    app.component(Tree.name, Tree);
-    app.component(TreeNode.name, TreeNode);
-    app.component(DirectoryTree.name, DirectoryTree);
+    registerComponent(app, Tree);
+    registerComponent(app, TreeNode);
+    registerComponent(app, DirectoryTree);
     return app;
   },
 });

@@ -1,6 +1,6 @@
 <template>
   <div class="certain-category-search-wrapper" style="width: 250px">
-    <a-auto-complete
+    <xy-auto-complete
       v-model:value="value"
       class="certain-category-search"
       popup-class-name="certain-category-search-dropdown"
@@ -41,8 +41,8 @@
           </div>
         </template>
       </template>
-      <a-input-search placeholder="input here" size="large"></a-input-search>
-    </a-auto-complete>
+      <xy-input-search placeholder="input here" size="large"></xy-input-search>
+    </xy-auto-complete>
   </div>
 </template>
 

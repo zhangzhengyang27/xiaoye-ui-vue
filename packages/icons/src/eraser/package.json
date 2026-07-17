@@ -1,11 +1,11 @@
 {
-    "main": "./EraserIcon.vue",
-    "module": "./EraserIcon.vue",
-    "types": "./EraserIcon.d.ts",
-    "browser": {
-        "./sfc": "./EraserIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./EraserIcon.vue",
+  "module": "./EraserIcon.vue",
+  "types": "./EraserIcon.d.ts",
+  "browser": {
+    "./sfc": "./EraserIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

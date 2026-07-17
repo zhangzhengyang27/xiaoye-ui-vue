@@ -25,7 +25,7 @@ const defaultTitle = '---';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ATreeNode',
+  name: 'XYTreeNode',
   inheritAttrs: false,
   props: treeNodeProps,
   isTreeNode: 1,

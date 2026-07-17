@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data" @change="onChange"></a-table>
+  <xy-table :columns="columns" :data-source="data" @change="onChange"></xy-table>
 </template>
 <script lang="ts" setup>
 import type { TableProps } from 'xiaoye-ui';

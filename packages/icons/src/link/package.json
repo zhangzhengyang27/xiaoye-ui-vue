@@ -1,11 +1,11 @@
 {
-    "main": "./LinkIcon.vue",
-    "module": "./LinkIcon.vue",
-    "types": "./LinkIcon.d.ts",
-    "browser": {
-        "./sfc": "./LinkIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LinkIcon.vue",
+  "module": "./LinkIcon.vue",
+  "types": "./LinkIcon.d.ts",
+  "browser": {
+    "./sfc": "./LinkIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

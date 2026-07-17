@@ -1,9 +1,9 @@
 <template>
   <div id="components-table-demo-size">
     <h4>Middle size table</h4>
-    <a-table :columns="columns" :data-source="data" size="middle" />
+    <xy-table :columns="columns" :data-source="data" size="middle" />
     <h4>Small size table</h4>
-    <a-table :columns="columns" :data-source="data" size="small" />
+    <xy-table :columns="columns" :data-source="data" size="small" />
   </div>
 </template>
 <script lang="ts" setup>

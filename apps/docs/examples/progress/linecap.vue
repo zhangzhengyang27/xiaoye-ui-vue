@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-progress stroke-linecap="square" :percent="75" />
-    <a-progress stroke-linecap="square" :percent="75" type="circle" />
-    <a-progress stroke-linecap="square" :percent="75" type="dashboard" />
+    <xy-progress stroke-linecap="square" :percent="75" />
+    <xy-progress stroke-linecap="square" :percent="75" type="circle" />
+    <xy-progress stroke-linecap="square" :percent="75" type="dashboard" />
   </div>
 </template>

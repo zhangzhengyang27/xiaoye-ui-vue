@@ -4,6 +4,7 @@ import classNames from '../_util/classNames';
 import { UpOutlined, DownOutlined } from '@xiaoye-ui/icons';
 import VcInputNumber, { inputNumberProps as baseInputNumberProps } from './src/InputNumber';
 import type { SizeType } from '../config-provider';
+import { registerComponent } from '../_util/registerComponent';
 import {
   FormItemInputContext,
   NoFormStatus,
@@ -45,7 +46,7 @@ export type InputNumberProps = Partial<ExtractPropTypes<ReturnType<typeof inputN
 
 const InputNumber = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AInputNumber',
+  name: 'XYInputNumber',
   inheritAttrs: false,
   props: inputNumberProps(),
   emits: ['focus', 'blur', 'change', 'input', 'update:value'],
@@ -243,7 +244,7 @@ const InputNumber = defineComponent({
 
 export default Object.assign(InputNumber, {
   install: (app: App) => {
-    app.component(InputNumber.name, InputNumber);
+    registerComponent(app, InputNumber);
     return app;
   },
 });

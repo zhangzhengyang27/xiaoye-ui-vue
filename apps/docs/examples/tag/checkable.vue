@@ -1,15 +1,15 @@
 <template>
   <span style="margin-right: 8px">Categories:</span>
-  <a-space :size="[0, 8]" wrap>
-    <a-checkable-tag
+  <xy-space :size="[0, 8]" wrap>
+    <xy-checkable-tag
       v-for="(tag, index) in tagsData"
       :key="tag"
       v-model:checked="selectTags[index]"
       @change="checked => handleChange(tag, checked)"
     >
       {{ tag }}
-    </a-checkable-tag>
-  </a-space>
+    </xy-checkable-tag>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

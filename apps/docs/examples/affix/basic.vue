@@ -1,11 +1,11 @@
 <template>
-  <a-affix :offset-top="top">
-    <a-button type="primary" @click="top += 10">Affix top</a-button>
-  </a-affix>
+  <xy-affix :offset-top="top">
+    <xy-button type="primary" @click="top += 10">Affix top</xy-button>
+  </xy-affix>
   <br />
-  <a-affix :offset-bottom="bottom">
-    <a-button type="primary" @click="bottom += 10">Affix bottom</a-button>
-  </a-affix>
+  <xy-affix :offset-bottom="bottom">
+    <xy-button type="primary" @click="bottom += 10">Affix bottom</xy-button>
+  </xy-affix>
 </template>
 
 <script lang="ts" setup>

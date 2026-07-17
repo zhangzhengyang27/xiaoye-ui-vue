@@ -1,5 +1,5 @@
 <template>
-  <a-cascader v-model:value="value" placeholder="Please select" :options="options" />
+  <xy-cascader v-model:value="value" placeholder="Please select" :options="options" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

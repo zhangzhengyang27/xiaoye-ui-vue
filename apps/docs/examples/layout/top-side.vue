@@ -1,79 +1,79 @@
 <template>
-  <a-layout>
-    <a-layout-header class="header">
+  <xy-layout>
+    <xy-layout-header class="header">
       <div class="logo" />
-      <a-menu
+      <xy-menu
         v-model:selected-keys="selectedKeys1"
         theme="dark"
         mode="horizontal"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1">nav 1</a-menu-item>
-        <a-menu-item key="2">nav 2</a-menu-item>
-        <a-menu-item key="3">nav 3</a-menu-item>
-      </a-menu>
-    </a-layout-header>
-    <a-layout-content style="padding: 0 50px">
-      <a-breadcrumb style="margin: 16px 0">
-        <a-breadcrumb-item>Home</a-breadcrumb-item>
-        <a-breadcrumb-item>List</a-breadcrumb-item>
-        <a-breadcrumb-item>App</a-breadcrumb-item>
-      </a-breadcrumb>
-      <a-layout style="padding: 24px 0; background: #fff">
-        <a-layout-sider width="200" style="background: #fff">
-          <a-menu
+        <xy-menu-item key="1">nav 1</xy-menu-item>
+        <xy-menu-item key="2">nav 2</xy-menu-item>
+        <xy-menu-item key="3">nav 3</xy-menu-item>
+      </xy-menu>
+    </xy-layout-header>
+    <xy-layout-content style="padding: 0 50px">
+      <xy-breadcrumb style="margin: 16px 0">
+        <xy-breadcrumb-item>Home</xy-breadcrumb-item>
+        <xy-breadcrumb-item>List</xy-breadcrumb-item>
+        <xy-breadcrumb-item>App</xy-breadcrumb-item>
+      </xy-breadcrumb>
+      <xy-layout style="padding: 24px 0; background: #fff">
+        <xy-layout-sider width="200" style="background: #fff">
+          <xy-menu
             v-model:selected-keys="selectedKeys2"
             v-model:open-keys="openKeys"
             mode="inline"
             style="height: 100%"
           >
-            <a-sub-menu key="sub1">
+            <xy-sub-menu key="sub1">
               <template #title>
                 <span>
                   <user-outlined />
                   subnav 1
                 </span>
               </template>
-              <a-menu-item key="1">option1</a-menu-item>
-              <a-menu-item key="2">option2</a-menu-item>
-              <a-menu-item key="3">option3</a-menu-item>
-              <a-menu-item key="4">option4</a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="sub2">
+              <xy-menu-item key="1">option1</xy-menu-item>
+              <xy-menu-item key="2">option2</xy-menu-item>
+              <xy-menu-item key="3">option3</xy-menu-item>
+              <xy-menu-item key="4">option4</xy-menu-item>
+            </xy-sub-menu>
+            <xy-sub-menu key="sub2">
               <template #title>
                 <span>
                   <laptop-outlined />
                   subnav 2
                 </span>
               </template>
-              <a-menu-item key="5">option5</a-menu-item>
-              <a-menu-item key="6">option6</a-menu-item>
-              <a-menu-item key="7">option7</a-menu-item>
-              <a-menu-item key="8">option8</a-menu-item>
-            </a-sub-menu>
-            <a-sub-menu key="sub3">
+              <xy-menu-item key="5">option5</xy-menu-item>
+              <xy-menu-item key="6">option6</xy-menu-item>
+              <xy-menu-item key="7">option7</xy-menu-item>
+              <xy-menu-item key="8">option8</xy-menu-item>
+            </xy-sub-menu>
+            <xy-sub-menu key="sub3">
               <template #title>
                 <span>
                   <notification-outlined />
                   subnav 3
                 </span>
               </template>
-              <a-menu-item key="9">option9</a-menu-item>
-              <a-menu-item key="10">option10</a-menu-item>
-              <a-menu-item key="11">option11</a-menu-item>
-              <a-menu-item key="12">option12</a-menu-item>
-            </a-sub-menu>
-          </a-menu>
-        </a-layout-sider>
-        <a-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
+              <xy-menu-item key="9">option9</xy-menu-item>
+              <xy-menu-item key="10">option10</xy-menu-item>
+              <xy-menu-item key="11">option11</xy-menu-item>
+              <xy-menu-item key="12">option12</xy-menu-item>
+            </xy-sub-menu>
+          </xy-menu>
+        </xy-layout-sider>
+        <xy-layout-content :style="{ padding: '0 24px', minHeight: '280px' }">
           Content
-        </a-layout-content>
-      </a-layout>
-    </a-layout-content>
-    <a-layout-footer style="text-align: center">
+        </xy-layout-content>
+      </xy-layout>
+    </xy-layout-content>
+    <xy-layout-footer style="text-align: center">
       Xiaoye UI ©2024 Created by Xiaoye UI
-    </a-layout-footer>
-  </a-layout>
+    </xy-layout-footer>
+  </xy-layout>
 </template>
 
 <script lang="ts" setup>

@@ -24,7 +24,7 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AUpload',
+  name: 'XYUpload',
   inheritAttrs: false,
   props: initDefaultProps(uploadProps(), {
     type: 'select',

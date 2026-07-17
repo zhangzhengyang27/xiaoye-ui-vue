@@ -1,5 +1,5 @@
 <template>
-  <a-anchor
+  <xy-anchor
     :items="[
       {
         key: 'part-1',

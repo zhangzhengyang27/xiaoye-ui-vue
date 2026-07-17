@@ -1,11 +1,11 @@
 {
-    "main": "./MoveIcon.vue",
-    "module": "./MoveIcon.vue",
-    "types": "./MoveIcon.d.ts",
-    "browser": {
-        "./sfc": "./MoveIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MoveIcon.vue",
+  "module": "./MoveIcon.vue",
+  "types": "./MoveIcon.d.ts",
+  "browser": {
+    "./sfc": "./MoveIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -65,7 +65,7 @@ const generateId = (() => {
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ALayoutSider',
+  name: 'XYLayoutSider',
   inheritAttrs: false,
   props: initDefaultProps(siderProps(), {
     collapsible: false,

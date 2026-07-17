@@ -1,18 +1,18 @@
 <template>
-  <a-space>
-    <a-input-number
+  <xy-space>
+    <xy-input-number
       v-model:value="value1"
       :formatter="value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
       :parser="value => value.replace(/\$\s?|(,*)/g, '')"
     />
-    <a-input-number
+    <xy-input-number
       v-model:value="value2"
       :min="0"
       :max="100"
       :formatter="value => `${value}%`"
       :parser="value => value.replace('%', '')"
     />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

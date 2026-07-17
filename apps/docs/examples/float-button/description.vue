@@ -1,5 +1,5 @@
 <template>
-  <a-float-button
+  <xy-float-button
     shape="square"
     description="HELP INFO"
     :style="{
@@ -9,17 +9,17 @@
     <template #icon>
       <FileTextOutlined />
     </template>
-  </a-float-button>
+  </xy-float-button>
 
-  <a-float-button
+  <xy-float-button
     shape="square"
     description="HELP INFO"
     :style="{
       right: '94px',
     }"
-  ></a-float-button>
+  ></xy-float-button>
 
-  <a-float-button
+  <xy-float-button
     shape="square"
     description="HELP"
     :style="{
@@ -29,7 +29,7 @@
     <template #icon>
       <FileTextOutlined />
     </template>
-  </a-float-button>
+  </xy-float-button>
 </template>
 
 <script lang="ts" setup>

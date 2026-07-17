@@ -1,5 +1,5 @@
 import { addComponent, addImports } from '@nuxt/kit';
-import { isNotEmpty, isString, resolve } from '@xiaoye-ui/utils/object';
+import { isNotEmpty, isString, resolve } from '@xiaoye-ui/utils';
 import type { MetaType } from '@xiaoye-ui/metadata';
 import { components, composables, directives } from '@xiaoye-ui/metadata';
 import type { ConstructsType, ModuleOptions, ResolvePathOptions } from './types';

@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="table-operations">
-      <a-button @click="setAgeSort">Sort age</a-button>
-      <a-button @click="clearFilters">Clear filters</a-button>
-      <a-button @click="clearAll">Clear filters and sorters</a-button>
+      <xy-button @click="setAgeSort">Sort age</xy-button>
+      <xy-button @click="clearFilters">Clear filters</xy-button>
+      <xy-button @click="clearAll">Clear filters and sorters</xy-button>
     </div>
-    <a-table :columns="columns" :data-source="data" @change="handleChange" />
+    <xy-table :columns="columns" :data-source="data" @change="handleChange" />
   </div>
 </template>
 <script lang="ts" setup>

@@ -6,6 +6,7 @@ import warning from '../_util/warning';
 import Option from './Option';
 import OptGroup from './OptGroup';
 import omit from '../_util/omit';
+import { registerComponent } from '../_util/registerComponent';
 
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import type { InputStatus } from '../_util/statusUtils';
@@ -45,7 +46,7 @@ export const AutoCompleteOptGroup = OptGroup;
 
 const AutoComplete = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AAutoComplete',
+  name: 'XYAutoComplete',
   inheritAttrs: false,
   props: autoCompleteProps(),
   // emits: ['change', 'select', 'focus', 'blur'],
@@ -167,9 +168,9 @@ export default Object.assign(AutoComplete, {
   Option,
   OptGroup,
   install(app: App) {
-    app.component(AutoComplete.name, AutoComplete);
-    app.component(Option.displayName, Option);
-    app.component(OptGroup.displayName, OptGroup);
+    registerComponent(app, AutoComplete);
+    registerComponent(app, Option);
+    registerComponent(app, OptGroup);
     return app;
   },
 });

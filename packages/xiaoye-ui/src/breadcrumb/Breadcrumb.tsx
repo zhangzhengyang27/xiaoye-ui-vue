@@ -55,7 +55,7 @@ function defaultItemRender(opt: {
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ABreadcrumb',
+  name: 'XYBreadcrumb',
   inheritAttrs: false,
   props: breadcrumbProps(),
   slots: Object as CustomSlotsType<{
@@ -146,7 +146,7 @@ export default defineComponent({
         crumbs = children.map((element, index) => {
           warning(
             typeof element.type === 'object' &&
-              (element.type.__ANT_BREADCRUMB_ITEM || element.type.__ANT_BREADCRUMB_SEPARATOR),
+              (element.type.__XY_BREADCRUMB_ITEM || element.type.__XY_BREADCRUMB_SEPARATOR),
             'Breadcrumb',
             "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
           );

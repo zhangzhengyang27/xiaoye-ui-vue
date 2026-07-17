@@ -1,16 +1,16 @@
 <template>
-  <a-badge count="5">
-    <a-avatar shape="square" size="large" />
-  </a-badge>
-  <a-badge count="0" show-zero>
-    <a-avatar shape="square" size="large" />
-  </a-badge>
-  <a-badge>
+  <xy-badge count="5">
+    <xy-avatar shape="square" size="large" />
+  </xy-badge>
+  <xy-badge count="0" show-zero>
+    <xy-avatar shape="square" size="large" />
+  </xy-badge>
+  <xy-badge>
     <template #count>
       <clock-circle-outlined style="color: #f5222d" />
     </template>
-    <a-avatar shape="square" size="large" />
-  </a-badge>
+    <xy-avatar shape="square" size="large" />
+  </xy-badge>
 </template>
 
 <script lang="ts" setup>

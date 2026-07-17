@@ -1,18 +1,22 @@
 <template>
   <div style="width: 300px; border: 1px solid #d9d9d9; border-radius: 4px">
-    <a-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange">
+    <xy-calendar v-model:value="value" :fullscreen="false" @panelChange="onPanelChange">
       <template #headerRender="{ value: current, type, onChange, onTypeChange }">
         <div style="padding: 10px">
           <div style="margin-bottom: 10px">Custom header</div>
-          <a-row type="flex" justify="space-between">
-            <a-col>
-              <a-radio-group size="small" :value="type" @change="e => onTypeChange(e.target.value)">
-                <a-radio-button value="month">Month</a-radio-button>
-                <a-radio-button value="year">Year</a-radio-button>
-              </a-radio-group>
-            </a-col>
-            <a-col>
-              <a-select
+          <xy-row type="flex" justify="space-between">
+            <xy-col>
+              <xy-radio-group
+                size="small"
+                :value="type"
+                @change="e => onTypeChange(e.target.value)"
+              >
+                <xy-radio-button value="month">Month</xy-radio-button>
+                <xy-radio-button value="year">Year</xy-radio-button>
+              </xy-radio-group>
+            </xy-col>
+            <xy-col>
+              <xy-select
                 size="small"
                 :dropdown-match-select-width="false"
                 class="my-year-select"
@@ -23,17 +27,17 @@
                   }
                 "
               >
-                <a-select-option
+                <xy-select-option
                   v-for="val in getYears(current)"
                   :key="String(val)"
                   class="year-item"
                 >
                   {{ val }}
-                </a-select-option>
-              </a-select>
-            </a-col>
-            <a-col>
-              <a-select
+                </xy-select-option>
+              </xy-select>
+            </xy-col>
+            <xy-col>
+              <xy-select
                 size="small"
                 :dropdown-match-select-width="false"
                 :value="String(current.month())"
@@ -43,19 +47,19 @@
                   }
                 "
               >
-                <a-select-option
+                <xy-select-option
                   v-for="(val, index) in getMonths(current)"
                   :key="String(index)"
                   class="month-item"
                 >
                   {{ val }}
-                </a-select-option>
-              </a-select>
-            </a-col>
-          </a-row>
+                </xy-select-option>
+              </xy-select>
+            </xy-col>
+          </xy-row>
         </div>
       </template>
-    </a-calendar>
+    </xy-calendar>
   </div>
 </template>
 <script lang="ts" setup>

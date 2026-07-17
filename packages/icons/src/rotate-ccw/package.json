@@ -1,11 +1,11 @@
 {
-    "main": "./RotateCcwIcon.vue",
-    "module": "./RotateCcwIcon.vue",
-    "types": "./RotateCcwIcon.d.ts",
-    "browser": {
-        "./sfc": "./RotateCcwIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./RotateCcwIcon.vue",
+  "module": "./RotateCcwIcon.vue",
+  "types": "./RotateCcwIcon.d.ts",
+  "browser": {
+    "./sfc": "./RotateCcwIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,11 +1,11 @@
 {
-    "main": "./PowerIcon.vue",
-    "module": "./PowerIcon.vue",
-    "types": "./PowerIcon.d.ts",
-    "browser": {
-        "./sfc": "./PowerIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./PowerIcon.vue",
+  "module": "./PowerIcon.vue",
+  "types": "./PowerIcon.d.ts",
+  "browser": {
+    "./sfc": "./PowerIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,21 +1,21 @@
 <template>
-  <a-flex gap="middle" vertical>
-    <a-radio-group v-model:value="gapSize">
-      <a-radio value="small">small</a-radio>
-      <a-radio value="middle">middle</a-radio>
-      <a-radio value="large">large</a-radio>
-      <a-radio value="customize">customize</a-radio>
-    </a-radio-group>
+  <xy-flex gap="middle" vertical>
+    <xy-radio-group v-model:value="gapSize">
+      <xy-radio value="small">small</xy-radio>
+      <xy-radio value="middle">middle</xy-radio>
+      <xy-radio value="large">large</xy-radio>
+      <xy-radio value="customize">customize</xy-radio>
+    </xy-radio-group>
     <template v-if="gapSize === 'customize'">
-      <a-slider v-model:value="customGapSize" />
+      <xy-slider v-model:value="customGapSize" />
     </template>
-    <a-flex :gap="gapSize !== 'customize' ? gapSize : customGapSize">
-      <a-button type="primary">Primary</a-button>
-      <a-button>Default</a-button>
-      <a-button type="dashed">Dashed</a-button>
-      <a-button type="link">Link</a-button>
-    </a-flex>
-  </a-flex>
+    <xy-flex :gap="gapSize !== 'customize' ? gapSize : customGapSize">
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button>Default</xy-button>
+      <xy-button type="dashed">Dashed</xy-button>
+      <xy-button type="link">Link</xy-button>
+    </xy-flex>
+  </xy-flex>
 </template>
 
 <script setup lang="ts">

@@ -3,6 +3,7 @@ import createTimePicker from './time-picker';
 import dayjsGenerateConfig from '../vc-picker/generate/dayjs';
 import type { App } from 'vue';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import { registerComponent } from '../_util/registerComponent';
 
 const { TimePicker, TimeRangePicker } = createTimePicker<Dayjs>(dayjsGenerateConfig);
 
@@ -21,8 +22,8 @@ export default Object.assign(TimePicker, {
   TimePicker,
   TimeRangePicker,
   install: (app: App) => {
-    app.component(TimePicker.name, TimePicker);
-    app.component(TimeRangePicker.name, TimeRangePicker);
+    registerComponent(app, TimePicker);
+    registerComponent(app, TimeRangePicker);
     return app;
   },
 });

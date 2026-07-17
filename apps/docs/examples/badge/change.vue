@@ -1,22 +1,22 @@
 <template>
   <div>
-    <a-badge :count="count">
-      <a-avatar shape="square" size="large" />
-    </a-badge>
-    <a-button-group>
-      <a-button @click="decline">
+    <xy-badge :count="count">
+      <xy-avatar shape="square" size="large" />
+    </xy-badge>
+    <xy-button-group>
+      <xy-button @click="decline">
         <minus-outlined />
-      </a-button>
-      <a-button @click="increase">
+      </xy-button>
+      <xy-button @click="increase">
         <plus-outlined />
-      </a-button>
-    </a-button-group>
+      </xy-button>
+    </xy-button-group>
   </div>
-  <a-divider />
-  <a-badge :dot="show">
-    <a-avatar shape="square" size="large" />
-  </a-badge>
-  <a-switch v-model:checked="show" />
+  <xy-divider />
+  <xy-badge :dot="show">
+    <xy-avatar shape="square" size="large" />
+  </xy-badge>
+  <xy-switch v-model:checked="show" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

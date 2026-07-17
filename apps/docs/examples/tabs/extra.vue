@@ -1,15 +1,15 @@
 <template>
-  <a-tabs v-model:active-key="activeKey">
-    <a-tab-pane key="1" tab="Tab 1">Content of tab 1</a-tab-pane>
-    <a-tab-pane key="2" tab="Tab 2">Content of tab 2</a-tab-pane>
-    <a-tab-pane key="3" tab="Tab 3">Content of tab 3</a-tab-pane>
+  <xy-tabs v-model:active-key="activeKey">
+    <xy-tab-pane key="1" tab="Tab 1">Content of tab 1</xy-tab-pane>
+    <xy-tab-pane key="2" tab="Tab 2">Content of tab 2</xy-tab-pane>
+    <xy-tab-pane key="3" tab="Tab 3">Content of tab 3</xy-tab-pane>
     <template #leftExtra>
-      <a-button class="tabs-extra-demo-button">Left Extra Action</a-button>
+      <xy-button class="tabs-extra-demo-button">Left Extra Action</xy-button>
     </template>
     <template #rightExtra>
-      <a-button>Right Extra Action</a-button>
+      <xy-button>Right Extra Action</xy-button>
     </template>
-  </a-tabs>
+  </xy-tabs>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

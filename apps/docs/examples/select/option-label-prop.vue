@@ -1,31 +1,31 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-select
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
       placeholder="select one country"
       option-label-prop="children"
     >
-      <a-select-option value="china" label="China">
+      <xy-select-option value="china" label="China">
         <span role="img" aria-label="China">🇨🇳</span>
         &nbsp;&nbsp;China (中国)
-      </a-select-option>
-      <a-select-option value="usa" label="USA">
+      </xy-select-option>
+      <xy-select-option value="usa" label="USA">
         <span role="img" aria-label="USA">🇺🇸</span>
         &nbsp;&nbsp;USA (美国)
-      </a-select-option>
-      <a-select-option value="japan" label="Japan">
+      </xy-select-option>
+      <xy-select-option value="japan" label="Japan">
         <span role="img" aria-label="Japan">🇯🇵</span>
         &nbsp;&nbsp;Japan (日本)
-      </a-select-option>
-      <a-select-option value="korea" label="Korea">
+      </xy-select-option>
+      <xy-select-option value="korea" label="Korea">
         <span role="img" aria-label="Korea">🇰🇷</span>
         &nbsp;&nbsp;Korea (韩国)
-      </a-select-option>
-    </a-select>
+      </xy-select-option>
+    </xy-select>
 
-    <a-select
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
@@ -37,13 +37,13 @@
         <span role="img" :aria-label="val">{{ icon }}</span>
         &nbsp;&nbsp;{{ label }}
       </template>
-    </a-select>
+    </xy-select>
     <span>Note: v-slot:option support from v2.2.5</span>
-  </a-space>
+  </xy-space>
   <br />
   <br />
-  <a-space direction="vertical" style="width: 100%">
-    <a-select
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
@@ -55,14 +55,14 @@
         &nbsp;&nbsp;{{ label }}
       </template>
       <template #tagRender="{ value: val, label, closable, onClose, option }">
-        <a-tag :closable="closable" style="margin-right: 3px" @close="onClose">
+        <xy-tag :closable="closable" style="margin-right: 3px" @close="onClose">
           {{ label }}&nbsp;&nbsp;
           <span role="img" :aria-label="val">{{ option.icon }}</span>
-        </a-tag>
+        </xy-tag>
       </template>
-    </a-select>
+    </xy-select>
     <span>Note: v-slot:tagRender support from v3.0</span>
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

@@ -19,7 +19,6 @@ describe('Slider', () => {
     await asyncExpect(() => {
       wrapper.findAll('.xy-slider-handle')[0].trigger('mouseleave');
     }, 1000);
-    await asyncExpect(() => {
-    }, 1000);
+    await asyncExpect(() => {}, 1000);
   });
 });

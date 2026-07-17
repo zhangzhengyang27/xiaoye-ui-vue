@@ -1,11 +1,11 @@
 {
-    "main": "./SettingsIcon.vue",
-    "module": "./SettingsIcon.vue",
-    "types": "./SettingsIcon.d.ts",
-    "browser": {
-        "./sfc": "./SettingsIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SettingsIcon.vue",
+  "module": "./SettingsIcon.vue",
+  "types": "./SettingsIcon.d.ts",
+  "browser": {
+    "./sfc": "./SettingsIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

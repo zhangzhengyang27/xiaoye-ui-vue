@@ -1,11 +1,11 @@
 {
-    "main": "./TicketIcon.vue",
-    "module": "./TicketIcon.vue",
-    "types": "./TicketIcon.d.ts",
-    "browser": {
-        "./sfc": "./TicketIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./TicketIcon.vue",
+  "module": "./TicketIcon.vue",
+  "types": "./TicketIcon.d.ts",
+  "browser": {
+    "./sfc": "./TicketIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

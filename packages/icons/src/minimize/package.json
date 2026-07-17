@@ -1,11 +1,11 @@
 {
-    "main": "./MinimizeIcon.vue",
-    "module": "./MinimizeIcon.vue",
-    "types": "./MinimizeIcon.d.ts",
-    "browser": {
-        "./sfc": "./MinimizeIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MinimizeIcon.vue",
+  "module": "./MinimizeIcon.vue",
+  "types": "./MinimizeIcon.d.ts",
+  "browser": {
+    "./sfc": "./MinimizeIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

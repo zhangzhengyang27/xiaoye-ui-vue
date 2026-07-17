@@ -1,11 +1,11 @@
 {
-    "main": "./QuoteIcon.vue",
-    "module": "./QuoteIcon.vue",
-    "types": "./QuoteIcon.d.ts",
-    "browser": {
-        "./sfc": "./QuoteIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./QuoteIcon.vue",
+  "module": "./QuoteIcon.vue",
+  "types": "./QuoteIcon.d.ts",
+  "browser": {
+    "./sfc": "./QuoteIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

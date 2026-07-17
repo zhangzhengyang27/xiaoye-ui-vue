@@ -1,11 +1,11 @@
 {
-    "main": "./SmartphoneIcon.vue",
-    "module": "./SmartphoneIcon.vue",
-    "types": "./SmartphoneIcon.d.ts",
-    "browser": {
-        "./sfc": "./SmartphoneIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SmartphoneIcon.vue",
+  "module": "./SmartphoneIcon.vue",
+  "types": "./SmartphoneIcon.d.ts",
+  "browser": {
+    "./sfc": "./SmartphoneIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

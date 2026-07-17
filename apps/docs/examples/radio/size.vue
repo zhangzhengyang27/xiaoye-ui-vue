@@ -1,28 +1,28 @@
 <template>
   <div>
     <div>
-      <a-radio-group v-model:value="value1" size="large">
-        <a-radio-button value="a">Hangzhou</a-radio-button>
-        <a-radio-button value="b">Shanghai</a-radio-button>
-        <a-radio-button value="c">Beijing</a-radio-button>
-        <a-radio-button value="d">Chengdu</a-radio-button>
-      </a-radio-group>
+      <xy-radio-group v-model:value="value1" size="large">
+        <xy-radio-button value="a">Hangzhou</xy-radio-button>
+        <xy-radio-button value="b">Shanghai</xy-radio-button>
+        <xy-radio-button value="c">Beijing</xy-radio-button>
+        <xy-radio-button value="d">Chengdu</xy-radio-button>
+      </xy-radio-group>
     </div>
     <div :style="{ marginTop: '16px' }">
-      <a-radio-group v-model:value="value2">
-        <a-radio-button value="a">Hangzhou</a-radio-button>
-        <a-radio-button value="b">Shanghai</a-radio-button>
-        <a-radio-button value="c">Beijing</a-radio-button>
-        <a-radio-button value="d">Chengdu</a-radio-button>
-      </a-radio-group>
+      <xy-radio-group v-model:value="value2">
+        <xy-radio-button value="a">Hangzhou</xy-radio-button>
+        <xy-radio-button value="b">Shanghai</xy-radio-button>
+        <xy-radio-button value="c">Beijing</xy-radio-button>
+        <xy-radio-button value="d">Chengdu</xy-radio-button>
+      </xy-radio-group>
     </div>
     <div :style="{ marginTop: '16px' }">
-      <a-radio-group v-model:value="value3" size="small">
-        <a-radio-button value="a">Hangzhou</a-radio-button>
-        <a-radio-button value="b">Shanghai</a-radio-button>
-        <a-radio-button value="c">Beijing</a-radio-button>
-        <a-radio-button value="d">Chengdu</a-radio-button>
-      </a-radio-group>
+      <xy-radio-group v-model:value="value3" size="small">
+        <xy-radio-button value="a">Hangzhou</xy-radio-button>
+        <xy-radio-button value="b">Shanghai</xy-radio-button>
+        <xy-radio-button value="c">Beijing</xy-radio-button>
+        <xy-radio-button value="d">Chengdu</xy-radio-button>
+      </xy-radio-group>
     </div>
   </div>
 </template>

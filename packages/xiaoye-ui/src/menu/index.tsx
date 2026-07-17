@@ -11,13 +11,14 @@ import type { MenuDividerProps } from './src/Divider';
 import type { App, Plugin } from 'vue';
 import type { MenuTheme, MenuMode } from './src/interface';
 import type { ItemType } from './src/hooks/useItems';
+import { registerComponent } from '../_util/registerComponent';
 /* istanbul ignore next */
 Menu.install = function (app: App) {
-  app.component(Menu.name, Menu);
-  app.component(MenuItem.name, MenuItem);
-  app.component(SubMenu.name, SubMenu);
-  app.component(Divider.name, Divider);
-  app.component(ItemGroup.name, ItemGroup);
+  registerComponent(app, Menu);
+  registerComponent(app, MenuItem);
+  registerComponent(app, SubMenu);
+  registerComponent(app, Divider);
+  registerComponent(app, ItemGroup);
   return app;
 };
 

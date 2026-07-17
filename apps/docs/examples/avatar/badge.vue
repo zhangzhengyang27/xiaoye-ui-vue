@@ -1,16 +1,16 @@
 <template>
-  <a-space :size="24">
-    <a-badge :count="1">
-      <a-avatar shape="square">
+  <xy-space :size="24">
+    <xy-badge :count="1">
+      <xy-avatar shape="square">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-    </a-badge>
-    <a-badge dot>
-      <a-avatar shape="square">
+      </xy-avatar>
+    </xy-badge>
+    <xy-badge dot>
+      <xy-avatar shape="square">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-    </a-badge>
-  </a-space>
+      </xy-avatar>
+    </xy-badge>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

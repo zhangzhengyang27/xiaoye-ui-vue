@@ -1,11 +1,11 @@
 {
-    "main": "./VolumeXIcon.vue",
-    "module": "./VolumeXIcon.vue",
-    "types": "./VolumeXIcon.d.ts",
-    "browser": {
-        "./sfc": "./VolumeXIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./VolumeXIcon.vue",
+  "module": "./VolumeXIcon.vue",
+  "types": "./VolumeXIcon.d.ts",
+  "browser": {
+    "./sfc": "./VolumeXIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -34,8 +34,7 @@ describe('Picker format by locale', () => {
         },
         { sync: false },
       );
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
   }
 
@@ -56,8 +55,7 @@ describe('MonthPicker and WeekPicker', () => {
       wrapper.setProps({ value: birthday });
     });
 
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render WeekPicker', async () => {

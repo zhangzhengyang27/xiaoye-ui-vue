@@ -8,6 +8,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import { eventType } from '../_util/type';
 import type { CustomSlotsType, LiteralUnion } from '../_util/type';
+import { registerComponent } from '../_util/registerComponent';
 
 import CheckableTag from './CheckableTag';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
@@ -37,7 +38,7 @@ export type TagProps = HTMLAttributes & Partial<ExtractPropTypes<ReturnType<type
 
 const Tag = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ATag',
+  name: 'XYTag',
   inheritAttrs: false,
   props: tagProps(),
   // emits: ['update:visible', 'close'],
@@ -162,8 +163,8 @@ const Tag = defineComponent({
 Tag.CheckableTag = CheckableTag;
 
 Tag.install = function (app: App) {
-  app.component(Tag.name, Tag);
-  app.component(CheckableTag.name, CheckableTag);
+  registerComponent(app, Tag);
+  registerComponent(app, CheckableTag);
   return app;
 };
 

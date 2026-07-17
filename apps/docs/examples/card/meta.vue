@@ -1,5 +1,5 @@
 <template>
-  <a-card hoverable style="width: 300px">
+  <xy-card hoverable style="width: 300px">
     <template #cover>
       <img
         alt="example"
@@ -11,12 +11,12 @@
       <edit-outlined key="edit" />
       <ellipsis-outlined key="ellipsis" />
     </template>
-    <a-card-meta title="Card title" description="This is the description">
+    <xy-card-meta title="Card title" description="This is the description">
       <template #avatar>
-        <a-avatar src="https://joeschmoe.io/api/v1/random" />
+        <xy-avatar src="https://joeschmoe.io/api/v1/random" />
       </template>
-    </a-card-meta>
-  </a-card>
+    </xy-card-meta>
+  </xy-card>
 </template>
 
 <script lang="ts" setup>

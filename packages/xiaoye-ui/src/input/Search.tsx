@@ -18,7 +18,7 @@ import inputProps from './inputProps';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AInputSearch',
+  name: 'XYInputSearch',
   inheritAttrs: false,
   props: {
     ...inputProps(),
@@ -99,7 +99,7 @@ export default defineComponent({
       const isAntdButton =
         enterButtonAsElement.type &&
         isPlainObject(enterButtonAsElement.type) &&
-        enterButtonAsElement.type.__ANT_BUTTON;
+        enterButtonAsElement.type.__XY_BUTTON;
       if (isAntdButton || enterButtonAsElement.tagName === 'button') {
         button = cloneElement(
           enterButtonAsElement,

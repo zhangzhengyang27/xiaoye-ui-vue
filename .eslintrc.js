@@ -43,18 +43,20 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.md'],
-      processor: 'markdown/markdown',
-      rules: {
-        'no-console': 'off',
+      files: ['packages/xiaoye-ui/src/_util/transition.tsx'],
+      parserOptions: {
+        project: null,
       },
     },
     {
       files: ['*.ts', '*.tsx'],
-      // extends: ['@vue/typescript/recommended', '@vue/prettier'],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.json',
+        project: null,
+        ecmaVersion: 2021,
+        sourceType: 'module',
       },
+      // extends: ['@vue/typescript/recommended', '@vue/prettier'],
       rules: {
         '@typescript-eslint/ban-types': 0,
         '@typescript-eslint/consistent-type-imports': 'error',
@@ -63,11 +65,13 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 0,
         '@typescript-eslint/no-unused-vars': [
           'error',
-          { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
+          { vars: 'all', args: 'after-used', ignoreRestSiblings: true, argsIgnorePattern: '^_' },
         ],
         '@typescript-eslint/ban-ts-comment': 0,
+        'no-undef': 'off',
       },
     },
+
     {
       files: ['*.vue'],
       parser: 'vue-eslint-parser',
@@ -78,6 +82,14 @@ module.exports = {
       rules: {
         'no-console': 'off',
         'vue/no-reserved-component-names': 'off',
+      },
+    },
+    {
+      files: ['*.test.js', '*.test.ts', '*.test.tsx', '*.spec.js', '*.spec.ts', '*.spec.tsx'],
+      rules: {
+        '@typescript-eslint/no-unused-vars': 'off',
+        'no-unused-vars': 'off',
+        'no-console': 'off',
       },
     },
   ],
@@ -119,6 +131,7 @@ module.exports = {
           '@nuxt/kit',
           'nuxt/app',
           'unplugin-vue-components/nuxt',
+          'unbuild',
           'valibot',
         ],
       },

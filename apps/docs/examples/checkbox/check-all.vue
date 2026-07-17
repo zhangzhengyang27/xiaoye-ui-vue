@@ -1,15 +1,15 @@
 <template>
   <div>
-    <a-checkbox
+    <xy-checkbox
       v-model:checked="state.checkAll"
       :indeterminate="state.indeterminate"
       @change="onCheckAllChange"
     >
       Check all
-    </a-checkbox>
+    </xy-checkbox>
   </div>
-  <a-divider />
-  <a-checkbox-group v-model:value="state.checkedList" :options="plainOptions" />
+  <xy-divider />
+  <xy-checkbox-group v-model:value="state.checkedList" :options="plainOptions" />
 </template>
 <script lang="ts" setup>
 import { reactive, watch } from 'vue';

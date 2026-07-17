@@ -1,11 +1,11 @@
 {
-    "main": "./MessageSquareIcon.vue",
-    "module": "./MessageSquareIcon.vue",
-    "types": "./MessageSquareIcon.d.ts",
-    "browser": {
-        "./sfc": "./MessageSquareIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MessageSquareIcon.vue",
+  "module": "./MessageSquareIcon.vue",
+  "types": "./MessageSquareIcon.d.ts",
+  "browser": {
+    "./sfc": "./MessageSquareIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

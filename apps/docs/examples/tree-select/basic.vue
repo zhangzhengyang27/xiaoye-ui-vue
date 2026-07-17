@@ -1,5 +1,5 @@
 <template>
-  <a-tree-select
+  <xy-tree-select
     v-model:value="value"
     show-search
     style="width: 100%"
@@ -14,7 +14,7 @@
       <b v-if="val === 'parent 1-1'" style="color: #08c">sss</b>
       <template v-else>{{ label }}</template>
     </template>
-  </a-tree-select>
+  </xy-tree-select>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

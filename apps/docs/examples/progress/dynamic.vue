@@ -1,14 +1,14 @@
 <template>
   <div>
-    <a-progress :percent="defaultPercent" />
-    <a-button-group>
-      <a-button @click="decline">
+    <xy-progress :percent="defaultPercent" />
+    <xy-button-group>
+      <xy-button @click="decline">
         <template #icon><minus-outlined /></template>
-      </a-button>
-      <a-button @click="increase">
+      </xy-button>
+      <xy-button @click="increase">
         <template #icon><plus-outlined /></template>
-      </a-button>
-    </a-button-group>
+      </xy-button>
+    </xy-button-group>
   </div>
 </template>
 <script lang="ts" setup>

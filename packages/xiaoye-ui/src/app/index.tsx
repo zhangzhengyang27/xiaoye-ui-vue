@@ -8,6 +8,7 @@ import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
 import type { AppConfig } from './context';
+import { registerComponent } from '../_util/registerComponent';
 import {
   useProvideAppConfigContext,
   useInjectAppConfigContext,
@@ -29,7 +30,7 @@ const useApp = () => {
 };
 
 const App = defineComponent({
-  name: 'AApp',
+  name: 'XYApp',
   props: initDefaultProps(AppProps(), {}),
   setup(props, { slots }) {
     const { prefixCls } = useConfigInject('app', props);
@@ -74,7 +75,7 @@ const App = defineComponent({
 App.useApp = useApp;
 
 App.install = function (app: TypeApp) {
-  app.component(App.name, App);
+  registerComponent(app, App);
 };
 
 export default App as typeof App &

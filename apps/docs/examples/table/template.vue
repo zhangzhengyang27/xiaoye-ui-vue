@@ -1,31 +1,31 @@
 <template>
-  <a-table :data-source="data">
-    <a-table-column-group>
+  <xy-table :data-source="data">
+    <xy-table-column-group>
       <template #title><span style="color: #1890ff">Name</span></template>
-      <a-table-column key="firstName" data-index="firstName">
+      <xy-table-column key="firstName" data-index="firstName">
         <template #title><span style="color: #1890ff">First Name</span></template>
-      </a-table-column>
-      <a-table-column key="lastName" title="Last Name" data-index="lastName" />
-    </a-table-column-group>
-    <a-table-column key="age" title="Age" data-index="age" />
-    <a-table-column key="address" title="Address" data-index="address" />
-    <a-table-column key="tags" title="Tags" data-index="tags">
+      </xy-table-column>
+      <xy-table-column key="lastName" title="Last Name" data-index="lastName" />
+    </xy-table-column-group>
+    <xy-table-column key="age" title="Age" data-index="age" />
+    <xy-table-column key="address" title="Address" data-index="address" />
+    <xy-table-column key="tags" title="Tags" data-index="tags">
       <template #default="{ text: tags }">
         <span>
-          <a-tag v-for="tag in tags" :key="tag" color="blue">{{ tag }}</a-tag>
+          <xy-tag v-for="tag in tags" :key="tag" color="blue">{{ tag }}</xy-tag>
         </span>
       </template>
-    </a-table-column>
-    <a-table-column key="action" title="Action">
+    </xy-table-column>
+    <xy-table-column key="action" title="Action">
       <template #default="{ record }">
         <span>
           <a>Action 一 {{ record.firstName }}</a>
-          <a-divider type="vertical" />
+          <xy-divider type="vertical" />
           <a>Delete</a>
         </span>
       </template>
-    </a-table-column>
-  </a-table>
+    </xy-table-column>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 const data = [

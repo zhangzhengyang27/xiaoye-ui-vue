@@ -1,3 +1,3 @@
 <template>
-  <a-empty :description="null" />
+  <xy-empty :description="null" />
 </template>

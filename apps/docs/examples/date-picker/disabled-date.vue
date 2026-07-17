@@ -1,15 +1,15 @@
 <template>
-  <a-space direction="vertical">
-    <a-date-picker
+  <xy-space direction="vertical">
+    <xy-date-picker
       v-model:value="value1"
       format="YYYY-MM-DD HH:mm:ss"
       :disabled-date="disabledDate"
       :disabled-time="disabledDateTime"
       :show-time="{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }"
     />
-    <a-date-picker v-model:value="value2" :disabled-date="disabledDate" picker="month" />
-    <a-range-picker v-model:value="value3" :disabled-date="disabledDate" />
-    <a-range-picker
+    <xy-date-picker v-model:value="value2" :disabled-date="disabledDate" picker="month" />
+    <xy-range-picker v-model:value="value3" :disabled-date="disabledDate" />
+    <xy-range-picker
       v-model:value="value4"
       style="width: 400px"
       :disabled-date="disabledDate"
@@ -20,7 +20,7 @@
       }"
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import dayjs, { Dayjs } from 'dayjs';

@@ -1,16 +1,16 @@
 <template>
-  <a-flex gap="middle" align="start" vertical>
+  <xy-flex gap="middle" align="start" vertical>
     <p>Select justify :</p>
-    <a-segmented v-model:value="justify" :options="justifyOptions" />
+    <xy-segmented v-model:value="justify" :options="justifyOptions" />
     <p>Select align :</p>
-    <a-segmented v-model:value="alignItems" :options="alignOptions" />
-    <a-flex :style="{ ...boxStyle }" :justify="justify" :align="alignItems">
-      <a-button type="primary">Primary</a-button>
-      <a-button type="primary">Primary</a-button>
-      <a-button type="primary">Primary</a-button>
-      <a-button type="primary">Primary</a-button>
-    </a-flex>
-  </a-flex>
+    <xy-segmented v-model:value="alignItems" :options="alignOptions" />
+    <xy-flex :style="{ ...boxStyle }" :justify="justify" :align="alignItems">
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button type="primary">Primary</xy-button>
+    </xy-flex>
+  </xy-flex>
 </template>
 
 <script setup lang="ts">

@@ -1,11 +1,11 @@
 {
-    "main": "./DollarSignIcon.vue",
-    "module": "./DollarSignIcon.vue",
-    "types": "./DollarSignIcon.d.ts",
-    "browser": {
-        "./sfc": "./DollarSignIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./DollarSignIcon.vue",
+  "module": "./DollarSignIcon.vue",
+  "types": "./DollarSignIcon.d.ts",
+  "browser": {
+    "./sfc": "./DollarSignIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

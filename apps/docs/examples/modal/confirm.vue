@@ -1,10 +1,10 @@
 <template>
-  <a-space wrap>
-    <a-button @click="showConfirm">Confirm</a-button>
-    <a-button @click="showPromiseConfirm">With promise</a-button>
-    <a-button type="dashed" @click="showDeleteConfirm">Delete</a-button>
-    <a-button type="dashed" @click="showPropsConfirm">With extra props</a-button>
-  </a-space>
+  <xy-space wrap>
+    <xy-button @click="showConfirm">Confirm</xy-button>
+    <xy-button @click="showPromiseConfirm">With promise</xy-button>
+    <xy-button type="dashed" @click="showDeleteConfirm">Delete</xy-button>
+    <xy-button type="dashed" @click="showPropsConfirm">With extra props</xy-button>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ExclamationCircleOutlined } from '@xiaoye-ui/icons';

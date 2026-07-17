@@ -25,7 +25,7 @@ export const emptyProps = () => ({
 export type EmptyProps = Partial<ExtractPropTypes<ReturnType<typeof emptyProps>>>;
 
 const Empty = defineComponent({
-  name: 'AEmpty',
+  name: 'XYEmpty',
   compatConfig: { MODE: 3 },
   inheritAttrs: false,
   props: emptyProps(),

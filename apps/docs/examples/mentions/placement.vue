@@ -1,5 +1,5 @@
 <template>
-  <a-mentions v-model:value="value" placement="top" :options="options"></a-mentions>
+  <xy-mentions v-model:value="value" placement="top" :options="options"></xy-mentions>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -1,28 +1,28 @@
 <template>
-  <a-space>
-    <a-select v-model:value="value" style="width: 200px" @change="handleChange">
-      <a-select-opt-group>
+  <xy-space>
+    <xy-select v-model:value="value" style="width: 200px" @change="handleChange">
+      <xy-select-opt-group>
         <template #label>
           <span>
             <user-outlined />
             Manager
           </span>
         </template>
-        <a-select-option value="jack">Jack</a-select-option>
-        <a-select-option value="lucy">Lucy</a-select-option>
-      </a-select-opt-group>
-      <a-select-opt-group label="Engineer">
-        <a-select-option value="Yiminghe">yiminghe</a-select-option>
-        <a-select-option value="Yiminghe1">yiminghe1</a-select-option>
-      </a-select-opt-group>
-    </a-select>
-    <a-select
+        <xy-select-option value="jack">Jack</xy-select-option>
+        <xy-select-option value="lucy">Lucy</xy-select-option>
+      </xy-select-opt-group>
+      <xy-select-opt-group label="Engineer">
+        <xy-select-option value="Yiminghe">yiminghe</xy-select-option>
+        <xy-select-option value="Yiminghe1">yiminghe1</xy-select-option>
+      </xy-select-opt-group>
+    </xy-select>
+    <xy-select
       v-model:value="value"
       :options="options"
       style="width: 200px"
       @change="handleChange"
-    ></a-select>
-  </a-space>
+    ></xy-select>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

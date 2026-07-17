@@ -2,6 +2,7 @@ import type { App, Plugin } from 'vue';
 import FloatButton from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
 import BackTop from './BackTop';
+import { registerComponent } from '../_util/registerComponent';
 
 import type {
   FloatButtonProps,
@@ -27,9 +28,9 @@ FloatButton.BackTop = BackTop;
 
 /* istanbul ignore next */
 FloatButton.install = function (app: App) {
-  app.component(FloatButton.name, FloatButton);
-  app.component(FloatButtonGroup.name, FloatButtonGroup);
-  app.component(BackTop.name, BackTop);
+  registerComponent(app, FloatButton);
+  registerComponent(app, FloatButtonGroup);
+  registerComponent(app, BackTop);
   return app;
 };
 

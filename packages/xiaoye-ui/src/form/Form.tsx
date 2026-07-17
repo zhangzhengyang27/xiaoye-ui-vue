@@ -105,7 +105,7 @@ function isEqualName(name1: NamePath, name2: NamePath) {
 
 const Form = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AForm',
+  name: 'XYForm',
   inheritAttrs: false,
   props: initDefaultProps(formProps(), {
     layout: 'horizontal',

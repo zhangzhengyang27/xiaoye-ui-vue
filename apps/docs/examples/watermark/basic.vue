@@ -1,5 +1,5 @@
 <template>
-  <a-watermark content="Xiaoye UI">
+  <xy-watermark content="Xiaoye UI">
     <div style="height: 500px" />
-  </a-watermark>
+  </xy-watermark>
 </template>

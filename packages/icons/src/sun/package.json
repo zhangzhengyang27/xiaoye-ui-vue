@@ -1,11 +1,11 @@
 {
-    "main": "./SunIcon.vue",
-    "module": "./SunIcon.vue",
-    "types": "./SunIcon.d.ts",
-    "browser": {
-        "./sfc": "./SunIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SunIcon.vue",
+  "module": "./SunIcon.vue",
+  "types": "./SunIcon.d.ts",
+  "browser": {
+    "./sfc": "./SunIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

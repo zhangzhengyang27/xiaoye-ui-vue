@@ -1,109 +1,109 @@
 <template>
   <div>
-    <a-space-compact block>
-      <a-tooltip title="Like">
-        <a-button>
+    <xy-space-compact block>
+      <xy-tooltip title="Like">
+        <xy-button>
           <LikeOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Comment">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Comment">
+        <xy-button>
           <CommentOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Star">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Star">
+        <xy-button>
           <StarOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Heart">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Heart">
+        <xy-button>
           <HeartOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Share">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Share">
+        <xy-button>
           <ShareAltOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Download">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Download">
+        <xy-button>
           <DownloadOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-dropdown placement="bottomRight" :trigger="['click']">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-dropdown placement="bottomRight" :trigger="['click']">
+        <xy-button>
           <EllipsisOutlined />
-        </a-button>
+        </xy-button>
 
         <template #overlay>
-          <a-menu>
-            <a-menu-item>
+          <xy-menu>
+            <xy-menu-item>
               <a href="javascript:;">1st menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
+            </xy-menu-item>
+          </xy-menu>
         </template>
-      </a-dropdown>
-    </a-space-compact>
+      </xy-dropdown>
+    </xy-space-compact>
     <br />
-    <a-space-compact block>
-      <a-button type="primary">Button 1</a-button>
-      <a-button type="primary">Button 2</a-button>
-      <a-button type="primary">Button 3</a-button>
-      <a-button type="primary">Button 4</a-button>
-      <a-tooltip title="Tooltip">
-        <a-button type="primary" disabled>
+    <xy-space-compact block>
+      <xy-button type="primary">Button 1</xy-button>
+      <xy-button type="primary">Button 2</xy-button>
+      <xy-button type="primary">Button 3</xy-button>
+      <xy-button type="primary">Button 4</xy-button>
+      <xy-tooltip title="Tooltip">
+        <xy-button type="primary" disabled>
           <DownloadOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Tooltip">
-        <a-button type="primary" disabled>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Tooltip">
+        <xy-button type="primary" disabled>
           <DownloadOutlined />
-        </a-button>
-      </a-tooltip>
-    </a-space-compact>
+        </xy-button>
+      </xy-tooltip>
+    </xy-space-compact>
     <br />
-    <a-space-compact block>
-      <a-button>Button 1</a-button>
-      <a-button>Button 2</a-button>
-      <a-button>Button 3</a-button>
-      <a-tooltip title="Tooltip">
-        <a-button disabled>
+    <xy-space-compact block>
+      <xy-button>Button 1</xy-button>
+      <xy-button>Button 2</xy-button>
+      <xy-button>Button 3</xy-button>
+      <xy-tooltip title="Tooltip">
+        <xy-button disabled>
           <DownloadOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-tooltip title="Tooltip">
-        <a-button>
+        </xy-button>
+      </xy-tooltip>
+      <xy-tooltip title="Tooltip">
+        <xy-button>
           <DownloadOutlined />
-        </a-button>
-      </a-tooltip>
-      <a-button type="primary">Button 4</a-button>
-      <a-dropdown placement="bottomRight" :trigger="['click']">
-        <a-button type="primary">
+        </xy-button>
+      </xy-tooltip>
+      <xy-button type="primary">Button 4</xy-button>
+      <xy-dropdown placement="bottomRight" :trigger="['click']">
+        <xy-button type="primary">
           <EllipsisOutlined />
-        </a-button>
+        </xy-button>
 
         <template #overlay>
-          <a-menu>
-            <a-menu-item>
+          <xy-menu>
+            <xy-menu-item>
               <a href="javascript:;">1st menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
+            </xy-menu-item>
+          </xy-menu>
         </template>
-      </a-dropdown>
-    </a-space-compact>
+      </xy-dropdown>
+    </xy-space-compact>
   </div>
 </template>
 

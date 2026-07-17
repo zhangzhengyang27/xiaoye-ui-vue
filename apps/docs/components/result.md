@@ -72,10 +72,10 @@ result/customIcon
 
 ## API
 
-|  参数  |  说明  |  类型  |  默认值  |    |    |    |    |    |    |
+| 参数 | 说明 | 类型 | 默认值 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  extra  |  操作区  |  slot  |  -  |    |    |    |    |    |    |
-|  icon  |  自定义 icon  |  slot  |  -  |    |    |    |    |    |    |
-|  status  |  结果的状态,决定图标和颜色  |  `success` \ |  `error` \ |  `info` \ |  `warning` \ |  `404` \ |  `403` \ |  `500`  |  'info'  |
-|  subTitle  |  subTitle 文字  |  string \ |  VNode \ |  slot  |  -  |    |    |    |    |    |    |
-|  title  |  title 文字  |  string \ |  VNode \ |  slot  |  -  |    |    |    |    |    |    |
+| extra | 操作区 | slot | - |  |  |  |  |  |  |
+| icon | 自定义 icon | slot | - |  |  |  |  |  |  |
+| status | 结果的状态,决定图标和颜色 | `success` \ | `error` \ | `info` \ | `warning` \ | `404` \ | `403` \ | `500` | 'info' |
+| subTitle | subTitle 文字 | string \ | VNode \ | slot | - |  |  |  |  |  |  |
+| title | title 文字 | string \ | VNode \ | slot | - |  |  |  |  |  |  |

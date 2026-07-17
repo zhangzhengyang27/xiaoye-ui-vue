@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-pagination
+    <xy-pagination
       v-model:current="current1"
       v-model:page-size="pageSize"
       show-size-changer
@@ -8,7 +8,7 @@
       @showSizeChange="onShowSizeChange"
     />
     <br />
-    <a-pagination
+    <xy-pagination
       v-model:current="current2"
       show-size-changer
       :total="500"

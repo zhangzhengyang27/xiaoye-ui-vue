@@ -1,11 +1,11 @@
 {
-    "main": "./LogInIcon.vue",
-    "module": "./LogInIcon.vue",
-    "types": "./LogInIcon.d.ts",
-    "browser": {
-        "./sfc": "./LogInIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LogInIcon.vue",
+  "module": "./LogInIcon.vue",
+  "types": "./LogInIcon.d.ts",
+  "browser": {
+    "./sfc": "./LogInIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

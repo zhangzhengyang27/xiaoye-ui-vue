@@ -71,8 +71,7 @@ describe('Tag', () => {
       await asyncExpect(() => {
         wrapper.setProps({ visible: true });
       });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
 
     it('can be controlled by visible with hidden as initial value', async () => {
@@ -83,8 +82,7 @@ describe('Tag', () => {
       await asyncExpect(() => {
         wrapper.setProps({ visible: false });
       });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
   });
 });

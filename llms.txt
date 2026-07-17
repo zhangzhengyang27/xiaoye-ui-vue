@@ -1,0 +1,1278 @@
+# XiaoyeUI
+
+> 基于 Vue 3 + TypeScript 的企业级 UI 组件库，组件标签统一使用 `xy-` 前缀。
+
+## 快速开始
+
+```bash
+# 安装主包
+pnpm add xiaoye-ui
+
+# 按需引入组件
+import { XYButton } from 'xiaoye-ui';
+import 'xiaoye-ui/button/style';
+```
+
+## 组件目录
+
+- [Affix 固钉](/components/affix.html) — 标签 `<xy-affix>`，导入 `xiaoye-ui/affix`
+- [Alert 警告提示](/components/alert.html) — 标签 `<xy-alert>`，导入 `xiaoye-ui/alert`
+- [Anchor 锚点](/components/anchor.html) — 标签 `<xy-anchor>`，导入 `xiaoye-ui/anchor`
+- [App 包裹组件](/components/app.html) — 标签 `<xy-app>`，导入 `xiaoye-ui/app`
+- [AutoComplete 自动完成](/components/auto-complete.html) — 标签 `<xy-auto-complete>`，导入 `xiaoye-ui/auto-complete`
+- [Avatar 头像](/components/avatar.html) — 标签 `<xy-avatar>`，导入 `xiaoye-ui/avatar`
+- [Badge 徽标数](/components/badge.html) — 标签 `<xy-badge>`，导入 `xiaoye-ui/badge`
+- [Breadcrumb 面包屑](/components/breadcrumb.html) — 标签 `<xy-breadcrumb>`，导入 `xiaoye-ui/breadcrumb`
+- [Button 按钮](/components/button.html) — 标签 `<xy-button>`，导入 `xiaoye-ui/button`
+- [Calendar 日历](/components/calendar.html) — 标签 `<xy-calendar>`，导入 `xiaoye-ui/calendar`
+- [Card 卡片](/components/card.html) — 标签 `<xy-card>`，导入 `xiaoye-ui/card`
+- [Carousel 走马灯](/components/carousel.html) — 标签 `<xy-carousel>`，导入 `xiaoye-ui/carousel`
+- [Cascader 级联选择](/components/cascader.html) — 标签 `<xy-cascader>`，导入 `xiaoye-ui/cascader`
+- [Checkbox 多选框](/components/checkbox.html) — 标签 `<xy-checkbox>`，导入 `xiaoye-ui/checkbox`
+- [Collapse 折叠面板](/components/collapse.html) — 标签 `<xy-collapse>`，导入 `xiaoye-ui/collapse`
+- [Comment 评论](/components/comment.html) — 标签 `<xy-comment>`，导入 `xiaoye-ui/comment`
+- [ConfigProvider 全局化配置](/components/config-provider.html) — 标签 `<xy-config-provider>`，导入 `xiaoye-ui/config-provider`
+- [DatePicker 日期选择框](/components/date-picker.html) — 标签 `<xy-date-picker>`，导入 `xiaoye-ui/date-picker`
+- [Descriptions 描述列表](/components/descriptions.html) — 标签 `<xy-descriptions>`，导入 `xiaoye-ui/descriptions`
+- [Divider 分割线](/components/divider.html) — 标签 `<xy-divider>`，导入 `xiaoye-ui/divider`
+- [Drawer 抽屉](/components/drawer.html) — 标签 `<xy-drawer>`，导入 `xiaoye-ui/drawer`
+- [Dropdown 下拉菜单](/components/dropdown.html) — 标签 `<xy-dropdown>`，导入 `xiaoye-ui/dropdown`
+- [Empty 空状态](/components/empty.html) — 标签 `<xy-empty>`，导入 `xiaoye-ui/empty`
+- [Flex 弹性布局](/components/flex.html) — 标签 `<xy-flex>`，导入 `xiaoye-ui/flex`
+- [FloatButton 悬浮按钮](/components/float-button.html) — 标签 `<xy-float-button>`，导入 `xiaoye-ui/float-button`
+- [Form 表单](/components/form.html) — 标签 `<xy-form>`，导入 `xiaoye-ui/form`
+- [Grid 栅格](/components/grid.html) — 标签 `<xy-grid>`，导入 `xiaoye-ui/grid`
+- [Icon 图标](/components/icon.html) — 标签 `<xy-icon>`，导入 `xiaoye-ui/icon`
+- [Image 图片](/components/image.html) — 标签 `<xy-image>`，导入 `xiaoye-ui/image`
+- [Input 输入框](/components/input.html) — 标签 `<xy-input>`，导入 `xiaoye-ui/input`
+- [InputNumber 数字输入框](/components/input-number.html) — 标签 `<xy-input-number>`，导入 `xiaoye-ui/input-number`
+- [Layout 布局](/components/layout.html) — 标签 `<xy-layout>`，导入 `xiaoye-ui/layout`
+- [List 列表](/components/list.html) — 标签 `<xy-list>`，导入 `xiaoye-ui/list`
+- [Mentions 提及](/components/mentions.html) — 标签 `<xy-mentions>`，导入 `xiaoye-ui/mentions`
+- [Menu 导航菜单](/components/menu.html) — 标签 `<xy-menu>`，导入 `xiaoye-ui/menu`
+- [Message 全局提示](/components/message.html) — 标签 `<xy-message>`，导入 `xiaoye-ui/message`
+- [Modal 对话框](/components/modal.html) — 标签 `<xy-modal>`，导入 `xiaoye-ui/modal`
+- [Notification 通知提醒框](/components/notification.html) — 标签 `<xy-notification>`，导入 `xiaoye-ui/notification`
+- [PageHeader 页头](/components/page-header.html) — 标签 `<xy-page-header>`，导入 `xiaoye-ui/page-header`
+- [Pagination 分页](/components/pagination.html) — 标签 `<xy-pagination>`，导入 `xiaoye-ui/pagination`
+- [Popconfirm 气泡确认框](/components/popconfirm.html) — 标签 `<xy-popconfirm>`，导入 `xiaoye-ui/popconfirm`
+- [Popover 气泡卡片](/components/popover.html) — 标签 `<xy-popover>`，导入 `xiaoye-ui/popover`
+- [Progress 进度条](/components/progress.html) — 标签 `<xy-progress>`，导入 `xiaoye-ui/progress`
+- [QRCode 二维码](/components/qrcode.html) — 标签 `<xy-qrcode>`，导入 `xiaoye-ui/qrcode`
+- [Radio 单选框](/components/radio.html) — 标签 `<xy-radio>`，导入 `xiaoye-ui/radio`
+- [Rate 评分](/components/rate.html) — 标签 `<xy-rate>`，导入 `xiaoye-ui/rate`
+- [Result 结果](/components/result.html) — 标签 `<xy-result>`，导入 `xiaoye-ui/result`
+- [Segmented 分段控制器](/components/segmented.html) — 标签 `<xy-segmented>`，导入 `xiaoye-ui/segmented`
+- [Select 选择器](/components/select.html) — 标签 `<xy-select>`，导入 `xiaoye-ui/select`
+- [Skeleton 骨架屏](/components/skeleton.html) — 标签 `<xy-skeleton>`，导入 `xiaoye-ui/skeleton`
+- [Slider 滑动输入条](/components/slider.html) — 标签 `<xy-slider>`，导入 `xiaoye-ui/slider`
+- [Space 间距](/components/space.html) — 标签 `<xy-space>`，导入 `xiaoye-ui/space`
+- [Spin 加载中](/components/spin.html) — 标签 `<xy-spin>`，导入 `xiaoye-ui/spin`
+- [Statistic 统计数值](/components/statistic.html) — 标签 `<xy-statistic>`，导入 `xiaoye-ui/statistic`
+- [Steps 步骤条](/components/steps.html) — 标签 `<xy-steps>`，导入 `xiaoye-ui/steps`
+- [Switch 开关](/components/switch.html) — 标签 `<xy-switch>`，导入 `xiaoye-ui/switch`
+- [Table 表格](/components/table.html) — 标签 `<xy-table>`，导入 `xiaoye-ui/table`
+- [Tabs 标签页](/components/tabs.html) — 标签 `<xy-tabs>`，导入 `xiaoye-ui/tabs`
+- [Tag 标签](/components/tag.html) — 标签 `<xy-tag>`，导入 `xiaoye-ui/tag`
+- [TimePicker 时间选择框](/components/time-picker.html) — 标签 `<xy-time-picker>`，导入 `xiaoye-ui/time-picker`
+- [Timeline 时间轴](/components/timeline.html) — 标签 `<xy-timeline>`，导入 `xiaoye-ui/timeline`
+- [Tooltip 文字提示](/components/tooltip.html) — 标签 `<xy-tooltip>`，导入 `xiaoye-ui/tooltip`
+- [Tour 漫游式引导](/components/tour.html) — 标签 `<xy-tour>`，导入 `xiaoye-ui/tour`
+- [Transfer 穿梭框](/components/transfer.html) — 标签 `<xy-transfer>`，导入 `xiaoye-ui/transfer`
+- [Tree 树形控件](/components/tree.html) — 标签 `<xy-tree>`，导入 `xiaoye-ui/tree`
+- [TreeSelect 树选择](/components/tree-select.html) — 标签 `<xy-tree-select>`，导入 `xiaoye-ui/tree-select`
+- [Typography 排版](/components/typography.html) — 标签 `<xy-typography>`，导入 `xiaoye-ui/typography`
+- [Upload 上传](/components/upload.html) — 标签 `<xy-upload>`，导入 `xiaoye-ui/upload`
+- [Watermark 水印](/components/watermark.html) — 标签 `<xy-watermark>`，导入 `xiaoye-ui/watermark`
+
+## 组件详情
+
+### Affix 固钉
+
+- 标签：`<xy-affix>`
+- 导入：`xiaoye-ui/affix`
+- 文档：/components/affix.html
+- 说明：将页面元素钉在可视范围。 当内容区域比较长，需要滚动页面时，这部分内容对应的操作或者导航需要在滚动范围内始终展现。常用于侧边菜单和按钮组合。
+- 示例：
+- basic: examples/affix/basic.vue
+- on-change: examples/affix/on-change.vue
+- target: examples/affix/target.vue
+
+### Alert 警告提示
+
+- 标签：`<xy-alert>`
+- 导入：`xiaoye-ui/alert`
+- 文档：/components/alert.html
+- 说明：警告提示，展现需要关注的信息。 | 参数 | 说明 | 类型 | 默认值 | 版本 |
+- 示例：
+- action: examples/alert/action.vue
+- banner: examples/alert/banner.vue
+- basic: examples/alert/basic.vue
+- closable: examples/alert/closable.vue
+- close-text: examples/alert/close-text.vue
+- custom-icon: examples/alert/custom-icon.vue
+- description: examples/alert/description.vue
+- icon: examples/alert/icon.vue
+- smooth-closed: examples/alert/smooth-closed.vue
+- style: examples/alert/style.vue
+
+### Anchor 锚点
+
+- 标签：`<xy-anchor>`
+- 导入：`xiaoye-ui/anchor`
+- 文档：/components/anchor.html
+- 说明：用于跳转到页面指定位置。 需要展现当前页面上可供跳转的锚点链接，以及快速在锚点之间跳转。
+- 示例：
+- basic: examples/anchor/basic.vue
+- customizeHighlight: examples/anchor/customizeHighlight.vue
+- horizontal: examples/anchor/horizontal.vue
+- onChange: examples/anchor/onChange.vue
+- onClick: examples/anchor/onClick.vue
+- static: examples/anchor/static.vue
+- targetOffset: examples/anchor/targetOffset.vue
+
+### App 包裹组件
+
+- 标签：`<xy-app>`
+- 导入：`xiaoye-ui/app`
+- 文档：/components/app.html
+- 说明：新的包裹组件，提供重置样式和提供消费上下文的默认环境。 ### App
+- 示例：
+- basic: examples/app/basic.vue
+- myPage: examples/app/myPage.vue
+
+### AutoComplete 自动完成
+
+- 标签：`<xy-auto-complete>`
+- 导入：`xiaoye-ui/auto-complete`
+- 文档：/components/auto-complete.html
+- 说明：输入框自动完成功能。 和 Select 的区别是：
+- 示例：
+- allow-clear: examples/auto-complete/allow-clear.vue
+- basic: examples/auto-complete/basic.vue
+- border-less: examples/auto-complete/border-less.vue
+- certain-category: examples/auto-complete/certain-category.vue
+- custom: examples/auto-complete/custom.vue
+- non-case-sensitive: examples/auto-complete/non-case-sensitive.vue
+- options: examples/auto-complete/options.vue
+- status: examples/auto-complete/status.vue
+- uncertain-category: examples/auto-complete/uncertain-category.vue
+
+### Avatar 头像
+
+- 标签：`<xy-avatar>`
+- 导入：`xiaoye-ui/avatar`
+- 文档：/components/avatar.html
+- 说明：用来代表用户或事物，支持图片、图标或字符展示。 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，一键填充高逼格头像和文本。
+- 示例：
+- badge: examples/avatar/badge.vue
+- basic: examples/avatar/basic.vue
+- dynamic: examples/avatar/dynamic.vue
+- group: examples/avatar/group.vue
+- responsive: examples/avatar/responsive.vue
+- type: examples/avatar/type.vue
+
+### Badge 徽标数
+
+- 标签：`<xy-badge>`
+- 导入：`xiaoye-ui/badge`
+- 文档：/components/badge.html
+- 说明：图标右上角的圆形徽标数字。 一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。
+- 示例：
+- basic: examples/badge/basic.vue
+- change: examples/badge/change.vue
+- colors: examples/badge/colors.vue
+- dot: examples/badge/dot.vue
+- link: examples/badge/link.vue
+- no-wrapper: examples/badge/no-wrapper.vue
+- overflow: examples/badge/overflow.vue
+- ribbon: examples/badge/ribbon.vue
+- status: examples/badge/status.vue
+- title: examples/badge/title.vue
+
+### Breadcrumb 面包屑
+
+- 标签：`<xy-breadcrumb>`
+- 导入：`xiaoye-ui/breadcrumb`
+- 文档：/components/breadcrumb.html
+- 说明：显示当前页面在系统层级结构中的位置，并能向上返回。 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
+- 示例：
+- basic: examples/breadcrumb/basic.vue
+- overlay: examples/breadcrumb/overlay.vue
+- router: examples/breadcrumb/router.vue
+- separator: examples/breadcrumb/separator.vue
+- separator-indepent: examples/breadcrumb/separator-indepent.vue
+- withIcon: examples/breadcrumb/withIcon.vue
+
+### Button 按钮
+
+- 标签：`<xy-button>`
+- 导入：`xiaoye-ui/button`
+- 文档：/components/button.html
+- 说明：按钮用于开始一个即时操作。 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
+- 示例：
+- basic: examples/button/basic.vue
+- block: examples/button/block.vue
+- button-group: examples/button/button-group.vue
+- danger: examples/button/danger.vue
+- disabled: examples/button/disabled.vue
+- ghost: examples/button/ghost.vue
+- icon: examples/button/icon.vue
+- loading: examples/button/loading.vue
+- multiple: examples/button/multiple.vue
+- size: examples/button/size.vue
+
+### Calendar 日历
+
+- 标签：`<xy-calendar>`
+- 导入：`xiaoye-ui/calendar`
+- 文档：/components/calendar.html
+- 说明：按照日历形式展示数据的容器。 当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。目前支持年/月切换。
+- 示例：
+- basic: examples/calendar/basic.vue
+- card: examples/calendar/card.vue
+- customize-header: examples/calendar/customize-header.vue
+- notice-calendar: examples/calendar/notice-calendar.vue
+- select: examples/calendar/select.vue
+
+### Card 卡片
+
+- 标签：`<xy-card>`
+- 导入：`xiaoye-ui/card`
+- 文档：/components/card.html
+- 说明：通用卡片容器 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
+- 示例：
+- basic: examples/card/basic.vue
+- border-less: examples/card/border-less.vue
+- flexible-content: examples/card/flexible-content.vue
+- grid-card: examples/card/grid-card.vue
+- in-column: examples/card/in-column.vue
+- inner: examples/card/inner.vue
+- loading: examples/card/loading.vue
+- meta: examples/card/meta.vue
+- simple: examples/card/simple.vue
+- tabs: examples/card/tabs.vue
+
+### Carousel 走马灯
+
+- 标签：`<xy-carousel>`
+- 导入：`xiaoye-ui/carousel`
+- 文档：/components/carousel.html
+- 说明：旋转木马，一组轮播的区域。 | 参数 | 说明 | 类型 | 默认值 | 版本 |
+- 示例：
+- autoplay: examples/carousel/autoplay.vue
+- basic: examples/carousel/basic.vue
+- customArrows: examples/carousel/customArrows.vue
+- customPaging: examples/carousel/customPaging.vue
+- fade: examples/carousel/fade.vue
+- position: examples/carousel/position.vue
+
+### Cascader 级联选择
+
+- 标签：`<xy-cascader>`
+- 导入：`xiaoye-ui/cascader`
+- 文档：/components/cascader.html
+- 说明：级联选择框。 ```html
+- 示例：
+- basic: examples/cascader/basic.vue
+- change-on-select: examples/cascader/change-on-select.vue
+- custom-render: examples/cascader/custom-render.vue
+- custom-trigger: examples/cascader/custom-trigger.vue
+- disabled-option: examples/cascader/disabled-option.vue
+- fields-name: examples/cascader/fields-name.vue
+- hover: examples/cascader/hover.vue
+- lazy: examples/cascader/lazy.vue
+- multiple: examples/cascader/multiple.vue
+- search: examples/cascader/search.vue
+- size: examples/cascader/size.vue
+- suffix: examples/cascader/suffix.vue
+- tagRender: examples/cascader/tagRender.vue
+
+### Checkbox 多选框
+
+- 标签：`<xy-checkbox>`
+- 导入：`xiaoye-ui/checkbox`
+- 文档：/components/checkbox.html
+- 说明：多选框。 ### 属性
+- 示例：
+- basic: examples/checkbox/basic.vue
+- check-all: examples/checkbox/check-all.vue
+- controller: examples/checkbox/controller.vue
+- disabled: examples/checkbox/disabled.vue
+- group: examples/checkbox/group.vue
+- layout: examples/checkbox/layout.vue
+
+### Collapse 折叠面板
+
+- 标签：`<xy-collapse>`
+- 导入：`xiaoye-ui/collapse`
+- 文档：/components/collapse.html
+- 说明：可以折叠/展开的内容区域。 ### Collapse
+- 示例：
+- accordion: examples/collapse/accordion.vue
+- basic: examples/collapse/basic.vue
+- borderless: examples/collapse/borderless.vue
+- collapsible: examples/collapse/collapsible.vue
+- custom: examples/collapse/custom.vue
+- extra: examples/collapse/extra.vue
+- ghost: examples/collapse/ghost.vue
+- mix: examples/collapse/mix.vue
+- noarrow: examples/collapse/noarrow.vue
+
+### Comment 评论
+
+- 标签：`<xy-comment>`
+- 导入：`xiaoye-ui/comment`
+- 文档：/components/comment.html
+- 说明：对网站内容的反馈、评价和讨论。 评论组件可用于对事物的讨论，例如页面、博客文章、问题等等。
+- 示例：
+- basic: examples/comment/basic.vue
+- editor: examples/comment/editor.vue
+- list: examples/comment/list.vue
+- nested: examples/comment/nested.vue
+
+### ConfigProvider 全局化配置
+
+- 标签：`<xy-config-provider>`
+- 导入：`xiaoye-ui/config-provider`
+- 文档：/components/config-provider.html
+- 说明：为组件提供统一的全局化配置。 ConfigProvider 使用 Vue 的 [provide / inject](https://vuejs.org/v2/api/#provide-inject) 特性，只需在应用外围包裹一次即可全局生效。
+- 示例：
+- direction: examples/config-provider/direction.vue
+- locale: examples/config-provider/locale.vue
+- size: examples/config-provider/size.vue
+- theme: examples/config-provider/theme.vue
+
+### DatePicker 日期选择框
+
+- 标签：`<xy-date-picker>`
+- 导入：`xiaoye-ui/date-picker`
+- 文档：/components/date-picker.html
+- 说明：输入或选择日期的控件。 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
+- 示例：
+- basic: examples/date-picker/basic.vue
+- bordered: examples/date-picker/bordered.vue
+- date-render: examples/date-picker/date-render.vue
+- disabled: examples/date-picker/disabled.vue
+- disabled-date: examples/date-picker/disabled-date.vue
+- extra-footer: examples/date-picker/extra-footer.vue
+- format: examples/date-picker/format.vue
+- mode: examples/date-picker/mode.vue
+- placement: examples/date-picker/placement.vue
+- presetted-ranges: examples/date-picker/presetted-ranges.vue
+- range-picker: examples/date-picker/range-picker.vue
+- select-in-range: examples/date-picker/select-in-range.vue
+- size: examples/date-picker/size.vue
+- start-end: examples/date-picker/start-end.vue
+- status: examples/date-picker/status.vue
+- suffix: examples/date-picker/suffix.vue
+- switchable: examples/date-picker/switchable.vue
+- text: examples/date-picker/text.vue
+- time: examples/date-picker/time.vue
+
+### Descriptions 描述列表
+
+- 标签：`<xy-descriptions>`
+- 导入：`xiaoye-ui/descriptions`
+- 文档：/components/descriptions.html
+- 说明：成组展示多个只读字段。 常见于详情页的信息展示。
+- 示例：
+- basic: examples/descriptions/basic.vue
+- border: examples/descriptions/border.vue
+- responsive: examples/descriptions/responsive.vue
+- size: examples/descriptions/size.vue
+- vertical: examples/descriptions/vertical.vue
+- vertical-border: examples/descriptions/vertical-border.vue
+
+### Divider 分割线
+
+- 标签：`<xy-divider>`
+- 导入：`xiaoye-ui/divider`
+- 文档：/components/divider.html
+- 说明：区隔内容的分割线。 | 参数 | 说明 | 类型 | 默认值 | 版本 |
+- 示例：
+- customize-style: examples/divider/customize-style.vue
+- horizontal: examples/divider/horizontal.vue
+- vertical: examples/divider/vertical.vue
+- with-text: examples/divider/with-text.vue
+
+### Drawer 抽屉
+
+- 标签：`<xy-drawer>`
+- 导入：`xiaoye-ui/drawer`
+- 文档：/components/drawer.html
+- 说明：屏幕边缘滑出的浮层面板。 抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。
+- 示例：
+- basic: examples/drawer/basic.vue
+- extra: examples/drawer/extra.vue
+- form-in-drawer: examples/drawer/form-in-drawer.vue
+- multi-level-drawer: examples/drawer/multi-level-drawer.vue
+- placement: examples/drawer/placement.vue
+- render-in-current: examples/drawer/render-in-current.vue
+- size: examples/drawer/size.vue
+- user-profile: examples/drawer/user-profile.vue
+
+### Dropdown 下拉菜单
+
+- 标签：`<xy-dropdown>`
+- 导入：`xiaoye-ui/dropdown`
+- 文档：/components/dropdown.html
+- 说明：向下弹出的列表。 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
+- 示例：
+- arrow: examples/dropdown/arrow.vue
+- arrow-center: examples/dropdown/arrow-center.vue
+- basic: examples/dropdown/basic.vue
+- context-menu: examples/dropdown/context-menu.vue
+- dropdown-button: examples/dropdown/dropdown-button.vue
+- event: examples/dropdown/event.vue
+- item: examples/dropdown/item.vue
+- loading: examples/dropdown/loading.vue
+- overlay-visible: examples/dropdown/overlay-visible.vue
+- placement: examples/dropdown/placement.vue
+- sub-menu: examples/dropdown/sub-menu.vue
+- trigger: examples/dropdown/trigger.vue
+
+### Empty 空状态
+
+- 标签：`<xy-empty>`
+- 导入：`xiaoye-ui/empty`
+- 文档：/components/empty.html
+- 说明：空状态时的展示占位图。 ```jsx
+- 示例：
+- basic: examples/empty/basic.vue
+- config-provider: examples/empty/config-provider.vue
+- customize: examples/empty/customize.vue
+- description: examples/empty/description.vue
+- simple: examples/empty/simple.vue
+
+### Flex 弹性布局
+
+- 标签：`<xy-flex>`
+- 导入：`xiaoye-ui/flex`
+- 文档：/components/flex.html
+- 说明：### 与 Space 组件的区别 > 自 `xiaoye-ui@1.0.0` 版本开始提供该组件。Flex 组件默认行为在水平模式下，为向上对齐，在垂直模式下，为拉伸对齐，你可以通过属性进行调整。
+- 示例：
+- align: examples/flex/align.vue
+- basic: examples/flex/basic.vue
+- combination: examples/flex/combination.vue
+- gap: examples/flex/gap.vue
+- wrap: examples/flex/wrap.vue
+
+### FloatButton 悬浮按钮
+
+- 标签：`<xy-float-button>`
+- 导入：`xiaoye-ui/float-button`
+- 文档：/components/float-button.html
+- 说明：悬浮按钮。自 `4.0.0` 版本开始提供该组件。 > 自 `xiaoye-ui@1.0.0` 版本开始提供该组件。
+- 示例：
+- back-top: examples/float-button/back-top.vue
+- badge: examples/float-button/badge.vue
+- basic: examples/float-button/basic.vue
+- description: examples/float-button/description.vue
+- group: examples/float-button/group.vue
+- group-menu: examples/float-button/group-menu.vue
+- shape: examples/float-button/shape.vue
+- tooltip: examples/float-button/tooltip.vue
+- type: examples/float-button/type.vue
+
+### Form 表单
+
+- 标签：`<xy-form>`
+- 导入：`xiaoye-ui/form`
+- 文档：/components/form.html
+- 说明：高性能表单控件，自带数据域管理。包含数据录入、校验以及对应样式。 我们为 `form` 提供了以下三种排列方式：
+- 示例：
+- advanced-search: examples/form/advanced-search.vue
+- basic: examples/form/basic.vue
+- custom-validation: examples/form/custom-validation.vue
+- customized-form-controls: examples/form/customized-form-controls.vue
+- disabled: examples/form/disabled.vue
+- dynamic-form-item: examples/form/dynamic-form-item.vue
+- dynamic-form-items: examples/form/dynamic-form-items.vue
+- dynamic-form-items-complex: examples/form/dynamic-form-items-complex.vue
+- dynamic-rule: examples/form/dynamic-rule.vue
+- form-context: examples/form/form-context.vue
+- form-in-modal: examples/form/form-in-modal.vue
+- horizontal-login: examples/form/horizontal-login.vue
+- inline-login: examples/form/inline-login.vue
+- label-width: examples/form/label-width.vue
+- layout: examples/form/layout.vue
+- nest-messages: examples/form/nest-messages.vue
+- normal-login: examples/form/normal-login.vue
+- price-input: examples/form/price-input.vue
+- time-related-controls: examples/form/time-related-controls.vue
+- useForm-basic: examples/form/useForm-basic.vue
+- useForm-merge: examples/form/useForm-merge.vue
+- useForm-nested: examples/form/useForm-nested.vue
+- useForm-trigger: examples/form/useForm-trigger.vue
+- validate-other: examples/form/validate-other.vue
+- validate-static: examples/form/validate-static.vue
+- validation: examples/form/validation.vue
+
+### Grid 栅格
+
+- 标签：`<xy-grid>`
+- 导入：`xiaoye-ui/grid`
+- 文档：/components/grid.html
+- 说明：24 栅格系统。 <div class="grid-demo">
+- 示例：
+- basic: examples/grid/basic.vue
+- flex: examples/grid/flex.vue
+- flex-align: examples/grid/flex-align.vue
+- flex-order: examples/grid/flex-order.vue
+- flex-stretch: examples/grid/flex-stretch.vue
+- gutter: examples/grid/gutter.vue
+- offset: examples/grid/offset.vue
+- playfround: examples/grid/playfround.vue
+- responsive: examples/grid/responsive.vue
+- responsive-more: examples/grid/responsive-more.vue
+- sort: examples/grid/sort.vue
+- use-breakpoint: examples/grid/use-breakpoint.vue
+
+### Icon 图标
+
+- 标签：`<xy-icon>`
+- 导入：`xiaoye-ui/icon`
+- 文档：/components/icon.html
+- 说明：语义化的矢量图形。使用图标组件，你需要安装 `@xiaoye-ui/icons` 图标组件包： ```bash
+- 示例：
+- all-icons: examples/icon/all-icons.vue
+- basic: examples/icon/basic.vue
+- custom: examples/icon/custom.vue
+- iconfont: examples/icon/iconfont.vue
+- two-tone: examples/icon/two-tone.vue
+
+### Image 图片
+
+- 标签：`<xy-image>`
+- 导入：`xiaoye-ui/image`
+- 文档：/components/image.html
+- 说明：可预览的图片。 | 参数 | 说明 | 类型 | 默认值 | 版本 |
+- 示例：
+- basic: examples/image/basic.vue
+- controlled-preview: examples/image/controlled-preview.vue
+- fallback: examples/image/fallback.vue
+- placeholder: examples/image/placeholder.vue
+- preview-group: examples/image/preview-group.vue
+- preview-group-visible: examples/image/preview-group-visible.vue
+- preview-src: examples/image/preview-src.vue
+
+### Input 输入框
+
+- 标签：`<xy-input>`
+- 导入：`xiaoye-ui/input`
+- 文档：/components/input.html
+- 说明：通过鼠标或键盘输入内容，是最基础的表单域的包装。 ### Input
+- 示例：
+- addon: examples/input/addon.vue
+- allow-clear: examples/input/allow-clear.vue
+- autosize-textarea: examples/input/autosize-textarea.vue
+- basic: examples/input/basic.vue
+- borderless: examples/input/borderless.vue
+- group: examples/input/group.vue
+- password-input: examples/input/password-input.vue
+- presuffix: examples/input/presuffix.vue
+- search-input: examples/input/search-input.vue
+- search-input-loading: examples/input/search-input-loading.vue
+- show-count: examples/input/show-count.vue
+- size: examples/input/size.vue
+- status: examples/input/status.vue
+- textarea: examples/input/textarea.vue
+- tooltip: examples/input/tooltip.vue
+
+### InputNumber 数字输入框
+
+- 标签：`<xy-input-number>`
+- 导入：`xiaoye-ui/input-number`
+- 文档：/components/input-number.html
+- 说明：通过鼠标或键盘，输入范围内的数值。 当需要获取标准数值时。
+- 示例：
+- addon: examples/input-number/addon.vue
+- basic: examples/input-number/basic.vue
+- borderless: examples/input-number/borderless.vue
+- digit: examples/input-number/digit.vue
+- disabled: examples/input-number/disabled.vue
+- formatter: examples/input-number/formatter.vue
+- icon: examples/input-number/icon.vue
+- keyboard: examples/input-number/keyboard.vue
+- out-of-range: examples/input-number/out-of-range.vue
+- prefix: examples/input-number/prefix.vue
+- size: examples/input-number/size.vue
+- status: examples/input-number/status.vue
+
+### Layout 布局
+
+- 标签：`<xy-layout>`
+- 导入：`xiaoye-ui/layout`
+- 文档：/components/layout.html
+- 说明：协助进行页面级整体布局。 ### 尺寸
+- 示例：
+- basic: examples/layout/basic.vue
+- custom-trigger: examples/layout/custom-trigger.vue
+- fixed: examples/layout/fixed.vue
+- fixed-sider: examples/layout/fixed-sider.vue
+- responsive: examples/layout/responsive.vue
+- side: examples/layout/side.vue
+- top: examples/layout/top.vue
+- top-side: examples/layout/top-side.vue
+- top-side-2: examples/layout/top-side-2.vue
+
+### List 列表
+
+- 标签：`<xy-list>`
+- 导入：`xiaoye-ui/list`
+- 文档：/components/list.html
+- 说明：通用列表。 最基础的列表展示，可承载文字、列表、图片、段落，常用于后台数据展示页面。
+- 示例：
+- basic: examples/list/basic.vue
+- grid: examples/list/grid.vue
+- loadmore: examples/list/loadmore.vue
+- resposive: examples/list/resposive.vue
+- simple: examples/list/simple.vue
+- vertical: examples/list/vertical.vue
+
+### Mentions 提及
+
+- 标签：`<xy-mentions>`
+- 导入：`xiaoye-ui/mentions`
+- 文档：/components/mentions.html
+- 说明：提及组件。 ### Mentions
+- 示例：
+- async: examples/mentions/async.vue
+- basic: examples/mentions/basic.vue
+- form: examples/mentions/form.vue
+- placement: examples/mentions/placement.vue
+- prefix: examples/mentions/prefix.vue
+- readonly: examples/mentions/readonly.vue
+- status: examples/mentions/status.vue
+
+### Menu 导航菜单
+
+- 标签：`<xy-menu>`
+- 导入：`xiaoye-ui/menu`
+- 文档：/components/menu.html
+- 说明：为页面和功能提供导航的菜单列表。 导航菜单是一个网站的灵魂，用户依赖导航在各个页面中进行跳转。一般分为顶部导航和侧边导航，顶部导航提供全局性的类目和功能，侧边导航提供多级结构来收纳和排列网站架构。
+- 示例：
+- horizontal: examples/menu/horizontal.vue
+- inline: examples/menu/inline.vue
+- inline-collapsed: examples/menu/inline-collapsed.vue
+- sider-current: examples/menu/sider-current.vue
+- submenu-theme: examples/menu/submenu-theme.vue
+- switch-mode: examples/menu/switch-mode.vue
+- theme: examples/menu/theme.vue
+- vertical: examples/menu/vertical.vue
+
+### Message 全局提示
+
+- 标签：`<xy-message>`
+- 导入：`xiaoye-ui/message`
+- 文档：/components/message.html
+- 说明：全局展示操作反馈信息。 组件提供了一些静态方法，使用方式和参数如下：
+- 示例：
+- custom-style: examples/message/custom-style.vue
+- duration: examples/message/duration.vue
+- hook: examples/message/hook.vue
+- info: examples/message/info.vue
+- loading: examples/message/loading.vue
+- other: examples/message/other.vue
+- thenable: examples/message/thenable.vue
+- update: examples/message/update.vue
+
+### Modal 对话框
+
+- 标签：`<xy-modal>`
+- 导入：`xiaoye-ui/modal`
+- 文档：/components/modal.html
+- 说明：模态对话框。 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
+- 示例：
+- async: examples/modal/async.vue
+- basic: examples/modal/basic.vue
+- button-props: examples/modal/button-props.vue
+- confirm: examples/modal/confirm.vue
+- confirm-promise: examples/modal/confirm-promise.vue
+- confirm-router: examples/modal/confirm-router.vue
+- footer: examples/modal/footer.vue
+- fullscreen: examples/modal/fullscreen.vue
+- hook-modal: examples/modal/hook-modal.vue
+- info: examples/modal/info.vue
+- locale: examples/modal/locale.vue
+- manual: examples/modal/manual.vue
+- modal-render: examples/modal/modal-render.vue
+- position: examples/modal/position.vue
+- width: examples/modal/width.vue
+
+### Notification 通知提醒框
+
+- 标签：`<xy-notification>`
+- 导入：`xiaoye-ui/notification`
+- 文档：/components/notification.html
+- 说明：全局展示通知提醒信息。 在系统四个角显示通知提醒信息。经常用于以下情况：
+- 示例：
+- basic: examples/notification/basic.vue
+- custom-icon: examples/notification/custom-icon.vue
+- custom-style: examples/notification/custom-style.vue
+- duration: examples/notification/duration.vue
+- hook: examples/notification/hook.vue
+- placement: examples/notification/placement.vue
+- update: examples/notification/update.vue
+- with-btn: examples/notification/with-btn.vue
+- with-icon: examples/notification/with-icon.vue
+
+### PageHeader 页头
+
+- 标签：`<xy-page-header>`
+- 导入：`xiaoye-ui/page-header`
+- 文档：/components/page-header.html
+- 说明：页头位于页容器中，页容器顶部，起到了内容概览和引导页级操作的作用。包括由面包屑、标题、页面内容简介、页面级操作等、页面级导航组成。 当需要使用户快速理解当前页是什么以及方便用户使用页面功能时使用，通常也可被用作页面间导航。
+- 示例：
+- actions: examples/page-header/actions.vue
+- basic: examples/page-header/basic.vue
+- breadcrumb: examples/page-header/breadcrumb.vue
+- content: examples/page-header/content.vue
+- ghost: examples/page-header/ghost.vue
+- responsive: examples/page-header/responsive.vue
+
+### Pagination 分页
+
+- 标签：`<xy-pagination>`
+- 导入：`xiaoye-ui/pagination`
+- 文档：/components/pagination.html
+- 说明：采用分页的形式分隔长列表，每次只加载一个页面。 ```html
+- 示例：
+- basic: examples/pagination/basic.vue
+- changer: examples/pagination/changer.vue
+- custom-changer: examples/pagination/custom-changer.vue
+- itemRender: examples/pagination/itemRender.vue
+- jump: examples/pagination/jump.vue
+- mini: examples/pagination/mini.vue
+- more: examples/pagination/more.vue
+- simple: examples/pagination/simple.vue
+- total: examples/pagination/total.vue
+
+### Popconfirm 气泡确认框
+
+- 标签：`<xy-popconfirm>`
+- 导入：`xiaoye-ui/popconfirm`
+- 文档：/components/popconfirm.html
+- 说明：点击元素，弹出气泡式的确认框。 目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。和 'confirm' 弹出的全屏居中模态对话框相比，交互形式更轻量。
+- 示例：
+- basic: examples/popconfirm/basic.vue
+- dynamic-trigger: examples/popconfirm/dynamic-trigger.vue
+- icon: examples/popconfirm/icon.vue
+- local: examples/popconfirm/local.vue
+- placement: examples/popconfirm/placement.vue
+- promise: examples/popconfirm/promise.vue
+
+### Popover 气泡卡片
+
+- 标签：`<xy-popover>`
+- 导入：`xiaoye-ui/popover`
+- 文档：/components/popover.html
+- 说明：点击/鼠标移入元素，弹出气泡式的卡片浮层。 当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
+- 示例：
+- arrow-point-at-center: examples/popover/arrow-point-at-center.vue
+- basic: examples/popover/basic.vue
+- control: examples/popover/control.vue
+- hover-with-click: examples/popover/hover-with-click.vue
+- placement: examples/popover/placement.vue
+- triggerType: examples/popover/triggerType.vue
+
+### Progress 进度条
+
+- 标签：`<xy-progress>`
+- 导入：`xiaoye-ui/progress`
+- 文档：/components/progress.html
+- 说明：展示操作的当前进度。 在操作需要较长时间才能完成时，为用户显示该操作的当前进度和状态。
+- 示例：
+- circle: examples/progress/circle.vue
+- circle-dynamic: examples/progress/circle-dynamic.vue
+- circle-micro: examples/progress/circle-micro.vue
+- circle-mini: examples/progress/circle-mini.vue
+- dashboard: examples/progress/dashboard.vue
+- dynamic: examples/progress/dynamic.vue
+- format: examples/progress/format.vue
+- gradient-line: examples/progress/gradient-line.vue
+- line: examples/progress/line.vue
+- line-mini: examples/progress/line-mini.vue
+- linecap: examples/progress/linecap.vue
+- segment: examples/progress/segment.vue
+- size: examples/progress/size.vue
+- steps: examples/progress/steps.vue
+
+### QRCode 二维码
+
+- 标签：`<xy-qrcode>`
+- 导入：`xiaoye-ui/qrcode`
+- 文档：/components/qrcode.html
+- 说明：当需要将链接转换成为二维码时使用。 | 参数 | 说明 | 类型 | 默认值 | version |
+- 示例：
+- base: examples/qrcode/base.vue
+- customColor: examples/qrcode/customColor.vue
+- customSize: examples/qrcode/customSize.vue
+- customType: examples/qrcode/customType.vue
+- download: examples/qrcode/download.vue
+- errorLevel: examples/qrcode/errorLevel.vue
+- icon: examples/qrcode/icon.vue
+- popover: examples/qrcode/popover.vue
+- status: examples/qrcode/status.vue
+
+### Radio 单选框
+
+- 标签：`<xy-radio>`
+- 导入：`xiaoye-ui/radio`
+- 文档：/components/radio.html
+- 说明：单选框。 ### Radio/Radio.Button
+- 示例：
+- basic: examples/radio/basic.vue
+- disabled: examples/radio/disabled.vue
+- radioButton: examples/radio/radioButton.vue
+- radioButton-solid: examples/radio/radioButton-solid.vue
+- radioGroup: examples/radio/radioGroup.vue
+- radioGroup-more: examples/radio/radioGroup-more.vue
+- radioGroup-options: examples/radio/radioGroup-options.vue
+- radioGroup-with-name: examples/radio/radioGroup-with-name.vue
+- size: examples/radio/size.vue
+
+### Rate 评分
+
+- 标签：`<xy-rate>`
+- 导入：`xiaoye-ui/rate`
+- 文档：/components/rate.html
+- 说明：评分组件。 | 属性 | 说明 | 类型 | 默认值 |
+- 示例：
+- basic: examples/rate/basic.vue
+- character: examples/rate/character.vue
+- clear: examples/rate/clear.vue
+- disabled: examples/rate/disabled.vue
+- half: examples/rate/half.vue
+- text: examples/rate/text.vue
+
+### Result 结果
+
+- 标签：`<xy-result>`
+- 导入：`xiaoye-ui/result`
+- 文档：/components/result.html
+- 说明：用于反馈一系列操作任务的处理结果。 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。
+- 示例：
+- 403: examples/result/403.vue
+- 404: examples/result/404.vue
+- 500: examples/result/500.vue
+- customIcon: examples/result/customIcon.vue
+- error: examples/result/error.vue
+- info: examples/result/info.vue
+- success: examples/result/success.vue
+- warning: examples/result/warning.vue
+
+### Segmented 分段控制器
+
+- 标签：`<xy-segmented>`
+- 导入：`xiaoye-ui/segmented`
+- 文档：/components/segmented.html
+- 说明：分段控制器。 ### Segmented
+- 示例：
+- basic: examples/segmented/basic.vue
+- block: examples/segmented/block.vue
+- custom: examples/segmented/custom.vue
+- disabled: examples/segmented/disabled.vue
+- dynamic: examples/segmented/dynamic.vue
+- size: examples/segmented/size.vue
+
+### Select 选择器
+
+- 标签：`<xy-select>`
+- 导入：`xiaoye-ui/select`
+- 文档：/components/select.html
+- 说明：下拉选择器。 ```html
+- 示例：
+- automatic-tokenization: examples/select/automatic-tokenization.vue
+- basic: examples/select/basic.vue
+- big-data: examples/select/big-data.vue
+- coordinate: examples/select/coordinate.vue
+- custom-dropdown-menu: examples/select/custom-dropdown-menu.vue
+- field-names: examples/select/field-names.vue
+- hide-selected: examples/select/hide-selected.vue
+- label-in-value: examples/select/label-in-value.vue
+- multiple: examples/select/multiple.vue
+- optgroup: examples/select/optgroup.vue
+- option-label-prop: examples/select/option-label-prop.vue
+- placement: examples/select/placement.vue
+- responsive: examples/select/responsive.vue
+- search: examples/select/search.vue
+- search-box: examples/select/search-box.vue
+- select-users: examples/select/select-users.vue
+- size: examples/select/size.vue
+- status: examples/select/status.vue
+- suffix: examples/select/suffix.vue
+- tags: examples/select/tags.vue
+
+### Skeleton 骨架屏
+
+- 标签：`<xy-skeleton>`
+- 导入：`xiaoye-ui/skeleton`
+- 文档：/components/skeleton.html
+- 说明：在需要等待加载内容的位置提供一个占位图形组合。 ### Skeleton
+- 示例：
+- active: examples/skeleton/active.vue
+- basic: examples/skeleton/basic.vue
+- children: examples/skeleton/children.vue
+- complex: examples/skeleton/complex.vue
+- element: examples/skeleton/element.vue
+- list: examples/skeleton/list.vue
+
+### Slider 滑动输入条
+
+- 标签：`<xy-slider>`
+- 导入：`xiaoye-ui/slider`
+- 文档：/components/slider.html
+- 说明：滑动型输入器，展示当前值和可选范围。 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。
+- 示例：
+- basic: examples/slider/basic.vue
+- event: examples/slider/event.vue
+- icon-slider: examples/slider/icon-slider.vue
+- input-number: examples/slider/input-number.vue
+- mark: examples/slider/mark.vue
+- reverse: examples/slider/reverse.vue
+- show-tooltip: examples/slider/show-tooltip.vue
+- tip-formatter: examples/slider/tip-formatter.vue
+- vertical: examples/slider/vertical.vue
+
+### Space 间距
+
+- 标签：`<xy-space>`
+- 导入：`xiaoye-ui/space`
+- 文档：/components/space.html
+- 说明：设置组件之间的间距。 避免组件紧贴在一起，拉开统一的空间。
+- 示例：
+- align: examples/space/align.vue
+- base: examples/space/base.vue
+- compact: examples/space/compact.vue
+- compact-button-vertical: examples/space/compact-button-vertical.vue
+- compact-buttons: examples/space/compact-buttons.vue
+- customize: examples/space/customize.vue
+- size: examples/space/size.vue
+- split: examples/space/split.vue
+- vertical: examples/space/vertical.vue
+- wrap: examples/space/wrap.vue
+
+### Spin 加载中
+
+- 标签：`<xy-spin>`
+- 导入：`xiaoye-ui/spin`
+- 文档：/components/spin.html
+- 说明：用于页面和区块的加载中状态。 页面局部处于等待异步数据或正在渲染过程时，合适的加载动效会有效缓解用户的焦虑。
+- 示例：
+- basic: examples/spin/basic.vue
+- custom-indicator: examples/spin/custom-indicator.vue
+- delay: examples/spin/delay.vue
+- inside: examples/spin/inside.vue
+- nested: examples/spin/nested.vue
+- size: examples/spin/size.vue
+- tip: examples/spin/tip.vue
+
+### Statistic 统计数值
+
+- 标签：`<xy-statistic>`
+- 导入：`xiaoye-ui/statistic`
+- 文档：/components/statistic.html
+- 说明：展示统计数值。 ### Statistic
+- 示例：
+- basic: examples/statistic/basic.vue
+- card: examples/statistic/card.vue
+- countdown: examples/statistic/countdown.vue
+- countdown-slot: examples/statistic/countdown-slot.vue
+- unit: examples/statistic/unit.vue
+
+### Steps 步骤条
+
+- 标签：`<xy-steps>`
+- 导入：`xiaoye-ui/steps`
+- 文档：/components/steps.html
+- 说明：引导用户按照流程完成任务的导航条。 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+- 示例：
+- clickable: examples/steps/clickable.vue
+- customized-progress-dot: examples/steps/customized-progress-dot.vue
+- error: examples/steps/error.vue
+- icon: examples/steps/icon.vue
+- inline: examples/steps/inline.vue
+- label-placement: examples/steps/label-placement.vue
+- nav: examples/steps/nav.vue
+- progress: examples/steps/progress.vue
+- progress-dot: examples/steps/progress-dot.vue
+- simple: examples/steps/simple.vue
+- small-size: examples/steps/small-size.vue
+- step-next: examples/steps/step-next.vue
+- vertical: examples/steps/vertical.vue
+- vertical-small: examples/steps/vertical-small.vue
+
+### Switch 开关
+
+- 标签：`<xy-switch>`
+- 导入：`xiaoye-ui/switch`
+- 文档：/components/switch.html
+- 说明：开关选择器。 | 参数 | 说明 | 类型 | 默认值 | 版本 |
+- 示例：
+- basic: examples/switch/basic.vue
+- disabled: examples/switch/disabled.vue
+- loading: examples/switch/loading.vue
+- size: examples/switch/size.vue
+- text: examples/switch/text.vue
+
+### Table 表格
+
+- 标签：`<xy-table>`
+- 导入：`xiaoye-ui/table`
+- 文档：/components/table.html
+- 说明：展示行列数据。 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)，两步就可以自动生成 Xiaoye UI 表格组件。
+- 示例：
+- ajax: examples/table/ajax.vue
+- basic: examples/table/basic.vue
+- big-data: examples/table/big-data.vue
+- bordered: examples/table/bordered.vue
+- colspan-rowspan: examples/table/colspan-rowspan.vue
+- custom-filter-panel: examples/table/custom-filter-panel.vue
+- edit-cell: examples/table/edit-cell.vue
+- edit-row: examples/table/edit-row.vue
+- ellipsis: examples/table/ellipsis.vue
+- expand: examples/table/expand.vue
+- expand-children: examples/table/expand-children.vue
+- filter-in-tree: examples/table/filter-in-tree.vue
+- filter-search: examples/table/filter-search.vue
+- fixed-columns: examples/table/fixed-columns.vue
+- fixed-columns-header: examples/table/fixed-columns-header.vue
+- fixed-header: examples/table/fixed-header.vue
+- grouping-columns: examples/table/grouping-columns.vue
+- head: examples/table/head.vue
+- multiple-sorter: examples/table/multiple-sorter.vue
+- nested-table: examples/table/nested-table.vue
+- order-column: examples/table/order-column.vue
+- reset-filter: examples/table/reset-filter.vue
+- resizable-column: examples/table/resizable-column.vue
+- responsive: examples/table/responsive.vue
+- row-selection: examples/table/row-selection.vue
+- row-selection-and-operation: examples/table/row-selection-and-operation.vue
+- row-selection-custom: examples/table/row-selection-custom.vue
+- size: examples/table/size.vue
+- sticky: examples/table/sticky.vue
+- stripe: examples/table/stripe.vue
+- summary: examples/table/summary.vue
+- template: examples/table/template.vue
+
+### Tabs 标签页
+
+- 标签：`<xy-tabs>`
+- 导入：`xiaoye-ui/tabs`
+- 文档：/components/tabs.html
+- 说明：选项卡切换组件。 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
+- 示例：
+- basic: examples/tabs/basic.vue
+- card: examples/tabs/card.vue
+- card-top: examples/tabs/card-top.vue
+- centered: examples/tabs/centered.vue
+- custom-add-trigger: examples/tabs/custom-add-trigger.vue
+- custom-tab-bar: examples/tabs/custom-tab-bar.vue
+- disabled: examples/tabs/disabled.vue
+- editable-card: examples/tabs/editable-card.vue
+- extra: examples/tabs/extra.vue
+- icon: examples/tabs/icon.vue
+- position: examples/tabs/position.vue
+- size: examples/tabs/size.vue
+- slide: examples/tabs/slide.vue
+
+### Tag 标签
+
+- 标签：`<xy-tag>`
+- 导入：`xiaoye-ui/tag`
+- 文档：/components/tag.html
+- 说明：进行标记和分类的小标签。 ### Tag
+- 示例：
+- basic: examples/tag/basic.vue
+- border-less: examples/tag/border-less.vue
+- checkable: examples/tag/checkable.vue
+- colorful: examples/tag/colorful.vue
+- control: examples/tag/control.vue
+- hot-tags: examples/tag/hot-tags.vue
+- icon: examples/tag/icon.vue
+- status: examples/tag/status.vue
+
+### TimePicker 时间选择框
+
+- 标签：`<xy-time-picker>`
+- 导入：`xiaoye-ui/time-picker`
+- 文档：/components/time-picker.html
+- 说明：输入或选择时间的控件。 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
+- 示例：
+- 12hours: examples/time-picker/12hours.vue
+- addon: examples/time-picker/addon.vue
+- basic: examples/time-picker/basic.vue
+- bordered: examples/time-picker/bordered.vue
+- disabled: examples/time-picker/disabled.vue
+- hide-column: examples/time-picker/hide-column.vue
+- interval-options: examples/time-picker/interval-options.vue
+- placement: examples/time-picker/placement.vue
+- range-picker: examples/time-picker/range-picker.vue
+- size: examples/time-picker/size.vue
+- status: examples/time-picker/status.vue
+- suffix: examples/time-picker/suffix.vue
+- value: examples/time-picker/value.vue
+
+### Timeline 时间轴
+
+- 标签：`<xy-timeline>`
+- 导入：`xiaoye-ui/timeline`
+- 文档：/components/timeline.html
+- 说明：垂直展示的时间流信息。 ```html
+- 示例：
+- alternate: examples/timeline/alternate.vue
+- basic: examples/timeline/basic.vue
+- color: examples/timeline/color.vue
+- custom: examples/timeline/custom.vue
+- label: examples/timeline/label.vue
+- pending: examples/timeline/pending.vue
+- right: examples/timeline/right.vue
+
+### Tooltip 文字提示
+
+- 标签：`<xy-tooltip>`
+- 导入：`xiaoye-ui/tooltip`
+- 文档：/components/tooltip.html
+- 说明：警告提示，展现需要关注的信息。 | 参数 | 说明 | 类型 | 默认值 |
+- 示例：
+- arrow: examples/tooltip/arrow.vue
+- arrow-point-at-center: examples/tooltip/arrow-point-at-center.vue
+- auto-adjust-overflow: examples/tooltip/auto-adjust-overflow.vue
+- basic: examples/tooltip/basic.vue
+- color: examples/tooltip/color.vue
+- placement: examples/tooltip/placement.vue
+
+### Tour 漫游式引导
+
+- 标签：`<xy-tour>`
+- 导入：`xiaoye-ui/tour`
+- 文档：/components/tour.html
+- 说明：用于分步引导用户了解产品功能的气泡组件。自 `4.0.0` 版本开始提供该组件。 常用于引导用户了解产品功能。
+- 示例：
+- basic: examples/tour/basic.vue
+- indicator: examples/tour/indicator.vue
+- mask: examples/tour/mask.vue
+- non-modal: examples/tour/non-modal.vue
+- placement: examples/tour/placement.vue
+
+### Transfer 穿梭框
+
+- 标签：`<xy-transfer>`
+- 导入：`xiaoye-ui/transfer`
+- 文档：/components/transfer.html
+- 说明：双栏穿梭选择框。 穿梭选择框用直观的方式在两栏中移动元素，完成选择行为。
+- 示例：
+- advanced: examples/transfer/advanced.vue
+- basic: examples/transfer/basic.vue
+- custom-item: examples/transfer/custom-item.vue
+- custom-select-all-labels: examples/transfer/custom-select-all-labels.vue
+- oneway: examples/transfer/oneway.vue
+- pagination: examples/transfer/pagination.vue
+- search: examples/transfer/search.vue
+- status: examples/transfer/status.vue
+- table-transfer: examples/transfer/table-transfer.vue
+- tree-transfer: examples/transfer/tree-transfer.vue
+
+### Tree 树形控件
+
+- 标签：`<xy-tree>`
+- 导入：`xiaoye-ui/tree`
+- 文档：/components/tree.html
+- 说明：多层次的结构列表。 文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用`树控件`可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
+- 示例：
+- accordion: examples/tree/accordion.vue
+- basic: examples/tree/basic.vue
+- context-menu: examples/tree/context-menu.vue
+- customized-icon: examples/tree/customized-icon.vue
+- directory: examples/tree/directory.vue
+- draggable: examples/tree/draggable.vue
+- dynamic: examples/tree/dynamic.vue
+- line: examples/tree/line.vue
+- replaceFields: examples/tree/replaceFields.vue
+- search: examples/tree/search.vue
+- switcher-icon: examples/tree/switcher-icon.vue
+- virtual-scroll: examples/tree/virtual-scroll.vue
+
+### TreeSelect 树选择
+
+- 标签：`<xy-tree-select>`
+- 导入：`xiaoye-ui/tree-select`
+- 文档：/components/tree-select.html
+- 说明：树型选择控件。 类似 Select 的选择控件，可选择的数据结构是一个树形结构时，可以使用 TreeSelect，例如公司层级、学科系统、分类目录等等。
+- 示例：
+- async: examples/tree-select/async.vue
+- basic: examples/tree-select/basic.vue
+- checkable: examples/tree-select/checkable.vue
+- custom-tag-render: examples/tree-select/custom-tag-render.vue
+- highlight: examples/tree-select/highlight.vue
+- multiple: examples/tree-select/multiple.vue
+- placement: examples/tree-select/placement.vue
+- replaceFields: examples/tree-select/replaceFields.vue
+- status: examples/tree-select/status.vue
+- suffix: examples/tree-select/suffix.vue
+- tree-line: examples/tree-select/tree-line.vue
+- virtual-scroll: examples/tree-select/virtual-scroll.vue
+
+### Typography 排版
+
+- 标签：`<xy-typography>`
+- 导入：`xiaoye-ui/typography`
+- 文档：/components/typography.html
+- 说明：文本的基本格式。 ### Typography.Text
+- 示例：
+- basic: examples/typography/basic.vue
+- ellipsis: examples/typography/ellipsis.vue
+- interactive: examples/typography/interactive.vue
+- suffix: examples/typography/suffix.vue
+- text: examples/typography/text.vue
+- title: examples/typography/title.vue
+
+### Upload 上传
+
+- 标签：`<xy-upload>`
+- 导入：`xiaoye-ui/upload`
+- 文档：/components/upload.html
+- 说明：文件选择上传和拖拽上传控件。 上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。
+- 示例：
+- avatar: examples/upload/avatar.vue
+- basic: examples/upload/basic.vue
+- custom-render: examples/upload/custom-render.vue
+- customize-progress-bar: examples/upload/customize-progress-bar.vue
+- defaultFileList: examples/upload/defaultFileList.vue
+- directory: examples/upload/directory.vue
+- drag: examples/upload/drag.vue
+- fileList: examples/upload/fileList.vue
+- max-count: examples/upload/max-count.vue
+- picture-card: examples/upload/picture-card.vue
+- picture-style: examples/upload/picture-style.vue
+- preview-file: examples/upload/preview-file.vue
+- transform-file: examples/upload/transform-file.vue
+- upload-custom-action-icon: examples/upload/upload-custom-action-icon.vue
+- upload-manually: examples/upload/upload-manually.vue
+- upload-png-only: examples/upload/upload-png-only.vue
+
+### Watermark 水印
+
+- 标签：`<xy-watermark>`
+- 导入：`xiaoye-ui/watermark`
+- 文档：/components/watermark.html
+- 说明：给页面的某个区域加上水印。 ### Watermark
+- 示例：
+- basic: examples/watermark/basic.vue
+- custom: examples/watermark/custom.vue
+- image: examples/watermark/image.vue
+- multi-line: examples/watermark/multi-line.vue
+
+## 开发规范
+
+- 组件 `name` 使用 `XYXxx` 格式，标签使用 `xy-xxx` 格式。
+- 图标必须从 `@xiaoye-ui/icons` 命名导入。
+- 新增组件需补充文档 `apps/docs/components/<component>.md` 和示例 `apps/docs/examples/<component>/`。
+- 全局注册使用 `registerComponent` 工具，禁止硬编码 `xy-` 标签名注册。
+
+## 参考
+
+- 项目仓库根目录的 `AGENTS.md` 包含完整开发规范。
+- 文档站点路径：`/components/<component-name>.html`

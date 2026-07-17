@@ -1,8 +1,8 @@
 <template>
   <div>
-    <a-pagination v-model:current="current1" show-quick-jumper :total="500" @change="onChange" />
+    <xy-pagination v-model:current="current1" show-quick-jumper :total="500" @change="onChange" />
     <br />
-    <a-pagination
+    <xy-pagination
       v-model:current="current2"
       show-quick-jumper
       :total="500"

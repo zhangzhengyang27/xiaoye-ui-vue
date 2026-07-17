@@ -1,11 +1,11 @@
 {
-    "main": "./CircleCheckIcon.vue",
-    "module": "./CircleCheckIcon.vue",
-    "types": "./CircleCheckIcon.d.ts",
-    "browser": {
-        "./sfc": "./CircleCheckIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CircleCheckIcon.vue",
+  "module": "./CircleCheckIcon.vue",
+  "types": "./CircleCheckIcon.d.ts",
+  "browser": {
+    "./sfc": "./CircleCheckIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

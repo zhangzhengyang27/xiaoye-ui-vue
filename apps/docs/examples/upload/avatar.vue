@@ -1,5 +1,5 @@
 <template>
-  <a-upload
+  <xy-upload
     v-model:file-list="fileList"
     name="avatar"
     list-type="picture-card"
@@ -15,7 +15,7 @@
       <plus-outlined v-else></plus-outlined>
       <div class="xy-upload-text">Upload</div>
     </div>
-  </a-upload>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -48,7 +48,6 @@ describe('Button', () => {
       },
     });
 
-
     const wrapper2 = mount({
       render() {
         return (

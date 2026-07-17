@@ -1,5 +1,5 @@
 <template>
-  <a-tree
+  <xy-tree
     v-model:expanded-keys="expandedKeys"
     v-model:selected-keys="selectedKeys"
     :load-data="onLoadData"

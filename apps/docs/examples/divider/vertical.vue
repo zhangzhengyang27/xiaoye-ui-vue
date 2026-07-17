@@ -1,9 +1,9 @@
 <template>
   <div>
     Text
-    <a-divider type="vertical" />
+    <xy-divider type="vertical" />
     <a href="#">Link</a>
-    <a-divider type="vertical" />
+    <xy-divider type="vertical" />
     <a href="#">Link</a>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <a-radio v-model:checked="checked1" :disabled="disabled">Disabled</a-radio>
-    <a-radio v-model:checked="checked2" :disabled="disabled">Disabled</a-radio>
+    <xy-radio v-model:checked="checked1" :disabled="disabled">Disabled</xy-radio>
+    <xy-radio v-model:checked="checked2" :disabled="disabled">Disabled</xy-radio>
     <br />
     <div style="margin-top: 16px">
-      <a-button type="primary" @click="toggleDisabled">Toggle disabled</a-button>
+      <xy-button type="primary" @click="toggleDisabled">Toggle disabled</xy-button>
     </div>
   </div>
 </template>

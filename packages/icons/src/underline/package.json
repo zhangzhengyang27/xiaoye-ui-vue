@@ -1,11 +1,11 @@
 {
-    "main": "./UnderlineIcon.vue",
-    "module": "./UnderlineIcon.vue",
-    "types": "./UnderlineIcon.d.ts",
-    "browser": {
-        "./sfc": "./UnderlineIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./UnderlineIcon.vue",
+  "module": "./UnderlineIcon.vue",
+  "types": "./UnderlineIcon.d.ts",
+  "browser": {
+    "./sfc": "./UnderlineIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

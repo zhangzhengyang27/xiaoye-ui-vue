@@ -1,12 +1,12 @@
 <template>
-  <a-result title="Great, we have done all the operations!">
+  <xy-result title="Great, we have done all the operations!">
     <template #icon>
       <smile-twoTone />
     </template>
     <template #extra>
-      <a-button type="primary">Next</a-button>
+      <xy-button type="primary">Next</xy-button>
     </template>
-  </a-result>
+  </xy-result>
 </template>
 <script lang="ts" setup>
 import { SmileTwoTone } from '@xiaoye-ui/icons';

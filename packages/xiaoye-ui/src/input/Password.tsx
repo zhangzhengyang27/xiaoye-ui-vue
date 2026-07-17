@@ -1,6 +1,4 @@
 import classNames from '../_util/classNames';
-import { isValidElement } from '../_util/props-util';
-import { cloneElement } from '../_util/vnode';
 import Input from './Input';
 import { EyeOutlined, EyeInvisibleOutlined } from '@xiaoye-ui/icons';
 import type { InputProps } from './inputProps';
@@ -8,6 +6,7 @@ import inputProps from './inputProps';
 import type { PropType } from 'vue';
 import { computed, defineComponent, shallowRef, watchEffect } from 'vue';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
+import { defaultIconPrefixCls } from '../config-provider/context';
 import omit from '../_util/omit';
 
 const ActionMap = {
@@ -18,7 +17,7 @@ const defaultIconRender = (visible: boolean) =>
   visible ? <EyeOutlined /> : <EyeInvisibleOutlined />;
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AInputPassword',
+  name: 'XYInputPassword',
   inheritAttrs: false,
   props: {
     ...inputProps(),
@@ -62,7 +61,6 @@ export default defineComponent({
       const icon = iconRender(visible.value);
       const iconProps = {
         [iconTrigger]: onVisibleChange,
-        class: `${prefixCls}-icon`,
         key: 'passwordIcon',
         onMousedown: (e: MouseEvent) => {
           // Prevent focused state lost
@@ -73,7 +71,11 @@ export default defineComponent({
           e.preventDefault();
         },
       };
-      return cloneElement(isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
+      return (
+        <span class={classNames(defaultIconPrefixCls, `${prefixCls}-icon`)} {...iconProps}>
+          {icon}
+        </span>
+      );
     };
     const { prefixCls, getPrefixCls } = useConfigInject('input-password', props);
     const inputPrefixCls = computed(() => getPrefixCls('input', props.inputPrefixCls));

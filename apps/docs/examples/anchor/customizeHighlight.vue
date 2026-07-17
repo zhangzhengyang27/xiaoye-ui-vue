@@ -1,5 +1,5 @@
 <template>
-  <a-anchor
+  <xy-anchor
     :affix="false"
     :get-current-anchor="getCurrentAnchor"
     :items="[
@@ -31,7 +31,7 @@
         ],
       },
     ]"
-  ></a-anchor>
+  ></xy-anchor>
 </template>
 
 <script lang="ts" setup>

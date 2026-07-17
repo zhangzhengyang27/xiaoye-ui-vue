@@ -1,11 +1,11 @@
 {
-    "main": "./SmileIcon.vue",
-    "module": "./SmileIcon.vue",
-    "types": "./SmileIcon.d.ts",
-    "browser": {
-        "./sfc": "./SmileIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SmileIcon.vue",
+  "module": "./SmileIcon.vue",
+  "types": "./SmileIcon.d.ts",
+  "browser": {
+    "./sfc": "./SmileIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -48,7 +48,7 @@ export function convertChildrenToColumns<RecordType>(
     if (key) {
       column.key = key;
     }
-    if (element.type?.__ANT_TABLE_COLUMN_GROUP) {
+    if (element.type?.__XY_TABLE_COLUMN_GROUP) {
       column.children = convertChildrenToColumns(
         typeof children === 'function' ? children() : children,
       );

@@ -1,11 +1,11 @@
 {
-    "main": "./VimeoIcon.vue",
-    "module": "./VimeoIcon.vue",
-    "types": "./VimeoIcon.d.ts",
-    "browser": {
-        "./sfc": "./VimeoIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./VimeoIcon.vue",
+  "module": "./VimeoIcon.vue",
+  "types": "./VimeoIcon.d.ts",
+  "browser": {
+    "./sfc": "./VimeoIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

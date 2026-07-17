@@ -1,3 +1,3 @@
 <template>
-  <a-spin />
+  <xy-spin />
 </template>

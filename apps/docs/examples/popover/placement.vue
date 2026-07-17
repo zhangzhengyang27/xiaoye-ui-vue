@@ -1,7 +1,7 @@
 <template>
   <div id="components-popover-demo-placement">
     <div :style="{ marginLeft: `${buttonWidth}px`, whiteSpace: 'nowrap' }">
-      <a-popover placement="topLeft">
+      <xy-popover placement="topLeft">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -9,9 +9,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>TL</a-button>
-      </a-popover>
-      <a-popover placement="top">
+        <xy-button>TL</xy-button>
+      </xy-popover>
+      <xy-popover placement="top">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -19,9 +19,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>Top</a-button>
-      </a-popover>
-      <a-popover placement="topRight">
+        <xy-button>Top</xy-button>
+      </xy-popover>
+      <xy-popover placement="topRight">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -29,11 +29,11 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>TR</a-button>
-      </a-popover>
+        <xy-button>TR</xy-button>
+      </xy-popover>
     </div>
     <div :style="{ width: `${buttonWidth}px`, float: 'left' }">
-      <a-popover placement="leftTop">
+      <xy-popover placement="leftTop">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -41,9 +41,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>LT</a-button>
-      </a-popover>
-      <a-popover placement="left">
+        <xy-button>LT</xy-button>
+      </xy-popover>
+      <xy-popover placement="left">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -51,9 +51,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>Left</a-button>
-      </a-popover>
-      <a-popover placement="leftBottom">
+        <xy-button>Left</xy-button>
+      </xy-popover>
+      <xy-popover placement="leftBottom">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -61,11 +61,11 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>LB</a-button>
-      </a-popover>
+        <xy-button>LB</xy-button>
+      </xy-popover>
     </div>
     <div :style="{ width: `${buttonWidth}px`, marginLeft: `${buttonWidth * 4 + 24}px` }">
-      <a-popover placement="rightTop">
+      <xy-popover placement="rightTop">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -73,9 +73,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>RT</a-button>
-      </a-popover>
-      <a-popover placement="right">
+        <xy-button>RT</xy-button>
+      </xy-popover>
+      <xy-popover placement="right">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -83,9 +83,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>Right</a-button>
-      </a-popover>
-      <a-popover placement="rightBottom">
+        <xy-button>Right</xy-button>
+      </xy-popover>
+      <xy-popover placement="rightBottom">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -93,11 +93,11 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>RB</a-button>
-      </a-popover>
+        <xy-button>RB</xy-button>
+      </xy-popover>
     </div>
     <div :style="{ marginLeft: `${buttonWidth}px`, clear: 'both', whiteSpace: 'nowrap' }">
-      <a-popover placement="bottomLeft">
+      <xy-popover placement="bottomLeft">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -105,9 +105,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>BL</a-button>
-      </a-popover>
-      <a-popover placement="bottom">
+        <xy-button>BL</xy-button>
+      </xy-popover>
+      <xy-popover placement="bottom">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -115,9 +115,9 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>Bottom</a-button>
-      </a-popover>
-      <a-popover placement="bottomRight">
+        <xy-button>Bottom</xy-button>
+      </xy-popover>
+      <xy-popover placement="bottomRight">
         <template #content>
           <p>Content</p>
           <p>Content</p>
@@ -125,8 +125,8 @@
         <template #title>
           <span>Title</span>
         </template>
-        <a-button>BR</a-button>
-      </a-popover>
+        <xy-button>BR</xy-button>
+      </xy-popover>
     </div>
   </div>
 </template>

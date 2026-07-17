@@ -1,5 +1,5 @@
 <template>
-  <a-tree
+  <xy-tree
     class="draggable-tree"
     draggable
     block-node

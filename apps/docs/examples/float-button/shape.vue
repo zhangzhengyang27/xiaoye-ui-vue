@@ -1,7 +1,7 @@
 <template>
-  <a-float-button @click="handleClick" />
+  <xy-float-button @click="handleClick" />
 
-  <a-float-button
+  <xy-float-button
     shape="circle"
     type="primary"
     :style="{
@@ -11,9 +11,9 @@
     <template #icon>
       <CustomerServiceOutlined />
     </template>
-  </a-float-button>
+  </xy-float-button>
 
-  <a-float-button
+  <xy-float-button
     shape="square"
     type="primary"
     :style="{
@@ -23,7 +23,7 @@
     <template #icon>
       <CustomerServiceOutlined />
     </template>
-  </a-float-button>
+  </xy-float-button>
 </template>
 
 <script lang="ts" setup>

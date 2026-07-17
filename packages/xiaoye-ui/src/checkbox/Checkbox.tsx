@@ -25,9 +25,9 @@ import useStyle from './style';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACheckbox',
+  name: 'XYCheckbox',
   inheritAttrs: false,
-  __ANT_CHECKBOX: true,
+  __XY_CHECKBOX: true,
   props: checkboxProps(),
   emits: ['change', 'update:checked', 'mouseenter', 'mouseleave'],
   setup(props, { emit, attrs, slots, expose }) {

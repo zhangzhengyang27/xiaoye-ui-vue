@@ -59,7 +59,6 @@ describe('DatePicker', () => {
         return <DatePicker open locale={locale} value={birthday} />;
       },
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });

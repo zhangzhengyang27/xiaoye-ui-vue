@@ -1,8 +1,8 @@
 <template>
   <h3 :style="{ margin: '16px 0' }">Small Size</h3>
-  <a-list size="small" bordered :data-source="data">
+  <xy-list size="small" bordered :data-source="data">
     <template #renderItem="{ item }">
-      <a-list-item>{{ item }}</a-list-item>
+      <xy-list-item>{{ item }}</xy-list-item>
     </template>
     <template #header>
       <div>Header</div>
@@ -10,11 +10,11 @@
     <template #footer>
       <div>Footer</div>
     </template>
-  </a-list>
+  </xy-list>
   <h3 :style="{ marginBottom: '16px' }">Default Size</h3>
-  <a-list bordered :data-source="data">
+  <xy-list bordered :data-source="data">
     <template #renderItem="{ item }">
-      <a-list-item>{{ item }}</a-list-item>
+      <xy-list-item>{{ item }}</xy-list-item>
     </template>
     <template #header>
       <div>Header</div>
@@ -22,11 +22,11 @@
     <template #footer>
       <div>Footer</div>
     </template>
-  </a-list>
+  </xy-list>
   <h3 :style="{ margin: '16px 0' }">Large Size</h3>
-  <a-list size="large" bordered :data-source="data">
+  <xy-list size="large" bordered :data-source="data">
     <template #renderItem="{ item }">
-      <a-list-item>{{ item }}</a-list-item>
+      <xy-list-item>{{ item }}</xy-list-item>
     </template>
     <template #header>
       <div>Header</div>
@@ -34,7 +34,7 @@
     <template #footer>
       <div>Footer</div>
     </template>
-  </a-list>
+  </xy-list>
 </template>
 <script lang="ts" setup>
 const data: string[] = [

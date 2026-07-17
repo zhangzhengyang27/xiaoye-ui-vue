@@ -1,11 +1,11 @@
 {
-    "main": "./ItalicIcon.vue",
-    "module": "./ItalicIcon.vue",
-    "types": "./ItalicIcon.d.ts",
-    "browser": {
-        "./sfc": "./ItalicIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ItalicIcon.vue",
+  "module": "./ItalicIcon.vue",
+  "types": "./ItalicIcon.d.ts",
+  "browser": {
+    "./sfc": "./ItalicIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

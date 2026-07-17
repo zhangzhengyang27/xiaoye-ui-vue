@@ -1,38 +1,38 @@
 <template>
   <h2>use a-select-option</h2>
-  <a-space>
-    <a-select
+  <xy-space>
+    <xy-select
       ref="select"
       v-model:value="value1"
       style="width: 120px"
       @focus="focus"
       @change="handleChange"
     >
-      <a-select-option value="jack">Jack</a-select-option>
-      <a-select-option value="lucy">Lucy</a-select-option>
-      <a-select-option value="disabled" disabled>Disabled</a-select-option>
-      <a-select-option value="Yiminghe">yiminghe</a-select-option>
-    </a-select>
-    <a-select v-model:value="value2" style="width: 120px" disabled>
-      <a-select-option value="lucy">Lucy</a-select-option>
-    </a-select>
-    <a-select v-model:value="value3" style="width: 120px" loading>
-      <a-select-option value="lucy">Lucy</a-select-option>
-    </a-select>
-  </a-space>
+      <xy-select-option value="jack">Jack</xy-select-option>
+      <xy-select-option value="lucy">Lucy</xy-select-option>
+      <xy-select-option value="disabled" disabled>Disabled</xy-select-option>
+      <xy-select-option value="Yiminghe">yiminghe</xy-select-option>
+    </xy-select>
+    <xy-select v-model:value="value2" style="width: 120px" disabled>
+      <xy-select-option value="lucy">Lucy</xy-select-option>
+    </xy-select>
+    <xy-select v-model:value="value3" style="width: 120px" loading>
+      <xy-select-option value="lucy">Lucy</xy-select-option>
+    </xy-select>
+  </xy-space>
   <h2 style="margin-top: 10px">use options (recommend)</h2>
-  <a-space>
-    <a-select
+  <xy-space>
+    <xy-select
       ref="select"
       v-model:value="value1"
       style="width: 120px"
       :options="options1"
       @focus="focus"
       @change="handleChange"
-    ></a-select>
-    <a-select v-model:value="value2" style="width: 120px" disabled :options="options2"></a-select>
-    <a-select v-model:value="value3" style="width: 120px" loading :options="options3"></a-select>
-  </a-space>
+    ></xy-select>
+    <xy-select v-model:value="value2" style="width: 120px" disabled :options="options2"></xy-select>
+    <xy-select v-model:value="value3" style="width: 120px" loading :options="options3"></xy-select>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

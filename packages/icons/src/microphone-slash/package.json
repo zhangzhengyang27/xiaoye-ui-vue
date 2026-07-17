@@ -1,11 +1,11 @@
 {
-    "main": "./MicrophoneSlashIcon.vue",
-    "module": "./MicrophoneSlashIcon.vue",
-    "types": "./MicrophoneSlashIcon.d.ts",
-    "browser": {
-        "./sfc": "./MicrophoneSlashIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MicrophoneSlashIcon.vue",
+  "module": "./MicrophoneSlashIcon.vue",
+  "types": "./MicrophoneSlashIcon.d.ts",
+  "browser": {
+    "./sfc": "./MicrophoneSlashIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

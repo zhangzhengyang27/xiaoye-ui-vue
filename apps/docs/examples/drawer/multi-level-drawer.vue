@@ -1,6 +1,6 @@
 <template>
-  <a-button type="primary" @click="showDrawer">Open</a-button>
-  <a-drawer
+  <xy-button type="primary" @click="showDrawer">Open</xy-button>
+  <xy-drawer
     v-model:open="open"
     title="Multi-level drawer"
     width="520"
@@ -8,16 +8,16 @@
     :footer-style="{ textAlign: 'right' }"
     @close="onClose"
   >
-    <a-button type="primary" @click="showChildrenDrawer">Two-level drawer</a-button>
-    <a-drawer v-model:open="childrenDrawer" title="Two-level Drawer" width="320" :closable="false">
-      <a-button type="primary" @click="showChildrenDrawer">This is two-level drawer</a-button>
-    </a-drawer>
+    <xy-button type="primary" @click="showChildrenDrawer">Two-level drawer</xy-button>
+    <xy-drawer v-model:open="childrenDrawer" title="Two-level Drawer" width="320" :closable="false">
+      <xy-button type="primary" @click="showChildrenDrawer">This is two-level drawer</xy-button>
+    </xy-drawer>
 
     <template #footer>
-      <a-button style="margin-right: 8px" @click="onClose">Cancel</a-button>
-      <a-button type="primary" @click="onClose">Submit</a-button>
+      <xy-button style="margin-right: 8px" @click="onClose">Cancel</xy-button>
+      <xy-button type="primary" @click="onClose">Submit</xy-button>
     </template>
-  </a-drawer>
+  </xy-drawer>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

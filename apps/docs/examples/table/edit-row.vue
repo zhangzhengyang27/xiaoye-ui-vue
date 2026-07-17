@@ -1,9 +1,9 @@
 <template>
-  <a-table :columns="columns" :data-source="dataSource" bordered>
+  <xy-table :columns="columns" :data-source="dataSource" bordered>
     <template #bodyCell="{ column, text, record }">
       <template v-if="['name', 'age', 'address'].includes(column.dataIndex)">
         <div>
-          <a-input
+          <xy-input
             v-if="editableData[record.key]"
             v-model:value="editableData[record.key][column.dataIndex]"
             style="margin: -5px 0"
@@ -16,10 +16,10 @@
       <template v-else-if="column.dataIndex === 'operation'">
         <div class="editable-row-operations">
           <span v-if="editableData[record.key]">
-            <a-typography-link @click="save(record.key)">Save</a-typography-link>
-            <a-popconfirm title="Sure to cancel?" @confirm="cancel(record.key)">
+            <xy-typography-link @click="save(record.key)">Save</xy-typography-link>
+            <xy-popconfirm title="Sure to cancel?" @confirm="cancel(record.key)">
               <a>Cancel</a>
-            </a-popconfirm>
+            </xy-popconfirm>
           </span>
           <span v-else>
             <a @click="edit(record.key)">Edit</a>
@@ -27,7 +27,7 @@
         </div>
       </template>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 import { cloneDeep } from 'lodash-es';

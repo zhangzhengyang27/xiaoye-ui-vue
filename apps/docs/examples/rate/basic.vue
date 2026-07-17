@@ -1,5 +1,5 @@
 <template>
-  <a-rate v-model:value="value" />
+  <xy-rate v-model:value="value" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

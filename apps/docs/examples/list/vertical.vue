@@ -1,5 +1,5 @@
 <template>
-  <a-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
+  <xy-list item-layout="vertical" size="large" :pagination="pagination" :data-source="listData">
     <template #footer>
       <div>
         <b>Xiaoye UI</b>
@@ -7,7 +7,7 @@
       </div>
     </template>
     <template #renderItem="{ item }">
-      <a-list-item key="item.title">
+      <xy-list-item key="item.title">
         <template #actions>
           <span v-for="{ icon, text } in actions" :key="icon">
             <component :is="icon" style="margin-right: 8px" />
@@ -21,16 +21,16 @@
             src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
           />
         </template>
-        <a-list-item-meta :description="item.description">
+        <xy-list-item-meta :description="item.description">
           <template #title>
             <a :href="item.href">{{ item.title }}</a>
           </template>
-          <template #avatar><a-avatar :src="item.avatar" /></template>
-        </a-list-item-meta>
+          <template #avatar><xy-avatar :src="item.avatar" /></template>
+        </xy-list-item-meta>
         {{ item.content }}
-      </a-list-item>
+      </xy-list-item>
     </template>
-  </a-list>
+  </xy-list>
 </template>
 <script lang="ts" setup>
 import { StarOutlined, LikeOutlined, MessageOutlined } from '@xiaoye-ui/icons';

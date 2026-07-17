@@ -1,28 +1,28 @@
 <template>
-  <a-float-button-group shape="circle" :style="{ right: '24px' }">
-    <a-float-button>
+  <xy-float-button-group shape="circle" :style="{ right: '24px' }">
+    <xy-float-button>
       <template #icon>
         <QuestionCircleOutlined />
       </template>
-    </a-float-button>
-    <a-float-button />
-    <a-back-top :visibility-height="0" />
-  </a-float-button-group>
-  <a-float-button-group shape="square" :style="{ right: '94px' }">
-    <a-float-button>
+    </xy-float-button>
+    <xy-float-button />
+    <xy-back-top :visibility-height="0" />
+  </xy-float-button-group>
+  <xy-float-button-group shape="square" :style="{ right: '94px' }">
+    <xy-float-button>
       <template #icon>
         <QuestionCircleOutlined />
       </template>
-    </a-float-button>
-    <a-float-button />
+    </xy-float-button>
+    <xy-float-button />
 
-    <a-float-button>
+    <xy-float-button>
       <template #icon>
         <SyncOutlined />
       </template>
-    </a-float-button>
-    <a-back-top :visibility-height="0" />
-  </a-float-button-group>
+    </xy-float-button>
+    <xy-back-top :visibility-height="0" />
+  </xy-float-button-group>
 </template>
 
 <script lang="ts" setup>

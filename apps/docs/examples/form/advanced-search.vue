@@ -1,29 +1,32 @@
 <template>
   <div>
-    <a-form
+    <xy-form
       ref="formRef"
       name="advanced_search"
       class="xy-advanced-search-form"
       :model="formState"
       @finish="onFinish"
     >
-      <a-row :gutter="24">
+      <xy-row :gutter="24">
         <template v-for="i in 10" :key="i">
-          <a-col v-show="expand || i <= 6" :span="8">
-            <a-form-item
+          <xy-col v-show="expand || i <= 6" :span="8">
+            <xy-form-item
               :name="`field-${i}`"
               :label="`field-${i}`"
               :rules="[{ required: true, message: 'input something' }]"
             >
-              <a-input v-model:value="formState[`field-${i}`]" placeholder="placeholder"></a-input>
-            </a-form-item>
-          </a-col>
+              <xy-input
+                v-model:value="formState[`field-${i}`]"
+                placeholder="placeholder"
+              ></xy-input>
+            </xy-form-item>
+          </xy-col>
         </template>
-      </a-row>
-      <a-row>
-        <a-col :span="24" style="text-align: right">
-          <a-button type="primary" html-type="submit">Search</a-button>
-          <a-button style="margin: 0 8px" @click="() => formRef.resetFields()">Clear</a-button>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="24" style="text-align: right">
+          <xy-button type="primary" html-type="submit">Search</xy-button>
+          <xy-button style="margin: 0 8px" @click="() => formRef.resetFields()">Clear</xy-button>
           <a style="font-size: 12px" @click="expand = !expand">
             <template v-if="expand">
               <UpOutlined />
@@ -33,9 +36,9 @@
             </template>
             Collapse
           </a>
-        </a-col>
-      </a-row>
-    </a-form>
+        </xy-col>
+      </xy-row>
+    </xy-form>
     <div class="search-result-list">Search Result List</div>
   </div>
 </template>

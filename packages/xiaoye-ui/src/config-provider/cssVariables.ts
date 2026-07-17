@@ -2,7 +2,7 @@
 
 import { TinyColor } from '@ctrl/tinycolor';
 import { generate } from '@ant-design/colors';
-import type { Theme } from './context';
+import type { ConfigProviderTheme as Theme } from './context';
 import { updateCSS } from '../vc-util/Dom/dynamicCSS';
 import canUseDom from '../_util/canUseDom';
 import warning from '../_util/warning';

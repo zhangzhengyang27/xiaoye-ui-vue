@@ -15,6 +15,7 @@ import type { SelectCommonPlacement } from '../_util/transition';
 import { getTransitionDirection, getTransitionName } from '../_util/transition';
 import type { SizeType } from '../config-provider';
 import { initDefaultProps } from '../_util/props-util';
+import { registerComponent } from '../_util/registerComponent';
 
 import type { InputStatus } from '../_util/statusUtils';
 import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
@@ -70,7 +71,7 @@ export type SelectProps = Partial<ExtractPropTypes<ReturnType<typeof selectProps
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 const Select = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASelect',
+  name: 'XYSelect',
   Option,
   OptGroup,
   inheritAttrs: false,
@@ -269,6 +270,8 @@ const Select = defineComponent({
         'size',
         'bordered',
         'status',
+        'onChange',
+        'onBlur',
       ]);
 
       const rcSelectRtlDropdownClassName = classNames(
@@ -320,9 +323,9 @@ const Select = defineComponent({
 });
 /* istanbul ignore next */
 Select.install = function (app: App) {
-  app.component(Select.name, Select);
-  app.component(Select.Option.displayName, Select.Option);
-  app.component(Select.OptGroup.displayName, Select.OptGroup);
+  registerComponent(app, Select);
+  registerComponent(app, Select.Option);
+  registerComponent(app, Select.OptGroup);
   return app;
 };
 

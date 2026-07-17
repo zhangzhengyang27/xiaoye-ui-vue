@@ -5,6 +5,7 @@ import Paragraph from './Paragraph';
 import Text from './Text';
 import Title from './Title';
 import Typography from './Typography';
+import { registerComponent } from '../_util/registerComponent';
 
 export type { TypographyProps } from './Typography';
 
@@ -15,11 +16,11 @@ Typography.Link = Link;
 Typography.Base = Base;
 
 Typography.install = function (app: App) {
-  app.component(Typography.name, Typography);
-  app.component(Typography.Text.displayName, Text);
-  app.component(Typography.Title.displayName, Title);
-  app.component(Typography.Paragraph.displayName, Paragraph);
-  app.component(Typography.Link.displayName, Link);
+  registerComponent(app, Typography);
+  registerComponent(app, Text);
+  registerComponent(app, Title);
+  registerComponent(app, Paragraph);
+  registerComponent(app, Link);
   return app;
 };
 

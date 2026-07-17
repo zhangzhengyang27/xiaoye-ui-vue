@@ -1,6 +1,6 @@
 <template>
-  <a-space direction="vertical" style="width: 100%" :size="16">
-    <a-skeleton :loading="loading">
+  <xy-space direction="vertical" style="width: 100%" :size="16">
+    <xy-skeleton :loading="loading">
       <div>
         <h4>Xiaoye UI, a design language</h4>
         <p>
@@ -9,9 +9,9 @@
           and efficiently.
         </p>
       </div>
-    </a-skeleton>
-    <a-button :disabled="loading" @click="showSkeleton">Show Skeleton</a-button>
-  </a-space>
+    </xy-skeleton>
+    <xy-button :disabled="loading" @click="showSkeleton">Show Skeleton</xy-button>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

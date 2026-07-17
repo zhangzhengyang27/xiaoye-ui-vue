@@ -1,10 +1,10 @@
 <template>
-  <a-button type="primary" @click="openMessage">Open the message box (update by key)</a-button>
+  <xy-button type="primary" @click="openMessage">Open the message box (update by key)</xy-button>
   <br />
   <br />
-  <a-button type="primary" @click="openMessage2">
+  <xy-button type="primary" @click="openMessage2">
     Open the message box (update by reactive)
-  </a-button>
+  </xy-button>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

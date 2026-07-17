@@ -1,9 +1,9 @@
 <template>
-  <a-space wrap>
-    <a-button type="primary">Primary Button</a-button>
-    <a-button>Default Button</a-button>
-    <a-button type="dashed">Dashed Button</a-button>
-    <a-button type="text">Text Button</a-button>
-    <a-button type="link">Link Button</a-button>
-  </a-space>
+  <xy-space wrap>
+    <xy-button type="primary">Primary Button</xy-button>
+    <xy-button>Default Button</xy-button>
+    <xy-button type="dashed">Dashed Button</xy-button>
+    <xy-button type="text">Text Button</xy-button>
+    <xy-button type="link">Link Button</xy-button>
+  </xy-space>
 </template>

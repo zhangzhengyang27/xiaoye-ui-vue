@@ -1,5 +1,5 @@
 <template>
-  <a-steps
+  <xy-steps
     v-model:current="current"
     status="error"
     :items="[
@@ -16,7 +16,7 @@
         description,
       },
     ]"
-  ></a-steps>
+  ></xy-steps>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

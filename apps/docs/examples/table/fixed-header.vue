@@ -1,5 +1,5 @@
 <template>
-  <a-table
+  <xy-table
     :columns="columns"
     :data-source="data"
     :pagination="{ pageSize: 50 }"

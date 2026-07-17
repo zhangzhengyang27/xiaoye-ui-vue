@@ -4,7 +4,7 @@ import type { CustomSlotsType } from '../_util/type';
 
 export type ColumnProps<RecordType = unknown> = ColumnType<RecordType>;
 export default defineComponent<ColumnProps>({
-  name: 'ATableColumn',
+  name: 'XYTableColumn',
   slots: Object as CustomSlotsType<{
     title?: any;
     filterIcon?: any;

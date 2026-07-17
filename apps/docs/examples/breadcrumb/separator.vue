@@ -1,15 +1,15 @@
 <template>
-  <a-breadcrumb separator=">">
-    <a-breadcrumb-item>Home</a-breadcrumb-item>
-    <a-breadcrumb-item href="">Application Center</a-breadcrumb-item>
-    <a-breadcrumb-item href="">Application List</a-breadcrumb-item>
-    <a-breadcrumb-item>An Application</a-breadcrumb-item>
-  </a-breadcrumb>
-  <a-breadcrumb>
+  <xy-breadcrumb separator=">">
+    <xy-breadcrumb-item>Home</xy-breadcrumb-item>
+    <xy-breadcrumb-item href="">Application Center</xy-breadcrumb-item>
+    <xy-breadcrumb-item href="">Application List</xy-breadcrumb-item>
+    <xy-breadcrumb-item>An Application</xy-breadcrumb-item>
+  </xy-breadcrumb>
+  <xy-breadcrumb>
     <template #separator><span style="color: red">></span></template>
-    <a-breadcrumb-item>Home</a-breadcrumb-item>
-    <a-breadcrumb-item href="">Application Center</a-breadcrumb-item>
-    <a-breadcrumb-item href="">Application List</a-breadcrumb-item>
-    <a-breadcrumb-item>An Application</a-breadcrumb-item>
-  </a-breadcrumb>
+    <xy-breadcrumb-item>Home</xy-breadcrumb-item>
+    <xy-breadcrumb-item href="">Application Center</xy-breadcrumb-item>
+    <xy-breadcrumb-item href="">Application List</xy-breadcrumb-item>
+    <xy-breadcrumb-item>An Application</xy-breadcrumb-item>
+  </xy-breadcrumb>
 </template>

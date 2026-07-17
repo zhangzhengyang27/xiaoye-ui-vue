@@ -1,11 +1,11 @@
 {
-    "main": "./DownloadIcon.vue",
-    "module": "./DownloadIcon.vue",
-    "types": "./DownloadIcon.d.ts",
-    "browser": {
-        "./sfc": "./DownloadIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./DownloadIcon.vue",
+  "module": "./DownloadIcon.vue",
+  "types": "./DownloadIcon.d.ts",
+  "browser": {
+    "./sfc": "./DownloadIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

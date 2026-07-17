@@ -1,24 +1,24 @@
 <template>
-  <a-space style="display: flex; flex-wrap: wrap">
+  <xy-space style="display: flex; flex-wrap: wrap">
     <template v-for="placement in placements" :key="placement">
-      <a-dropdown :placement="placement" :arrow="{ pointAtCenter: true }">
-        <a-button>{{ placement }}</a-button>
+      <xy-dropdown :placement="placement" :arrow="{ pointAtCenter: true }">
+        <xy-button>{{ placement }}</xy-button>
         <template #overlay>
-          <a-menu>
-            <a-menu-item>
+          <xy-menu>
+            <xy-menu-item>
               <a href="javascript:;">1st menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">2nd menu item</a>
-            </a-menu-item>
-            <a-menu-item>
+            </xy-menu-item>
+            <xy-menu-item>
               <a href="javascript:;">3rd menu item</a>
-            </a-menu-item>
-          </a-menu>
+            </xy-menu-item>
+          </xy-menu>
         </template>
-      </a-dropdown>
+      </xy-dropdown>
     </template>
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 const placements = ['topLeft', 'top', 'topRight', 'bottomLeft', 'bottom', 'bottomRight'] as const;

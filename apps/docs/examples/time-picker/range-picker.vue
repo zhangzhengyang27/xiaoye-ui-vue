@@ -1,3 +1,3 @@
 <template>
-  <a-time-range-picker />
+  <xy-time-range-picker />
 </template>

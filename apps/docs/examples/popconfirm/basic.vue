@@ -1,5 +1,5 @@
 <template>
-  <a-popconfirm
+  <xy-popconfirm
     title="Are you sure delete this task?"
     ok-text="Yes"
     cancel-text="No"
@@ -7,7 +7,7 @@
     @cancel="cancel"
   >
     <a href="#">Delete</a>
-  </a-popconfirm>
+  </xy-popconfirm>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

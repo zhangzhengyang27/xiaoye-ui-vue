@@ -1,16 +1,16 @@
 <template>
-  <a-badge status="success" />
-  <a-badge status="error" />
-  <a-badge status="default" />
-  <a-badge status="processing" />
-  <a-badge status="warning" />
+  <xy-badge status="success" />
+  <xy-badge status="error" />
+  <xy-badge status="default" />
+  <xy-badge status="processing" />
+  <xy-badge status="warning" />
   <br />
 
-  <a-space direction="vertical">
-    <a-badge status="success" text="Success" />
-    <a-badge status="error" text="Error" />
-    <a-badge status="default" text="Default" />
-    <a-badge status="processing" text="Processing" />
-    <a-badge status="warning" text="warning" />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-badge status="success" text="Success" />
+    <xy-badge status="error" text="Error" />
+    <xy-badge status="default" text="Default" />
+    <xy-badge status="processing" text="Processing" />
+    <xy-badge status="warning" text="warning" />
+  </xy-space>
 </template>

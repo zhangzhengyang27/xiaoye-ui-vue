@@ -59,7 +59,6 @@ describe('Drawer', () => {
       wrapper.find('.xy-btn').trigger('click');
       const content = wrapper.find('.xy-drawer-body').element.innerHTML;
       expect(content).toBe('Here is content of Drawer');
-
     });
   }, 1000);
 

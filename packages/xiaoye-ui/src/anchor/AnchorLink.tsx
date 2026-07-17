@@ -30,7 +30,7 @@ export type AnchorLinkProps = Partial<ExtractPropTypes<ReturnType<typeof anchorL
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AAnchorLink',
+  name: 'XYAnchorLink',
   inheritAttrs: false,
   props: initDefaultProps(anchorLinkProps(), { href: '#' }),
   slots: Object as CustomSlotsType<{

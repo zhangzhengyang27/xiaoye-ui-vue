@@ -10,6 +10,7 @@ import useLock from './hooks/useLock';
 import type { BaseSelectContextProps } from './hooks/useBaseProps';
 import { useProvideBaseSelectProps } from './hooks/useBaseProps';
 import type { Key, VueNode } from '../_util/type';
+import omit from '../_util/omit';
 import type {
   FocusEventHandler,
   KeyboardEventHandler,
@@ -889,7 +890,7 @@ export default defineComponent({
                   )
               ) : (
                 <Selector
-                  {...props}
+                  {...omit(props, ['onSearch'])}
                   domRef={selectorDomRef}
                   prefixCls={prefixCls}
                   inputElement={customizeInputElement}

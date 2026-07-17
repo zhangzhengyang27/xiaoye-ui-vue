@@ -2,6 +2,7 @@ import useMergedState from '../_util/hooks/useMergedState';
 import { PickerPanel } from '../vc-picker';
 import type { Locale } from '../vc-picker/interface';
 import type { GenerateConfig } from '../vc-picker/generate';
+import { registerComponent } from '../_util/registerComponent';
 import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
@@ -91,7 +92,7 @@ function generateCalendar<
   }
 
   const Calendar = defineComponent<Props>({
-    name: 'ACalendar',
+    name: 'XYCalendar',
     inheritAttrs: false,
     props: {
       prefixCls: String,
@@ -360,7 +361,7 @@ function generateCalendar<
   });
 
   Calendar.install = function (app: App) {
-    app.component(Calendar.name, Calendar);
+    registerComponent(app, Calendar);
     return app;
   };
 

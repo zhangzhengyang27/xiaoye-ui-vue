@@ -1,24 +1,24 @@
 <template>
-  <a-collapse v-model:active-key="activeKey" :expand-icon-position="expandIconPosition">
-    <a-collapse-panel key="1" header="This is panel header 1">
+  <xy-collapse v-model:active-key="activeKey" :expand-icon-position="expandIconPosition">
+    <xy-collapse-panel key="1" header="This is panel header 1">
       <p>{{ text }}</p>
       <template #extra><setting-outlined @click="handleClick" /></template>
-    </a-collapse-panel>
-    <a-collapse-panel key="2" header="This is panel header 2">
+    </xy-collapse-panel>
+    <xy-collapse-panel key="2" header="This is panel header 2">
       <p>{{ text }}</p>
       <template #extra><setting-outlined @click="handleClick" /></template>
-    </a-collapse-panel>
-    <a-collapse-panel key="3" header="This is panel header 3" collapsible="disabled">
+    </xy-collapse-panel>
+    <xy-collapse-panel key="3" header="This is panel header 3" collapsible="disabled">
       <p>{{ text }}</p>
       <template #extra><setting-outlined @click="handleClick" /></template>
-    </a-collapse-panel>
-  </a-collapse>
+    </xy-collapse-panel>
+  </xy-collapse>
   <br />
   <span>Expand Icon Position:</span>
-  <a-select v-model:value="expandIconPosition">
-    <a-select-option value="start">start</a-select-option>
-    <a-select-option value="end">end</a-select-option>
-  </a-select>
+  <xy-select v-model:value="expandIconPosition">
+    <xy-select-option value="start">start</xy-select-option>
+    <xy-select-option value="end">end</xy-select-option>
+  </xy-select>
 </template>
 <script lang="ts" setup>
 import { SettingOutlined } from '@xiaoye-ui/icons';

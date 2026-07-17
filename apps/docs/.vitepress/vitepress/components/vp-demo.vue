@@ -1,79 +1,69 @@
 <script setup lang="ts">
-import { computed, getCurrentInstance, ref, toRef } from 'vue'
-import { useClipboard, useLocalStorage, useToggle } from '@vueuse/core'
-import { useSourceCode } from '../composables/source-code'
-import demoBlockLocale from '../../i18n/component/demo-block.json'
-import SourceCode from './demo/vp-source-code.vue'
-import { CodeIcon, GithubIcon, CopyIcon, ChevronUpIcon } from '@xiaoye-ui/icons'
+import { computed, getCurrentInstance, ref, toRef } from 'vue';
+import { useClipboard, useLocalStorage, useToggle } from '@vueuse/core';
+import { useSourceCode } from '../composables/source-code';
+import demoBlockLocale from '../../i18n/component/demo-block.json';
+import SourceCode from './demo/vp-source-code.vue';
+import { CodeIcon, GithubIcon, CopyIcon, ChevronUpIcon } from '@xiaoye-ui/icons';
 
 const props = defineProps<{
-  sources: [string, string]
-  path: string
-  rawSources: [string, string]
-  description: string
-}>()
+  sources: [string, string];
+  path: string;
+  rawSources: [string, string];
+  description: string;
+}>();
 
-const vm = getCurrentInstance()!
+const vm = getCurrentInstance()!;
 
-const sourceLangs = ['TS', 'JS'] satisfies ['TS', 'JS']
+const sourceLangs = ['TS', 'JS'] satisfies ['TS', 'JS'];
 
-const sourceCodeRef = ref<HTMLButtonElement>()
-const tsOrjs = useLocalStorage<(typeof sourceLangs)[number]>(
-  'xyJsOrTs',
-  sourceLangs[0],
-  { initOnMounted: true }
-)
+const sourceCodeRef = ref<HTMLButtonElement>();
+const tsOrjs = useLocalStorage<(typeof sourceLangs)[number]>('xyJsOrTs', sourceLangs[0], {
+  initOnMounted: true,
+});
 
 // 直接使用中文文案，避免依赖 i18n 多语言
-const locale = computed(() => demoBlockLocale['zh-CN'])
-const decodedDescription = computed(() => decodeURIComponent(props.description))
+const locale = computed(() => demoBlockLocale['zh-CN']);
+const decodedDescription = computed(() => decodeURIComponent(props.description));
 const sourceVisibilityLabel = computed(() =>
-  sourceVisible.value
-    ? locale.value['hide-source']
-    : locale.value['view-source']
-)
-const rawSource = computed(
-  () => props.rawSources[tsOrjs.value === 'TS' ? 0 : 1]
-)
-const decodedRawSource = computed(() => decodeURIComponent(rawSource.value))
-const source = computed(() => props.sources[tsOrjs.value === 'TS' ? 0 : 1])
+  sourceVisible.value ? locale.value['hide-source'] : locale.value['view-source'],
+);
+const rawSource = computed(() => props.rawSources[tsOrjs.value === 'TS' ? 0 : 1]);
+const decodedRawSource = computed(() => decodeURIComponent(rawSource.value));
+const source = computed(() => props.sources[tsOrjs.value === 'TS' ? 0 : 1]);
 
 const { copy, isSupported } = useClipboard({
   source: decodedRawSource,
   read: false,
-})
-const [sourceVisible, toggleSourceVisible] = useToggle()
-const demoSourceUrl = useSourceCode(toRef(props, 'path'))
+});
+const [sourceVisible, toggleSourceVisible] = useToggle();
+const demoSourceUrl = useSourceCode(toRef(props, 'path'));
 
 const copyCode = async () => {
-  const { $message } = vm.appContext.config.globalProperties
+  const { $message } = vm.appContext.config.globalProperties;
   if (!isSupported.value) {
-    $message?.error(locale.value['copy-error'])
-    return
+    $message?.error(locale.value['copy-error']);
+    return;
   }
   try {
-    await copy()
-    $message?.success(locale.value['copy-success'])
+    await copy();
+    $message?.success(locale.value['copy-success']);
   } catch (e: any) {
-    $message?.error(locale.value['copy-error'])
+    $message?.error(locale.value['copy-error']);
   }
-}
+};
 
 const onSourceVisibleKeydown = (e: KeyboardEvent) => {
   if (['Enter', 'NumpadEnter', 'Space'].includes(e.code)) {
-    e.preventDefault()
-    toggleSourceVisible(false)
-    sourceCodeRef.value?.focus()
+    e.preventDefault();
+    toggleSourceVisible(false);
+    sourceCodeRef.value?.focus();
   }
-}
+};
 </script>
 
 <template>
-  <div
-    v-if="decodedDescription"
-    class="description"
-    v-html="decodedDescription"
-  />
+  <div v-if="decodedDescription" class="description" v-html="decodedDescription" />
 
   <div class="example">
     <div class="example-showcase">
@@ -81,14 +71,14 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
     </div>
 
     <div class="op-btns">
-      <a-segmented
+      <xy-segmented
         v-model:value="tsOrjs"
         :options="sourceLangs"
         size="small"
         class="lang-switcher"
       />
 
-      <a-tooltip :title="locale['edit-on-github']" placement="top">
+      <xy-tooltip :title="locale['edit-on-github']" placement="top">
         <a
           :href="demoSourceUrl"
           target="_blank"
@@ -98,9 +88,9 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
         >
           <GithubIcon />
         </a>
-      </a-tooltip>
+      </xy-tooltip>
 
-      <a-tooltip :title="locale['copy-code']" placement="top">
+      <xy-tooltip :title="locale['copy-code']" placement="top">
         <span
           :aria-label="locale['copy-code']"
           class="op-btn"
@@ -112,9 +102,9 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
         >
           <CopyIcon />
         </span>
-      </a-tooltip>
+      </xy-tooltip>
 
-      <a-tooltip :title="sourceVisibilityLabel" placement="top">
+      <xy-tooltip :title="sourceVisibilityLabel" placement="top">
         <button
           ref="sourceCodeRef"
           class="reset-btn op-btn"
@@ -123,7 +113,7 @@ const onSourceVisibleKeydown = (e: KeyboardEvent) => {
         >
           <CodeIcon />
         </button>
-      </a-tooltip>
+      </xy-tooltip>
     </div>
 
     <Transition name="fade-height">

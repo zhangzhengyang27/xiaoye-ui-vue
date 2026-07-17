@@ -1,3 +1,3 @@
 <template>
-  <a-skeleton active />
+  <xy-skeleton active />
 </template>

@@ -1,9 +1,9 @@
 <template>
   <div id="components-affix-demo-target" ref="containerRef" class="scrollable-container">
     <div class="background">
-      <a-affix :target="() => containerRef">
-        <a-button type="primary">Fixed at the top of container</a-button>
-      </a-affix>
+      <xy-affix :target="() => containerRef">
+        <xy-button type="primary">Fixed at the top of container</xy-button>
+      </xy-affix>
     </div>
   </div>
 </template>

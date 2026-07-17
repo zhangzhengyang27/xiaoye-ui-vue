@@ -1,11 +1,11 @@
 {
-    "main": "./SquareCodeIcon.vue",
-    "module": "./SquareCodeIcon.vue",
-    "types": "./SquareCodeIcon.d.ts",
-    "browser": {
-        "./sfc": "./SquareCodeIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SquareCodeIcon.vue",
+  "module": "./SquareCodeIcon.vue",
+  "types": "./SquareCodeIcon.d.ts",
+  "browser": {
+    "./sfc": "./SquareCodeIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

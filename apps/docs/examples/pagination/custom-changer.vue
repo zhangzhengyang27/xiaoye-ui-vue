@@ -1,5 +1,5 @@
 <template>
-  <a-pagination
+  <xy-pagination
     v-model:current="current"
     v-model:page-size="pageSizeRef"
     :page-size-options="pageSizeOptions"
@@ -11,7 +11,7 @@
       <span v-if="props.value !== '50'">{{ props.value }}条/页</span>
       <span v-else>全部</span>
     </template>
-  </a-pagination>
+  </xy-pagination>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

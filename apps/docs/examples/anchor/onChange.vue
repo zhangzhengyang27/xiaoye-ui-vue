@@ -1,5 +1,5 @@
 <template>
-  <a-anchor
+  <xy-anchor
     :affix="false"
     :items="[
       {
@@ -31,7 +31,7 @@
       },
     ]"
     @change="onChange"
-  ></a-anchor>
+  ></xy-anchor>
 </template>
 
 <script lang="ts" setup>

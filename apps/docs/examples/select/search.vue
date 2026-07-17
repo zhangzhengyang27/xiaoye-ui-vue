@@ -1,5 +1,5 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     show-search
     placeholder="Select a person"
@@ -9,7 +9,7 @@
     @focus="handleFocus"
     @blur="handleBlur"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import type { SelectProps } from 'xiaoye-ui';

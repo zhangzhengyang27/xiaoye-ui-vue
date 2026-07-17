@@ -1,11 +1,11 @@
 {
-    "main": "./CirclePlayIcon.vue",
-    "module": "./CirclePlayIcon.vue",
-    "types": "./CirclePlayIcon.d.ts",
-    "browser": {
-        "./sfc": "./CirclePlayIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CirclePlayIcon.vue",
+  "module": "./CirclePlayIcon.vue",
+  "types": "./CirclePlayIcon.d.ts",
+  "browser": {
+    "./sfc": "./CirclePlayIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

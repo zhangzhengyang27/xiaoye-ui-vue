@@ -1,35 +1,35 @@
 <template>
-  <a-space direction="vertical">
-    <a-input-search
+  <xy-space direction="vertical">
+    <xy-input-search
       v-model:value="value"
       placeholder="input search text"
       style="width: 200px"
       @search="onSearch"
     />
-    <a-input-search
+    <xy-input-search
       v-model:value="value"
       placeholder="input search text"
       enter-button
       @search="onSearch"
     />
-    <a-input-search
+    <xy-input-search
       v-model:value="value"
       placeholder="input search text"
       enter-button="Search"
       size="large"
       @search="onSearch"
     />
-    <a-input-search
+    <xy-input-search
       v-model:value="value"
       placeholder="input search text"
       size="large"
       @search="onSearch"
     >
       <template #enterButton>
-        <a-button>Custom</a-button>
+        <xy-button>Custom</xy-button>
       </template>
-    </a-input-search>
-  </a-space>
+    </xy-input-search>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

@@ -1,11 +1,11 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-range-picker v-model:value="value1" />
-    <a-range-picker v-model:value="value2" show-time />
-    <a-range-picker v-model:value="value3" picker="week" />
-    <a-range-picker v-model:value="value4" picker="month" />
-    <a-range-picker v-model:value="value5" picker="year" />
-  </a-space>
+  <xy-space direction="vertical" :size="12">
+    <xy-range-picker v-model:value="value1" />
+    <xy-range-picker v-model:value="value2" show-time />
+    <xy-range-picker v-model:value="value3" picker="week" />
+    <xy-range-picker v-model:value="value4" picker="month" />
+    <xy-range-picker v-model:value="value5" picker="year" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

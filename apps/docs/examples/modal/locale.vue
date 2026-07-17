@@ -1,12 +1,12 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">Modal</a-button>
-    <a-button @click="confirm">Confirm</a-button>
-    <a-modal v-model:open="open" title="Modal" ok-text="确认" cancel-text="取消" @ok="hideModal">
+    <xy-button type="primary" @click="showModal">Modal</xy-button>
+    <xy-button @click="confirm">Confirm</xy-button>
+    <xy-modal v-model:open="open" title="Modal" ok-text="确认" cancel-text="取消" @ok="hideModal">
       <p>Bla bla ...</p>
       <p>Bla bla ...</p>
       <p>Bla bla ...</p>
-    </a-modal>
+    </xy-modal>
   </div>
 </template>
 <script lang="ts" setup>

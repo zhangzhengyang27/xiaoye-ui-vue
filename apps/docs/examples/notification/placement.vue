@@ -1,30 +1,30 @@
 <template>
   <div>
-    <a-button type="primary" @click="openNotification('top')">
+    <xy-button type="primary" @click="openNotification('top')">
       <template #icon><BorderTopOutlined /></template>
       top
-    </a-button>
-    <a-button type="primary" @click="openNotification('bottom')">
+    </xy-button>
+    <xy-button type="primary" @click="openNotification('bottom')">
       <template #icon><BorderBottomOutlined /></template>
       bottom
-    </a-button>
-    <a-button type="primary" @click="openNotification('topLeft')">
+    </xy-button>
+    <xy-button type="primary" @click="openNotification('topLeft')">
       <template #icon><radius-upleft-outlined /></template>
       topLeft
-    </a-button>
-    <a-button type="primary" @click="openNotification('topRight')">
+    </xy-button>
+    <xy-button type="primary" @click="openNotification('topRight')">
       <template #icon><radius-upright-outlined /></template>
       topRight
-    </a-button>
-    <a-divider />
-    <a-button type="primary" @click="openNotification('bottomLeft')">
+    </xy-button>
+    <xy-divider />
+    <xy-button type="primary" @click="openNotification('bottomLeft')">
       <template #icon><radius-bottomleft-outlined /></template>
       bottomLeft
-    </a-button>
-    <a-button type="primary" @click="openNotification('bottomRight')">
+    </xy-button>
+    <xy-button type="primary" @click="openNotification('bottomRight')">
       <template #icon><radius-bottomright-outlined /></template>
       bottomRight
-    </a-button>
+    </xy-button>
   </div>
 </template>
 <script lang="ts" setup>

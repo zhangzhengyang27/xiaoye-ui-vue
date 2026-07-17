@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-transfer
+    <xy-transfer
       v-model:target-keys="targetKeys"
       class="tree-transfer"
       :data-source="dataSource"
@@ -8,7 +8,7 @@
       :show-select-all="false"
     >
       <template #children="{ direction, selectedKeys, onItemSelect }">
-        <a-tree
+        <xy-tree
           v-if="direction === 'left'"
           block-node
           checkable
@@ -28,7 +28,7 @@
           "
         />
       </template>
-    </a-transfer>
+    </xy-transfer>
   </div>
 </template>
 <script lang="ts" setup>

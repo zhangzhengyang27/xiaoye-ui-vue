@@ -1,23 +1,23 @@
 <template>
   <div>
-    <a-radio-group v-model:value="size" @change="onChange">
-      <a-radio value="default">default</a-radio>
-      <a-radio value="middle">middle</a-radio>
-      <a-radio value="small">small</a-radio>
-    </a-radio-group>
+    <xy-radio-group v-model:value="size" @change="onChange">
+      <xy-radio value="default">default</xy-radio>
+      <xy-radio value="middle">middle</xy-radio>
+      <xy-radio value="small">small</xy-radio>
+    </xy-radio-group>
     <br />
     <br />
-    <a-descriptions bordered title="Custom Size" :size="size">
+    <xy-descriptions bordered title="Custom Size" :size="size">
       <template #extra>
-        <a-button type="primary">Edit</a-button>
+        <xy-button type="primary">Edit</xy-button>
       </template>
-      <a-descriptions-item label="Product">Cloud Database</a-descriptions-item>
-      <a-descriptions-item label="Billing">Prepaid</a-descriptions-item>
-      <a-descriptions-item label="Time">18:00:00</a-descriptions-item>
-      <a-descriptions-item label="Amount">$80.00</a-descriptions-item>
-      <a-descriptions-item label="Discount">$20.00</a-descriptions-item>
-      <a-descriptions-item label="Official">$60.00</a-descriptions-item>
-      <a-descriptions-item label="Config Info">
+      <xy-descriptions-item label="Product">Cloud Database</xy-descriptions-item>
+      <xy-descriptions-item label="Billing">Prepaid</xy-descriptions-item>
+      <xy-descriptions-item label="Time">18:00:00</xy-descriptions-item>
+      <xy-descriptions-item label="Amount">$80.00</xy-descriptions-item>
+      <xy-descriptions-item label="Discount">$20.00</xy-descriptions-item>
+      <xy-descriptions-item label="Official">$60.00</xy-descriptions-item>
+      <xy-descriptions-item label="Config Info">
         Data disk type: MongoDB
         <br />
         Database version: 3.4
@@ -30,21 +30,21 @@
         <br />
         Region: East China 1
         <br />
-      </a-descriptions-item>
-    </a-descriptions>
+      </xy-descriptions-item>
+    </xy-descriptions>
     <br />
     <br />
-    <a-descriptions title="Custom Size" :size="size">
+    <xy-descriptions title="Custom Size" :size="size">
       <template #extra>
-        <a-button type="primary">Edit</a-button>
+        <xy-button type="primary">Edit</xy-button>
       </template>
-      <a-descriptions-item label="Product">Cloud Database</a-descriptions-item>
-      <a-descriptions-item label="Billing">Prepaid</a-descriptions-item>
-      <a-descriptions-item label="Time">18:00:00</a-descriptions-item>
-      <a-descriptions-item label="Amount">$80.00</a-descriptions-item>
-      <a-descriptions-item label="Discount">$20.00</a-descriptions-item>
-      <a-descriptions-item label="Official">$60.00</a-descriptions-item>
-    </a-descriptions>
+      <xy-descriptions-item label="Product">Cloud Database</xy-descriptions-item>
+      <xy-descriptions-item label="Billing">Prepaid</xy-descriptions-item>
+      <xy-descriptions-item label="Time">18:00:00</xy-descriptions-item>
+      <xy-descriptions-item label="Amount">$80.00</xy-descriptions-item>
+      <xy-descriptions-item label="Discount">$20.00</xy-descriptions-item>
+      <xy-descriptions-item label="Official">$60.00</xy-descriptions-item>
+    </xy-descriptions>
   </div>
 </template>
 <script lang="ts" setup>

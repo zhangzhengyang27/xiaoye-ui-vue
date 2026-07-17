@@ -1,7 +1,7 @@
 <template>
-  <a-popconfirm title="Title" @confirm="confirm" @cancel="cancel">
-    <a-button type="primary">Open Popconfirm with Promise</a-button>
-  </a-popconfirm>
+  <xy-popconfirm title="Title" @confirm="confirm" @cancel="cancel">
+    <xy-button type="primary">Open Popconfirm with Promise</xy-button>
+  </xy-popconfirm>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

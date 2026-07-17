@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-progress
+    <xy-progress
       type="circle"
       trail-color="#e6f4ff"
       :percent="60"

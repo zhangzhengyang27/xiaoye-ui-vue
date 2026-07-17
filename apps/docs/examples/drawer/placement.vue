@@ -1,12 +1,12 @@
 <template>
-  <a-radio-group v-model:value="placement" style="margin-right: 8px">
-    <a-radio value="top">top</a-radio>
-    <a-radio value="right">right</a-radio>
-    <a-radio value="bottom">bottom</a-radio>
-    <a-radio value="left">left</a-radio>
-  </a-radio-group>
-  <a-button type="primary" @click="showDrawer">Open</a-button>
-  <a-drawer
+  <xy-radio-group v-model:value="placement" style="margin-right: 8px">
+    <xy-radio value="top">top</xy-radio>
+    <xy-radio value="right">right</xy-radio>
+    <xy-radio value="bottom">bottom</xy-radio>
+    <xy-radio value="left">left</xy-radio>
+  </xy-radio-group>
+  <xy-button type="primary" @click="showDrawer">Open</xy-button>
+  <xy-drawer
     title="Basic Drawer"
     :placement="placement"
     :closable="false"
@@ -16,7 +16,7 @@
     <p>Some contents...</p>
     <p>Some contents...</p>
     <p>Some contents...</p>
-  </a-drawer>
+  </xy-drawer>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

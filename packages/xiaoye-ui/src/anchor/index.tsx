@@ -3,13 +3,14 @@ import type { AnchorProps } from './Anchor';
 import type { AnchorLinkProps, AnchorLinkItemProps } from './AnchorLink';
 import Anchor from './Anchor';
 import AnchorLink from './AnchorLink';
+import { registerComponent } from '../_util/registerComponent';
 
 Anchor.Link = AnchorLink;
 
 /* istanbul ignore next */
 Anchor.install = function (app: App) {
-  app.component(Anchor.name, Anchor);
-  app.component(Anchor.Link.name, Anchor.Link);
+  registerComponent(app, Anchor);
+  registerComponent(app, Anchor.Link);
   return app;
 };
 

@@ -1,8 +1,8 @@
 <template>
-  <a-qrcode ref="qrcodeCanvasRef" value="http://www.xiaoye-ui.github.io" />
+  <xy-qrcode ref="qrcodeCanvasRef" value="http://www.xiaoye-ui.github.io" />
   <br />
   <br />
-  <a-button type="primary" @click="dowloadChange">Downlaod</a-button>
+  <xy-button type="primary" @click="dowloadChange">Downlaod</xy-button>
 </template>
 
 <script lang="ts" setup>

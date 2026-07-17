@@ -1,11 +1,11 @@
 {
-    "main": "./FlagIcon.vue",
-    "module": "./FlagIcon.vue",
-    "types": "./FlagIcon.d.ts",
-    "browser": {
-        "./sfc": "./FlagIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./FlagIcon.vue",
+  "module": "./FlagIcon.vue",
+  "types": "./FlagIcon.d.ts",
+  "browser": {
+    "./sfc": "./FlagIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

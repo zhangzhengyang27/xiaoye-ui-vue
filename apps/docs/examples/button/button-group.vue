@@ -1,40 +1,40 @@
 <template>
   <div id="components-button-demo-button-group">
     <h4>Basic</h4>
-    <a-button-group>
-      <a-button>Cancel</a-button>
-      <a-button type="primary">OK</a-button>
-    </a-button-group>
-    <a-button-group>
-      <a-button disabled>L</a-button>
-      <a-button disabled>M</a-button>
-      <a-button disabled>R</a-button>
-    </a-button-group>
-    <a-button-group>
-      <a-button type="primary">L</a-button>
-      <a-button>M</a-button>
-      <a-button>M</a-button>
-      <a-button type="dashed">R</a-button>
-    </a-button-group>
+    <xy-button-group>
+      <xy-button>Cancel</xy-button>
+      <xy-button type="primary">OK</xy-button>
+    </xy-button-group>
+    <xy-button-group>
+      <xy-button disabled>L</xy-button>
+      <xy-button disabled>M</xy-button>
+      <xy-button disabled>R</xy-button>
+    </xy-button-group>
+    <xy-button-group>
+      <xy-button type="primary">L</xy-button>
+      <xy-button>M</xy-button>
+      <xy-button>M</xy-button>
+      <xy-button type="dashed">R</xy-button>
+    </xy-button-group>
     <h4>With Icon</h4>
-    <a-button-group>
-      <a-button type="primary">
+    <xy-button-group>
+      <xy-button type="primary">
         <LeftOutlined />
         Go back
-      </a-button>
-      <a-button type="primary">
+      </xy-button>
+      <xy-button type="primary">
         Go forward
         <RightOutlined />
-      </a-button>
-    </a-button-group>
-    <a-button-group>
-      <a-button type="primary">
+      </xy-button>
+    </xy-button-group>
+    <xy-button-group>
+      <xy-button type="primary">
         <template #icon><CloudOutlined /></template>
-      </a-button>
-      <a-button type="primary">
+      </xy-button>
+      <xy-button type="primary">
         <template #icon><CloudDownloadOutlined /></template>
-      </a-button>
-    </a-button-group>
+      </xy-button>
+    </xy-button-group>
   </div>
 </template>
 

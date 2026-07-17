@@ -1,36 +1,36 @@
 <template>
   <div style="margin-bottom: 16px">
     <span style="margin-right: 16px">Change locale of components:</span>
-    <a-radio-group v-model:value="locale">
-      <a-radio-button key="en" :value="enUS.locale">English</a-radio-button>
-      <a-radio-button key="cn" :value="zhCN.locale">中文</a-radio-button>
-    </a-radio-group>
+    <xy-radio-group v-model:value="locale">
+      <xy-radio-button key="en" :value="enUS.locale">English</xy-radio-button>
+      <xy-radio-button key="cn" :value="zhCN.locale">中文</xy-radio-button>
+    </xy-radio-group>
   </div>
-  <a-config-provider :locale="locale === 'en' ? enUS : zhCN">
-    <a-space
+  <xy-config-provider :locale="locale === 'en' ? enUS : zhCN">
+    <xy-space
       direction="vertical"
       :size="[0, 16]"
       :style="{ width: '100%', paddingTop: '16px', borderTop: `1px solid ${token.colorBorder}` }"
     >
-      <a-pagination :total="50" show-size-changer />
-      <a-space wrap>
-        <a-select show-search style="width: 200px">
-          <a-select-option value="jack">jack</a-select-option>
-          <a-select-option value="lucy">lucy</a-select-option>
-        </a-select>
-        <a-date-picker />
-        <a-time-picker />
-        <a-range-picker style="width: 200px" />
-      </a-space>
-      <a-space wrap>
-        <a-button type="primary" @click="visible = true">Show Modal</a-button>
-        <a-button @click="info">Show info</a-button>
-        <a-button @click="confirm">Show confirm</a-button>
-        <a-popconfirm title="Question?">
+      <xy-pagination :total="50" show-size-changer />
+      <xy-space wrap>
+        <xy-select show-search style="width: 200px">
+          <xy-select-option value="jack">jack</xy-select-option>
+          <xy-select-option value="lucy">lucy</xy-select-option>
+        </xy-select>
+        <xy-date-picker />
+        <xy-time-picker />
+        <xy-range-picker style="width: 200px" />
+      </xy-space>
+      <xy-space wrap>
+        <xy-button type="primary" @click="visible = true">Show Modal</xy-button>
+        <xy-button @click="info">Show info</xy-button>
+        <xy-button @click="confirm">Show confirm</xy-button>
+        <xy-popconfirm title="Question?">
           <a href="#">Click to confirm</a>
-        </a-popconfirm>
-      </a-space>
-      <a-transfer :data-source="[]" show-search :target-keys="[]" :render="item => item.title" />
+        </xy-popconfirm>
+      </xy-space>
+      <xy-transfer :data-source="[]" show-search :target-keys="[]" :render="item => item.title" />
       <div
         :style="{
           width: '320px',
@@ -38,60 +38,60 @@
           'border-radius': '8px',
         }"
       >
-        <a-calendar :fullscreen="false" />
+        <xy-calendar :fullscreen="false" />
       </div>
-      <a-form
+      <xy-form
         name="basic"
         :model="formModel"
         auto-complete="off"
         :label-col="{ sm: { span: 4 } }"
         :wrapper-col="{ span: 6 }"
       >
-        <a-form-item label="UserName" name="username" :rules="[{ required: true }]">
-          <a-input v-model:value="formModel.username" :width="200" />
-        </a-form-item>
-        <a-form-item label="Age" name="age" :rules="[{ type: 'number', min: 0, max: 99 }]">
-          <a-input-number v-model:value="formModel.age" :width="200" />
-        </a-form-item>
-        <a-form-item :wrapper-col="{ offset: 2, span: 6 }">
-          <a-button type="primary" html-type="submit">submit</a-button>
-        </a-form-item>
-      </a-form>
-      <a-table :data-source="[]" :columns="columns" />
-      <a-modal v-model:open="visible" title="Locale Modal">
+        <xy-form-item label="UserName" name="username" :rules="[{ required: true }]">
+          <xy-input v-model:value="formModel.username" :width="200" />
+        </xy-form-item>
+        <xy-form-item label="Age" name="age" :rules="[{ type: 'number', min: 0, max: 99 }]">
+          <xy-input-number v-model:value="formModel.age" :width="200" />
+        </xy-form-item>
+        <xy-form-item :wrapper-col="{ offset: 2, span: 6 }">
+          <xy-button type="primary" html-type="submit">submit</xy-button>
+        </xy-form-item>
+      </xy-form>
+      <xy-table :data-source="[]" :columns="columns" />
+      <xy-modal v-model:open="visible" title="Locale Modal">
         <p>Locale Modal</p>
-      </a-modal>
-      <a-space wrap :size="80">
-        <a-qrcode
+      </xy-modal>
+      <xy-space wrap :size="80">
+        <xy-qrcode
           value="https://xiaoye-ui.github.io"
           status="expired"
           @refresh="() => console.log('refresh')"
         />
-        <a-image
+        <xy-image
           :width="160"
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         />
-      </a-space>
-      <a-upload list-type="picture-card" :file-list="fileList" />
-      <a-divider orientation="left">Tour</a-divider>
-      <a-button type="primary" @click="() => (tourOpen = true)">Begin Tour</a-button>
-      <a-space>
-        <a-button ref="ref1">upload</a-button>
-        <a-button ref="ref2" type="primary">save</a-button>
-        <a-button ref="ref3">
+      </xy-space>
+      <xy-upload list-type="picture-card" :file-list="fileList" />
+      <xy-divider orientation="left">Tour</xy-divider>
+      <xy-button type="primary" @click="() => (tourOpen = true)">Begin Tour</xy-button>
+      <xy-space>
+        <xy-button ref="ref1">upload</xy-button>
+        <xy-button ref="ref2" type="primary">save</xy-button>
+        <xy-button ref="ref3">
           <template #icon>
             <ellipsis-outlined />
           </template>
-        </a-button>
-      </a-space>
-      <a-tour
+        </xy-button>
+      </xy-space>
+      <xy-tour
         v-model:current="current"
         :open="tourOpen"
         :steps="steps"
         @close="() => (tourOpen = false)"
-      ></a-tour>
-    </a-space>
-  </a-config-provider>
+      ></xy-tour>
+    </xy-space>
+  </xy-config-provider>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

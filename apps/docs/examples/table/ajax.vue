@@ -1,5 +1,5 @@
 <template>
-  <a-table
+  <xy-table
     :columns="columns"
     :row-key="record => record.login.uuid"
     :data-source="dataSource"
@@ -10,7 +10,7 @@
     <template #bodyCell="{ column, text }">
       <template v-if="column.dataIndex === 'name'">{{ text.first }} {{ text.last }}</template>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
@@ -50,7 +50,7 @@ const fetchData = async () => {
   loading.value = true;
   try {
     const res = await fetch(
-      `https://randomuser.me/api?noinfo&page=${pagination.current}&results=${pagination.pageSize}`
+      `https://randomuser.me/api?noinfo&page=${pagination.current}&results=${pagination.pageSize}`,
     );
     const data = await res.json();
     dataSource.value = data.results;
@@ -63,13 +63,15 @@ const fetchData = async () => {
 const handleTableChange: TableProps['onChange'] = (
   pag: { pageSize: number; current: number },
   _filters: any,
-  sorter: any
+  sorter: any,
 ) => {
   pagination.pageSize = pag.pageSize;
   pagination.current = pag.current;
   if (sorter.order) {
     dataSource.value = [...dataSource.value].sort((a, b) =>
-      sorter.order === 'ascend' ? a.name.first.localeCompare(b.name.first) : b.name.first.localeCompare(a.name.first)
+      sorter.order === 'ascend'
+        ? a.name.first.localeCompare(b.name.first)
+        : b.name.first.localeCompare(a.name.first),
     );
   }
   fetchData();

@@ -1,11 +1,11 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     label-in-value
     style="width: 120px"
     :options="options"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import type { SelectProps } from 'xiaoye-ui';

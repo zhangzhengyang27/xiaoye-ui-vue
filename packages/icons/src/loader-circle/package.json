@@ -1,11 +1,11 @@
 {
-    "main": "./LoaderCircleIcon.vue",
-    "module": "./LoaderCircleIcon.vue",
-    "types": "./LoaderCircleIcon.d.ts",
-    "browser": {
-        "./sfc": "./LoaderCircleIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LoaderCircleIcon.vue",
+  "module": "./LoaderCircleIcon.vue",
+  "types": "./LoaderCircleIcon.d.ts",
+  "browser": {
+    "./sfc": "./LoaderCircleIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

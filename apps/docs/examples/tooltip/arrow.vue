@@ -1,87 +1,87 @@
 <template>
   <div id="components-a-tooltip-demo-arrow">
     <div style="margin-bottom: 24px">
-      <a-segmented v-model:value="arrow" :options="options" />
+      <xy-segmented v-model:value="arrow" :options="options" />
     </div>
     <div :style="{ marginLeft: `${buttonWidth}px`, whiteSpace: 'nowrap' }">
-      <a-tooltip placement="topLeft" :arrow="mergedArrow">
+      <xy-tooltip placement="topLeft" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>TL</a-button>
-      </a-tooltip>
-      <a-tooltip placement="top" :arrow="mergedArrow">
+        <xy-button>TL</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="top" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>Top</a-button>
-      </a-tooltip>
-      <a-tooltip placement="topRight" :arrow="mergedArrow">
+        <xy-button>Top</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="topRight" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>TR</a-button>
-      </a-tooltip>
+        <xy-button>TR</xy-button>
+      </xy-tooltip>
     </div>
     <div :style="{ width: `${buttonWidth}px`, float: 'left' }">
-      <a-tooltip placement="leftTop" :arrow="mergedArrow">
+      <xy-tooltip placement="leftTop" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>LT</a-button>
-      </a-tooltip>
-      <a-tooltip placement="left" :arrow="mergedArrow">
+        <xy-button>LT</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="left" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>Left</a-button>
-      </a-tooltip>
-      <a-tooltip placement="leftBottom" :arrow="mergedArrow">
+        <xy-button>Left</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="leftBottom" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>LB</a-button>
-      </a-tooltip>
+        <xy-button>LB</xy-button>
+      </xy-tooltip>
     </div>
     <div :style="{ width: `${buttonWidth}px`, marginLeft: `${buttonWidth * 4 + 24}px` }">
-      <a-tooltip placement="rightTop" :arrow="mergedArrow">
+      <xy-tooltip placement="rightTop" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>RT</a-button>
-      </a-tooltip>
-      <a-tooltip placement="right" :arrow="mergedArrow">
+        <xy-button>RT</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="right" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>Right</a-button>
-      </a-tooltip>
-      <a-tooltip placement="rightBottom" :arrow="mergedArrow">
+        <xy-button>Right</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="rightBottom" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>RB</a-button>
-      </a-tooltip>
+        <xy-button>RB</xy-button>
+      </xy-tooltip>
     </div>
     <div :style="{ marginLeft: `${buttonWidth}px`, clear: 'both', whiteSpace: 'nowrap' }">
-      <a-tooltip placement="bottomLeft" :arrow="mergedArrow">
+      <xy-tooltip placement="bottomLeft" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>BL</a-button>
-      </a-tooltip>
-      <a-tooltip placement="bottom" :arrow="mergedArrow">
+        <xy-button>BL</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="bottom" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>Bottom</a-button>
-      </a-tooltip>
-      <a-tooltip placement="bottomRight" :arrow="mergedArrow">
+        <xy-button>Bottom</xy-button>
+      </xy-tooltip>
+      <xy-tooltip placement="bottomRight" :arrow="mergedArrow">
         <template #title>
           <span>prompt text</span>
         </template>
-        <a-button>BR</a-button>
-      </a-tooltip>
+        <xy-button>BR</xy-button>
+      </xy-tooltip>
     </div>
   </div>
 </template>

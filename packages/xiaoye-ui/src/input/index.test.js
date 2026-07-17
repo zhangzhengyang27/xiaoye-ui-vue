@@ -14,8 +14,7 @@ describe('Input', () => {
 
   it('should support maxlength', async () => {
     mount(Input, { props: { maxlength: 3 }, sync: false });
-    await asyncExpect(() => {
-    }, 0);
+    await asyncExpect(() => {}, 0);
   });
   it('select()', async () => {
     const wrapper = mount(Input, { sync: false, attachTo: 'body' });
@@ -57,14 +56,12 @@ describe('TextArea', () => {
 
   it('should support disabled', async () => {
     mount(TextArea, { props: { disabled: true }, sync: false });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('should support maxlength', async () => {
     mount(TextArea, { attrs: { maxlength: 10 }, sync: false });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('should support showCount', async () => {
@@ -73,8 +70,7 @@ describe('TextArea', () => {
       sync: false,
     });
     expect(wrapper.find('.xy-input-textarea-show-count')).toBeTruthy();
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });
 
@@ -123,8 +119,7 @@ describe('TextArea', () => {
 describe('Input.Search', () => {
   it('should support suffix', async () => {
     mount(Input.Search, { props: { suffix: 'suffix' }, sync: false });
-    await asyncExpect(() => {
-    }, 100);
+    await asyncExpect(() => {}, 100);
   });
 });
 

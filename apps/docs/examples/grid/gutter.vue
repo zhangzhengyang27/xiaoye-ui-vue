@@ -1,61 +1,61 @@
 <template>
-  <a-divider orientation="left">Horizontal</a-divider>
-  <a-row :gutter="16">
-    <a-col class="gutter-row" :span="6">
+  <xy-divider orientation="left">Horizontal</xy-divider>
+  <xy-row :gutter="16">
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-  </a-row>
-  <a-divider orientation="left">Responsive</a-divider>
-  <a-row :gutter="{ xs: 8, sm: 16, md: 24, lg: 32 }">
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+  </xy-row>
+  <xy-divider orientation="left">Responsive</xy-divider>
+  <xy-row :gutter="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-  </a-row>
-  <a-divider orientation="left">Vertical</a-divider>
-  <a-row :gutter="[16, 24]">
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+  </xy-row>
+  <xy-divider orientation="left">Vertical</xy-divider>
+  <xy-row :gutter="[16, 24]">
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-    <a-col class="gutter-row" :span="6">
+    </xy-col>
+    <xy-col class="gutter-row" :span="6">
       <div class="gutter-box">col-6</div>
-    </a-col>
-  </a-row>
+    </xy-col>
+  </xy-row>
 </template>
 <style scoped>
 .gutter-box {

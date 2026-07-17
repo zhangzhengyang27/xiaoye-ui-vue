@@ -1,11 +1,11 @@
 {
-    "main": "./TwitterIcon.vue",
-    "module": "./TwitterIcon.vue",
-    "types": "./TwitterIcon.d.ts",
-    "browser": {
-        "./sfc": "./TwitterIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./TwitterIcon.vue",
+  "module": "./TwitterIcon.vue",
+  "types": "./TwitterIcon.d.ts",
+  "browser": {
+    "./sfc": "./TwitterIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

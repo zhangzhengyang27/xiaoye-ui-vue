@@ -4,6 +4,7 @@ import Modal from './Modal';
 import confirm, { withWarn, withInfo, withSuccess, withError, withConfirm } from './confirm';
 import useModal from './useModal';
 import destroyFns from './destroyFns';
+import { registerComponent } from '../_util/registerComponent';
 export type { ActionButtonProps } from '../_util/ActionButton';
 export type { ModalProps, ModalFuncProps } from './Modal';
 
@@ -42,7 +43,7 @@ Modal.destroyAll = function destroyAllFn() {
 
 /* istanbul ignore next */
 Modal.install = function (app: App) {
-  app.component(Modal.name, Modal);
+  registerComponent(app, Modal);
   return app;
 };
 

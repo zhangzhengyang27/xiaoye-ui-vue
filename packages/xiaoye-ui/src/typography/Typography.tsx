@@ -22,7 +22,7 @@ export const typographyProps = () => ({
   component: String,
 });
 const Typography = defineComponent({
-  name: 'ATypography',
+  name: 'XYTypography',
   inheritAttrs: false,
   props: typographyProps(),
   setup(props, { slots, attrs }) {

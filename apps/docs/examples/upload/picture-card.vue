@@ -1,6 +1,6 @@
 <template>
   <div class="clearfix">
-    <a-upload
+    <xy-upload
       v-model:file-list="fileList"
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
       list-type="picture-card"
@@ -10,10 +10,10 @@
         <plus-outlined />
         <div style="margin-top: 8px">Upload</div>
       </div>
-    </a-upload>
-    <a-modal :open="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
+    </xy-upload>
+    <xy-modal :open="previewVisible" :title="previewTitle" :footer="null" @cancel="handleCancel">
       <img alt="example" style="width: 100%" :src="previewImage" />
-    </a-modal>
+    </xy-modal>
   </div>
 </template>
 <script lang="ts" setup>

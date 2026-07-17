@@ -1,5 +1,5 @@
 <template>
-  <a-anchor
+  <xy-anchor
     :target-offset="targetOffset"
     :items="[
       {
@@ -30,7 +30,7 @@
         ],
       },
     ]"
-  ></a-anchor>
+  ></xy-anchor>
 </template>
 
 <script lang="ts" setup>

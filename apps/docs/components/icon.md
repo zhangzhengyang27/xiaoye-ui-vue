@@ -1,18 +1,26 @@
 # Icon 图标
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons-vue` 图标组件包：
+语义化的矢量图形。使用图标组件，你需要安装 `@xiaoye-ui/icons` 图标组件包：
 
 ```bash
-npm install --save @ant-design/icons-vue
+npm install --save @xiaoye-ui/icons
 ```
 
 ## 设计师专属
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Xiaoye UI 和 Iconfont 的海量图标，还可以关联自有项目。
 
+## 图标列表
+
+:::demo 点击图标即可复制对应的组件标签。上方输入框支持按图标名搜索。
+
+icon/all-icons
+
+:::
+
 ## 基本用法
 
-:::demo 通过 `@ant-design/icons-vue` 引用 Icon 组件，不同主题的 Icon 组件名为图标名加主题做为后缀，也可以通过设置 `spin` 属性来实现动画旋转效果。
+:::demo 通过 `@xiaoye-ui/icons` 引用 Icon 组件，不同主题的 Icon 组件名为图标名加主题做为后缀，也可以通过设置 `spin` 属性来实现动画旋转效果。
 
 icon/basic
 
@@ -46,17 +54,17 @@ icon/two-tone
 
 ### 通用图标
 
-|  参数  |  说明  |  类型  |  默认值  |  版本  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-|  rotate  |  图标旋转角度（IE9 无效）  |  number  |  -  |    |
-|  spin  |  是否有旋转动画  |  boolean  |  false  |    |
-|  style  |  设置图标的样式，例如 `fontSize` 和 `color`  |  CSSProperties  |  -  |    |
-|  twoToneColor  |  仅适用双色图标。设置双色图标的主要颜色  |  string (十六进制颜色)  |  -  |    |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| spin | 是否有旋转动画 | boolean | false |  |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |  |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
 ```jsx
-import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
+import { StarOutlined, StarFilled, StarTwoTone } from '@xiaoye-ui/icons';
 
 <star-outlined />
 <star-filled />
@@ -65,12 +73,12 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
 
 ### 自定义 Icon/Custom Icon
 
-|  参数  |  说明  |  类型  |  默认值  |  版本  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-|  component  |  控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `Vue` 组件  |  ComponentType&lt;CustomIconComponentProps>  |  -  |    |
-|  rotate  |  图标旋转角度（IE9 无效）  |  number  |  -  |    |
-|  spin  |  是否有旋转动画  |  boolean  |  false  |    |
-|  style  |  设置图标的样式，例如 `fontSize` 和 `color`  |  CSSProperties  |  -  |    |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `Vue` 组件 | ComponentType&lt;CustomIconComponentProps> | - |  |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| spin | 是否有旋转动画 | boolean | false |  |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 
 ### SVG 图标
 
@@ -90,7 +98,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
   <message-outlined :style="{fontSize: '16px', color: '#08c'}" />
 </template>
 <script>
-  import { MessageOutlined } from '@ant-design/icons-vue';
+  import { MessageOutlined } from '@xiaoye-ui/icons';
   import { defineComponent } from 'vue';
   export default defineComponent({
     components: {
@@ -105,7 +113,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons-vue';
 对于双色图标，可以通过使用 `Icon.getTwoToneColor()` 和 `Icon.setTwoToneColor(colorString)` 来全局设置图标主色。
 
 ```jsx
-import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons-vue';
+import { getTwoToneColor, setTwoToneColor } from '@xiaoye-ui/icons';
 
 setTwoToneColor('#eb2f96');
 getTwoToneColor(); // #eb2f96
@@ -116,7 +124,7 @@ getTwoToneColor(); // #eb2f96
 在 `1.2.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
 ```jsx
-import { createFromIconfontCN } from '@ant-design/icons-vue';
+import { createFromIconfontCN } from '@xiaoye-ui/icons';
 import { defineComponent } from 'vue';
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
@@ -133,10 +141,10 @@ export default defineComponent({
 
 `options` 的配置项如下：
 
-|  参数  |  说明  |  类型  |  默认值  |
+| 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|  extraCommonProps  |  给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性  |  `{ class, attrs, props, on, style }`  |  \{\}  |
-|  scriptUrl  |  [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址  |  string  |  -  |
+| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ class, attrs, props, on, style }` | \{\} |
+| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - |
 
 在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
@@ -163,7 +171,7 @@ module.exports = {
 
 ```jsx
 import { defineComponent } from 'vue';
-import Icon from '@ant-design/icons-vue';
+import { Icon } from '@xiaoye-ui/icons';
 import MessageSvg from 'path/to/message.svg'; // '*.svg' 文件的路径
 
 export default defineComponent({
@@ -257,10 +265,10 @@ export default defineConfig({
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-|  字段    |  说明                     |  类型              |  只读值          |
-| ------ | ----------------------- | ---------------- | -------------- |
-|  class   |  计算后的 `svg` 类名      |  string            |  -               |
-|  fill    |  `svg` 元素填充的颜色     |  string            |  'currentColor'  |
-|  height  |  `svg` 元素高度           |  string \ |  number  |  '1em'           |
-|  style   |  计算后的 `svg` 元素样式  |  CSSProperties     |  -               |
-|  width   |  `svg` 元素宽度           |  string \ |  number  |  '1em'           |
+| 字段   | 说明                    | 类型          | 只读值         |
+| ------ | ----------------------- | ------------- | -------------- |
+| class  | 计算后的 `svg` 类名     | string        | -              |
+| fill   | `svg` 元素填充的颜色    | string        | 'currentColor' |
+| height | `svg` 元素高度          | string \      | number         | '1em' |
+| style  | 计算后的 `svg` 元素样式 | CSSProperties | -              |
+| width  | `svg` 元素宽度          | string \      | number         | '1em' |

@@ -1,6 +1,6 @@
 <template>
-  <a-tabs v-model:active-key="activeKey">
-    <a-tab-pane key="1">
+  <xy-tabs v-model:active-key="activeKey">
+    <xy-tab-pane key="1">
       <template #tab>
         <span>
           <apple-outlined />
@@ -8,8 +8,8 @@
         </span>
       </template>
       Tab 1
-    </a-tab-pane>
-    <a-tab-pane key="2">
+    </xy-tab-pane>
+    <xy-tab-pane key="2">
       <template #tab>
         <span>
           <android-outlined />
@@ -17,8 +17,8 @@
         </span>
       </template>
       Tab 2
-    </a-tab-pane>
-  </a-tabs>
+    </xy-tab-pane>
+  </xy-tabs>
 </template>
 <script lang="ts" setup>
 import { AppleOutlined, AndroidOutlined } from '@xiaoye-ui/icons';

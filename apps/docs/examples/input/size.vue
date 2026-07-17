@@ -1,8 +1,8 @@
 <template>
   <div class="components-input-demo-size">
-    <a-input v-model:value="value" size="large" placeholder="large size" />
-    <a-input v-model:value="value" placeholder="default size" />
-    <a-input v-model:value="value" size="small" placeholder="small size" />
+    <xy-input v-model:value="value" size="large" placeholder="large size" />
+    <xy-input v-model:value="value" placeholder="default size" />
+    <xy-input v-model:value="value" size="small" placeholder="small size" />
   </div>
 </template>
 <script lang="ts" setup>

@@ -14,7 +14,7 @@ import { qrcodeProps } from './interface';
 
 export type QRCodeProps = Partial<ExtractPropTypes<ReturnType<typeof qrcodeProps>>>;
 const QRCode = defineComponent({
-  name: 'AQrcode',
+  name: 'XYQrcode',
   inheritAttrs: false,
   props: qrcodeProps(),
   emits: ['refresh'],

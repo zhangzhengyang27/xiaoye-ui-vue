@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-switch
+    <xy-switch
       :checked="theme === 'dark'"
       checked-children="Dark"
       un-checked-children="Light"
@@ -8,7 +8,7 @@
     />
     <br />
     <br />
-    <a-menu
+    <xy-menu
       v-model:open-keys="openKeys"
       v-model:selected-keys="selectedKeys"
       style="width: 256px"

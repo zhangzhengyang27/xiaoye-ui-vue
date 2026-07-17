@@ -1,18 +1,18 @@
 <template>
   <div>
-    <a-radio-group v-model:value="size">
-      <a-radio value="small">Small</a-radio>
-      <a-radio value="middle">Middle</a-radio>
-      <a-radio value="large">Large</a-radio>
-    </a-radio-group>
+    <xy-radio-group v-model:value="size">
+      <xy-radio value="small">Small</xy-radio>
+      <xy-radio value="middle">Middle</xy-radio>
+      <xy-radio value="large">Large</xy-radio>
+    </xy-radio-group>
     <br />
     <br />
-    <a-space :size="size">
-      <a-button type="primary">Primary</a-button>
-      <a-button>Default</a-button>
-      <a-button type="dashed">Dashed</a-button>
-      <a-button type="link">Link</a-button>
-    </a-space>
+    <xy-space :size="size">
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button>Default</xy-button>
+      <xy-button type="dashed">Dashed</xy-button>
+      <xy-button type="link">Link</xy-button>
+    </xy-space>
   </div>
 </template>
 <script lang="ts" setup>

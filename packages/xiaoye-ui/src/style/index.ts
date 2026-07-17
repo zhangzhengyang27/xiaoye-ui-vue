@@ -28,6 +28,9 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
 export const resetIcon = (): CSSObject => ({
   display: 'inline-flex',
   alignItems: 'center',
+  justifyContent: 'center',
+  width: '1em',
+  height: '1em',
   color: 'inherit',
   fontStyle: 'normal',
   lineHeight: 0,
@@ -45,6 +48,8 @@ export const resetIcon = (): CSSObject => ({
 
   svg: {
     display: 'inline-block',
+    width: '1em',
+    height: '1em',
   },
 });
 

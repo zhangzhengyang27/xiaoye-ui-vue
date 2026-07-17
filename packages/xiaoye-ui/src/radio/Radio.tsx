@@ -36,7 +36,7 @@ export type RadioProps = Partial<ExtractPropTypes<ReturnType<typeof radioProps>>
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ARadio',
+  name: 'XYRadio',
   inheritAttrs: false,
   props: radioProps(),
   emits: [

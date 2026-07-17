@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { isClient } from '@vueuse/core'
+import { isClient } from '@vueuse/core';
 
 const goHome = () => {
-  if (!isClient) return
-  window.location.href = '/'
-}
+  if (!isClient) return;
+  window.location.href = '/';
+};
 </script>
 
 <template>
-  <a-result status="404" title="404" sub-title="页面不存在">
+  <xy-result status="404" title="404" sub-title="页面不存在">
     <template #extra>
-      <a-button type="primary" @click="goHome">返回首页</a-button>
+      <xy-button type="primary" @click="goHome">返回首页</xy-button>
     </template>
-  </a-result>
+  </xy-result>
 </template>
 
 <style scoped>

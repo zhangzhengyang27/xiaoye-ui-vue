@@ -1,18 +1,18 @@
 <template>
-  <a-tree v-model:expanded-keys="expandedKeys" :tree-data="treeData">
+  <xy-tree v-model:expanded-keys="expandedKeys" :tree-data="treeData">
     <template #title="{ key: treeKey, title }">
-      <a-dropdown :trigger="['contextmenu']">
+      <xy-dropdown :trigger="['contextmenu']">
         <span>{{ title }}</span>
         <template #overlay>
-          <a-menu @click="({ key: menuKey }) => onContextMenuClick(treeKey, menuKey)">
-            <a-menu-item key="1">1st menu item</a-menu-item>
-            <a-menu-item key="2">2nd menu item</a-menu-item>
-            <a-menu-item key="3">3rd menu item</a-menu-item>
-          </a-menu>
+          <xy-menu @click="({ key: menuKey }) => onContextMenuClick(treeKey, menuKey)">
+            <xy-menu-item key="1">1st menu item</xy-menu-item>
+            <xy-menu-item key="2">2nd menu item</xy-menu-item>
+            <xy-menu-item key="3">3rd menu item</xy-menu-item>
+          </xy-menu>
         </template>
-      </a-dropdown>
+      </xy-dropdown>
     </template>
-  </a-tree>
+  </xy-tree>
 </template>
 
 <script lang="ts" setup>

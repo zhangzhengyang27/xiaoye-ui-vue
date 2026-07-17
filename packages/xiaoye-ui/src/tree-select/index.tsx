@@ -1,5 +1,6 @@
 import type { App, ExtractPropTypes } from 'vue';
 import { computed, ref, defineComponent } from 'vue';
+import { registerComponent } from '../_util/registerComponent';
 import VcTreeSelect, {
   TreeNode,
   SHOW_ALL,
@@ -90,7 +91,7 @@ export type TreeSelectProps = Partial<ExtractPropTypes<ReturnType<typeof treeSel
 
 const TreeSelect = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ATreeSelect',
+  name: 'XYTreeSelect',
   inheritAttrs: false,
   props: initDefaultProps(treeSelectProps(), {
     choiceTransitionName: '',
@@ -359,8 +360,8 @@ export default Object.assign(TreeSelect, {
   SHOW_PARENT: SHOW_PARENT as typeof SHOW_PARENT,
   SHOW_CHILD: SHOW_CHILD as typeof SHOW_CHILD,
   install: (app: App) => {
-    app.component(TreeSelect.name, TreeSelect);
-    app.component(TreeSelectNode.displayName, TreeSelectNode);
+    registerComponent(app, TreeSelect);
+    registerComponent(app, TreeSelectNode);
     return app;
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <a-form
+  <xy-form
     ref="formRef"
     name="custom-validation"
     :model="formState"
@@ -9,20 +9,20 @@
     @validate="handleValidate"
     @finishFailed="handleFinishFailed"
   >
-    <a-form-item has-feedback label="Password" name="pass">
-      <a-input v-model:value="formState.pass" type="password" autocomplete="off" />
-    </a-form-item>
-    <a-form-item has-feedback label="Confirm" name="checkPass">
-      <a-input v-model:value="formState.checkPass" type="password" autocomplete="off" />
-    </a-form-item>
-    <a-form-item has-feedback label="Age" name="age">
-      <a-input-number v-model:value="formState.age" />
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-      <a-button type="primary" html-type="submit">Submit</a-button>
-      <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>
-    </a-form-item>
-  </a-form>
+    <xy-form-item has-feedback label="Password" name="pass">
+      <xy-input v-model:value="formState.pass" type="password" autocomplete="off" />
+    </xy-form-item>
+    <xy-form-item has-feedback label="Confirm" name="checkPass">
+      <xy-input v-model:value="formState.checkPass" type="password" autocomplete="off" />
+    </xy-form-item>
+    <xy-form-item has-feedback label="Age" name="age">
+      <xy-input-number v-model:value="formState.age" />
+    </xy-form-item>
+    <xy-form-item :wrapper-col="{ span: 14, offset: 4 }">
+      <xy-button type="primary" html-type="submit">Submit</xy-button>
+      <xy-button style="margin-left: 10px" @click="resetForm">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';

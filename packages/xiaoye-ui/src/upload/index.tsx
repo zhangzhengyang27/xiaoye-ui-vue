@@ -1,6 +1,7 @@
 import type { App } from 'vue';
 import Upload, { LIST_IGNORE } from './Upload';
 import Dragger from './Dragger';
+import { registerComponent } from '../_util/registerComponent';
 
 export type { UploadProps, UploadListProps, UploadChangeParam, UploadFile } from './interface';
 
@@ -11,8 +12,8 @@ export default Object.assign(Upload, {
   Dragger,
   LIST_IGNORE,
   install(app: App) {
-    app.component(Upload.name, Upload);
-    app.component(Dragger.name, Dragger);
+    registerComponent(app, Upload);
+    registerComponent(app, Dragger);
     return app;
   },
 });

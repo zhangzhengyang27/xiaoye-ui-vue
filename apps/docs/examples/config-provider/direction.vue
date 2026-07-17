@@ -1,25 +1,25 @@
 <template>
   <span style="margin-right: 16px">Change direction of components:</span>
-  <a-radio-group v-model:value="state.direction">
-    <a-radio-button value="ltr">LTR</a-radio-button>
-    <a-radio-button value="rtl">RTL</a-radio-button>
-  </a-radio-group>
-  <a-divider />
-  <a-config-provider :direction="state.direction">
-    <a-space direction="vertical" class="direction-components">
-      <a-row>
-        <a-col :span="24">
-          <a-divider orientation="left">Cascader example</a-divider>
-          <a-cascader
+  <xy-radio-group v-model:value="state.direction">
+    <xy-radio-button value="ltr">LTR</xy-radio-button>
+    <xy-radio-button value="rtl">RTL</xy-radio-button>
+  </xy-radio-group>
+  <xy-divider />
+  <xy-config-provider :direction="state.direction">
+    <xy-space direction="vertical" class="direction-components">
+      <xy-row>
+        <xy-col :span="24">
+          <xy-divider orientation="left">Cascader example</xy-divider>
+          <xy-cascader
             :options="cascaderOptions"
             placeholder="یک مورد انتخاب کنید"
             :placement="state.popupPlacement"
             @change="onCascaderChange"
           >
             <template #suffixIcon><SearchIcon /></template>
-          </a-cascader>
+          </xy-cascader>
           &nbsp;&nbsp;&nbsp;&nbsp; With search:
-          <a-cascader
+          <xy-cascader
             :options="cascaderOptions"
             placeholder="Select an item"
             :placement="state.popupPlacement"
@@ -27,67 +27,67 @@
             @change="onCascaderChange"
           >
             <template #suffixIcon><SmileOutlined /></template>
-          </a-cascader>
-        </a-col>
-      </a-row>
-      <a-row>
-        <a-col :span="12">
-          <a-divider orientation="left">Switch example</a-divider>
-          <a-space>
-            <a-switch default-checked />
-            <a-switch loading default-checked />
-            <a-switch size="small" loading />
-          </a-space>
-        </a-col>
-        <a-col :span="12">
-          <a-divider orientation="left">Radio Group example</a-divider>
-          <a-radio-group default-value="c" button-style="solid">
-            <a-radio-button value="a">تهران</a-radio-button>
-            <a-radio-button value="b" disabled>اصفهان</a-radio-button>
-            <a-radio-button value="c">فارس</a-radio-button>
-            <a-radio-button value="d">خوزستان</a-radio-button>
-          </a-radio-group>
-        </a-col>
-      </a-row>
-      <a-row>
-        <a-col :span="12">
-          <a-divider orientation="left">Button example</a-divider>
+          </xy-cascader>
+        </xy-col>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="12">
+          <xy-divider orientation="left">Switch example</xy-divider>
+          <xy-space>
+            <xy-switch default-checked />
+            <xy-switch loading default-checked />
+            <xy-switch size="small" loading />
+          </xy-space>
+        </xy-col>
+        <xy-col :span="12">
+          <xy-divider orientation="left">Radio Group example</xy-divider>
+          <xy-radio-group default-value="c" button-style="solid">
+            <xy-radio-button value="a">تهران</xy-radio-button>
+            <xy-radio-button value="b" disabled>اصفهان</xy-radio-button>
+            <xy-radio-button value="c">فارس</xy-radio-button>
+            <xy-radio-button value="d">خوزستان</xy-radio-button>
+          </xy-radio-group>
+        </xy-col>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="12">
+          <xy-divider orientation="left">Button example</xy-divider>
           <div class="button-demo">
-            <a-button type="primary">
+            <xy-button type="primary">
               <template #icon><DownloadOutlined /></template>
-            </a-button>
-            <a-button type="primary" shape="circle">
+            </xy-button>
+            <xy-button type="primary" shape="circle">
               <template #icon><DownloadOutlined /></template>
-            </a-button>
-            <a-button type="primary" shape="round">
+            </xy-button>
+            <xy-button type="primary" shape="round">
               <template #icon><DownloadOutlined /></template>
-            </a-button>
-            <a-button type="primary" shape="round">
-              <template #icon><DownloadOutlined /></template>
-              Download
-            </a-button>
-            <a-button type="primary">
+            </xy-button>
+            <xy-button type="primary" shape="round">
               <template #icon><DownloadOutlined /></template>
               Download
-            </a-button>
+            </xy-button>
+            <xy-button type="primary">
+              <template #icon><DownloadOutlined /></template>
+              Download
+            </xy-button>
             <br />
-            <a-button-group>
-              <a-button type="primary">
+            <xy-button-group>
+              <xy-button type="primary">
                 <LeftOutlined />
                 Backward
-              </a-button>
-              <a-button type="primary">
+              </xy-button>
+              <xy-button type="primary">
                 Forward
                 <RightOutlined />
-              </a-button>
-            </a-button-group>
-            <a-button type="primary" loading>Loading</a-button>
-            <a-button type="primary" size="small" loading>Loading</a-button>
+              </xy-button>
+            </xy-button-group>
+            <xy-button type="primary" loading>Loading</xy-button>
+            <xy-button type="primary" size="small" loading>Loading</xy-button>
           </div>
-        </a-col>
-        <a-col :span="12">
-          <a-divider orientation="left">Tree example</a-divider>
-          <a-tree
+        </xy-col>
+        <xy-col :span="12">
+          <xy-divider orientation="left">Tree example</xy-divider>
+          <xy-tree
             v-model:expanded-keys="expandedKeys"
             v-model:selected-keys="selectedKeys"
             v-model:checked-keys="checkedKeys"
@@ -99,71 +99,71 @@
               <span v-if="key === '0-0-1-0'" style="color: #1890ff">{{ title }}</span>
               <template v-else>{{ title }}</template>
             </template>
-          </a-tree>
-        </a-col>
-      </a-row>
-      <a-row>
-        <a-col :span="24">
-          <a-divider orientation="left">Input (Input Group) example</a-divider>
-          <a-space direction="vertical" style="width: 100%">
-            <a-input-group size="large">
-              <a-row :gutter="8">
-                <a-col :span="5">
-                  <a-input default-value="0571" />
-                </a-col>
-                <a-col :span="8">
-                  <a-input default-value="26888888" />
-                </a-col>
-              </a-row>
-            </a-input-group>
-            <a-input-group compact>
-              <a-input style="width: 20%" default-value="0571" />
-              <a-input style="width: 30%" default-value="26888888" />
-            </a-input-group>
-            <a-input-group compact>
-              <a-select default-value="Option1">
-                <a-select-option value="Option1">Option1</a-select-option>
-                <a-select-option value="Option2">Option2</a-select-option>
-              </a-select>
-              <a-input style="width: 50%" default-value="input content" />
-              <a-inputNumber />
-            </a-input-group>
-            <a-input-search placeholder="input search text" enter-button="Search" size="large" />
+          </xy-tree>
+        </xy-col>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="24">
+          <xy-divider orientation="left">Input (Input Group) example</xy-divider>
+          <xy-space direction="vertical" style="width: 100%">
+            <xy-input-group size="large">
+              <xy-row :gutter="8">
+                <xy-col :span="5">
+                  <xy-input default-value="0571" />
+                </xy-col>
+                <xy-col :span="8">
+                  <xy-input default-value="26888888" />
+                </xy-col>
+              </xy-row>
+            </xy-input-group>
+            <xy-input-group compact>
+              <xy-input style="width: 20%" default-value="0571" />
+              <xy-input style="width: 30%" default-value="26888888" />
+            </xy-input-group>
+            <xy-input-group compact>
+              <xy-select default-value="Option1">
+                <xy-select-option value="Option1">Option1</xy-select-option>
+                <xy-select-option value="Option2">Option2</xy-select-option>
+              </xy-select>
+              <xy-input style="width: 50%" default-value="input content" />
+              <xy-inputNumber />
+            </xy-input-group>
+            <xy-input-search placeholder="input search text" enter-button="Search" size="large" />
             <div style="margin-bottom: 16px">
-              <a-input default-value="mysite">
+              <xy-input default-value="mysite">
                 <template #selectBefore>
-                  <a-select default-value="Http://" style="width: 90px">
-                    <a-select-option value="Http://">Http://</a-select-option>
-                    <a-select-option value="Https://">Https://</a-select-option>
-                  </a-select>
+                  <xy-select default-value="Http://" style="width: 90px">
+                    <xy-select-option value="Http://">Http://</xy-select-option>
+                    <xy-select-option value="Https://">Https://</xy-select-option>
+                  </xy-select>
                 </template>
                 <template #selectAfter>
-                  <a-select default-value=".com" style="width: 80px">
-                    <a-select-option value=".com">.com</a-select-option>
-                    <a-select-option value=".jp">.jp</a-select-option>
-                    <a-select-option value=".cn">.cn</a-select-option>
-                    <a-select-option value=".org">.org</a-select-option>
-                  </a-select>
+                  <xy-select default-value=".com" style="width: 80px">
+                    <xy-select-option value=".com">.com</xy-select-option>
+                    <xy-select-option value=".jp">.jp</xy-select-option>
+                    <xy-select-option value=".cn">.cn</xy-select-option>
+                    <xy-select-option value=".org">.org</xy-select-option>
+                  </xy-select>
                 </template>
-              </a-input>
+              </xy-input>
             </div>
-            <a-row>
-              <a-col :span="12">
-                <a-divider orientation="left">Select example</a-divider>
-                <a-space wrap>
-                  <a-select mode="multiple" default-value="مورچه" style="width: 120px">
-                    <a-select-option value="jack">Jack</a-select-option>
-                    <a-select-option value="مورچه">مورچه</a-select-option>
-                    <a-select-option value="disabled" disabled>Disabled</a-select-option>
-                    <a-select-option value="Yiminghe">yiminghe</a-select-option>
-                  </a-select>
-                  <a-select default-value="مورچه" style="width: 120px" disabled>
-                    <a-select-option value="مورچه">مورچه</a-select-option>
-                  </a-select>
-                  <a-select default-value="مورچه" style="width: 120px" loading>
-                    <a-select-option value="مورچه">مورچه</a-select-option>
-                  </a-select>
-                  <a-select
+            <xy-row>
+              <xy-col :span="12">
+                <xy-divider orientation="left">Select example</xy-divider>
+                <xy-space wrap>
+                  <xy-select mode="multiple" default-value="مورچه" style="width: 120px">
+                    <xy-select-option value="jack">Jack</xy-select-option>
+                    <xy-select-option value="مورچه">مورچه</xy-select-option>
+                    <xy-select-option value="disabled" disabled>Disabled</xy-select-option>
+                    <xy-select-option value="Yiminghe">yiminghe</xy-select-option>
+                  </xy-select>
+                  <xy-select default-value="مورچه" style="width: 120px" disabled>
+                    <xy-select-option value="مورچه">مورچه</xy-select-option>
+                  </xy-select>
+                  <xy-select default-value="مورچه" style="width: 120px" loading>
+                    <xy-select-option value="مورچه">مورچه</xy-select-option>
+                  </xy-select>
+                  <xy-select
                     show-search
                     style="width: 200px"
                     placeholder="Select a person"
@@ -173,16 +173,16 @@
                         option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     "
                   >
-                    <a-select-option value="jack">Jack</a-select-option>
-                    <a-select-option value="سعید">سعید</a-select-option>
-                    <a-select-option value="tom">Tom</a-select-option>
-                  </a-select>
-                </a-space>
-              </a-col>
-              <a-col :span="12">
-                <a-divider orientation="left">TreeSelect example</a-divider>
+                    <xy-select-option value="jack">Jack</xy-select-option>
+                    <xy-select-option value="سعید">سعید</xy-select-option>
+                    <xy-select-option value="tom">Tom</xy-select-option>
+                  </xy-select>
+                </xy-space>
+              </xy-col>
+              <xy-col :span="12">
+                <xy-divider orientation="left">TreeSelect example</xy-divider>
                 <div>
-                  <a-tree-select
+                  <xy-tree-select
                     show-search
                     style="width: 100%"
                     :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
@@ -190,28 +190,28 @@
                     allow-clear
                     tree-default-expand-all
                     :tree-data="treeSelectData"
-                  ></a-tree-select>
+                  ></xy-tree-select>
                 </div>
-              </a-col>
-            </a-row>
-            <a-row>
-              <a-col :span="24">
-                <a-divider orientation="left">Modal example</a-divider>
+              </xy-col>
+            </xy-row>
+            <xy-row>
+              <xy-col :span="24">
+                <xy-divider orientation="left">Modal example</xy-divider>
                 <div>
-                  <a-button type="primary" @click="showModal">Open Modal</a-button>
-                  <a-modal v-model:open="state.modalVisible" title="پنچره ساده">
+                  <xy-button type="primary" @click="showModal">Open Modal</xy-button>
+                  <xy-modal v-model:open="state.modalVisible" title="پنچره ساده">
                     <p>نگاشته‌های خود را اینجا قراردهید</p>
                     <p>نگاشته‌های خود را اینجا قراردهید</p>
                     <p>نگاشته‌های خود را اینجا قراردهید</p>
-                  </a-modal>
+                  </xy-modal>
                 </div>
-              </a-col>
-            </a-row>
-            <a-row>
-              <a-col :span="24">
-                <a-divider orientation="left">Steps example</a-divider>
+              </xy-col>
+            </xy-row>
+            <xy-row>
+              <xy-col :span="24">
+                <xy-divider orientation="left">Steps example</xy-divider>
                 <div>
-                  <a-steps
+                  <xy-steps
                     progress-dot
                     :current="state.currentStep"
                     :items="[
@@ -228,9 +228,9 @@
                         description: 'This is a description.',
                       },
                     ]"
-                  ></a-steps>
+                  ></xy-steps>
                   <br />
-                  <a-steps
+                  <xy-steps
                     :current="state.currentStep"
                     :items="[
                       {
@@ -247,84 +247,84 @@
                       },
                     ]"
                     @change="onStepsChange"
-                  ></a-steps>
+                  ></xy-steps>
                 </div>
-              </a-col>
-            </a-row>
-            <a-row>
-              <a-col :span="12">
-                <a-divider orientation="left">Rate example</a-divider>
+              </xy-col>
+            </xy-row>
+            <xy-row>
+              <xy-col :span="12">
+                <xy-divider orientation="left">Rate example</xy-divider>
                 <div>
-                  <a-rate v-model:value="rateValue" />
+                  <xy-rate v-model:value="rateValue" />
                   <br />
                   <strong>* Note:</strong>
                   Half star not implemented in RTL direction.
                 </div>
-              </a-col>
-              <a-col :span="12">
-                <a-divider orientation="left">Badge example</a-divider>
+              </xy-col>
+              <xy-col :span="12">
+                <xy-divider orientation="left">Badge example</xy-divider>
                 <div>
                   <div>
-                    <a-badge :count="state.badgeCount">
+                    <xy-badge :count="state.badgeCount">
                       <a href="#" class="head-example" />
-                    </a-badge>
-                    <a-button-group>
-                      <a-button @click="declineBadge">
+                    </xy-badge>
+                    <xy-button-group>
+                      <xy-button @click="declineBadge">
                         <MinusOutlined />
-                      </a-button>
-                      <a-button @click="increaseBadge">
+                      </xy-button>
+                      <xy-button @click="increaseBadge">
                         <PlusOutlined />
-                      </a-button>
-                    </a-button-group>
+                      </xy-button>
+                    </xy-button-group>
                   </div>
                   <div style="margin-top: 10px">
-                    <a-badge :dot="state.showBadge">
+                    <xy-badge :dot="state.showBadge">
                       <a href="#" class="head-example" />
-                    </a-badge>
-                    <a-switch :checked="state.showBadge" @change="onChangeBadge" />
+                    </xy-badge>
+                    <xy-switch :checked="state.showBadge" @change="onChangeBadge" />
                   </div>
                 </div>
-              </a-col>
-            </a-row>
-          </a-space>
-        </a-col>
-      </a-row>
-      <a-row>
-        <a-col :span="24">
-          <a-divider orientation="left">Pagination example</a-divider>
-          <a-pagination show-size-changer :default-current="3" :total="500" />
-        </a-col>
-      </a-row>
-      <a-row>
-        <a-col :span="24">
-          <a-divider orientation="left">Grid System example</a-divider>
+              </xy-col>
+            </xy-row>
+          </xy-space>
+        </xy-col>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="24">
+          <xy-divider orientation="left">Pagination example</xy-divider>
+          <xy-pagination show-size-changer :default-current="3" :total="500" />
+        </xy-col>
+      </xy-row>
+      <xy-row>
+        <xy-col :span="24">
+          <xy-divider orientation="left">Grid System example</xy-divider>
           <div class="grid-demo">
             <div class="code-box-demo">
               <p>
                 <strong>* Note:</strong>
                 Every calculation in RTL grid system is from right side (offset, push, etc.)
               </p>
-              <a-row>
-                <a-col :span="8">col-8</a-col>
-                <a-col :span="8" :offset="8">col-8</a-col>
-              </a-row>
-              <a-row>
-                <a-col :span="6" :offset="6">col-6 col-offset-6</a-col>
-                <a-col :span="6" :offset="6">col-6 col-offset-6</a-col>
-              </a-row>
-              <a-row>
-                <a-col :span="12" :offset="6">col-12 col-offset-6</a-col>
-              </a-row>
-              <a-row>
-                <a-col :span="18" :push="6">col-18 col-push-6</a-col>
-                <a-col :span="6" :pull="18">col-6 col-pull-18</a-col>
-              </a-row>
+              <xy-row>
+                <xy-col :span="8">col-8</xy-col>
+                <xy-col :span="8" :offset="8">col-8</xy-col>
+              </xy-row>
+              <xy-row>
+                <xy-col :span="6" :offset="6">col-6 col-offset-6</xy-col>
+                <xy-col :span="6" :offset="6">col-6 col-offset-6</xy-col>
+              </xy-row>
+              <xy-row>
+                <xy-col :span="12" :offset="6">col-12 col-offset-6</xy-col>
+              </xy-row>
+              <xy-row>
+                <xy-col :span="18" :push="6">col-18 col-push-6</xy-col>
+                <xy-col :span="6" :pull="18">col-6 col-pull-18</xy-col>
+              </xy-row>
             </div>
           </div>
-        </a-col>
-      </a-row>
-    </a-space>
-  </a-config-provider>
+        </xy-col>
+      </xy-row>
+    </xy-space>
+  </xy-config-provider>
 </template>
 <script lang="ts" setup>
 import { reactive, watch, ref } from 'vue';

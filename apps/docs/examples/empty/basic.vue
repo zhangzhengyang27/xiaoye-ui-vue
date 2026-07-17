@@ -1,3 +1,3 @@
 <template>
-  <a-empty />
+  <xy-empty />
 </template>

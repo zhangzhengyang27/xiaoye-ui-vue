@@ -1,10 +1,10 @@
 <template>
-  <a-space direction="vertical">
-    <a-date-picker v-model:value="value1" />
-    <a-date-picker v-model:value="value2" disabled picker="month" />
-    <a-range-picker v-model:value="value3" disabled />
-    <a-range-picker v-model:value="value4" :disabled="[false, true]" />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-date-picker v-model:value="value1" />
+    <xy-date-picker v-model:value="value2" disabled picker="month" />
+    <xy-range-picker v-model:value="value3" disabled />
+    <xy-range-picker v-model:value="value4" :disabled="[false, true]" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import dayjs, { Dayjs } from 'dayjs';

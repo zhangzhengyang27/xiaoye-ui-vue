@@ -1,11 +1,11 @@
 {
-    "main": "./YoutubeIcon.vue",
-    "module": "./YoutubeIcon.vue",
-    "types": "./YoutubeIcon.d.ts",
-    "browser": {
-        "./sfc": "./YoutubeIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./YoutubeIcon.vue",
+  "module": "./YoutubeIcon.vue",
+  "types": "./YoutubeIcon.d.ts",
+  "browser": {
+    "./sfc": "./YoutubeIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,6 +1,6 @@
 <template>
   <context-holder />
-  <a-button type="primary" @click="info">Display normal message</a-button>
+  <xy-button type="primary" @click="info">Display normal message</xy-button>
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-  <a-table :row-selection="rowSelection" :columns="columns" :data-source="data" />
+  <xy-table :row-selection="rowSelection" :columns="columns" :data-source="data" />
 </template>
 <script lang="ts" setup>
 import { computed, ref, unref } from 'vue';

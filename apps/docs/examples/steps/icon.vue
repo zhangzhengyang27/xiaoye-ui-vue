@@ -1,5 +1,5 @@
 <template>
-  <a-steps :items="items"></a-steps>
+  <xy-steps :items="items"></xy-steps>
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';

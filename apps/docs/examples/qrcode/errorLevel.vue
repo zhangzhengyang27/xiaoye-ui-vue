@@ -1,11 +1,11 @@
 <template>
-  <a-qrcode
+  <xy-qrcode
     :error-level="level"
     value="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
   />
   <br />
   <br />
-  <a-segmented v-model:value="level" :options="segmentedData" />
+  <xy-segmented v-model:value="level" :options="segmentedData" />
 </template>
 
 <script lang="ts" setup>

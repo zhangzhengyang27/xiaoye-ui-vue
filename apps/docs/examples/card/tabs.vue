@@ -1,5 +1,5 @@
 <template>
-  <a-card
+  <xy-card
     style="width: 100%"
     title="Card title"
     :tab-list="tabList"
@@ -16,10 +16,10 @@
       <a href="#">More</a>
     </template>
     {{ contentList[key] }}
-  </a-card>
+  </xy-card>
   <br />
   <br />
-  <a-card
+  <xy-card
     style="width: 100%"
     :tab-list="tabListNoTitle"
     :active-tab-key="noTitleKey"
@@ -31,7 +31,7 @@
     <template #tabBarExtraContent>
       <a href="#">More</a>
     </template>
-  </a-card>
+  </xy-card>
 </template>
 
 <script lang="ts" setup>

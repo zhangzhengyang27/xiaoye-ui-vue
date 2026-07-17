@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data" bordered>
+  <xy-table :columns="columns" :data-source="data" bordered>
     <template #bodyCell="{ column, text }">
       <template v-if="column.dataIndex === 'name'">
         <a>{{ text }}</a>
@@ -7,7 +7,7 @@
     </template>
     <template #title>Header</template>
     <template #footer>Footer</template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 const columns = [

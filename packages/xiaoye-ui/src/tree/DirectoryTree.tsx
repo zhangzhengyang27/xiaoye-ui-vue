@@ -38,7 +38,7 @@ function getIcon(props: XyTreeNodeAttribute) {
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ADirectoryTree',
+  name: 'XYDirectoryTree',
   inheritAttrs: false,
   props: initDefaultProps(directoryTreeProps(), {
     showIcon: true,

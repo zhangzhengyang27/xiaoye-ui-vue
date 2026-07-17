@@ -1,5 +1,5 @@
 <template>
-  <a-menu v-model:selected-keys="current" mode="horizontal" :items="items" />
+  <xy-menu v-model:selected-keys="current" mode="horizontal" :items="items" />
 </template>
 <script lang="ts" setup>
 import { h, ref } from 'vue';

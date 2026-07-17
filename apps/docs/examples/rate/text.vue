@@ -1,6 +1,6 @@
 <template>
   <span>
-    <a-rate v-model:value="value" :tooltips="desc" />
+    <xy-rate v-model:value="value" :tooltips="desc" />
     <span class="xy-rate-text">{{ desc[value - 1] }}</span>
   </span>
 </template>

@@ -1,11 +1,11 @@
 {
-    "main": "./BoxIcon.vue",
-    "module": "./BoxIcon.vue",
-    "types": "./BoxIcon.d.ts",
-    "browser": {
-        "./sfc": "./BoxIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./BoxIcon.vue",
+  "module": "./BoxIcon.vue",
+  "types": "./BoxIcon.d.ts",
+  "browser": {
+    "./sfc": "./BoxIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

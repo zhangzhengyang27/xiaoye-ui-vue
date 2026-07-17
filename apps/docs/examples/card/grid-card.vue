@@ -1,12 +1,12 @@
 <template>
-  <a-card title="Card Title">
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center" :hoverable="false">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-    <a-card-grid style="width: 25%; text-align: center">Content</a-card-grid>
-  </a-card>
+  <xy-card title="Card Title">
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center" :hoverable="false">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+    <xy-card-grid style="width: 25%; text-align: center">Content</xy-card-grid>
+  </xy-card>
 </template>

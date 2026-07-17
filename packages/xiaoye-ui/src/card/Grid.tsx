@@ -9,8 +9,8 @@ export const cardGridProps = () => ({
 export type CardGridProps = Partial<ExtractPropTypes<ReturnType<typeof cardGridProps>>>;
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACardGrid',
-  __ANT_CARD_GRID: true,
+  name: 'XYCardGrid',
+  __XY_CARD_GRID: true,
   props: cardGridProps(),
   setup(props, { slots }) {
     const { prefixCls } = useConfigInject('card', props);

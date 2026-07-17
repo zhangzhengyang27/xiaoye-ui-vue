@@ -21,59 +21,49 @@ describe('Skeleton', () => {
   describe('avatar', () => {
     it('size', async () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
 
       const wrapperDefault = genSkeleton({ avatar: { size: 'default' } });
 
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
 
       const wrapperLarge = genSkeleton({ avatar: { size: 'large' } });
 
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
 
       const wrapperNumber = genSkeleton({ avatar: { size: 20 } });
 
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
 
     it('shape', async () => {
       const wrapperCircle = genSkeleton({ avatar: { shape: 'circle' } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
 
       const wrapperSquare = genSkeleton({ avatar: { shape: 'square' } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
   });
 
   describe('title', () => {
     it('width', async () => {
       const wrapper = genSkeleton({ title: { width: '93%' } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
   });
 
   describe('paragraph', () => {
     it('rows', async () => {
       const wrapper = genSkeleton({ paragraph: { rows: 5 } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
 
     it('width', async () => {
       const wrapperPure = genSkeleton({ paragraph: { width: '93%' } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
 
       const wrapperList = genSkeleton({ paragraph: { width: ['28%', '93%'] } });
-      await asyncExpect(() => {
-      });
+      await asyncExpect(() => {});
     });
   });
 });

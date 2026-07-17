@@ -1,11 +1,11 @@
 {
-    "main": "./FacebookIcon.vue",
-    "module": "./FacebookIcon.vue",
-    "types": "./FacebookIcon.d.ts",
-    "browser": {
-        "./sfc": "./FacebookIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./FacebookIcon.vue",
+  "module": "./FacebookIcon.vue",
+  "types": "./FacebookIcon.d.ts",
+  "browser": {
+    "./sfc": "./FacebookIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

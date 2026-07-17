@@ -1,24 +1,24 @@
 <template>
-  <a-table sticky :columns="columns" :data-source="data" :scroll="{ x: 1500 }">
+  <xy-table sticky :columns="columns" :data-source="data" :scroll="{ x: 1500 }">
     <template #bodyCell="{ column }">
       <template v-if="column.key === 'operation'"><a>action</a></template>
     </template>
     <template #summary>
-      <a-table-summary :fixed="fixedTop ? 'top' : 'bottom'">
-        <a-table-summary-row>
-          <a-table-summary-cell :index="0" :col-span="2">
-            <a-switch
+      <xy-table-summary :fixed="fixedTop ? 'top' : 'bottom'">
+        <xy-table-summary-row>
+          <xy-table-summary-cell :index="0" :col-span="2">
+            <xy-switch
               v-model:checked="fixedTop"
               checked-children="Fixed Top"
               un-checked-children="Fixed Top"
-            ></a-switch>
-          </a-table-summary-cell>
-          <a-table-summary-cell :index="2" :col-span="8">Scroll Context</a-table-summary-cell>
-          <a-table-summary-cell :index="10">Fix Right</a-table-summary-cell>
-        </a-table-summary-row>
-      </a-table-summary>
+            ></xy-switch>
+          </xy-table-summary-cell>
+          <xy-table-summary-cell :index="2" :col-span="8">Scroll Context</xy-table-summary-cell>
+          <xy-table-summary-cell :index="10">Fix Right</xy-table-summary-cell>
+        </xy-table-summary-row>
+      </xy-table-summary>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 
 <script lang="ts" setup>

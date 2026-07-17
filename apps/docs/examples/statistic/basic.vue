@@ -1,10 +1,10 @@
 <template>
-  <a-row>
-    <a-col :span="12">
-      <a-statistic title="Active Users" :value="112893" style="margin-right: 50px" />
-    </a-col>
-    <a-col :span="12">
-      <a-statistic title="Account Balance (CNY)" :precision="2" :value="112893" />
-    </a-col>
-  </a-row>
+  <xy-row>
+    <xy-col :span="12">
+      <xy-statistic title="Active Users" :value="112893" style="margin-right: 50px" />
+    </xy-col>
+    <xy-col :span="12">
+      <xy-statistic title="Account Balance (CNY)" :precision="2" :value="112893" />
+    </xy-col>
+  </xy-row>
 </template>

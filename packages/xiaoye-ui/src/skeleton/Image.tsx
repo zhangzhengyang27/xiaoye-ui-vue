@@ -13,7 +13,7 @@ const path =
 
 const SkeletonImage = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASkeletonImage',
+  name: 'XYSkeletonImage',
   props: omit(skeletonElementProps(), ['size', 'shape', 'active']),
   setup(props) {
     const { prefixCls } = useConfigInject('skeleton', props);

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-steps
+    <xy-steps
       v-model:current="current"
       :items="[
         {
@@ -16,9 +16,9 @@
           description,
         },
       ]"
-    ></a-steps>
-    <a-divider />
-    <a-steps
+    ></xy-steps>
+    <xy-divider />
+    <xy-steps
       v-model:current="current"
       direction="vertical"
       :items="[
@@ -35,7 +35,7 @@
           description,
         },
       ]"
-    ></a-steps>
+    ></xy-steps>
   </div>
 </template>
 <script lang="ts" setup>

@@ -43,7 +43,7 @@ export type MenuItemProps = Partial<ExtractPropTypes<ReturnType<typeof menuItemP
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AMenuItem',
+  name: 'XYMenuItem',
   inheritAttrs: false,
   props: menuItemProps(),
   slots: Object as CustomSlotsType<{

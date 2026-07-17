@@ -1,11 +1,11 @@
 {
-    "main": "./VideoIcon.vue",
-    "module": "./VideoIcon.vue",
-    "types": "./VideoIcon.d.ts",
-    "browser": {
-        "./sfc": "./VideoIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./VideoIcon.vue",
+  "module": "./VideoIcon.vue",
+  "types": "./VideoIcon.d.ts",
+  "browser": {
+    "./sfc": "./VideoIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

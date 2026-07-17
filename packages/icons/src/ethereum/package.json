@@ -1,11 +1,11 @@
 {
-    "main": "./EthereumIcon.vue",
-    "module": "./EthereumIcon.vue",
-    "types": "./EthereumIcon.d.ts",
-    "browser": {
-        "./sfc": "./EthereumIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./EthereumIcon.vue",
+  "module": "./EthereumIcon.vue",
+  "types": "./EthereumIcon.d.ts",
+  "browser": {
+    "./sfc": "./EthereumIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -15,6 +15,7 @@ import { VcStepProps } from '../vc-steps/Step';
 import type { Status, ProgressDotRender } from '../vc-steps/interface';
 import type { MouseEventHandler } from '../_util/EventInterface';
 import { useToken } from '../theme/internal';
+import { registerComponent } from '../_util/registerComponent';
 
 // CSSINJS
 import useStyle from './style';
@@ -53,7 +54,7 @@ export type StepProps = Partial<ExtractPropTypes<ReturnType<typeof stepProps>>>;
 
 const Steps = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASteps',
+  name: 'XYSteps',
   inheritAttrs: false,
   props: initDefaultProps(stepsProps(), {
     current: 0,
@@ -155,14 +156,14 @@ const Steps = defineComponent({
 export const Step = defineComponent({
   compatConfig: { MODE: 3 },
   ...(VcStep as any),
-  name: 'AStep',
+  name: 'XYStep',
   props: VcStepProps(),
 });
 export default Object.assign(Steps, {
   Step,
   install: (app: App) => {
-    app.component(Steps.name, Steps);
-    app.component(Step.name, Step);
+    registerComponent(app, Steps);
+    registerComponent(app, Step);
     return app;
   },
 });

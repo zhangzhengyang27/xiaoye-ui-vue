@@ -1,12 +1,12 @@
 <template>
-  <a-form name="customized_form_controls" layout="inline" :model="formState" @finish="onFinish">
-    <a-form-item name="price" label="Price" :rules="[{ validator: checkPrice }]">
+  <xy-form name="customized_form_controls" layout="inline" :model="formState" @finish="onFinish">
+    <xy-form-item name="price" label="Price" :rules="[{ validator: checkPrice }]">
       <price-input v-model:value="formState.price" />
-    </a-form-item>
-    <a-form-item>
-      <a-button type="primary" html-type="submit">Submit</a-button>
-    </a-form-item>
-  </a-form>
+    </xy-form-item>
+    <xy-form-item>
+      <xy-button type="primary" html-type="submit">Submit</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

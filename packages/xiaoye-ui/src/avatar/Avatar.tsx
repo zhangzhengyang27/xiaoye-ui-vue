@@ -39,7 +39,7 @@ export type AvatarProps = Partial<ExtractPropTypes<ReturnType<typeof avatarProps
 
 const Avatar = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AAvatar',
+  name: 'XYAvatar',
   inheritAttrs: false,
   props: avatarProps(),
   slots: Object as CustomSlotsType<{

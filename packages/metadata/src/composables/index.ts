@@ -1,5 +1,5 @@
-import type { MetaType } from '../shared.ts';
-import { toMeta } from '../shared.ts';
+import type { MetaType } from '../shared';
+import { toMeta } from '../shared';
 
 export const composables: MetaType[] = toMeta([
   { name: 'useXiaoyeUI', as: 'useXiaoyeUI', from: 'xiaoye-ui/config' },

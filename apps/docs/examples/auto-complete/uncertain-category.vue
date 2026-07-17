@@ -1,6 +1,6 @@
 <template>
   <div class="global-search-wrapper" style="width: 300px">
-    <a-auto-complete
+    <xy-auto-complete
       v-model:value="value"
       :dropdown-match-select-width="252"
       style="width: 300px"
@@ -23,8 +23,8 @@
           <span>{{ item.count }} results</span>
         </div>
       </template>
-      <a-input-search size="large" placeholder="input here" enter-button></a-input-search>
-    </a-auto-complete>
+      <xy-input-search size="large" placeholder="input here" enter-button></xy-input-search>
+    </xy-auto-complete>
   </div>
 </template>
 

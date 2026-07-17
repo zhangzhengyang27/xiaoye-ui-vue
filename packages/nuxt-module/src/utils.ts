@@ -1,5 +1,4 @@
-import { createStyleAsString } from '@xiaoye-ui/utils/dom';
-import { isFunction } from '@xiaoye-ui/utils/object';
+import { createStyleAsString, isFunction } from '@xiaoye-ui/utils';
 import type { MetaType } from '@xiaoye-ui/metadata';
 import type { ConstructsType, ResolvePathOptions } from './types';
 

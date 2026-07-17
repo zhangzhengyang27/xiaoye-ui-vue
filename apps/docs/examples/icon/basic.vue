@@ -1,12 +1,12 @@
 <template>
-  <a-space>
+  <xy-space>
     <home-outlined />
     <setting-filled />
     <smile-outlined />
     <sync-outlined spin />
     <smile-outlined :rotate="180" />
     <loading-outlined />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import {

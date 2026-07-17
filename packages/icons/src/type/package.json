@@ -1,11 +1,11 @@
 {
-    "main": "./TypeIcon.vue",
-    "module": "./TypeIcon.vue",
-    "types": "./TypeIcon.d.ts",
-    "browser": {
-        "./sfc": "./TypeIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./TypeIcon.vue",
+  "module": "./TypeIcon.vue",
+  "types": "./TypeIcon.d.ts",
+  "browser": {
+    "./sfc": "./TypeIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

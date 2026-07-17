@@ -1,12 +1,12 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-date-picker v-model:value="value1" :format="dateFormat" />
-    <a-date-picker v-model:value="value2" :format="dateFormatList" />
-    <a-date-picker v-model:value="value3" :format="monthFormat" picker="month" />
-    <a-range-picker v-model:value="value4" :format="dateFormat" />
-    <a-date-picker v-model:value="value5" :format="customFormat" />
-    <a-date-picker v-model:value="value6" :format="customWeekStartEndFormat" picker="week" />
-  </a-space>
+  <xy-space direction="vertical" :size="12">
+    <xy-date-picker v-model:value="value1" :format="dateFormat" />
+    <xy-date-picker v-model:value="value2" :format="dateFormatList" />
+    <xy-date-picker v-model:value="value3" :format="monthFormat" picker="month" />
+    <xy-range-picker v-model:value="value4" :format="dateFormat" />
+    <xy-date-picker v-model:value="value5" :format="customFormat" />
+    <xy-date-picker v-model:value="value6" :format="customWeekStartEndFormat" picker="week" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import dayjs, { Dayjs } from 'dayjs';

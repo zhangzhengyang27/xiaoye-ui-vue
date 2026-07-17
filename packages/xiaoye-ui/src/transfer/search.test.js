@@ -22,9 +22,7 @@ describe('Search', () => {
     };
     const wrapper = mount(Search, props);
 
-
     wrapper.setProps({ value: 'a' });
-
   });
 
   it('onSearch', async () => {

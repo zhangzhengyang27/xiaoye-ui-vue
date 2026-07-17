@@ -40,8 +40,7 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(Drawer, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render top drawer', async () => {
@@ -58,8 +57,7 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(Drawer, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('have a title', async () => {
@@ -75,8 +73,7 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(Drawer, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('closable is false', async () => {
@@ -92,8 +89,7 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(Drawer, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('destroyOnClose is true', async () => {
@@ -110,8 +106,7 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(Drawer, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('class is test_drawer', async () => {
@@ -123,7 +118,6 @@ describe('Drawer', () => {
       sync: false,
     };
     const wrapper = mount(DrawerCom, props);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });

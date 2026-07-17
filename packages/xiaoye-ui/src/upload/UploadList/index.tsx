@@ -28,7 +28,7 @@ const HackSlot = (_, { slots }) => {
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AUploadList',
+  name: 'XYUploadList',
   props: initDefaultProps(uploadListProps(), {
     listType: 'text', // or picture
     progress: {
@@ -247,7 +247,7 @@ export default defineComponent({
           })}
           {appendAction ? (
             <HackSlot
-              key="__ant_upload_appendAction"
+              key="__xy_upload_appendAction"
               v-show={!!appendActionVisible}
               v-slots={{ default: () => appendActionDom }}
             ></HackSlot>

@@ -1,50 +1,52 @@
 <template>
-  <a-form ref="formRef" :model="formState" name="form_context" v-bind="layout" @finish="onFinish">
-    <a-form-item
+  <xy-form ref="formRef" :model="formState" name="form_context" v-bind="layout" @finish="onFinish">
+    <xy-form-item
       name="group"
       label="Group Name"
       :rules="[{ required: true, message: 'Please input group name!' }]"
     >
-      <a-input v-model:value="formState.group" />
-    </a-form-item>
+      <xy-input v-model:value="formState.group" />
+    </xy-form-item>
 
-    <a-form-item label="User List">
+    <xy-form-item label="User List">
       <template v-if="formState.users.length">
         <ul>
           <template v-for="user in formState.users" :key="user.key">
             <li class="user">
-              <a-avatar>
+              <xy-avatar>
                 <template #icon><UserOutlined /></template>
-              </a-avatar>
+              </xy-avatar>
               {{ user.name }} - {{ user.age }}
             </li>
           </template>
         </ul>
       </template>
       <template v-else>
-        <a-typography-text class="xy-form-text" type="secondary">
+        <xy-typography-text class="xy-form-text" type="secondary">
           (
           <SmileOutlined />
           No user yet. )
-        </a-typography-text>
+        </xy-typography-text>
       </template>
-    </a-form-item>
+    </xy-form-item>
 
-    <a-form-item v-bind="tailLayout">
-      <a-button html-type="submit" type="primary">Submit</a-button>
-      <a-button html-type="button" style="margin: 0 8px" @click="visible = true">Add User</a-button>
-    </a-form-item>
-  </a-form>
-  <a-modal v-model:open="visible" title="Basic Drawer" @ok="onOk">
-    <a-form ref="modalFormRef" :model="modalFormState" layout="vertical" name="userForm">
-      <a-form-item name="name" label="User Name" :rules="[{ required: true }]">
-        <a-input v-model:value="modalFormState.name" />
-      </a-form-item>
-      <a-form-item name="age" label="User Age" :rules="[{ required: true }]">
-        <a-input-number v-model:value="modalFormState.age" />
-      </a-form-item>
-    </a-form>
-  </a-modal>
+    <xy-form-item v-bind="tailLayout">
+      <xy-button html-type="submit" type="primary">Submit</xy-button>
+      <xy-button html-type="button" style="margin: 0 8px" @click="visible = true">
+        Add User
+      </xy-button>
+    </xy-form-item>
+  </xy-form>
+  <xy-modal v-model:open="visible" title="Basic Drawer" @ok="onOk">
+    <xy-form ref="modalFormRef" :model="modalFormState" layout="vertical" name="userForm">
+      <xy-form-item name="name" label="User Name" :rules="[{ required: true }]">
+        <xy-input v-model:value="modalFormState.name" />
+      </xy-form-item>
+      <xy-form-item name="age" label="User Age" :rules="[{ required: true }]">
+        <xy-input-number v-model:value="modalFormState.age" />
+      </xy-form-item>
+    </xy-form>
+  </xy-modal>
 </template>
 <script lang="ts" setup>
 import { reactive, ref, watch, toRaw } from 'vue';

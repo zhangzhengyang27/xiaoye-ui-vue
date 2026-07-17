@@ -1,11 +1,11 @@
 {
-    "main": "./GripVerticalIcon.vue",
-    "module": "./GripVerticalIcon.vue",
-    "types": "./GripVerticalIcon.d.ts",
-    "browser": {
-        "./sfc": "./GripVerticalIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./GripVerticalIcon.vue",
+  "module": "./GripVerticalIcon.vue",
+  "types": "./GripVerticalIcon.d.ts",
+  "browser": {
+    "./sfc": "./GripVerticalIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

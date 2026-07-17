@@ -1,11 +1,11 @@
 {
-    "main": "./DirectionsIcon.vue",
-    "module": "./DirectionsIcon.vue",
-    "types": "./DirectionsIcon.d.ts",
-    "browser": {
-        "./sfc": "./DirectionsIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./DirectionsIcon.vue",
+  "module": "./DirectionsIcon.vue",
+  "types": "./DirectionsIcon.d.ts",
+  "browser": {
+    "./sfc": "./DirectionsIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

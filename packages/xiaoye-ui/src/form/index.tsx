@@ -3,6 +3,7 @@ import Form, { formProps } from './Form';
 import FormItem, { formItemProps } from './FormItem';
 import useForm from './useForm';
 import FormItemRest, { useInjectFormItemContext } from './FormItemContext';
+import { registerComponent } from '../_util/registerComponent';
 export type { Rule, RuleObject } from './interface';
 
 export type { FormProps, FormInstance } from './Form';
@@ -12,9 +13,9 @@ Form.useInjectFormItemContext = useInjectFormItemContext;
 Form.ItemRest = FormItemRest;
 /* istanbul ignore next */
 Form.install = function (app: App) {
-  app.component(Form.name, Form);
-  app.component(Form.Item.name, Form.Item);
-  app.component(FormItemRest.name, FormItemRest);
+  registerComponent(app, Form);
+  registerComponent(app, Form.Item);
+  registerComponent(app, FormItemRest);
   return app;
 };
 

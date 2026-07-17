@@ -1,26 +1,26 @@
 <template>
-  <a-form :label-col="labelCol" :wrapper-col="wrapperCol">
-    <a-form-item label="Activity name" required>
-      <a-input v-model:value="modelRef.name" />
-    </a-form-item>
-    <a-form-item label="Activity zone" required>
-      <a-select v-model:value="modelRef.region" placeholder="please select your zone">
-        <a-select-option value="shanghai">Zone one</a-select-option>
-        <a-select-option value="beijing">Zone two</a-select-option>
-      </a-select>
-    </a-form-item>
-    <a-form-item label="Activity type" required>
-      <a-checkbox-group v-model:value="modelRef.type">
-        <a-checkbox value="1" name="type">Online</a-checkbox>
-        <a-checkbox value="2" name="type">Promotion</a-checkbox>
-        <a-checkbox value="3" name="type">Offline</a-checkbox>
-      </a-checkbox-group>
-    </a-form-item>
-    <a-form-item class="error-infos" :wrapper-col="{ span: 14, offset: 4 }" v-bind="errorInfos">
-      <a-button type="primary" @click.prevent="onSubmit">Create</a-button>
-      <a-button style="margin-left: 10px" @click="resetFields">Reset</a-button>
-    </a-form-item>
-  </a-form>
+  <xy-form :label-col="labelCol" :wrapper-col="wrapperCol">
+    <xy-form-item label="Activity name" required>
+      <xy-input v-model:value="modelRef.name" />
+    </xy-form-item>
+    <xy-form-item label="Activity zone" required>
+      <xy-select v-model:value="modelRef.region" placeholder="please select your zone">
+        <xy-select-option value="shanghai">Zone one</xy-select-option>
+        <xy-select-option value="beijing">Zone two</xy-select-option>
+      </xy-select>
+    </xy-form-item>
+    <xy-form-item label="Activity type" required>
+      <xy-checkbox-group v-model:value="modelRef.type">
+        <xy-checkbox value="1" name="type">Online</xy-checkbox>
+        <xy-checkbox value="2" name="type">Promotion</xy-checkbox>
+        <xy-checkbox value="3" name="type">Offline</xy-checkbox>
+      </xy-checkbox-group>
+    </xy-form-item>
+    <xy-form-item class="error-infos" :wrapper-col="{ span: 14, offset: 4 }" v-bind="errorInfos">
+      <xy-button type="primary" @click.prevent="onSubmit">Create</xy-button>
+      <xy-button style="margin-left: 10px" @click="resetFields">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive, toRaw, computed } from 'vue';

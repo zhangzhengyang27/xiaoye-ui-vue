@@ -1,19 +1,19 @@
 <template>
   <div>
     <div style="margin-bottom: 10px">
-      <a-mentions
+      <xy-mentions
         v-model:value="value1"
         :options="options"
         placeholder="this is disabled Mentions"
         disabled
-      ></a-mentions>
+      ></xy-mentions>
     </div>
-    <a-mentions
+    <xy-mentions
       v-model:value="value2"
       :options="options"
       placeholder="this is readOnly a-mentions"
       readonly
-    ></a-mentions>
+    ></xy-mentions>
   </div>
 </template>
 <script lang="ts" setup>

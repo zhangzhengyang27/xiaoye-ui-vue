@@ -109,7 +109,7 @@ const SegmentedOption: FunctionalComponent<
 SegmentedOption.inheritAttrs = false;
 
 export default defineComponent({
-  name: 'ASegmented',
+  name: 'XYSegmented',
   inheritAttrs: false,
   props: initDefaultProps(segmentedProps(), {
     options: [],

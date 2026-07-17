@@ -1,28 +1,28 @@
 <template>
-  <a-space direction="vertical">
-    <a-space wrap>
-      <a-tooltip title="search">
-        <a-button type="primary" shape="circle" :icon="h(SearchOutlined)" />
-      </a-tooltip>
-      <a-button type="primary" shape="circle">A</a-button>
-      <a-button type="primary" :icon="h(SearchOutlined)">Search</a-button>
-      <a-tooltip title="search">
-        <a-button shape="circle" :icon="h(SearchOutlined)" />
-      </a-tooltip>
-      <a-button :icon="h(SearchOutlined)">Search</a-button>
-    </a-space>
-    <a-space wrap>
-      <a-tooltip title="search">
-        <a-button shape="circle" :icon="h(SearchOutlined)" />
-      </a-tooltip>
-      <a-button :icon="h(SearchOutlined)">Search</a-button>
-      <a-tooltip title="search">
-        <a-button type="dashed" shape="circle" :icon="h(SearchOutlined)" />
-      </a-tooltip>
-      <a-button type="dashed" :icon="h(SearchOutlined)">Search</a-button>
-      <a-button :icon="h(SearchOutlined)" href="https://www.google.com" />
-    </a-space>
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-space wrap>
+      <xy-tooltip title="search">
+        <xy-button type="primary" shape="circle" :icon="h(SearchOutlined)" />
+      </xy-tooltip>
+      <xy-button type="primary" shape="circle">A</xy-button>
+      <xy-button type="primary" :icon="h(SearchOutlined)">Search</xy-button>
+      <xy-tooltip title="search">
+        <xy-button shape="circle" :icon="h(SearchOutlined)" />
+      </xy-tooltip>
+      <xy-button :icon="h(SearchOutlined)">Search</xy-button>
+    </xy-space>
+    <xy-space wrap>
+      <xy-tooltip title="search">
+        <xy-button shape="circle" :icon="h(SearchOutlined)" />
+      </xy-tooltip>
+      <xy-button :icon="h(SearchOutlined)">Search</xy-button>
+      <xy-tooltip title="search">
+        <xy-button type="dashed" shape="circle" :icon="h(SearchOutlined)" />
+      </xy-tooltip>
+      <xy-button type="dashed" :icon="h(SearchOutlined)">Search</xy-button>
+      <xy-button :icon="h(SearchOutlined)" href="https://www.google.com" />
+    </xy-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { h } from 'vue';

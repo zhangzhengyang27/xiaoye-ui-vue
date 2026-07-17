@@ -1,16 +1,16 @@
 <template>
-  <a-table :columns="columns" :data-source="data" class="components-table-demo-nested">
+  <xy-table :columns="columns" :data-source="data" class="components-table-demo-nested">
     <template #bodyCell="{ column }">
       <template v-if="column.key === 'operation'">
         <a>Publish</a>
       </template>
     </template>
     <template #expandedRowRender>
-      <a-table :columns="innerColumns" :data-source="innerData" :pagination="false">
+      <xy-table :columns="innerColumns" :data-source="innerData" :pagination="false">
         <template #bodyCell="{ column }">
           <template v-if="column.key === 'state'">
             <span>
-              <a-badge status="success" />
+              <xy-badge status="success" />
               Finished
             </span>
           </template>
@@ -18,24 +18,24 @@
             <span class="table-operation">
               <a>Pause</a>
               <a>Stop</a>
-              <a-dropdown>
+              <xy-dropdown>
                 <template #overlay>
-                  <a-menu>
-                    <a-menu-item>Action 1</a-menu-item>
-                    <a-menu-item>Action 2</a-menu-item>
-                  </a-menu>
+                  <xy-menu>
+                    <xy-menu-item>Action 1</xy-menu-item>
+                    <xy-menu-item>Action 2</xy-menu-item>
+                  </xy-menu>
                 </template>
                 <a>
                   More
                   <down-outlined />
                 </a>
-              </a-dropdown>
+              </xy-dropdown>
             </span>
           </template>
         </template>
-      </a-table>
+      </xy-table>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 import { DownOutlined } from '@xiaoye-ui/icons';

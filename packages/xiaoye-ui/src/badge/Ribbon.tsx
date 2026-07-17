@@ -18,7 +18,7 @@ export type RibbonProps = Partial<ExtractPropTypes<ReturnType<typeof ribbonProps
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ABadgeRibbon',
+  name: 'XYBadgeRibbon',
   inheritAttrs: false,
   props: ribbonProps(),
   slots: Object as CustomSlotsType<{

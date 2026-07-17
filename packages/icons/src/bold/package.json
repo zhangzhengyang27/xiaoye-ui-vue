@@ -1,11 +1,11 @@
 {
-    "main": "./BoldIcon.vue",
-    "module": "./BoldIcon.vue",
-    "types": "./BoldIcon.d.ts",
-    "browser": {
-        "./sfc": "./BoldIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./BoldIcon.vue",
+  "module": "./BoldIcon.vue",
+  "types": "./BoldIcon.d.ts",
+  "browser": {
+    "./sfc": "./BoldIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,11 +1,11 @@
 {
-    "main": "./FileIcon.vue",
-    "module": "./FileIcon.vue",
-    "types": "./FileIcon.d.ts",
-    "browser": {
-        "./sfc": "./FileIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./FileIcon.vue",
+  "module": "./FileIcon.vue",
+  "types": "./FileIcon.d.ts",
+  "browser": {
+    "./sfc": "./FileIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

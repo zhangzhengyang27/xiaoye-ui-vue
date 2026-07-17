@@ -1,12 +1,12 @@
 <template>
   <div>
-    <a-radio-group v-model:value="mode" :style="{ marginBottom: '8px' }">
-      <a-radio-button value="top">Horizontal</a-radio-button>
-      <a-radio-button value="left">Vertical</a-radio-button>
-    </a-radio-group>
-    <a-tabs v-model:active-key="activeKey" :tab-position="mode" :style="{ height: '200px' }">
-      <a-tab-pane v-for="i in 30" :key="i" :tab="`Tab-${i}`">Content of tab {{ i }}</a-tab-pane>
-    </a-tabs>
+    <xy-radio-group v-model:value="mode" :style="{ marginBottom: '8px' }">
+      <xy-radio-button value="top">Horizontal</xy-radio-button>
+      <xy-radio-button value="left">Vertical</xy-radio-button>
+    </xy-radio-group>
+    <xy-tabs v-model:active-key="activeKey" :tab-position="mode" :style="{ height: '200px' }">
+      <xy-tab-pane v-for="i in 30" :key="i" :tab="`Tab-${i}`">Content of tab {{ i }}</xy-tab-pane>
+    </xy-tabs>
   </div>
 </template>
 <script lang="ts" setup>

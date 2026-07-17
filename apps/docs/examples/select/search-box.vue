@@ -1,5 +1,5 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     show-search
     placeholder="input search text"
@@ -11,7 +11,7 @@
     :options="data"
     @search="handleSearch"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

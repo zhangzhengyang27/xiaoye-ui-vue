@@ -1,12 +1,12 @@
 <template>
-  <a-space>
+  <xy-space>
     <icon-font type="icon-tuichu" />
     <icon-font type="icon-facebook" />
     <icon-font type="icon-twitter" />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
-import { createFromIconfontCN } from '@ant-design/icons-vue';
+import { createFromIconfontCN } from '@xiaoye-ui/icons';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',

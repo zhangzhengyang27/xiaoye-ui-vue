@@ -18,6 +18,7 @@ import warning from '../_util/warning';
 import Spin from '../spin';
 import devWarning from '../vc-util/devWarning';
 import type { CustomSlotsType } from '../_util/type';
+import { registerComponent } from '../_util/registerComponent';
 
 interface MentionsConfig {
   prefix?: string | string[];
@@ -101,7 +102,7 @@ export type MentionsProps = Partial<ExtractPropTypes<ReturnType<typeof mentionsP
 
 const Mentions = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AMentions',
+  name: 'XYMentions',
   inheritAttrs: false,
   props: mentionsProps(),
   emits: ['focus', 'blur', 'change', 'select', 'pressenter', 'update:value', 'search'],
@@ -297,7 +298,7 @@ const Mentions = defineComponent({
 export const MentionsOption = defineComponent({
   compatConfig: { MODE: 3 },
   ...optionOptions,
-  name: 'AMentionsOption',
+  name: 'XYMentionsOption',
   props: optionProps,
 });
 
@@ -305,8 +306,8 @@ export default Object.assign(Mentions, {
   Option: MentionsOption,
   getMentions,
   install: (app: App) => {
-    app.component(Mentions.name, Mentions);
-    app.component(MentionsOption.name, MentionsOption);
+    registerComponent(app, Mentions);
+    registerComponent(app, MentionsOption);
     return app;
   },
 });

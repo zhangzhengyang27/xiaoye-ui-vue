@@ -113,19 +113,19 @@ describe('Table.rowSelection', () => {
     checkboxAll.trigger('change');
     const pagers = wrapper.findAllComponents({ name: 'Pager' });
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'ACheckbox' }).props()).toEqual(
+      expect(wrapper.findComponent({ name: 'XYCheckbox' }).props()).toEqual(
         expect.objectContaining({ checked: true, indeterminate: false }),
       );
     });
     pagers[1].trigger('click');
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'ACheckbox' }).props()).toEqual(
+      expect(wrapper.findComponent({ name: 'XYCheckbox' }).props()).toEqual(
         expect.objectContaining({ checked: false, indeterminate: false }),
       );
     });
     pagers[0].trigger('click');
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'ACheckbox' }).props()).toEqual(
+      expect(wrapper.findComponent({ name: 'XYCheckbox' }).props()).toEqual(
         expect.objectContaining({ checked: true, indeterminate: false }),
       );
     });
@@ -202,8 +202,7 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     mount(Table, getTableOptions({ rowSelection }));
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('click select all selection', () => {
@@ -427,8 +426,7 @@ describe('Table.rowSelection', () => {
         rowSelection: { fixed: true },
       }),
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('should keep all checked state when remove item from dataSource', async () => {
@@ -443,8 +441,8 @@ describe('Table.rowSelection', () => {
       sync: false,
     });
     await asyncExpect(() => {
-      expect(wrapper.findAllComponents({ name: 'ACheckbox' }).length).toBe(5);
-      const allCheckbox = wrapper.findAllComponents({ name: 'ACheckbox' });
+      expect(wrapper.findAllComponents({ name: 'XYCheckbox' }).length).toBe(5);
+      const allCheckbox = wrapper.findAllComponents({ name: 'XYCheckbox' });
       Array(allCheckbox.length).forEach((_, index) => {
         const checkbox = allCheckbox[index];
         expect(checkbox.vm.checked).toBe(true);
@@ -458,8 +456,8 @@ describe('Table.rowSelection', () => {
       });
     });
     await asyncExpect(() => {
-      expect(wrapper.findAllComponents({ name: 'ACheckbox' }).length).toBe(4);
-      const allCheckbox = wrapper.findAllComponents({ name: 'ACheckbox' });
+      expect(wrapper.findAllComponents({ name: 'XYCheckbox' }).length).toBe(4);
+      const allCheckbox = wrapper.findAllComponents({ name: 'XYCheckbox' });
       Array(allCheckbox.length).forEach((_, index) => {
         const checkbox = allCheckbox[index];
         expect(checkbox.vm.checked).toBe(true);
@@ -540,7 +538,9 @@ describe('Table.rowSelection', () => {
       indexList.forEach(index => {
         items[index].dispatchEvent(new MouseEvent('click'));
       });
-      $$('.xy-table-filter-dropdown-btns .xy-btn-primary')[0].dispatchEvent(new MouseEvent('click'));
+      $$('.xy-table-filter-dropdown-btns .xy-btn-primary')[0].dispatchEvent(
+        new MouseEvent('click'),
+      );
     }
 
     function clickItem() {
@@ -616,13 +616,13 @@ describe('Table.rowSelection', () => {
     checkboxes[1].element.checked = true;
     checkboxes[1].trigger('change');
     await sleep();
-    expect(wrapper.findComponent({ name: 'ACheckbox' }).props()).toEqual(
+    expect(wrapper.findComponent({ name: 'XYCheckbox' }).props()).toEqual(
       expect.objectContaining({ checked: false, indeterminate: true }),
     );
     checkboxes[2].element.checked = true;
     checkboxes[2].trigger('change');
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'ACheckbox' }).props()).toEqual(
+      expect(wrapper.findComponent({ name: 'XYCheckbox' }).props()).toEqual(
         expect.objectContaining({ checked: true, indeterminate: false }),
       );
     });

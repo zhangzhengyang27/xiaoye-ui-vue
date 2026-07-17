@@ -1,5 +1,5 @@
 <template>
-  <a-tree-select
+  <xy-tree-select
     v-model:value="value"
     show-search
     style="width: 100%"
@@ -14,7 +14,7 @@
       value: 'value',
     }"
     tree-node-filter-prop="name"
-  ></a-tree-select>
+  ></xy-tree-select>
 </template>
 <script lang="ts" setup>
 import type { TreeSelectProps } from 'xiaoye-ui';

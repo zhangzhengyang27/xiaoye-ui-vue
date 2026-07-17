@@ -1,11 +1,11 @@
 {
-    "main": "./CircleHelpIcon.vue",
-    "module": "./CircleHelpIcon.vue",
-    "types": "./CircleHelpIcon.d.ts",
-    "browser": {
-        "./sfc": "./CircleHelpIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CircleHelpIcon.vue",
+  "module": "./CircleHelpIcon.vue",
+  "types": "./CircleHelpIcon.d.ts",
+  "browser": {
+    "./sfc": "./CircleHelpIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

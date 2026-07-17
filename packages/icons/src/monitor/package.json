@@ -1,11 +1,11 @@
 {
-    "main": "./MonitorIcon.vue",
-    "module": "./MonitorIcon.vue",
-    "types": "./MonitorIcon.d.ts",
-    "browser": {
-        "./sfc": "./MonitorIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MonitorIcon.vue",
+  "module": "./MonitorIcon.vue",
+  "types": "./MonitorIcon.d.ts",
+  "browser": {
+    "./sfc": "./MonitorIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

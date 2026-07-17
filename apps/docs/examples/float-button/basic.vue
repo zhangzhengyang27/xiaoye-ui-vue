@@ -1,5 +1,5 @@
 <template>
-  <a-float-button @click="handleClick" />
+  <xy-float-button @click="handleClick" />
 </template>
 
 <script lang="ts" setup>

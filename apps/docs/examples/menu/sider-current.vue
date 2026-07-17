@@ -1,13 +1,13 @@
 <template>
   <div>
-    <a-menu
+    <xy-menu
       v-model:selected-keys="state.selectedKeys"
       style="width: 256px"
       mode="inline"
       :open-keys="state.openKeys"
       :items="items"
       @openChange="onOpenChange"
-    ></a-menu>
+    ></xy-menu>
   </div>
 </template>
 <script lang="ts" setup>

@@ -1,11 +1,11 @@
 {
-    "main": "./RedoIcon.vue",
-    "module": "./RedoIcon.vue",
-    "types": "./RedoIcon.d.ts",
-    "browser": {
-        "./sfc": "./RedoIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./RedoIcon.vue",
+  "module": "./RedoIcon.vue",
+  "types": "./RedoIcon.d.ts",
+  "browser": {
+    "./sfc": "./RedoIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

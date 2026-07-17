@@ -1,5 +1,5 @@
 <template>
-  <a-range-picker
+  <xy-range-picker
     :value="hackValue || value"
     :disabled-date="disabledDate"
     @change="onChange"

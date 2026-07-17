@@ -66,44 +66,30 @@ mentions/status
 
 ### Mentions
 
-|  参数  |  说明  |  类型  |  默认值  |
-| --- | --- | --- | --- | --- |
-|  autofocus  |  自动获得焦点  |  boolean  |  `false`  |
-|  defaultValue  |  默认值  |  string  |    |
-|  filterOption  |  自定义过滤逻辑  |  false \ |  (input: string, option: OptionProps) => boolean  |    |
-|  getPopupContainer  |  指定建议框挂载的 HTML 节点  |  () => HTMLElement  |    |
-|  notFoundContent  |  当下拉列表为空时显示的内容  |  string \ |  slot  |  'Not Found'  |
-|  placement  |  弹出层展示位置  |  `top` \ |  `bottom`  |  `bottom`  |
-|  prefix  |  设置触发关键字  |  string \ |  string\[]  |  '@'  |
-|  split  |  设置选中项前后分隔符  |  string  |  ' '  |
-|  status  |  设置校验状态  |  'error' \ |  'warning'  |  -  |  3.3.0  |
-|  validateSearch  |  自定义触发验证逻辑  |  (text: string, props: MentionsProps) => void  |    |
-|  value(v-model)  |  设置值  |  string  |    |
-|  options  |  选项配置  |  [Options](#option)  |  \[]  |  4.0  |
-|  option  |  通过 option 插槽，自定义节点  |  v-slot:option="option"  |  -  |  4.0  |
+| 参数 | 说明 | 类型 | 默认值 | | --- | --- | --- | --- | --- | | autofocus | 自动获得焦点 | boolean | `false` | | defaultValue | 默认值 | string | | | filterOption | 自定义过滤逻辑 | false \ | (input: string, option: OptionProps) => boolean | | | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | | | notFoundContent | 当下拉列表为空时显示的内容 | string \ | slot | 'Not Found' | | placement | 弹出层展示位置 | `top` \ | `bottom` | `bottom` | | prefix | 设置触发关键字 | string \ | string\[] | '@' | | split | 设置选中项前后分隔符 | string | ' ' | | status | 设置校验状态 | 'error' \ | 'warning' | - | 3.3.0 | | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | | | value(v-model) | 设置值 | string | | | options | 选项配置 | [Options](#option) | \[] | 4.0 | | option | 通过 option 插槽，自定义节点 | v-slot:option="option" | - | 4.0 |
 
 ### 事件
 
-|  事件名称  |  说明                |  回调参数                                       |
+| 事件名称 | 说明               | 回调参数                                      |
 | -------- | ------------------ | --------------------------------------------- |
-|  blur      |  失去焦点的时回调    |  function                                       |
-|  change    |  值改变时触发        |  function(value: string)                        |
-|  focus     |  获得焦点时回调      |  function                                       |
-|  search    |  文本框值变化时回调  |  function(value: string, prefix: string)        |
-|  select    |  选择选项时触发      |  function(option: OptionProps, prefix: string)  |
+| blur     | 失去焦点的时回调   | function                                      |
+| change   | 值改变时触发       | function(value: string)                       |
+| focus    | 获得焦点时回调     | function                                      |
+| search   | 文本框值变化时回调 | function(value: string, prefix: string)       |
+| select   | 选择选项时触发     | function(option: OptionProps, prefix: string) |
 
 ### Mentions 方法
 
-|  名称     |  描述      |
+| 名称    | 描述     |
 | ------- | -------- |
-|  blur()   |  移除焦点  |
-|  focus()  |  获取焦点  |
+| blur()  | 移除焦点 |
+| focus() | 获取焦点 |
 
 ### Mention.Option (< 4.0)
 
-|  参数   |  说明            |  类型    |  默认值  |
+| 参数  | 说明           | 类型   | 默认值 |
 | ----- | -------------- | ------ | ------ |
-|  value  |  选择时填充的值  |  string  |  ''      |
+| value | 选择时填充的值 | string | ''     |
 
 ### Option
 

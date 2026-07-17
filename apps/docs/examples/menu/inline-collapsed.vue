@@ -1,17 +1,17 @@
 <template>
   <div style="width: 256px">
-    <a-button type="primary" style="margin-bottom: 16px" @click="toggleCollapsed">
+    <xy-button type="primary" style="margin-bottom: 16px" @click="toggleCollapsed">
       <MenuUnfoldOutlined v-if="state.collapsed" />
       <MenuFoldOutlined v-else />
-    </a-button>
-    <a-menu
+    </xy-button>
+    <xy-menu
       v-model:open-keys="state.openKeys"
       v-model:selected-keys="state.selectedKeys"
       mode="inline"
       theme="dark"
       :inline-collapsed="state.collapsed"
       :items="items"
-    ></a-menu>
+    ></xy-menu>
   </div>
 </template>
 

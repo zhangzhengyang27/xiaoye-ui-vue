@@ -1,5 +1,5 @@
 // Core composables
-import type { ExtractPropTypes, PropType } from 'vue';
+import type { PropType } from 'vue';
 
 export interface BaseIconProps {
   size?: string | number;

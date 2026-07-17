@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { withBase, useData } from 'vitepress'
-import VPNavbarSearch from './navbar/vp-search.vue'
-import VPNavbarMenu from './navbar/vp-menu.vue'
-import VPNavbarThemeToggler from './navbar/vp-theme-toggler.vue'
-import VPNavbarHamburger from './navbar/vp-hamburger.vue'
+import { withBase, useData } from 'vitepress';
+import VPNavbarSearch from './navbar/vp-search.vue';
+import VPNavbarMenu from './navbar/vp-menu.vue';
+import VPNavbarThemeToggler from './navbar/vp-theme-toggler.vue';
+import VPNavbarHamburger from './navbar/vp-hamburger.vue';
+import xiaoyeUiPkg from 'xiaoye-ui/package.json';
 
 defineProps<{
-  fullScreen: boolean
-}>()
+  fullScreen: boolean;
+}>();
 
-defineEmits(['toggle'])
+defineEmits(['toggle']);
 
-const { theme } = useData()
-const version = '1.0.0'
+const { theme } = useData();
+const version = xiaoyeUiPkg.version;
 </script>
 
 <template>
@@ -20,19 +21,13 @@ const version = '1.0.0'
     <div class="header-container">
       <div class="logo-container">
         <a :href="withBase('/')" class="logo-text">XiaoyeUI</a>
-        <a-tag round size="small" title="latest version">{{
-          version
-        }}</a-tag>
+        <xy-tag round size="small" title="latest version">{{ version }}</xy-tag>
       </div>
       <div class="content">
         <VPNavbarSearch class="search" :options="theme.agolia" multilang />
         <VPNavbarMenu class="menu" />
         <VPNavbarThemeToggler class="theme-toggler" />
-        <VPNavbarHamburger
-          :active="fullScreen"
-          class="hamburger"
-          @click="$emit('toggle')"
-        />
+        <VPNavbarHamburger :active="fullScreen" class="hamburger" @click="$emit('toggle')" />
       </div>
     </div>
   </div>

@@ -95,7 +95,6 @@ describe('Transfer', () => {
         return () => <Transfer {...{ ...listCommonProps }} />;
       },
     });
-
   });
 
   it('should move selected keys to corresponding list', async () => {

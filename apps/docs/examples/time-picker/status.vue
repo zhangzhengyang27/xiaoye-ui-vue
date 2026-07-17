@@ -1,8 +1,8 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-time-picker status="error" />
-    <a-time-picker status="warning" />
-    <a-time-range-picker status="error" />
-    <a-time-range-picker status="warning" />
-  </a-space>
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-time-picker status="error" />
+    <xy-time-picker status="warning" />
+    <xy-time-range-picker status="error" />
+    <xy-time-range-picker status="warning" />
+  </xy-space>
 </template>

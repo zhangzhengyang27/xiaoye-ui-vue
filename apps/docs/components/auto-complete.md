@@ -87,49 +87,41 @@ auto-complete/status
 ## API
 
 ```html
-<a-auto-complete v-model:value="value" :options="options" />
+<xy-auto-complete v-model:value="value" :options="options" />
 ```
 
-|  参数  |  说明  |  类型  |  默认值  |  版本  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-|  allowClear  |  支持清除, 单选模式有效  |  boolean  |  false  |    |
-|  autofocus  |  自动获取焦点  |  boolean  |  false  |    |
-|  backfill  |  使用键盘选择选项的时候把选中项回填到输入框中  |  boolean  |  false  |    |
-|  bordered  |  是否有边框  |  boolean  |  true  |  4.0  |
-|  clearIcon  |  使用插槽自定义清除按钮  |  slot  |  `<CloseCircleFilled />`  |  4.0  |
-|  default (自定义输入框)  |  自定义输入框  |  slot  |  `<Input />`  |    |
-|  defaultActiveFirstOption  |  是否默认高亮第一个选项。  |  boolean  |  true  |    |
-|  defaultOpen  |  是否默认展开下拉菜单  |  boolean  |  -  |    |
-|  disabled  |  是否禁用  |  boolean  |  false  |    |
-|  popupClassName  |  下拉菜单的 className 属性  |  string  |  -  |  4.0  |
-|  dropdownMatchSelectWidth  |  下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动  |  boolean \ |  number  |  true  |    |
-|  dropdownMenuStyle  |  dropdown 菜单自定义样式  |  object  |    |  1.5.0  |
-|  filterOption  |  是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。  |  boolean or function(inputValue, option)  |  true  |    |
-|  open  |  是否展开下拉菜单  |  boolean  |  -  |    |
-|  option  |  通过 option 插槽，自定义节点  |  v-slot:option="\{value, label, [disabled, key, title]\}"  |  -  |  3.0  |
-|  options  |  自动完成的数据源  |  [DataSourceItemType](https://github.com/xiaoye-ui/xiaoye-ui/blob/724d53b907e577cf5880c1e6742d4c3f924f8f49/components/auto-complete/index.vue#L9)\[]  |    |    |
-|  placeholder  |  输入框提示  |  string \ |  slot  |  -  |    |
-|  status  |  设置校验状态  |  'error' \ |  'warning'  |  -  |  3.3.0  |
-|  v-model:value  |  指定当前选中的条目  |  string\ | string\[]\ | \{ key: string, label: string\ | vNodes \}\ | Array&lt;\{ key: string, label: string\ | vNodes \}>  |  无  |    |
+| allowClear | 支持清除, 单选模式有效 | boolean | false |  |
+| autofocus | 自动获取焦点 | boolean | false |  |
+| backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
+| bordered | 是否有边框 | boolean | true | 4.0 |
+| clearIcon | 使用插槽自定义清除按钮 | slot | `<CloseCircleFilled />` | 4.0 |
+| default (自定义输入框) | 自定义输入框 | slot | `<Input />` |  |
+| defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |  |
+| defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
+| disabled | 是否禁用 | boolean | false |  |
+| popupClassName | 下拉菜单的 className 属性 | string | - | 4.0 |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \ | number | true |  |
+| dropdownMenuStyle | dropdown 菜单自定义样式 | object |  | 1.5.0 |
+| filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |  |
+| open | 是否展开下拉菜单 | boolean | - |  |
+| option | 通过 option 插槽，自定义节点 | v-slot:option="\{value, label, [disabled, key, title]\}" | - | 3.0 |
+| options | 自动完成的数据源 | [DataSourceItemType](https://github.com/xiaoye-ui/xiaoye-ui/blob/724d53b907e577cf5880c1e6742d4c3f924f8f49/components/auto-complete/index.vue#L9)\[] |  |  |
+| placeholder | 输入框提示 | string \ | slot | - |  |
+| status | 设置校验状态 | 'error' \ | 'warning' | - | 3.3.0 |
+| v-model:value | 指定当前选中的条目 | string\ | string\[]\ | \{ key: string, label: string\ | vNodes \}\ | Array&lt;\{ key: string, label: string\ | vNodes \}> | 无 |  |
 
 ### 事件
 
-|  事件名称  |  说明  |  回调参数  |  版本  |
-| --- | --- | --- | --- | --- |
-|  blur  |  失去焦点时的回调  |  function()  |    |
-|  change  |  选中 option，或 input 的 value 变化时，调用此函数  |  function(value)  |    |
-|  dropdownVisibleChange  |  展开下拉菜单的回调  |  function(open)  |    |
-|  focus  |  获得焦点时的回调  |  function()  |    |
-|  search  |  搜索补全项的时候调用  |  function(value)  |    |
-|  select  |  被选中时调用，参数为选中项的 value 值  |  function(value, option)  |    |
-|  clear  |  清除内容时回调  |  function  |  -  |  3.3.0  |
+| 事件名称 | 说明 | 回调参数 | 版本 | | --- | --- | --- | --- | --- | | blur | 失去焦点时的回调 | function() | | | change | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | | | dropdownVisibleChange | 展开下拉菜单的回调 | function(open) | | | focus | 获得焦点时的回调 | function() | | | search | 搜索补全项的时候调用 | function(value) | | | select | 被选中时调用，参数为选中项的 value 值 | function(value, option) | | | clear | 清除内容时回调 | function | - | 3.3.0 |
 
 ## 方法
 
-|  名称     |  描述      |  版本  |
+| 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |
-|  blur()   |  移除焦点  |        |
-|  focus()  |  获取焦点  |        |
+| blur()  | 移除焦点 |      |
+| focus() | 获取焦点 |      |
 
 ## FAQ
 

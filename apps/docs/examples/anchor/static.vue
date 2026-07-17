@@ -1,5 +1,5 @@
 <template>
-  <a-anchor
+  <xy-anchor
     :affix="false"
     :items="[
       {
@@ -30,5 +30,5 @@
         ],
       },
     ]"
-  ></a-anchor>
+  ></xy-anchor>
 </template>

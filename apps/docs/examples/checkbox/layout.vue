@@ -1,23 +1,23 @@
 <template>
-  <a-checkbox-group v-model:value="value" style="width: 100%">
-    <a-row>
-      <a-col :span="8">
-        <a-checkbox value="A">A</a-checkbox>
-      </a-col>
-      <a-col :span="8">
-        <a-checkbox value="B">B</a-checkbox>
-      </a-col>
-      <a-col :span="8">
-        <a-checkbox value="C">C</a-checkbox>
-      </a-col>
-      <a-col :span="8">
-        <a-checkbox value="D">D</a-checkbox>
-      </a-col>
-      <a-col :span="8">
-        <a-checkbox value="E">E</a-checkbox>
-      </a-col>
-    </a-row>
-  </a-checkbox-group>
+  <xy-checkbox-group v-model:value="value" style="width: 100%">
+    <xy-row>
+      <xy-col :span="8">
+        <xy-checkbox value="A">A</xy-checkbox>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-checkbox value="B">B</xy-checkbox>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-checkbox value="C">C</xy-checkbox>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-checkbox value="D">D</xy-checkbox>
+      </xy-col>
+      <xy-col :span="8">
+        <xy-checkbox value="E">E</xy-checkbox>
+      </xy-col>
+    </xy-row>
+  </xy-checkbox-group>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

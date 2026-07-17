@@ -166,6 +166,13 @@ export default defineComponent({
   compatConfig: { MODE: 3 },
   name: 'VcSelect',
   inheritAttrs: false,
+  props: initDefaultProps(selectProps(), {
+    prefixCls: 'vc-select',
+    autoClearSearchValue: true,
+    listHeight: 200,
+    listItemHeight: 20,
+    dropdownMatchSelectWidth: true,
+  }),
   emits: [
     'update:value',
     'change',
@@ -183,13 +190,6 @@ export default defineComponent({
     'keydown',
     'keyup',
   ],
-  props: initDefaultProps(selectProps(), {
-    prefixCls: 'vc-select',
-    autoClearSearchValue: true,
-    listHeight: 200,
-    listItemHeight: 20,
-    dropdownMatchSelectWidth: true,
-  }),
   setup(props, { expose, attrs, slots, emit }) {
     const callEvent = (fn: any, ...args: any[]) => {
       if (Array.isArray(fn)) {

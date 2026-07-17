@@ -1,11 +1,11 @@
 <template>
-  <a-table :row-selection="rowSelection" :columns="columns" :data-source="data">
+  <xy-table :row-selection="rowSelection" :columns="columns" :data-source="data">
     <template #bodyCell="{ column, text }">
       <template v-if="column.dataIndex === 'name'">
         <a>{{ text }}</a>
       </template>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 import type { TableProps, TableColumnType } from 'xiaoye-ui';

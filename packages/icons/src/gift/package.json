@@ -1,11 +1,11 @@
 {
-    "main": "./GiftIcon.vue",
-    "module": "./GiftIcon.vue",
-    "types": "./GiftIcon.d.ts",
-    "browser": {
-        "./sfc": "./GiftIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./GiftIcon.vue",
+  "module": "./GiftIcon.vue",
+  "types": "./GiftIcon.d.ts",
+  "browser": {
+    "./sfc": "./GiftIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

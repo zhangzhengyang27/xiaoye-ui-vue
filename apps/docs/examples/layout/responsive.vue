@@ -1,41 +1,41 @@
 <template>
-  <a-layout>
-    <a-layout-sider
+  <xy-layout>
+    <xy-layout-sider
       breakpoint="lg"
       collapsed-width="0"
       @collapse="onCollapse"
       @breakpoint="onBreakpoint"
     >
       <div class="logo" />
-      <a-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
+      <xy-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
+        <xy-menu-item key="1">
           <user-outlined />
           <span class="nav-text">nav 1</span>
-        </a-menu-item>
-        <a-menu-item key="2">
+        </xy-menu-item>
+        <xy-menu-item key="2">
           <video-camera-outlined />
           <span class="nav-text">nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
+        </xy-menu-item>
+        <xy-menu-item key="3">
           <upload-outlined />
           <span class="nav-text">nav 3</span>
-        </a-menu-item>
-        <a-menu-item key="4">
+        </xy-menu-item>
+        <xy-menu-item key="4">
           <user-outlined />
           <span class="nav-text">nav 4</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-    <a-layout>
-      <a-layout-header :style="{ background: '#fff', padding: 0 }" />
-      <a-layout-content :style="{ margin: '24px 16px 0' }">
+        </xy-menu-item>
+      </xy-menu>
+    </xy-layout-sider>
+    <xy-layout>
+      <xy-layout-header :style="{ background: '#fff', padding: 0 }" />
+      <xy-layout-content :style="{ margin: '24px 16px 0' }">
         <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">content</div>
-      </a-layout-content>
-      <a-layout-footer style="text-align: center">
+      </xy-layout-content>
+      <xy-layout-footer style="text-align: center">
         Xiaoye UI ©2024 Created by Xiaoye UI
-      </a-layout-footer>
-    </a-layout>
-  </a-layout>
+      </xy-layout-footer>
+    </xy-layout>
+  </xy-layout>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

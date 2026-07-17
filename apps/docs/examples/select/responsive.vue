@@ -1,12 +1,12 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-space>
-      <a-button type="primary" @click="maxTagCount++">maxTagCount++</a-button>
-      <a-button type="primary" @click="maxTagCount--">maxTagCount--</a-button>
-    </a-space>
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-space>
+      <xy-button type="primary" @click="maxTagCount++">maxTagCount++</xy-button>
+      <xy-button type="primary" @click="maxTagCount--">maxTagCount--</xy-button>
+    </xy-space>
 
     <h2>maxTagCount: {{ maxTagCount }}</h2>
-    <a-select
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
@@ -17,30 +17,30 @@
       <template #maxTagPlaceholder="omittedValues">
         <span style="color: red">+ {{ omittedValues.length }} ...</span>
       </template>
-    </a-select>
+    </xy-select>
     <h2>maxTagCount: responsive</h2>
-    <a-select
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
       placeholder="Select Item..."
       max-tag-count="responsive"
       :options="options"
-    ></a-select>
-    <a-space>
-      <a-button type="primary" @click="maxTagTextLength++">maxTagTextLength++</a-button>
-      <a-button type="primary" @click="maxTagTextLength--">maxTagTextLength--</a-button>
-    </a-space>
+    ></xy-select>
+    <xy-space>
+      <xy-button type="primary" @click="maxTagTextLength++">maxTagTextLength++</xy-button>
+      <xy-button type="primary" @click="maxTagTextLength--">maxTagTextLength--</xy-button>
+    </xy-space>
     <h2>maxTagTextLength: {{ maxTagTextLength }}</h2>
-    <a-select
+    <xy-select
       v-model:value="value"
       mode="multiple"
       style="width: 100%"
       placeholder="Select Item..."
       :max-tag-text-length="maxTagTextLength"
       :options="options"
-    ></a-select>
-  </a-space>
+    ></xy-select>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import type { SelectProps } from 'xiaoye-ui';

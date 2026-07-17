@@ -9,12 +9,13 @@ import { EyeOutlined } from '@xiaoye-ui/icons';
 import { getTransitionName } from '../_util/transition';
 import useStyle from './style';
 import classNames from '../_util/classNames';
+import { registerComponent } from '../_util/registerComponent';
 export type ImageProps = Partial<
   ExtractPropTypes<ReturnType<typeof imageProps>> &
     Omit<ImgHTMLAttributes, 'placeholder' | 'onClick'>
 >;
 const Image = defineComponent({
-  name: 'AImage',
+  name: 'XYImage',
   inheritAttrs: false,
   props: imageProps(),
   setup(props, { slots, attrs }) {
@@ -71,8 +72,8 @@ export { imageProps };
 Image.PreviewGroup = PreviewGroup;
 
 Image.install = function (app: App) {
-  app.component(Image.name, Image);
-  app.component(Image.PreviewGroup.name, Image.PreviewGroup);
+  registerComponent(app, Image);
+  registerComponent(app, Image.PreviewGroup);
   return app;
 };
 

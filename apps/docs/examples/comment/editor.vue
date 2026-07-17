@@ -1,36 +1,36 @@
 <template>
-  <a-list
+  <xy-list
     v-if="comments.length"
     :data-source="comments"
     :header="`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`"
     item-layout="horizontal"
   >
     <template #renderItem="{ item }">
-      <a-list-item>
-        <a-comment
+      <xy-list-item>
+        <xy-comment
           :author="item.author"
           :avatar="item.avatar"
           :content="item.content"
           :datetime="item.datetime"
         />
-      </a-list-item>
+      </xy-list-item>
     </template>
-  </a-list>
-  <a-comment>
+  </xy-list>
+  <xy-comment>
     <template #avatar>
-      <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+      <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
     </template>
     <template #content>
-      <a-form-item>
-        <a-textarea v-model:value="value" :rows="4" />
-      </a-form-item>
-      <a-form-item>
-        <a-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
+      <xy-form-item>
+        <xy-textarea v-model:value="value" :rows="4" />
+      </xy-form-item>
+      <xy-form-item>
+        <xy-button html-type="submit" :loading="submitting" type="primary" @click="handleSubmit">
           Add Comment
-        </a-button>
-      </a-form-item>
+        </xy-button>
+      </xy-form-item>
     </template>
-  </a-comment>
+  </xy-comment>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -1,6 +1,6 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-alert message="Success Text" type="success">
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-alert message="Success Text" type="success">
       <template #description>
         <p>
           Success Description
@@ -8,21 +8,21 @@
           Description Success Description
         </p>
       </template>
-    </a-alert>
-    <a-alert
+    </xy-alert>
+    <xy-alert
       message="Info Text"
       description="Info Description Info Description Info Description Info Description"
       type="info"
     />
-    <a-alert
+    <xy-alert
       message="Warning Text"
       description="Warning Description Warning Description Warning Description Warning Description"
       type="warning"
     />
-    <a-alert
+    <xy-alert
       message="Error Text"
       description="Error Description Error Description Error Description Error Description"
       type="error"
     />
-  </a-space>
+  </xy-space>
 </template>

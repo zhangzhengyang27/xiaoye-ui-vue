@@ -35,8 +35,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render out-of-range progress with info', async () => {
@@ -47,8 +46,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render negative progress', async () => {
@@ -58,8 +56,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render negative successPercent', async () => {
@@ -70,8 +67,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render format', async () => {
@@ -83,8 +79,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render strokeColor', async () => {
@@ -96,8 +91,7 @@ describe('Progress', () => {
       },
       sync: false,
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
     wrapper.setProps({
       strokeColor: {
         from: '#108ee9',
@@ -105,16 +99,14 @@ describe('Progress', () => {
       },
       type: 'line',
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
     wrapper.setProps({
       strokeColor: {
         '0%': '#108ee9',
         '100%': '#87d068',
       },
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render normal progress', () => {

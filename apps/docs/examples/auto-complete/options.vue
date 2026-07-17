@@ -1,5 +1,5 @@
 <template>
-  <a-auto-complete
+  <xy-auto-complete
     v-model:value="value"
     style="width: 200px"
     placeholder="input here"
@@ -10,7 +10,7 @@
       {{ val.split('@')[0] }} @
       <span style="font-weight: bold">{{ val.split('@')[1] }}</span>
     </template>
-  </a-auto-complete>
+  </xy-auto-complete>
 </template>
 
 <script lang="ts" setup>

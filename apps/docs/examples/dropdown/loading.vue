@@ -1,39 +1,39 @@
 <template>
-  <a-space direction="vertical">
-    <a-dropdown-button type="primary" loading>
+  <xy-space direction="vertical">
+    <xy-dropdown-button type="primary" loading>
       <template #overlay>
-        <a-menu>
-          <a-menu-item key="1">Submit and continue</a-menu-item>
-        </a-menu>
+        <xy-menu>
+          <xy-menu-item key="1">Submit and continue</xy-menu-item>
+        </xy-menu>
       </template>
       Submit
-    </a-dropdown-button>
-    <a-dropdown-button type="primary" size="small" loading>
+    </xy-dropdown-button>
+    <xy-dropdown-button type="primary" size="small" loading>
       <template #overlay>
-        <a-menu>
-          <a-menu-item key="1">Submit and continue</a-menu-item>
-        </a-menu>
+        <xy-menu>
+          <xy-menu-item key="1">Submit and continue</xy-menu-item>
+        </xy-menu>
       </template>
       Submit
-    </a-dropdown-button>
-    <a-dropdown-button type="primary" :loading="loading1" @click="enterLoading1">
+    </xy-dropdown-button>
+    <xy-dropdown-button type="primary" :loading="loading1" @click="enterLoading1">
       <template #overlay>
-        <a-menu>
-          <a-menu-item key="1">Submit and continue</a-menu-item>
-        </a-menu>
+        <xy-menu>
+          <xy-menu-item key="1">Submit and continue</xy-menu-item>
+        </xy-menu>
       </template>
       Submit
-    </a-dropdown-button>
-    <a-dropdown-button :loading="loading2" @click="enterLoading2">
+    </xy-dropdown-button>
+    <xy-dropdown-button :loading="loading2" @click="enterLoading2">
       Submit
       <template #overlay>
-        <a-menu>
-          <a-menu-item key="1">Submit and continue</a-menu-item>
-        </a-menu>
+        <xy-menu>
+          <xy-menu-item key="1">Submit and continue</xy-menu-item>
+        </xy-menu>
       </template>
       <template #icon><DownOutlined /></template>
-    </a-dropdown-button>
-  </a-space>
+    </xy-dropdown-button>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';

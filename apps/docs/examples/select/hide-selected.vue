@@ -1,11 +1,11 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="selectedItems"
     mode="multiple"
     placeholder="Inserted are removed"
     style="width: 100%"
     :options="filteredOptions.map(item => ({ value: item }))"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue';

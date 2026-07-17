@@ -1,32 +1,32 @@
 <template>
-  <a-form :model="formState" :label-col="labelCol" :wrapper-col="wrapperCol">
-    <a-form-item label="Activity name">
-      <a-input v-model:value="formState.name" />
-    </a-form-item>
-    <a-form-item label="Instant delivery">
-      <a-switch v-model:checked="formState.delivery" />
-    </a-form-item>
-    <a-form-item label="Activity type">
-      <a-checkbox-group v-model:value="formState.type">
-        <a-checkbox value="1" name="type">Online</a-checkbox>
-        <a-checkbox value="2" name="type">Promotion</a-checkbox>
-        <a-checkbox value="3" name="type">Offline</a-checkbox>
-      </a-checkbox-group>
-    </a-form-item>
-    <a-form-item label="Resources">
-      <a-radio-group v-model:value="formState.resource">
-        <a-radio value="1">Sponsor</a-radio>
-        <a-radio value="2">Venue</a-radio>
-      </a-radio-group>
-    </a-form-item>
-    <a-form-item label="Activity form">
-      <a-textarea v-model:value="formState.desc" />
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-      <a-button type="primary" @click="onSubmit">Create</a-button>
-      <a-button style="margin-left: 10px">Cancel</a-button>
-    </a-form-item>
-  </a-form>
+  <xy-form :model="formState" :label-col="labelCol" :wrapper-col="wrapperCol">
+    <xy-form-item label="Activity name">
+      <xy-input v-model:value="formState.name" />
+    </xy-form-item>
+    <xy-form-item label="Instant delivery">
+      <xy-switch v-model:checked="formState.delivery" />
+    </xy-form-item>
+    <xy-form-item label="Activity type">
+      <xy-checkbox-group v-model:value="formState.type">
+        <xy-checkbox value="1" name="type">Online</xy-checkbox>
+        <xy-checkbox value="2" name="type">Promotion</xy-checkbox>
+        <xy-checkbox value="3" name="type">Offline</xy-checkbox>
+      </xy-checkbox-group>
+    </xy-form-item>
+    <xy-form-item label="Resources">
+      <xy-radio-group v-model:value="formState.resource">
+        <xy-radio value="1">Sponsor</xy-radio>
+        <xy-radio value="2">Venue</xy-radio>
+      </xy-radio-group>
+    </xy-form-item>
+    <xy-form-item label="Activity form">
+      <xy-textarea v-model:value="formState.desc" />
+    </xy-form-item>
+    <xy-form-item :wrapper-col="{ span: 14, offset: 4 }">
+      <xy-button type="primary" @click="onSubmit">Create</xy-button>
+      <xy-button style="margin-left: 10px">Cancel</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive, toRaw } from 'vue';

@@ -1,21 +1,21 @@
 <template>
-  <a-space>
-    <a-button type="primary">Primary</a-button>
-    <a-button>secondary</a-button>
-    <a-dropdown>
+  <xy-space>
+    <xy-button type="primary">Primary</xy-button>
+    <xy-button>secondary</xy-button>
+    <xy-dropdown>
       <template #overlay>
-        <a-menu @click="handleMenuClick">
-          <a-menu-item key="1">1st item</a-menu-item>
-          <a-menu-item key="2">2nd item</a-menu-item>
-          <a-menu-item key="3">3rd item</a-menu-item>
-        </a-menu>
+        <xy-menu @click="handleMenuClick">
+          <xy-menu-item key="1">1st item</xy-menu-item>
+          <xy-menu-item key="2">2nd item</xy-menu-item>
+          <xy-menu-item key="3">3rd item</xy-menu-item>
+        </xy-menu>
       </template>
-      <a-button>
+      <xy-button>
         Actions
         <DownOutlined />
-      </a-button>
-    </a-dropdown>
-  </a-space>
+      </xy-button>
+    </xy-dropdown>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

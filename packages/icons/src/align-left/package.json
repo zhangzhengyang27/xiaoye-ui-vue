@@ -1,11 +1,11 @@
 {
-    "main": "./AlignLeftIcon.vue",
-    "module": "./AlignLeftIcon.vue",
-    "types": "./AlignLeftIcon.d.ts",
-    "browser": {
-        "./sfc": "./AlignLeftIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./AlignLeftIcon.vue",
+  "module": "./AlignLeftIcon.vue",
+  "types": "./AlignLeftIcon.d.ts",
+  "browser": {
+    "./sfc": "./AlignLeftIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

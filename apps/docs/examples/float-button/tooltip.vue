@@ -1,12 +1,12 @@
 <template>
-  <a-float-button
+  <xy-float-button
     tooltip="HELP INFO"
     :style="{
       right: '24px',
     }"
-  ></a-float-button>
+  ></xy-float-button>
 
-  <a-float-button
+  <xy-float-button
     :style="{
       right: '94px',
     }"
@@ -14,5 +14,5 @@
     <template #tooltip>
       <div>Documents</div>
     </template>
-  </a-float-button>
+  </xy-float-button>
 </template>

@@ -1,11 +1,11 @@
 {
-    "main": "./FileSpreadsheetIcon.vue",
-    "module": "./FileSpreadsheetIcon.vue",
-    "types": "./FileSpreadsheetIcon.d.ts",
-    "browser": {
-        "./sfc": "./FileSpreadsheetIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./FileSpreadsheetIcon.vue",
+  "module": "./FileSpreadsheetIcon.vue",
+  "types": "./FileSpreadsheetIcon.d.ts",
+  "browser": {
+    "./sfc": "./FileSpreadsheetIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

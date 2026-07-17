@@ -1,15 +1,15 @@
 <template>
-  <a-button type="primary" @click="handleOpen(true)">Begin Tour</a-button>
+  <xy-button type="primary" @click="handleOpen(true)">Begin Tour</xy-button>
 
-  <a-divider />
+  <xy-divider />
 
-  <a-space>
-    <a-button ref="ref1">Upload</a-button>
-    <a-button ref="ref2" type="primary">Save</a-button>
-    <a-button ref="ref3"><EllipsisOutlined /></a-button>
-  </a-space>
+  <xy-space>
+    <xy-button ref="ref1">Upload</xy-button>
+    <xy-button ref="ref2" type="primary">Save</xy-button>
+    <xy-button ref="ref3"><EllipsisOutlined /></xy-button>
+  </xy-space>
 
-  <a-tour
+  <xy-tour
     :open="open"
     :steps="steps"
     :mask="{

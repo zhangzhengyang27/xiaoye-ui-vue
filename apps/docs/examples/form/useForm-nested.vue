@@ -1,16 +1,16 @@
 <template>
-  <a-form :label-col="labelCol" :wrapper-col="wrapperCol">
-    <a-form-item label="Activity name" v-bind="validateInfos.name">
-      <a-input v-model:value="modelRef.name" />
-    </a-form-item>
-    <a-form-item label="Sub name" v-bind="validateInfos['sub.name']">
-      <a-input v-model:value="modelRef.sub.name" />
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 14, offset: 4 }">
-      <a-button type="primary" @click.prevent="onSubmit">Create</a-button>
-      <a-button style="margin-left: 10px" @click="reset">Reset</a-button>
-    </a-form-item>
-  </a-form>
+  <xy-form :label-col="labelCol" :wrapper-col="wrapperCol">
+    <xy-form-item label="Activity name" v-bind="validateInfos.name">
+      <xy-input v-model:value="modelRef.name" />
+    </xy-form-item>
+    <xy-form-item label="Sub name" v-bind="validateInfos['sub.name']">
+      <xy-input v-model:value="modelRef.sub.name" />
+    </xy-form-item>
+    <xy-form-item :wrapper-col="{ span: 14, offset: 4 }">
+      <xy-button type="primary" @click.prevent="onSubmit">Create</xy-button>
+      <xy-button style="margin-left: 10px" @click="reset">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive, toRaw } from 'vue';

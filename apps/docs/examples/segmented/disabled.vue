@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-segmented v-model:value="value" disabled :options="data" />
+    <xy-segmented v-model:value="value" disabled :options="data" />
     <br />
     <br />
-    <a-segmented v-model:value="value2" :options="data2" />
+    <xy-segmented v-model:value="value2" :options="data2" />
   </div>
 </template>
 

@@ -1,11 +1,11 @@
 {
-    "main": "./PrinterIcon.vue",
-    "module": "./PrinterIcon.vue",
-    "types": "./PrinterIcon.d.ts",
-    "browser": {
-        "./sfc": "./PrinterIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./PrinterIcon.vue",
+  "module": "./PrinterIcon.vue",
+  "types": "./PrinterIcon.d.ts",
+  "browser": {
+    "./sfc": "./PrinterIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

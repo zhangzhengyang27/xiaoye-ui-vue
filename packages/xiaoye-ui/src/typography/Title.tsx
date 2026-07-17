@@ -32,7 +32,7 @@ const Title: FunctionalComponent<TitleProps> = (props, { slots, attrs }) => {
   return <Base {...titleProps} v-slots={slots}></Base>;
 };
 
-Title.displayName = 'ATypographyTitle';
+Title.displayName = 'XYTypographyTitle';
 Title.inheritAttrs = false;
 Title.props = titleProps();
 

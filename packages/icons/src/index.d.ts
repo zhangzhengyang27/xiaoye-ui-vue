@@ -1334,8 +1334,10 @@ export { default as ArrowLeftOutlined } from './chevronleft';
 // ArrowRightOutlined (映射自 ArrowRightIcon)
 export { default as ArrowRightOutlined } from './arrow-right';
 
-/*
- * 以下 @ant-design/icons-vue 的特殊 API 在 xiaoye-ui/icons 中没有对应实现：
- * - createFromIconfontCN: iconfont 图标工厂函数，xiaoye-ui/icons 中没有对应实现
- * - Icon (默认导出): 自定义图标组件，xiaoye-ui/icons 中没有对应实现
- */
+// 以下 @ant-design/icons-vue 的特殊 API 通过兼容层透传
+export {
+  createFromIconfontCN,
+  default as Icon,
+  getTwoToneColor,
+  setTwoToneColor,
+} from '@ant-design/icons-vue';

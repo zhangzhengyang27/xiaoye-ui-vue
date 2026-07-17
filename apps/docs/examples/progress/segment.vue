@@ -1,13 +1,13 @@
 <template>
   <div>
-    <a-tooltip title="3 done / 3 in progress / 4 to do">
-      <a-progress :percent="60" :success="{ percent: 30 }" />
-    </a-tooltip>
-    <a-tooltip title="3 done / 3 in progress / 4 to do">
-      <a-progress :percent="60" :success="{ percent: 30 }" type="circle" />
-    </a-tooltip>
-    <a-tooltip title="3 done / 3 in progress / 4 to do">
-      <a-progress :percent="60" :success="{ percent: 30 }" type="dashboard" />
-    </a-tooltip>
+    <xy-tooltip title="3 done / 3 in progress / 4 to do">
+      <xy-progress :percent="60" :success="{ percent: 30 }" />
+    </xy-tooltip>
+    <xy-tooltip title="3 done / 3 in progress / 4 to do">
+      <xy-progress :percent="60" :success="{ percent: 30 }" type="circle" />
+    </xy-tooltip>
+    <xy-tooltip title="3 done / 3 in progress / 4 to do">
+      <xy-progress :percent="60" :success="{ percent: 30 }" type="dashboard" />
+    </xy-tooltip>
   </div>
 </template>

@@ -1,18 +1,18 @@
 <template>
-  <a-checkbox-group v-model:value="state.value1" name="checkboxgroup" :options="plainOptions" />
+  <xy-checkbox-group v-model:value="state.value1" name="checkboxgroup" :options="plainOptions" />
   <br />
   <br />
-  <a-checkbox-group v-model:value="state.value2" :options="plainOptions" />
+  <xy-checkbox-group v-model:value="state.value2" :options="plainOptions" />
   <br />
   <br />
-  <a-checkbox-group v-model:value="state.value3" :options="options" />
+  <xy-checkbox-group v-model:value="state.value3" :options="options" />
   <br />
   <br />
-  <a-checkbox-group v-model:value="state.value4" :options="optionsWithDisabled" disabled>
+  <xy-checkbox-group v-model:value="state.value4" :options="optionsWithDisabled" disabled>
     <template #label="{ label }">
       <span style="color: red">{{ label }}</span>
     </template>
-  </a-checkbox-group>
+  </xy-checkbox-group>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

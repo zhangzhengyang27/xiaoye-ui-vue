@@ -1,11 +1,11 @@
 {
-    "main": "./ArrowRightIcon.vue",
-    "module": "./ArrowRightIcon.vue",
-    "types": "./ArrowRightIcon.d.ts",
-    "browser": {
-        "./sfc": "./ArrowRightIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ArrowRightIcon.vue",
+  "module": "./ArrowRightIcon.vue",
+  "types": "./ArrowRightIcon.d.ts",
+  "browser": {
+    "./sfc": "./ArrowRightIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

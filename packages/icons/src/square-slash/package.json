@@ -1,11 +1,11 @@
 {
-    "main": "./SquareSlashIcon.vue",
-    "module": "./SquareSlashIcon.vue",
-    "types": "./SquareSlashIcon.d.ts",
-    "browser": {
-        "./sfc": "./SquareSlashIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SquareSlashIcon.vue",
+  "module": "./SquareSlashIcon.vue",
+  "types": "./SquareSlashIcon.d.ts",
+  "browser": {
+    "./sfc": "./SquareSlashIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

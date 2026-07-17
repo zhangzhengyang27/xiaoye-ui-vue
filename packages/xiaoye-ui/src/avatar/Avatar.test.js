@@ -119,7 +119,7 @@ describe('Avatar Render', () => {
       wrapper.find('img').trigger('error');
     }, 0);
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'AAvatar' }).findAll('img').length).toBe(0);
+      expect(wrapper.findComponent({ name: 'XYAvatar' }).findAll('img').length).toBe(0);
       expect(wrapper.findAll('.xy-avatar-string').length).toBe(1);
     }, 0);
 
@@ -127,7 +127,7 @@ describe('Avatar Render', () => {
       wrapper.vm.src = LOAD_SUCCESS_SRC;
     });
     await asyncExpect(() => {
-      expect(wrapper.findComponent({ name: 'AAvatar' }).findAll('img').length).toBe(1);
+      expect(wrapper.findComponent({ name: 'XYAvatar' }).findAll('img').length).toBe(1);
       expect(wrapper.findAll('.xy-avatar-image').length).toBe(1);
     }, 0);
   });
@@ -139,8 +139,7 @@ describe('Avatar Render', () => {
       },
     });
 
-    await asyncExpect(() => {
-    }, 0);
+    await asyncExpect(() => {}, 0);
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
@@ -155,8 +154,7 @@ describe('Avatar Render', () => {
         return <Avatar>xx</Avatar>;
       },
     });
-    await asyncExpect(() => {
-    }, 0);
+    await asyncExpect(() => {}, 0);
   });
 
   it('should calculate scale of avatar children correctly with gap', async () => {
@@ -165,8 +163,7 @@ describe('Avatar Render', () => {
         return <Avatar gap={2}>Avatar</Avatar>;
       },
     });
-    await asyncExpect(() => {
-    }, 0);
+    await asyncExpect(() => {}, 0);
   });
 
   Object.entries(sizes).forEach(([key, value]) => {
@@ -179,8 +176,7 @@ describe('Avatar Render', () => {
         },
       });
 
-      await asyncExpect(() => {
-      }, 0);
+      await asyncExpect(() => {}, 0);
     });
   });
 

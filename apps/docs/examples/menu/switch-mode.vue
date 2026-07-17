@@ -1,20 +1,20 @@
 <template>
   <div>
-    <a-switch :checked="state.mode === 'vertical'" @change="changeMode" />
+    <xy-switch :checked="state.mode === 'vertical'" @change="changeMode" />
     Change Mode
     <span class="xy-divider" style="margin: 0 1em" />
-    <a-switch :checked="state.theme === 'dark'" @change="changeTheme" />
+    <xy-switch :checked="state.theme === 'dark'" @change="changeTheme" />
     Change Theme
     <br />
     <br />
-    <a-menu
+    <xy-menu
       v-model:open-keys="state.openKeys"
       v-model:selected-keys="state.selectedKeys"
       style="width: 256px"
       :mode="state.mode"
       :items="items"
       :theme="state.theme"
-    ></a-menu>
+    ></xy-menu>
   </div>
 </template>
 <script lang="ts" setup>

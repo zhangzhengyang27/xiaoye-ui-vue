@@ -1,11 +1,11 @@
 {
-    "main": "./AppleIcon.vue",
-    "module": "./AppleIcon.vue",
-    "types": "./AppleIcon.d.ts",
-    "browser": {
-        "./sfc": "./AppleIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./AppleIcon.vue",
+  "module": "./AppleIcon.vue",
+  "types": "./AppleIcon.d.ts",
+  "browser": {
+    "./sfc": "./AppleIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,34 +1,34 @@
 <template>
-  <a-space direction="vertical">
-    <a-input v-model:value="value1" addon-before="Http://" addon-after=".com" />
-    <a-input v-model:value="value2">
+  <xy-space direction="vertical">
+    <xy-input v-model:value="value1" addon-before="Http://" addon-after=".com" />
+    <xy-input v-model:value="value2">
       <template #addonBefore>
-        <a-select v-model:value="value3" style="width: 90px">
-          <a-select-option value="Http://">Http://</a-select-option>
-          <a-select-option value="Https://">Https://</a-select-option>
-        </a-select>
+        <xy-select v-model:value="value3" style="width: 90px">
+          <xy-select-option value="Http://">Http://</xy-select-option>
+          <xy-select-option value="Https://">Https://</xy-select-option>
+        </xy-select>
       </template>
       <template #addonAfter>
-        <a-select v-model:value="value4" style="width: 80px">
-          <a-select-option value=".com">.com</a-select-option>
-          <a-select-option value=".jp">.jp</a-select-option>
-          <a-select-option value=".cn">.cn</a-select-option>
-          <a-select-option value=".org">.org</a-select-option>
-        </a-select>
+        <xy-select v-model:value="value4" style="width: 80px">
+          <xy-select-option value=".com">.com</xy-select-option>
+          <xy-select-option value=".jp">.jp</xy-select-option>
+          <xy-select-option value=".cn">.cn</xy-select-option>
+          <xy-select-option value=".org">.org</xy-select-option>
+        </xy-select>
       </template>
-    </a-input>
-    <a-input v-model:value="value5">
+    </xy-input>
+    <xy-input v-model:value="value5">
       <template #addonAfter>
         <setting-outlined />
       </template>
-    </a-input>
+    </xy-input>
 
-    <a-input v-model:value="value6">
+    <xy-input v-model:value="value6">
       <template #addonBefore>
-        <a-cascader placeholder="cascader" style="width: 150px" />
+        <xy-cascader placeholder="cascader" style="width: 150px" />
       </template>
-    </a-input>
-  </a-space>
+    </xy-input>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

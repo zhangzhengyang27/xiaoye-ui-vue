@@ -7,7 +7,7 @@
       "xiaoye-ui/*": ["packages/xiaoye-ui/src/*"],
       "@xiaoye-ui/core": ["packages/core/src/index.ts"],
       "@xiaoye-ui/core/*": ["packages/core/src/*"],
-      "@xiaoye-ui/icons": ["packages/icons/src/index.ts"],
+      "@xiaoye-ui/icons": ["packages/icons/src/index.js"],
       "@xiaoye-ui/icons/*": ["packages/icons/src/*"],
       "@xiaoye-ui/utils": ["packages/utils/src/index.ts"],
       "@xiaoye-ui/utils/*": ["packages/utils/src/*"],

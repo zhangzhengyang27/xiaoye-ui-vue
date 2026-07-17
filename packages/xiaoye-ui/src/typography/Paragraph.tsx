@@ -16,7 +16,7 @@ const Paragraph: FunctionalComponent<ParagraphProps> = (props, { slots, attrs })
   return <Base {...paragraphProps} v-slots={slots}></Base>;
 };
 
-Paragraph.displayName = 'ATypographyParagraph';
+Paragraph.displayName = 'XYTypographyParagraph';
 Paragraph.inheritAttrs = false;
 Paragraph.props = paragraphProps();
 

@@ -8,15 +8,15 @@ XiaoyeUI 是一个基于 Vue 3 的企业级 UI 组件库，采用 monorepo 架�
 
 ### 技术栈
 
-| 技术 | 用途 |
-|------|------|
-| Vue 3.4+ | 核心框架，使用 Composition API |
-| TypeScript | 类型系统 |
-| Vite | 构建工具 |
-| pnpm | 包管理器 |
-| Vitest | 单元测试 |
-| VitePress | 文档站点 |
-| CSS-in-JS | 样式方案（基于 @emotion） |
+| 技术       | 用途                           |
+| ---------- | ------------------------------ |
+| Vue 3.4+   | 核心框架，使用 Composition API |
+| TypeScript | 类型系统                       |
+| Vite       | 构建工具                       |
+| pnpm       | 包管理器                       |
+| Vitest     | 单元测试                       |
+| VitePress  | 文档站点                       |
+| CSS-in-JS  | 样式方案（基于 @emotion）      |
 
 ### 环境要求
 
@@ -82,15 +82,15 @@ src/
 
 ### 各包职责
 
-| 包 | 职责 |
-|----|------|
-| `xiaoye-ui` | 80+ UI 组件 |
-| `@xiaoye-ui/core` | 核心响应式工具 |
-| `@xiaoye-ui/utils` | 通用工具函数 |
-| `@xiaoye-ui/icons` | 图标库 |
-| `@xiaoye-ui/vite-plugin` | Vite 插件，提供组件和样式自动导入 |
-| `@xiaoye-ui/auto-import-resolver` | 自动导入解析器 |
-| `@xiaoye-ui/mcp` | Cursor MCP 服务器 |
+| 包                                | 职责                              |
+| --------------------------------- | --------------------------------- |
+| `xiaoye-ui`                       | 80+ UI 组件                       |
+| `@xiaoye-ui/core`                 | 核心响应式工具                    |
+| `@xiaoye-ui/utils`                | 通用工具函数                      |
+| `@xiaoye-ui/icons`                | 图标库                            |
+| `@xiaoye-ui/vite-plugin`          | Vite 插件，提供组件和样式自动导入 |
+| `@xiaoye-ui/auto-import-resolver` | 自动导入解析器                    |
+| `@xiaoye-ui/mcp`                  | Cursor MCP 服务器                 |
 
 ---
 
@@ -332,21 +332,21 @@ export default genComponentStyleHook('Button', token => {
 
 ### Token 类型
 
-| Token 类型 | 说明 | 示例 |
-|-----------|------|------|
-| Seed Token | 种子值 | `colorPrimary: #1890ff` |
-| Map Token | 派生值 | `colorSuccessContainer` |
-| Alias Token | 语义别名 | `colorLink` |
+| Token 类型      | 说明     | 示例                      |
+| --------------- | -------- | ------------------------- |
+| Seed Token      | 种子值   | `colorPrimary: #1890ff`   |
+| Map Token       | 派生值   | `colorSuccessContainer`   |
+| Alias Token     | 语义别名 | `colorLink`               |
 | Component Token | 组件专属 | `buttonPaddingHorizontal` |
 
 ### 样式生成器函数
 
-| 函数 | 用途 |
-|------|------|
+| 函数                    | 用途              |
+| ----------------------- | ----------------- |
 | `genComponentStyleHook` | 创建组件样式 hook |
-| `mergeToken` | 合并 Token |
-| `genFocusStyle` | 生成焦点样式 |
-| `genCompactItemStyle` | 生成紧凑布局样式 |
+| `mergeToken`            | 合并 Token        |
+| `genFocusStyle`         | 生成焦点样式      |
+| `genCompactItemStyle`   | 生成紧凑布局样式  |
 
 ---
 
@@ -405,16 +405,16 @@ export type VueNode = VNodeChildAtom | VNodeChildAtom[] | VNode;
 
 ```typescript
 import {
-  flattenChildren,    // 扁平化子节点
-  initDefaultProps,   // 初始化默认 Props
-  getSlot,            // 获取插槽
-  getComponent,       // 获取组件
-  getOptionProps,     // 获取组件 Props
-  getEvents,          // 获取事件
-  getClass,           // 获取类名
-  getStyle,           // 获取样式
-  filterEmpty,        // 过滤空元素
-  hasProp,            // 检查 Prop 是否存在
+  flattenChildren, // 扁平化子节点
+  initDefaultProps, // 初始化默认 Props
+  getSlot, // 获取插槽
+  getComponent, // 获取组件
+  getOptionProps, // 获取组件 Props
+  getEvents, // 获取事件
+  getClass, // 获取类名
+  getStyle, // 获取样式
+  filterEmpty, // 过滤空元素
+  hasProp, // 检查 Prop 是否存在
 } from '../_util/props-util';
 ```
 
@@ -425,16 +425,16 @@ import useConfigInject from '../config-provider/hooks/useConfigInject';
 
 // 在组件中使用
 const {
-  prefixCls,          // 前缀类名
-  direction,          // 文本方向
-  size,               // 尺寸
-  getPrefixCls,       // 获取前缀类名方法
-  rootPrefixCls,      // 根前缀类名
-  iconPrefixCls,      // 图标前缀
-  disabled,          // 禁用状态
-  getPopupContainer,  // 弹出容器
-  renderEmpty,        // 空状态渲染
-  space,              // 间距配置
+  prefixCls, // 前缀类名
+  direction, // 文本方向
+  size, // 尺寸
+  getPrefixCls, // 获取前缀类名方法
+  rootPrefixCls, // 根前缀类名
+  iconPrefixCls, // 图标前缀
+  disabled, // 禁用状态
+  getPopupContainer, // 弹出容器
+  renderEmpty, // 空状态渲染
+  space, // 间距配置
 } = useConfigInject('btn', props);
 ```
 
@@ -444,16 +444,16 @@ const {
 import PropTypes from '../_util/vue-types';
 
 // 可用的 PropTypes
-PropTypes.string
-PropTypes.number
-PropTypes.bool
-PropTypes.func
-PropTypes.array
-PropTypes.object
-PropTypes.any
-PropTypes.looseBool  // 宽松布尔类型
-PropTypes.style      // 样式属性
-PropTypes.VueNode     // Vue 节点
+PropTypes.string;
+PropTypes.number;
+PropTypes.bool;
+PropTypes.func;
+PropTypes.array;
+PropTypes.object;
+PropTypes.any;
+PropTypes.looseBool; // 宽松布尔类型
+PropTypes.style; // 样式属性
+PropTypes.VueNode; // Vue 节点
 ```
 
 ---
@@ -584,14 +584,14 @@ import { flattenChildren } from 'xiaoye-ui/_util/props-util';
 import { genComponentStyleHook } from 'xiaoye-ui/theme/internal';
 ```
 
-| 别名 | 路径 |
-|------|------|
-| `xiaoye-ui` | `packages/xiaoye-ui/src` |
-| `xiaoye-ui/*` | `packages/xiaoye-ui/src/*` |
-| `@xiaoye-ui/core` | `packages/core/src` |
-| `@xiaoye-ui/utils` | `packages/utils/src` |
-| `@xiaoye-ui/icons` | `packages/icons/src` |
-| `@xiaoye-ui/metadata` | `packages/metadata/src` |
+| 别名                     | 路径                       |
+| ------------------------ | -------------------------- |
+| `xiaoye-ui`              | `packages/xiaoye-ui/src`   |
+| `xiaoye-ui/*`            | `packages/xiaoye-ui/src/*` |
+| `@xiaoye-ui/core`        | `packages/core/src`        |
+| `@xiaoye-ui/utils`       | `packages/utils/src`       |
+| `@xiaoye-ui/icons`       | `packages/icons/src`       |
+| `@xiaoye-ui/metadata`    | `packages/metadata/src`    |
 | `@xiaoye-ui/vite-plugin` | `packages/vite-plugin/src` |
 
 ---
@@ -642,3 +642,91 @@ pnpm release
 4. **无障碍性**：遵循 WCAG 规范，提供键盘导航和屏幕阅读器支持
 5. **性能优化**：使用 `shallowRef`、避免不必要的响应式转换
 6. **向后兼容**：遵循语义化版本，保持 API 稳定性
+
+---
+
+## AI 协作开发规范
+
+> 本章节供 AI 编码助手阅读，用于在生成、修改、审查代码时统一遵循 XiaoyeUI 的硬性约定。
+
+### 命名规范（强制）
+
+- 组件标签统一使用 `xy-` 前缀，禁止使用 `a-` 前缀。
+- 组件 `name` 属性统一使用 `XYXxx` 格式，禁止使用 `AXxx` 格式。
+- 内部组件标识统一使用 `__XY_*` 前缀，禁止使用 `__ANT_*` 前缀。
+- 示例组件标签统一使用 `demo-` 前缀，避免与真实组件冲突。
+- CSS 类名统一使用 `xy-` 前缀，禁止使用 `ant-` 前缀。
+
+### 图标规范（强制）
+
+- 所有图标必须从 `@xiaoye-ui/icons` 命名导入，例如 `import { SearchOutlined } from '@xiaoye-ui/icons'`。
+- 禁止从 `@ant-design/icons-vue` 或其子路径导入图标。
+- 新增图标必须同时：
+  1. 在 `packages/icons/src/[icon-name]/[IconName].vue` 创建组件；
+  2. 在 `packages/icons/src/index.js` 兼容层添加导出；
+  3. 图标组件必须将 `<svg>` 包裹在 `<span class="xyicon">` 中。
+
+### 组件注册规范（强制）
+
+- 全局注册组件必须使用 `registerComponent` 工具（`packages/xiaoye-ui/src/_util/registerComponent.ts`）。
+- 该工具会自动将 `XYXxx` 映射为 `xy-xxx` 标签名，并防止重复注册。
+- 禁止直接调用 `app.component('xy-button', Button)` 等硬编码标签名注册。
+
+### 组件开发模板（强制）
+
+每个新组件必须遵循以下目录结构：
+
+```
+packages/xiaoye-ui/src/<component>/
+├── index.ts              # 导出入口
+├── <Component>.tsx       # 主组件
+├── <component>Types.ts   # Props 类型定义
+├── use<Component>.ts     # 组合式函数（可选）
+├── style/
+│   └── index.ts          # CSS-in-JS 样式入口
+└── demo/                 # 文档示例（如需要文档）
+    ├── basic.vue
+    └── ...
+```
+
+### Props 与类型（强制）
+
+- Props 必须使用函数式定义，例如 `buttonProps()`，并通过 `initDefaultProps(buttonProps(), defaults)` 初始化。
+- 优先使用 `src/_util/type.ts` 中的辅助函数：`booleanType`、`stringType`、`functionType`、`objectType`、`arrayType`、`eventType`。
+- 事件处理器使用 `eventType<T>()` 定义。
+- Props 类型文件使用 `ExtractPropTypes` 导出 `XXXProps` 类型。
+
+### 样式开发（强制）
+
+- 使用 CSS-in-JS 方案，基于 Design Token。
+- 组件样式文件使用 `genComponentStyleHook('ComponentName', token => [...])` 创建。
+- 禁止在组件样式中硬编码颜色、间距等值，应使用 Token。
+- 组件类名占位符使用 `componentCls`。
+
+### 文档与示例（强制）
+
+- 新增组件必须补充文档：`apps/docs/components/<component>.md`。
+- 文档中的示例组件标签使用 `demo-` 前缀，例如 `<demo-button-basic>`。
+- 示例文件放在 `apps/docs/examples/<component>/<demo-name>.vue`。
+
+### 测试（强制）
+
+- 新增组件必须补充单元测试，测试文件放在组件目录内或 `__tests__` 子目录。
+- 使用 Vitest 和 `@vue/test-utils`。
+- 运行 `pnpm test:unit` 确保通过。
+
+### 提交代码前必须执行的检查
+
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test:unit
+pnpm build:packages
+```
+
+### 禁止事项
+
+- 禁止引入新的 `@ant-design/icons-vue` 依赖或子路径导入。
+- 禁止在组件代码中遗留 `console.log`（允许 `console.warn` / `console.error`）。
+- 禁止在发布产物中保留 `workspace:*` 依赖声明。
+- 禁止将构建产物 `dist/`、`node_modules/`、`.vitepress/cache/` 提交到 Git。

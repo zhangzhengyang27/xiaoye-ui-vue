@@ -5,7 +5,7 @@ import { useProvideRadioOptionTypeContext } from './context';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ARadioButton',
+  name: 'XYRadioButton',
   inheritAttrs: false,
   props: radioProps(),
   setup(props, { slots, attrs }) {

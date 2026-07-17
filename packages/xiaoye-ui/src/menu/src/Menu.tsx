@@ -92,7 +92,7 @@ export type MenuProps = Partial<ExtractPropTypes<ReturnType<typeof menuProps>>>;
 const EMPTY_LIST: string[] = [];
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AMenu',
+  name: 'XYMenu',
   inheritAttrs: false,
   props: menuProps(),
   slots: Object as CustomSlotsType<{

@@ -1,64 +1,56 @@
-import path from 'path'
-import fs from 'fs'
-import { fileURLToPath } from 'url'
-import { sfcTs2js } from '../utils/ts2js'
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { sfcTs2js } from '../utils/ts2js';
 
-import type { MarkdownRenderer } from 'vitepress'
+import type { MarkdownRenderer } from 'vitepress';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const docRoot = path.resolve(__dirname, '../..')
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const docRoot = path.resolve(__dirname, '../..');
 
 interface ContainerOpts {
-  marker?: string | undefined
-  validate?(params: string): boolean
-  render?: MarkdownRenderer['renderer']['rules']['container']
+  marker?: string | undefined;
+  validate?(params: string): boolean;
+  render?: MarkdownRenderer['renderer']['rules']['container'];
 }
 
 function createDemoContainer(md: MarkdownRenderer): ContainerOpts {
   return {
     validate(params) {
-      return !!params.trim().match(/^demo\s*(.*)$/)
+      return !!params.trim().match(/^demo\s*(.*)$/);
     },
 
     render(tokens, idx) {
-      const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
+      const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
       if (tokens[idx].nesting === 1 /* means the tag is opening */) {
-        const description = m && m.length > 1 ? m[1] : ''
-        const sourceFileToken = tokens[idx + 2]
-        let source = ''
-        const sourceFile = sourceFileToken.children?.[0].content ?? ''
+        const description = m && m.length > 1 ? m[1] : '';
+        const sourceFileToken = tokens[idx + 2];
+        let source = '';
+        const sourceFile = sourceFileToken.children?.[0].content ?? '';
 
         if (sourceFileToken.type === 'inline') {
-          source = fs.readFileSync(
-            path.resolve(docRoot, 'examples', `${sourceFile}.vue`),
-            'utf-8'
-          )
+          source = fs.readFileSync(path.resolve(docRoot, 'examples', `${sourceFile}.vue`), 'utf-8');
         }
-        if (!source) throw new Error(`Incorrect source file: ${sourceFile}`)
-        let jsSource
+        if (!source) throw new Error(`Incorrect source file: ${sourceFile}`);
+        let jsSource;
         try {
-          jsSource = sfcTs2js(source)
+          jsSource = sfcTs2js(source);
         } catch (e: any) {
-          throw new Error(
-            `Error transforming source file ${sourceFile} to js: ${e}`
-          )
+          throw new Error(`Error transforming source file ${sourceFile} to js: ${e}`);
         }
         const mdRender = (code: string) =>
-          md.render(
-            `\`\`\` vue\n${code}${code.endsWith('\n') ? '' : '\n'}\`\`\``
-          )
-        const encode = (code: string) =>
-          encodeURIComponent(code).replace(/'/g, "\\'")
-        const sources = `['${encode(mdRender(source))}', '${encode(mdRender(jsSource))}']`
-        const rawSources = `['${encode(source)}', '${encode(jsSource)}']`
+          md.render(`\`\`\` vue\n${code}${code.endsWith('\n') ? '' : '\n'}\`\`\``);
+        const encode = (code: string) => encodeURIComponent(code).replace(/'/g, "\\'");
+        const sources = `['${encode(mdRender(source))}', '${encode(mdRender(jsSource))}']`;
+        const rawSources = `['${encode(source)}', '${encode(jsSource)}']`;
         const res = `<Demo :sources="${sources}" path="${sourceFile}" :raw-sources="${rawSources}" description="${encodeURIComponent(md.render(description))}">
-  <template #source><xy-${sourceFile.replaceAll('/', '-')}/></template>`
-        return res
+  <template #source><demo-${sourceFile.replaceAll('/', '-')}/></template>`;
+        return res;
       } else {
-        return '</Demo>\n'
+        return '</Demo>\n';
       }
     },
-  }
+  };
 }
 
-export default createDemoContainer
+export default createDemoContainer;

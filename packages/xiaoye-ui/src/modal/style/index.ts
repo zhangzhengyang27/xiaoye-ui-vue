@@ -52,13 +52,14 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
   return [
     {
       [`${componentCls}-root`]: {
-        [`${componentCls}${token.rootCls}-zoom-enter, ${componentCls}${token.rootCls}-zoom-appear`]: {
-          // reset scale avoid mousePosition bug
-          transform: 'none',
-          opacity: 0,
-          animationDuration: token.motionDurationSlow,
-          userSelect: 'none',
-        },
+        [`${componentCls}${token.rootCls}-zoom-enter, ${componentCls}${token.rootCls}-zoom-appear`]:
+          {
+            // reset scale avoid mousePosition bug
+            transform: 'none',
+            opacity: 0,
+            animationDuration: token.motionDurationSlow,
+            userSelect: 'none',
+          },
 
         [`${componentCls}${token.rootCls}-zoom-leave ${componentCls}-content`]: {
           pointerEvents: 'none',

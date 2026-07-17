@@ -1,5 +1,5 @@
 <template>
-  <a-button @click="success">Customized display duration</a-button>
+  <xy-button @click="success">Customized display duration</xy-button>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <a-rate v-model:value="value1" allow-half>
+    <xy-rate v-model:value="value1" allow-half>
       <template #character>
         <heart-outlined />
       </template>
-    </a-rate>
+    </xy-rate>
     <br />
-    <a-rate v-model:value="value2" character="A" allow-half style="font-size: 36px" />
+    <xy-rate v-model:value="value2" character="A" allow-half style="font-size: 36px" />
     <br />
-    <a-rate v-model:value="value3" character="好" allow-half />
+    <xy-rate v-model:value="value3" character="好" allow-half />
     <br />
   </div>
 </template>

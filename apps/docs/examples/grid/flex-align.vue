@@ -1,52 +1,52 @@
 <template>
   <div id="components-grid-demo-flex-align">
-    <a-divider orientation="left">Align Top</a-divider>
-    <a-row justify="center" align="top">
-      <a-col :span="4">
+    <xy-divider orientation="left">Align Top</xy-divider>
+    <xy-row justify="center" align="top">
+      <xy-col :span="4">
         <p class="height-100">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-50">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-120">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-80">col-4</p>
-      </a-col>
-    </a-row>
+      </xy-col>
+    </xy-row>
 
-    <a-divider orientation="left">Align Middle</a-divider>
-    <a-row justify="space-around" align="middle">
-      <a-col :span="4">
+    <xy-divider orientation="left">Align Middle</xy-divider>
+    <xy-row justify="space-around" align="middle">
+      <xy-col :span="4">
         <p class="height-100">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-50">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-120">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-80">col-4</p>
-      </a-col>
-    </a-row>
+      </xy-col>
+    </xy-row>
 
-    <a-divider orientation="left">Align Bottom</a-divider>
-    <a-row justify="space-between" align="bottom">
-      <a-col :span="4">
+    <xy-divider orientation="left">Align Bottom</xy-divider>
+    <xy-row justify="space-between" align="bottom">
+      <xy-col :span="4">
         <p class="height-100">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-50">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-120">col-4</p>
-      </a-col>
-      <a-col :span="4">
+      </xy-col>
+      <xy-col :span="4">
         <p class="height-80">col-4</p>
-      </a-col>
-    </a-row>
+      </xy-col>
+    </xy-row>
   </div>
 </template>
 

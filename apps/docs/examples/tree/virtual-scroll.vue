@@ -1,5 +1,5 @@
 <template>
-  <a-tree
+  <xy-tree
     v-model:selected-keys="selectedKeys"
     v-model:checked-keys="checkedKeys"
     default-expand-all
@@ -11,7 +11,7 @@
       <span v-if="key === '0-0-1-0'" style="color: #1890ff">{{ title }}</span>
       <template v-else>{{ title }}</template>
     </template>
-  </a-tree>
+  </xy-tree>
 </template>
 <script lang="ts" setup>
 import type { TreeProps } from 'xiaoye-ui';

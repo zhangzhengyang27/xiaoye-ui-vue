@@ -1,38 +1,38 @@
 <template>
-  <a-space direction="vertical" :style="{ width: '100%' }" :size="[0, 48]">
-    <a-layout>
-      <a-layout-header :style="headerStyle">Header</a-layout-header>
-      <a-layout-content :style="contentStyle">Content</a-layout-content>
-      <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
-    </a-layout>
+  <xy-space direction="vertical" :style="{ width: '100%' }" :size="[0, 48]">
+    <xy-layout>
+      <xy-layout-header :style="headerStyle">Header</xy-layout-header>
+      <xy-layout-content :style="contentStyle">Content</xy-layout-content>
+      <xy-layout-footer :style="footerStyle">Footer</xy-layout-footer>
+    </xy-layout>
 
-    <a-layout>
-      <a-layout-header :style="headerStyle">Header</a-layout-header>
-      <a-layout>
-        <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
-        <a-layout-content :style="contentStyle">Content</a-layout-content>
-      </a-layout>
-      <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
-    </a-layout>
+    <xy-layout>
+      <xy-layout-header :style="headerStyle">Header</xy-layout-header>
+      <xy-layout>
+        <xy-layout-sider :style="siderStyle">Sider</xy-layout-sider>
+        <xy-layout-content :style="contentStyle">Content</xy-layout-content>
+      </xy-layout>
+      <xy-layout-footer :style="footerStyle">Footer</xy-layout-footer>
+    </xy-layout>
 
-    <a-layout>
-      <a-layout-header :style="headerStyle">Header</a-layout-header>
-      <a-layout>
-        <a-layout-content :style="contentStyle">Content</a-layout-content>
-        <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
-      </a-layout>
-      <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
-    </a-layout>
+    <xy-layout>
+      <xy-layout-header :style="headerStyle">Header</xy-layout-header>
+      <xy-layout>
+        <xy-layout-content :style="contentStyle">Content</xy-layout-content>
+        <xy-layout-sider :style="siderStyle">Sider</xy-layout-sider>
+      </xy-layout>
+      <xy-layout-footer :style="footerStyle">Footer</xy-layout-footer>
+    </xy-layout>
 
-    <a-layout>
-      <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
-      <a-layout>
-        <a-layout-header :style="headerStyle">Header</a-layout-header>
-        <a-layout-content :style="contentStyle">Content</a-layout-content>
-        <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
-      </a-layout>
-    </a-layout>
-  </a-space>
+    <xy-layout>
+      <xy-layout-sider :style="siderStyle">Sider</xy-layout-sider>
+      <xy-layout>
+        <xy-layout-header :style="headerStyle">Header</xy-layout-header>
+        <xy-layout-content :style="contentStyle">Content</xy-layout-content>
+        <xy-layout-footer :style="footerStyle">Footer</xy-layout-footer>
+      </xy-layout>
+    </xy-layout>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import type { CSSProperties } from 'vue';

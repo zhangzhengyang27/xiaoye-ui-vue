@@ -1,30 +1,30 @@
 <template>
-  <a-form
+  <xy-form
     layout="inline"
     :model="formState"
     @finish="handleFinish"
     @finishFailed="handleFinishFailed"
   >
-    <a-form-item>
-      <a-input v-model:value="formState.user" placeholder="Username">
+    <xy-form-item>
+      <xy-input v-model:value="formState.user" placeholder="Username">
         <template #prefix><UserOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
-      </a-input>
-    </a-form-item>
-    <a-form-item>
-      <a-input v-model:value="formState.password" type="password" placeholder="Password">
+      </xy-input>
+    </xy-form-item>
+    <xy-form-item>
+      <xy-input v-model:value="formState.password" type="password" placeholder="Password">
         <template #prefix><LockOutlined style="color: rgba(0, 0, 0, 0.25)" /></template>
-      </a-input>
-    </a-form-item>
-    <a-form-item>
-      <a-button
+      </xy-input>
+    </xy-form-item>
+    <xy-form-item>
+      <xy-button
         type="primary"
         html-type="submit"
         :disabled="formState.user === '' || formState.password === ''"
       >
         Log in
-      </a-button>
-    </a-form-item>
-  </a-form>
+      </xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

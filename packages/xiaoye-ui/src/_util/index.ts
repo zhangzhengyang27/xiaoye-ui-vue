@@ -1,3 +1,4 @@
+/* eslint-disable import/export */
 // Re-export all utilities from _util for backward compatibility
 export * from './type';
 export * from './util';
@@ -39,6 +40,7 @@ export * from './eagerComputed';
 export * from './reactivePick';
 export * from './unreachableException';
 export * from './debouncedWatch';
+export * from './registerComponent';
 
 // Components
 export * from './components';

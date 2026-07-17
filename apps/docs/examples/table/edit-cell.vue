@@ -1,11 +1,14 @@
 <template>
-  <a-button class="editable-add-btn" style="margin-bottom: 8px" @click="handleAdd">Add</a-button>
-  <a-table bordered :data-source="dataSource" :columns="columns">
+  <xy-button class="editable-add-btn" style="margin-bottom: 8px" @click="handleAdd">Add</xy-button>
+  <xy-table bordered :data-source="dataSource" :columns="columns">
     <template #bodyCell="{ column, text, record }">
       <template v-if="column.dataIndex === 'name'">
         <div class="editable-cell">
           <div v-if="editableData[record.key]" class="editable-cell-input-wrapper">
-            <a-input v-model:value="editableData[record.key].name" @pressEnter="save(record.key)" />
+            <xy-input
+              v-model:value="editableData[record.key].name"
+              @pressEnter="save(record.key)"
+            />
             <check-outlined class="editable-cell-icon-check" @click="save(record.key)" />
           </div>
           <div v-else class="editable-cell-text-wrapper">
@@ -15,16 +18,16 @@
         </div>
       </template>
       <template v-else-if="column.dataIndex === 'operation'">
-        <a-popconfirm
+        <xy-popconfirm
           v-if="dataSource.length"
           title="Sure to delete?"
           @confirm="onDelete(record.key)"
         >
           <a>Delete</a>
-        </a-popconfirm>
+        </xy-popconfirm>
       </template>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 import { computed, reactive, ref } from 'vue';

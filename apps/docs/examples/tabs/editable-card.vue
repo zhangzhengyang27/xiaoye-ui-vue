@@ -1,9 +1,9 @@
 <template>
-  <a-tabs v-model:active-key="activeKey" type="editable-card" @edit="handleEdit">
-    <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
+  <xy-tabs v-model:active-key="activeKey" type="editable-card" @edit="handleEdit">
+    <xy-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
       {{ pane.content }}
-    </a-tab-pane>
-  </a-tabs>
+    </xy-tab-pane>
+  </xy-tabs>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -1,10 +1,10 @@
 <template>
-  <a-upload v-model:file-list="fileList" action="https://www.mocky.io/v2/5cc8019d300000980a055e76">
-    <a-button>
+  <xy-upload v-model:file-list="fileList" action="https://www.mocky.io/v2/5cc8019d300000980a055e76">
+    <xy-button>
       <upload-outlined></upload-outlined>
       Upload
-    </a-button>
-  </a-upload>
+    </xy-button>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

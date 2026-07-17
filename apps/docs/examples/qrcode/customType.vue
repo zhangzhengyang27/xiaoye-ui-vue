@@ -1,6 +1,6 @@
 <template>
-  <a-space>
-    <a-qrcode value="http://www.xiaoye-ui.github.io" type="canvas" />
-    <a-qrcode value="http://www.xiaoye-ui.github.io" type="svg" />
-  </a-space>
+  <xy-space>
+    <xy-qrcode value="http://www.xiaoye-ui.github.io" type="canvas" />
+    <xy-qrcode value="http://www.xiaoye-ui.github.io" type="svg" />
+  </xy-space>
 </template>

@@ -21,7 +21,7 @@ import { useInjectDisabled } from '../config-provider/DisabledContext';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AInput',
+  name: 'XYInput',
   inheritAttrs: false,
   props: inputProps(),
   emits: ['update:value', 'change', 'input', 'focus', 'blur', 'pressEnter', 'keydown', 'keyup'],
@@ -136,7 +136,7 @@ export default defineComponent({
       return wrapSSR(
         <VcInput
           {...attrs}
-          {...omit(rest, ['onUpdate:value', 'onChange', 'onInput'])}
+          {...omit(rest, ['onUpdate:value', 'onChange', 'onInput', 'onBlur', 'onFocus'])}
           onChange={triggerChange}
           id={id}
           disabled={props.disabled ?? disabled.value}

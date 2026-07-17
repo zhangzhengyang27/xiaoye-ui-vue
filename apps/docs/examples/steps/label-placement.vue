@@ -1,10 +1,10 @@
 <template>
   <div>
-    <a-steps :current="1" label-placement="vertical" :items="items" />
+    <xy-steps :current="1" label-placement="vertical" :items="items" />
     <br />
-    <a-steps :current="1" :percent="60" label-placement="vertical" :items="items" />
+    <xy-steps :current="1" :percent="60" label-placement="vertical" :items="items" />
     <br />
-    <a-steps :current="1" size="small" label-placement="vertical" :items="items" />
+    <xy-steps :current="1" size="small" label-placement="vertical" :items="items" />
   </div>
 </template>
 <script lang="ts" setup>

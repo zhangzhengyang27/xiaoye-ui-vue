@@ -1,20 +1,20 @@
 <template>
-  <a-space direction="vertical">
-    <a-mentions
+  <xy-space direction="vertical">
+    <xy-mentions
       v-model:value="value"
       :options="options"
       autofocus
       status="error"
       @select="onSelect"
-    ></a-mentions>
-    <a-mentions
+    ></xy-mentions>
+    <xy-mentions
       v-model:value="value"
       :options="options"
       autofocus
       status="warning"
       @select="onSelect"
-    ></a-mentions>
-  </a-space>
+    ></xy-mentions>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

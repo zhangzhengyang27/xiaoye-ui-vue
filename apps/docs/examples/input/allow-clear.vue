@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-input v-model:value="value1" placeholder="input with clear icon" allow-clear />
+    <xy-input v-model:value="value1" placeholder="input with clear icon" allow-clear />
     <br />
     <br />
-    <a-textarea v-model:value="value2" placeholder="textarea with clear icon" allow-clear />
+    <xy-textarea v-model:value="value2" placeholder="textarea with clear icon" allow-clear />
   </div>
 </template>
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-  <a-button @click="countDown">Open modal to close in 5s</a-button>
+  <xy-button @click="countDown">Open modal to close in 5s</xy-button>
 </template>
 <script lang="ts" setup>
 import { Modal } from 'xiaoye-ui';

@@ -1,11 +1,11 @@
 <template>
-  <a-form
+  <xy-form
     ref="formRef"
     name="dynamic_form_item"
     :model="dynamicValidateForm"
     v-bind="formItemLayoutWithOutLabel"
   >
-    <a-form-item
+    <xy-form-item
       v-for="(domain, index) in dynamicValidateForm.domains"
       :key="domain.key"
       v-bind="index === 0 ? formItemLayout : {}"
@@ -17,7 +17,7 @@
         trigger: 'change',
       }"
     >
-      <a-input
+      <xy-input
         v-model:value="domain.value"
         placeholder="please input domain"
         style="width: 60%; margin-right: 8px"
@@ -27,18 +27,18 @@
         class="dynamic-delete-button"
         @click="removeDomain(domain)"
       />
-    </a-form-item>
-    <a-form-item v-bind="formItemLayoutWithOutLabel">
-      <a-button type="dashed" style="width: 60%" @click="addDomain">
+    </xy-form-item>
+    <xy-form-item v-bind="formItemLayoutWithOutLabel">
+      <xy-button type="dashed" style="width: 60%" @click="addDomain">
         <PlusOutlined />
         Add field
-      </a-button>
-    </a-form-item>
-    <a-form-item v-bind="formItemLayoutWithOutLabel">
-      <a-button type="primary" html-type="submit" @click="submitForm">Submit</a-button>
-      <a-button style="margin-left: 10px" @click="resetForm">Reset</a-button>
-    </a-form-item>
-  </a-form>
+      </xy-button>
+    </xy-form-item>
+    <xy-form-item v-bind="formItemLayoutWithOutLabel">
+      <xy-button type="primary" html-type="submit" @click="submitForm">Submit</xy-button>
+      <xy-button style="margin-left: 10px" @click="resetForm">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 
 <script lang="ts" setup>

@@ -1,5 +1,5 @@
 <template>
-  <a-tree-select
+  <xy-tree-select
     v-model:value="value"
     tree-data-simple-mode
     style="width: 100%"

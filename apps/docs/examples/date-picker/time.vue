@@ -1,14 +1,14 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-date-picker show-time placeholder="Select Time" @change="onChange" @ok="onOk" />
-    <a-range-picker
+  <xy-space direction="vertical" :size="12">
+    <xy-date-picker show-time placeholder="Select Time" @change="onChange" @ok="onOk" />
+    <xy-range-picker
       :show-time="{ format: 'HH:mm' }"
       format="YYYY-MM-DD HH:mm"
       :placeholder="['Start Time', 'End Time']"
       @change="onRangeChange"
       @ok="onRangeOk"
     />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { Dayjs } from 'dayjs';

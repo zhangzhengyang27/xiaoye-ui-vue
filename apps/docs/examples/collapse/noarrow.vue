@@ -1,12 +1,12 @@
 <template>
-  <a-collapse v-model:active-key="activeKey">
-    <a-collapse-panel key="1" header="This is panel header with arrow icon">
+  <xy-collapse v-model:active-key="activeKey">
+    <xy-collapse-panel key="1" header="This is panel header with arrow icon">
       <p>{{ text }}</p>
-    </a-collapse-panel>
-    <a-collapse-panel key="2" header="This is panel header with no arrow icon" :show-arrow="false">
+    </xy-collapse-panel>
+    <xy-collapse-panel key="2" header="This is panel header with no arrow icon" :show-arrow="false">
       <p>{{ text }}</p>
-    </a-collapse-panel>
-  </a-collapse>
+    </xy-collapse-panel>
+  </xy-collapse>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

@@ -81,7 +81,7 @@ const CompactItem = defineComponent({
 });
 
 const Compact = defineComponent({
-  name: 'ASpaceCompact',
+  name: 'XYSpaceCompact',
   inheritAttrs: false,
   props: spaceCompactProps(),
   setup(props, { attrs, slots }) {

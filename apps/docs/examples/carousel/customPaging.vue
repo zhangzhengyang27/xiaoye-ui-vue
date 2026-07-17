@@ -1,5 +1,5 @@
 <template>
-  <a-carousel arrows dots-class="slick-dots slick-thumb">
+  <xy-carousel arrows dots-class="slick-dots slick-thumb">
     <template #customPaging="props">
       <a>
         <img :src="getImgUrl(props.i)" />
@@ -8,7 +8,7 @@
     <div v-for="item in 4" :key="item">
       <img :src="getImgUrl(item - 1)" />
     </div>
-  </a-carousel>
+  </xy-carousel>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';

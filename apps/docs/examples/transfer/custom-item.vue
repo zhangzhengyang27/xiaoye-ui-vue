@@ -1,5 +1,5 @@
 <template>
-  <a-transfer
+  <xy-transfer
     v-model:target-keys="targetKeys"
     :data-source="mockData"
     :list-style="{
@@ -11,7 +11,7 @@
     <template #render="item">
       <span class="custom-item" style="color: red">{{ item.title }} - {{ item.description }}</span>
     </template>
-  </a-transfer>
+  </xy-transfer>
 </template>
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue';

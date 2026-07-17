@@ -1,7 +1,7 @@
 <template>
   <a href="#">
-    <a-badge count="5">
-      <a-avatar shape="square" size="large" />
-    </a-badge>
+    <xy-badge count="5">
+      <xy-avatar shape="square" size="large" />
+    </xy-badge>
   </a>
 </template>

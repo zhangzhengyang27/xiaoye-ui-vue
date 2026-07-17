@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-slider id="test" v-model:value="value1" :disabled="disabled" />
-    <a-slider v-model:value="value2" range :disabled="disabled" />
+    <xy-slider id="test" v-model:value="value1" :disabled="disabled" />
+    <xy-slider v-model:value="value2" range :disabled="disabled" />
     Disabled:
-    <a-switch v-model:checked="disabled" size="small" />
+    <xy-switch v-model:checked="disabled" size="small" />
   </div>
 </template>
 <script lang="ts" setup>

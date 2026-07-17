@@ -1,8 +1,8 @@
 <template>
-  <a-segmented v-model:value="value" :options="data"></a-segmented>
+  <xy-segmented v-model:value="value" :options="data"></xy-segmented>
   <br />
   <br />
-  <a-button type="primary" :disabled="isDisabled" @click="loadMore">Load More</a-button>
+  <xy-button type="primary" :disabled="isDisabled" @click="loadMore">Load More</xy-button>
 </template>
 
 <script lang="ts" setup>

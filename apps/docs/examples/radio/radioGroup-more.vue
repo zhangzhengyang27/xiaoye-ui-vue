@@ -1,13 +1,13 @@
 <template>
-  <a-radio-group v-model:value="value">
-    <a-radio :style="radioStyle" :value="1">Option A</a-radio>
-    <a-radio :style="radioStyle" :value="2">Option B</a-radio>
-    <a-radio :style="radioStyle" :value="3">Option C</a-radio>
-    <a-radio :style="radioStyle" :value="4">
+  <xy-radio-group v-model:value="value">
+    <xy-radio :style="radioStyle" :value="1">Option A</xy-radio>
+    <xy-radio :style="radioStyle" :value="2">Option B</xy-radio>
+    <xy-radio :style="radioStyle" :value="3">Option C</xy-radio>
+    <xy-radio :style="radioStyle" :value="4">
       More...
-      <a-input v-if="value === 4" style="width: 100px; margin-left: 10px" />
-    </a-radio>
-  </a-radio-group>
+      <xy-input v-if="value === 4" style="width: 100px; margin-left: 10px" />
+    </xy-radio>
+  </xy-radio-group>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';

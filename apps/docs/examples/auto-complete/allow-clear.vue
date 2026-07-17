@@ -1,5 +1,5 @@
 <template>
-  <a-auto-complete
+  <xy-auto-complete
     v-model:value="value"
     :options="options"
     style="width: 200px"
@@ -10,7 +10,7 @@
   />
   <br />
   <br />
-  <a-auto-complete
+  <xy-auto-complete
     v-model:value="value"
     :options="options"
     style="width: 200px"
@@ -22,7 +22,7 @@
     <template #clearIcon>
       <close-outlined />
     </template>
-  </a-auto-complete>
+  </xy-auto-complete>
 </template>
 
 <script lang="ts" setup>

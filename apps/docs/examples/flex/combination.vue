@@ -1,23 +1,23 @@
 <template>
-  <a-card :style="cardStyle" :body-style="{ padding: 0, overflow: 'hidden' }">
-    <a-flex justify="space-between">
+  <xy-card :style="cardStyle" :body-style="{ padding: 0, overflow: 'hidden' }">
+    <xy-flex justify="space-between">
       <img
         alt="avatar"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         :style="imgStyle"
       />
-      <a-flex vertical align="flex-end" justify="space-between" :style="{ padding: '32px' }">
-        <a-typography>
-          <a-typography-title :level="3">
+      <xy-flex vertical align="flex-end" justify="space-between" :style="{ padding: '32px' }">
+        <xy-typography>
+          <xy-typography-title :level="3">
             “xiaoye-ui is an enterprise-class UI design language and Vue UI library.”
-          </a-typography-title>
-        </a-typography>
-        <a-button type="primary" href="https://xiaoye-ui.github.io" target="_blank">
+          </xy-typography-title>
+        </xy-typography>
+        <xy-button type="primary" href="https://xiaoye-ui.github.io" target="_blank">
           Get Start
-        </a-button>
-      </a-flex>
-    </a-flex>
-  </a-card>
+        </xy-button>
+      </xy-flex>
+    </xy-flex>
+  </xy-card>
 </template>
 
 <script setup lang="ts">

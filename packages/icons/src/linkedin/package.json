@@ -1,11 +1,11 @@
 {
-    "main": "./LinkedinIcon.vue",
-    "module": "./LinkedinIcon.vue",
-    "types": "./LinkedinIcon.d.ts",
-    "browser": {
-        "./sfc": "./LinkedinIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LinkedinIcon.vue",
+  "module": "./LinkedinIcon.vue",
+  "types": "./LinkedinIcon.d.ts",
+  "browser": {
+    "./sfc": "./LinkedinIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

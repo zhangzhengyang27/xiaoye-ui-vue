@@ -1,14 +1,14 @@
 <template>
   <div>
-    <a-slider v-model:value="size" />
+    <xy-slider v-model:value="size" />
     <br />
     <br />
-    <a-space :size="size">
-      <a-button type="primary">Primary</a-button>
-      <a-button>Default</a-button>
-      <a-button type="dashed">Dashed</a-button>
-      <a-button type="link">Link</a-button>
-    </a-space>
+    <xy-space :size="size">
+      <xy-button type="primary">Primary</xy-button>
+      <xy-button>Default</xy-button>
+      <xy-button type="dashed">Dashed</xy-button>
+      <xy-button type="link">Link</xy-button>
+    </xy-space>
   </div>
 </template>
 <script lang="ts" setup>

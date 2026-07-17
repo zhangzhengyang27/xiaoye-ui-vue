@@ -1,17 +1,19 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">Open Modal with customized footer</a-button>
-    <a-modal v-model:open="open" title="Title" @ok="handleOk">
+    <xy-button type="primary" @click="showModal">Open Modal with customized footer</xy-button>
+    <xy-modal v-model:open="open" title="Title" @ok="handleOk">
       <template #footer>
-        <a-button key="back" @click="handleCancel">Return</a-button>
-        <a-button key="submit" type="primary" :loading="loading" @click="handleOk">Submit</a-button>
+        <xy-button key="back" @click="handleCancel">Return</xy-button>
+        <xy-button key="submit" type="primary" :loading="loading" @click="handleOk">
+          Submit
+        </xy-button>
       </template>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
-    </a-modal>
+    </xy-modal>
   </div>
 </template>
 <script lang="ts" setup>

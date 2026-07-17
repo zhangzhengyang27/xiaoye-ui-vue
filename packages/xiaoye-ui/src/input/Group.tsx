@@ -10,7 +10,7 @@ import useStyle from './style';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AInputGroup',
+  name: 'XYInputGroup',
   inheritAttrs: false,
   props: {
     prefixCls: String,

@@ -34,9 +34,9 @@ function isUnBorderedButtonType(type: ButtonType | undefined) {
 export { buttonProps };
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AButton',
+  name: 'XYButton',
   inheritAttrs: false,
-  __ANT_BUTTON: true,
+  __XY_BUTTON: true,
   props: initDefaultProps(buttonProps(), { type: 'default' }),
   slots: Object as CustomSlotsType<{
     icon: any;

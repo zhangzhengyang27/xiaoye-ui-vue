@@ -70,7 +70,7 @@ export type TooltipProps = Partial<ExtractPropTypes<ReturnType<typeof tooltipPro
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ATooltip',
+  name: 'XYTooltip',
   inheritAttrs: false,
   props: initDefaultProps(tooltipProps(), {
     trigger: 'hover',
@@ -166,11 +166,11 @@ export default defineComponent({
       const elementType = ele.type as any;
       if (typeof elementType === 'object' && ele.props) {
         if (
-          ((elementType.__ANT_BUTTON === true || elementType === 'button') &&
+          ((elementType.__XY_BUTTON === true || elementType === 'button') &&
             isTrueProps(ele.props.disabled)) ||
-          (elementType.__ANT_SWITCH === true &&
+          (elementType.__XY_SWITCH === true &&
             (isTrueProps(ele.props.disabled) || isTrueProps(ele.props.loading))) ||
-          (elementType.__ANT_RADIO === true && isTrueProps(ele.props.disabled))
+          (elementType.__XY_RADIO === true && isTrueProps(ele.props.disabled))
         ) {
           // Pick some layout related style properties up to span
           const { picked, omitted } = splitObject(getStyle(ele), [

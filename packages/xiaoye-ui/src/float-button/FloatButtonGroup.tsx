@@ -16,7 +16,7 @@ import useMergedState from '../_util/hooks/useMergedState';
 
 const FloatButtonGroup = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AFloatButtonGroup',
+  name: 'XYFloatButtonGroup',
   inheritAttrs: false,
   props: initDefaultProps(floatButtonGroupProps(), {
     type: 'default',

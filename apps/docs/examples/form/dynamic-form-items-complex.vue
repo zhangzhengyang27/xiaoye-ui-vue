@@ -1,20 +1,20 @@
 <template>
-  <a-form
+  <xy-form
     ref="formRef"
     name="dynamic_form_nest_item"
     :model="dynamicValidateForm"
     @finish="onFinish"
   >
-    <a-form-item name="area" label="Area" :rules="[{ required: true, message: 'Missing area' }]">
-      <a-select v-model:value="dynamicValidateForm.area" :options="areas" />
-    </a-form-item>
-    <a-space
+    <xy-form-item name="area" label="Area" :rules="[{ required: true, message: 'Missing area' }]">
+      <xy-select v-model:value="dynamicValidateForm.area" :options="areas" />
+    </xy-form-item>
+    <xy-space
       v-for="(sight, index) in dynamicValidateForm.sights"
       :key="sight.id"
       style="display: flex; margin-bottom: 8px"
       align="baseline"
     >
-      <a-form-item
+      <xy-form-item
         :name="['sights', index, 'value']"
         label="Sight"
         :rules="{
@@ -22,14 +22,14 @@
           message: 'Missing sight',
         }"
       >
-        <a-select
+        <xy-select
           v-model:value="sight.value"
           :disabled="!dynamicValidateForm.area"
           :options="(sights[dynamicValidateForm.area] || []).map(a => ({ value: a }))"
           style="width: 130px"
-        ></a-select>
-      </a-form-item>
-      <a-form-item
+        ></xy-select>
+      </xy-form-item>
+      <xy-form-item
         label="Price"
         :name="['sights', index, 'price']"
         :rules="{
@@ -37,20 +37,20 @@
           message: 'Missing price',
         }"
       >
-        <a-input v-model:value="sight.price" />
-      </a-form-item>
+        <xy-input v-model:value="sight.price" />
+      </xy-form-item>
       <MinusCircleOutlined @click="removeSight(sight)" />
-    </a-space>
-    <a-form-item>
-      <a-button type="dashed" block @click="addSight">
+    </xy-space>
+    <xy-form-item>
+      <xy-button type="dashed" block @click="addSight">
         <PlusOutlined />
         Add sights
-      </a-button>
-    </a-form-item>
-    <a-form-item>
-      <a-button type="primary" html-type="submit">Submit</a-button>
-    </a-form-item>
-  </a-form>
+      </xy-button>
+    </xy-form-item>
+    <xy-form-item>
+      <xy-button type="primary" html-type="submit">Submit</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 
 <script lang="ts" setup>

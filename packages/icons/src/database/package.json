@@ -1,11 +1,11 @@
 {
-    "main": "./DatabaseIcon.vue",
-    "module": "./DatabaseIcon.vue",
-    "types": "./DatabaseIcon.d.ts",
-    "browser": {
-        "./sfc": "./DatabaseIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./DatabaseIcon.vue",
+  "module": "./DatabaseIcon.vue",
+  "types": "./DatabaseIcon.d.ts",
+  "browser": {
+    "./sfc": "./DatabaseIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

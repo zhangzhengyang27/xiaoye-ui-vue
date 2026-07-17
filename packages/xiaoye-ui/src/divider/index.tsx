@@ -28,7 +28,7 @@ export const dividerProps = () => ({
 export type DividerProps = Partial<ExtractPropTypes<ReturnType<typeof dividerProps>>>;
 
 const Divider = defineComponent({
-  name: 'ADivider',
+  name: 'XYDivider',
   inheritAttrs: false,
   compatConfig: { MODE: 3 },
   props: dividerProps(),

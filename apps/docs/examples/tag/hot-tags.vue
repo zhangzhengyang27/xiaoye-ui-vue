@@ -1,12 +1,12 @@
 <template>
   <span :style="{ marginRight: '8px' }">Categories:</span>
   <template v-for="tag in state.tags" :key="tag">
-    <a-checkable-tag
+    <xy-checkable-tag
       :checked="state.selectedTags.indexOf(tag) > -1"
       @change="checked => handleChange(tag, checked)"
     >
       {{ tag }}
-    </a-checkable-tag>
+    </xy-checkable-tag>
   </template>
 </template>
 <script lang="ts" setup>

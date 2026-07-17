@@ -1,85 +1,85 @@
 <template>
-  <a-space direction="vertical" size="middle" class="site-space-compact-wrapper">
-    <a-space-compact block>
-      <a-input :style="{ width: '20%' }" default-value="0571" />
-      <a-input :style="{ width: '30%' }" default-value="26888888" />
-    </a-space-compact>
-    <a-space-compact block size="small">
-      <a-input :style="{ width: 'calc(100% - 200px)' }" default-value="https://example.com" />
-      <a-button type="primary">Submit</a-button>
-    </a-space-compact>
-    <a-space-compact block>
-      <a-input :style="{ width: 'calc(100% - 200px)' }" default-value="https://example.com" />
-      <a-button type="primary">Submit</a-button>
-    </a-space-compact>
-    <a-space-compact block>
-      <a-input
+  <xy-space direction="vertical" size="middle" class="site-space-compact-wrapper">
+    <xy-space-compact block>
+      <xy-input :style="{ width: '20%' }" default-value="0571" />
+      <xy-input :style="{ width: '30%' }" default-value="26888888" />
+    </xy-space-compact>
+    <xy-space-compact block size="small">
+      <xy-input :style="{ width: 'calc(100% - 200px)' }" default-value="https://example.com" />
+      <xy-button type="primary">Submit</xy-button>
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-input :style="{ width: 'calc(100% - 200px)' }" default-value="https://example.com" />
+      <xy-button type="primary">Submit</xy-button>
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-input
         :style="{ width: 'calc(100% - 200px)' }"
         default-value="git@github.com:xiaoye-ui/xiaoye-ui.git"
       />
-      <a-tooltip title="copy git url">
-        <a-button>
+      <xy-tooltip title="copy git url">
+        <xy-button>
           <CopyOutlined />
-        </a-button>
-      </a-tooltip>
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select default-value="Zhejiang" allow-clear>
-        <a-select-option value="Zhejiang">Zhejiang</a-select-option>
-        <a-select-option value="Jiangsu">Jiangsu</a-select-option>
-      </a-select>
-      <a-input :style="{ width: '50%' }" default-value="Xihu District, Hangzhou" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select allow-clear mode="multiple" default-value="Zhejianggggg" :style="{ width: '50%' }">
-        <a-select-option value="Zhejianggggg">Zhejianggggg</a-select-option>
-        <a-select-option value="Jiangsu">Jiangsu</a-select-option>
-      </a-select>
-      <a-input :style="{ width: '50%' }" default-value="Xihu District, Hangzhou" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-input-search :style="{ width: '30%' }" default-value="0571" />
-      <a-input-search allow-clear :style="{ width: '50%' }" default-value="26888888" />
-      <a-input-search :style="{ width: '20%' }" default-value="+1" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select default-value="Option1">
-        <a-select-option value="Option1">Option1</a-select-option>
-        <a-select-option value="Option2">Option2</a-select-option>
-      </a-select>
-      <a-input :style="{ width: '50%' }" default-value="input content" />
-      <a-input-number :default-value="12" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-input :style="{ width: '50%' }" default-value="input content" />
-      <a-date-picker :style="{ width: '50%' }" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-range-picker :style="{ width: '70%' }" />
-      <a-input :style="{ width: '30%' }" default-value="input content" />
-      <a-button type="primary">查询</a-button>
-    </a-space-compact>
-    <a-space-compact block>
-      <a-input :style="{ width: '30%' }" default-value="input content" />
-      <a-range-picker :style="{ width: '70%' }" />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select default-value="Option1-1">
-        <a-select-option value="Option1-1">Option1-1</a-select-option>
-        <a-select-option value="Option1-2">Option1-2</a-select-option>
-      </a-select>
-      <a-select default-value="Option2-2">
-        <a-select-option value="Option2-1">Option2-1</a-select-option>
-        <a-select-option value="Option2-2">Option2-2</a-select-option>
-      </a-select>
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select default-value="1">
-        <a-select-option value="1">Between</a-select-option>
-        <a-select-option value="2">Except</a-select-option>
-      </a-select>
-      <a-input :style="{ width: 100, textAlig: 'center' }" placeholder="Minimum" />
-      <a-input
+        </xy-button>
+      </xy-tooltip>
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select default-value="Zhejiang" allow-clear>
+        <xy-select-option value="Zhejiang">Zhejiang</xy-select-option>
+        <xy-select-option value="Jiangsu">Jiangsu</xy-select-option>
+      </xy-select>
+      <xy-input :style="{ width: '50%' }" default-value="Xihu District, Hangzhou" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select allow-clear mode="multiple" default-value="Zhejianggggg" :style="{ width: '50%' }">
+        <xy-select-option value="Zhejianggggg">Zhejianggggg</xy-select-option>
+        <xy-select-option value="Jiangsu">Jiangsu</xy-select-option>
+      </xy-select>
+      <xy-input :style="{ width: '50%' }" default-value="Xihu District, Hangzhou" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-input-search :style="{ width: '30%' }" default-value="0571" />
+      <xy-input-search allow-clear :style="{ width: '50%' }" default-value="26888888" />
+      <xy-input-search :style="{ width: '20%' }" default-value="+1" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select default-value="Option1">
+        <xy-select-option value="Option1">Option1</xy-select-option>
+        <xy-select-option value="Option2">Option2</xy-select-option>
+      </xy-select>
+      <xy-input :style="{ width: '50%' }" default-value="input content" />
+      <xy-input-number :default-value="12" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-input :style="{ width: '50%' }" default-value="input content" />
+      <xy-date-picker :style="{ width: '50%' }" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-range-picker :style="{ width: '70%' }" />
+      <xy-input :style="{ width: '30%' }" default-value="input content" />
+      <xy-button type="primary">查询</xy-button>
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-input :style="{ width: '30%' }" default-value="input content" />
+      <xy-range-picker :style="{ width: '70%' }" />
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select default-value="Option1-1">
+        <xy-select-option value="Option1-1">Option1-1</xy-select-option>
+        <xy-select-option value="Option1-2">Option1-2</xy-select-option>
+      </xy-select>
+      <xy-select default-value="Option2-2">
+        <xy-select-option value="Option2-1">Option2-1</xy-select-option>
+        <xy-select-option value="Option2-2">Option2-2</xy-select-option>
+      </xy-select>
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select default-value="1">
+        <xy-select-option value="1">Between</xy-select-option>
+        <xy-select-option value="2">Except</xy-select-option>
+      </xy-select>
+      <xy-input :style="{ width: 100, textAlig: 'center' }" placeholder="Minimum" />
+      <xy-input
         class="site-input-split"
         :style="{
           width: 30,
@@ -90,7 +90,7 @@
         placeholder="~"
         disabled
       />
-      <a-input
+      <xy-input
         class="site-input-right"
         :style="{
           width: 100,
@@ -98,21 +98,21 @@
         }"
         placeholder="Maximum"
       />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-select default-value="Sign Up" :style="{ width: '30%' }">
-        <a-select-option value="Sign Up">Sign Up</a-select-option>
-        <a-select-option value="Sign In">Sign In</a-select-option>
-      </a-select>
-      <a-auto-complete
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-select default-value="Sign Up" :style="{ width: '30%' }">
+        <xy-select-option value="Sign Up">Sign Up</xy-select-option>
+        <xy-select-option value="Sign In">Sign In</xy-select-option>
+      </xy-select>
+      <xy-auto-complete
         :style="{ width: '70%' }"
         placeholder="Email"
         :options="[{ value: 'text 1' }, { value: 'text 2' }]"
       />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-time-picker :style="{ width: '70%' }" />
-      <a-cascader
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-time-picker :style="{ width: '70%' }" />
+      <xy-cascader
         :style="{ width: '70%' }"
         :options="[
           {
@@ -150,10 +150,10 @@
         ]"
         placeholder="Select Address"
       />
-    </a-space-compact>
-    <a-space-compact block>
-      <a-time-range-picker />
-      <a-tree-select
+    </xy-space-compact>
+    <xy-space-compact block>
+      <xy-time-range-picker />
+      <xy-tree-select
         show-search
         :style="{ width: '60%' }"
         value="leaf1"
@@ -162,10 +162,10 @@
         allow-clear
         tree-default-expand-all
         :tree-data="treeData"
-      ></a-tree-select>
-      <a-button type="primary">Submit</a-button>
-    </a-space-compact>
-  </a-space>
+      ></xy-tree-select>
+      <xy-button type="primary">Submit</xy-button>
+    </xy-space-compact>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

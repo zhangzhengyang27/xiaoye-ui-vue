@@ -1,11 +1,11 @@
 {
-    "main": "./LineChartIcon.vue",
-    "module": "./LineChartIcon.vue",
-    "types": "./LineChartIcon.d.ts",
-    "browser": {
-        "./sfc": "./LineChartIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LineChartIcon.vue",
+  "module": "./LineChartIcon.vue",
+  "types": "./LineChartIcon.d.ts",
+  "browser": {
+    "./sfc": "./LineChartIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

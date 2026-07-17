@@ -1,24 +1,24 @@
 <template>
-  <a-space direction="vertical">
-    <a-space>
-      <a-button type="primary" loading>Loading</a-button>
-      <a-button type="primary" size="small" loading>Loading</a-button>
-    </a-space>
-    <a-space>
-      <a-button type="primary" :loading="loading" @mouseenter="loading = true">
+  <xy-space direction="vertical">
+    <xy-space>
+      <xy-button type="primary" loading>Loading</xy-button>
+      <xy-button type="primary" size="small" loading>Loading</xy-button>
+    </xy-space>
+    <xy-space>
+      <xy-button type="primary" :loading="loading" @mouseenter="loading = true">
         mouseenter me!
-      </a-button>
-      <a-button type="primary" :loading="iconLoading" @click="enterIconLoading">
+      </xy-button>
+      <xy-button type="primary" :loading="iconLoading" @click="enterIconLoading">
         <template #icon><PoweroffOutlined /></template>
         延迟1s
-      </a-button>
-    </a-space>
-    <a-space>
-      <a-button type="primary" loading />
-      <a-button type="primary" shape="circle" loading />
-      <a-button danger shape="round" loading />
-    </a-space>
-  </a-space>
+      </xy-button>
+    </xy-space>
+    <xy-space>
+      <xy-button type="primary" loading />
+      <xy-button type="primary" shape="circle" loading />
+      <xy-button danger shape="round" loading />
+    </xy-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

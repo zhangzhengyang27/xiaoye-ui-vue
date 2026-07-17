@@ -1,28 +1,28 @@
 <template>
-  <a-comment>
+  <xy-comment>
     <template #actions>
       <span key="comment-basic-like">
-        <a-tooltip title="Like">
+        <xy-tooltip title="Like">
           <template v-if="action === 'liked'">
             <LikeFilled @click="like" />
           </template>
           <template v-else>
             <LikeOutlined @click="like" />
           </template>
-        </a-tooltip>
+        </xy-tooltip>
         <span style="padding-left: 8px; cursor: auto">
           {{ likes }}
         </span>
       </span>
       <span key="comment-basic-dislike">
-        <a-tooltip title="Dislike">
+        <xy-tooltip title="Dislike">
           <template v-if="action === 'disliked'">
             <DislikeFilled @click="dislike" />
           </template>
           <template v-else>
             <DislikeOutlined @click="dislike" />
           </template>
-        </a-tooltip>
+        </xy-tooltip>
         <span style="padding-left: 8px; cursor: auto">
           {{ dislikes }}
         </span>
@@ -31,7 +31,7 @@
     </template>
     <template #author><a>Han Solo</a></template>
     <template #avatar>
-      <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+      <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
     </template>
     <template #content>
       <p>
@@ -41,11 +41,11 @@
       </p>
     </template>
     <template #datetime>
-      <a-tooltip :title="dayjs().format('YYYY-MM-DD HH:mm:ss')">
+      <xy-tooltip :title="dayjs().format('YYYY-MM-DD HH:mm:ss')">
         <span>{{ dayjs().fromNow() }}</span>
-      </a-tooltip>
+      </xy-tooltip>
     </template>
-  </a-comment>
+  </xy-comment>
 </template>
 <script lang="ts" setup>
 import dayjs from 'dayjs';

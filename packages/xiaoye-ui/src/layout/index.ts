@@ -1,6 +1,7 @@
 import type { App } from 'vue';
 import Layout, { Header, Footer, Content } from './layout';
 import Sider from './Sider';
+import { registerComponent } from '../_util/registerComponent';
 
 export type { BasicProps as LayoutProps } from './layout';
 export type { SiderProps } from './Sider';
@@ -17,11 +18,11 @@ export default Object.assign(Layout, {
   Content,
   Sider,
   install: (app: App) => {
-    app.component(Layout.name, Layout);
-    app.component(Header.name, Header);
-    app.component(Footer.name, Footer);
-    app.component(Sider.name, Sider);
-    app.component(Content.name, Content);
+    registerComponent(app, Layout);
+    registerComponent(app, Header);
+    registerComponent(app, Footer);
+    registerComponent(app, Sider);
+    registerComponent(app, Content);
     return app;
   },
 });

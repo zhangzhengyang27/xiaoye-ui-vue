@@ -1,5 +1,5 @@
 <template>
-  <a-segmented v-model:value="value" block :options="data" />
+  <xy-segmented v-model:value="value" block :options="data" />
 </template>
 
 <script lang="ts" setup>

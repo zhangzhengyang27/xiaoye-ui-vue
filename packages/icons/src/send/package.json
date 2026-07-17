@@ -1,11 +1,11 @@
 {
-    "main": "./SendIcon.vue",
-    "module": "./SendIcon.vue",
-    "types": "./SendIcon.d.ts",
-    "browser": {
-        "./sfc": "./SendIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SendIcon.vue",
+  "module": "./SendIcon.vue",
+  "types": "./SendIcon.d.ts",
+  "browser": {
+    "./sfc": "./SendIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

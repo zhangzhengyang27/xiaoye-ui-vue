@@ -160,6 +160,19 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         top: token.stepsIconTop,
         color: token.colorPrimary,
         lineHeight: 1,
+        [`& .xyicon`]: {
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '1em',
+          height: '1em',
+          fontSize: 'inherit',
+          verticalAlign: 'middle',
+          '& > svg': {
+            width: '1em',
+            height: '1em',
+          },
+        },
       },
     },
     [`${stepsItemCls}-tail`]: {

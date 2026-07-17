@@ -6,7 +6,7 @@
       }
     "
   >
-    <a-anchor
+    <xy-anchor
       direction="horizontal"
       :items="[
         {

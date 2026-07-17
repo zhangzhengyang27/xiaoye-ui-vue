@@ -1,8 +1,8 @@
 <template>
-  <a-space direction="vertical" align="center">
-    <a-qrcode :value="text" />
-    <a-input v-model:value="text" placeholder="-" :maxlength="60" />
-  </a-space>
+  <xy-space direction="vertical" align="center">
+    <xy-qrcode :value="text" />
+    <xy-input v-model:value="text" placeholder="-" :maxlength="60" />
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

@@ -1,11 +1,11 @@
 {
-    "main": "./CircleDollarSignIcon.vue",
-    "module": "./CircleDollarSignIcon.vue",
-    "types": "./CircleDollarSignIcon.d.ts",
-    "browser": {
-        "./sfc": "./CircleDollarSignIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CircleDollarSignIcon.vue",
+  "module": "./CircleDollarSignIcon.vue",
+  "types": "./CircleDollarSignIcon.d.ts",
+  "browser": {
+    "./sfc": "./CircleDollarSignIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

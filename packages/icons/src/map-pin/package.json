@@ -1,11 +1,11 @@
 {
-    "main": "./MapPinIcon.vue",
-    "module": "./MapPinIcon.vue",
-    "types": "./MapPinIcon.d.ts",
-    "browser": {
-        "./sfc": "./MapPinIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MapPinIcon.vue",
+  "module": "./MapPinIcon.vue",
+  "types": "./MapPinIcon.d.ts",
+  "browser": {
+    "./sfc": "./MapPinIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

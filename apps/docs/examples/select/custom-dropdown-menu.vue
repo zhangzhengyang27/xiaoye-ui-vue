@@ -1,5 +1,5 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     placeholder="custom dropdown render"
     style="width: 300px"
@@ -7,18 +7,18 @@
   >
     <template #dropdownRender="{ menuNode: menu }">
       <v-nodes :vnodes="menu" />
-      <a-divider style="margin: 4px 0" />
-      <a-space style="padding: 4px 8px">
-        <a-input ref="inputRef" v-model:value="name" placeholder="Please enter item" />
-        <a-button type="text" @click="addItem">
+      <xy-divider style="margin: 4px 0" />
+      <xy-space style="padding: 4px 8px">
+        <xy-input ref="inputRef" v-model:value="name" placeholder="Please enter item" />
+        <xy-button type="text" @click="addItem">
           <template #icon>
             <plus-outlined />
           </template>
           Add item
-        </a-button>
-      </a-space>
+        </xy-button>
+      </xy-space>
     </template>
-  </a-select>
+  </xy-select>
 </template>
 <script lang="ts" setup>
 import { PlusOutlined } from '@xiaoye-ui/icons';

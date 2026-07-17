@@ -1,12 +1,12 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     mode="multiple"
     style="width: 100%"
     placeholder="Please select"
     :options="[...Array(25)].map((_, i) => ({ value: (i + 10).toString(36) + (i + 1) }))"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

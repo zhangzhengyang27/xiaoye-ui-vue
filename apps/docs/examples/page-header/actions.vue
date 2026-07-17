@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-page-header
+    <xy-page-header
       class="demo-page-header"
       style="border: 1px solid rgb(235, 237, 240)"
       title="Title"
@@ -8,35 +8,35 @@
       @back="() => $router.go(-1)"
     >
       <template #extra>
-        <a-button key="3">Operation</a-button>
-        <a-button key="2">Operation</a-button>
-        <a-button key="1" type="primary">Primary</a-button>
+        <xy-button key="3">Operation</xy-button>
+        <xy-button key="2">Operation</xy-button>
+        <xy-button key="1" type="primary">Primary</xy-button>
       </template>
-      <a-descriptions size="small" :column="3">
-        <a-descriptions-item label="Created">Lili Qu</a-descriptions-item>
-        <a-descriptions-item label="Association">
+      <xy-descriptions size="small" :column="3">
+        <xy-descriptions-item label="Created">Lili Qu</xy-descriptions-item>
+        <xy-descriptions-item label="Association">
           <a>421421</a>
-        </a-descriptions-item>
-        <a-descriptions-item label="Creation Time">2017-01-10</a-descriptions-item>
-        <a-descriptions-item label="Effective Time">2017-10-10</a-descriptions-item>
-        <a-descriptions-item label="Remarks">
+        </xy-descriptions-item>
+        <xy-descriptions-item label="Creation Time">2017-01-10</xy-descriptions-item>
+        <xy-descriptions-item label="Effective Time">2017-10-10</xy-descriptions-item>
+        <xy-descriptions-item label="Remarks">
           Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-        </a-descriptions-item>
-      </a-descriptions>
-    </a-page-header>
+        </xy-descriptions-item>
+      </xy-descriptions>
+    </xy-page-header>
     <br />
-    <a-page-header title="Title" sub-title="This is a subtitle" @back="() => $router.go(-1)">
+    <xy-page-header title="Title" sub-title="This is a subtitle" @back="() => $router.go(-1)">
       <template #tags>
-        <a-tag color="blue">Running</a-tag>
+        <xy-tag color="blue">Running</xy-tag>
       </template>
       <template #extra>
-        <a-button key="3">Operation</a-button>
-        <a-button key="2">Operation</a-button>
-        <a-button key="1" type="primary">Primary</a-button>
+        <xy-button key="3">Operation</xy-button>
+        <xy-button key="2">Operation</xy-button>
+        <xy-button key="1" type="primary">Primary</xy-button>
       </template>
-      <a-row type="flex">
-        <a-statistic title="Status" value="Pending" />
-        <a-statistic
+      <xy-row type="flex">
+        <xy-statistic title="Status" value="Pending" />
+        <xy-statistic
           title="Price"
           prefix="$"
           :value="568.08"
@@ -44,9 +44,9 @@
             margin: '0 32px',
           }"
         />
-        <a-statistic title="Balance" prefix="$" :value="3345.08" />
-      </a-row>
-    </a-page-header>
+        <xy-statistic title="Balance" prefix="$" :value="3345.08" />
+      </xy-row>
+    </xy-page-header>
   </div>
 </template>
 <style scoped>

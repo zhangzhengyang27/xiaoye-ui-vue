@@ -1,11 +1,11 @@
 {
-    "main": "./ListOrderedIcon.vue",
-    "module": "./ListOrderedIcon.vue",
-    "types": "./ListOrderedIcon.d.ts",
-    "browser": {
-        "./sfc": "./ListOrderedIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ListOrderedIcon.vue",
+  "module": "./ListOrderedIcon.vue",
+  "types": "./ListOrderedIcon.d.ts",
+  "browser": {
+    "./sfc": "./ListOrderedIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

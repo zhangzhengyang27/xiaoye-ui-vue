@@ -42,7 +42,7 @@ describe('List', () => {
     expect(
       wrapper
         .findComponent({
-          name: 'ACheckbox',
+          name: 'XYCheckbox',
         })
         .props().checked,
     ).toBeTruthy();

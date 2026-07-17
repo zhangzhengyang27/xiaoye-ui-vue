@@ -91,7 +91,7 @@ export type Visibles = { [index: number]: boolean };
 
 const Slider = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASlider',
+  name: 'XYSlider',
   inheritAttrs: false,
   props: sliderProps(),
   // emits: ['update:value', 'change', 'afterChange', 'blur'],

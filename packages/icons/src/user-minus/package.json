@@ -1,11 +1,11 @@
 {
-    "main": "./UserMinusIcon.vue",
-    "module": "./UserMinusIcon.vue",
-    "types": "./UserMinusIcon.d.ts",
-    "browser": {
-        "./sfc": "./UserMinusIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./UserMinusIcon.vue",
+  "module": "./UserMinusIcon.vue",
+  "types": "./UserMinusIcon.d.ts",
+  "browser": {
+    "./sfc": "./UserMinusIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

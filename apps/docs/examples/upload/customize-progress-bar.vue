@@ -1,5 +1,5 @@
 <template>
-  <a-upload
+  <xy-upload
     v-model:file-list="fileList"
     name="file"
     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -7,11 +7,11 @@
     :progress="progress"
     @change="handleChange"
   >
-    <a-button>
+    <xy-button>
       <upload-outlined></upload-outlined>
       Click to Upload
-    </a-button>
-  </a-upload>
+    </xy-button>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

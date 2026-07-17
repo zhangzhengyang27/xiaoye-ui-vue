@@ -82,7 +82,7 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 
 const Skeleton = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASkeleton',
+  name: 'XYSkeleton',
   props: initDefaultProps(skeletonProps(), {
     avatar: false,
     title: true,

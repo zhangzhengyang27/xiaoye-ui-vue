@@ -27,10 +27,10 @@ app/myPage
 
 ### App
 
-|  参数  |  说明  |  类型  |  默认值  |  版本  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-|  message  |  App 内 Message 的全局配置  |  [MessageConfig](/components/message-cn/#messageconfig)  |  -  |  4.x  |
-|  notification  |  App 内 Notification 的全局配置  |  [NotificationConfig](/components/notification-cn/#notificationconfig)  |  -  |  4.x  |
+| message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 4.x |
+| notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 4.x |
 
 ## 如何使用
 
@@ -41,11 +41,11 @@ App 组件通过 `provide/inject` 提供上下文方法调用，因而 useApp �
 ```html
 /*myPage.vue*/
 <template>
-  <a-space>
-    <a-button type="primary" @click="showMessage">Open message</a-button>
-    <a-button type="primary" @click="showModal">Open modal</a-button>
-    <a-button type="primary" @click="showNotification">Open notification</a-button>
-  </a-space>
+  <xy-space>
+    <xy-button type="primary" @click="showMessage">Open message</xy-button>
+    <xy-button type="primary" @click="showModal">Open modal</xy-button>
+    <xy-button type="primary" @click="showNotification">Open notification</xy-button>
+  </xy-space>
 </template>
 
 <script setup lang="ts">
@@ -79,12 +79,12 @@ App 组件通过 `provide/inject` 提供上下文方法调用，因而 useApp �
 #### 内嵌使用场景（如无必要，尽量不做嵌套）
 
 ```html
-<a-app>
-  <a-space>
+<xy-app>
+  <xy-space>
     ...
-    <a-app>...</a-app>
-  </a-space>
-</a-app>
+    <xy-app>...</xy-app>
+  </xy-space>
+</xy-app>
 ```
 
 #### 与 ConfigProvider 先后顺序
@@ -92,9 +92,9 @@ App 组件通过 `provide/inject` 提供上下文方法调用，因而 useApp �
 App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
 
 ```html
-<a-config-provider theme="{{ ... }}">
-  <a-app>...</a-app>
-</a-config-provider>
+<xy-config-provider theme="{{ ... }}">
+  <xy-app>...</xy-app>
+</xy-config-provider>
 ```
 
 #### 全局场景 (pinia 场景)
@@ -123,9 +123,9 @@ export const useGlobalStore = defineStore('global', () => {
 ```html
 // sub page
 <template>
-  <a-space>
-    <a-button type="primary" @click="showMessage">Open message</a-button>
-  </a-space>
+  <xy-space>
+    <xy-button type="primary" @click="showMessage">Open message</xy-button>
+  </xy-space>
 </template>
 
 <script setup>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-button type="primary" @click="() => setVisible(true)">show image preview</a-button>
-    <a-image
+    <xy-button type="primary" @click="() => setVisible(true)">show image preview</xy-button>
+    <xy-image
       :width="200"
       :style="{ display: 'none' }"
       :preview="{

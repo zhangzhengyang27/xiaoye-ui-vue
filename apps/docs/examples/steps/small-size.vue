@@ -1,5 +1,5 @@
 <template>
-  <a-steps
+  <xy-steps
     :current="1"
     size="small"
     :items="[
@@ -13,5 +13,5 @@
         title: 'Waiting',
       },
     ]"
-  ></a-steps>
+  ></xy-steps>
 </template>

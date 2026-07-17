@@ -1,11 +1,11 @@
 {
-    "main": "./MessageCircleQuestionIcon.vue",
-    "module": "./MessageCircleQuestionIcon.vue",
-    "types": "./MessageCircleQuestionIcon.d.ts",
-    "browser": {
-        "./sfc": "./MessageCircleQuestionIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MessageCircleQuestionIcon.vue",
+  "module": "./MessageCircleQuestionIcon.vue",
+  "types": "./MessageCircleQuestionIcon.d.ts",
+  "browser": {
+    "./sfc": "./MessageCircleQuestionIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

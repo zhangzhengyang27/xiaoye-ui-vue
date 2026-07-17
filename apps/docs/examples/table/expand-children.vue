@@ -1,9 +1,9 @@
 <template>
-  <a-space align="center" style="margin-bottom: 16px">
+  <xy-space align="center" style="margin-bottom: 16px">
     CheckStrictly:
-    <a-switch v-model:checked="rowSelection.checkStrictly"></a-switch>
-  </a-space>
-  <a-table :columns="columns" :data-source="data" :row-selection="rowSelection" />
+    <xy-switch v-model:checked="rowSelection.checkStrictly"></xy-switch>
+  </xy-space>
+  <xy-table :columns="columns" :data-source="data" :row-selection="rowSelection" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

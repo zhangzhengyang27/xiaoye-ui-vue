@@ -1,15 +1,15 @@
 <template>
-  <a-card title="Default size card" style="width: 300px">
+  <xy-card title="Default size card" style="width: 300px">
     <template #extra><a href="#">more</a></template>
     <p>card content</p>
     <p>card content</p>
     <p>card content</p>
-  </a-card>
+  </xy-card>
   <br />
-  <a-card size="small" title="Small size card" style="width: 300px">
+  <xy-card size="small" title="Small size card" style="width: 300px">
     <template #extra><a href="#">more</a></template>
     <p>card content</p>
     <p>card content</p>
     <p>card content</p>
-  </a-card>
+  </xy-card>
 </template>

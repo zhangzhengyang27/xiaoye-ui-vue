@@ -1,25 +1,25 @@
 <template>
-  <a-space>
-    <a-button type="primary" @click="() => open('topLeft')">
+  <xy-space>
+    <xy-button type="primary" @click="() => open('topLeft')">
       <RadiusUpleftOutlined />
       topLeft
-    </a-button>
-    <a-button type="primary" @click="() => open('topRight')">
+    </xy-button>
+    <xy-button type="primary" @click="() => open('topRight')">
       <RadiusUprightOutlined />
       topRight
-    </a-button>
-  </a-space>
-  <a-divider />
-  <a-space>
-    <a-button type="primary" @click="() => open('bottomLeft')">
+    </xy-button>
+  </xy-space>
+  <xy-divider />
+  <xy-space>
+    <xy-button type="primary" @click="() => open('bottomLeft')">
       <RadiusBottomleftOutlined />
       bottomLeft
-    </a-button>
-    <a-button type="primary" @click="() => open('bottomRight')">
+    </xy-button>
+    <xy-button type="primary" @click="() => open('bottomRight')">
       <RadiusBottomrightOutlined />
       bottomRight
-    </a-button>
-  </a-space>
+    </xy-button>
+  </xy-space>
   <contextHolder />
 </template>
 

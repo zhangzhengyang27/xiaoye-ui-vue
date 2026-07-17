@@ -38,16 +38,14 @@ describe('Modal', () => {
         attachTo: 'body',
       },
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
     // https://github.com/vuejs/vue-test-utils/issues/624
     const wrapper1 = mount(ModalTester, {
       sync: false,
       attachTo: 'body',
     });
     wrapper1.setProps({ visible: true });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('render without footer', async () => {
@@ -59,8 +57,7 @@ describe('Modal', () => {
       },
       { attachTo: 'body', sync: true },
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('should work with getContainer=false', async () => {
@@ -71,7 +68,6 @@ describe('Modal', () => {
         visible: true,
       },
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });

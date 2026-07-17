@@ -1,6 +1,6 @@
 <template>
-  <a-space direction="vertical">
-    <a-transfer status="error" />
-    <a-transfer status="warning" show-search />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-transfer status="error" />
+    <xy-transfer status="warning" show-search />
+  </xy-space>
 </template>

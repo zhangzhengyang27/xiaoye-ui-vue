@@ -1,85 +1,85 @@
 <template>
   <div class="demo-dropdown-wrap">
-    <a-dropdown-button @click="handleButtonClick">
+    <xy-dropdown-button @click="handleButtonClick">
       Dropdown
       <template #overlay>
-        <a-menu @click="handleMenuClick">
-          <a-menu-item key="1">
+        <xy-menu @click="handleMenuClick">
+          <xy-menu-item key="1">
             <UserOutlined />
             1st menu item
-          </a-menu-item>
-          <a-menu-item key="2">
+          </xy-menu-item>
+          <xy-menu-item key="2">
             <UserOutlined />
             2nd menu item
-          </a-menu-item>
-          <a-menu-item key="3">
+          </xy-menu-item>
+          <xy-menu-item key="3">
             <UserOutlined />
             3rd item
-          </a-menu-item>
-        </a-menu>
+          </xy-menu-item>
+        </xy-menu>
       </template>
-    </a-dropdown-button>
-    <a-dropdown-button>
+    </xy-dropdown-button>
+    <xy-dropdown-button>
       Dropdown
       <template #overlay>
-        <a-menu @click="handleMenuClick">
-          <a-menu-item key="1">
+        <xy-menu @click="handleMenuClick">
+          <xy-menu-item key="1">
             <UserOutlined />
             1st menu item
-          </a-menu-item>
-          <a-menu-item key="2">
+          </xy-menu-item>
+          <xy-menu-item key="2">
             <UserOutlined />
             2nd menu item
-          </a-menu-item>
-          <a-menu-item key="3">
+          </xy-menu-item>
+          <xy-menu-item key="3">
             <UserOutlined />
             3rd item
-          </a-menu-item>
-        </a-menu>
+          </xy-menu-item>
+        </xy-menu>
       </template>
       <template #icon><UserOutlined /></template>
-    </a-dropdown-button>
-    <a-dropdown-button disabled @click="handleButtonClick">
+    </xy-dropdown-button>
+    <xy-dropdown-button disabled @click="handleButtonClick">
       Dropdown
       <template #overlay>
-        <a-menu @click="handleMenuClick">
-          <a-menu-item key="1">
+        <xy-menu @click="handleMenuClick">
+          <xy-menu-item key="1">
             <UserOutlined />
             1st menu item
-          </a-menu-item>
-          <a-menu-item key="2">
+          </xy-menu-item>
+          <xy-menu-item key="2">
             <UserOutlined />
             2nd menu item
-          </a-menu-item>
-          <a-menu-item key="3">
+          </xy-menu-item>
+          <xy-menu-item key="3">
             <UserOutlined />
             3rd item
-          </a-menu-item>
-        </a-menu>
+          </xy-menu-item>
+        </xy-menu>
       </template>
-    </a-dropdown-button>
-    <a-dropdown>
+    </xy-dropdown-button>
+    <xy-dropdown>
       <template #overlay>
-        <a-menu @click="handleMenuClick">
-          <a-menu-item key="1">
+        <xy-menu @click="handleMenuClick">
+          <xy-menu-item key="1">
             <UserOutlined />
             1st menu item
-          </a-menu-item>
-          <a-menu-item key="2">
+          </xy-menu-item>
+          <xy-menu-item key="2">
             <UserOutlined />
             2nd menu item
-          </a-menu-item>
-          <a-menu-item key="3">
+          </xy-menu-item>
+          <xy-menu-item key="3">
             <UserOutlined />
             3rd item
-          </a-menu-item>
-        </a-menu>
+          </xy-menu-item>
+        </xy-menu>
       </template>
-      <a-button>
+      <xy-button>
         Button
         <DownOutlined />
-      </a-button>
-    </a-dropdown>
+      </xy-button>
+    </xy-dropdown>
   </div>
 </template>
 <script lang="ts" setup>

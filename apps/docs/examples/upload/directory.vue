@@ -1,10 +1,10 @@
 <template>
-  <a-upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
-    <a-button>
+  <xy-upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
+    <xy-button>
       <upload-outlined></upload-outlined>
       Upload Directory
-    </a-button>
-  </a-upload>
+    </xy-button>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { UploadOutlined } from '@xiaoye-ui/icons';

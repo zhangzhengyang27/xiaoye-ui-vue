@@ -1,5 +1,5 @@
 <template>
-  <a-cascader
+  <xy-cascader
     v-model:value="value"
     :options="options"
     placeholder="Please select"

@@ -1,12 +1,12 @@
 <template>
-  <a-table
+  <xy-table
     class="xy-table-striped"
     size="middle"
     :columns="columns"
     :data-source="data"
     :row-class-name="(_record, index) => (index % 2 === 1 ? 'table-striped' : null)"
   />
-  <a-table
+  <xy-table
     class="xy-table-striped"
     size="middle"
     :columns="columns"

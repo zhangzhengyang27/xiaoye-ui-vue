@@ -1,30 +1,30 @@
 <template>
-  <a-space direction="vertical">
-    <a-date-picker @change="onChange">
+  <xy-space direction="vertical">
+    <xy-date-picker @change="onChange">
       <template #suffixIcon>
         <SmileOutlined />
       </template>
-    </a-date-picker>
-    <a-date-picker placeholder="Select month" picker="month" @change="onChange">
+    </xy-date-picker>
+    <xy-date-picker placeholder="Select month" picker="month" @change="onChange">
       <template #suffixIcon>
         <SmileOutlined />
       </template>
-    </a-date-picker>
-    <a-range-picker @change="onRangeChange">
+    </xy-date-picker>
+    <xy-range-picker @change="onRangeChange">
       <template #suffixIcon>
         <SmileOutlined />
       </template>
-    </a-range-picker>
-    <a-date-picker placeholder="Select week" picker="week" @change="onChange">
+    </xy-range-picker>
+    <xy-date-picker placeholder="Select week" picker="week" @change="onChange">
       <template #suffixIcon>
         <SmileOutlined />
       </template>
-    </a-date-picker>
-    <a-date-picker suffix-icon="ab" @change="onChange" />
-    <a-date-picker suffix-icon="ab" placeholder="Select month" picker="month" @change="onChange" />
-    <a-range-picker suffix-icon="ab" @change="onRangeChange" />
-    <a-date-picker suffix-icon="ab" placeholder="Select week" picker="week" @change="onChange" />
-  </a-space>
+    </xy-date-picker>
+    <xy-date-picker suffix-icon="ab" @change="onChange" />
+    <xy-date-picker suffix-icon="ab" placeholder="Select month" picker="month" @change="onChange" />
+    <xy-range-picker suffix-icon="ab" @change="onRangeChange" />
+    <xy-date-picker suffix-icon="ab" placeholder="Select week" picker="week" @change="onChange" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { SmileOutlined } from '@xiaoye-ui/icons';

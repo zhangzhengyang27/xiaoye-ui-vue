@@ -1,22 +1,19 @@
-import { watch } from 'vue'
-import { isClient } from '@vueuse/core'
+import { watch } from 'vue';
+import { isClient } from '@vueuse/core';
 
-import type { Ref } from 'vue'
+import type { Ref } from 'vue';
 
-export const useToggleWidgets = (
-  watchSource: Ref<boolean>,
-  handler: (e: Event) => void
-) => {
-  if (!isClient) return
+export const useToggleWidgets = (watchSource: Ref<boolean>, handler: (e: Event) => void) => {
+  if (!isClient) return;
 
   watch(
     () => watchSource.value,
-    (val) => {
+    val => {
       if (val) {
-        window.addEventListener('resize', handler)
+        window.addEventListener('resize', handler);
       } else {
-        window.removeEventListener('resize', handler)
+        window.removeEventListener('resize', handler);
       }
-    }
-  )
-}
+    },
+  );
+};

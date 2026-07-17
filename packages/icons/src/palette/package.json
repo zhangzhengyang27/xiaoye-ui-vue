@@ -1,11 +1,11 @@
 {
-    "main": "./PaletteIcon.vue",
-    "module": "./PaletteIcon.vue",
-    "types": "./PaletteIcon.d.ts",
-    "browser": {
-        "./sfc": "./PaletteIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./PaletteIcon.vue",
+  "module": "./PaletteIcon.vue",
+  "types": "./PaletteIcon.d.ts",
+  "browser": {
+    "./sfc": "./PaletteIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

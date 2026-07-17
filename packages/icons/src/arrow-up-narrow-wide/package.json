@@ -1,11 +1,11 @@
 {
-    "main": "./ArrowUpNarrowWideIcon.vue",
-    "module": "./ArrowUpNarrowWideIcon.vue",
-    "types": "./ArrowUpNarrowWideIcon.d.ts",
-    "browser": {
-        "./sfc": "./ArrowUpNarrowWideIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ArrowUpNarrowWideIcon.vue",
+  "module": "./ArrowUpNarrowWideIcon.vue",
+  "types": "./ArrowUpNarrowWideIcon.d.ts",
+  "browser": {
+    "./sfc": "./ArrowUpNarrowWideIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

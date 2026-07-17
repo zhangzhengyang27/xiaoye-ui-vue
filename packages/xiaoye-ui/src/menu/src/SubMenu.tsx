@@ -56,7 +56,7 @@ export type SubMenuProps = Partial<ExtractPropTypes<ReturnType<typeof subMenuPro
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASubMenu',
+  name: 'XYSubMenu',
   inheritAttrs: false,
   props: subMenuProps(),
   slots: Object as CustomSlotsType<{

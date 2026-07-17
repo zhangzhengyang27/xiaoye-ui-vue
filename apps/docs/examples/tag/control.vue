@@ -1,15 +1,15 @@
 <template>
   <template v-for="(tag, index) in state.tags" :key="tag">
-    <a-tooltip v-if="tag.length > 20" :title="tag">
-      <a-tag :closable="index !== 0" @close="handleClose(tag)">
+    <xy-tooltip v-if="tag.length > 20" :title="tag">
+      <xy-tag :closable="index !== 0" @close="handleClose(tag)">
         {{ `${tag.slice(0, 20)}...` }}
-      </a-tag>
-    </a-tooltip>
-    <a-tag v-else :closable="index !== 0" @close="handleClose(tag)">
+      </xy-tag>
+    </xy-tooltip>
+    <xy-tag v-else :closable="index !== 0" @close="handleClose(tag)">
       {{ tag }}
-    </a-tag>
+    </xy-tag>
   </template>
-  <a-input
+  <xy-input
     v-if="state.inputVisible"
     ref="inputRef"
     v-model:value="state.inputValue"
@@ -19,10 +19,10 @@
     @blur="handleInputConfirm"
     @keyup.enter="handleInputConfirm"
   />
-  <a-tag v-else style="background: #fff; border-style: dashed" @click="showInput">
+  <xy-tag v-else style="background: #fff; border-style: dashed" @click="showInput">
     <plus-outlined />
     New Tag
-  </a-tag>
+  </xy-tag>
 </template>
 <script lang="ts" setup>
 import { ref, reactive, nextTick } from 'vue';

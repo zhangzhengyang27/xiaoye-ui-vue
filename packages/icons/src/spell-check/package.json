@@ -1,11 +1,11 @@
 {
-    "main": "./SpellCheckIcon.vue",
-    "module": "./SpellCheckIcon.vue",
-    "types": "./SpellCheckIcon.d.ts",
-    "browser": {
-        "./sfc": "./SpellCheckIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SpellCheckIcon.vue",
+  "module": "./SpellCheckIcon.vue",
+  "types": "./SpellCheckIcon.d.ts",
+  "browser": {
+    "./sfc": "./SpellCheckIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

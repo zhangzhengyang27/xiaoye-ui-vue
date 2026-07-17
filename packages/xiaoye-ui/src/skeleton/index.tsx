@@ -5,6 +5,7 @@ import SkeletonInput from './Input';
 import SkeletonImage from './Image';
 import SkeletonAvatar from './Avatar';
 import SkeletonTitle from './Title';
+import { registerComponent } from '../_util/registerComponent';
 export type { SkeletonButtonProps } from './Button';
 export type { SkeletonInputProps } from './Input';
 export type { SkeletonImageProps } from './Image';
@@ -22,12 +23,12 @@ Skeleton.Title = SkeletonTitle;
 
 /* istanbul ignore next */
 Skeleton.install = function (app: App) {
-  app.component(Skeleton.name, Skeleton);
-  app.component(Skeleton.Button.name, SkeletonButton);
-  app.component(Skeleton.Avatar.name, SkeletonAvatar);
-  app.component(Skeleton.Input.name, SkeletonInput);
-  app.component(Skeleton.Image.name, SkeletonImage);
-  app.component(Skeleton.Title.name, SkeletonTitle);
+  registerComponent(app, Skeleton);
+  registerComponent(app, SkeletonButton);
+  registerComponent(app, SkeletonAvatar);
+  registerComponent(app, SkeletonInput);
+  registerComponent(app, SkeletonImage);
+  registerComponent(app, SkeletonTitle);
   return app;
 };
 export { SkeletonButton, SkeletonAvatar, SkeletonInput, SkeletonImage, SkeletonTitle };

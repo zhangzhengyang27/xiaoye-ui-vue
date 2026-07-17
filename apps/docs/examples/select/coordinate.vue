@@ -1,16 +1,16 @@
 <template>
-  <a-space>
-    <a-select
+  <xy-space>
+    <xy-select
       v-model:value="province"
       style="width: 120px"
       :options="provinceData.map(pro => ({ value: pro }))"
-    ></a-select>
-    <a-select
+    ></xy-select>
+    <xy-select
       v-model:value="secondCity"
       style="width: 120px"
       :options="cities.map(city => ({ value: city }))"
-    ></a-select>
-  </a-space>
+    ></xy-select>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';

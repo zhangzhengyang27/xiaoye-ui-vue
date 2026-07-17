@@ -9,7 +9,6 @@
     "preview": "vitepress preview ."
   },
   "devDependencies": {
-    "@ant-design/icons-vue": "^7.0.0",
     "@iconify-json/ri": "^1.2.10",
     "@prettier/sync": "^0.6.1",
     "@tailwindcss/vite": "^4.1.0",

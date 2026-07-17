@@ -1,5 +1,5 @@
 <template>
-  <a-menu
+  <xy-menu
     id="dddddd"
     v-model:open-keys="openKeys"
     v-model:selected-keys="selectedKeys"
@@ -7,7 +7,7 @@
     mode="inline"
     :items="items"
     @click="handleClick"
-  ></a-menu>
+  ></xy-menu>
 </template>
 <script lang="ts" setup>
 import { reactive, ref, watch, VueElement, h } from 'vue';

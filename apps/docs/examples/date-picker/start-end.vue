@@ -1,6 +1,6 @@
 <template>
-  <a-space direction="vertical">
-    <a-date-picker
+  <xy-space direction="vertical">
+    <xy-date-picker
       v-model:value="startValue"
       :disabled-date="disabledStartDate"
       show-time
@@ -8,7 +8,7 @@
       placeholder="Start"
       @openChange="handleStartOpenChange"
     />
-    <a-date-picker
+    <xy-date-picker
       v-model:value="endValue"
       :disabled-date="disabledEndDate"
       show-time
@@ -17,7 +17,7 @@
       :open="endOpen"
       @openChange="handleEndOpenChange"
     />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { Dayjs } from 'dayjs';

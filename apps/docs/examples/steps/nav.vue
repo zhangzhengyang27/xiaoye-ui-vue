@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-steps
+    <xy-steps
       v-model:current="current"
       type="navigation"
       size="small"
@@ -25,8 +25,8 @@
           description: 'This is a description.',
         },
       ]"
-    ></a-steps>
-    <a-steps
+    ></xy-steps>
+    <xy-steps
       v-model:current="current"
       type="navigation"
       :style="stepStyle"
@@ -48,8 +48,8 @@
           title: 'Step 4',
         },
       ]"
-    ></a-steps>
-    <a-steps
+    ></xy-steps>
+    <xy-steps
       v-model:current="current"
       type="navigation"
       size="small"
@@ -73,7 +73,7 @@
           disabled: true,
         },
       ]"
-    ></a-steps>
+    ></xy-steps>
   </div>
 </template>
 <script lang="ts" setup>

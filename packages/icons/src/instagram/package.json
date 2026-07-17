@@ -1,11 +1,11 @@
 {
-    "main": "./InstagramIcon.vue",
-    "module": "./InstagramIcon.vue",
-    "types": "./InstagramIcon.d.ts",
-    "browser": {
-        "./sfc": "./InstagramIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./InstagramIcon.vue",
+  "module": "./InstagramIcon.vue",
+  "types": "./InstagramIcon.d.ts",
+  "browser": {
+    "./sfc": "./InstagramIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,23 +1,23 @@
 <template>
-  <a-upload
+  <xy-upload
     v-model:file-list="fileList"
     name="file"
     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
     :headers="headers"
     @change="handleChange"
   >
-    <a-button>
+    <xy-button>
       <upload-outlined></upload-outlined>
       Click to Upload
-    </a-button>
+    </xy-button>
     <template #itemRender="{ file, actions }">
-      <a-space>
+      <xy-space>
         <span :style="file.status === 'error' ? 'color: red' : ''">{{ file.name }}</span>
         <a href="javascript:;" @click="actions.download">download</a>
         <a href="javascript:;" @click="actions.remove">delete</a>
-      </a-space>
+      </xy-space>
     </template>
-  </a-upload>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

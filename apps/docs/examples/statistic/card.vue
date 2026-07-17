@@ -1,9 +1,9 @@
 <template>
   <div style="background: #ececec; padding: 30px">
-    <a-row :gutter="16">
-      <a-col :span="12">
-        <a-card>
-          <a-statistic
+    <xy-row :gutter="16">
+      <xy-col :span="12">
+        <xy-card>
+          <xy-statistic
             title="Feedback"
             :value="11.28"
             :precision="2"
@@ -14,12 +14,12 @@
             <template #prefix>
               <arrow-up-outlined />
             </template>
-          </a-statistic>
-        </a-card>
-      </a-col>
-      <a-col :span="12">
-        <a-card>
-          <a-statistic
+          </xy-statistic>
+        </xy-card>
+      </xy-col>
+      <xy-col :span="12">
+        <xy-card>
+          <xy-statistic
             title="Idle"
             :value="9.3"
             :precision="2"
@@ -30,10 +30,10 @@
             <template #prefix>
               <arrow-down-outlined />
             </template>
-          </a-statistic>
-        </a-card>
-      </a-col>
-    </a-row>
+          </xy-statistic>
+        </xy-card>
+      </xy-col>
+    </xy-row>
   </div>
 </template>
 <script lang="ts" setup>

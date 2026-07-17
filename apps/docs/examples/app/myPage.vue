@@ -1,9 +1,9 @@
 <template>
-  <a-space>
-    <a-button type="primary" @click="showMessage">Open message</a-button>
-    <a-button type="primary" @click="showModal">Open modal</a-button>
-    <a-button type="primary" @click="showNotification">Open notification</a-button>
-  </a-space>
+  <xy-space>
+    <xy-button type="primary" @click="showMessage">Open message</xy-button>
+    <xy-button type="primary" @click="showModal">Open modal</xy-button>
+    <xy-button type="primary" @click="showNotification">Open notification</xy-button>
+  </xy-space>
 </template>
 
 <script setup lang="ts">

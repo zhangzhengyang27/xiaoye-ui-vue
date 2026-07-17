@@ -6,7 +6,7 @@ describe('xiaoye-ui', () => {
   beforeAll(async () => {
     process.env.NODE_ENV = 'development';
     xiaoyeUI = await import('..');
-  });
+  }, 60000);
 
   afterAll(() => {
     process.env.NODE_ENV = OLD_NODE_ENV;

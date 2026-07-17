@@ -1,5 +1,5 @@
 <template>
-  <a-tree
+  <xy-tree
     v-model:expanded-keys="expandedKeys"
     v-model:selected-keys="selectedKeys"
     v-model:checked-keys="checkedKeys"
@@ -11,7 +11,7 @@
       <span v-if="key === '0-0-1'" style="color: #1890ff">{{ name }}</span>
       <template v-else>{{ name }}</template>
     </template>
-  </a-tree>
+  </xy-tree>
 </template>
 <script lang="ts" setup>
 import { Ref, ref, watch } from 'vue';

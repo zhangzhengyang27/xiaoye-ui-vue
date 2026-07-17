@@ -1,22 +1,22 @@
 <template>
-  <a-radio-group v-model:value="placement">
-    <a-radio-button value="topLeft">topLeft</a-radio-button>
-    <a-radio-button value="topRight">topRight</a-radio-button>
-    <a-radio-button value="bottomLeft">bottomLeft</a-radio-button>
-    <a-radio-button value="bottomRight">bottomRight</a-radio-button>
-  </a-radio-group>
+  <xy-radio-group v-model:value="placement">
+    <xy-radio-button value="topLeft">topLeft</xy-radio-button>
+    <xy-radio-button value="topRight">topRight</xy-radio-button>
+    <xy-radio-button value="bottomLeft">bottomLeft</xy-radio-button>
+    <xy-radio-button value="bottomRight">bottomRight</xy-radio-button>
+  </xy-radio-group>
   <br />
   <br />
-  <a-select
+  <xy-select
     v-model:value="value"
     style="width: 120px"
     :dropdown-match-select-width="false"
     :placement="placement"
   >
-    <a-select-option value="HangZhou">HangZhou #310000</a-select-option>
-    <a-select-option value="NingBo">NingBo #315000</a-select-option>
-    <a-select-option value="WenZhou">WenZhou #325000</a-select-option>
-  </a-select>
+    <xy-select-option value="HangZhou">HangZhou #310000</xy-select-option>
+    <xy-select-option value="NingBo">NingBo #315000</xy-select-option>
+    <xy-select-option value="WenZhou">WenZhou #325000</xy-select-option>
+  </xy-select>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

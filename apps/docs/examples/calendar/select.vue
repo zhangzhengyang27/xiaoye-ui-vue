@@ -1,6 +1,8 @@
 <template>
-  <a-alert :message="`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`" />
-  <a-calendar :value="date" @select="onSelect" @panelChange="onPanelChange" />
+  <xy-alert
+    :message="`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`"
+  />
+  <xy-calendar :value="date" @select="onSelect" @panelChange="onPanelChange" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

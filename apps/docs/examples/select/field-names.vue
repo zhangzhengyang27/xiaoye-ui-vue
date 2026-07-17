@@ -1,5 +1,5 @@
 <template>
-  <a-select
+  <xy-select
     ref="select"
     v-model:value="value"
     style="width: 120px"
@@ -7,7 +7,7 @@
     :field-names="{ label: 'name', value: 'id', options: 'children' }"
     @focus="focus"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import type { SelectProps } from 'xiaoye-ui';

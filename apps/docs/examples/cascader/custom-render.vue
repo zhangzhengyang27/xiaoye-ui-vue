@@ -1,5 +1,5 @@
 <template>
-  <a-cascader
+  <xy-cascader
     v-model:value="value"
     placeholder="Please select"
     :options="options"
@@ -17,7 +17,7 @@
         <span v-else>{{ label }} /</span>
       </span>
     </template>
-  </a-cascader>
+  </xy-cascader>
 </template>
 
 <script lang="ts" setup>

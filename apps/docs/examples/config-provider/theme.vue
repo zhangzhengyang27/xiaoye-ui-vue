@@ -1,23 +1,23 @@
 <template>
-  <a-config-provider
+  <xy-config-provider
     :theme="{ token: { colorPrimary: data.colorPrimary, borderRadius: `${data.borderRadius}px` } }"
   >
-    <a-form :model="data" name="theme" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }">
-      <a-form-item name="colorPrimary" label="Primary Color">
+    <xy-form :model="data" name="theme" :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }">
+      <xy-form-item name="colorPrimary" label="Primary Color">
         <input
           type="color"
           :value="data.colorPrimary"
           @input="e => (data.colorPrimary = e.target.value)"
         />
-      </a-form-item>
-      <a-form-item name="borderRadius" label="Border Radius">
-        <a-input v-model:value="data.borderRadius" />
-      </a-form-item>
-      <a-form-item name="submit" :wrapper-col="{ offset: 4, span: 20 }">
-        <a-button type="primary">submit</a-button>
-      </a-form-item>
-    </a-form>
-  </a-config-provider>
+      </xy-form-item>
+      <xy-form-item name="borderRadius" label="Border Radius">
+        <xy-input v-model:value="data.borderRadius" />
+      </xy-form-item>
+      <xy-form-item name="submit" :wrapper-col="{ offset: 4, span: 20 }">
+        <xy-button type="primary">submit</xy-button>
+      </xy-form-item>
+    </xy-form>
+  </xy-config-provider>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

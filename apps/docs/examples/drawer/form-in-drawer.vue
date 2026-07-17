@@ -1,9 +1,9 @@
 <template>
-  <a-button type="primary" @click="showDrawer">
+  <xy-button type="primary" @click="showDrawer">
     <template #icon><PlusOutlined /></template>
     New account
-  </a-button>
-  <a-drawer
+  </xy-button>
+  <xy-drawer
     title="Create a new account"
     :width="720"
     :open="open"
@@ -11,81 +11,81 @@
     :footer-style="{ textAlign: 'right' }"
     @close="onClose"
   >
-    <a-form :model="form" :rules="rules" layout="vertical">
-      <a-row :gutter="16">
-        <a-col :span="12">
-          <a-form-item label="Name" name="name">
-            <a-input v-model:value="form.name" placeholder="Please enter user name" />
-          </a-form-item>
-        </a-col>
-        <a-col :span="12">
-          <a-form-item label="Url" name="url">
-            <a-input
+    <xy-form :model="form" :rules="rules" layout="vertical">
+      <xy-row :gutter="16">
+        <xy-col :span="12">
+          <xy-form-item label="Name" name="name">
+            <xy-input v-model:value="form.name" placeholder="Please enter user name" />
+          </xy-form-item>
+        </xy-col>
+        <xy-col :span="12">
+          <xy-form-item label="Url" name="url">
+            <xy-input
               v-model:value="form.url"
               style="width: 100%"
               addon-before="http://"
               addon-after=".com"
               placeholder="please enter url"
             />
-          </a-form-item>
-        </a-col>
-      </a-row>
-      <a-row :gutter="16">
-        <a-col :span="12">
-          <a-form-item label="Owner" name="owner">
-            <a-select v-model:value="form.owner" placeholder="Please a-s an owner">
-              <a-select-option value="xiao">Xiaoxiao Fu</a-select-option>
-              <a-select-option value="mao">Maomao Zhou</a-select-option>
-            </a-select>
-          </a-form-item>
-        </a-col>
-        <a-col :span="12">
-          <a-form-item label="Type" name="type">
-            <a-select v-model:value="form.type" placeholder="Please choose the type">
-              <a-select-option value="private">Private</a-select-option>
-              <a-select-option value="public">Public</a-select-option>
-            </a-select>
-          </a-form-item>
-        </a-col>
-      </a-row>
-      <a-row :gutter="16">
-        <a-col :span="12">
-          <a-form-item label="Approver" name="approver">
-            <a-select v-model:value="form.approver" placeholder="Please choose the approver">
-              <a-select-option value="jack">Jack Ma</a-select-option>
-              <a-select-option value="tom">Tom Liu</a-select-option>
-            </a-select>
-          </a-form-item>
-        </a-col>
-        <a-col :span="12">
-          <a-form-item label="DateTime" name="dateTime">
-            <a-date-picker
+          </xy-form-item>
+        </xy-col>
+      </xy-row>
+      <xy-row :gutter="16">
+        <xy-col :span="12">
+          <xy-form-item label="Owner" name="owner">
+            <xy-select v-model:value="form.owner" placeholder="Please a-s an owner">
+              <xy-select-option value="xiao">Xiaoxiao Fu</xy-select-option>
+              <xy-select-option value="mao">Maomao Zhou</xy-select-option>
+            </xy-select>
+          </xy-form-item>
+        </xy-col>
+        <xy-col :span="12">
+          <xy-form-item label="Type" name="type">
+            <xy-select v-model:value="form.type" placeholder="Please choose the type">
+              <xy-select-option value="private">Private</xy-select-option>
+              <xy-select-option value="public">Public</xy-select-option>
+            </xy-select>
+          </xy-form-item>
+        </xy-col>
+      </xy-row>
+      <xy-row :gutter="16">
+        <xy-col :span="12">
+          <xy-form-item label="Approver" name="approver">
+            <xy-select v-model:value="form.approver" placeholder="Please choose the approver">
+              <xy-select-option value="jack">Jack Ma</xy-select-option>
+              <xy-select-option value="tom">Tom Liu</xy-select-option>
+            </xy-select>
+          </xy-form-item>
+        </xy-col>
+        <xy-col :span="12">
+          <xy-form-item label="DateTime" name="dateTime">
+            <xy-date-picker
               v-model:value="form.dateTime"
               style="width: 100%"
               :get-popup-container="trigger => trigger.parentElement"
             />
-          </a-form-item>
-        </a-col>
-      </a-row>
-      <a-row :gutter="16">
-        <a-col :span="24">
-          <a-form-item label="Description" name="description">
-            <a-textarea
+          </xy-form-item>
+        </xy-col>
+      </xy-row>
+      <xy-row :gutter="16">
+        <xy-col :span="24">
+          <xy-form-item label="Description" name="description">
+            <xy-textarea
               v-model:value="form.description"
               :rows="4"
               placeholder="please enter url description"
             />
-          </a-form-item>
-        </a-col>
-      </a-row>
-    </a-form>
+          </xy-form-item>
+        </xy-col>
+      </xy-row>
+    </xy-form>
     <template #extra>
-      <a-space>
-        <a-button @click="onClose">Cancel</a-button>
-        <a-button type="primary" @click="onClose">Submit</a-button>
-      </a-space>
+      <xy-space>
+        <xy-button @click="onClose">Cancel</xy-button>
+        <xy-button type="primary" @click="onClose">Submit</xy-button>
+      </xy-space>
     </template>
-  </a-drawer>
+  </xy-drawer>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';

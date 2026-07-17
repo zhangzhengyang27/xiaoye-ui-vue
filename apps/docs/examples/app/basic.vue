@@ -1,7 +1,7 @@
 <template>
-  <a-app>
+  <xy-app>
     <my-page />
-  </a-app>
+  </xy-app>
 </template>
 
 <script lang="ts" setup>

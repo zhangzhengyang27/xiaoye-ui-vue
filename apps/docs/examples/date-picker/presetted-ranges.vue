@@ -1,15 +1,15 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-date-picker :presets="presets" @change="onChange" />
-    <a-range-picker :presets="rangePresets" @change="onRangeChange" />
-    <a-range-picker
+  <xy-space direction="vertical" :size="12">
+    <xy-date-picker :presets="presets" @change="onChange" />
+    <xy-range-picker :presets="rangePresets" @change="onRangeChange" />
+    <xy-range-picker
       style="width: 400px"
       show-time
       format="YYYY/MM/DD HH:mm:ss"
       :presets="rangePresets"
       @change="onRangeChange"
     />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import dayjs, { Dayjs } from 'dayjs';

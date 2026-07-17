@@ -1,11 +1,11 @@
 {
-    "main": "./FolderIcon.vue",
-    "module": "./FolderIcon.vue",
-    "types": "./FolderIcon.d.ts",
-    "browser": {
-        "./sfc": "./FolderIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./FolderIcon.vue",
+  "module": "./FolderIcon.vue",
+  "types": "./FolderIcon.d.ts",
+  "browser": {
+    "./sfc": "./FolderIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

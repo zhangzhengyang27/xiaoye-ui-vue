@@ -1,47 +1,47 @@
 <template>
-  <a-layout has-sider>
-    <a-layout-sider
+  <xy-layout has-sider>
+    <xy-layout-sider
       :style="{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }"
     >
       <div class="logo" />
-      <a-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
-        <a-menu-item key="1">
+      <xy-menu v-model:selected-keys="selectedKeys" theme="dark" mode="inline">
+        <xy-menu-item key="1">
           <user-outlined />
           <span class="nav-text">nav 1</span>
-        </a-menu-item>
-        <a-menu-item key="2">
+        </xy-menu-item>
+        <xy-menu-item key="2">
           <video-camera-outlined />
           <span class="nav-text">nav 2</span>
-        </a-menu-item>
-        <a-menu-item key="3">
+        </xy-menu-item>
+        <xy-menu-item key="3">
           <upload-outlined />
           <span class="nav-text">nav 3</span>
-        </a-menu-item>
-        <a-menu-item key="4">
+        </xy-menu-item>
+        <xy-menu-item key="4">
           <bar-chart-outlined />
           <span class="nav-text">nav 4</span>
-        </a-menu-item>
-        <a-menu-item key="5">
+        </xy-menu-item>
+        <xy-menu-item key="5">
           <cloud-outlined />
           <span class="nav-text">nav 5</span>
-        </a-menu-item>
-        <a-menu-item key="6">
+        </xy-menu-item>
+        <xy-menu-item key="6">
           <appstore-outlined />
           <span class="nav-text">nav 6</span>
-        </a-menu-item>
-        <a-menu-item key="7">
+        </xy-menu-item>
+        <xy-menu-item key="7">
           <team-outlined />
           <span class="nav-text">nav 7</span>
-        </a-menu-item>
-        <a-menu-item key="8">
+        </xy-menu-item>
+        <xy-menu-item key="8">
           <shop-outlined />
           <span class="nav-text">nav 8</span>
-        </a-menu-item>
-      </a-menu>
-    </a-layout-sider>
-    <a-layout :style="{ marginLeft: '200px' }">
-      <a-layout-header :style="{ background: '#fff', padding: 0 }" />
-      <a-layout-content :style="{ margin: '24px 16px 0', overflow: 'initial' }">
+        </xy-menu-item>
+      </xy-menu>
+    </xy-layout-sider>
+    <xy-layout :style="{ marginLeft: '200px' }">
+      <xy-layout-header :style="{ background: '#fff', padding: 0 }" />
+      <xy-layout-content :style="{ margin: '24px 16px 0', overflow: 'initial' }">
         <div :style="{ padding: '24px', background: '#fff', textAlign: 'center' }">
           ...
           <br />
@@ -139,12 +139,12 @@
           <br />
           content
         </div>
-      </a-layout-content>
-      <a-layout-footer :style="{ textAlign: 'center' }">
+      </xy-layout-content>
+      <xy-layout-footer :style="{ textAlign: 'center' }">
         Xiaoye UI ©2024 Created by Xiaoye UI
-      </a-layout-footer>
-    </a-layout>
-  </a-layout>
+      </xy-layout-footer>
+    </xy-layout>
+  </xy-layout>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

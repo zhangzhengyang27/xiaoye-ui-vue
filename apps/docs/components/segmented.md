@@ -49,7 +49,7 @@ segmented/dynamic
 
 ## 三种大小
 
-:::demo 我们为 `<a-segmented />` 组件定义了三种尺寸（大、默认、小），高度分别为 `40px`、`32px` 和 `24px`。
+:::demo 我们为 `<xy-segmented />` 组件定义了三种尺寸（大、默认、小），高度分别为 `40px`、`32px` 和 `24px`。
 
 segmented/size
 
@@ -59,20 +59,20 @@ segmented/size
 
 ### Segmented
 
-|  参数  |  说明  |  类型  |  默认值  |  版本  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-|  block  |  将宽度调整为父元素宽度的选项  |  boolean  |  -  |    |
-|  disabled  |  是否禁用  |  boolean  |  false  |    |
-|  options  |  数据化配置选项内容  |  string[] \ |  number[] \ |  SegmentedOption[]  |  []  |    |
-|  size  |  控件尺寸  |  `large` \ |  `middle` \ |  `small`  |  -  |    |
-|  value  |  当前选中的值  |  string \ |  number  |    |    |
-|  label  |  使用插槽自定义 label  |  v-slot:label="SegmentedBaseOption"  |    |    |
+| block | 将宽度调整为父元素宽度的选项 | boolean | - |  |
+| disabled | 是否禁用 | boolean | false |  |
+| options | 数据化配置选项内容 | string[] \ | number[] \ | SegmentedOption[] | [] |  |
+| size | 控件尺寸 | `large` \ | `middle` \ | `small` | - |  |
+| value | 当前选中的值 | string \ | number |  |  |
+| label | 使用插槽自定义 label | v-slot:label="SegmentedBaseOption" |  |  |
 
 ### 事件
 
-|  事件名称  |  说明                  |  回调参数                           |       |
-| -------- | -------------------- | --------------------------------- | --- |
-|  change    |  选项变化时的回调函数  |  function(value: string \ |  number)  |  -    |
+| 事件名称 | 说明                 | 回调参数                 |         |
+| -------- | -------------------- | ------------------------ | ------- |
+| change   | 选项变化时的回调函数 | function(value: string \ | number) | -   |
 
 #### SegmentedBaseOption、SegmentedOption
 

@@ -3,8 +3,6 @@ import type { VueTypeValidableDef, VueTypesInterface } from 'vue-types';
 import VueTypes, { toType } from 'vue-types';
 import type { VueNode } from '../type';
 
-const PropTypes = VueTypes;
-
 class ExtendedVueTypes extends VueTypes {
   static get looseBool() {
     return toType('looseBool', {

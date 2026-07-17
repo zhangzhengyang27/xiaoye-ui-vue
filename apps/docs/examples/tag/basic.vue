@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-tag>Tag 1</a-tag>
-    <a-tag><a href="https://github.com/xiaoye-ui/xiaoye-ui">Link</a></a-tag>
-    <a-tag closable @close="log">Tag 2</a-tag>
-    <a-tag closable @close.prevent>Prevent Default</a-tag>
+    <xy-tag>Tag 1</xy-tag>
+    <xy-tag><a href="https://github.com/xiaoye-ui/xiaoye-ui">Link</a></xy-tag>
+    <xy-tag closable @close="log">Tag 2</xy-tag>
+    <xy-tag closable @close.prevent>Prevent Default</xy-tag>
   </div>
 </template>
 <script lang="ts" setup>

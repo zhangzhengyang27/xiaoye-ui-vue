@@ -2,4 +2,4 @@
 export * from './composables';
 export * from './config';
 export * from './utils';
-export * from './api';
+// api 子路径仍通过 package.json exports 暴露，但暂不通过主入口 re-export（api/index.ts 目前为空占位）

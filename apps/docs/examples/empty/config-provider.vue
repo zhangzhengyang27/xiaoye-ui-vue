@@ -1,11 +1,11 @@
 <template>
-  <a-switch
+  <xy-switch
     v-model:checked="customize"
     un-checked-children="default"
     checked-children="customize"
   />
-  <a-divider />
-  <a-config-provider>
+  <xy-divider />
+  <xy-config-provider>
     <template v-if="customize" #renderEmpty>
       <div style="text-align: center">
         <smile-outlined style="font-size: 20px" />
@@ -14,23 +14,23 @@
     </template>
     <div class="config-provider">
       <h3>Select</h3>
-      <a-select :style="style" :options="[]" />
+      <xy-select :style="style" :options="[]" />
 
       <h3>TreeSelect</h3>
-      <a-tree-select :style="style" :tree-data="[]" />
+      <xy-tree-select :style="style" :tree-data="[]" />
 
       <h3>Cascader</h3>
-      <a-cascader :style="style" :options="[]" :show-search="true" />
+      <xy-cascader :style="style" :options="[]" :show-search="true" />
 
       <h3>Transfer</h3>
-      <a-transfer :data-source="[]" />
+      <xy-transfer :data-source="[]" />
 
       <h3>Table</h3>
-      <a-table style="margin-top: 8px" :columns="columns" :data-source="[]" />
+      <xy-table style="margin-top: 8px" :columns="columns" :data-source="[]" />
       <h3>List</h3>
-      <a-list :data-source="[]" />
+      <xy-list :data-source="[]" />
     </div>
-  </a-config-provider>
+  </xy-config-provider>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

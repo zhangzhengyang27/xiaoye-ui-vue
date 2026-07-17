@@ -1,11 +1,11 @@
 {
-    "main": "./WindowMinimizeIcon.vue",
-    "module": "./WindowMinimizeIcon.vue",
-    "types": "./WindowMinimizeIcon.d.ts",
-    "browser": {
-        "./sfc": "./WindowMinimizeIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./WindowMinimizeIcon.vue",
+  "module": "./WindowMinimizeIcon.vue",
+  "types": "./WindowMinimizeIcon.d.ts",
+  "browser": {
+    "./sfc": "./WindowMinimizeIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

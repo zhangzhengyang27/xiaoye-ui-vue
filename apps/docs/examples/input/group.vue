@@ -1,108 +1,108 @@
 <template>
-  <a-space class="site-input-group-wrapper" direction="vertical" size="middle">
-    <a-input-group size="large">
-      <a-row :gutter="8">
-        <a-col :span="5">
-          <a-input v-model:value="value1" />
-        </a-col>
-        <a-col :span="8">
-          <a-input v-model:value="value2" />
-        </a-col>
-      </a-row>
-    </a-input-group>
-    <a-input-group compact>
-      <a-input v-model:value="value1" style="width: 20%" />
-      <a-input v-model:value="value2" style="width: 30%" />
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value3">
-        <a-select-option value="Zhejiang">Zhejiang</a-select-option>
-        <a-select-option value="Jiangsu">Jiangsu</a-select-option>
-      </a-select>
-      <a-input v-model:value="value4" style="width: 50%" />
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value5">
-        <a-select-option value="Option1">Option1</a-select-option>
-        <a-select-option value="Option2">Option2</a-select-option>
-      </a-select>
-      <a-input v-model:value="value6" style="width: 50%" />
-    </a-input-group>
-    <a-input-group compact>
-      <a-input v-model:value="value7" style="width: 50%" />
-      <a-date-picker v-model:value="value8" style="width: 50%" />
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value9">
-        <a-select-option value="Option1-1">Option1-1</a-select-option>
-        <a-select-option value="Option1-2">Option1-2</a-select-option>
-      </a-select>
-      <a-select v-model:value="value10">
-        <a-select-option value="Option2-1">Option2-1</a-select-option>
-        <a-select-option value="Option2-2">Option2-2</a-select-option>
-      </a-select>
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value11">
-        <a-select-option value="1">Between</a-select-option>
-        <a-select-option value="2">Except</a-select-option>
-      </a-select>
-      <a-input
+  <xy-space class="site-input-group-wrapper" direction="vertical" size="middle">
+    <xy-input-group size="large">
+      <xy-row :gutter="8">
+        <xy-col :span="5">
+          <xy-input v-model:value="value1" />
+        </xy-col>
+        <xy-col :span="8">
+          <xy-input v-model:value="value2" />
+        </xy-col>
+      </xy-row>
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-input v-model:value="value1" style="width: 20%" />
+      <xy-input v-model:value="value2" style="width: 30%" />
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value3">
+        <xy-select-option value="Zhejiang">Zhejiang</xy-select-option>
+        <xy-select-option value="Jiangsu">Jiangsu</xy-select-option>
+      </xy-select>
+      <xy-input v-model:value="value4" style="width: 50%" />
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value5">
+        <xy-select-option value="Option1">Option1</xy-select-option>
+        <xy-select-option value="Option2">Option2</xy-select-option>
+      </xy-select>
+      <xy-input v-model:value="value6" style="width: 50%" />
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-input v-model:value="value7" style="width: 50%" />
+      <xy-date-picker v-model:value="value8" style="width: 50%" />
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value9">
+        <xy-select-option value="Option1-1">Option1-1</xy-select-option>
+        <xy-select-option value="Option1-2">Option1-2</xy-select-option>
+      </xy-select>
+      <xy-select v-model:value="value10">
+        <xy-select-option value="Option2-1">Option2-1</xy-select-option>
+        <xy-select-option value="Option2-2">Option2-2</xy-select-option>
+      </xy-select>
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value11">
+        <xy-select-option value="1">Between</xy-select-option>
+        <xy-select-option value="2">Except</xy-select-option>
+      </xy-select>
+      <xy-input
         v-model:value="value12"
         style="width: 100px; text-align: center"
         placeholder="Minimum"
       />
-      <a-input
+      <xy-input
         v-model:value="value13"
         class="site-input-split"
         style="width: 30px; border-left: 0; pointer-events: none"
         placeholder="~"
         disabled
       />
-      <a-input
+      <xy-input
         v-model:value="value14"
         class="site-input-right"
         style="width: 100px; text-align: center"
         placeholder="Maximum"
       />
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value15">
-        <a-select-option value="Sign Up">Sign Up</a-select-option>
-        <a-select-option value="Sign In">Sign In</a-select-option>
-      </a-select>
-      <a-auto-complete
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value15">
+        <xy-select-option value="Sign Up">Sign Up</xy-select-option>
+        <xy-select-option value="Sign In">Sign In</xy-select-option>
+      </xy-select>
+      <xy-auto-complete
         v-model:value="value16"
         :options="[{ value: 'text 1' }, { value: 'text 2' }]"
         style="width: 200px"
         placeholder="Email"
       />
-    </a-input-group>
-    <a-input-group compact>
-      <a-select v-model:value="value17" style="width: 30%">
-        <a-select-option value="Home">Home</a-select-option>
-        <a-select-option value="Company">Company</a-select-option>
-      </a-select>
-      <a-cascader
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-select v-model:value="value17" style="width: 30%">
+        <xy-select-option value="Home">Home</xy-select-option>
+        <xy-select-option value="Company">Company</xy-select-option>
+      </xy-select>
+      <xy-cascader
         v-model:value="value18"
         style="width: 70%"
         :options="options"
         placeholder="Select Address"
       />
-    </a-input-group>
-    <a-input-group compact>
-      <a-input v-model:value="value19" style="width: calc(100% - 200px)" />
-      <a-button type="primary">Submit</a-button>
-    </a-input-group>
-    <a-input-group compact>
-      <a-input v-model:value="value20" style="width: calc(100% - 200px)" />
-      <a-tooltip title="copy git url">
-        <a-button>
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-input v-model:value="value19" style="width: calc(100% - 200px)" />
+      <xy-button type="primary">Submit</xy-button>
+    </xy-input-group>
+    <xy-input-group compact>
+      <xy-input v-model:value="value20" style="width: calc(100% - 200px)" />
+      <xy-tooltip title="copy git url">
+        <xy-button>
           <template #icon><CopyOutlined /></template>
-        </a-button>
-      </a-tooltip>
-    </a-input-group>
-  </a-space>
+        </xy-button>
+      </xy-tooltip>
+    </xy-input-group>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

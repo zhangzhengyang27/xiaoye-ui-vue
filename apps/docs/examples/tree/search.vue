@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-input-search v-model:value="searchValue" style="margin-bottom: 8px" placeholder="Search" />
-    <a-tree
+    <xy-input-search v-model:value="searchValue" style="margin-bottom: 8px" placeholder="Search" />
+    <xy-tree
       :expanded-keys="expandedKeys"
       :auto-expand-parent="autoExpandParent"
       :tree-data="gData"
@@ -15,7 +15,7 @@
         </span>
         <span v-else>{{ title }}</span>
       </template>
-    </a-tree>
+    </xy-tree>
   </div>
 </template>
 

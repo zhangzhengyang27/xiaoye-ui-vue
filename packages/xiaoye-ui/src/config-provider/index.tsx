@@ -3,7 +3,8 @@ import { watch, computed, reactive, defineComponent, watchEffect } from 'vue';
 import defaultRenderEmpty from './renderEmpty';
 import type { RenderEmptyHandler } from './renderEmpty';
 import type { Locale } from '../locale-provider';
-import LocaleProvider, { ANT_MARK } from '../locale-provider';
+import LocaleProvider, { XY_MARK } from '../locale-provider';
+import { registerComponent } from '../_util/registerComponent';
 
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
@@ -15,7 +16,7 @@ import type { ValidateMessages } from '../form/interface';
 import useStyle from './style';
 import useTheme from './hooks/useTheme';
 import defaultSeedToken from '../theme/themes/seed';
-import type { ConfigProviderInnerProps, ConfigProviderProps, Theme } from './context';
+import type { ConfigProviderInnerProps, ConfigProviderProps, ConfigProviderTheme } from './context';
 import {
   useConfigContextProvider,
   useConfigContextInject,
@@ -30,7 +31,7 @@ import { DesignTokenProvider } from '../theme/internal';
 
 export type {
   ConfigProviderProps,
-  Theme,
+  ConfigProviderTheme,
   SizeType,
   Direction,
   CSPConfig,
@@ -90,7 +91,7 @@ type GlobalConfigProviderProps = {
 };
 
 let stopWatchEffect: WatchStopHandle;
-const setGlobalConfig = (params: GlobalConfigProviderProps & { theme?: Theme }) => {
+const setGlobalConfig = (params: GlobalConfigProviderProps & { theme?: ConfigProviderTheme }) => {
   if (stopWatchEffect) {
     stopWatchEffect();
   }
@@ -122,7 +123,7 @@ export const globalConfig = () => ({
 
 const ConfigProvider = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AConfigProvider',
+  name: 'XYConfigProvider',
   inheritAttrs: false,
   props: configProviderProps(),
   setup(props, { slots }) {
@@ -266,7 +267,7 @@ const ConfigProvider = defineComponent({
       if (props.theme)
         childNode = <DesignTokenProvider value={memoTheme.value}>{childNode}</DesignTokenProvider>;
       return (
-        <LocaleProvider locale={locale.value || legacyLocale} ANT_MARK__={ANT_MARK}>
+        <LocaleProvider locale={locale.value || legacyLocale} XY_MARK__={XY_MARK}>
           {childNode}
         </LocaleProvider>
       );
@@ -292,7 +293,7 @@ const ConfigProvider = defineComponent({
 ConfigProvider.config = setGlobalConfig;
 
 ConfigProvider.install = function (app: App) {
-  app.component(ConfigProvider.name, ConfigProvider);
+  registerComponent(app, ConfigProvider);
 };
 
 export default ConfigProvider as typeof ConfigProvider &

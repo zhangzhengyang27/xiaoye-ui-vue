@@ -10,18 +10,25 @@ const publishManifest = structuredClone(pkg);
 normalizeWorkspaceDependencies(publishManifest, __workspace);
 
 const publishedDependencyFields = ['dependencies', 'peerDependencies', 'optionalDependencies'];
-const serializedManifest = JSON.stringify(Object.fromEntries(publishedDependencyFields.map((field) => [field, publishManifest[field] ?? {}])));
+const serializedManifest = JSON.stringify(
+  Object.fromEntries(publishedDependencyFields.map(field => [field, publishManifest[field] ?? {}])),
+);
 
 if (serializedManifest.includes('workspace:') || serializedManifest.includes('catalog:')) {
-    throw new Error('@xiaoye-ui/nuxt-module published dependencies contain workspace: or catalog: ranges.');
+  throw new Error(
+    '@xiaoye-ui/nuxt-module published dependencies contain workspace: or catalog: ranges.',
+  );
 }
 
+const publishDir = pkg.publishConfig?.directory
+  ? path.resolve(__dirname, '..', pkg.publishConfig.directory)
+  : path.resolve(__dirname, '..');
 const requiredEntries = [pkg.publishConfig?.main, pkg.publishConfig?.types].filter(Boolean);
 
 for (const entry of requiredEntries) {
-    const target = path.resolve(__dirname, '..', entry);
+  const target = path.resolve(publishDir, entry);
 
-    if (!fs.existsSync(target)) {
-        throw new Error(`@xiaoye-ui/nuxt-module publish entry is missing: ${entry}`);
-    }
+  if (!fs.existsSync(target)) {
+    throw new Error(`@xiaoye-ui/nuxt-module publish entry is missing: ${target}`);
+  }
 }

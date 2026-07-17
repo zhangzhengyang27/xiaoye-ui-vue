@@ -1,11 +1,11 @@
 <template>
-  <a-cascader v-model:value="value" placeholder="Please select" size="large" :options="options" />
+  <xy-cascader v-model:value="value" placeholder="Please select" size="large" :options="options" />
   <br />
   <br />
-  <a-cascader v-model:value="value" placeholder="Please select" :options="options" />
+  <xy-cascader v-model:value="value" placeholder="Please select" :options="options" />
   <br />
   <br />
-  <a-cascader v-model:value="value" placeholder="Please select" size="small" :options="options" />
+  <xy-cascader v-model:value="value" placeholder="Please select" size="small" :options="options" />
   <br />
   <br />
 </template>

@@ -1,25 +1,21 @@
-import { JsxEmit, ModuleKind, transpileModule } from 'typescript'
+import { JsxEmit, ModuleKind, transpileModule } from 'typescript';
 
 export function sfcTs2js(content: string): string {
-  const scriptReg =
-    /<script[\s\S]*?(?:lang="(ts|tsx)")[\s\S]*?>([\s\S]*?)<\/script>/
-  const matched = content.match(scriptReg)
+  const scriptReg = /<script[\s\S]*?(?:lang="(ts|tsx)")[\s\S]*?>([\s\S]*?)<\/script>/;
+  const matched = content.match(scriptReg);
   if (matched && matched.index !== undefined) {
-    const lang = matched[1]
-    const jsLangAttr = lang === 'tsx' ? ' lang="jsx"' : ''
-    const script = matched[2]
-    const header = content.slice(0, matched.index)
-    const footer = content.slice(matched.index + matched[0].length)
-    return `${header}<script${jsLangAttr} setup>\n${ts2Js(script)}\n</script>${footer}`
+    const lang = matched[1];
+    const jsLangAttr = lang === 'tsx' ? ' lang="jsx"' : '';
+    const script = matched[2];
+    const header = content.slice(0, matched.index);
+    const footer = content.slice(matched.index + matched[0].length);
+    return `${header}<script${jsLangAttr} setup>\n${ts2Js(script)}\n</script>${footer}`;
   }
-  return content
+  return content;
 }
 
 function ts2Js(content: string): string {
-  const beforeTransformContent = content.replace(
-    /\n(\s)*\n/g,
-    '\n// blankline\n'
-  )
+  const beforeTransformContent = content.replace(/\n(\s)*\n/g, '\n// blankline\n');
   const result = transpileModule(beforeTransformContent, {
     compilerOptions: {
       module: ModuleKind.ESNext,
@@ -27,6 +23,6 @@ function ts2Js(content: string): string {
       verbatimModuleSyntax: true,
       jsx: JsxEmit.Preserve,
     },
-  })
-  return result.outputText.trim().replace(/(\/\/ blankline(\n)?)+/g, '\n')
+  });
+  return result.outputText.trim().replace(/(\/\/ blankline(\n)?)+/g, '\n');
 }

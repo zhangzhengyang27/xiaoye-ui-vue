@@ -1,5 +1,5 @@
 <template>
-  <a-steps
+  <xy-steps
     :current="1"
     :items="[
       {
@@ -16,7 +16,7 @@
         description,
       },
     ]"
-  ></a-steps>
+  ></xy-steps>
 </template>
 <script lang="ts" setup>
 const description = 'This is a description.';

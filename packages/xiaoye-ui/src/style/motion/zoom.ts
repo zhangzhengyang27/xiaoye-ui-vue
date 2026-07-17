@@ -155,13 +155,7 @@ export const zoomDownOut = new Keyframes('xyZoomDownOut', {
 });
 
 type ZoomMotionTypes =
-  | 'zoom'
-  | 'zoom-big'
-  | 'zoom-big-fast'
-  | 'zoom-left'
-  | 'zoom-right'
-  | 'zoom-up'
-  | 'zoom-down';
+  'zoom' | 'zoom-big' | 'zoom-big-fast' | 'zoom-left' | 'zoom-right' | 'zoom-up' | 'zoom-down';
 const zoomMotion: Record<ZoomMotionTypes, { inKeyframes: Keyframes; outKeyframes: Keyframes }> = {
   zoom: {
     inKeyframes: zoomIn,

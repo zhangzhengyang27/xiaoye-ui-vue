@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": ".",
     "outDir": "dist",
     "paths": {
       "@xiaoye-ui/auto-import-resolver": ["../auto-import-resolver/src/index.ts"]

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">Open Modal</a-button>
-    <a-modal
+    <xy-button type="primary" @click="showModal">Open Modal</xy-button>
+    <xy-modal
       v-model:open="open"
       title="Basic Modal"
       width="100%"
@@ -11,7 +11,7 @@
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>
-    </a-modal>
+    </xy-modal>
   </div>
 </template>
 <script lang="ts" setup>

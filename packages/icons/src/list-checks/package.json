@@ -1,11 +1,11 @@
 {
-    "main": "./ListChecksIcon.vue",
-    "module": "./ListChecksIcon.vue",
-    "types": "./ListChecksIcon.d.ts",
-    "browser": {
-        "./sfc": "./ListChecksIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ListChecksIcon.vue",
+  "module": "./ListChecksIcon.vue",
+  "types": "./ListChecksIcon.d.ts",
+  "browser": {
+    "./sfc": "./ListChecksIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

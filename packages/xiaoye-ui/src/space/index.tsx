@@ -9,6 +9,7 @@ import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import classNames from '../_util/classNames';
 import Compact from './Compact';
+import { registerComponent } from '../_util/registerComponent';
 
 import useStyle from './style';
 
@@ -36,7 +37,7 @@ function getNumberSize(size: SpaceSize) {
 
 const Space = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ASpace',
+  name: 'XYSpace',
   inheritAttrs: false,
   props: spaceProps(),
   slots: Object as CustomSlotsType<{
@@ -149,8 +150,8 @@ const Space = defineComponent({
 Space.Compact = Compact;
 
 Space.install = function (app: App) {
-  app.component(Space.name, Space);
-  app.component(Compact.name, Compact);
+  registerComponent(app, Space);
+  registerComponent(app, Compact);
   return app;
 };
 

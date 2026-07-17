@@ -1,11 +1,11 @@
 {
-    "main": "./BitcoinIcon.vue",
-    "module": "./BitcoinIcon.vue",
-    "types": "./BitcoinIcon.d.ts",
-    "browser": {
-        "./sfc": "./BitcoinIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./BitcoinIcon.vue",
+  "module": "./BitcoinIcon.vue",
+  "types": "./BitcoinIcon.d.ts",
+  "browser": {
+    "./sfc": "./BitcoinIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

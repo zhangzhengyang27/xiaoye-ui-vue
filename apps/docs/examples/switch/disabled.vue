@@ -1,8 +1,8 @@
 <template>
-  <a-space direction="vertical">
-    <a-switch v-model:checked="checked" :disabled="disabled" />
-    <a-button type="primary" @click="onToggle">Toggle disabled</a-button>
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-switch v-model:checked="checked" :disabled="disabled" />
+    <xy-button type="primary" @click="onToggle">Toggle disabled</xy-button>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

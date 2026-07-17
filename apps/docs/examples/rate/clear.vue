@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-rate v-model:value="value1" />
+    <xy-rate v-model:value="value1" />
     <span class="xy-rate-text">allowClear: true</span>
     <br />
-    <a-rate v-model:value="value2" :allow-clear="false" />
+    <xy-rate v-model:value="value2" :allow-clear="false" />
     <span class="xy-rate-text">allowClear: false</span>
   </div>
 </template>

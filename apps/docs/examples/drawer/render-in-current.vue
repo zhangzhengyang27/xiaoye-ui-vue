@@ -13,9 +13,9 @@
   >
     Render in this
     <div style="margin-top: 16px">
-      <a-button type="primary" @click="showDrawer">Open</a-button>
+      <xy-button type="primary" @click="showDrawer">Open</xy-button>
     </div>
-    <a-drawer
+    <xy-drawer
       title="Basic Drawer"
       placement="right"
       :closable="false"
@@ -25,7 +25,7 @@
       @close="onClose"
     >
       <p>Some contents...</p>
-    </a-drawer>
+    </xy-drawer>
   </div>
 </template>
 <script lang="ts" setup>

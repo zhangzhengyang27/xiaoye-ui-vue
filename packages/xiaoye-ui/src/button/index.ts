@@ -1,6 +1,7 @@
 import type { App, Plugin } from 'vue';
 import Button from './button';
 import ButtonGroup from './button-group';
+import { registerComponent } from '../_util/registerComponent';
 
 import type { ButtonProps, ButtonShape, ButtonType } from './buttonTypes';
 import type { ButtonGroupProps } from './button-group';
@@ -12,8 +13,8 @@ Button.Group = ButtonGroup;
 
 /* istanbul ignore next */
 Button.install = function (app: App) {
-  app.component(Button.name, Button);
-  app.component(ButtonGroup.name, ButtonGroup);
+  registerComponent(app, Button);
+  registerComponent(app, ButtonGroup);
   return app;
 };
 

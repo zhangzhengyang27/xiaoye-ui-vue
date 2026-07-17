@@ -1,11 +1,11 @@
 {
-    "main": "./UploadIcon.vue",
-    "module": "./UploadIcon.vue",
-    "types": "./UploadIcon.d.ts",
-    "browser": {
-        "./sfc": "./UploadIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./UploadIcon.vue",
+  "module": "./UploadIcon.vue",
+  "types": "./UploadIcon.d.ts",
+  "browser": {
+    "./sfc": "./UploadIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

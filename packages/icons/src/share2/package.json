@@ -1,11 +1,11 @@
 {
-    "main": "./Share2Icon.vue",
-    "module": "./Share2Icon.vue",
-    "types": "./Share2Icon.d.ts",
-    "browser": {
-        "./sfc": "./Share2Icon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./Share2Icon.vue",
+  "module": "./Share2Icon.vue",
+  "types": "./Share2Icon.d.ts",
+  "browser": {
+    "./sfc": "./Share2Icon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

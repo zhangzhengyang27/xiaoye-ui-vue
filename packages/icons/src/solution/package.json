@@ -1,11 +1,11 @@
 {
-    "main": "./SolutionIcon.vue",
-    "module": "./SolutionIcon.vue",
-    "types": "./SolutionIcon.d.ts",
-    "browser": {
-        "./sfc": "./SolutionIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./SolutionIcon.vue",
+  "module": "./SolutionIcon.vue",
+  "types": "./SolutionIcon.d.ts",
+  "browser": {
+    "./sfc": "./SolutionIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

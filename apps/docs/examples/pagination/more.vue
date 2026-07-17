@@ -1,5 +1,5 @@
 <template>
-  <a-pagination v-model:current="current" :total="500" />
+  <xy-pagination v-model:current="current" :total="500" />
 </template>
 
 <script lang="ts" setup>

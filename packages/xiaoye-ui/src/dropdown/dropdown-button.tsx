@@ -17,9 +17,9 @@ export type DropdownButtonProps = Partial<ExtractPropTypes<ReturnType<typeof dro
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ADropdownButton',
+  name: 'XYDropdownButton',
   inheritAttrs: false,
-  __ANT_BUTTON: true,
+  __XY_BUTTON: true,
   props: initDefaultProps(dropdownButtonProps(), {
     trigger: 'hover',
     placement: 'bottomRight',

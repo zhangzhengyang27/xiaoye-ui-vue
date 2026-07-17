@@ -1,5 +1,5 @@
 <template>
-  <a-comment>
+  <xy-comment>
     <template #actions>
       <span key="comment-nested-reply-to">Reply to</span>
     </template>
@@ -7,7 +7,7 @@
       <a>Han Solo</a>
     </template>
     <template #avatar>
-      <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+      <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
     </template>
     <template #content>
       <p>
@@ -15,7 +15,7 @@
         resources (Sketch and Axure).
       </p>
     </template>
-    <a-comment>
+    <xy-comment>
       <template #actions>
         <span>Reply to</span>
       </template>
@@ -23,7 +23,7 @@
         <a>Han Solo</a>
       </template>
       <template #avatar>
-        <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+        <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
       </template>
       <template #content>
         <p>
@@ -31,7 +31,7 @@
           resources (Sketch and Axure).
         </p>
       </template>
-      <a-comment>
+      <xy-comment>
         <template #actions>
           <span>Reply to</span>
         </template>
@@ -39,7 +39,7 @@
           <a>Han Solo</a>
         </template>
         <template #avatar>
-          <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+          <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
         </template>
         <template #content>
           <p>
@@ -47,8 +47,8 @@
             resources (Sketch and Axure).
           </p>
         </template>
-      </a-comment>
-      <a-comment>
+      </xy-comment>
+      <xy-comment>
         <template #actions>
           <span>Reply to</span>
         </template>
@@ -56,7 +56,7 @@
           <a>Han Solo</a>
         </template>
         <template #avatar>
-          <a-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
+          <xy-avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />
         </template>
         <template #content>
           <p>
@@ -64,7 +64,7 @@
             resources (Sketch and Axure).
           </p>
         </template>
-      </a-comment>
-    </a-comment>
-  </a-comment>
+      </xy-comment>
+    </xy-comment>
+  </xy-comment>
 </template>

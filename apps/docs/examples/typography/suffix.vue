@@ -1,10 +1,10 @@
 <template>
-  <a-slider v-model:value="rows" :min="1" :max="10" />
-  <a-typography-paragraph
+  <xy-slider v-model:value="rows" :min="1" :max="10" />
+  <xy-typography-paragraph
     :ellipsis="ellipsis"
     :title="`${article}--William Shakespeare`"
     :content="article"
-  ></a-typography-paragraph>
+  ></xy-typography-paragraph>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue';

@@ -1,39 +1,36 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { isDark, toggleDark } from '../../composables/dark'
-import DarkIcon from '../icons/dark.vue'
-import LightIcon from '../icons/light.vue'
+import { ref, watch } from 'vue';
+import { isDark, toggleDark } from '../../composables/dark';
+import DarkIcon from '../icons/dark.vue';
+import LightIcon from '../icons/light.vue';
 
-defineOptions({ inheritAttrs: false })
+defineOptions({ inheritAttrs: false });
 
-const darkMode = ref(isDark.value)
+const darkMode = ref(isDark.value);
 
 watch(
   () => isDark.value,
-  (newVal) => {
-    darkMode.value = newVal
-  }
-)
+  newVal => {
+    darkMode.value = newVal;
+  },
+);
 
 watch(
   () => darkMode.value,
-  (newVal) => {
+  newVal => {
     if (newVal !== isDark.value) {
-      toggleDark()
+      toggleDark();
     }
-  }
-)
+  },
+);
 </script>
 
 <template>
   <ClientOnly>
-    <a-switch
-      v-model:checked="darkMode"
-      v-bind="$attrs"
-    >
+    <xy-switch v-model:checked="darkMode" v-bind="$attrs">
       <template #checkedChildren><DarkIcon /></template>
       <template #unCheckedChildren><LightIcon /></template>
-    </a-switch>
+    </xy-switch>
   </ClientOnly>
 </template>
 

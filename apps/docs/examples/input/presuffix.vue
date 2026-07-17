@@ -1,18 +1,18 @@
 <template>
   <div class="components-input-demo-presuffix">
-    <a-input v-model:value="userName" placeholder="Basic usage">
+    <xy-input v-model:value="userName" placeholder="Basic usage">
       <template #prefix>
         <user-outlined />
       </template>
       <template #suffix>
-        <a-tooltip title="Extra information">
+        <xy-tooltip title="Extra information">
           <info-circle-outlined style="color: rgba(0, 0, 0, 0.45)" />
-        </a-tooltip>
+        </xy-tooltip>
       </template>
-    </a-input>
+    </xy-input>
     <br />
     <br />
-    <a-input prefix="￥" suffix="RMB" />
+    <xy-input prefix="￥" suffix="RMB" />
   </div>
 </template>
 

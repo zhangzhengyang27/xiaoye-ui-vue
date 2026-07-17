@@ -178,7 +178,7 @@ export const styleProviderProps = () => ({
 export type StyleProviderProps = Partial<ExtractPropTypes<ReturnType<typeof styleProviderProps>>>;
 export const StyleProvider = withInstall(
   defineComponent({
-    name: 'AStyleProvider',
+    name: 'XYStyleProvider',
     inheritAttrs: false,
     props: styleProviderProps(),
     setup(props, { slots }) {

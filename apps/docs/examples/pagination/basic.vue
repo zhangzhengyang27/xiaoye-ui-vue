@@ -1,5 +1,5 @@
 <template>
-  <a-pagination v-model:current="current" :total="50" show-less-items />
+  <xy-pagination v-model:current="current" :total="50" show-less-items />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

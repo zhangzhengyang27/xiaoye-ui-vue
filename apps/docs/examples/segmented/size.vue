@@ -1,11 +1,11 @@
 <template>
-  <a-segmented v-model:value="value" :options="data" size="large" />
+  <xy-segmented v-model:value="value" :options="data" size="large" />
   <br />
   <br />
-  <a-segmented v-model:value="value2" :options="data" />
+  <xy-segmented v-model:value="value2" :options="data" />
   <br />
   <br />
-  <a-segmented v-model:value="value3" :options="data" size="small" />
+  <xy-segmented v-model:value="value3" :options="data" size="small" />
 </template>
 
 <script lang="ts" setup>

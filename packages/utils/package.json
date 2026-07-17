@@ -1,50 +1,51 @@
 {
-    "name": "@xiaoye-ui/utils",
-    "version": "6.0.0",
-    "author": "xiaoye-ui",
-    "description": "XiaoyeUI utilities",
-    "homepage": "https://xiaoye-ui/",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
-        "directory": "packages/utils"
+  "name": "@xiaoye-ui/utils",
+  "version": "6.0.0",
+  "author": "xiaoye-ui",
+  "description": "XiaoyeUI utilities",
+  "homepage": "https://xiaoye-ui/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
+    "directory": "packages/utils"
+  },
+  "bugs": {
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
+  },
+  "keywords": [
+    "vue",
+    "vue.js",
+    "vue3",
+    "xiaoye-ui",
+    "xiaoye-ui utils"
+  ],
+  "type": "module",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
     },
-    "bugs": {
-        "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
+    "./object": {
+      "types": "./src/object/index.ts",
+      "import": "./src/object/index.ts"
     },
-    "keywords": [
-        "vue",
-        "vue.js",
-        "vue3",
-        "xiaoye-ui",
-        "xiaoye-ui utils"
-    ],
-    "type": "module",
-    "main": "./src/index.ts",
-    "module": "./src/index.ts",
-    "types": "./src/index.ts",
-    "exports": {
-        ".": {
-            "types": "./src/index.ts",
-            "import": "./src/index.ts"
-        },
-        "./object": {
-            "types": "./src/object/index.ts",
-            "import": "./src/object/index.ts"
-        },
-        "./dom": {
-            "types": "./src/dom.ts",
-            "import": "./src/dom.ts"
-        }
-    },
-    "sideEffects": false,
-    "scripts": {
-        "build": "tsup",
-        "typecheck": "tsc --noEmit"
-    },
-    "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+    "./dom": {
+      "types": "./src/dom.ts",
+      "import": "./src/dom.ts"
     }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "postbuild": "node ../../scripts/prepare-dist-package.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
 }

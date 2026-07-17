@@ -1,9 +1,9 @@
 <template>
-  <a-calendar v-model:value="value">
+  <xy-calendar v-model:value="value">
     <template #dateCellRender="{ current }">
       <ul class="events">
         <li v-for="item in getListData(current)" :key="item.content">
-          <a-badge :status="item.type" :text="item.content" />
+          <xy-badge :status="item.type" :text="item.content" />
         </li>
       </ul>
     </template>
@@ -13,7 +13,7 @@
         <span>Backlog number</span>
       </div>
     </template>
-  </a-calendar>
+  </xy-calendar>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -1,10 +1,10 @@
 <template>
-  <a-space>
+  <xy-space>
     <template #split>
-      <a-divider type="vertical" />
+      <xy-divider type="vertical" />
     </template>
-    <a-typography-link>Link</a-typography-link>
-    <a-typography-link>Link</a-typography-link>
-    <a-typography-link>Link</a-typography-link>
-  </a-space>
+    <xy-typography-link>Link</xy-typography-link>
+    <xy-typography-link>Link</xy-typography-link>
+    <xy-typography-link>Link</xy-typography-link>
+  </xy-space>
 </template>

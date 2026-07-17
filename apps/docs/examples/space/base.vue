@@ -1,17 +1,17 @@
 <template>
-  <a-space>
+  <xy-space>
     Space
-    <a-button type="primary">Button</a-button>
-    <a-upload>
-      <a-button>
+    <xy-button type="primary">Button</xy-button>
+    <xy-upload>
+      <xy-button>
         <UploadOutlined />
         Click to Upload
-      </a-button>
-    </a-upload>
-    <a-popconfirm title="Are you sure delete this task?" ok-text="Yes" cancel-text="No">
-      <a-button>Confirm</a-button>
-    </a-popconfirm>
-  </a-space>
+      </xy-button>
+    </xy-upload>
+    <xy-popconfirm title="Are you sure delete this task?" ok-text="Yes" cancel-text="No">
+      <xy-button>Confirm</xy-button>
+    </xy-popconfirm>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { UploadOutlined } from '@xiaoye-ui/icons';

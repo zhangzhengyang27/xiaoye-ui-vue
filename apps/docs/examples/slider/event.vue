@@ -1,7 +1,7 @@
 <template>
   <div class="code-box-demo">
-    <a-slider v-model:value="value1" @change="onChange" @afterChange="onAfterChange" />
-    <a-slider
+    <xy-slider v-model:value="value1" @change="onChange" @afterChange="onAfterChange" />
+    <xy-slider
       v-model:value="value2"
       range
       :step="10"

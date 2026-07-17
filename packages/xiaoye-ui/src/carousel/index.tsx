@@ -74,7 +74,7 @@ export const carouselProps = () => ({
 export type CarouselProps = Partial<ExtractPropTypes<ReturnType<typeof carouselProps>>>;
 const Carousel = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACarousel',
+  name: 'XYCarousel',
   inheritAttrs: false,
   props: carouselProps(),
   emits: ['beforeChange', 'afterChange', 'swipeEvent'],

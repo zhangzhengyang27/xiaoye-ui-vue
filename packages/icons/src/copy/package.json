@@ -1,11 +1,11 @@
 {
-    "main": "./CopyIcon.vue",
-    "module": "./CopyIcon.vue",
-    "types": "./CopyIcon.d.ts",
-    "browser": {
-        "./sfc": "./CopyIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CopyIcon.vue",
+  "module": "./CopyIcon.vue",
+  "types": "./CopyIcon.d.ts",
+  "browser": {
+    "./sfc": "./CopyIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

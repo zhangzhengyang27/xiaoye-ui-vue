@@ -5,7 +5,7 @@ import { filterEmpty } from '../_util/props-util';
 
 const FloatButtonContent = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AFloatButtonContent',
+  name: 'XYFloatButtonContent',
   inheritAttrs: false,
   props: floatButtonContentProps(),
   setup(props, { attrs, slots }) {

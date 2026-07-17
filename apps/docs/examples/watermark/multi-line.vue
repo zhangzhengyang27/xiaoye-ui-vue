@@ -1,5 +1,5 @@
 <template>
-  <a-watermark :content="['Xiaoye UI', 'Happy Working']">
+  <xy-watermark :content="['Xiaoye UI', 'Happy Working']">
     <div style="height: 500px" />
-  </a-watermark>
+  </xy-watermark>
 </template>

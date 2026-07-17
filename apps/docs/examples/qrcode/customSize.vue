@@ -1,17 +1,17 @@
 <template>
-  <a-button-group>
-    <a-button @click="decline">
+  <xy-button-group>
+    <xy-button @click="decline">
       <template #icon><MinusOutlined /></template>
       small
-    </a-button>
-    <a-button @click="increase">
+    </xy-button>
+    <xy-button @click="increase">
       <template #icon><PlusOutlined /></template>
       large
-    </a-button>
-  </a-button-group>
+    </xy-button>
+  </xy-button-group>
   <br />
   <br />
-  <a-qrcode
+  <xy-qrcode
     :size="size"
     :icon-size="size / 4"
     error-level="H"

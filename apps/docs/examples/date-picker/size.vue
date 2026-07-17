@@ -1,15 +1,15 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-radio-group v-model:value="size">
-      <a-radio-button value="large">Large</a-radio-button>
-      <a-radio-button value="default">Default</a-radio-button>
-      <a-radio-button value="small">Small</a-radio-button>
-    </a-radio-group>
-    <a-date-picker :size="size" />
-    <a-date-picker :size="size" placeholder="Select Month" picker="month" />
-    <a-range-picker :size="size" />
-    <a-date-picker :size="size" placeholder="Select Week" picker="week" />
-  </a-space>
+  <xy-space direction="vertical" :size="12">
+    <xy-radio-group v-model:value="size">
+      <xy-radio-button value="large">Large</xy-radio-button>
+      <xy-radio-button value="default">Default</xy-radio-button>
+      <xy-radio-button value="small">Small</xy-radio-button>
+    </xy-radio-group>
+    <xy-date-picker :size="size" />
+    <xy-date-picker :size="size" placeholder="Select Month" picker="month" />
+    <xy-range-picker :size="size" />
+    <xy-date-picker :size="size" placeholder="Select Week" picker="week" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

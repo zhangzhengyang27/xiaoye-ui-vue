@@ -1,23 +1,23 @@
 <template>
-  <a-breadcrumb>
-    <a-breadcrumb-item>Xiaoye UI</a-breadcrumb-item>
-    <a-breadcrumb-item><a href="">Component</a></a-breadcrumb-item>
-    <a-breadcrumb-item>
+  <xy-breadcrumb>
+    <xy-breadcrumb-item>Xiaoye UI</xy-breadcrumb-item>
+    <xy-breadcrumb-item><a href="">Component</a></xy-breadcrumb-item>
+    <xy-breadcrumb-item>
       <a href="">General</a>
       <template #overlay>
-        <a-menu>
-          <a-menu-item>
+        <xy-menu>
+          <xy-menu-item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">General</a>
-          </a-menu-item>
-          <a-menu-item>
+          </xy-menu-item>
+          <xy-menu-item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">Layout</a>
-          </a-menu-item>
-          <a-menu-item>
+          </xy-menu-item>
+          <xy-menu-item>
             <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">Navigation</a>
-          </a-menu-item>
-        </a-menu>
+          </xy-menu-item>
+        </xy-menu>
       </template>
-    </a-breadcrumb-item>
-    <a-breadcrumb-item>Button</a-breadcrumb-item>
-  </a-breadcrumb>
+    </xy-breadcrumb-item>
+    <xy-breadcrumb-item>Button</xy-breadcrumb-item>
+  </xy-breadcrumb>
 </template>

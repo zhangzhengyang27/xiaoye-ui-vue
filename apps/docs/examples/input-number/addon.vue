@@ -1,31 +1,31 @@
 <template>
-  <a-space direction="vertical">
-    <a-input-number v-model:value="value1" addon-before="+" addon-after="$"></a-input-number>
-    <a-input-number v-model:value="value2">
+  <xy-space direction="vertical">
+    <xy-input-number v-model:value="value1" addon-before="+" addon-after="$"></xy-input-number>
+    <xy-input-number v-model:value="value2">
       <template #addonBefore>
-        <a-select v-model:value="addonBeforeValue" style="width: 60px">
-          <a-select-option value="add">+</a-select-option>
-          <a-select-option value="minus">-</a-select-option>
-        </a-select>
+        <xy-select v-model:value="addonBeforeValue" style="width: 60px">
+          <xy-select-option value="add">+</xy-select-option>
+          <xy-select-option value="minus">-</xy-select-option>
+        </xy-select>
       </template>
       <template #addonAfter>
-        <a-select v-model:value="addonAfterValue" style="width: 60px">
-          <a-select-option value="USD">$</a-select-option>
-          <a-select-option value="EUR">€</a-select-option>
-          <a-select-option value="GBP">£</a-select-option>
-          <a-select-option value="CNY">¥</a-select-option>
-        </a-select>
+        <xy-select v-model:value="addonAfterValue" style="width: 60px">
+          <xy-select-option value="USD">$</xy-select-option>
+          <xy-select-option value="EUR">€</xy-select-option>
+          <xy-select-option value="GBP">£</xy-select-option>
+          <xy-select-option value="CNY">¥</xy-select-option>
+        </xy-select>
       </template>
-    </a-input-number>
-    <a-input-number v-model:value="value3">
+    </xy-input-number>
+    <xy-input-number v-model:value="value3">
       <template #addonAfter><SettingOutlined /></template>
-    </a-input-number>
-    <a-input-number v-model:value="value4">
+    </xy-input-number>
+    <xy-input-number v-model:value="value4">
       <template #addonAfter>
-        <a-cascader placeholder="cascader" style="width: 150px" />
+        <xy-cascader placeholder="cascader" style="width: 150px" />
       </template>
-    </a-input-number>
-  </a-space>
+    </xy-input-number>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

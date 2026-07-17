@@ -1,16 +1,16 @@
 <template>
   <div>
-    <a-upload
+    <xy-upload
       v-model:file-list="fileList"
       list-type="picture"
       action="//jsonplaceholder.typicode.com/posts/"
       :preview-file="previewFile"
     >
-      <a-button>
+      <xy-button>
         <upload-outlined></upload-outlined>
         Upload
-      </a-button>
-    </a-upload>
+      </xy-button>
+    </xy-upload>
   </div>
 </template>
 <script lang="ts" setup>

@@ -1,18 +1,18 @@
 <template>
-  <a-auto-complete
+  <xy-auto-complete
     v-model:value="value"
     :options="options"
     style="width: 200px"
     @search="handleSearch"
     @select="onSelect"
   >
-    <a-textarea
+    <xy-textarea
       placeholder="input here"
       class="custom"
       style="height: 50px"
       @keypress="handleKeyPress"
     />
-  </a-auto-complete>
+  </xy-auto-complete>
 </template>
 
 <script lang="ts" setup>

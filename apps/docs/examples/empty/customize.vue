@@ -1,5 +1,5 @@
 <template>
-  <a-empty
+  <xy-empty
     image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
     :image-style="{
       height: '60px',
@@ -11,6 +11,6 @@
         <a href="#api">Description</a>
       </span>
     </template>
-    <a-button type="primary">Create Now</a-button>
-  </a-empty>
+    <xy-button type="primary">Create Now</xy-button>
+  </xy-empty>
 </template>

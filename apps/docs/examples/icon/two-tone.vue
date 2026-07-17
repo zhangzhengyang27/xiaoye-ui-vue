@@ -1,9 +1,9 @@
 <template>
-  <a-space>
+  <xy-space>
     <smile-two-tone />
     <heart-two-tone two-tone-color="#eb2f96" />
     <check-circle-two-tone two-tone-color="#52c41a" />
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@xiaoye-ui/icons';

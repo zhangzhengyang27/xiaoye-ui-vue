@@ -1,20 +1,20 @@
 <template>
-  <a-row :gutter="16">
-    <a-col :span="12">
-      <a-statistic-countdown :value="deadline" style="margin-right: 50px" @finish="onFinish">
+  <xy-row :gutter="16">
+    <xy-col :span="12">
+      <xy-statistic-countdown :value="deadline" style="margin-right: 50px" @finish="onFinish">
         <template #title>
           <span>Countdown</span>
-          <a-tooltip placement="right">
+          <xy-tooltip placement="right">
             <template #title>
               <span>hurry up!</span>
             </template>
             <question-circle-two-tone style="margin-left: 5px" />
-          </a-tooltip>
+          </xy-tooltip>
         </template>
-      </a-statistic-countdown>
-    </a-col>
-    <a-col :span="24" style="margin-top: 32px">
-      <a-statistic-countdown
+      </xy-statistic-countdown>
+    </xy-col>
+    <xy-col :span="24" style="margin-top: 32px">
+      <xy-statistic-countdown
         title="Million Seconds countdown"
         :value="deadline"
         format="HH:mm:ss:SSS"
@@ -26,9 +26,9 @@
         <template #suffix>
           <span>left for the end.</span>
         </template>
-      </a-statistic-countdown>
-    </a-col>
-  </a-row>
+      </xy-statistic-countdown>
+    </xy-col>
+  </xy-row>
 </template>
 <script lang="ts" setup>
 import { QuestionCircleTwoTone } from '@xiaoye-ui/icons';

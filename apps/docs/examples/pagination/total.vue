@@ -1,13 +1,13 @@
 <template>
   <div>
-    <a-pagination
+    <xy-pagination
       v-model:current="current1"
       v-model:page-size="pageSize1"
       :total="85"
       :show-total="total => `Total ${total} items`"
     />
     <br />
-    <a-pagination
+    <xy-pagination
       v-model:current="current2"
       v-model:page-size="pageSize2"
       :total="85"

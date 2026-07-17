@@ -1,16 +1,16 @@
 <template>
-  <a-radio-group v-model:value="dotPosition" style="margin-bottom: 8px">
-    <a-radio-button value="top">Top</a-radio-button>
-    <a-radio-button value="bottom">Bottom</a-radio-button>
-    <a-radio-button value="left">Left</a-radio-button>
-    <a-radio-button value="right">Right</a-radio-button>
-  </a-radio-group>
-  <a-carousel :dot-position="dotPosition">
+  <xy-radio-group v-model:value="dotPosition" style="margin-bottom: 8px">
+    <xy-radio-button value="top">Top</xy-radio-button>
+    <xy-radio-button value="bottom">Bottom</xy-radio-button>
+    <xy-radio-button value="left">Left</xy-radio-button>
+    <xy-radio-button value="right">Right</xy-radio-button>
+  </xy-radio-group>
+  <xy-carousel :dot-position="dotPosition">
     <div><h3>1</h3></div>
     <div><h3>2</h3></div>
     <div><h3>3</h3></div>
     <div><h3>4</h3></div>
-  </a-carousel>
+  </xy-carousel>
 </template>
 
 <script lang="ts" setup>

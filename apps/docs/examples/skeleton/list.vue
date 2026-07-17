@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-switch :checked="!loading" @change="onChange" />
-    <a-list item-layout="vertical" size="large" :data-source="listData">
+    <xy-switch :checked="!loading" @change="onChange" />
+    <xy-list item-layout="vertical" size="large" :data-source="listData">
       <template #renderItem="{ item }">
-        <a-list-item key="item.title">
+        <xy-list-item key="item.title">
           <template v-if="!loading" #actions>
             <span v-for="({ icon, text }, index) in actions" :key="index">
               <component :is="icon" style="margin-right: 8px"></component>
@@ -18,18 +18,18 @@
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
             />
           </template>
-          <a-skeleton :loading="loading" active avatar>
-            <a-list-item-meta :description="item.description">
+          <xy-skeleton :loading="loading" active avatar>
+            <xy-list-item-meta :description="item.description">
               <template #title>
                 <a :href="item.href">{{ item.title }}</a>
               </template>
-              <template #avatar><a-avatar :src="item.avatar" /></template>
-            </a-list-item-meta>
+              <template #avatar><xy-avatar :src="item.avatar" /></template>
+            </xy-list-item-meta>
             {{ item.content }}
-          </a-skeleton>
-        </a-list-item>
+          </xy-skeleton>
+        </xy-list-item>
       </template>
-    </a-list>
+    </xy-list>
   </div>
 </template>
 <script lang="ts" setup>

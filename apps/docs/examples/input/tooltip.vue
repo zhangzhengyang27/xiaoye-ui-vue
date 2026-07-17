@@ -1,19 +1,19 @@
 <template>
-  <a-tooltip :trigger="['focus']" placement="topLeft" overlay-class-name="numeric-input">
+  <xy-tooltip :trigger="['focus']" placement="topLeft" overlay-class-name="numeric-input">
     <template v-if="inputValue" #title>
       <span class="numeric-input-title">
         {{ formatValue }}
       </span>
     </template>
 
-    <a-input
+    <xy-input
       v-model:value="inputValue"
       placeholder="Input a number"
       :max-length="25"
       style="width: 120px"
       @blur="onBlur"
     />
-  </a-tooltip>
+  </xy-tooltip>
 </template>
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';

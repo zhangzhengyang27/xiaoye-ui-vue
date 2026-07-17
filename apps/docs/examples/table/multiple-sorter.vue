@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data" @change="onChange" />
+  <xy-table :columns="columns" :data-source="data" @change="onChange" />
 </template>
 
 <script lang="ts" setup>

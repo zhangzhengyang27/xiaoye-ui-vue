@@ -1,28 +1,28 @@
 <template>
-  <a-space direction="vertical" style="width: 100%">
-    <a-badge-ribbon text="Hippies">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="pink">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="red">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="cyan">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="green">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="purple">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="volcano">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-    <a-badge-ribbon text="Hippies" color="magenta">
-      <a-card title="Pushes open the window" size="small">and raises the spyglass.</a-card>
-    </a-badge-ribbon>
-  </a-space>
+  <xy-space direction="vertical" style="width: 100%">
+    <xy-badge-ribbon text="Hippies">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="pink">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="red">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="cyan">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="green">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="purple">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="volcano">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+    <xy-badge-ribbon text="Hippies" color="magenta">
+      <xy-card title="Pushes open the window" size="small">and raises the spyglass.</xy-card>
+    </xy-badge-ribbon>
+  </xy-space>
 </template>

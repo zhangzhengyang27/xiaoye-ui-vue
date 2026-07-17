@@ -11,6 +11,7 @@ import type { PaginationLocale } from '../pagination/Pagination';
 import type { TableLocale } from '../table/interface';
 import type { UploadLocale } from '../upload/interface';
 import type { TourLocale } from '../tour/interface';
+import { registerComponent } from '../_util/registerComponent';
 
 interface TransferLocaleForEmpty {
   description: string;
@@ -55,23 +56,23 @@ export interface Locale {
 export interface LocaleProviderProps {
   locale: Locale;
   children?: VNode | VNode[];
-  ANT_MARK__?: string;
+  XY_MARK__?: string;
 }
 
-export const ANT_MARK = 'internalMark';
+export const XY_MARK = 'internalMark';
 
 const LocaleProvider = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ALocaleProvider',
+  name: 'XYLocaleProvider',
   props: {
     locale: {
       type: Object as PropType<Locale>,
     },
-    ANT_MARK__: String,
+    XY_MARK__: String,
   },
   setup(props, { slots }) {
     warning(
-      props.ANT_MARK__ === ANT_MARK,
+      props.XY_MARK__ === XY_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead',
     );
@@ -80,7 +81,7 @@ const LocaleProvider = defineComponent({
         ...props.locale,
         exist: true,
       },
-      ANT_MARK__: ANT_MARK,
+      XY_MARK__: XY_MARK,
     });
     provide('localeData', state);
     watch(
@@ -103,7 +104,7 @@ const LocaleProvider = defineComponent({
 
 /* istanbul ignore next */
 LocaleProvider.install = function (app: App) {
-  app.component(LocaleProvider.name, LocaleProvider);
+  registerComponent(app, LocaleProvider);
   return app;
 };
 

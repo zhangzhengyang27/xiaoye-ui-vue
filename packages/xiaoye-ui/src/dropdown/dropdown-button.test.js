@@ -16,7 +16,7 @@ describe('DropdownButton', () => {
     const wrapper = mount(Dropdown.Button, {
       props,
     });
-    const dropdownProps = wrapper.findComponent({ name: 'ADropdown' }).props();
+    const dropdownProps = wrapper.findComponent({ name: 'XYDropdown' }).props();
     Object.keys(props).forEach(key => {
       expect(dropdownProps[key]).toStrictEqual(props[key]);
     });
@@ -32,7 +32,7 @@ describe('DropdownButton', () => {
         ),
       },
     });
-    const dropdownProps = wrapper.findComponent({ name: 'ADropdown' }).props();
+    const dropdownProps = wrapper.findComponent({ name: 'XYDropdown' }).props();
 
     expect(dropdownProps.visible).toBe(undefined);
   });

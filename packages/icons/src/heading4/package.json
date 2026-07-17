@@ -1,11 +1,11 @@
 {
-    "main": "./Heading4Icon.vue",
-    "module": "./Heading4Icon.vue",
-    "types": "./Heading4Icon.d.ts",
-    "browser": {
-        "./sfc": "./Heading4Icon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./Heading4Icon.vue",
+  "module": "./Heading4Icon.vue",
+  "types": "./Heading4Icon.d.ts",
+  "browser": {
+    "./sfc": "./Heading4Icon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,19 +1,19 @@
 <template>
-  <a-space direction="vertical">
-    <a-date-picker>
+  <xy-space direction="vertical">
+    <xy-date-picker>
       <template #renderExtraFooter>extra footer</template>
-    </a-date-picker>
-    <a-date-picker show-time>
+    </xy-date-picker>
+    <xy-date-picker show-time>
       <template #renderExtraFooter>extra footer</template>
-    </a-date-picker>
-    <a-range-picker>
+    </xy-date-picker>
+    <xy-range-picker>
       <template #renderExtraFooter>extra footer</template>
-    </a-range-picker>
-    <a-range-picker show-time>
+    </xy-range-picker>
+    <xy-range-picker show-time>
       <template #renderExtraFooter>extra footer</template>
-    </a-range-picker>
-    <a-date-picker placeholder="Select month" picker="month">
+    </xy-range-picker>
+    <xy-date-picker placeholder="Select month" picker="month">
       <template #renderExtraFooter>extra footer</template>
-    </a-date-picker>
-  </a-space>
+    </xy-date-picker>
+  </xy-space>
 </template>

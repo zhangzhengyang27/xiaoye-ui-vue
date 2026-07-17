@@ -20,7 +20,6 @@ describe('WeekPicker', () => {
       },
       { sync: false },
     );
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });

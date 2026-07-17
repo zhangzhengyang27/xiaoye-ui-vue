@@ -1,11 +1,11 @@
 {
-    "main": "./ShoppingCartIcon.vue",
-    "module": "./ShoppingCartIcon.vue",
-    "types": "./ShoppingCartIcon.d.ts",
-    "browser": {
-        "./sfc": "./ShoppingCartIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ShoppingCartIcon.vue",
+  "module": "./ShoppingCartIcon.vue",
+  "types": "./ShoppingCartIcon.d.ts",
+  "browser": {
+    "./sfc": "./ShoppingCartIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

@@ -1,11 +1,11 @@
 {
-    "main": "./ThumbsUpFillIcon.vue",
-    "module": "./ThumbsUpFillIcon.vue",
-    "types": "./ThumbsUpFillIcon.d.ts",
-    "browser": {
-        "./sfc": "./ThumbsUpFillIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ThumbsUpFillIcon.vue",
+  "module": "./ThumbsUpFillIcon.vue",
+  "types": "./ThumbsUpFillIcon.d.ts",
+  "browser": {
+    "./sfc": "./ThumbsUpFillIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

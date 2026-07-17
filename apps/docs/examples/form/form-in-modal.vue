@@ -1,32 +1,32 @@
 <template>
   <div>
-    <a-button type="primary" @click="visible = true">New Collection</a-button>
-    <a-modal
+    <xy-button type="primary" @click="visible = true">New Collection</xy-button>
+    <xy-modal
       v-model:open="visible"
       title="Create a new collection"
       ok-text="Create"
       cancel-text="Cancel"
       @ok="onOk"
     >
-      <a-form ref="formRef" :model="formState" layout="vertical" name="form_in_modal">
-        <a-form-item
+      <xy-form ref="formRef" :model="formState" layout="vertical" name="form_in_modal">
+        <xy-form-item
           name="title"
           label="Title"
           :rules="[{ required: true, message: 'Please input the title of collection!' }]"
         >
-          <a-input v-model:value="formState.title" />
-        </a-form-item>
-        <a-form-item name="description" label="Description">
-          <a-textarea v-model:value="formState.description" />
-        </a-form-item>
-        <a-form-item name="modifier" class="collection-create-form_last-form-item">
-          <a-radio-group v-model:value="formState.modifier">
-            <a-radio value="public">Public</a-radio>
-            <a-radio value="private">Private</a-radio>
-          </a-radio-group>
-        </a-form-item>
-      </a-form>
-    </a-modal>
+          <xy-input v-model:value="formState.title" />
+        </xy-form-item>
+        <xy-form-item name="description" label="Description">
+          <xy-textarea v-model:value="formState.description" />
+        </xy-form-item>
+        <xy-form-item name="modifier" class="collection-create-form_last-form-item">
+          <xy-radio-group v-model:value="formState.modifier">
+            <xy-radio value="public">Public</xy-radio>
+            <xy-radio value="private">Private</xy-radio>
+          </xy-radio-group>
+        </xy-form-item>
+      </xy-form>
+    </xy-modal>
   </div>
 </template>
 <script lang="ts" setup>

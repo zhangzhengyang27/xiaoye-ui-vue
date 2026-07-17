@@ -1,34 +1,34 @@
 <template>
-  <a-space direction="vertical" :size="32">
-    <a-space wrap :size="16">
-      <a-avatar :size="64">
+  <xy-space direction="vertical" :size="32">
+    <xy-space wrap :size="16">
+      <xy-avatar :size="64">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar size="large">
+      </xy-avatar>
+      <xy-avatar size="large">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar>
+      </xy-avatar>
+      <xy-avatar>
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar size="small">
+      </xy-avatar>
+      <xy-avatar size="small">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-    </a-space>
-    <a-space wrap :size="16">
-      <a-avatar shape="square" :size="64">
+      </xy-avatar>
+    </xy-space>
+    <xy-space wrap :size="16">
+      <xy-avatar shape="square" :size="64">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar shape="square" size="large">
+      </xy-avatar>
+      <xy-avatar shape="square" size="large">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar shape="square">
+      </xy-avatar>
+      <xy-avatar shape="square">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-      <a-avatar shape="square" size="small">
+      </xy-avatar>
+      <xy-avatar shape="square" size="small">
         <template #icon><UserOutlined /></template>
-      </a-avatar>
-    </a-space>
-  </a-space>
+      </xy-avatar>
+    </xy-space>
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

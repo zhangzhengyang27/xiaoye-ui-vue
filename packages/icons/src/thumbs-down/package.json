@@ -1,11 +1,11 @@
 {
-    "main": "./ThumbsDownIcon.vue",
-    "module": "./ThumbsDownIcon.vue",
-    "types": "./ThumbsDownIcon.d.ts",
-    "browser": {
-        "./sfc": "./ThumbsDownIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./ThumbsDownIcon.vue",
+  "module": "./ThumbsDownIcon.vue",
+  "types": "./ThumbsDownIcon.d.ts",
+  "browser": {
+    "./sfc": "./ThumbsDownIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

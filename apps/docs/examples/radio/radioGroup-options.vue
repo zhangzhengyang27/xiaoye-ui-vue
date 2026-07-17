@@ -1,12 +1,12 @@
 <template>
-  <a-space direction="vertical">
-    <a-radio-group v-model:value="value1" :options="plainOptions" />
-    <a-radio-group v-model:value="value2" :options="optionsWithDisabled" />
-    <a-radio-group v-model:value="value3" :options="plainOptions" disabled />
-    <a-radio-group v-model:value="value1" option-type="button" :options="plainOptions" />
-    <a-radio-group v-model:value="value2" option-type="button" :options="optionsWithDisabled" />
-    <a-radio-group v-model:value="value3" option-type="button" :options="plainOptions" disabled />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-radio-group v-model:value="value1" :options="plainOptions" />
+    <xy-radio-group v-model:value="value2" :options="optionsWithDisabled" />
+    <xy-radio-group v-model:value="value3" :options="plainOptions" disabled />
+    <xy-radio-group v-model:value="value1" option-type="button" :options="plainOptions" />
+    <xy-radio-group v-model:value="value2" option-type="button" :options="optionsWithDisabled" />
+    <xy-radio-group v-model:value="value3" option-type="button" :options="plainOptions" disabled />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -46,7 +46,7 @@ export type RowProps = Partial<ExtractPropTypes<ReturnType<typeof rowProps>>>;
 
 const ARow = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ARow',
+  name: 'XYRow',
   inheritAttrs: false,
   props: rowProps(),
   setup(props, { slots, attrs }) {

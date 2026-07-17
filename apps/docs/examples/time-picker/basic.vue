@@ -1,8 +1,8 @@
 <template>
-  <a-space direction="vertical">
-    <a-time-picker v-model:value="value" />
-    <a-time-picker v-model:value="strValue" value-format="HH:mm:ss" />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-time-picker v-model:value="value" />
+    <xy-time-picker v-model:value="strValue" value-format="HH:mm:ss" />
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import dayjs, { Dayjs } from 'dayjs';

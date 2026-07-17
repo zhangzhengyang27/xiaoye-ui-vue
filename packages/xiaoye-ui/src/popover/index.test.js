@@ -41,7 +41,6 @@ describe('Popover', () => {
       popup = popover.vm.$refs.popover.getPopupDomNode();
       expect(popup).not.toBe(null);
     }, 1000);
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 });

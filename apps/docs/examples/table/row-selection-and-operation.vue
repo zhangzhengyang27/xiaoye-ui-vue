@@ -1,16 +1,16 @@
 <template>
   <div>
     <div style="margin-bottom: 16px">
-      <a-button type="primary" :disabled="!hasSelected" :loading="state.loading" @click="start">
+      <xy-button type="primary" :disabled="!hasSelected" :loading="state.loading" @click="start">
         Reload
-      </a-button>
+      </xy-button>
       <span style="margin-left: 8px">
         <template v-if="hasSelected">
           {{ `Selected ${state.selectedRowKeys.length} items` }}
         </template>
       </span>
     </div>
-    <a-table
+    <xy-table
       :row-selection="{ selectedRowKeys: state.selectedRowKeys, onChange: onSelectChange }"
       :columns="columns"
       :data-source="data"

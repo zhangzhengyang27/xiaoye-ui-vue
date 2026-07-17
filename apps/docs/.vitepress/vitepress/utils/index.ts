@@ -1,31 +1,31 @@
-import { isExternal } from 'vitepress/dist/client/shared'
+import { isExternal } from 'vitepress/dist/client/shared';
 
-export { isExternal, isActive } from 'vitepress/dist/client/shared'
-export { ensureStartingSlash } from 'vitepress/dist/client/theme-default/support/utils'
+export { isExternal, isActive } from 'vitepress/dist/client/shared';
+export { ensureStartingSlash } from 'vitepress/dist/client/theme-default/support/utils';
 
-const endingSlashRE = /\/$/
+const endingSlashRE = /\/$/;
 export function utoa(data: string): string {
-  return btoa(unescape(encodeURIComponent(data)))
+  return btoa(unescape(encodeURIComponent(data)));
 }
 
 export const throttleAndDebounce = (fn: () => any, delay: number) => {
-  let timeout: ReturnType<typeof setTimeout>
-  let called = false
+  let timeout: ReturnType<typeof setTimeout>;
+  let called = false;
   return () => {
     if (timeout) {
-      clearTimeout(timeout)
+      clearTimeout(timeout);
     }
     if (!called) {
-      fn()
-      called = true
+      fn();
+      called = true;
       setTimeout(() => {
-        called = false
-      }, delay)
+        called = false;
+      }, delay);
     } else {
-      timeout = setTimeout(fn, delay)
+      timeout = setTimeout(fn, delay);
     }
-  }
-}
+  };
+};
 
 export function createGitHubUrl(
   docsRepo: string,
@@ -33,12 +33,10 @@ export function createGitHubUrl(
   docsBranch: string,
   path: string,
   folder = 'examples/',
-  ext = '.vue'
+  ext = '.vue',
 ) {
-  const base = isExternal(docsRepo)
-    ? docsRepo
-    : `https://github.com/${docsRepo}`
+  const base = isExternal(docsRepo) ? docsRepo : `https://github.com/${docsRepo}`;
   return `${base.replace(endingSlashRE, '')}/edit/${docsBranch}/${
     docsDir ? `${docsDir.replace(endingSlashRE, '')}/` : ''
-  }${folder || ''}${path}${ext || ''}`
+  }${folder || ''}${path}${ext || ''}`;
 }

@@ -1,8 +1,8 @@
 <template>
-  <a-space direction="vertical">
-    <a-switch v-model:checked="state.checked1" loading />
-    <a-switch v-model:checked="state.checked2" size="small" loading />
-  </a-space>
+  <xy-space direction="vertical">
+    <xy-switch v-model:checked="state.checked1" loading />
+    <xy-switch v-model:checked="state.checked2" size="small" loading />
+  </xy-space>
 </template>
 
 <script lang="ts" setup>

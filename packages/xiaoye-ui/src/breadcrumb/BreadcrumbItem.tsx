@@ -22,9 +22,9 @@ export const breadcrumbItemProps = () => ({
 export type BreadcrumbItemProps = Partial<ExtractPropTypes<ReturnType<typeof breadcrumbItemProps>>>;
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ABreadcrumbItem',
+  name: 'XYBreadcrumbItem',
   inheritAttrs: false,
-  __ANT_BREADCRUMB_ITEM: true,
+  __XY_BREADCRUMB_ITEM: true,
   props: breadcrumbItemProps(),
   // emits: ['click'],
   slots: Object as CustomSlotsType<{

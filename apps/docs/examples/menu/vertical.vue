@@ -1,5 +1,5 @@
 <template>
-  <a-menu
+  <xy-menu
     v-model:open-keys="openKeys"
     v-model:selected-keys="selectedKeys"
     style="width: 256px"

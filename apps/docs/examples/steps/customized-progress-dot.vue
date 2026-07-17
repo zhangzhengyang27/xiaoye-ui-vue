@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-steps
+    <xy-steps
       v-model:current="current"
       :items="[
         {
@@ -22,14 +22,14 @@
       ]"
     >
       <template #progressDot="{ index, status, prefixCls }">
-        <a-popover>
+        <xy-popover>
           <template #content>
             <span>step {{ index }} status: {{ status }}</span>
           </template>
           <span :class="`${prefixCls}-icon-dot`" />
-        </a-popover>
+        </xy-popover>
       </template>
-    </a-steps>
+    </xy-steps>
   </div>
 </template>
 <script lang="ts" setup>

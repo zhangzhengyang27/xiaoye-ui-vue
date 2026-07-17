@@ -10,6 +10,7 @@ import {
 import type { VueNode } from '../_util/type';
 import { renderHelper } from '../_util/util';
 import { globalConfig } from '../config-provider';
+import { defaultIconPrefixCls } from '../config-provider/context';
 import type { NotificationInstance as VCNotificationInstance } from '../vc-notification/Notification';
 import classNames from '../_util/classNames';
 import useStyle from './style';
@@ -183,7 +184,17 @@ function notice(args: NotificationArgsProps) {
           iconNode = () => <span class={`${prefixCls}-icon`}>{renderHelper(icon)}</span>;
         } else if (type) {
           const Icon = typeToIcon[type];
-          iconNode = () => <Icon class={`${prefixCls}-icon ${prefixCls}-icon-${type}`} />;
+          iconNode = () => (
+            <span
+              class={classNames(
+                defaultIconPrefixCls,
+                `${prefixCls}-icon`,
+                `${prefixCls}-icon-${type}`,
+              )}
+            >
+              <Icon />
+            </span>
+          );
         }
         return (
           <div class={iconNode ? `${prefixCls}-with-icon` : ''}>

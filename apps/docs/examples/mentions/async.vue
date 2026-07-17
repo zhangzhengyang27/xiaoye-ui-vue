@@ -1,10 +1,10 @@
 <template>
-  <a-mentions v-model:value="value" :options="options" :loading="loading" @search="onSearch">
+  <xy-mentions v-model:value="value" :options="options" :loading="loading" @search="onSearch">
     <template #option="{ payload }">
       <img :src="payload.avatar_url" :alt="payload.login" />
       <span>{{ payload.login }}</span>
     </template>
-  </a-mentions>
+  </xy-mentions>
 </template>
 
 <script lang="ts" setup>

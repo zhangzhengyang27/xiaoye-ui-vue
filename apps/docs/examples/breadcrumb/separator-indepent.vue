@@ -1,11 +1,11 @@
 <template>
-  <a-breadcrumb separator="">
-    <a-breadcrumb-item>Location</a-breadcrumb-item>
-    <a-breadcrumb-separator>:</a-breadcrumb-separator>
-    <a-breadcrumb-item href="">Application Center</a-breadcrumb-item>
-    <a-breadcrumb-separator />
-    <a-breadcrumb-item href="">Application List</a-breadcrumb-item>
-    <a-breadcrumb-separator />
-    <a-breadcrumb-item>An Application</a-breadcrumb-item>
-  </a-breadcrumb>
+  <xy-breadcrumb separator="">
+    <xy-breadcrumb-item>Location</xy-breadcrumb-item>
+    <xy-breadcrumb-separator>:</xy-breadcrumb-separator>
+    <xy-breadcrumb-item href="">Application Center</xy-breadcrumb-item>
+    <xy-breadcrumb-separator />
+    <xy-breadcrumb-item href="">Application List</xy-breadcrumb-item>
+    <xy-breadcrumb-separator />
+    <xy-breadcrumb-item>An Application</xy-breadcrumb-item>
+  </xy-breadcrumb>
 </template>

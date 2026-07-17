@@ -23,9 +23,9 @@ export type TabPaneProps = Partial<ExtractPropTypes<ReturnType<typeof tabPanePro
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ATabPane',
+  name: 'XYTabPane',
   inheritAttrs: false,
-  __ANT_TAB_PANE: true,
+  __XY_TAB_PANE: true,
   props: tabPaneProps(),
   slots: Object as CustomSlotsType<{
     closeIcon: any;

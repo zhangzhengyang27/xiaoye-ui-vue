@@ -1,11 +1,11 @@
 {
-    "main": "./WhatsappIcon.vue",
-    "module": "./WhatsappIcon.vue",
-    "types": "./WhatsappIcon.d.ts",
-    "browser": {
-        "./sfc": "./WhatsappIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./WhatsappIcon.vue",
+  "module": "./WhatsappIcon.vue",
+  "types": "./WhatsappIcon.d.ts",
+  "browser": {
+    "./sfc": "./WhatsappIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

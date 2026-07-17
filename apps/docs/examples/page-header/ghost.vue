@@ -1,30 +1,30 @@
 <template>
   <div class="demo-page-header" style="background-color: #f5f5f5; padding: 24px">
-    <a-page-header
+    <xy-page-header
       :ghost="ghost"
       title="Title"
       sub-title="This is a subtitle"
       @back="() => $router.go(-1)"
     >
       <template #extra>
-        <a-button key="3">Operation</a-button>
-        <a-button key="2">Operation</a-button>
-        <a-button key="1" type="primary">Primary</a-button>
+        <xy-button key="3">Operation</xy-button>
+        <xy-button key="2">Operation</xy-button>
+        <xy-button key="1" type="primary">Primary</xy-button>
       </template>
-      <a-descriptions size="small" :column="3">
-        <a-descriptions-item label="Created">Lili Qu</a-descriptions-item>
-        <a-descriptions-item label="Association">
+      <xy-descriptions size="small" :column="3">
+        <xy-descriptions-item label="Created">Lili Qu</xy-descriptions-item>
+        <xy-descriptions-item label="Association">
           <a>421421</a>
-        </a-descriptions-item>
-        <a-descriptions-item label="Creation Time">2017-01-10</a-descriptions-item>
-        <a-descriptions-item label="Effective Time">2017-10-10</a-descriptions-item>
-        <a-descriptions-item label="Remarks">
+        </xy-descriptions-item>
+        <xy-descriptions-item label="Creation Time">2017-01-10</xy-descriptions-item>
+        <xy-descriptions-item label="Effective Time">2017-10-10</xy-descriptions-item>
+        <xy-descriptions-item label="Remarks">
           Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-        </a-descriptions-item>
-      </a-descriptions>
-    </a-page-header>
+        </xy-descriptions-item>
+      </xy-descriptions>
+    </xy-page-header>
   </div>
-  <a-checkbox v-model:checked="ghost" style="margin-top: 0.5rem">toggle ghost</a-checkbox>
+  <xy-checkbox v-model:checked="ghost" style="margin-top: 0.5rem">toggle ghost</xy-checkbox>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

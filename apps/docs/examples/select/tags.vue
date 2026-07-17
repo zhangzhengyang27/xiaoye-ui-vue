@@ -1,12 +1,12 @@
 <template>
-  <a-select
+  <xy-select
     v-model:value="value"
     mode="tags"
     style="width: 100%"
     placeholder="Tags Mode"
     :options="options"
     @change="handleChange"
-  ></a-select>
+  ></xy-select>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

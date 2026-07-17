@@ -54,7 +54,6 @@ describe('Space', () => {
         );
       },
     });
-
   });
 
   it('should render with invalidElement', () => {

@@ -71,9 +71,15 @@ pnpm-lock.yaml
 .output/
 
 # VitePress 缓存
-.vitepress/cache/
+**/.vitepress/cache/
 
 report.html
+
+# Playwright / test traces
+trace/
+.playwright-cli/
+test-results/
+playwright-report/
 
 # TRAE IDE 内部工作文档（迁移计划等），不纳入版本控制
 .trae/

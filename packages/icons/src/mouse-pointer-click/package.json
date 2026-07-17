@@ -1,11 +1,11 @@
 {
-    "main": "./MousePointerClickIcon.vue",
-    "module": "./MousePointerClickIcon.vue",
-    "types": "./MousePointerClickIcon.d.ts",
-    "browser": {
-        "./sfc": "./MousePointerClickIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./MousePointerClickIcon.vue",
+  "module": "./MousePointerClickIcon.vue",
+  "types": "./MousePointerClickIcon.d.ts",
+  "browser": {
+    "./sfc": "./MousePointerClickIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

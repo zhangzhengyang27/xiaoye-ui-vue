@@ -1,12 +1,12 @@
 <template>
-  <a-space direction="vertical">
-    <a-switch v-model:checked="state.checked1" checked-children="开" un-checked-children="关" />
-    <a-switch v-model:checked="state.checked2" checked-children="1" un-checked-children="0" />
-    <a-switch v-model:checked="state.checked3">
+  <xy-space direction="vertical">
+    <xy-switch v-model:checked="state.checked1" checked-children="开" un-checked-children="关" />
+    <xy-switch v-model:checked="state.checked2" checked-children="1" un-checked-children="0" />
+    <xy-switch v-model:checked="state.checked3">
       <template #checkedChildren><check-outlined /></template>
       <template #unCheckedChildren><close-outlined /></template>
-    </a-switch>
-  </a-space>
+    </xy-switch>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { reactive } from 'vue';

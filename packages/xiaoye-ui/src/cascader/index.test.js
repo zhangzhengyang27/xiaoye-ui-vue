@@ -76,8 +76,7 @@ describe('Cascader', () => {
       toggleOpen(wrapper);
     });
     expect($$('.xy-cascader-menus').length).toBe(1);
-    await asyncExpect(() => {
-    }, 1000);
+    await asyncExpect(() => {}, 1000);
   });
 
   it('support controlled mode', async () => {
@@ -87,8 +86,7 @@ describe('Cascader', () => {
         value: ['zhejiang', 'hangzhou', 'xihu'],
       });
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('popup correctly with defaultValue', async () => {
@@ -104,8 +102,7 @@ describe('Cascader', () => {
       toggleOpen(wrapper);
     });
     expect($$('.xy-cascader-menus').length).toBe(1);
-    await asyncExpect(() => {
-    }, 0);
+    await asyncExpect(() => {}, 0);
   });
 
   it('can be selected', async () => {
@@ -117,22 +114,19 @@ describe('Cascader', () => {
       $$('.xy-cascader-menu')[0].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
 
     await asyncExpect(() => {
       $$('.xy-cascader-menu')[1].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
 
     await asyncExpect(() => {
       $$('.xy-cascader-menu')[2].querySelectorAll('.xy-cascader-menu-item')[0].click();
     });
 
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('backspace should work with `Cascader[showSearch]`', async () => {

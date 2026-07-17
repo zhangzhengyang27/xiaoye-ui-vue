@@ -1,11 +1,11 @@
 {
-    "main": "./PauseIcon.vue",
-    "module": "./PauseIcon.vue",
-    "types": "./PauseIcon.d.ts",
-    "browser": {
-        "./sfc": "./PauseIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./PauseIcon.vue",
+  "module": "./PauseIcon.vue",
+  "types": "./PauseIcon.d.ts",
+  "browser": {
+    "./sfc": "./PauseIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

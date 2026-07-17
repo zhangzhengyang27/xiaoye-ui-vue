@@ -204,6 +204,7 @@
   "devDependencies": {
     "@types/minimatch": "^6.0.0",
     "jsdom": "^24.0.0",
+    "moment": "^2.30.1",
     "xhr-mock": "^2.5.1"
   }
 }

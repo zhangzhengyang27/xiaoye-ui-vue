@@ -1,11 +1,11 @@
 <template>
-  <a-mentions
+  <xy-mentions
     v-model:value="value"
     placeholder="input @ to mention people, # to mention tag"
     :prefix="['@', '#']"
     :options="options"
     @search="onSearch"
-  ></a-mentions>
+  ></xy-mentions>
 </template>
 <script lang="ts" setup>
 import { computed, ref } from 'vue';

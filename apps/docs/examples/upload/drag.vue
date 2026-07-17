@@ -1,5 +1,5 @@
 <template>
-  <a-upload-dragger
+  <xy-upload-dragger
     v-model:file-list="fileList"
     name="file"
     :multiple="true"
@@ -15,7 +15,7 @@
       Support for a single or bulk upload. Strictly prohibit from uploading company data or other
       band files
     </p>
-  </a-upload-dragger>
+  </xy-upload-dragger>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

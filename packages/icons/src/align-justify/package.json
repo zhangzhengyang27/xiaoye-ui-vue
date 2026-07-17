@@ -1,11 +1,11 @@
 {
-    "main": "./AlignJustifyIcon.vue",
-    "module": "./AlignJustifyIcon.vue",
-    "types": "./AlignJustifyIcon.d.ts",
-    "browser": {
-        "./sfc": "./AlignJustifyIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./AlignJustifyIcon.vue",
+  "module": "./AlignJustifyIcon.vue",
+  "types": "./AlignJustifyIcon.d.ts",
+  "browser": {
+    "./sfc": "./AlignJustifyIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

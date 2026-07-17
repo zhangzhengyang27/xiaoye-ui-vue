@@ -11,7 +11,7 @@ import { flexProps } from './interface';
 import createFlexClassNames from './utils';
 
 const AFlex = defineComponent({
-  name: 'AFlex',
+  name: 'XYFlex',
   inheritAttrs: false,
   props: flexProps(),
   setup(props, { slots, attrs }) {

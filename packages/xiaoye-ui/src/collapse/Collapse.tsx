@@ -36,7 +36,7 @@ export { collapseProps };
 export type CollapseProps = Partial<ExtractPropTypes<ReturnType<typeof collapseProps>>>;
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'ACollapse',
+  name: 'XYCollapse',
   inheritAttrs: false,
   props: initDefaultProps(collapseProps(), {
     accordion: false,

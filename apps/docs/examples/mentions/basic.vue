@@ -1,5 +1,5 @@
 <template>
-  <a-mentions v-model:value="value" autofocus :options="options" @select="onSelect"></a-mentions>
+  <xy-mentions v-model:value="value" autofocus :options="options" @select="onSelect"></xy-mentions>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

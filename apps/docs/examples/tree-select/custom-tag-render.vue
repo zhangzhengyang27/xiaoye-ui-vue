@@ -1,5 +1,5 @@
 <template>
-  <a-tree-select
+  <xy-tree-select
     v-model:value="value"
     show-search
     style="width: 100%"
@@ -13,15 +13,15 @@
     tree-node-filter-prop="label"
   >
     <template #tagRender="{ label, closable, onClose, option }">
-      <a-tag :closable="closable" :color="option.color" style="margin-right: 3px" @close="onClose">
+      <xy-tag :closable="closable" :color="option.color" style="margin-right: 3px" @close="onClose">
         {{ label }}&nbsp;&nbsp;
-      </a-tag>
+      </xy-tag>
     </template>
     <template #title="{ value: val, label }">
       <b v-if="val === 'parent 1-1'" style="color: #08c">{{ val }}</b>
       <template v-else>{{ label }}</template>
     </template>
-  </a-tree-select>
+  </xy-tree-select>
 </template>
 <script lang="ts" setup>
 import { ref, watch } from 'vue';

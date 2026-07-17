@@ -36,7 +36,7 @@ export const GlobalConfigContextKey: InjectionKey<GlobalFormCOntextProps> =
 export interface CSPConfig {
   nonce?: string;
 }
-export interface Theme {
+export interface ConfigProviderTheme {
   primaryColor?: string;
   infoColor?: string;
   successColor?: string;

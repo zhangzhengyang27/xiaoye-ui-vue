@@ -1,5 +1,5 @@
 <template>
-  <a-button @click="success">Display a loading indicator</a-button>
+  <xy-button @click="success">Display a loading indicator</xy-button>
 </template>
 <script lang="ts" setup>
 import message from 'xiaoye-ui/message';

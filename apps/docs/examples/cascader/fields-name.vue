@@ -1,5 +1,5 @@
 <template>
-  <a-cascader
+  <xy-cascader
     v-model:value="value"
     :field-names="{ label: 'name', value: 'code', children: 'items' }"
     :options="options"

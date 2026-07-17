@@ -1,46 +1,46 @@
 <template>
-  <a-form
+  <xy-form
     ref="formRef"
     name="dynamic_form_nest_item"
     :model="dynamicValidateForm"
     @finish="onFinish"
   >
-    <a-space
+    <xy-space
       v-for="(user, index) in dynamicValidateForm.users"
       :key="user.id"
       style="display: flex; margin-bottom: 8px"
       align="baseline"
     >
-      <a-form-item
+      <xy-form-item
         :name="['users', index, 'first']"
         :rules="{
           required: true,
           message: 'Missing first name',
         }"
       >
-        <a-input v-model:value="user.first" placeholder="First Name" />
-      </a-form-item>
-      <a-form-item
+        <xy-input v-model:value="user.first" placeholder="First Name" />
+      </xy-form-item>
+      <xy-form-item
         :name="['users', index, 'last']"
         :rules="{
           required: true,
           message: 'Missing last name',
         }"
       >
-        <a-input v-model:value="user.last" placeholder="Last Name" />
-      </a-form-item>
+        <xy-input v-model:value="user.last" placeholder="Last Name" />
+      </xy-form-item>
       <MinusCircleOutlined @click="removeUser(user)" />
-    </a-space>
-    <a-form-item>
-      <a-button type="dashed" block @click="addUser">
+    </xy-space>
+    <xy-form-item>
+      <xy-button type="dashed" block @click="addUser">
         <PlusOutlined />
         Add user
-      </a-button>
-    </a-form-item>
-    <a-form-item>
-      <a-button type="primary" html-type="submit">Submit</a-button>
-    </a-form-item>
-  </a-form>
+      </xy-button>
+    </xy-form-item>
+    <xy-form-item>
+      <xy-button type="primary" html-type="submit">Submit</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 
 <script lang="ts" setup>

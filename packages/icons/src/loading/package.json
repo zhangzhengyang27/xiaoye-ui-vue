@@ -1,11 +1,11 @@
 {
-    "main": "./LoadingIcon.vue",
-    "module": "./LoadingIcon.vue",
-    "types": "./LoadingIcon.d.ts",
-    "browser": {
-        "./sfc": "./LoadingIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./LoadingIcon.vue",
+  "module": "./LoadingIcon.vue",
+  "types": "./LoadingIcon.d.ts",
+  "browser": {
+    "./sfc": "./LoadingIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

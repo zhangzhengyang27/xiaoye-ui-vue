@@ -1,11 +1,11 @@
 {
-    "main": "./XIcon.vue",
-    "module": "./XIcon.vue",
-    "types": "./XIcon.d.ts",
-    "browser": {
-        "./sfc": "./XIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./XIcon.vue",
+  "module": "./XIcon.vue",
+  "types": "./XIcon.d.ts",
+  "browser": {
+    "./sfc": "./XIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

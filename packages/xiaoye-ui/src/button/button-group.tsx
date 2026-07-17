@@ -20,7 +20,7 @@ export const GroupSizeContext = createContext<{
 }>();
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AButtonGroup',
+  name: 'XYButtonGroup',
   props: buttonGroupProps(),
   setup(props, { slots }) {
     const { prefixCls, direction } = useConfigInject('btn-group', props);

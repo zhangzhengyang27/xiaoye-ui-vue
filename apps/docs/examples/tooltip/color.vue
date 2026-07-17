@@ -1,16 +1,16 @@
 <template>
   <div id="components-a-tooltip-demo-color">
-    <a-divider orientation="left">Presets</a-divider>
+    <xy-divider orientation="left">Presets</xy-divider>
     <div>
-      <a-tooltip v-for="color in colors" :key="color" title="prompt text" :color="color">
-        <a-button>{{ color }}</a-button>
-      </a-tooltip>
+      <xy-tooltip v-for="color in colors" :key="color" title="prompt text" :color="color">
+        <xy-button>{{ color }}</xy-button>
+      </xy-tooltip>
     </div>
-    <a-divider orientation="left">Custom</a-divider>
+    <xy-divider orientation="left">Custom</xy-divider>
     <div>
-      <a-tooltip v-for="color in customColors" :key="color" title="prompt text" :color="color">
-        <a-button>{{ color }}</a-button>
-      </a-tooltip>
+      <xy-tooltip v-for="color in customColors" :key="color" title="prompt text" :color="color">
+        <xy-button>{{ color }}</xy-button>
+      </xy-tooltip>
     </div>
   </div>
 </template>

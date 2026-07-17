@@ -1,11 +1,11 @@
 {
-    "main": "./CircleMinusIcon.vue",
-    "module": "./CircleMinusIcon.vue",
-    "types": "./CircleMinusIcon.d.ts",
-    "browser": {
-        "./sfc": "./CircleMinusIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./CircleMinusIcon.vue",
+  "module": "./CircleMinusIcon.vue",
+  "types": "./CircleMinusIcon.d.ts",
+  "browser": {
+    "./sfc": "./CircleMinusIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

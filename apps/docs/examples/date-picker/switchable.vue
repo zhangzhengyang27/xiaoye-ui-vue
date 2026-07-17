@@ -1,20 +1,20 @@
 <template>
-  <a-space direction="vertical" :size="12">
-    <a-select v-model:value="type">
-      <a-select-option value="time">Time</a-select-option>
-      <a-select-option value="date">Date</a-select-option>
-      <a-select-option value="week">Week</a-select-option>
-      <a-select-option value="month">Month</a-select-option>
-      <a-select-option value="quarter">Quarter</a-select-option>
-      <a-select-option value="year">Year</a-select-option>
-    </a-select>
+  <xy-space direction="vertical" :size="12">
+    <xy-select v-model:value="type">
+      <xy-select-option value="time">Time</xy-select-option>
+      <xy-select-option value="date">Date</xy-select-option>
+      <xy-select-option value="week">Week</xy-select-option>
+      <xy-select-option value="month">Month</xy-select-option>
+      <xy-select-option value="quarter">Quarter</xy-select-option>
+      <xy-select-option value="year">Year</xy-select-option>
+    </xy-select>
     <template v-if="type === 'time'">
-      <a-time-picker />
+      <xy-time-picker />
     </template>
     <template v-else>
-      <a-date-picker :picker="type" />
+      <xy-date-picker :picker="type" />
     </template>
-  </a-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

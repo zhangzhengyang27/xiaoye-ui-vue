@@ -1,15 +1,15 @@
 <template>
-  <a-upload
+  <xy-upload
     v-model:file-list="fileList"
     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
     :before-upload="beforeUpload"
     @change="handleChange"
   >
-    <a-button>
+    <xy-button>
       <upload-outlined></upload-outlined>
       Upload png only
-    </a-button>
-  </a-upload>
+    </xy-button>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

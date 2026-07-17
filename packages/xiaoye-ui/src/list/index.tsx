@@ -1,6 +1,7 @@
 import type { App, Plugin, ExtractPropTypes, PropType, HTMLAttributes } from 'vue';
 import { provide, defineComponent, ref, watch, computed, toRef } from 'vue';
 import classNames from '../_util/classNames';
+import { registerComponent } from '../_util/registerComponent';
 
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
@@ -80,7 +81,7 @@ import { ListContextKey } from './contextKey';
 
 const List = defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AList',
+  name: 'XYList',
   inheritAttrs: false,
   Item,
   props: initDefaultProps(listProps(), {
@@ -331,9 +332,9 @@ const List = defineComponent({
 
 /* istanbul ignore next */
 List.install = function (app: App) {
-  app.component(List.name, List);
-  app.component(List.Item.name, List.Item);
-  app.component(List.Item.Meta.name, List.Item.Meta);
+  registerComponent(app, List);
+  registerComponent(app, List.Item);
+  registerComponent(app, List.Item.Meta);
   return app;
 };
 

@@ -1,33 +1,33 @@
 <template>
-  <a-form layout="horizontal">
-    <a-form-item
+  <xy-form layout="horizontal">
+    <xy-form-item
       label="Top coders"
       :label-col="{ span: 6 }"
       :wrapper-col="{ span: 18 }"
       name="coders"
       v-bind="validateInfos.coders"
     >
-      <a-mentions v-model:value="modelRef.coders" rows="1" :options="options"></a-mentions>
-    </a-form-item>
-    <a-form-item
+      <xy-mentions v-model:value="modelRef.coders" rows="1" :options="options"></xy-mentions>
+    </xy-form-item>
+    <xy-form-item
       label="Bio"
       :label-col="{ span: 6 }"
       :wrapper-col="{ span: 18 }"
       name="bio"
       v-bind="validateInfos.bio"
     >
-      <a-mentions
+      <xy-mentions
         v-model:value="modelRef.bio"
         rows="3"
         placeholder="You can use @ to ref user here"
         :options="options"
-      ></a-mentions>
-    </a-form-item>
-    <a-form-item :wrapper-col="{ span: 12, offset: 5 }">
-      <a-button type="primary" @click="handleSubmit">Submit</a-button>
-      <a-button style="margin-left: 8px" @click="resetFields">Reset</a-button>
-    </a-form-item>
-  </a-form>
+      ></xy-mentions>
+    </xy-form-item>
+    <xy-form-item :wrapper-col="{ span: 12, offset: 5 }">
+      <xy-button type="primary" @click="handleSubmit">Submit</xy-button>
+      <xy-button style="margin-left: 8px" @click="resetFields">Reset</xy-button>
+    </xy-form-item>
+  </xy-form>
 </template>
 <script lang="ts" setup>
 import { Mentions, Form } from 'xiaoye-ui';

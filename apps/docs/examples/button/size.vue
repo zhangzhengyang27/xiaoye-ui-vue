@@ -1,47 +1,47 @@
 <template>
-  <a-space direction="vertical">
-    <a-radio-group v-model:value="size">
-      <a-radio-button value="large">Large</a-radio-button>
-      <a-radio-button value="default">Default</a-radio-button>
-      <a-radio-button value="small">Small</a-radio-button>
-    </a-radio-group>
-    <a-space>
-      <a-button type="primary" :size="size">Primary</a-button>
-      <a-button :size="size">Normal</a-button>
-      <a-button type="dashed" :size="size">Dashed</a-button>
-      <a-button danger :size="size">Danger</a-button>
-      <a-button type="link" :size="size">Link</a-button>
-    </a-space>
-    <a-space>
-      <a-button type="primary" :size="size">
+  <xy-space direction="vertical">
+    <xy-radio-group v-model:value="size">
+      <xy-radio-button value="large">Large</xy-radio-button>
+      <xy-radio-button value="default">Default</xy-radio-button>
+      <xy-radio-button value="small">Small</xy-radio-button>
+    </xy-radio-group>
+    <xy-space>
+      <xy-button type="primary" :size="size">Primary</xy-button>
+      <xy-button :size="size">Normal</xy-button>
+      <xy-button type="dashed" :size="size">Dashed</xy-button>
+      <xy-button danger :size="size">Danger</xy-button>
+      <xy-button type="link" :size="size">Link</xy-button>
+    </xy-space>
+    <xy-space>
+      <xy-button type="primary" :size="size">
         <template #icon>
           <DownloadOutlined />
         </template>
-      </a-button>
-      <a-button type="primary" shape="circle" :size="size">
+      </xy-button>
+      <xy-button type="primary" shape="circle" :size="size">
         <template #icon>
           <DownloadOutlined />
         </template>
-      </a-button>
-      <a-button type="primary" shape="round" :size="size">
-        <template #icon>
-          <DownloadOutlined />
-        </template>
-        Download
-      </a-button>
-      <a-button type="primary" shape="round" :size="size">
-        <template #icon>
-          <DownloadOutlined />
-        </template>
-      </a-button>
-      <a-button type="primary" :size="size">
+      </xy-button>
+      <xy-button type="primary" shape="round" :size="size">
         <template #icon>
           <DownloadOutlined />
         </template>
         Download
-      </a-button>
-    </a-space>
-  </a-space>
+      </xy-button>
+      <xy-button type="primary" shape="round" :size="size">
+        <template #icon>
+          <DownloadOutlined />
+        </template>
+      </xy-button>
+      <xy-button type="primary" :size="size">
+        <template #icon>
+          <DownloadOutlined />
+        </template>
+        Download
+      </xy-button>
+    </xy-space>
+  </xy-space>
 </template>
 <script lang="ts" setup>
 import { DownloadOutlined } from '@xiaoye-ui/icons';

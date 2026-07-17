@@ -1,11 +1,11 @@
 {
-    "main": "./UnfoldVerticalIcon.vue",
-    "module": "./UnfoldVerticalIcon.vue",
-    "types": "./UnfoldVerticalIcon.d.ts",
-    "browser": {
-        "./sfc": "./UnfoldVerticalIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./UnfoldVerticalIcon.vue",
+  "module": "./UnfoldVerticalIcon.vue",
+  "types": "./UnfoldVerticalIcon.d.ts",
+  "browser": {
+    "./sfc": "./UnfoldVerticalIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

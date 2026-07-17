@@ -1,17 +1,17 @@
 <template>
-  <a-upload
+  <xy-upload
     v-model:file-list="fileList"
     action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
     :show-upload-list="{ showDownloadIcon: true, showRemoveIcon: true }"
     @change="handleChange"
   >
-    <a-button>
+    <xy-button>
       <upload-outlined></upload-outlined>
       Upload
-    </a-button>
+    </xy-button>
     <template #downloadIcon>download</template>
     <template #removeIcon><StarOutlined @click="handleClick"></StarOutlined></template>
-  </a-upload>
+  </xy-upload>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

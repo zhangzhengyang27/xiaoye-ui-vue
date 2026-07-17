@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-popconfirm
+    <xy-popconfirm
       title="Are you sure delete this task?"
       :open="visible"
       ok-text="Yes"
@@ -10,11 +10,11 @@
       @cancel="cancel"
     >
       <a href="#">Delete a task</a>
-    </a-popconfirm>
+    </xy-popconfirm>
     <br />
     <br />
     Whether directly execute：
-    <a-checkbox v-model:checked="condition" />
+    <xy-checkbox v-model:checked="condition" />
   </div>
 </template>
 <script lang="ts" setup>

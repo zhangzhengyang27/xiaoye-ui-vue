@@ -1,7 +1,7 @@
 <template>
   <div class="icon-wrapper">
     <frown-outlined :style="{ color: preColor }" />
-    <a-slider v-model:value="sliderValue" :min="0" :max="20" />
+    <xy-slider v-model:value="sliderValue" :min="0" :max="20" />
     <smile-outlined :style="{ color: nextColor }" />
   </div>
 </template>

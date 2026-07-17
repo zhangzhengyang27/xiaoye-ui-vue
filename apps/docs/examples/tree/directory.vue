@@ -1,10 +1,10 @@
 <template>
-  <a-directory-tree
+  <xy-directory-tree
     v-model:expanded-keys="expandedKeys"
     v-model:selected-keys="selectedKeys"
     multiple
     :tree-data="treeData"
-  ></a-directory-tree>
+  ></xy-directory-tree>
 </template>
 <script lang="ts" setup>
 import type { TreeProps } from 'xiaoye-ui';

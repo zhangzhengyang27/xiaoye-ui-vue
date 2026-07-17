@@ -2,7 +2,7 @@
 
 import { useStyleRegister } from '../../_util/cssinjs';
 import type { CSSInterpolation } from '../../_util/cssinjs';
-import { genCommonStyle, genLinkStyle } from '../../style';
+import { genCommonStyle, genLinkStyle, resetIcon } from '../../style';
 import type { UseComponentStyleResult } from '../internal';
 import { mergeToken, statisticToken, useToken } from '../internal';
 import type { ComponentTokenMap, GlobalToken } from '../interface';
@@ -62,6 +62,8 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       {
         // Link
         '&': genLinkStyle(token.value),
+        // Global icon reset to make @xiaoye-ui/icons scale with parent font-size
+        [`.${iconPrefixCls.value}`]: resetIcon(),
       },
     ]);
     const componentInfo = computed(() => {

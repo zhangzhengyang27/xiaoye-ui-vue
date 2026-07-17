@@ -18,7 +18,7 @@ import useStyle from './style';
 
 export default defineComponent({
   compatConfig: { MODE: 3 },
-  name: 'AProgress',
+  name: 'XYProgress',
   inheritAttrs: false,
   props: initDefaultProps(progressProps(), {
     type: 'line',

@@ -1,11 +1,11 @@
 {
-    "main": "./NetworkIcon.vue",
-    "module": "./NetworkIcon.vue",
-    "types": "./NetworkIcon.d.ts",
-    "browser": {
-        "./sfc": "./NetworkIcon.vue"
-    },
-    "sideEffects": [
-        "*.vue"
-    ]
+  "main": "./NetworkIcon.vue",
+  "module": "./NetworkIcon.vue",
+  "types": "./NetworkIcon.d.ts",
+  "browser": {
+    "./sfc": "./NetworkIcon.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
 }

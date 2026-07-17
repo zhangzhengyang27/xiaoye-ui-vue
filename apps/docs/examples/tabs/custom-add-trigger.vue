@@ -1,13 +1,18 @@
 <template>
   <div>
     <div :style="{ marginBottom: '16px' }">
-      <a-button @click="add">ADD</a-button>
+      <xy-button @click="add">ADD</xy-button>
     </div>
-    <a-tabs v-model:active-key="activeKey" hide-add type="editable-card" @edit="handleEdit">
-      <a-tab-pane v-for="pane in panes" :key="pane.key" :tab="pane.title" :closable="pane.closable">
+    <xy-tabs v-model:active-key="activeKey" hide-add type="editable-card" @edit="handleEdit">
+      <xy-tab-pane
+        v-for="pane in panes"
+        :key="pane.key"
+        :tab="pane.title"
+        :closable="pane.closable"
+      >
         {{ pane.content }}
-      </a-tab-pane>
-    </a-tabs>
+      </xy-tab-pane>
+    </xy-tabs>
   </div>
 </template>
 <script lang="ts" setup>

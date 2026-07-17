@@ -1,5 +1,5 @@
 <template>
-  <a-time-picker v-model:value="value" format="HH:mm" />
+  <xy-time-picker v-model:value="value" format="HH:mm" />
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';

@@ -1,32 +1,32 @@
 <template>
   <div class="space-align-container">
     <div class="space-align-block">
-      <a-space align="center">
+      <xy-space align="center">
         center
-        <a-button type="primary">Primary</a-button>
+        <xy-button type="primary">Primary</xy-button>
         <span class="mock-block">Block</span>
-      </a-space>
+      </xy-space>
     </div>
     <div class="space-align-block">
-      <a-space align="start">
+      <xy-space align="start">
         start
-        <a-button type="primary">Primary</a-button>
+        <xy-button type="primary">Primary</xy-button>
         <span class="mock-block">Block</span>
-      </a-space>
+      </xy-space>
     </div>
     <div class="space-align-block">
-      <a-space align="end">
+      <xy-space align="end">
         end
-        <a-button type="primary">Primary</a-button>
+        <xy-button type="primary">Primary</xy-button>
         <span class="mock-block">Block</span>
-      </a-space>
+      </xy-space>
     </div>
     <div class="space-align-block">
-      <a-space align="baseline">
+      <xy-space align="baseline">
         baseline
-        <a-button type="primary">Primary</a-button>
+        <xy-button type="primary">Primary</xy-button>
         <span class="mock-block">Block</span>
-      </a-space>
+      </xy-space>
     </div>
   </div>
 </template>

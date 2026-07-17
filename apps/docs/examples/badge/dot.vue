@@ -1,10 +1,10 @@
 <template>
-  <a-badge dot>
+  <xy-badge dot>
     <notification-outlined style="font-size: 16px" />
-  </a-badge>
-  <a-badge dot>
+  </xy-badge>
+  <xy-badge dot>
     <a href="#">Link something</a>
-  </a-badge>
+  </xy-badge>
 </template>
 <script lang="ts" setup>
 import { NotificationOutlined } from '@xiaoye-ui/icons';

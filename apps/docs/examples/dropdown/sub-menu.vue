@@ -1,24 +1,24 @@
 <template>
-  <a-dropdown>
+  <xy-dropdown>
     <a class="xy-dropdown-link" @click.prevent>
       Cascading menu
       <DownOutlined />
     </a>
     <template #overlay>
-      <a-menu>
-        <a-menu-item>1st menu item</a-menu-item>
-        <a-menu-item>2nd menu item</a-menu-item>
-        <a-sub-menu key="sub1" title="sub menu">
-          <a-menu-item>3rd menu item</a-menu-item>
-          <a-menu-item>4th menu item</a-menu-item>
-        </a-sub-menu>
-        <a-sub-menu key="sub2" title="disabled sub menu" disabled>
-          <a-menu-item>5d menu item</a-menu-item>
-          <a-menu-item>6th menu item</a-menu-item>
-        </a-sub-menu>
-      </a-menu>
+      <xy-menu>
+        <xy-menu-item>1st menu item</xy-menu-item>
+        <xy-menu-item>2nd menu item</xy-menu-item>
+        <xy-sub-menu key="sub1" title="sub menu">
+          <xy-menu-item>3rd menu item</xy-menu-item>
+          <xy-menu-item>4th menu item</xy-menu-item>
+        </xy-sub-menu>
+        <xy-sub-menu key="sub2" title="disabled sub menu" disabled>
+          <xy-menu-item>5d menu item</xy-menu-item>
+          <xy-menu-item>6th menu item</xy-menu-item>
+        </xy-sub-menu>
+      </xy-menu>
     </template>
-  </a-dropdown>
+  </xy-dropdown>
 </template>
 <script lang="ts" setup>
 import { DownOutlined } from '@xiaoye-ui/icons';

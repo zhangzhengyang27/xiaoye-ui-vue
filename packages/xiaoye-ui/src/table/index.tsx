@@ -4,6 +4,7 @@ import ColumnGroup from './ColumnGroup';
 import type { TableProps, TablePaginationConfig } from './Table';
 import type { App } from 'vue';
 import { EXPAND_COLUMN, Summary, SummaryCell, SummaryRow } from '../vc-table';
+import { registerComponent } from '../_util/registerComponent';
 import {
   SELECTION_ALL,
   SELECTION_INVERT,
@@ -21,7 +22,7 @@ const TableSummaryCell = SummaryCell;
 const TableSummary = Object.assign(Summary, {
   Cell: TableSummaryCell,
   Row: TableSummaryRow,
-  name: 'ATableSummary',
+  name: 'XYTableSummary',
 });
 
 /* istanbul ignore next */
@@ -44,12 +45,12 @@ export default Object.assign(Table, {
   ColumnGroup,
   Summary: TableSummary,
   install: (app: App) => {
-    app.component(TableSummary.name, TableSummary);
-    app.component(TableSummaryCell.name, TableSummaryCell);
-    app.component(TableSummaryRow.name, TableSummaryRow);
-    app.component(Table.name, Table);
-    app.component(Column.name, Column);
-    app.component(ColumnGroup.name, ColumnGroup);
+    registerComponent(app, TableSummary);
+    registerComponent(app, TableSummaryCell);
+    registerComponent(app, TableSummaryRow);
+    registerComponent(app, Table);
+    registerComponent(app, Column);
+    registerComponent(app, ColumnGroup);
     return app;
   },
 });

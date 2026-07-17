@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data" :scroll="{ x: 2000 }" :expand-column-width="100">
+  <xy-table :columns="columns" :data-source="data" :scroll="{ x: 2000 }" :expand-column-width="100">
     <template #bodyCell="{ column }">
       <template v-if="column.key === 'action'">
         <a>Delete</a>
@@ -13,7 +13,7 @@
     <template #expandColumnTitle>
       <span style="color: red">More</span>
     </template>
-  </a-table>
+  </xy-table>
 </template>
 <script lang="ts" setup>
 const columns = [

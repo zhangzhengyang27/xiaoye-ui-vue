@@ -58,8 +58,7 @@ describe('RangePicker', () => {
     await asyncExpect(() => {
       wrapper.setProps({ value: [birthday, birthday] });
     });
-    await asyncExpect(() => {
-    });
+    await asyncExpect(() => {});
   });
 
   it('customize separator', async () => {
