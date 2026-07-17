@@ -40,7 +40,7 @@ export function updatePackageJson(localPackageJson) {
   pkg.bugs = { ...pkg.bugs, ...packageJson.bugs };
   pkg.engines = { ...pkg.engines, ...packageJson.engines };
 
-  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
+  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 2) + '\n', { encoding: 'utf8' });
 }
 
 export function clearPackageJson(localPackageJson) {
@@ -55,7 +55,7 @@ export function clearPackageJson(localPackageJson) {
   delete pkg?.publishConfig?.directory;
   delete pkg?.publishConfig?.linkDirectory;
 
-  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 4) + '\n', { encoding: 'utf8' });
+  fs.writeFileSync(localPackageJson, JSON.stringify(pkg, null, 2) + '\n', { encoding: 'utf8' });
 }
 
 export function normalizeWorkspaceDependencies(pkg, workspaceRoot) {
