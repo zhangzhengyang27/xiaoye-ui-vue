@@ -152,10 +152,20 @@ normalizeWorkspaceDependencies(distPkg.dependencies, versions);
 normalizeWorkspaceDependencies(distPkg.peerDependencies, versions);
 normalizeWorkspaceDependencies(distPkg.optionalDependencies, versions);
 
-// 清理字段
+// 清理字段：保留 publishConfig 中未应用的配置（如 access）
 delete distPkg.scripts;
 delete distPkg.devDependencies;
-delete distPkg.publishConfig;
+const cleanedPublishConfig = { ...publishConfig };
+delete cleanedPublishConfig.directory;
+delete cleanedPublishConfig.main;
+delete cleanedPublishConfig.module;
+delete cleanedPublishConfig.types;
+delete cleanedPublishConfig.exports;
+if (Object.keys(cleanedPublishConfig).length > 0) {
+  distPkg.publishConfig = cleanedPublishConfig;
+} else {
+  delete distPkg.publishConfig;
+}
 
 writeJson(distPkgPath, distPkg);
 console.log(`[prepare-dist-package] wrote ${distPkgPath}`);
