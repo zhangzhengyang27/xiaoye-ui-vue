@@ -1,6 +1,6 @@
 {
   "name": "@xiaoye-ui/utils",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "author": "xiaoye-ui",
   "description": "XiaoyeUI utilities",
   "homepage": "https://xiaoye-ui/",
@@ -39,6 +39,9 @@
     }
   },
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "postbuild": "node ../../scripts/prepare-dist-package.mjs",

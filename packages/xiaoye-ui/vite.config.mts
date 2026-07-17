@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import dts from 'vite-plugin-dts';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,7 +18,15 @@ const externalDeps = [
 
 // ESM-only 库模式构建配置
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    dts({
+      entryRoot: 'src',
+      outDir: 'dist',
+      tsconfigPath: './tsconfig.json',
+    }),
+  ],
   build: {
     lib: {
       entry: getEntries(),

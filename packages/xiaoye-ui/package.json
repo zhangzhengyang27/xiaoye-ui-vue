@@ -1,7 +1,17 @@
 {
   "name": "xiaoye-ui",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "An enterprise-class UI design language and Vue-based implementation",
+  "author": "xiaoye-ui",
+  "homepage": "https://xiaoye-ui/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
+  },
   "type": "module",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
@@ -11,6 +21,9 @@
     "*.vue",
     "*.css",
     "*.less"
+  ],
+  "files": [
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
@@ -54,152 +67,374 @@
     "module": "./index.mjs",
     "types": "./index.d.ts",
     "exports": {
-      ".": "./index.mjs",
+      ".": {
+        "types": "./index.d.ts",
+        "import": "./index.mjs"
+      },
       "./package.json": "./package.json"
     }
   },
   "exports": {
-    ".": "./src/index.ts",
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
     "./package.json": "./package.json",
-    "./affix": "./src/affix/index.tsx",
+    "./affix": {
+      "types": "./src/affix/index.tsx",
+      "import": "./src/affix/index.tsx"
+    },
     "./affix/style": "./src/affix/style/index.ts",
-    "./alert": "./src/alert/index.tsx",
+    "./alert": {
+      "types": "./src/alert/index.tsx",
+      "import": "./src/alert/index.tsx"
+    },
     "./alert/style": "./src/alert/style/index.ts",
-    "./anchor": "./src/anchor/index.tsx",
+    "./anchor": {
+      "types": "./src/anchor/index.tsx",
+      "import": "./src/anchor/index.tsx"
+    },
     "./anchor/style": "./src/anchor/style/index.ts",
-    "./app": "./src/app/index.tsx",
+    "./app": {
+      "types": "./src/app/index.tsx",
+      "import": "./src/app/index.tsx"
+    },
     "./app/style": "./src/app/style/index.ts",
-    "./auto-complete": "./src/auto-complete/index.tsx",
-    "./avatar": "./src/avatar/index.ts",
+    "./auto-complete": {
+      "types": "./src/auto-complete/index.tsx",
+      "import": "./src/auto-complete/index.tsx"
+    },
+    "./avatar": {
+      "types": "./src/avatar/index.ts",
+      "import": "./src/avatar/index.ts"
+    },
     "./avatar/style": "./src/avatar/style/index.ts",
-    "./badge": "./src/badge/index.ts",
+    "./badge": {
+      "types": "./src/badge/index.ts",
+      "import": "./src/badge/index.ts"
+    },
     "./badge/style": "./src/badge/style/index.ts",
-    "./breadcrumb": "./src/breadcrumb/index.ts",
+    "./breadcrumb": {
+      "types": "./src/breadcrumb/index.ts",
+      "import": "./src/breadcrumb/index.ts"
+    },
     "./breadcrumb/style": "./src/breadcrumb/style/index.ts",
-    "./button": "./src/button/index.ts",
+    "./button": {
+      "types": "./src/button/index.ts",
+      "import": "./src/button/index.ts"
+    },
     "./button/style": "./src/button/style/index.ts",
-    "./calendar": "./src/calendar/index.tsx",
+    "./calendar": {
+      "types": "./src/calendar/index.tsx",
+      "import": "./src/calendar/index.tsx"
+    },
     "./calendar/style": "./src/calendar/style/index.tsx",
-    "./card": "./src/card/index.ts",
+    "./card": {
+      "types": "./src/card/index.ts",
+      "import": "./src/card/index.ts"
+    },
     "./card/style": "./src/card/style/index.tsx",
-    "./carousel": "./src/carousel/index.tsx",
+    "./carousel": {
+      "types": "./src/carousel/index.tsx",
+      "import": "./src/carousel/index.tsx"
+    },
     "./carousel/style": "./src/carousel/style/index.tsx",
-    "./cascader": "./src/cascader/index.tsx",
+    "./cascader": {
+      "types": "./src/cascader/index.tsx",
+      "import": "./src/cascader/index.tsx"
+    },
     "./cascader/style": "./src/cascader/style/index.ts",
-    "./checkbox": "./src/checkbox/index.ts",
+    "./checkbox": {
+      "types": "./src/checkbox/index.ts",
+      "import": "./src/checkbox/index.ts"
+    },
     "./checkbox/style": "./src/checkbox/style/index.ts",
-    "./col": "./src/col/index.ts",
+    "./col": {
+      "types": "./src/col/index.ts",
+      "import": "./src/col/index.ts"
+    },
     "./col/style": "./src/col/style/index.ts",
-    "./collapse": "./src/collapse/index.ts",
+    "./collapse": {
+      "types": "./src/collapse/index.ts",
+      "import": "./src/collapse/index.ts"
+    },
     "./collapse/style": "./src/collapse/style/index.tsx",
-    "./comment": "./src/comment/index.tsx",
+    "./comment": {
+      "types": "./src/comment/index.tsx",
+      "import": "./src/comment/index.tsx"
+    },
     "./comment/style": "./src/comment/style/index.ts",
-    "./config-provider": "./src/config-provider/index.tsx",
+    "./config-provider": {
+      "types": "./src/config-provider/index.tsx",
+      "import": "./src/config-provider/index.tsx"
+    },
     "./config-provider/style": "./src/config-provider/style/index.ts",
-    "./date-picker": "./src/date-picker/index.tsx",
+    "./date-picker": {
+      "types": "./src/date-picker/index.tsx",
+      "import": "./src/date-picker/index.tsx"
+    },
     "./date-picker/style": "./src/date-picker/style/index.ts",
-    "./descriptions": "./src/descriptions/index.tsx",
+    "./descriptions": {
+      "types": "./src/descriptions/index.tsx",
+      "import": "./src/descriptions/index.tsx"
+    },
     "./descriptions/style": "./src/descriptions/style/index.ts",
-    "./divider": "./src/divider/index.tsx",
+    "./divider": {
+      "types": "./src/divider/index.tsx",
+      "import": "./src/divider/index.tsx"
+    },
     "./divider/style": "./src/divider/style/index.ts",
-    "./drawer": "./src/drawer/index.tsx",
+    "./drawer": {
+      "types": "./src/drawer/index.tsx",
+      "import": "./src/drawer/index.tsx"
+    },
     "./drawer/style": "./src/drawer/style/index.ts",
-    "./dropdown": "./src/dropdown/index.ts",
+    "./dropdown": {
+      "types": "./src/dropdown/index.ts",
+      "import": "./src/dropdown/index.ts"
+    },
     "./dropdown/style": "./src/dropdown/style/index.ts",
-    "./empty": "./src/empty/index.tsx",
+    "./empty": {
+      "types": "./src/empty/index.tsx",
+      "import": "./src/empty/index.tsx"
+    },
     "./empty/style": "./src/empty/style/index.ts",
-    "./flex": "./src/flex/index.tsx",
+    "./flex": {
+      "types": "./src/flex/index.tsx",
+      "import": "./src/flex/index.tsx"
+    },
     "./flex/style": "./src/flex/style/index.ts",
-    "./float-button": "./src/float-button/index.ts",
+    "./float-button": {
+      "types": "./src/float-button/index.ts",
+      "import": "./src/float-button/index.ts"
+    },
     "./float-button/style": "./src/float-button/style/index.ts",
-    "./form": "./src/form/index.tsx",
+    "./form": {
+      "types": "./src/form/index.tsx",
+      "import": "./src/form/index.tsx"
+    },
     "./form/style": "./src/form/style/index.ts",
-    "./grid": "./src/grid/index.ts",
+    "./grid": {
+      "types": "./src/grid/index.ts",
+      "import": "./src/grid/index.ts"
+    },
     "./grid/style": "./src/grid/style/index.ts",
-    "./icon": "./src/icon/index.tsx",
-    "./image": "./src/image/index.tsx",
+    "./icon": {
+      "types": "./src/icon/index.tsx",
+      "import": "./src/icon/index.tsx"
+    },
+    "./image": {
+      "types": "./src/image/index.tsx",
+      "import": "./src/image/index.tsx"
+    },
     "./image/style": "./src/image/style/index.ts",
-    "./input": "./src/input/index.ts",
+    "./input": {
+      "types": "./src/input/index.ts",
+      "import": "./src/input/index.ts"
+    },
     "./input/style": "./src/input/style/index.ts",
-    "./input-number": "./src/input-number/index.tsx",
+    "./input-number": {
+      "types": "./src/input-number/index.tsx",
+      "import": "./src/input-number/index.tsx"
+    },
     "./input-number/style": "./src/input-number/style/index.tsx",
-    "./layout": "./src/layout/index.ts",
+    "./layout": {
+      "types": "./src/layout/index.ts",
+      "import": "./src/layout/index.ts"
+    },
     "./layout/style": "./src/layout/style/index.ts",
-    "./list": "./src/list/index.tsx",
+    "./list": {
+      "types": "./src/list/index.tsx",
+      "import": "./src/list/index.tsx"
+    },
     "./list/style": "./src/list/style/index.tsx",
-    "./locale-provider": "./src/locale-provider/index.ts",
-    "./mentions": "./src/mentions/index.tsx",
+    "./locale-provider": {
+      "types": "./src/locale-provider/index.ts",
+      "import": "./src/locale-provider/index.ts"
+    },
+    "./mentions": {
+      "types": "./src/mentions/index.tsx",
+      "import": "./src/mentions/index.tsx"
+    },
     "./mentions/style": "./src/mentions/style/index.ts",
-    "./menu": "./src/menu/index.tsx",
+    "./menu": {
+      "types": "./src/menu/index.tsx",
+      "import": "./src/menu/index.tsx"
+    },
     "./menu/style": "./src/menu/style/index.ts",
-    "./message": "./src/message/index.tsx",
+    "./message": {
+      "types": "./src/message/index.tsx",
+      "import": "./src/message/index.tsx"
+    },
     "./message/style": "./src/message/style/index.ts",
-    "./modal": "./src/modal/index.tsx",
+    "./modal": {
+      "types": "./src/modal/index.tsx",
+      "import": "./src/modal/index.tsx"
+    },
     "./modal/style": "./src/modal/style/index.ts",
-    "./notification": "./src/notification/index.tsx",
+    "./notification": {
+      "types": "./src/notification/index.tsx",
+      "import": "./src/notification/index.tsx"
+    },
     "./notification/style": "./src/notification/style/index.ts",
-    "./page-header": "./src/page-header/index.tsx",
+    "./page-header": {
+      "types": "./src/page-header/index.tsx",
+      "import": "./src/page-header/index.tsx"
+    },
     "./page-header/style": "./src/page-header/style/index.ts",
-    "./pagination": "./src/pagination/index.ts",
+    "./pagination": {
+      "types": "./src/pagination/index.ts",
+      "import": "./src/pagination/index.ts"
+    },
     "./pagination/style": "./src/pagination/style/index.tsx",
-    "./popconfirm": "./src/popconfirm/index.tsx",
+    "./popconfirm": {
+      "types": "./src/popconfirm/index.tsx",
+      "import": "./src/popconfirm/index.tsx"
+    },
     "./popconfirm/style": "./src/popconfirm/style/index.ts",
-    "./popover": "./src/popover/index.tsx",
+    "./popover": {
+      "types": "./src/popover/index.tsx",
+      "import": "./src/popover/index.tsx"
+    },
     "./popover/style": "./src/popover/style/index.ts",
-    "./progress": "./src/progress/index.ts",
+    "./progress": {
+      "types": "./src/progress/index.ts",
+      "import": "./src/progress/index.ts"
+    },
     "./progress/style": "./src/progress/style/index.ts",
-    "./qrcode": "./src/qrcode/index.tsx",
+    "./qrcode": {
+      "types": "./src/qrcode/index.tsx",
+      "import": "./src/qrcode/index.tsx"
+    },
     "./qrcode/style": "./src/qrcode/style/index.ts",
-    "./radio": "./src/radio/index.ts",
+    "./radio": {
+      "types": "./src/radio/index.ts",
+      "import": "./src/radio/index.ts"
+    },
     "./radio/style": "./src/radio/style/index.tsx",
-    "./rate": "./src/rate/index.tsx",
+    "./rate": {
+      "types": "./src/rate/index.tsx",
+      "import": "./src/rate/index.tsx"
+    },
     "./rate/style": "./src/rate/style/index.ts",
-    "./result": "./src/result/index.tsx",
+    "./result": {
+      "types": "./src/result/index.tsx",
+      "import": "./src/result/index.tsx"
+    },
     "./result/style": "./src/result/style/index.tsx",
-    "./row": "./src/row/index.ts",
+    "./row": {
+      "types": "./src/row/index.ts",
+      "import": "./src/row/index.ts"
+    },
     "./row/style": "./src/row/style/index.ts",
-    "./segmented": "./src/segmented/index.ts",
+    "./segmented": {
+      "types": "./src/segmented/index.ts",
+      "import": "./src/segmented/index.ts"
+    },
     "./segmented/style": "./src/segmented/style/index.ts",
-    "./select": "./src/select/index.tsx",
+    "./select": {
+      "types": "./src/select/index.tsx",
+      "import": "./src/select/index.tsx"
+    },
     "./select/style": "./src/select/style/index.ts",
-    "./skeleton": "./src/skeleton/index.tsx",
+    "./skeleton": {
+      "types": "./src/skeleton/index.tsx",
+      "import": "./src/skeleton/index.tsx"
+    },
     "./skeleton/style": "./src/skeleton/style/index.ts",
-    "./slider": "./src/slider/index.tsx",
+    "./slider": {
+      "types": "./src/slider/index.tsx",
+      "import": "./src/slider/index.tsx"
+    },
     "./slider/style": "./src/slider/style/index.tsx",
-    "./space": "./src/space/index.tsx",
+    "./space": {
+      "types": "./src/space/index.tsx",
+      "import": "./src/space/index.tsx"
+    },
     "./space/style": "./src/space/style/index.tsx",
-    "./spin": "./src/spin/index.ts",
+    "./spin": {
+      "types": "./src/spin/index.ts",
+      "import": "./src/spin/index.ts"
+    },
     "./spin/style": "./src/spin/style/index.ts",
-    "./statistic": "./src/statistic/index.ts",
+    "./statistic": {
+      "types": "./src/statistic/index.ts",
+      "import": "./src/statistic/index.ts"
+    },
     "./statistic/style": "./src/statistic/style/index.tsx",
-    "./steps": "./src/steps/index.tsx",
+    "./steps": {
+      "types": "./src/steps/index.tsx",
+      "import": "./src/steps/index.tsx"
+    },
     "./steps/style": "./src/steps/style/index.tsx",
-    "./switch": "./src/switch/index.tsx",
+    "./switch": {
+      "types": "./src/switch/index.tsx",
+      "import": "./src/switch/index.tsx"
+    },
     "./switch/style": "./src/switch/style/index.ts",
-    "./table": "./src/table/index.tsx",
+    "./table": {
+      "types": "./src/table/index.tsx",
+      "import": "./src/table/index.tsx"
+    },
     "./table/style": "./src/table/style/index.ts",
-    "./tabs": "./src/tabs/index.ts",
+    "./tabs": {
+      "types": "./src/tabs/index.ts",
+      "import": "./src/tabs/index.ts"
+    },
     "./tabs/style": "./src/tabs/style/index.ts",
-    "./tag": "./src/tag/index.tsx",
+    "./tag": {
+      "types": "./src/tag/index.tsx",
+      "import": "./src/tag/index.tsx"
+    },
     "./tag/style": "./src/tag/style/index.ts",
-    "./time-picker": "./src/time-picker/index.tsx",
-    "./timeline": "./src/timeline/index.tsx",
+    "./time-picker": {
+      "types": "./src/time-picker/index.tsx",
+      "import": "./src/time-picker/index.tsx"
+    },
+    "./timeline": {
+      "types": "./src/timeline/index.tsx",
+      "import": "./src/timeline/index.tsx"
+    },
     "./timeline/style": "./src/timeline/style/index.tsx",
-    "./tooltip": "./src/tooltip/index.ts",
+    "./tooltip": {
+      "types": "./src/tooltip/index.ts",
+      "import": "./src/tooltip/index.ts"
+    },
     "./tooltip/style": "./src/tooltip/style/index.ts",
-    "./tour": "./src/tour/index.tsx",
+    "./tour": {
+      "types": "./src/tour/index.tsx",
+      "import": "./src/tour/index.tsx"
+    },
     "./tour/style": "./src/tour/style/index.ts",
-    "./transfer": "./src/transfer/index.tsx",
+    "./transfer": {
+      "types": "./src/transfer/index.tsx",
+      "import": "./src/transfer/index.tsx"
+    },
     "./transfer/style": "./src/transfer/style/index.tsx",
-    "./tree": "./src/tree/index.tsx",
+    "./tree": {
+      "types": "./src/tree/index.tsx",
+      "import": "./src/tree/index.tsx"
+    },
     "./tree/style": "./src/tree/style/index.ts",
-    "./tree-select": "./src/tree-select/index.tsx",
+    "./tree-select": {
+      "types": "./src/tree-select/index.tsx",
+      "import": "./src/tree-select/index.tsx"
+    },
     "./tree-select/style": "./src/tree-select/style/index.tsx",
-    "./typography": "./src/typography/index.tsx",
+    "./typography": {
+      "types": "./src/typography/index.tsx",
+      "import": "./src/typography/index.tsx"
+    },
     "./typography/style": "./src/typography/style/index.tsx",
-    "./upload": "./src/upload/index.tsx",
+    "./upload": {
+      "types": "./src/upload/index.tsx",
+      "import": "./src/upload/index.tsx"
+    },
     "./upload/style": "./src/upload/style/index.ts",
-    "./watermark": "./src/watermark/index.tsx"
+    "./watermark": {
+      "types": "./src/watermark/index.tsx",
+      "import": "./src/watermark/index.tsx"
+    }
   },
   "devDependencies": {
     "@types/minimatch": "^6.0.0",

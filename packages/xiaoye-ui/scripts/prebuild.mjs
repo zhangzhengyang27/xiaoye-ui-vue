@@ -167,10 +167,15 @@ function generateGlobalDts(components) {
 
 /**
  * 生成 package.json 的 exports 字段（开发期指向 src）
+ * 主入口和组件入口采用条件导出对象（types + import），便于发布期转换
+ * style 入口是副作用导入，保持字符串形式
  */
 function generateExports(components) {
   const exports = {
-    '.': './src/index.ts',
+    '.': {
+      types: './src/index.ts',
+      import: './src/index.ts',
+    },
     './package.json': './package.json',
   };
 
@@ -179,12 +184,15 @@ function generateExports(components) {
     for (const ext of ['.ts', '.tsx']) {
       const entryPath = `src/${comp.name}/index${ext}`;
       if (existsSync(resolve(pkgRoot, entryPath))) {
-        exports[`./${comp.name}`] = `./${entryPath}`;
+        exports[`./${comp.name}`] = {
+          types: `./${entryPath}`,
+          import: `./${entryPath}`,
+        };
         break;
       }
     }
 
-    // style 入口
+    // style 入口（副作用导入，无 types）
     if (comp.hasStyle) {
       for (const ext of ['.ts', '.tsx']) {
         const stylePath = `src/${comp.name}/style/index${ext}`;

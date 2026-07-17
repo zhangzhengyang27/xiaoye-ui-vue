@@ -1,8 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  // 与 package.json exports 子路径对齐：.、./object、./dom
-  entry: ['src/index.ts', 'src/object/index.ts', 'src/dom.ts'],
+  entry: ['src/index.ts'],
   format: ['esm'],
   dts: true,
   splitting: false,

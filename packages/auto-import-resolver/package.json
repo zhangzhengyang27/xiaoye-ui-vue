@@ -1,14 +1,28 @@
 {
   "name": "@xiaoye-ui/auto-import-resolver",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "XiaoyeUI auto-import resolver for unplugin-vue-components",
+  "author": "xiaoye-ui",
+  "homepage": "https://xiaoye-ui/",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
+    "directory": "packages/auto-import-resolver"
+  },
+  "bugs": {
+    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
+  },
   "type": "module",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",
   "sideEffects": false,
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm --no-dts",
+    "build": "tsup",
     "postbuild": "node ../../scripts/prepare-dist-package.mjs",
     "typecheck": "tsc --noEmit"
   },

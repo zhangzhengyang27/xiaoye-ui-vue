@@ -92,6 +92,15 @@ module.exports = {
         'no-console': 'off',
       },
     },
+    // 构建脚本（非源码）：允许 console.log 输出构建日志
+    {
+      files: ['scripts/**/*.mjs', 'packages/*/scripts/**/*.mjs'],
+      rules: {
+        'no-console': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'no-unused-vars': 'off',
+      },
+    },
   ],
   rules: {
     '@typescript-eslint/no-explicit-any': 0,

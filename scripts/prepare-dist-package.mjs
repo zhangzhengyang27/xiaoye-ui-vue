@@ -8,7 +8,7 @@
  * 5. 替换 workspace:* 为具体版本
  * 6. 清理 scripts、devDependencies、publishConfig
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, rmSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -87,6 +87,11 @@ function srcToDist(srcPath, isTypes = false) {
         .replace(/\.(ts|tsx)$/, `.${defaultExt}`)
         .replace(/\/index\.(ts|tsx)$/, `/index.${defaultExt}`);
 
+  // 通配符模式（如 "./*"）直接保留，不做文件存在性检查
+  if (target.includes('*')) {
+    return target;
+  }
+
   // 如果对应 dist 产物存在则使用，否则回退到根入口
   const absoluteTarget = resolve(distDir, target.replace(/^\.\//, ''));
   if (existsSync(absoluteTarget)) {
@@ -155,6 +160,10 @@ normalizeWorkspaceDependencies(distPkg.optionalDependencies, versions);
 // 清理字段：保留 publishConfig 中未应用的配置（如 access）
 delete distPkg.scripts;
 delete distPkg.devDependencies;
+// 删除 files 字段：源 package.json 的 files: ["dist"] 用于开发期，
+// 但发布时 publishConfig.directory 已指向 dist，dist/package.json 中不应再保留 files，
+// 否则 npm 会在 dist 目录内查找 dist 子目录，导致发布空包
+delete distPkg.files;
 const cleanedPublishConfig = { ...publishConfig };
 delete cleanedPublishConfig.directory;
 delete cleanedPublishConfig.main;
@@ -169,3 +178,27 @@ if (Object.keys(cleanedPublishConfig).length > 0) {
 
 writeJson(distPkgPath, distPkg);
 console.log(`[prepare-dist-package] wrote ${distPkgPath}`);
+
+// 清理 declarationMap 文件（.d.ts.map）
+// 这些文件由 tsconfig.declarationMap:true 生成，用于本地调试
+// 但发布后 sources 指向 src/ 路径会失效，且增加包体积，故发布前删除
+function cleanDeclarationMaps(dir) {
+  if (!existsSync(dir)) return 0;
+  let count = 0;
+  const entries = readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      count += cleanDeclarationMaps(fullPath);
+    } else if (entry.name.endsWith('.d.ts.map')) {
+      rmSync(fullPath);
+      count++;
+    }
+  }
+  return count;
+}
+
+const removedMaps = cleanDeclarationMaps(distDir);
+if (removedMaps > 0) {
+  console.log(`[prepare-dist-package] removed ${removedMaps} declaration map files (*.d.ts.map)`);
+}

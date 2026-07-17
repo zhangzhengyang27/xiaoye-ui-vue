@@ -6,7 +6,14 @@
  * 3. normalizeWorkspaceDependencies：把 workspace:* 转成 ^x.y.z
  * 4. 清理临时字段（scripts、devDependencies）
  */
-import { readFileSync, writeFileSync, existsSync, copyFileSync, rmSync } from 'node:fs';
+import {
+  readFileSync,
+  writeFileSync,
+  existsSync,
+  copyFileSync,
+  rmSync,
+  readdirSync,
+} from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -31,32 +38,41 @@ function writeJson(path, data) {
 
 /**
  * 生成发布期的 exports（指向 dist 产物）
- * 从开发期 exports 的 ./src/<name>/index.ts 转换为 ./<name>/index.mjs
+ * - types 条件：./src/<name>/index.ts → ./<name>/index.d.ts
+ * - import 条件：./src/<name>/index.ts → ./<name>/index.mjs
+ * - style 副作用入口：./src/<name>/style/index.ts → ./<name>/style/index.mjs
  */
 function generateDistExports(devExports) {
   const distExports = {};
   for (const [key, value] of Object.entries(devExports)) {
-    if (key === '.' || key === './package.json') {
-      distExports[key] = key === '.' ? './index.mjs' : './package.json';
+    if (key === './package.json') {
+      distExports[key] = './package.json';
       continue;
     }
-    // ./button → ./button/index.mjs（从 ./src/button/index.ts 转换）
+    if (key === '.') {
+      // 根入口强制带 types + import
+      const rootVal = typeof value === 'object' ? value : {};
+      distExports[key] = {
+        types: rootVal.types ? srcToDistTypes(rootVal.types) : './index.d.ts',
+        import: rootVal.import ? srcToDistImport(rootVal.import) : './index.mjs',
+      };
+      continue;
+    }
     if (typeof value === 'string' && value.startsWith('./src/')) {
-      // ./src/button/index.ts → ./button/index.mjs
-      const distPath = value
-        .replace(/^\.\/src\//, './')
-        .replace(/\/index\.(ts|tsx)$/, '/index.mjs');
-      distExports[key] = distPath;
+      // style 等副作用入口：直接转 .mjs
+      distExports[key] = srcToDistImport(value);
     } else if (typeof value === 'object') {
-      // 处理条件导出对象
+      // 条件导出对象：types 生成 .d.ts，其他生成 .mjs
       distExports[key] = {};
       for (const [cond, val] of Object.entries(value)) {
-        if (typeof val === 'string' && val.startsWith('./src/')) {
-          distExports[key][cond] = val
-            .replace(/^\.\/src\//, './')
-            .replace(/\/index\.(ts|tsx)$/, '/index.mjs');
-        } else {
+        if (typeof val !== 'string' || !val.startsWith('./src/')) {
           distExports[key][cond] = val;
+          continue;
+        }
+        if (cond === 'types' || cond === 'typings') {
+          distExports[key][cond] = srcToDistTypes(val);
+        } else {
+          distExports[key][cond] = srcToDistImport(val);
         }
       }
     } else {
@@ -64,6 +80,35 @@ function generateDistExports(devExports) {
     }
   }
   return distExports;
+}
+
+/**
+ * 将源码路径转换为 dist 产物路径（import 条件）
+ *
+ * Vite lib 模式 + preserveModules 下：
+ * - 入口文件 src/<name>/index.ts → dist/<name>.mjs（用入口 key 命名，去掉 /index）
+ * - style 入口 src/<name>/style/index.ts → dist/<name>/style.mjs
+ * - 根入口 src/index.ts → dist/index.mjs
+ *
+ * 注意：与 srcToDistTypes 不同！vite-plugin-dts 生成的 .d.ts 保留目录结构
+ * （dist/<name>/index.d.ts），但 Vite 构建的 .mjs 入口文件不保留 /index。
+ */
+function srcToDistImport(srcPath) {
+  return srcPath
+    .replace(/^\.\/src\//, './')
+    .replace(/^\.\/index\.(ts|tsx)$/, './index.mjs') // 根入口：./index.ts → ./index.mjs
+    .replace(/\/index\.(ts|tsx)$/, '.mjs') // 子入口：/<name>/index.ts → /<name>.mjs
+    .replace(/\.(ts|tsx)$/, '.mjs'); // 非入口文件：.ts → .mjs
+}
+
+/**
+ * ./src/<name>/index.ts → ./<name>/index.d.ts
+ */
+function srcToDistTypes(srcPath) {
+  return srcPath
+    .replace(/^\.\/src\//, './')
+    .replace(/\.(ts|tsx)$/, '.d.ts')
+    .replace(/\/index\.d\.ts$/, '/index.d.ts');
 }
 
 // === 主流程 ===
@@ -119,8 +164,37 @@ console.log('[postbuild] 已规范化 workspace 依赖');
 delete pkg.scripts;
 delete pkg.devDependencies;
 delete pkg.publishConfig;
+// 删除 files 字段：源 package.json 的 files: ["dist"] 用于开发期，
+// 但发布时 publishConfig.directory 已指向 dist，dist/package.json 中不应再保留 files，
+// 否则 npm 会在 dist 目录内查找 dist 子目录，导致发布空包
+delete pkg.files;
 console.log('[postbuild] 已清理临时字段');
 
 // 3. 写入 dist/package.json
 writeJson(distPkgPath, pkg);
 console.log('[postbuild] 完成');
+
+// 清理 declarationMap 文件（.d.ts.map）
+// 这些文件由 tsconfig.declarationMap:true 生成，用于本地调试
+// 但发布后 sources 指向 src/ 路径会失效，且增加包体积，故发布前删除
+function cleanDeclarationMaps(dir) {
+  if (!existsSync(dir)) return 0;
+  let count = 0;
+  const entries = readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      count += cleanDeclarationMaps(fullPath);
+    } else if (entry.name.endsWith('.d.ts.map')) {
+      rmSync(fullPath);
+      count++;
+    }
+  }
+  return count;
+}
+
+const distDir = resolve(pkgRoot, 'dist');
+const removedMaps = cleanDeclarationMaps(distDir);
+if (removedMaps > 0) {
+  console.log(`[postbuild] removed ${removedMaps} declaration map files (*.d.ts.map)`);
+}

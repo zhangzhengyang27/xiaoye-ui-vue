@@ -1,6 +1,6 @@
 {
   "name": "@xiaoye-ui/icons",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "author": "xiaoye-ui",
   "description": "",
   "homepage": "https://xiaoye-ui/",
@@ -271,18 +271,23 @@
         "types": "./index.d.ts",
         "import": "./index.mjs"
       },
-      "./*": "./*",
-      "./*.vue": "./*.vue.mjs"
+      "./*": "./*"
     },
     "directory": "dist",
     "linkDirectory": false,
     "access": "public"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build",
     "postbuild": "node ../../scripts/prepare-dist-package.mjs",
     "dev": "vite build --watch",
     "dev:link": "pnpm link --global && npm link"
+  },
+  "peerDependencies": {
+    "vue": ">=3.4.0"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.0",
