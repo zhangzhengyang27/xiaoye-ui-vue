@@ -40,6 +40,30 @@ focus-trap/selectors
 
 :::
 
+## 在 Modal 中
+
+:::demo 打开 modal 时焦点陷阱生效。
+
+focus-trap/in-modal
+
+:::
+
+## 在 Drawer 中
+
+:::demo 打开 drawer 时焦点陷阱生效。
+
+focus-trap/in-drawer
+
+:::
+
+## 多区域焦点陷阱
+
+:::demo 多个陷阱区域切换。
+
+focus-trap/multi-region
+
+:::
+
 ## API
 
 ### FocusTrap Props

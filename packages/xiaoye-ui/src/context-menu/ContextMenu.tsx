@@ -33,33 +33,10 @@ import contextMenuProps from './contextMenuTypes';
 import { initDefaultProps } from '../_util/props-util';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';
+import { ZIndexManager } from '../_util/zIndexManager';
 
 // SSR 安全判断
 const isClient = typeof window !== 'undefined' && !!window.document;
-
-// 内联 ZIndex 管理器（避免 @xiaoye-ui/utils/zindex 子路径在 Vite 中的解析问题）
-const zIndexRecords: { key: string; value: number }[] = [];
-const ZIndex = {
-  get(element?: HTMLElement): number {
-    return element ? parseInt(element.style.zIndex, 10) || 0 : 0;
-  },
-  set(key: string, element: HTMLElement, baseZIndex?: number): void {
-    const base = baseZIndex ?? 0;
-    const last = zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1] : null;
-    const newValue = last ? last.value + 1 : base + 1;
-    zIndexRecords.push({ key, value: newValue });
-    element.style.zIndex = String(newValue);
-  },
-  clear(element: HTMLElement): void {
-    const z = parseInt(element.style.zIndex, 10) || 0;
-    const idx = zIndexRecords.findIndex(r => r.value === z);
-    if (idx !== -1) zIndexRecords.splice(idx, 1);
-    element.style.zIndex = '';
-  },
-  getCurrent(_key: string): number {
-    return zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1].value : 0;
-  },
-};
 
 export default defineComponent({
   name: 'XYContextMenu',
@@ -440,7 +417,7 @@ export default defineComponent({
       position();
 
       if (props.autoZIndex) {
-        ZIndex.set('menu', el, props.baseZIndex);
+        ZIndexManager.set('menu', el, props.baseZIndex);
       }
     }
 
@@ -461,7 +438,7 @@ export default defineComponent({
 
     function onAfterLeave(el: HTMLElement) {
       if (props.autoZIndex) {
-        ZIndex.clear(el);
+        ZIndexManager.clear(el);
       }
 
       unbindOutsideClickListener();
@@ -801,7 +778,7 @@ export default defineComponent({
       unbindMatchMediaListener();
 
       if (container && props.autoZIndex) {
-        ZIndex.clear(container);
+        ZIndexManager.clear(container);
       }
 
       target = null;

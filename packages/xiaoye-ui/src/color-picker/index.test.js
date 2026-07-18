@@ -163,4 +163,51 @@ describe('ColorPicker', () => {
     expect(wrapper.vm.hsbValue.b).toBe(100);
     wrapper.unmount();
   });
+
+  it('传入 ariaLabel 时 input 元素具有对应的 aria-label', () => {
+    const wrapper = mount(ColorPicker, {
+      props: { modelValue: '#ff0000', ariaLabel: 'Pick a color' },
+      attachTo: 'body',
+    });
+    const input = document.body.querySelector('.xy-colorpicker-preview');
+    expect(input).not.toBeNull();
+    expect(input.getAttribute('aria-label')).toBe('Pick a color');
+    wrapper.unmount();
+  });
+
+  it('input 元素具有 role=button 和 aria-haspopup=dialog 属性', () => {
+    const wrapper = mount(ColorPicker, {
+      props: { modelValue: '#ff0000' },
+      attachTo: 'body',
+    });
+    const input = document.body.querySelector('.xy-colorpicker-preview');
+    expect(input).not.toBeNull();
+    expect(input.getAttribute('role')).toBe('button');
+    expect(input.getAttribute('aria-haspopup')).toBe('dialog');
+    wrapper.unmount();
+  });
+
+  it('disabled 为 true 时 input 元素具有 aria-disabled 属性', () => {
+    const wrapper = mount(ColorPicker, {
+      props: { modelValue: '#ff0000', disabled: true },
+      attachTo: 'body',
+    });
+    const input = document.body.querySelector('.xy-colorpicker-preview');
+    expect(input).not.toBeNull();
+    expect(input.getAttribute('aria-disabled')).toBe('true');
+    wrapper.unmount();
+  });
+
+  it('按 Space 键切换 overlay 可见性', async () => {
+    const wrapper = mount(ColorPicker, {
+      props: { modelValue: '#ff0000' },
+      attachTo: 'body',
+    });
+    expect(wrapper.vm.overlayVisible).toBe(false);
+    await wrapper.find('.xy-colorpicker-preview').trigger('keydown', { code: 'Space' });
+    expect(wrapper.vm.overlayVisible).toBe(true);
+    await wrapper.find('.xy-colorpicker-preview').trigger('keydown', { code: 'Space' });
+    expect(wrapper.vm.overlayVisible).toBe(false);
+    wrapper.unmount();
+  });
 });

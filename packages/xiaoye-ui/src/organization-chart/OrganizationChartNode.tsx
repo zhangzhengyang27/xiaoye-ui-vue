@@ -15,6 +15,8 @@ const OrganizationChartNode = defineComponent({
     collapsedKeys: { type: Object as PropType<any>, default: null },
     selectionKeys: { type: Object as PropType<any>, default: null },
     selectionMode: { type: String as PropType<string | null>, default: null },
+    focusedKey: { type: null, default: null },
+    onFocusedKeyChange: { type: Function as PropType<(key: any) => void>, default: undefined },
     onNodeClick: Function,
     onNodeToggle: Function,
   },
@@ -53,6 +55,8 @@ const OrganizationChartNode = defineComponent({
         selectable.value && props.selectionKeys && props.selectionKeys[props.node.key] === true
       );
     });
+
+    const isFocused = computed(() => String(props.focusedKey) === String(props.node.key));
 
     const toggleable = computed(() => {
       return props.collapsible && props.node.collapsible !== false && !leaf.value;
@@ -122,6 +126,12 @@ const OrganizationChartNode = defineComponent({
       }
     }
 
+    function onTreeItemFocus() {
+      if (props.onFocusedKeyChange) {
+        props.onFocusedKeyChange(props.node.key);
+      }
+    }
+
     expose({ toggleNode, onNodeClick, onChildNodeClick, onChildNodeToggle, onKeydown });
 
     return () => {
@@ -132,7 +142,7 @@ const OrganizationChartNode = defineComponent({
       const ToggleIconComp = props.templates?.toggleicon || props.templates?.togglericon;
       const toggleButtonVNode = toggleable.value ? (
         <a
-          tabindex="0"
+          tabindex="-1"
           class={`${prefixCls.value}-node-toggle-button`}
           onClick={toggleNode}
           onKeydown={onKeydown}
@@ -152,7 +162,16 @@ const OrganizationChartNode = defineComponent({
 
       const NodeContentComp = props.templates?.[props.node.type] || props.templates?.default;
       const nodeContentVNode = (
-        <div class={[nodeClasses.value, props.node.styleClass]} onClick={onNodeClick}>
+        <div
+          class={[nodeClasses.value, props.node.styleClass]}
+          role="treeitem"
+          aria-expanded={!leaf.value ? expanded.value : undefined}
+          aria-selected={selectable.value ? selected.value : undefined}
+          tabindex={isFocused.value ? 0 : -1}
+          data-node-key={props.node.key}
+          onFocus={onTreeItemFocus}
+          onClick={onNodeClick}
+        >
           {NodeContentComp ? <NodeContentComp node={props.node} /> : null}
           {toggleButtonVNode}
         </div>
@@ -191,7 +210,7 @@ const OrganizationChartNode = defineComponent({
       // Children row
       const childrenVNode =
         props.node.children && props.node.children.length ? (
-          <tr style={childStyle.value} class={`${prefixCls.value}-node-children`}>
+          <tr style={childStyle.value} class={`${prefixCls.value}-node-children`} role="group">
             {props.node.children.map((child: any) => (
               <td key={child.key} colspan={2} class={`${prefixCls.value}-node-cell`}>
                 <OrganizationChartNode
@@ -201,6 +220,8 @@ const OrganizationChartNode = defineComponent({
                   collapsible={props.collapsible}
                   selectionMode={props.selectionMode}
                   selectionKeys={props.selectionKeys}
+                  focusedKey={props.focusedKey}
+                  onFocusedKeyChange={props.onFocusedKeyChange}
                   onNodeToggle={onChildNodeToggle}
                   onNodeClick={onChildNodeClick}
                 />

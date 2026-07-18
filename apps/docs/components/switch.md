@@ -47,6 +47,30 @@ switch/loading
 
 :::
 
+## 异步加载
+
+:::demo 模拟异步保存场景，点击 switch 后延迟切换，失败时回滚。
+
+switch/async-loading
+
+:::
+
+## 表单中使用
+
+:::demo 配合 xy-form 使用 switch 作为表单字段。
+
+switch/with-form
+
+:::
+
+## 文字与图标
+
+:::demo 通过 checkedChildren/unCheckedChildren 自定义开关内容。
+
+switch/with-text-icons
+
+:::
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

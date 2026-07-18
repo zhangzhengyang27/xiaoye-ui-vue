@@ -70,6 +70,8 @@ export const colorPickerProps = () => ({
   },
   /** 输入框 id（用于 label 关联） */
   inputId: { type: String as PropType<string | null>, default: null },
+  /** 触发器的无障碍标签，默认 "选择颜色" */
+  ariaLabel: stringType<string>('选择颜色'),
   /** 面板样式类（已废弃，请使用 overlayClass） */
   panelClass: anyType<any>(null),
   /** overlay 样式类 */

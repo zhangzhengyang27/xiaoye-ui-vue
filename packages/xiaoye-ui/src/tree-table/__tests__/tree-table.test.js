@@ -271,4 +271,162 @@ describe('TreeTable', () => {
     };
     TreeTableDefault.install(app);
   });
+
+  // ===== 业务测试 =====
+
+  // 展开/折叠行：点击展开按钮后子行显示，从展开状态点击后子行隐藏
+  it('toggles child rows visibility on toggle button click', async () => {
+    // 场景1：从折叠状态点击展开
+    const wrapper = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data">
+            <Column field="name" header="Name" expander />
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return { data: sampleData };
+        },
+      },
+      { sync: false },
+    );
+    // 初始时只显示顶级节点（2 行）
+    expect(wrapper.findAll('.xy-tree-table-row').length).toBe(2);
+    // 点击展开按钮，子节点显示（2 顶级 + 2 个 node 0 的子节点 = 4 行）
+    await wrapper.find('.xy-tree-table-node-toggle-button').trigger('click');
+    expect(wrapper.findAll('.xy-tree-table-row').length).toBe(4);
+    wrapper.unmount();
+
+    // 场景2：从展开状态点击折叠
+    const wrapper2 = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data" :expandedKeys="expandedKeys">
+            <Column field="name" header="Name" expander />
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return {
+            data: sampleData,
+            expandedKeys: { 0: true },
+          };
+        },
+      },
+      { sync: false },
+    );
+    // 初始时显示 4 行（含子节点）
+    expect(wrapper2.findAll('.xy-tree-table-row').length).toBe(4);
+    // 点击折叠按钮，子节点隐藏
+    await wrapper2.find('.xy-tree-table-node-toggle-button').trigger('click');
+    expect(wrapper2.findAll('.xy-tree-table-row').length).toBe(2);
+    wrapper2.unmount();
+  });
+
+  // 选中行：selectionMode="single" 时点击行触发 nodeSelect 事件
+  it('emits nodeSelect on row click in single selection mode', async () => {
+    const wrapper = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data" selectionMode="single">
+            <Column field="name" header="Name" expander />
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return { data: sampleData };
+        },
+      },
+      { sync: false },
+    );
+    const treeTable = wrapper.findComponent(TreeTable);
+    const firstRow = wrapper.find('.xy-tree-table-row');
+    await firstRow.trigger('click');
+    expect(treeTable.emitted('nodeSelect')).toBeTruthy();
+    wrapper.unmount();
+  });
+
+  // 多选行：selectionMode="multiple" 时点击多行分别触发 nodeSelect
+  it('emits nodeSelect on each row click in multiple selection mode', async () => {
+    const wrapper = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data" selectionMode="multiple">
+            <Column field="name" header="Name" expander />
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return { data: sampleData };
+        },
+      },
+      { sync: false },
+    );
+    const treeTable = wrapper.findComponent(TreeTable);
+    const rows = wrapper.findAll('.xy-tree-table-row');
+    // 点击两行，分别触发 nodeSelect
+    await rows[0].trigger('click');
+    await rows[1].trigger('click');
+    const events = treeTable.emitted('nodeSelect');
+    expect(events).toBeTruthy();
+    expect(events.length).toBe(2);
+    wrapper.unmount();
+  });
+
+  // 排序：sortable=true 时点击列头触发 sort 事件
+  it('emits sort on sortable column header click', async () => {
+    const wrapper = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data">
+            <Column field="name" header="Name" sortable />
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return { data: sampleData };
+        },
+      },
+      { sync: false },
+    );
+    const treeTable = wrapper.findComponent(TreeTable);
+    const sortableHeader = wrapper.find('th.xy-tree-table-cell-sortable');
+    expect(sortableHeader.exists()).toBe(true);
+    await sortableHeader.trigger('click');
+    expect(treeTable.emitted('sort')).toBeTruthy();
+    wrapper.unmount();
+  });
+
+  // 自定义列渲染：通过 Column 的 body 插槽自定义单元格内容
+  it('renders custom cell content via Column body slot', () => {
+    const wrapper = mount(
+      {
+        components: { TreeTable, Column },
+        template: `
+          <TreeTable :value="data">
+            <Column field="name" header="Name">
+              <template #body="{ node }">
+                <span class="custom-name-cell">Custom: {{ node.data.name }}</span>
+              </template>
+            </Column>
+            <Column field="size" header="Size" />
+          </TreeTable>
+        `,
+        data() {
+          return { data: sampleData };
+        },
+      },
+      { sync: false },
+    );
+    const customCell = wrapper.find('.custom-name-cell');
+    expect(customCell.exists()).toBe(true);
+    expect(customCell.text()).toContain('Custom: Item 0');
+    wrapper.unmount();
+  });
 });

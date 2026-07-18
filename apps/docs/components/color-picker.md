@@ -48,6 +48,30 @@ color-picker/events
 
 :::
 
+## 多格式输出
+
+:::demo 切换 hex / rgb / hsb 三种格式查看输出。
+
+color-picker/formats
+
+:::
+
+## 预设色板
+
+:::demo 自定义预设颜色快速选择。
+
+color-picker/preset-colors
+
+:::
+
+## 在表单中使用
+
+:::demo 作为表单字段使用。
+
+color-picker/in-form
+
+:::
+
 ## API
 
 ### ColorPicker Props

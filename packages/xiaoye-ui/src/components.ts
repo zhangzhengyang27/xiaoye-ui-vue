@@ -25,9 +25,17 @@ export * from './avatar';
 export { default as Avatar } from './avatar';
 import './avatar/style';
 
+export * from './back-top';
+export { default as BackTop } from './back-top';
+import './back-top/style';
+
 export * from './badge';
 export { default as Badge } from './badge';
 import './badge/style';
+
+export * from './block-ui';
+export { default as BlockUi } from './block-ui';
+import './block-ui/style';
 
 export * from './breadcrumb';
 export { default as Breadcrumb } from './breadcrumb';
@@ -83,6 +91,10 @@ export * from './context-menu';
 export { default as ContextMenu } from './context-menu';
 import './context-menu/style';
 
+export * from './dark-mode-toggle';
+export { default as DarkModeToggle } from './dark-mode-toggle';
+import './dark-mode-toggle/style';
+
 export * from './data-view';
 export { default as DataView } from './data-view';
 import './data-view/style';
@@ -93,6 +105,10 @@ import './date-picker/style';
 export * from './descriptions';
 export { default as Descriptions } from './descriptions';
 import './descriptions/style';
+
+export * from './directory-tree';
+export { default as DirectoryTree } from './directory-tree';
+import './directory-tree/style';
 
 export * from './divider';
 export { default as Divider } from './divider';
@@ -152,6 +168,14 @@ export * from './image';
 export { default as Image } from './image';
 import './image/style';
 
+export * from './inline-edit';
+export { default as InlineEdit } from './inline-edit';
+import './inline-edit/style';
+
+export * from './inplace';
+export { default as Inplace } from './inplace';
+import './inplace/style';
+
 export * from './input';
 export { default as Input } from './input';
 import './input/style';
@@ -174,6 +198,10 @@ import './list/style';
 export * from './locale-provider';
 export { default as LocaleProvider } from './locale-provider';
 
+export * from './mega-menu';
+export { default as MegaMenu } from './mega-menu';
+import './mega-menu/style';
+
 export * from './mentions';
 export { default as Mentions } from './mentions';
 import './mentions/style';
@@ -184,6 +212,10 @@ import './menu/style';
 export { message } from './message';
 export { default as Message } from './message';
 import './message/style';
+
+export * from './meter-group';
+export { default as MeterGroup } from './meter-group';
+import './meter-group/style';
 
 export * from './modal';
 export { default as Modal } from './modal';
@@ -212,6 +244,10 @@ import './pagination/style';
 export * from './panel';
 export { default as Panel } from './panel';
 import './panel/style';
+
+export * from './panel-menu';
+export { default as PanelMenu } from './panel-menu';
+import './panel-menu/style';
 
 export * from './popconfirm';
 export { default as Popconfirm } from './popconfirm';
@@ -270,6 +306,10 @@ export * from './slider';
 export { default as Slider } from './slider';
 import './slider/style';
 
+export * from './sortable-list';
+export { default as SortableList } from './sortable-list';
+import './sortable-list/style';
+
 export * from './space';
 export { default as Space } from './space';
 import './space/style';
@@ -277,6 +317,10 @@ import './space/style';
 export * from './spin';
 export { default as Spin } from './spin';
 import './spin/style';
+
+export * from './split-button';
+export { default as SplitButton } from './split-button';
+import './split-button/style';
 
 export * from './splitter';
 export { default as Splitter } from './splitter';

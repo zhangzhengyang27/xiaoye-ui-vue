@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 import Fieldset from '.';
 import mountTest from '../../tests/shared/mountTest';
 
@@ -89,5 +90,58 @@ describe('Fieldset', () => {
 
   it('has install function', () => {
     expect(typeof Fieldset.install).toBe('function');
+  });
+
+  it('collapsed 为 true 时内容区域隐藏', () => {
+    const wrapper = mount(Fieldset, {
+      props: { legend: 'Header', toggleable: true, collapsed: true },
+      slots: { default: '<p>content</p>' },
+    });
+    expect(wrapper.find('.xy-fieldset-content-container').element.style.display).toBe('none');
+    wrapper.unmount();
+  });
+
+  it('支持 legend 插槽自定义渲染', () => {
+    const wrapper = mount(Fieldset, {
+      props: { toggleable: false },
+      slots: {
+        legend: '<span class="custom-legend">Custom Legend</span>',
+        default: '<p>content</p>',
+      },
+    });
+    expect(wrapper.find('.custom-legend').exists()).toBe(true);
+    expect(wrapper.find('.custom-legend').text()).toBe('Custom Legend');
+    // 使用插槽时不渲染默认 legend-label
+    expect(wrapper.find('.xy-fieldset-legend-label').exists()).toBe(false);
+    wrapper.unmount();
+  });
+
+  it('toggleicon 插槽接收 collapsed 状态参数', () => {
+    const wrapper = mount(Fieldset, {
+      props: { legend: 'Header', toggleable: true, collapsed: true },
+      slots: {
+        toggleicon: ({ collapsed }) =>
+          h('span', {
+            class: ['custom-toggle-icon', collapsed ? 'is-collapsed' : 'is-expanded'],
+          }),
+      },
+    });
+    expect(wrapper.find('.custom-toggle-icon').exists()).toBe(true);
+    expect(wrapper.find('.is-collapsed').exists()).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('toggleButtonProps 中的 aria-label 覆盖默认 legend 文案', () => {
+    const wrapper = mount(Fieldset, {
+      props: {
+        legend: 'Default Legend',
+        toggleable: true,
+        toggleButtonProps: { 'aria-label': 'Expand section' },
+      },
+    });
+    expect(wrapper.find('.xy-fieldset-toggle-button').attributes('aria-label')).toBe(
+      'Expand section',
+    );
+    wrapper.unmount();
   });
 });

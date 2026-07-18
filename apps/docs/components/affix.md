@@ -32,6 +32,30 @@ affix/target
 
 :::
 
+## 顶部偏移
+
+:::demo 滚动到指定位置才固定。
+
+affix/offset-top
+
+:::
+
+## 底部固定
+
+:::demo 固定到底部指定位置。
+
+affix/offset-bottom
+
+:::
+
+## 与菜单组合
+
+:::demo 侧边导航菜单配合 affix 固定。
+
+affix/with-menu
+
+:::
+
 ## API
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |

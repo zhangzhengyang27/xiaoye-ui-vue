@@ -69,6 +69,30 @@ config-provider/theme
 
 :::
 
+## 动态主题
+
+:::demo 动态切换亮色/暗色主题。
+
+config-provider/dynamic-theme
+
+:::
+
+## 嵌套 Provider
+
+:::demo 嵌套 ConfigProvider 局部覆盖主题。
+
+config-provider/nested
+
+:::
+
+## 全局禁用组件
+
+:::demo 通过 componentDisabled 禁用所有组件。
+
+config-provider/component-disabled
+
+:::
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |

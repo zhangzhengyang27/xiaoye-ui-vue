@@ -108,4 +108,67 @@ describe('Panel', () => {
   it('has install function', () => {
     expect(typeof Panel.install).toBe('function');
   });
+
+  it('未启用 toggleable 时不渲染 toggle 按钮', () => {
+    const wrapper = mount(Panel, {
+      props: { title: 'Title' },
+      slots: { default: '<p>content</p>' },
+    });
+    expect(wrapper.find('.xy-panel-toggle-button').exists()).toBe(false);
+    wrapper.unmount();
+  });
+
+  it('支持 title 插槽渲染标题内容', () => {
+    const wrapper = mount(Panel, {
+      slots: {
+        title: '<span class="custom-title">Slot Title</span>',
+        default: 'Content',
+      },
+    });
+    expect(wrapper.find('.xy-panel-head-title').exists()).toBe(true);
+    expect(wrapper.find('.xy-panel-head-title .custom-title').exists()).toBe(true);
+    expect(wrapper.find('.xy-panel-head-title').text()).toBe('Slot Title');
+    wrapper.unmount();
+  });
+
+  it('collapsed 为 true 时 body 隐藏且 footer 不渲染', () => {
+    const wrapper = mount(Panel, {
+      props: { title: 'Collapsed', toggleable: true, collapsed: true },
+      slots: {
+        default: '<p>content</p>',
+        footer: 'Footer',
+      },
+    });
+    expect(wrapper.find('.xy-panel-body').element.style.display).toBe('none');
+    expect(wrapper.find('.xy-panel-footer').exists()).toBe(false);
+    wrapper.unmount();
+  });
+
+  it('icons 插槽与 toggleable 按钮共存于 head-actions', () => {
+    const wrapper = mount(Panel, {
+      props: { title: 'Title', toggleable: true },
+      slots: {
+        icons: '<span class="custom-icon">Icon</span>',
+        default: 'Content',
+      },
+    });
+    const actions = wrapper.find('.xy-panel-head-actions');
+    expect(actions.exists()).toBe(true);
+    expect(actions.find('.custom-icon').exists()).toBe(true);
+    expect(actions.find('.xy-panel-toggle-button').exists()).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('未受控模式下 toggle 事件 payload 包含 originalEvent 和 value', async () => {
+    const wrapper = mount(Panel, {
+      props: { title: 'Toggleable', toggleable: true },
+      slots: { default: '<p>content</p>' },
+    });
+    await wrapper.find('.xy-panel-toggle-button').trigger('click');
+    const toggleEvents = wrapper.emitted('toggle');
+    expect(toggleEvents).toBeTruthy();
+    expect(toggleEvents[0][0]).toHaveProperty('originalEvent');
+    expect(toggleEvents[0][0]).toHaveProperty('value', true);
+    wrapper.unmount();
+  });
 });

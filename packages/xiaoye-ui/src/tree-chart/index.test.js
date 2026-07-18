@@ -92,4 +92,142 @@ describe('TreeChart', () => {
     expect(wrapper.emitted('node-collapse')).toBeTruthy();
     wrapper.unmount();
   });
+
+  // ===== a11y tests =====
+
+  it('renders correct ARIA roles and default aria-label', () => {
+    const wrapper = mount(TreeChart, {
+      props: { value: treeData },
+    });
+    const root = wrapper.find('.xy-treechart');
+    expect(root.attributes('role')).toBe('tree');
+    expect(root.attributes('aria-label')).toBe('树形图');
+    const treeitems = wrapper.findAll('[role="treeitem"]');
+    expect(treeitems.length).toBe(3); // root + 2 children
+    // root has children and is expanded by default
+    expect(treeitems[0].attributes('aria-expanded')).toBe('true');
+    // leaf nodes should not expose aria-expanded
+    expect(treeitems[1].attributes('aria-expanded')).toBeUndefined();
+    // children container uses role="group"
+    expect(wrapper.find('[role="group"]').exists()).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('uses custom ariaLabel when provided', () => {
+    const wrapper = mount(TreeChart, {
+      props: { value: treeData, ariaLabel: '自定义树形图' },
+    });
+    expect(wrapper.find('.xy-treechart').attributes('aria-label')).toBe('自定义树形图');
+    wrapper.unmount();
+  });
+
+  it('moves focus with ArrowDown and ArrowUp between nodes', async () => {
+    const wrapper = mount(TreeChart, {
+      props: { value: treeData },
+    });
+    let treeitems = wrapper.findAll('[role="treeitem"]');
+    // Initially the root node is the roving tab stop
+    expect(treeitems[0].attributes('tabindex')).toBe('0');
+    expect(treeitems[1].attributes('tabindex')).toBe('-1');
+
+    // ArrowDown moves focus to the first child
+    await treeitems[0].trigger('keydown', { key: 'ArrowDown' });
+    treeitems = wrapper.findAll('[role="treeitem"]');
+    expect(treeitems[0].attributes('tabindex')).toBe('-1');
+    expect(treeitems[1].attributes('tabindex')).toBe('0');
+
+    // ArrowUp moves focus back to the root
+    await treeitems[1].trigger('keydown', { key: 'ArrowUp' });
+    treeitems = wrapper.findAll('[role="treeitem"]');
+    expect(treeitems[0].attributes('tabindex')).toBe('0');
+    expect(treeitems[1].attributes('tabindex')).toBe('-1');
+    wrapper.unmount();
+  });
+
+  it('emits node-select on Enter and Space keydown', async () => {
+    // Enter
+    const wrapperEnter = mount(TreeChart, {
+      props: { value: treeData, selectionMode: 'single' },
+    });
+    await wrapperEnter.find('[role="treeitem"]').trigger('keydown', { key: 'Enter' });
+    expect(wrapperEnter.emitted('node-select')).toBeTruthy();
+    wrapperEnter.unmount();
+
+    // Space
+    const wrapperSpace = mount(TreeChart, {
+      props: { value: treeData, selectionMode: 'single' },
+    });
+    await wrapperSpace.find('[role="treeitem"]').trigger('keydown', { key: ' ' });
+    expect(wrapperSpace.emitted('node-select')).toBeTruthy();
+    wrapperSpace.unmount();
+  });
+
+  it('reflects aria-selected on selected nodes', () => {
+    const wrapper = mount(TreeChart, {
+      props: {
+        value: treeData,
+        selectionMode: 'single',
+        selectionKeys: { 0: true },
+      },
+    });
+    const treeitems = wrapper.findAll('[role="treeitem"]');
+    expect(treeitems[0].attributes('aria-selected')).toBe('true');
+    wrapper.unmount();
+  });
+
+  // ===== 业务测试 =====
+
+  // 单选取消选中：点击已选中的节点触发 node-unselect 事件
+  it('emits node-unselect when clicking a selected node in single mode', async () => {
+    const wrapper = mount(TreeChart, {
+      props: {
+        value: treeData,
+        selectionMode: 'single',
+        selectionKeys: { 0: true },
+      },
+    });
+    await wrapper.find('.xy-treechart-node').trigger('click');
+    expect(wrapper.emitted('node-unselect')).toBeTruthy();
+    wrapper.unmount();
+  });
+
+  // 折叠节点：collapsedKeys 中包含节点 key 时子节点不可见
+  it('hides children when node is collapsed via collapsedKeys', () => {
+    const wrapper = mount(TreeChart, {
+      props: {
+        value: treeData,
+        collapsedKeys: { 0: true },
+      },
+    });
+    const treeitems = wrapper.findAll('[role="treeitem"]');
+    // 根节点被折叠，aria-expanded 应为 false
+    expect(treeitems[0].attributes('aria-expanded')).toBe('false');
+    // 子节点行应不可见
+    const childrenRow = wrapper.find('.xy-treechart-node-children');
+    expect(childrenRow.exists()).toBe(true);
+    expect(childrenRow.attributes('style') || '').toMatch(/visibility:\s*hidden/);
+    wrapper.unmount();
+  });
+
+  // 自定义节点模板：通过 node.type 匹配的具名插槽渲染节点内容
+  it('renders typed node via named slot matching node.type', () => {
+    const typedData = {
+      key: '0',
+      label: 'Root',
+      type: 'person',
+      children: [{ key: '0-0', label: 'Child 1' }],
+    };
+    const wrapper = mount(TreeChart, {
+      props: { value: typedData },
+      slots: {
+        person: ({ node }) => `Person: ${node.label}`,
+        default: ({ node }) => `Default: ${node.label}`,
+      },
+    });
+    // 根节点有 type='person'，使用 person 插槽
+    expect(wrapper.text()).toContain('Person: Root');
+    // 子节点没有 type，使用 default 插槽
+    expect(wrapper.text()).toContain('Default: Child 1');
+    wrapper.unmount();
+  });
 });

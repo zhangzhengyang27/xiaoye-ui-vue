@@ -76,27 +76,27 @@ export default defineComponent({
     const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const containerClass = computed(() => [
-      'xy-virtualscroller',
+      `${prefixCls.value}`,
       props.class,
       hashId.value,
       {
-        'xy-virtualscroller-inline': props.inline,
-        'xy-virtualscroller-both': isBoth(),
-        'xy-virtualscroller-horizontal': isHorizontal(),
+        [`${prefixCls.value}-inline`]: props.inline,
+        [`${prefixCls.value}-both`]: isBoth(),
+        [`${prefixCls.value}-horizontal`]: isHorizontal(),
       },
     ]);
 
     const contentClass = computed(() => [
-      'xy-virtualscroller-content',
+      `${prefixCls.value}-content`,
       {
-        'xy-virtualscroller-content-loading': d_loading.value,
+        [`${prefixCls.value}-content-loading`]: d_loading.value,
       },
     ]);
 
     const loaderClass = computed(() => [
-      'xy-virtualscroller-loader',
+      `${prefixCls.value}-loader`,
       {
-        'xy-virtualscroller-loader-mask': !instance.slots?.loader,
+        [`${prefixCls.value}-loader-mask`]: !instance.slots?.loader,
       },
     ]);
 
@@ -938,7 +938,7 @@ export default defineComponent({
               </div>
             )}
             {props.showSpacer ? (
-              <div class="xy-virtualscroller-spacer" style={spacerStyle.value} />
+              <div class={`${prefixCls.value}-spacer`} style={spacerStyle.value} />
             ) : null}
             {!props.loaderDisabled && props.showLoader && d_loading.value ? (
               <div class={loaderClass.value}>
@@ -954,7 +954,7 @@ export default defineComponent({
                 ) : slots.loadingicon ? (
                   slots.loadingicon()
                 ) : (
-                  <SpinnerIcon spin class="xy-virtualscroller-loading-icon" />
+                  <SpinnerIcon spin class={`${prefixCls.value}-loading-icon`} />
                 )}
               </div>
             ) : null}

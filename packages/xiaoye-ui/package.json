@@ -39,6 +39,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
     "@ctrl/tinycolor": "^4.0.0",
+    "@dnd-kit/vue": "^0.5.0",
     "@emotion/hash": "^0.9.0",
     "@emotion/unitless": "^0.8.0",
     "@floating-ui/dom": "^1.7.6",
@@ -141,11 +142,21 @@
       "import": "./src/avatar/index.ts"
     },
     "./avatar/style": "./src/avatar/style/index.ts",
+    "./back-top": {
+      "types": "./src/back-top/index.ts",
+      "import": "./src/back-top/index.ts"
+    },
+    "./back-top/style": "./src/back-top/style/index.ts",
     "./badge": {
       "types": "./src/badge/index.ts",
       "import": "./src/badge/index.ts"
     },
     "./badge/style": "./src/badge/style/index.ts",
+    "./block-ui": {
+      "types": "./src/block-ui/index.ts",
+      "import": "./src/block-ui/index.ts"
+    },
+    "./block-ui/style": "./src/block-ui/style/index.ts",
     "./breadcrumb": {
       "types": "./src/breadcrumb/index.ts",
       "import": "./src/breadcrumb/index.ts"
@@ -216,6 +227,11 @@
       "import": "./src/context-menu/index.ts"
     },
     "./context-menu/style": "./src/context-menu/style/index.ts",
+    "./dark-mode-toggle": {
+      "types": "./src/dark-mode-toggle/index.ts",
+      "import": "./src/dark-mode-toggle/index.ts"
+    },
+    "./dark-mode-toggle/style": "./src/dark-mode-toggle/style/index.ts",
     "./data-view": {
       "types": "./src/data-view/index.ts",
       "import": "./src/data-view/index.ts"
@@ -231,6 +247,11 @@
       "import": "./src/descriptions/index.tsx"
     },
     "./descriptions/style": "./src/descriptions/style/index.ts",
+    "./directory-tree": {
+      "types": "./src/directory-tree/index.ts",
+      "import": "./src/directory-tree/index.ts"
+    },
+    "./directory-tree/style": "./src/directory-tree/style/index.ts",
     "./divider": {
       "types": "./src/divider/index.tsx",
       "import": "./src/divider/index.tsx"
@@ -305,6 +326,16 @@
       "import": "./src/image/index.tsx"
     },
     "./image/style": "./src/image/style/index.ts",
+    "./inline-edit": {
+      "types": "./src/inline-edit/index.ts",
+      "import": "./src/inline-edit/index.ts"
+    },
+    "./inline-edit/style": "./src/inline-edit/style/index.ts",
+    "./inplace": {
+      "types": "./src/inplace/index.ts",
+      "import": "./src/inplace/index.ts"
+    },
+    "./inplace/style": "./src/inplace/style/index.ts",
     "./input": {
       "types": "./src/input/index.ts",
       "import": "./src/input/index.ts"
@@ -334,6 +365,11 @@
       "types": "./src/locale-provider/index.ts",
       "import": "./src/locale-provider/index.ts"
     },
+    "./mega-menu": {
+      "types": "./src/mega-menu/index.ts",
+      "import": "./src/mega-menu/index.ts"
+    },
+    "./mega-menu/style": "./src/mega-menu/style/index.ts",
     "./mentions": {
       "types": "./src/mentions/index.tsx",
       "import": "./src/mentions/index.tsx"
@@ -349,6 +385,11 @@
       "import": "./src/message/index.tsx"
     },
     "./message/style": "./src/message/style/index.ts",
+    "./meter-group": {
+      "types": "./src/meter-group/index.ts",
+      "import": "./src/meter-group/index.ts"
+    },
+    "./meter-group/style": "./src/meter-group/style/index.ts",
     "./modal": {
       "types": "./src/modal/index.tsx",
       "import": "./src/modal/index.tsx"
@@ -384,6 +425,11 @@
       "import": "./src/panel/index.ts"
     },
     "./panel/style": "./src/panel/style/index.ts",
+    "./panel-menu": {
+      "types": "./src/panel-menu/index.ts",
+      "import": "./src/panel-menu/index.ts"
+    },
+    "./panel-menu/style": "./src/panel-menu/style/index.ts",
     "./popconfirm": {
       "types": "./src/popconfirm/index.tsx",
       "import": "./src/popconfirm/index.tsx"
@@ -459,6 +505,11 @@
       "import": "./src/slider/index.tsx"
     },
     "./slider/style": "./src/slider/style/index.tsx",
+    "./sortable-list": {
+      "types": "./src/sortable-list/index.ts",
+      "import": "./src/sortable-list/index.ts"
+    },
+    "./sortable-list/style": "./src/sortable-list/style/index.ts",
     "./space": {
       "types": "./src/space/index.tsx",
       "import": "./src/space/index.tsx"
@@ -469,6 +520,11 @@
       "import": "./src/spin/index.ts"
     },
     "./spin/style": "./src/spin/style/index.ts",
+    "./split-button": {
+      "types": "./src/split-button/index.ts",
+      "import": "./src/split-button/index.ts"
+    },
+    "./split-button/style": "./src/split-button/style/index.ts",
     "./splitter": {
       "types": "./src/splitter/index.ts",
       "import": "./src/splitter/index.ts"

@@ -31,19 +31,35 @@ statistic/card
 
 :::
 
-## 倒计时
-
-:::demo 倒计时组件。
-
-statistic/countdown
-
-:::
-
 ## 倒计时组件
 
 :::demo 倒计时组件使用插槽。
 
 statistic/countdown-slot
+
+:::
+
+## 倒计时
+
+:::demo 活动开始倒计时场景，含开始 / 暂停 / 重置控制。
+
+statistic/countdown
+
+:::
+
+## 数值动画
+
+:::demo 触发数值变化，观察动画过渡效果，演示 precision / prefix / suffix。
+
+statistic/animation
+
+:::
+
+## 卡片中使用
+
+:::demo 数据概览面板的卡片布局，通过 xy-row + xy-col 网格组合多个统计指标。
+
+statistic/in-card
 
 :::
 

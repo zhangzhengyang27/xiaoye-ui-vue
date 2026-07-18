@@ -63,7 +63,7 @@ const TreeTable = defineComponent({
   ],
   setup(props, { emit, expose, slots, attrs }) {
     const { prefixCls } = useConfigInject('tree-table', props);
-    const [, hashId] = useStyle(prefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const d_columns = new HelperSet({ type: 'Column' });
 
@@ -918,7 +918,7 @@ const TreeTable = defineComponent({
           </Transition>
         ) : null;
 
-      return (
+      return wrapSSR(
         <div
           class={rootClasses.value}
           data-scrollselectors={`.${prefixCls.value}-table-container`}
@@ -960,7 +960,7 @@ const TreeTable = defineComponent({
             class={`${prefixCls.value}-column-resize-indicator`}
             style={{ display: 'none' }}
           />
-        </div>
+        </div>,
       );
     };
   },

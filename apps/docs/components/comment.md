@@ -30,9 +30,25 @@ comment/nested
 
 :::
 
-## 回复框
+## 回复列表
 
-:::demo 评论编辑器组件提供了相同样式的封装以支持自定义评论编辑器。
+:::demo 完整的评论列表，含新评论输入。
+
+comment/reply-list
+
+:::
+
+## 嵌套回复
+
+:::demo 嵌套结构的回复展示。
+
+comment/nested-reply
+
+:::
+
+## 编辑器形式
+
+:::demo 使用 editor slot 自定义评论输入。
 
 comment/editor
 

@@ -295,6 +295,22 @@ modal/dynamic-modal-custom
 
 :::
 
+### 表单弹窗
+
+:::demo 动态弹窗最常见的业务场景：在弹窗内嵌入表单组件。通过 `componentProps` 传入初始值和提交回调，内容组件内部管理表单状态，提交时通过回调将数据传给父组件并关闭弹窗。将 `modalProps.footer` 设为 `null` 可隐藏默认页脚，由内容组件自行控制按钮。
+
+modal/dynamic-modal-form
+
+:::
+
+### 多弹窗管理
+
+:::demo `useDynamicModal` 支持同时打开多个弹窗，每个 `modal.open()` 返回独立的实例引用，可单独调用 `destroy()` 关闭，也可以集中管理。本示例展示连续打开多个弹窗并统一关闭。
+
+modal/dynamic-modal-multi
+
+:::
+
 ### API
 
 #### useDynamicModal()

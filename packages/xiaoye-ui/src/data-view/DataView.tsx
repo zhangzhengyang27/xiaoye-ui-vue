@@ -126,11 +126,11 @@ export default defineComponent({
     });
 
     const rootClasses = computed(() => [
-      'xy-dataview',
+      `${prefixCls.value}`,
       hashId.value,
       {
-        'xy-dataview-list': props.layout === 'list',
-        'xy-dataview-grid': props.layout === 'grid',
+        [`${prefixCls.value}-list`]: props.layout === 'list',
+        [`${prefixCls.value}-grid`]: props.layout === 'grid',
       },
     ]);
 
@@ -156,7 +156,7 @@ export default defineComponent({
         pageSizeOptions={props.rowsPerPageOptions}
         showSizeChanger={!!(props.rowsPerPageOptions && props.rowsPerPageOptions.length > 0)}
         hideOnSinglePage={!props.alwaysShowPagination}
-        class={`xy-dataview-pagination xy-dataview-pagination-${position}`}
+        class={`${prefixCls.value}-pagination ${prefixCls.value}-pagination-${position}`}
         onChange={onPage}
         onShowSizeChange={onPage}
       />
@@ -165,22 +165,22 @@ export default defineComponent({
     return () =>
       wrapSSR(
         <div class={rootClasses.value}>
-          {slots.header ? <div class="xy-dataview-header">{slots.header()}</div> : null}
+          {slots.header ? <div class={`${prefixCls.value}-header`}>{slots.header()}</div> : null}
           {paginationTop.value ? renderPagination('top') : null}
-          <div class="xy-dataview-content">
+          <div class={`${prefixCls.value}-content`}>
             {!empty.value ? (
               <>
                 {slots.list && props.layout === 'list' ? slots.list({ items: items.value }) : null}
                 {slots.grid && props.layout === 'grid' ? slots.grid({ items: items.value }) : null}
               </>
             ) : (
-              <div class="xy-dataview-empty-message">
+              <div class={`${prefixCls.value}-empty-message`}>
                 {slots.empty ? slots.empty({ layout: props.layout }) : ''}
               </div>
             )}
           </div>
           {paginationBottom.value ? renderPagination('bottom') : null}
-          {slots.footer ? <div class="xy-dataview-footer">{slots.footer()}</div> : null}
+          {slots.footer ? <div class={`${prefixCls.value}-footer`}>{slots.footer()}</div> : null}
         </div>,
       );
   },

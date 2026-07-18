@@ -18,33 +18,10 @@ import useConfigInject from '../config-provider/hooks/useConfigInject';
 import { initDefaultProps } from '../_util/props-util';
 import colorPickerProps from './colorPickerTypes';
 import type { ColorPickerHSBValue, ColorPickerRGBValue } from './colorPickerTypes';
+import { ZIndexManager } from '../_util/zIndexManager';
 
 // SSR 安全判断
 const isClient = typeof window !== 'undefined' && !!window.document;
-
-// 内联 ZIndex 管理器（避免 @xiaoye-ui/utils/zindex 子路径在 Vite 中的解析问题）
-const zIndexRecords: { key: string; value: number }[] = [];
-const ZIndex = {
-  get(element?: HTMLElement): number {
-    return element ? parseInt(element.style.zIndex, 10) || 0 : 0;
-  },
-  set(key: string, element: HTMLElement, baseZIndex?: number): void {
-    const base = baseZIndex ?? 0;
-    const last = zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1] : null;
-    const newValue = last ? last.value + 1 : base + 1;
-    zIndexRecords.push({ key, value: newValue });
-    element.style.zIndex = String(newValue);
-  },
-  clear(element: HTMLElement): void {
-    const z = parseInt(element.style.zIndex, 10) || 0;
-    const idx = zIndexRecords.findIndex(r => r.value === z);
-    if (idx !== -1) zIndexRecords.splice(idx, 1);
-    element.style.zIndex = '';
-  },
-  getCurrent(_key: string): number {
-    return zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1].value : 0;
-  },
-};
 
 export default defineComponent({
   name: 'XYColorPicker',
@@ -379,7 +356,7 @@ export default defineComponent({
 
       if (props.autoZIndex) {
         const zIndex = ($xiaoyeUI as any)?.config?.zIndex?.overlay ?? 0;
-        ZIndex.set('overlay', el, props.baseZIndex || zIndex);
+        ZIndexManager.set('overlay', el, props.baseZIndex || zIndex);
       }
 
       emit('show');
@@ -394,7 +371,7 @@ export default defineComponent({
 
     function onOverlayAfterLeave(el: HTMLElement) {
       if (props.autoZIndex) {
-        ZIndex.clear(el);
+        ZIndexManager.clear(el);
       }
     }
 
@@ -625,7 +602,7 @@ export default defineComponent({
       scrollHandler = null;
 
       if (pickerEl.value && props.autoZIndex) {
-        ZIndex.clear(pickerEl.value);
+        ZIndexManager.clear(pickerEl.value);
       }
     });
 
@@ -655,6 +632,11 @@ export default defineComponent({
               readonly
               tabindex={props.tabindex ?? undefined}
               disabled={props.disabled}
+              aria-label={props.ariaLabel}
+              role="button"
+              aria-haspopup="dialog"
+              aria-expanded={overlayVisible.value}
+              aria-disabled={disabled.value || undefined}
               onClick={onInputClick}
               onKeydown={onInputKeydown}
               onBlur={onInputBlur}
@@ -671,6 +653,9 @@ export default defineComponent({
                 <div
                   ref={pickerEl}
                   class={['xy-colorpicker-panel', props.panelClass, props.overlayClass]}
+                  role={props.inline ? undefined : 'dialog'}
+                  aria-label={props.inline ? undefined : props.ariaLabel}
+                  aria-modal={props.inline ? undefined : 'false'}
                   onClick={onOverlayClick}
                 >
                   <div class="xy-colorpicker-content">

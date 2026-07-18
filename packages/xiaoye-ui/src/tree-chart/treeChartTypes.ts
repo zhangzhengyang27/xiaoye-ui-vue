@@ -27,6 +27,7 @@ export const treeChartProps = () => ({
   selectionMode: stringType<'single' | 'multiple' | null>(null),
   collapsible: booleanType(false),
   collapsedKeys: anyType<TreeChartCollapsedKeys | null>(null),
+  ariaLabel: stringType<string>(),
 });
 
 export type TreeChartProps = Partial<ExtractPropTypes<ReturnType<typeof treeChartProps>>>;

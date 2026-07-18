@@ -45,6 +45,8 @@ const categories = [
       'portal',
       'ripple',
       'toolbar',
+      'split-button',
+      'dark-mode-toggle',
     ],
   },
   {
@@ -66,7 +68,7 @@ const categories = [
       'virtual-scroller',
     ],
   },
-  { name: 'navigation', label: '导航', components: ['anchor', 'app'] },
+  { name: 'navigation', label: '导航', components: ['anchor', 'app', 'mega-menu', 'panel-menu'] },
   {
     name: 'data-entry',
     label: '数据录入',
@@ -110,6 +112,8 @@ const categories = [
       'descriptions',
       'empty',
       'image',
+      'inline-edit',
+      'inplace',
       'list',
       'popover',
       'progress',
@@ -122,6 +126,7 @@ const categories = [
       'timeline',
       'tooltip',
       'tree',
+      'directory-tree',
       'watermark',
       'organization-chart',
       'tree-chart',
@@ -130,6 +135,8 @@ const categories = [
       'overlay-badge',
       'tree-table',
       'chart',
+      'meter-group',
+      'sortable-list',
     ],
   },
   {
@@ -137,6 +144,7 @@ const categories = [
     label: '反馈',
     components: [
       'alert',
+      'block-ui',
       'message',
       'modal',
       'notification',

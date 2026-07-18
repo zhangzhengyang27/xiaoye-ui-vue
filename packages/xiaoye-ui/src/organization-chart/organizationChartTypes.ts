@@ -27,6 +27,7 @@ export const organizationChartProps = () => ({
   selectionMode: stringType<'single' | 'multiple' | null>(null),
   collapsible: booleanType(false),
   collapsedKeys: anyType<OrganizationChartCollapsedKeys | null>(null),
+  ariaLabel: stringType<string>(),
 });
 
 export type OrganizationChartProps = Partial<

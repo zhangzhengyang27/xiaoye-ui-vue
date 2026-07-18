@@ -16,6 +16,7 @@ import { initDefaultProps } from '../_util/props-util';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import GalleriaContent from './GalleriaContent';
 import useStyle from './style';
+import { ZIndexManager } from '../_util/zIndexManager';
 
 // SSR 安全判断
 const isClient = typeof window !== 'undefined' && !!window.document;
@@ -29,30 +30,6 @@ function generateId(prefix: string = 'xy-galleria_'): string {
   lastIds[prefix]++;
   return `${prefix}${lastIds[prefix]}`;
 }
-
-// 内联 ZIndex 管理器（参考 context-menu/color-picker 实现）
-const zIndexRecords: { key: string; value: number }[] = [];
-const ZIndex = {
-  get(element?: HTMLElement): number {
-    return element ? parseInt(element.style.zIndex, 10) || 0 : 0;
-  },
-  set(key: string, element: HTMLElement, baseZIndex?: number): void {
-    const base = baseZIndex ?? 0;
-    const last = zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1] : null;
-    const newValue = last ? last.value + 1 : base + 1;
-    zIndexRecords.push({ key, value: newValue });
-    element.style.zIndex = String(newValue);
-  },
-  clear(element: HTMLElement): void {
-    const z = parseInt(element.style.zIndex, 10) || 0;
-    const idx = zIndexRecords.findIndex(r => r.value === z);
-    if (idx !== -1) zIndexRecords.splice(idx, 1);
-    element.style.zIndex = '';
-  },
-  getCurrent(_key: string): number {
-    return zIndexRecords.length > 0 ? zIndexRecords[zIndexRecords.length - 1].value : 0;
-  },
-};
 
 export default defineComponent({
   name: 'XYGalleria',
@@ -98,7 +75,7 @@ export default defineComponent({
       if (container.value) {
         const el = container.value?.$el || container.value;
         if (el instanceof HTMLElement) {
-          ZIndex.clear(el);
+          ZIndexManager.clear(el);
         }
         container.value = null;
       }
@@ -107,7 +84,7 @@ export default defineComponent({
     function onBeforeEnter(el: Element) {
       if (el instanceof HTMLElement) {
         const zIndex = props.baseZIndex || 0;
-        ZIndex.set('modal', el, zIndex);
+        ZIndexManager.set('modal', el, zIndex);
       }
     }
 
@@ -138,7 +115,7 @@ export default defineComponent({
 
     function onAfterLeave(el: Element) {
       if (el instanceof HTMLElement) {
-        ZIndex.clear(el);
+        ZIndexManager.clear(el);
       }
       containerVisible.value = false;
       unblockBodyScroll('xy-galleria');

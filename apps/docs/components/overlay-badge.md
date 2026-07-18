@@ -24,19 +24,35 @@ overlay-badge/with-icon
 
 :::
 
-## 包裹按钮
-
-:::demo 将 `xy-overlay-badge` 包裹在按钮外侧，用于强调操作项的待处理数量。
-
-overlay-badge/with-button
-
-:::
-
 ## 自定义颜色与尺寸
 
 :::demo 通过 `size` 设置尺寸（`small` / `large`），通过外层自定义类名配合 `:deep()` 穿透可覆盖徽标颜色。
 
 overlay-badge/custom-color
+
+:::
+
+## 头像徽标
+
+:::demo 头像上的未读消息徽标，超过 99 自动显示 99+，点击徽标清零。
+
+overlay-badge/with-avatar
+
+:::
+
+## Tab 徽标
+
+:::demo Tab 标签上的状态徽标，切换 Tab 后可标记已读。
+
+overlay-badge/with-tabs
+
+:::
+
+## 按钮徽标
+
+:::demo 按钮上的徽标，包含 offset 调整位置与 dot 模式（仅显示红点）。
+
+overlay-badge/with-button
 
 :::
 

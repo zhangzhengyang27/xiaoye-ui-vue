@@ -12,6 +12,9 @@ const blackList: string[] = [
   'TreeNode',
   'TreeSelectNode',
   'LocaleProvider',
+  // SortableItem 必须在 DragDropProvider 内才能渲染（依赖 inject context）
+  // 其样式由 SortableList 的 useStyle 统一注册，无需单独提取
+  'SortableItem',
 ];
 
 const pickerMap = {

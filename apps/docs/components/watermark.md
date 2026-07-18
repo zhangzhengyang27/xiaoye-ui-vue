@@ -39,6 +39,22 @@ watermark/multi-line
 
 :::
 
+## 图片水印（参数化）
+
+:::demo 使用图片作为水印内容，并通过 xy-slider 实时调整 width / height / rotate / gap 等参数。
+
+watermark/image-watermark
+
+:::
+
+## 自定义样式
+
+:::demo 实时调整水印样式参数（颜色、字号、旋转角度、间距等）。
+
+watermark/custom-style
+
+:::
+
 ## API
 
 ### Watermark
