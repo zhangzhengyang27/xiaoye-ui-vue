@@ -8,7 +8,7 @@
             class="demo-btn"
             :class="{ 'is-active': handlers.bold.isActive(editor) }"
             :disabled="handlers.bold.isDisabled?.(editor)"
-            title="加粗"
+            title="加粗 (Ctrl+B)"
             @click="handlers.bold.execute(editor).run()"
           >
             B
@@ -18,7 +18,7 @@
             class="demo-btn"
             :class="{ 'is-active': handlers.italic.isActive(editor) }"
             :disabled="handlers.italic.isDisabled?.(editor)"
-            title="斜体"
+            title="斜体 (Ctrl+I)"
             @click="handlers.italic.execute(editor).run()"
           >
             <em>I</em>
@@ -28,7 +28,7 @@
             class="demo-btn"
             :class="{ 'is-active': handlers.underline.isActive(editor) }"
             :disabled="handlers.underline.isDisabled?.(editor)"
-            title="下划线"
+            title="下划线 (Ctrl+U)"
             @click="handlers.underline.execute(editor).run()"
           >
             <u>U</u>
@@ -41,7 +41,16 @@
             title="无序列表"
             @click="handlers.bulletList.execute(editor).run()"
           >
-            列表
+            • 列表
+          </button>
+          <button
+            type="button"
+            class="demo-btn"
+            :class="{ 'is-active': handlers.orderedList.isActive(editor) }"
+            title="有序列表"
+            @click="handlers.orderedList.execute(editor).run()"
+          >
+            1. 列表
           </button>
         </div>
       </template>
@@ -56,7 +65,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const content = ref('<p>欢迎使用 <strong>XiaoyeUI RichTextEditor</strong>，基于 Tiptap 构建。</p>');
+const content = ref(
+  '<p>欢迎使用 <strong>XiaoyeUI RichTextEditor</strong>，基于 Tiptap 构建。</p><p>支持 <em>斜体</em>、<u>下划线</u>、列表等基础格式。</p>',
+);
 </script>
 
 <style scoped>

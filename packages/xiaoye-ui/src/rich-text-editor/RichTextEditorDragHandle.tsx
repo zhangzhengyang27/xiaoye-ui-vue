@@ -10,6 +10,7 @@ import type { FloatingUIOptions } from './types/editor';
 import { buildFloatingUIMiddleware } from './utils/editor';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, stringType } from '../_util/type';
+import Button from '../button';
 
 // 本地定义的 DragHandleProps 等价类型
 // 避免 .d.ts 生成时引用 @tiptap/extension-drag-handle 内部类型（TS2742）
@@ -52,6 +53,40 @@ export interface EditorDragHandleSlots {
 export interface EditorDragHandleEmits {
   nodeChange: [{ node: JSONContent; pos: number }];
   hover: [{ node: JSONContent; pos: number }];
+}
+
+// 将参考项目的 size（xs/sm/md/lg/xl）映射到 XYButton 的 size（small/middle/large）
+function mapButtonSize(size: string | undefined): 'small' | 'middle' | 'large' {
+  switch (size) {
+    case 'xs':
+    case 'sm':
+      return 'small';
+    case 'lg':
+    case 'xl':
+      return 'large';
+    case 'md':
+    default:
+      return 'middle';
+  }
+}
+
+// 将参考项目的 variant（ghost/solid/outline/link/soft）映射到 XYButton 的 type
+function mapButtonType(
+  variant: string | undefined,
+): 'text' | 'default' | 'primary' | 'ghost' | 'dashed' | 'link' {
+  switch (variant) {
+    case 'link':
+      return 'link';
+    case 'solid':
+      return 'primary';
+    case 'outline':
+      return 'default';
+    case 'soft':
+    case 'ghost':
+    default:
+      // drag handle 默认用 text 类型，避免边框干扰视觉
+      return 'text';
+  }
 }
 
 export const richTextEditorDragHandleProps = () => ({
@@ -176,6 +211,29 @@ export default defineComponent({
       }
     }
 
+    // 默认拖拽图标（grip-vertical SVG），与 lucide grip-vertical 一致
+    const defaultIcon = (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="9" cy="5" r="1" />
+        <circle cx="9" cy="12" r="1" />
+        <circle cx="9" cy="19" r="1" />
+        <circle cx="15" cy="5" r="1" />
+        <circle cx="15" cy="12" r="1" />
+        <circle cx="15" cy="19" r="1" />
+      </svg>
+    );
+
     return () => (
       <DragHandle
         {...(dragHandleProps.value as any)}
@@ -195,7 +253,17 @@ export default defineComponent({
             handle: 'xy-rich-text-editor-drag-handle-handle',
           },
           onClick,
-        }) || null}
+        }) || (
+          <Button
+            type={mapButtonType(props.variant)}
+            size={mapButtonSize(props.size)}
+            class="xy-rich-text-editor-drag-handle-default"
+            aria-label="Drag to move"
+            data-slot="handle"
+          >
+            {props.icon ? <span innerHTML={props.icon} /> : defaultIcon}
+          </Button>
+        )}
       </DragHandle>
     );
   },

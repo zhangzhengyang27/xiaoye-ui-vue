@@ -83,13 +83,13 @@
     "dom-align": "^1.12.0",
     "dom-scroll-into-view": "^2.0.1",
     "lodash-es": "^4.17.21",
-    "quill": "^2.0.0",
     "resize-observer-polyfill": "^1.5.0",
     "scroll-into-view-if-needed": "^3.0.0",
     "shallow-equal": "^3.0.0",
     "stylis": "^4.0.0",
     "throttle-debounce": "^5.0.0",
     "tiptap-extension-code-block-shiki": "^1.2.0",
+    "vditor": "^3.11.2",
     "vue-types": "^5.0.0",
     "warning": "^4.0.0"
   },
@@ -267,11 +267,6 @@
       "import": "./src/dropdown/index.ts"
     },
     "./dropdown/style": "./src/dropdown/style/index.ts",
-    "./editor": {
-      "types": "./src/editor/index.ts",
-      "import": "./src/editor/index.ts"
-    },
-    "./editor/style": "./src/editor/style/index.ts",
     "./empty": {
       "types": "./src/empty/index.tsx",
       "import": "./src/empty/index.tsx"
@@ -365,6 +360,11 @@
       "types": "./src/locale-provider/index.ts",
       "import": "./src/locale-provider/index.ts"
     },
+    "./markdown-editor": {
+      "types": "./src/markdown-editor/index.ts",
+      "import": "./src/markdown-editor/index.ts"
+    },
+    "./markdown-editor/style": "./src/markdown-editor/style/index.ts",
     "./mega-menu": {
       "types": "./src/mega-menu/index.ts",
       "import": "./src/mega-menu/index.ts"

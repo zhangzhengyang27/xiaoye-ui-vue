@@ -109,6 +109,7 @@ export const configProviderProps = () => ({
     disabled?: boolean;
   }>(),
   ripple: { type: Boolean, default: undefined },
+  componentProps: objectType<Record<string, Record<string, any>>>(),
 });
 
 export type ConfigProviderProps = Partial<ExtractPropTypes<ReturnType<typeof configProviderProps>>>;
@@ -153,6 +154,7 @@ export interface ConfigProviderInnerProps {
     disabled?: boolean;
   }>;
   ripple?: ComputedRef<boolean>;
+  componentProps?: ComputedRef<Record<string, Record<string, any>>>;
   flex?: ComputedRef<{
     vertical?: boolean;
   }>;

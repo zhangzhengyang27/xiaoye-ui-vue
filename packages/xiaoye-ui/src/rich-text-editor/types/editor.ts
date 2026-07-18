@@ -32,19 +32,13 @@ export interface EditorHandler {
 
 export type EditorCustomHandlers = Record<string, EditorHandler>;
 
+// 1:1 复刻 ui-4 的 handler 结构，同时保留 XiaoyeUI 扩展（textColor/highlight/table）
 export type EditorHandlers<H extends EditorCustomHandlers = EditorCustomHandlers> = {
   mark: EditorHandler;
-  bold: EditorHandler;
-  italic: EditorHandler;
-  underline: EditorHandler;
-  strike: EditorHandler;
-  code: EditorHandler;
   textAlign: EditorHandler;
   heading: EditorHandler;
   link: EditorHandler;
   image: EditorHandler;
-  textColor: EditorHandler;
-  highlight: EditorHandler;
   blockquote: EditorHandler;
   bulletList: EditorHandler;
   orderedList: EditorHandler;
@@ -62,6 +56,10 @@ export type EditorHandlers<H extends EditorCustomHandlers = EditorCustomHandlers
   suggestion: EditorHandler;
   mention: EditorHandler;
   emoji: EditorHandler;
+} & {
+  // XiaoyeUI 扩展 handler（ui-4 没有）
+  textColor: EditorHandler;
+  highlight: EditorHandler;
   insertTable: EditorHandler;
   addColumnBefore: EditorHandler;
   addColumnAfter: EditorHandler;
@@ -76,9 +74,9 @@ export type EditorHandlers<H extends EditorCustomHandlers = EditorCustomHandlers
   toggleHeaderCell: EditorHandler;
 } & H;
 
+// 1:1 复刻 ui-4 的 EditorItem 结构，同时保留 XiaoyeUI 扩展
 export type EditorItem<H extends EditorCustomHandlers = EditorCustomHandlers> =
   | { kind: 'mark'; mark: 'bold' | 'italic' | 'strike' | 'code' | 'underline' }
-  | { kind: 'bold' | 'italic' | 'strike' | 'code' | 'underline' }
   | { kind: 'textColor' | 'highlight'; color?: string }
   | { kind: 'textAlign'; align: 'left' | 'center' | 'right' | 'justify' }
   | { kind: 'heading'; level: 1 | 2 | 3 | 4 | 5 | 6 }

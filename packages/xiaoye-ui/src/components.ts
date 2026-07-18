@@ -122,10 +122,6 @@ export * from './dropdown';
 export { default as Dropdown } from './dropdown';
 import './dropdown/style';
 
-export * from './editor';
-export { default as Editor } from './editor';
-import './editor/style';
-
 export * from './empty';
 export { default as Empty } from './empty';
 import './empty/style';
@@ -197,6 +193,10 @@ import './list/style';
 
 export * from './locale-provider';
 export { default as LocaleProvider } from './locale-provider';
+
+export * from './markdown-editor';
+export { default as MarkdownEditor } from './markdown-editor';
+import './markdown-editor/style';
 
 export * from './mega-menu';
 export { default as MegaMenu } from './mega-menu';

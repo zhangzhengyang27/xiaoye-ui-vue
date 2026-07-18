@@ -33,7 +33,6 @@ declare module 'vue' {
     XYDivider: (typeof import('xiaoye-ui'))['Divider'];
     XYDrawer: (typeof import('xiaoye-ui'))['Drawer'];
     XYDropdown: (typeof import('xiaoye-ui'))['Dropdown'];
-    XYEditor: (typeof import('xiaoye-ui'))['Editor'];
     XYEmpty: (typeof import('xiaoye-ui'))['Empty'];
     XYFieldset: (typeof import('xiaoye-ui'))['Fieldset'];
     XYFlex: (typeof import('xiaoye-ui'))['Flex'];
@@ -53,6 +52,7 @@ declare module 'vue' {
     XYLayout: (typeof import('xiaoye-ui'))['Layout'];
     XYList: (typeof import('xiaoye-ui'))['List'];
     XYLocaleProvider: (typeof import('xiaoye-ui'))['LocaleProvider'];
+    XYMarkdownEditor: (typeof import('xiaoye-ui'))['MarkdownEditor'];
     XYMegaMenu: (typeof import('xiaoye-ui'))['MegaMenu'];
     XYMentions: (typeof import('xiaoye-ui'))['Mentions'];
     XYMenu: (typeof import('xiaoye-ui'))['Menu'];

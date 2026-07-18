@@ -199,6 +199,19 @@ const ConfigProvider = defineComponent({
     const componentDisabled = computed(() => props.componentDisabled);
     const wave = computed(() => props.wave ?? parentContext.wave?.value);
     const ripple = computed(() => props.ripple ?? parentContext.ripple?.value ?? true);
+    const componentProps = computed(() => {
+      const self = props.componentProps;
+      const parent = parentContext.componentProps?.value;
+      if (!self && !parent) return {};
+      if (!self) return parent || {};
+      if (!parent) return self;
+      // 父子合并：子覆盖父（同组件名时浅合并，组件内 props 深合并）
+      const merged: Record<string, Record<string, any>> = { ...parent };
+      for (const key of Object.keys(self)) {
+        merged[key] = { ...(parent[key] || {}), ...self[key] };
+      }
+      return merged;
+    });
     const configProvider: ConfigProviderInnerProps = {
       csp,
       autoInsertSpaceInButton,
@@ -225,6 +238,7 @@ const ConfigProvider = defineComponent({
       transformCellText: computed(() => props.transformCellText),
       wave,
       ripple,
+      componentProps,
     };
 
     // ================================ Dynamic theme ================================

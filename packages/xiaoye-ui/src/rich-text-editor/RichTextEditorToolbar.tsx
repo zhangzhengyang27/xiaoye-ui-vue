@@ -13,6 +13,8 @@ import {
 } from 'vue';
 import { BubbleMenu, FloatingMenu } from '@tiptap/vue-3/menus';
 import { defu } from 'defu';
+import { tv } from './utils/tv';
+import theme from './theme/editor-toolbar';
 import { createHandlers } from './utils/editor';
 import type { Editor } from '@tiptap/vue-3';
 import type { EditorItem } from './types/editor';
@@ -72,6 +74,12 @@ export const richTextEditorToolbarProps = () => ({
   items: anyType<EditorToolbarItem[] | EditorToolbarItem[][]>(),
   editor: { type: Object as PropType<Editor>, required: true },
   options: { type: Object, default: undefined },
+  shouldShow: {
+    type: Function as PropType<
+      (ctx: { editor: Editor; view: any; state: any; oldState?: any }) => boolean
+    >,
+    default: undefined,
+  },
 });
 
 export type RichTextEditorToolbarProps = Partial<
@@ -102,7 +110,16 @@ export default defineComponent({
       computed(() => createHandlers()),
     );
 
-    const MenuComponent = computed<Component | 'template'>(() => {
+    // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
+    const ui = computed(() =>
+      tv({
+        extend: theme,
+      })({
+        layout: props.layout,
+      }),
+    );
+
+    const Component = computed<Component | 'template'>(() => {
       return {
         bubble: BubbleMenu,
         floating: FloatingMenu,
@@ -135,8 +152,14 @@ export default defineComponent({
 
     let tooltipHideTimer: ReturnType<typeof setTimeout> | null = null;
 
-    function showTooltip(event: MouseEvent, text: string, placement?: string) {
+    function showTooltip(
+      event: MouseEvent,
+      text: string,
+      placement?: string,
+      item?: EditorToolbarItem,
+    ) {
       if (!text) return;
+      if (item && isDisabled(item)) return;
       if (tooltipHideTimer) {
         clearTimeout(tooltipHideTimer);
         tooltipHideTimer = null;
@@ -353,6 +376,13 @@ export default defineComponent({
     function mapDropdownChildItem(item: EditorToolbarChildItem): Record<string, any> {
       const result: Record<string, any> = { ...item };
 
+      if ('items' in item && Array.isArray((item as any).items) && (item as any).items.length) {
+        const nestedItems = (item as any).items;
+        result.items = isArrayOfArray(nestedItems)
+          ? nestedItems.map((group: any[]) => group.map(mapDropdownChildItem))
+          : nestedItems.map(mapDropdownChildItem);
+      }
+
       if (!('kind' in item) || 'type' in item) {
         return result;
       }
@@ -410,11 +440,12 @@ export default defineComponent({
       if (isClient) {
         document.removeEventListener('mousedown', handleClickOutside);
       }
-      // 修复 bug：清理 tooltip 隐藏定时器，避免组件卸载后定时器仍然执行
       if (tooltipHideTimer) {
         clearTimeout(tooltipHideTimer);
         tooltipHideTimer = null;
       }
+      dropdownTriggerRefs.clear();
+      dropdownPanelRefs.clear();
     });
 
     function getTooltipText(item: EditorToolbarItem): string | undefined {
@@ -528,12 +559,15 @@ export default defineComponent({
                 (item as EditorToolbarButtonItem).label
               }
               aria-expanded={dropdownOpen.value === key}
-              aria-haspopup={true}
+              aria-haspopup="menu"
               onClick={(e: Event) => {
                 e.stopPropagation();
                 toggleDropdown(key);
+                onClick(e as MouseEvent, item);
               }}
-              onMouseenter={(e: MouseEvent) => showTooltip(e, tooltipText || '', tooltipPlacement)}
+              onMouseenter={(e: MouseEvent) =>
+                showTooltip(e, tooltipText || '', tooltipPlacement, item)
+              }
               onMouseleave={hideTooltip}
             >
               {buttonProps.icon && (
@@ -550,6 +584,15 @@ export default defineComponent({
                   }}
                   class="xy-rich-text-editor-toolbar-dropdown-panel"
                   data-slot="dropdown-panel"
+                  role="menu"
+                  onKeydown={(e: KeyboardEvent) => {
+                    if (e.key === 'Escape' && dropdownOpen.value === key) {
+                      e.preventDefault();
+                      closeDropdown();
+                      const trigger = dropdownTriggerRefs.get(key);
+                      if (trigger) trigger.focus();
+                    }
+                  }}
                 >
                   {dropdownItems.map((dropdownGroup: any[], dgIndex: number) => [
                     <div key={`dg-${dgIndex}`} class="xy-rich-text-editor-toolbar-dropdown-group">
@@ -577,6 +620,7 @@ export default defineComponent({
                           <button
                             key={`dgi-${dgIndex}-${childIndex}`}
                             type="button"
+                            role="menuitem"
                             class={getDropdownItemClass(childItem)}
                             disabled={childItem.disabled}
                             title={
@@ -625,7 +669,9 @@ export default defineComponent({
           }
           aria-pressed={isActive(item)}
           onClick={(e: MouseEvent) => onClick(e, item)}
-          onMouseenter={(e: MouseEvent) => showTooltip(e, tooltipText || '', tooltipPlacement)}
+          onMouseenter={(e: MouseEvent) =>
+            showTooltip(e, tooltipText || '', tooltipPlacement, item)
+          }
           onMouseleave={hideTooltip}
         >
           {buttonProps.icon && (
@@ -637,33 +683,24 @@ export default defineComponent({
     }
 
     function renderContent(prefix: string) {
-      const result: any[] = [];
-
-      groups.value.forEach((group, groupIndex) => {
-        result.push(
+      return groups.value.map((group, groupIndex) => [
+        <div
+          key={`${prefix}-group-${groupIndex}`}
+          role="group"
+          class={ui.value.group()}
+          data-slot="group"
+        >
+          {group.map((item: any, index: number) => renderItem(item, index, groupIndex, prefix))}
+        </div>,
+        groupIndex < groups.value.length - 1 && (
           <div
-            key={`${prefix}-group-${groupIndex}`}
-            role="group"
-            class="xy-rich-text-editor-toolbar-group"
-            data-slot="group"
-          >
-            {group.map((item: any, index: number) => renderItem(item, index, groupIndex, prefix))}
-          </div>,
-        );
-
-        if (groupIndex < groups.value.length - 1) {
-          result.push(
-            <div
-              key={`${prefix}-group-sep-${groupIndex}`}
-              class="xy-rich-text-editor-toolbar-group-separator"
-              data-slot="group-separator"
-              role="separator"
-            />,
-          );
-        }
-      });
-
-      return result;
+            key={`${prefix}-group-sep-${groupIndex}`}
+            role="separator"
+            data-slot="separator"
+            class={ui.value.separator()}
+          />
+        ),
+      ]);
     }
 
     function renderTooltip() {
@@ -694,21 +731,23 @@ export default defineComponent({
     }
 
     return () => {
-      if (MenuComponent.value !== 'template') {
-        const MenuComp = MenuComponent.value as any;
-        const As = props.as as any;
+      const As = props.as as any;
+
+      if (Component.value !== 'template') {
+        const MenuComp = Component.value as any;
 
         return [
           <MenuComp
             editor={props.editor}
+            shouldShow={props.shouldShow}
             tabindex="-1"
-            class="xy-rich-text-editor-toolbar"
+            class={ui.value.root()}
             data-layout={props.layout}
             data-slot="root"
             {...menuOptions.value}
             {...attrs}
           >
-            <As role="toolbar" class="xy-rich-text-editor-toolbar-base" data-slot="base">
+            <As role="toolbar" class={ui.value.base({ class: attrs.class })} data-slot="base">
               {renderContent('group')}
             </As>
           </MenuComp>,
@@ -716,12 +755,10 @@ export default defineComponent({
         ];
       }
 
-      const As = props.as as any;
-
       return [
         <As
           role="toolbar"
-          class="xy-rich-text-editor-toolbar"
+          class={ui.value.root({ class: attrs.class })}
           data-layout={props.layout}
           data-slot="root"
           {...attrs}

@@ -12,11 +12,24 @@ import {
 } from 'vue';
 import { useEditorMenu } from './composables/useEditorMenu';
 import { createHandlers } from './utils/editor';
+import { tv } from './utils/tv';
+import theme from './theme/editor-suggestion-menu';
 import type { Editor } from '@tiptap/vue-3';
 import type { EditorCustomHandlers, FloatingUIOptions, EditorItem } from './types/editor';
 import type { SuggestionOptions } from '@tiptap/suggestion';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, arrayType, stringType } from '../_util/type';
+
+// 渲染 leading icon：支持字符串（SVG/HTML）、VNode、组件定义
+function renderLeadingIcon(icon: any) {
+  if (icon == null) return null;
+  if (typeof icon === 'string') return h('span', { innerHTML: icon });
+  if (icon.__v_isVnode) return icon;
+  if (typeof icon === 'object' || typeof icon === 'function') {
+    return h(icon as any);
+  }
+  return icon;
+}
 
 export type EditorSuggestionMenuLabelItem = {
   type: 'label';
@@ -54,6 +67,7 @@ export const richTextEditorSuggestionMenuProps = () => ({
   pluginKey: stringType('suggestionMenu'),
   filterFields: arrayType<string[]>(['label']),
   limit: { type: Number, default: 42 },
+  size: stringType<'xs' | 'sm' | 'md' | 'lg' | 'xl'>('md'),
   options: { type: Object as PropType<FloatingUIOptions>, default: undefined },
   suggestion: {
     type: Object as PropType<
@@ -81,6 +95,7 @@ export interface EditorSuggestionMenuProps {
   pluginKey?: string;
   filterFields?: string[];
   limit?: number;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   options?: FloatingUIOptions;
   suggestion?: Omit<
     Partial<SuggestionOptions>,
@@ -89,33 +104,24 @@ export interface EditorSuggestionMenuProps {
   appendTo?: HTMLElement | (() => HTMLElement);
 }
 
-const MENU_CLASSES = {
-  root: 'xy-rich-text-editor-suggestion-menu',
-  content: 'xy-rich-text-editor-suggestion-menu-content',
-  viewport: 'xy-rich-text-editor-suggestion-menu-viewport',
-  group: 'xy-rich-text-editor-suggestion-menu-group',
-  label: 'xy-rich-text-editor-suggestion-menu-label',
-  separator: 'xy-rich-text-editor-suggestion-menu-separator',
-  item: 'xy-rich-text-editor-suggestion-menu-item',
-  itemActive: 'xy-rich-text-editor-suggestion-menu-item-active',
-  itemLeading: 'xy-rich-text-editor-suggestion-menu-item-leading',
-  itemLeadingIcon: 'xy-rich-text-editor-suggestion-menu-item-icon',
-  itemWrapper: 'xy-rich-text-editor-suggestion-menu-item-wrapper',
-  itemLabel: 'xy-rich-text-editor-suggestion-menu-item-label',
-  itemDescription: 'xy-rich-text-editor-suggestion-menu-item-description',
-};
-
 export default defineComponent({
   name: 'XYRichTextEditorSuggestionMenu',
   inheritAttrs: false,
   __XY_RICH_TEXT_EDITOR_SUGGESTION_MENU: true,
   props: initDefaultProps(richTextEditorSuggestionMenuProps(), {}),
   setup(props) {
-    // 改进：原实现用 `{ value: createHandlers() } as any` 作为 inject 默认值，
-    // 类型不一致。这里改用 computed，与 RichTextEditorToolbar 的 inject 方式一致。
     const handlers = inject(
       'editorHandlers',
       computed(() => createHandlers()),
+    );
+
+    // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
+    const ui = computed(() =>
+      tv({
+        extend: theme,
+      })({
+        size: props.size,
+      }),
     );
 
     let menu: ReturnType<typeof useEditorMenu> | null = null;
@@ -135,7 +141,7 @@ export default defineComponent({
         options: props.options,
         suggestion: props.suggestion,
         appendTo: props.appendTo,
-        classes: MENU_CLASSES,
+        ui,
         onSelect: (editor, range, item: any) => {
           if (item.type === 'label' || item.type === 'separator') return;
 
@@ -149,17 +155,19 @@ export default defineComponent({
             }
           }
         },
-        renderItem: (item: any, classes) => {
+        renderItem: (item: any, styles) => {
           if (item.type === 'label') {
             return [h('span', {}, item.label)];
           }
 
           return [
-            item.icon ? h('span', { class: classes.itemLeadingIcon }, item.icon) : null,
-            h('span', { class: classes.itemWrapper }, [
-              h('span', { class: classes.itemLabel }, item.label),
+            item.icon
+              ? h('span', { class: styles.value.itemLeadingIcon() }, [renderLeadingIcon(item.icon)])
+              : null,
+            h('span', { class: styles.value.itemWrapper() }, [
+              h('span', { class: styles.value.itemLabel() }, item.label),
               item.description
-                ? h('span', { class: classes.itemDescription }, item.description)
+                ? h('span', { class: styles.value.itemDescription() }, item.description)
                 : null,
             ]),
           ];

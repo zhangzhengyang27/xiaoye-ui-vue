@@ -8,6 +8,24 @@ import type {
   FloatingUIOptions,
 } from '../types/editor';
 
+/**
+ * 安全调用 editor.can() 返回对象上的方法。
+ * 当方法不存在或抛错时返回 false（避免 "is not a function" 运行时错误）。
+ *
+ * 某些 Tiptap 扩展（如 Table、TextAlign）的 can() 可能不暴露对应方法，
+ * 直接调用会抛 `TypeError: ... is not a function`。
+ */
+function safeCanCall(editor: Editor, fnName: string, ...args: any[]): boolean {
+  try {
+    const can = editor.can() as any;
+    const fn = can?.[fnName];
+    if (typeof fn !== 'function') return false;
+    return !!fn.apply(can, args);
+  } catch {
+    return false;
+  }
+}
+
 export function isMarkInSchema(mark: string | Mark, editor: Editor | null): boolean {
   if (!editor?.schema) {
     return false;
@@ -44,7 +62,7 @@ export function createToggleHandler(name: string) {
   const fnName = `toggle${name.charAt(0).toUpperCase()}${name.slice(1)}` as keyof Editor['chain'];
 
   return {
-    canExecute: (editor: Editor) => (editor.can() as any)[fnName](),
+    canExecute: (editor: Editor) => safeCanCall(editor, fnName),
     execute: (editor: Editor) => (editor.chain().focus() as any)[fnName](),
     isActive: (editor: Editor) => editor.isActive(name),
     isDisabled: (editor: Editor) =>
@@ -56,7 +74,7 @@ export function createSetHandler(name: string) {
   const fnName = `set${name.charAt(0).toUpperCase()}${name.slice(1)}` as keyof Editor['chain'];
 
   return {
-    canExecute: (editor: Editor) => (editor.can() as any)[fnName](),
+    canExecute: (editor: Editor) => safeCanCall(editor, fnName),
     execute: (editor: Editor) => (editor.chain().focus() as any)[fnName](),
     isActive: (editor: Editor) => editor.isActive(name),
     isDisabled: (editor: Editor) =>
@@ -66,7 +84,7 @@ export function createSetHandler(name: string) {
 
 export function createSimpleHandler(name: string) {
   return {
-    canExecute: (editor: Editor) => (editor.can() as any)[name](),
+    canExecute: (editor: Editor) => safeCanCall(editor, name),
     execute: (editor: Editor) => (editor.chain() as any)[name](),
     isActive: () => false,
     isDisabled: undefined,
@@ -75,7 +93,7 @@ export function createSimpleHandler(name: string) {
 
 export function createMarkHandler() {
   return {
-    canExecute: (editor: Editor, cmd: any) => (editor.can() as any).toggleMark(cmd.mark),
+    canExecute: (editor: Editor, cmd: any) => safeCanCall(editor, 'toggleMark', cmd.mark),
     execute: (editor: Editor, cmd: any) => editor.chain().focus().toggleMark(cmd.mark),
     isActive: (editor: Editor, cmd: any) => editor.isActive(cmd.mark),
     isDisabled: (editor: Editor, cmd: any) =>
@@ -85,7 +103,7 @@ export function createMarkHandler() {
 
 export function createTextAlignHandler() {
   return {
-    canExecute: (editor: Editor, cmd: any) => (editor.can() as any).setTextAlign(cmd.align),
+    canExecute: (editor: Editor, cmd: any) => safeCanCall(editor, 'setTextAlign', cmd.align),
     execute: (editor: Editor, cmd: any) => (editor.chain().focus() as any).setTextAlign(cmd.align),
     isActive: (editor: Editor, cmd: any) => editor.isActive({ textAlign: cmd.align }),
     isDisabled: (editor: Editor) =>
@@ -97,7 +115,7 @@ export function createTextAlignHandler() {
 export function createHeadingHandler() {
   return {
     canExecute: (editor: Editor, cmd: any) =>
-      (editor.can() as any).toggleHeading({ level: cmd.level }),
+      safeCanCall(editor, 'toggleHeading', { level: cmd.level }),
     execute: (editor: Editor, cmd: any) =>
       editor.chain().focus().toggleHeading({ level: cmd.level }),
     isActive: (editor: Editor, cmd: any) => editor.isActive('heading', { level: cmd.level }),
@@ -109,7 +127,7 @@ export function createHeadingHandler() {
 export function createLinkHandler() {
   return {
     canExecute: (editor: Editor) => {
-      return (editor.can() as any).setLink({ href: '' }) || (editor.can() as any).unsetLink();
+      return safeCanCall(editor, 'setLink', { href: '' }) || safeCanCall(editor, 'unsetLink');
     },
     execute: (editor: Editor, cmd: any) => {
       const chain = editor.chain();
@@ -145,16 +163,27 @@ export function createLinkHandler() {
 export function createImageHandler() {
   return {
     canExecute: (editor: Editor) => {
-      return (editor.can() as any).setImage({ src: '' });
+      return safeCanCall(editor, 'setImage', { src: '' });
     },
     execute: (editor: Editor, cmd: any) => {
       const chain = editor.chain().focus();
 
+      // 优先使用传入的 src（URL 模式）
       if (cmd?.src) {
         return chain.setImage({ src: cmd.src });
       }
 
-      // Try file upload first, fallback to URL prompt
+      // SSR 安全：非浏览器环境 fallback 到 URL 输入
+      if (typeof document === 'undefined') {
+        const src = typeof prompt === 'function' ? prompt('Enter the image URL:') : '';
+        if (src) {
+          return chain.setImage({ src });
+        }
+        return chain;
+      }
+
+      // 文件上传模式：通过 FileReader 转 base64
+      // 注意：base64 会增大文档体积，生产环境建议通过 cmd.src 传入上传后的 URL
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = 'image/*';
@@ -192,7 +221,7 @@ export function createListHandler(listType: 'bulletList' | 'orderedList' | 'task
   return {
     canExecute: (editor: Editor) => {
       return (
-        (editor.can() as any)[fnName]() ||
+        safeCanCall(editor, fnName) ||
         editor.isActive('listItem') ||
         allListTypes.some(type => isExtensionAvailable(editor, type) && editor.isActive(type))
       );
@@ -299,7 +328,7 @@ export function createTableInsertHandler() {
       if (!isExtensionAvailable(editor, 'table')) return false;
       const rows = cmd?.rows ?? 3;
       const cols = cmd?.cols ?? 3;
-      return (editor.can() as any).insertTable({ rows, cols });
+      return safeCanCall(editor, 'insertTable', { rows, cols });
     },
     execute: (editor: Editor, cmd?: any) => {
       const rows = cmd?.rows ?? 3;
@@ -321,7 +350,7 @@ export function createTableColumnHandler(
   return {
     canExecute: (editor: Editor) => {
       if (!isExtensionAvailable(editor, 'table')) return false;
-      return (editor.can() as any)[action]();
+      return safeCanCall(editor, action);
     },
     execute: (editor: Editor) => (editor.chain().focus() as any)[action](),
     isActive: () => false,
@@ -333,7 +362,7 @@ export function createTableRowHandler(action: 'addRowBefore' | 'addRowAfter' | '
   return {
     canExecute: (editor: Editor) => {
       if (!isExtensionAvailable(editor, 'table')) return false;
-      return (editor.can() as any)[action]();
+      return safeCanCall(editor, action);
     },
     execute: (editor: Editor) => (editor.chain().focus() as any)[action](),
     isActive: () => false,
@@ -345,7 +374,7 @@ export function createTableCellHandler(action: 'mergeCells' | 'splitCell') {
   return {
     canExecute: (editor: Editor) => {
       if (!isExtensionAvailable(editor, 'table')) return false;
-      return (editor.can() as any)[action]();
+      return safeCanCall(editor, action);
     },
     execute: (editor: Editor) => (editor.chain().focus() as any)[action](),
     isActive: () => false,
@@ -359,7 +388,7 @@ export function createTableToggleHeaderHandler(type: 'headerRow' | 'headerColumn
   return {
     canExecute: (editor: Editor) => {
       if (!isExtensionAvailable(editor, 'table')) return false;
-      return (editor.can() as any)[fnName]();
+      return safeCanCall(editor, fnName);
     },
     execute: (editor: Editor) => (editor.chain().focus() as any)[fnName](),
     isActive: (editor: Editor) => {
@@ -372,41 +401,11 @@ export function createTableToggleHeaderHandler(type: 'headerRow' | 'headerColumn
 }
 
 export function createHandlers(): EditorHandlers {
+  // 1:1 复刻 ui-4：只保留 mark handler，通过 item.mark 区分 bold/italic/underline/strike/code
   const markHandler = createMarkHandler();
 
   return {
     mark: markHandler,
-    // 便捷别名：支持 kind: 'bold' 直接使用
-    bold: {
-      canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark: 'bold' }),
-      execute: (editor: Editor) => markHandler.execute(editor, { mark: 'bold' }),
-      isActive: (editor: Editor) => markHandler.isActive(editor, { mark: 'bold' }),
-      isDisabled: (editor: Editor) => markHandler.isDisabled?.(editor, { mark: 'bold' }),
-    },
-    italic: {
-      canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark: 'italic' }),
-      execute: (editor: Editor) => markHandler.execute(editor, { mark: 'italic' }),
-      isActive: (editor: Editor) => markHandler.isActive(editor, { mark: 'italic' }),
-      isDisabled: (editor: Editor) => markHandler.isDisabled?.(editor, { mark: 'italic' }),
-    },
-    underline: {
-      canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark: 'underline' }),
-      execute: (editor: Editor) => markHandler.execute(editor, { mark: 'underline' }),
-      isActive: (editor: Editor) => markHandler.isActive(editor, { mark: 'underline' }),
-      isDisabled: (editor: Editor) => markHandler.isDisabled?.(editor, { mark: 'underline' }),
-    },
-    strike: {
-      canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark: 'strike' }),
-      execute: (editor: Editor) => markHandler.execute(editor, { mark: 'strike' }),
-      isActive: (editor: Editor) => markHandler.isActive(editor, { mark: 'strike' }),
-      isDisabled: (editor: Editor) => markHandler.isDisabled?.(editor, { mark: 'strike' }),
-    },
-    code: {
-      canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark: 'code' }),
-      execute: (editor: Editor) => markHandler.execute(editor, { mark: 'code' }),
-      isActive: (editor: Editor) => markHandler.isActive(editor, { mark: 'code' }),
-      isDisabled: (editor: Editor) => markHandler.isDisabled?.(editor, { mark: 'code' }),
-    },
     textAlign: createTextAlignHandler(),
     heading: createHeadingHandler(),
     link: createLinkHandler(),
@@ -415,7 +414,7 @@ export function createHandlers(): EditorHandlers {
     // 与其他 handler 返回 chain 的约定不一致，会导致 mapEditorItems 中再次调用 .run() 报错。
     // 统一返回未 run 的 chain，由调用方决定是否 run。
     textColor: {
-      canExecute: (editor: Editor) => editor.can().setMark('textStyle'),
+      canExecute: (editor: Editor) => safeCanCall(editor, 'setMark', 'textStyle'),
       execute: (editor: Editor, cmd: any) => {
         const color = cmd?.color;
         if (!color) return editor.chain().focus();
@@ -432,7 +431,7 @@ export function createHandlers(): EditorHandlers {
     },
     // 修复 bug：同 textColor，统一返回未 run 的 chain
     highlight: {
-      canExecute: (editor: Editor) => editor.can().setMark('highlight'),
+      canExecute: (editor: Editor) => safeCanCall(editor, 'setMark', 'highlight'),
       execute: (editor: Editor, cmd: any) => {
         const color = cmd?.color;
         if (!color) {
@@ -465,7 +464,7 @@ export function createHandlers(): EditorHandlers {
           const node = editor.state.doc.nodeAt(cmd.pos);
           return !!node;
         }
-        return editor.can().clearNodes() || editor.can().unsetAllMarks();
+        return safeCanCall(editor, 'clearNodes') || safeCanCall(editor, 'unsetAllMarks');
       },
       execute: (editor: Editor, cmd: any) => {
         if (cmd?.pos != null) {

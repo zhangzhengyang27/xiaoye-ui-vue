@@ -9,7 +9,9 @@ const isClient = typeof window !== 'undefined' && !!window.document;
 
 export const editorLinkPopoverProps = () => ({
   prefixCls: String,
-  editor: { type: Object as PropType<Editor>, required: true },
+  // editor 改为非 required：避免在 editor 还未就绪（useEditor 异步创建）或独立使用时
+  // 触发 Vue 的 "Expected Object, got Undefined" prop 警告（BUG-01）
+  editor: { type: Object as PropType<Editor>, default: undefined },
   autoOpen: { type: Boolean, default: false },
 });
 

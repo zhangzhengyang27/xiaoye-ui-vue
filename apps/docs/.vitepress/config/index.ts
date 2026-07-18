@@ -93,7 +93,7 @@ const categories = [
       'color-picker',
       'key-filter',
       'focus-trap',
-      'editor',
+      'markdown-editor',
       'rich-text-editor',
       'form-list',
     ],

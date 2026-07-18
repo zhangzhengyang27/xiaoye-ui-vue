@@ -1,6 +1,6 @@
 /// <reference types="vue/jsx" />
 import type { VNode, ExtractPropTypes, PropType } from 'vue';
-import { computed, provide, watch, defineComponent, onBeforeUnmount } from 'vue';
+import { computed, provide, watch, defineComponent, onBeforeUnmount, ref } from 'vue';
 import {
   useEditor,
   EditorContent,
@@ -35,9 +35,14 @@ import CodeBlockShiki from 'tiptap-extension-code-block-shiki';
 import type { CodeBlockShikiOptions } from 'tiptap-extension-code-block-shiki';
 import { initDefaultProps } from '../_util/props-util';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useComponentProps from '../_util/hooks/useComponentProps';
 import useStyle from './style';
 import type { EditorHandlers, EditorCustomHandlers } from './types/editor';
 import { createHandlers } from './utils/editor';
+import { tv } from './utils/tv';
+import theme from './theme/editor';
+import Primitive from './Primitive';
+import EditorLinkPopover from './EditorLinkPopover';
 
 // SSR 安全：仅浏览器端可访问 document/window
 const isClient = typeof window !== 'undefined' && !!window.document;
@@ -55,7 +60,10 @@ export const richTextEditorProps = () => ({
     >,
     default: undefined,
   },
-  starterKit: { type: Object as PropType<Partial<StarterKitOptions>>, default: undefined },
+  starterKit: {
+    type: [Boolean, Object] as PropType<boolean | Partial<StarterKitOptions>>,
+    default: true,
+  },
   image: { type: [Boolean, Object] as PropType<boolean | Partial<ImageOptions>>, default: true },
   mention: {
     type: [Boolean, Object] as PropType<
@@ -73,6 +81,22 @@ export const richTextEditorProps = () => ({
   extensions: { type: Array as PropType<EditorOptions['extensions']>, default: undefined },
   editorProps: { type: Object as PropType<EditorOptions['editorProps']>, default: undefined },
   handlers: { type: Object as PropType<EditorCustomHandlers>, default: undefined },
+  classNames: {
+    type: Object as PropType<{
+      root?: string;
+      content?: string;
+      linkPopover?: string;
+    }>,
+    default: undefined,
+  },
+  ui: {
+    type: Object as PropType<{
+      root?: string;
+      content?: string;
+      base?: string;
+    }>,
+    default: undefined,
+  },
 });
 
 export type RichTextEditorProps = Partial<ExtractPropTypes<ReturnType<typeof richTextEditorProps>>>;
@@ -91,12 +115,42 @@ export default defineComponent({
     const { prefixCls } = useConfigInject('rich-text-editor', props);
     const [, hashId] = useStyle(prefixCls);
 
+    // 通过 ConfigProvider 注入的组件级 props 默认值
+    const mergedProps = useComponentProps('RichTextEditor', props);
+
     const contentType = computed(
-      () => props.contentType || (typeof props.modelValue === 'string' ? 'html' : 'json'),
+      () =>
+        mergedProps.value.contentType || (typeof props.modelValue === 'string' ? 'html' : 'json'),
     );
 
-    const starterKit = computed(() =>
-      defu(props.starterKit, {
+    const starterKit = computed(() => {
+      const userOptions: Partial<StarterKitOptions> =
+        typeof props.starterKit === 'boolean' ? {} : (props.starterKit ?? {});
+
+      const plainText: Partial<StarterKitOptions> =
+        props.starterKit === false
+          ? {
+              blockquote: false,
+              bold: false,
+              bulletList: false,
+              code: false,
+              codeBlock: false,
+              dropcursor: false,
+              gapcursor: false,
+              heading: false,
+              horizontalRule: false,
+              italic: false,
+              listItem: false,
+              listKeymap: false,
+              link: false,
+              orderedList: false,
+              strike: false,
+              underline: false,
+              trailingNode: false,
+            }
+          : {};
+
+      return defu(userOptions, plainText, {
         code: false,
         codeBlock: false,
         horizontalRule: false,
@@ -111,8 +165,10 @@ export default defineComponent({
         link: {
           openOnClick: false,
         },
-      } as Partial<StarterKitOptions>),
-    );
+      } as Partial<StarterKitOptions>);
+    });
+
+    const isPlainText = computed(() => props.starterKit === false);
 
     const placeholder = computed(() => {
       const options =
@@ -176,29 +232,34 @@ export default defineComponent({
       [
         contentType.value === 'markdown' && Markdown.configure(markdown.value),
         StarterKit.configure(starterKit.value),
-        TextAlign.configure({
-          types: ['heading', 'paragraph'],
-        }),
-        TextStyle,
-        Highlight.configure({
-          multicolor: true,
-        }),
-        Underline,
-        Code.extend({
-          excludes: 'code',
-        }),
-        HorizontalRule.extend({
-          renderHTML() {
-            return [
-              'div',
-              mergeAttributes(this.options.HTMLAttributes, { 'data-type': this.name }),
-              ['hr'],
-            ];
-          },
-        }),
-        props.image !== false && Image.configure(image.value),
-        props.mention !== false && Mention.configure(mention.value),
-        props.table !== false &&
+        !isPlainText.value &&
+          TextAlign.configure({
+            types: ['heading', 'paragraph'],
+          }),
+        !isPlainText.value && TextStyle,
+        !isPlainText.value &&
+          Highlight.configure({
+            multicolor: true,
+          }),
+        !isPlainText.value && Underline,
+        !isPlainText.value &&
+          Code.extend({
+            excludes: 'code',
+          }),
+        !isPlainText.value &&
+          HorizontalRule.extend({
+            renderHTML() {
+              return [
+                'div',
+                mergeAttributes(this.options.HTMLAttributes, { 'data-type': this.name }),
+                ['hr'],
+              ];
+            },
+          }),
+        !isPlainText.value && props.image !== false && Image.configure(image.value),
+        !isPlainText.value && props.mention !== false && Mention.configure(mention.value),
+        !isPlainText.value &&
+          props.table !== false &&
           Table.configure({
             resizable: true,
             HTMLAttributes: {
@@ -206,10 +267,11 @@ export default defineComponent({
             },
             ...table.value,
           }),
-        props.table !== false && TableRow,
-        props.table !== false && TableCell,
-        props.table !== false && TableHeader,
-        props.codeBlockShiki !== false &&
+        !isPlainText.value && props.table !== false && TableRow,
+        !isPlainText.value && props.table !== false && TableCell,
+        !isPlainText.value && props.table !== false && TableHeader,
+        !isPlainText.value &&
+          props.codeBlockShiki !== false &&
           codeBlockShikiOptions.value &&
           CodeBlockShiki.configure(codeBlockShikiOptions.value),
         props.placeholder && Placeholder.configure(placeholder.value),
@@ -217,16 +279,28 @@ export default defineComponent({
       ].filter(extension => !!extension),
     );
 
-    const editorProps = computed(() =>
-      defu(props.editorProps, {
+    // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
+    const ui = computed(() =>
+      tv({
+        extend: theme,
+      })({
+        placeholderMode: placeholderMode.value,
+      }),
+    );
+
+    const editorProps = computed(() => {
+      // 排除 data-slot，避免透传到 ProseMirror DOM 干扰样式系统
+      const { dataSlot, class: _, ...restAttrs } = attrs as Record<string, any>;
+      return defu(props.editorProps, {
         attributes: {
           autocomplete: 'off',
           autocorrect: 'off',
           autocapitalize: 'off',
-          ...attrs,
+          ...restAttrs,
+          class: ui.value.base({ class: [props.classNames?.content, props.ui?.base] }),
         },
-      } as EditorOptions['editorProps']),
-    );
+      } as EditorOptions['editorProps']);
+    });
 
     const editor = useEditor({
       content: props.modelValue as Content,
@@ -255,8 +329,6 @@ export default defineComponent({
       },
     });
 
-    // 修复 bug：显式在 onBeforeUnmount 中销毁 editor（双重保险）。
-    // 虽然 useEditor 内部会自动销毁，但显式销毁可避免极端场景下的内存泄漏。
     onBeforeUnmount(() => {
       if (isClient && editor.value && !editor.value.isDestroyed) {
         editor.value.destroy();
@@ -308,24 +380,39 @@ export default defineComponent({
       { immediate: true },
     );
 
-    const handlers = computed(
-      () =>
-        ({
-          ...createHandlers(),
-          ...props.handlers,
-        }) as EditorHandlers<any>,
-    );
+    const linkPopoverRef = ref<{ open: () => void; close: () => void } | null>(null);
+
+    const handlers = computed(() => {
+      const base = createHandlers();
+      const customHandlers = props.handlers || {};
+
+      if (!customHandlers.link) {
+        base.link = {
+          ...base.link,
+          execute: (editor: Editor, cmd: any) => {
+            if (linkPopoverRef.value?.open) {
+              linkPopoverRef.value.open();
+              return editor.chain();
+            }
+            return createHandlers().link.execute(editor, cmd);
+          },
+        };
+      }
+
+      return { ...base, ...customHandlers } as EditorHandlers<any>;
+    });
 
     provide('editorHandlers', handlers);
 
     expose({ editor });
 
     return () => {
-      const As = props.as as any;
       return (
-        <As
-          class={['xy-rich-text-editor', hashId.value]}
-          data-placeholder-mode={placeholderMode.value}
+        <Primitive
+          as={props.as}
+          class={ui.value.root({
+            class: [hashId.value, props.classNames?.root, props.ui?.root, attrs.class as any],
+          })}
           data-slot="root"
         >
           {editor.value && (
@@ -333,12 +420,18 @@ export default defineComponent({
               {slots.default?.({ editor: editor.value, handlers: handlers.value })}
               <EditorContent
                 editor={editor.value}
-                class="xy-rich-text-editor-content"
-                {...({ role: 'presentation', 'data-slot': 'content' } as any)}
+                data-slot="content"
+                class={ui.value.content({ class: props.ui?.content })}
+              />
+              <EditorLinkPopover
+                ref={linkPopoverRef as any}
+                editor={editor.value}
+                class={props.classNames?.linkPopover}
+                {...({ 'data-slot': 'link-popover' } as any)}
               />
             </>
           )}
-        </As>
+        </Primitive>
       );
     };
   },

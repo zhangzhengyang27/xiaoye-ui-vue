@@ -23,6 +23,7 @@ import type { ComponentToken as InputNumberComponentToken } from '../../input-nu
 import type { ComponentToken as InplaceComponentToken } from '../../inplace/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as ListComponentToken } from '../../list/style';
+import type { ComponentToken as MarkdownEditorComponentToken } from '../../markdown-editor/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as MessageComponentToken } from '../../message/style';
@@ -34,6 +35,7 @@ import type { ComponentToken as ProgressComponentToken } from '../../progress/st
 import type { ComponentToken as RadioComponentToken } from '../../radio/style';
 import type { ComponentToken as RateComponentToken } from '../../rate/style';
 import type { ComponentToken as ResultComponentToken } from '../../result/style';
+import type { ComponentToken as RichTextEditorComponentToken } from '../../rich-text-editor/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SplitButtonComponentToken } from '../../split-button/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
@@ -150,8 +152,8 @@ export interface ComponentTokenMap {
   FormList?: {};
   DataView?: {};
   TreeTable?: {};
-  Editor?: {};
-  RichTextEditor?: {};
+  MarkdownEditor?: MarkdownEditorComponentToken;
+  RichTextEditor?: RichTextEditorComponentToken;
   Chart?: {};
   FocusTrap?: {};
   Ripple?: {};

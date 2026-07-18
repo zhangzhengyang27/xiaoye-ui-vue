@@ -58,6 +58,9 @@ export type {
 export { editorLinkPopoverProps } from './EditorLinkPopover';
 export type { EditorLinkPopoverProps } from './EditorLinkPopover';
 
+// 默认工具栏 items 配置（7 组完整配置，可直接传给 RichTextEditorToolbar 的 items prop）
+export { defaultToolbarItems } from './defaultToolbarItems';
+
 export type {
   FloatingUIOptions,
   EditorHandler,

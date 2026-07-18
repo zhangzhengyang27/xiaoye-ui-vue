@@ -1,7 +1,9 @@
 /// <reference types="vue/jsx" />
 import type { PropType, ExtractPropTypes } from 'vue';
-import { defineComponent, h, onMounted, onBeforeUnmount, nextTick, toRef } from 'vue';
+import { defineComponent, h, computed, onMounted, onBeforeUnmount, nextTick, toRef } from 'vue';
 import { useEditorMenu } from './composables/useEditorMenu';
+import { tv } from './utils/tv';
+import theme from './theme/editor-emoji-menu';
 import type { Editor } from '@tiptap/vue-3';
 import type { FloatingUIOptions } from './types/editor';
 import type { SuggestionOptions } from '@tiptap/suggestion';
@@ -25,6 +27,7 @@ export const richTextEditorEmojiMenuProps = () => ({
   pluginKey: stringType('emojiMenu'),
   filterFields: arrayType<string[]>(['name', 'shortcodes', 'tags']),
   limit: { type: Number, default: undefined },
+  size: stringType<'xs' | 'sm' | 'md' | 'lg' | 'xl'>('md'),
   options: { type: Object as PropType<FloatingUIOptions>, default: undefined },
   suggestion: {
     type: Object as PropType<
@@ -39,26 +42,13 @@ export const richTextEditorEmojiMenuProps = () => ({
     type: [Object, Function] as PropType<HTMLElement | (() => HTMLElement)>,
     default: undefined,
   },
+  // 布局模式：list / grid（默认 grid，emoji 多时更紧凑）
+  layout: { type: String as PropType<'list' | 'grid'>, default: 'grid' },
 });
 
 export type RichTextEditorEmojiMenuProps = Partial<
   ExtractPropTypes<ReturnType<typeof richTextEditorEmojiMenuProps>>
 >;
-
-const MENU_CLASSES = {
-  root: 'xy-rich-text-editor-emoji-menu',
-  content: 'xy-rich-text-editor-emoji-menu-content',
-  viewport: 'xy-rich-text-editor-emoji-menu-viewport',
-  group: 'xy-rich-text-editor-emoji-menu-group',
-  label: 'xy-rich-text-editor-emoji-menu-label',
-  separator: 'xy-rich-text-editor-emoji-menu-separator',
-  item: 'xy-rich-text-editor-emoji-menu-item',
-  itemActive: 'xy-rich-text-editor-emoji-menu-item-active',
-  itemLeading: 'xy-rich-text-editor-emoji-menu-item-leading',
-  itemLeadingIcon: 'xy-rich-text-editor-emoji-menu-item-icon',
-  itemWrapper: 'xy-rich-text-editor-emoji-menu-item-wrapper',
-  itemLabel: 'xy-rich-text-editor-emoji-menu-item-label',
-};
 
 export default defineComponent({
   name: 'XYRichTextEditorEmojiMenu',
@@ -66,6 +56,16 @@ export default defineComponent({
   __XY_RICH_TEXT_EDITOR_EMOJI_MENU: true,
   props: initDefaultProps(richTextEditorEmojiMenuProps(), {}),
   setup(props) {
+    // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
+    const ui = computed(() =>
+      tv({
+        extend: theme,
+      })({
+        size: props.size,
+        layout: props.layout,
+      }),
+    );
+
     let menu: ReturnType<typeof useEditorMenu> | null = null;
 
     onMounted(async () => {
@@ -83,18 +83,18 @@ export default defineComponent({
         options: props.options,
         suggestion: props.suggestion,
         appendTo: props.appendTo,
-        classes: MENU_CLASSES,
+        ui,
         onSelect: (editor, range, item) => {
           if (!item.emoji) return;
 
           editor.chain().focus().deleteRange(range).insertContent(item.emoji).run();
         },
-        renderItem: (item, classes) => {
+        renderItem: (item, styles) => {
           const content = item.emoji || item.shortcodes[0] || item.name;
           return [
-            h('span', { class: classes.itemLeadingIcon }, content),
-            h('span', { class: classes.itemWrapper }, [
-              h('span', { class: classes.itemLabel }, item.name),
+            h('span', { class: styles.value.itemLeadingIcon() }, content),
+            h('span', { class: styles.value.itemWrapper() }, [
+              h('span', { class: styles.value.itemLabel() }, item.name),
             ]),
           ];
         },

@@ -1,5 +1,5 @@
 import { ref, h, computed, unref, watch } from 'vue';
-import type { Ref, MaybeRef } from 'vue';
+import type { Ref, ComputedRef, MaybeRef } from 'vue';
 import { defu } from 'defu';
 import { computePosition } from '@floating-ui/dom';
 import type { Strategy, Placement } from '@floating-ui/dom';
@@ -37,23 +37,6 @@ function score(value: string, searchTerm: string): number | null {
   return 2;
 }
 
-const DEFAULT_MENU_CLASSES = {
-  root: 'xy-rich-text-editor-menu',
-  content: 'xy-rich-text-editor-menu__content',
-  viewport: 'xy-rich-text-editor-menu__viewport',
-  group: 'xy-rich-text-editor-menu__group',
-  label: 'xy-rich-text-editor-menu__label',
-  separator: 'xy-rich-text-editor-menu__separator',
-  item: 'xy-rich-text-editor-menu__item',
-  itemActive: 'xy-rich-text-editor-menu__item--active',
-  itemLeading: 'xy-rich-text-editor-menu__item-leading',
-  itemLeadingAvatar: 'xy-rich-text-editor-menu__item-leading-avatar',
-  itemLeadingIcon: 'xy-rich-text-editor-menu__item-leading-icon',
-  itemWrapper: 'xy-rich-text-editor-menu__item-wrapper',
-  itemLabel: 'xy-rich-text-editor-menu__item-label',
-  itemDescription: 'xy-rich-text-editor-menu__item-description',
-};
-
 export interface EditorMenuOptions<T = any> {
   editor: Editor;
   char: string;
@@ -66,14 +49,15 @@ export interface EditorMenuOptions<T = any> {
   searchTerm?: Ref<string>;
   onSearchTermChange?: (term: string) => void;
   onSelect: (editor: Editor, range: any, item: T) => void;
-  renderItem: (item: T, classes: typeof DEFAULT_MENU_CLASSES) => any;
+  renderItem: (item: T, ui: ComputedRef<any>) => any;
   options?: FloatingUIOptions;
   suggestion?: Omit<
     Partial<SuggestionOptions>,
     'pluginKey' | 'editor' | 'char' | 'items' | 'command' | 'render'
   >;
   appendTo?: HTMLElement | (() => HTMLElement);
-  classes?: Partial<typeof DEFAULT_MENU_CLASSES>;
+  // 1:1 复刻 ui-4：UI styles computed ref
+  ui: ComputedRef<any>;
 }
 
 export interface EditorMenuReturn<T = any> {
@@ -100,10 +84,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
   let handleHover: ((index: number) => void) | null = null;
   let stopItemsWatch: (() => void) | null = null;
 
-  const classes = { ...DEFAULT_MENU_CLASSES, ...(options.classes || {}) };
-
-  // 同步 searchTerm 到外部回调（修复 bug：原实现 searchTerm 仅在内部更新，
-  // 调用方无法感知，导致 RichTextEditorMentionMenu 用 onChange hack 也不生效）
+  // 同步 searchTerm 到外部回调（XiaoyeUI 保留的修复）
   if (options.onSearchTermChange) {
     watch(searchTerm, val => {
       options.onSearchTermChange?.(val);
@@ -132,13 +113,24 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       element.removeEventListener('mousedown', handleMouseDown);
       handleMouseDown = null;
     }
-    if (renderer) {
-      renderer.destroy();
-      renderer = null;
+
+    // 先同步 data-state='closed' 触发 scale-out 动画（100ms），
+    // 动画结束后再销毁 renderer 和移除 element。
+    const elementToCleanup = element;
+    const rendererToCleanup = renderer;
+    element = null;
+    renderer = null;
+
+    if (elementToCleanup) {
+      elementToCleanup.setAttribute('data-state', 'closed');
+      setTimeout(() => {
+        elementToCleanup.remove();
+      }, 100);
     }
-    if (element) {
-      element.remove();
-      element = null;
+    if (rendererToCleanup) {
+      setTimeout(() => {
+        rendererToCleanup.destroy();
+      }, 100);
     }
   };
 
@@ -197,11 +189,18 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       return [filteredItems.value];
     }
 
+    const filteredSet = new Set(filteredItems.value);
     return groups.value
       .map(group => {
-        const filtered = group.filter(item => filteredItems.value.includes(item));
+        // 保留 structural items（label/separator），它们不参与过滤
+        const structural = group.filter(
+          item => (item as any).type === 'label' || (item as any).type === 'separator',
+        );
+        // 普通 items 按过滤结果保留，顺序由 filteredItems 的 score 决定
+        const filtered = group.filter(item => filteredSet.has(item));
         filtered.sort((a, b) => filteredItems.value.indexOf(a) - filteredItems.value.indexOf(b));
-        return filtered;
+        // structural items（通常是分组标题）放在前面
+        return [...structural, ...filtered];
       })
       .filter(group => group.length > 0);
   });
@@ -313,9 +312,12 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
     });
 
     element = document.createElement('div');
-    element.className = classes.root;
+    // 1:1 复刻 ui-4：root 元素不设置 className，class 由调用方（SuggestionMenu）的 ui.root() 提供
+    // 但 XiaoyeUI 需要 root 作为样式锚点，这里保留 data-slot
+    element.setAttribute('data-slot', 'root');
     element.style.position = floatingUIOptions.strategy;
     element.style.zIndex = '50';
+    element.setAttribute('data-state', menuState.value);
 
     handleMouseDown = (e: MouseEvent) => {
       e.preventDefault();
@@ -379,6 +381,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
     );
   }
 
+  // 1:1 复刻 ui-4 的 MenuComponent：使用 options.ui.value.xxx() 获取类名和变体
   const MenuComponent = {
     props: {
       groups: { type: Array, required: true },
@@ -413,7 +416,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
         return h(
           'div',
           {
-            class: classes.content,
+            class: options.ui.value.content(),
             role: 'listbox',
             'data-state': menuProps.state,
           },
@@ -421,7 +424,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
             h(
               'div',
               {
-                class: classes.viewport,
+                class: options.ui.value.viewport(),
                 role: 'presentation',
               },
               groupsData.map((group, groupIndex) =>
@@ -429,7 +432,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                   'div',
                   {
                     key: `group-${groupIndex}`,
-                    class: classes.group,
+                    class: options.ui.value.group(),
                     role: 'group',
                   },
                   group.map((item, itemInGroupIndex) => {
@@ -440,16 +443,16 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                         'div',
                         {
                           key: `label-${groupIndex}-${itemInGroupIndex}`,
-                          class: [classes.label, itemData.class],
+                          class: options.ui.value.label({ class: itemData.class }),
                         },
-                        options.renderItem(item, classes),
+                        options.renderItem(item, options.ui),
                       );
                     }
 
                     if (itemData.type === 'separator') {
                       return h('div', {
                         key: `separator-${groupIndex}-${itemInGroupIndex}`,
-                        class: [classes.separator, itemData.class],
+                        class: options.ui.value.separator({ class: itemData.class }),
                         role: 'separator',
                       });
                     }
@@ -461,11 +464,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                       'div',
                       {
                         key: `item-${selectableIndex}`,
-                        class: [
-                          classes.item,
-                          { [classes.itemActive]: isHighlighted },
-                          itemData.class,
-                        ],
+                        class: options.ui.value.item({ class: itemData.class, active: false }),
                         role: 'option',
                         'aria-selected': isHighlighted,
                         'data-highlighted': isHighlighted ? '' : undefined,
@@ -478,7 +477,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                           }
                         },
                       },
-                      options.renderItem(item, classes),
+                      options.renderItem(item, options.ui),
                     );
                   }),
                 ),
@@ -495,6 +494,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
     pluginKey: pluginKeyInstance,
     editor: options.editor,
     char: options.char,
+    allowedPrefixes: null,
     items: ({ query: q }: { query: string }) => {
       searchTerm.value = q;
 
@@ -559,6 +559,10 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
 
       const handlers = {
         onStart: (suggestionProps: SuggestionProps) => {
+          if ((suggestionProps as any).loading) {
+            return;
+          }
+
           filteredItems.value = options.ignoreFilter
             ? items.value.slice(0, limit)
             : (suggestionProps.items as T[]);
@@ -576,11 +580,15 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
           showMenu();
         },
         onUpdate: (suggestionProps: SuggestionProps) => {
+          commandFn = (item: T) => suggestionProps.command(item);
+
+          if ((suggestionProps as any).loading) {
+            return;
+          }
+
           filteredItems.value = options.ignoreFilter
             ? items.value.slice(0, limit)
             : (suggestionProps.items as T[]);
-
-          commandFn = (item: T) => suggestionProps.command(item);
 
           if (selectedIndex.value >= selectableItems.value.length) {
             selectedIndex.value = Math.max(0, selectableItems.value.length - 1);
@@ -649,7 +657,6 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       stopItemsWatch();
       stopItemsWatch = null;
     }
-    // 修复 bug：原 destroy 未清理以下闭包变量，可能导致旧回调被复用或内存泄漏
     commandFn = null;
     keyDownHandler = null;
     triggerClientRect = null;
