@@ -6,6 +6,7 @@
  */
 export default {
   slots: {
+    root: 'xy-rich-text-editor-suggestion-menu',
     content: 'xy-rich-text-editor-suggestion-menu-content',
     viewport: 'xy-rich-text-editor-suggestion-menu-viewport',
     group: 'xy-rich-text-editor-suggestion-menu-group',

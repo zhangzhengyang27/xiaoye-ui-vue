@@ -1,0 +1,12 @@
+{
+  "main": "./DataTable.tsx",
+  "module": "./DataTable.tsx",
+  "types": "./DataTable.d.ts",
+  "browser": {
+    "./sfc": "./DataTable.tsx"
+  },
+  "sideEffects": [
+    "*.tsx",
+    "*.ts"
+  ]
+}

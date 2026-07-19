@@ -1,8 +1,8 @@
 import getScrollLeft from './getScrollLeft';
 
 export default function getOffset(element?: Element | null): {
-  top: number | string;
-  left: number | string;
+  top: number;
+  left: number;
 } {
   if (element) {
     const rect = element.getBoundingClientRect();
@@ -21,7 +21,7 @@ export default function getOffset(element?: Element | null): {
   }
 
   return {
-    top: 'auto',
-    left: 'auto',
+    top: 0,
+    left: 0,
   };
 }

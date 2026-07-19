@@ -13,6 +13,7 @@ interface BackTopToken extends FullToken<'BackTop'> {
   backTopIconSize: number;
   backTopInsetBlockEnd: number;
   backTopInsetInlineEnd: number;
+  lineWidthFocus: number;
 }
 
 // ============================== Shared ==============================
@@ -94,6 +95,7 @@ export default genComponentStyleHook<'BackTop'>('BackTop', token => {
     backTopIconSize: fontSizeIcon * 1.5,
     backTopInsetBlockEnd: marginXXL,
     backTopInsetInlineEnd: marginLG,
+    lineWidthFocus: token.lineWidth,
   });
   return [genSharedBackTopStyle(backTopToken)];
 });

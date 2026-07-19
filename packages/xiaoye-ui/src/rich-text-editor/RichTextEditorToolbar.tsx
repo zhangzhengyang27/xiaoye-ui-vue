@@ -20,6 +20,8 @@ import type { Editor } from '@tiptap/vue-3';
 import type { EditorItem } from './types/editor';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, stringType } from '../_util/type';
+import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useStyle from './style';
 
 // SSR 安全：仅浏览器端可访问 document/window
 const isClient = typeof window !== 'undefined' && !!window.document;
@@ -27,6 +29,7 @@ const isClient = typeof window !== 'undefined' && !!window.document;
 export interface EditorToolbarButtonItem {
   label?: string;
   icon?: string;
+  trailingIcon?: string;
   slot?: string;
   tooltip?: string | { text?: string; position?: 'top' | 'bottom' | 'left' | 'right' };
   ariaLabel?: string;
@@ -39,6 +42,7 @@ export interface EditorToolbarButtonItem {
 export interface EditorToolbarDropdownItem {
   label?: string;
   icon?: string;
+  trailingIcon?: string;
   items?: EditorToolbarChildItem[] | EditorToolbarChildItem[][];
   class?: any;
 }
@@ -105,6 +109,10 @@ export default defineComponent({
   __XY_RICH_TEXT_EDITOR_TOOLBAR: true,
   props: initDefaultProps(richTextEditorToolbarProps(), {}),
   setup(props, { attrs, slots }) {
+    // 使用 RichTextEditor 统一的 prefixCls，确保 Toolbar 共享同一 hashId
+    const { prefixCls: _prefixCls } = useConfigInject('rich-text-editor', props);
+    const [, hashId] = useStyle(_prefixCls);
+
     const handlers = inject(
       'editorHandlers',
       computed(() => createHandlers()),
@@ -172,25 +180,23 @@ export default defineComponent({
       tooltipState.placement = (placement || 'bottom') as typeof tooltipState.placement;
       tooltipState.visible = true;
 
-      const scrollX = window.scrollX || document.documentElement.scrollLeft;
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-
+      // Tooltip 使用 fixed 定位，直接使用视口坐标（getBoundingClientRect），无需加 scroll
       switch (tooltipState.placement) {
         case 'top':
-          tooltipState.position.x = rect.left + rect.width / 2 + scrollX;
-          tooltipState.position.y = rect.top + scrollY - 8;
+          tooltipState.position.x = rect.left + rect.width / 2;
+          tooltipState.position.y = rect.top - 8;
           break;
         case 'bottom':
-          tooltipState.position.x = rect.left + rect.width / 2 + scrollX;
-          tooltipState.position.y = rect.bottom + scrollY + 6;
+          tooltipState.position.x = rect.left + rect.width / 2;
+          tooltipState.position.y = rect.bottom + 6;
           break;
         case 'left':
-          tooltipState.position.x = rect.left + scrollX - 6;
-          tooltipState.position.y = rect.top + rect.height / 2 + scrollY;
+          tooltipState.position.x = rect.left - 6;
+          tooltipState.position.y = rect.top + rect.height / 2;
           break;
         case 'right':
-          tooltipState.position.x = rect.right + scrollX + 6;
-          tooltipState.position.y = rect.top + rect.height / 2 + scrollY;
+          tooltipState.position.x = rect.right + 6;
+          tooltipState.position.y = rect.top + rect.height / 2;
           break;
       }
     }
@@ -301,23 +307,6 @@ export default defineComponent({
       }
     }
 
-    function getActiveChildItem(
-      item: EditorToolbarDropdownItem,
-    ): EditorToolbarChildItem | undefined {
-      if (!item.items) {
-        return undefined;
-      }
-
-      const flatItems = isArrayOfArray(item.items) ? item.items.flat() : item.items;
-
-      return flatItems.find((child): child is EditorToolbarChildItem => {
-        if (!('kind' in child) || 'type' in child) {
-          return false;
-        }
-        return isActive(child);
-      });
-    }
-
     function getButtonProps(item: EditorToolbarItem) {
       const baseProps: Record<string, any> = {};
       const excludedKeys = [
@@ -338,6 +327,7 @@ export default defineComponent({
         'portal',
         'modal',
         'tooltip',
+        'trailingIcon',
         'onClick',
         'type',
         'class',
@@ -349,20 +339,8 @@ export default defineComponent({
         }
       }
 
-      if ('items' in item && Array.isArray(item.items) && item.items.length) {
-        const activeChild = getActiveChildItem(item);
-        if (activeChild && 'icon' in activeChild && activeChild.icon) {
-          baseProps.icon = activeChild.icon;
-        }
-        if (
-          activeChild &&
-          'label' in activeChild &&
-          activeChild.label &&
-          baseProps.label !== undefined
-        ) {
-          baseProps.label = activeChild.label;
-        }
-      }
+      // ui-4 行为：dropdown trigger 始终显示自身配置的 icon/label，
+      // 不随 active child 改变；active 状态通过 button-active 类体现。
 
       return defu(baseProps, {
         color: props.color,
@@ -462,7 +440,24 @@ export default defineComponent({
       const activeClass = isActive(item) ? 'xy-rich-text-editor-toolbar-button-active' : '';
       const disabledClass = isDisabled(item) ? 'xy-rich-text-editor-toolbar-button-disabled' : '';
 
-      return [baseClass, itemClass, activeClass, disabledClass].filter(Boolean).join(' ').trim();
+      // 添加 hashId，确保 CSS-in-JS 生成的 :where(.hashId).class 选择器能命中
+      return [hashId.value, baseClass, itemClass, activeClass, disabledClass]
+        .filter(Boolean)
+        .join(' ')
+        .trim();
+    }
+
+    function getDropdownStyle(key: string): Record<string, string> {
+      if (!isClient) return {};
+      const trigger = dropdownTriggerRefs.get(key);
+      if (!trigger) return {};
+
+      const rect = trigger.getBoundingClientRect();
+      return {
+        position: 'fixed',
+        top: `${rect.bottom + 4}px`,
+        left: `${rect.left}px`,
+      };
     }
 
     function getDropdownItemClass(childItem: any): string {
@@ -475,7 +470,11 @@ export default defineComponent({
         : '';
       const itemClass = typeof childItem.class === 'string' ? childItem.class : '';
 
-      return [baseClass, itemClass, activeClass, disabledClass].filter(Boolean).join(' ').trim();
+      // 添加 hashId，确保 CSS-in-JS 生成的 :where(.hashId).class 选择器能命中
+      return [hashId.value, baseClass, itemClass, activeClass, disabledClass]
+        .filter(Boolean)
+        .join(' ')
+        .trim();
     }
 
     function renderIcon(icon: any) {
@@ -486,23 +485,6 @@ export default defineComponent({
       }
       return <span innerHTML={icon} />;
     }
-
-    const dropdownArrowSvg = (
-      <svg
-        class="xy-rich-text-editor-toolbar-dropdown-arrow"
-        xmlns="http://www.w3.org/2000/svg"
-        width="12"
-        height="12"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    );
 
     function renderItem(
       item: EditorToolbarItem,
@@ -522,7 +504,9 @@ export default defineComponent({
         return (
           <div
             key={key}
-            class="xy-rich-text-editor-toolbar-separator"
+            class={['xy-rich-text-editor-toolbar-separator', hashId.value]
+              .filter(Boolean)
+              .join(' ')}
             data-slot="separator"
             role="separator"
           />
@@ -531,7 +515,11 @@ export default defineComponent({
 
       if ('type' in item && item.type === 'label') {
         return (
-          <div key={key} class="xy-rich-text-editor-toolbar-label" data-slot="label">
+          <div
+            key={key}
+            class={['xy-rich-text-editor-toolbar-label', hashId.value].filter(Boolean).join(' ')}
+            data-slot="label"
+          >
             {(item as EditorToolbarLabelItem).label}
           </div>
         );
@@ -560,6 +548,7 @@ export default defineComponent({
               }
               aria-expanded={dropdownOpen.value === key}
               aria-haspopup="menu"
+              data-state={dropdownOpen.value === key ? 'open' : 'closed'}
               onClick={(e: Event) => {
                 e.stopPropagation();
                 toggleDropdown(key);
@@ -574,7 +563,11 @@ export default defineComponent({
                 <span class="xy-rich-text-editor-toolbar-icon">{renderIcon(buttonProps.icon)}</span>
               )}
               {buttonProps.label && <span>{buttonProps.label}</span>}
-              {dropdownArrowSvg}
+              {(item as any).trailingIcon && (
+                <span class="xy-rich-text-editor-toolbar-icon xy-rich-text-editor-toolbar-button-trailing">
+                  {renderIcon((item as any).trailingIcon)}
+                </span>
+              )}
             </button>
             <Transition name="xy-dropdown">
               {dropdownOpen.value === key && (
@@ -582,7 +575,10 @@ export default defineComponent({
                   ref={(el: any) => {
                     if (el) dropdownPanelRefs.set(key, el as HTMLElement);
                   }}
-                  class="xy-rich-text-editor-toolbar-dropdown-panel"
+                  class={['xy-rich-text-editor-toolbar-dropdown-panel', hashId.value]
+                    .filter(Boolean)
+                    .join(' ')}
+                  style={getDropdownStyle(key)}
                   data-slot="dropdown-panel"
                   role="menu"
                   onKeydown={(e: KeyboardEvent) => {
@@ -595,13 +591,23 @@ export default defineComponent({
                   }}
                 >
                   {dropdownItems.map((dropdownGroup: any[], dgIndex: number) => [
-                    <div key={`dg-${dgIndex}`} class="xy-rich-text-editor-toolbar-dropdown-group">
+                    <div
+                      key={`dg-${dgIndex}`}
+                      class={['xy-rich-text-editor-toolbar-dropdown-group', hashId.value]
+                        .filter(Boolean)
+                        .join(' ')}
+                    >
                       {dropdownGroup.map((childItem: any, childIndex: number) => {
                         if ('type' in childItem && childItem.type === 'separator') {
                           return (
                             <div
                               key={`dgs-${dgIndex}-${childIndex}`}
-                              class="xy-rich-text-editor-toolbar-dropdown-separator"
+                              class={[
+                                'xy-rich-text-editor-toolbar-dropdown-separator',
+                                hashId.value,
+                              ]
+                                .filter(Boolean)
+                                .join(' ')}
                               role="separator"
                             />
                           );
@@ -610,7 +616,9 @@ export default defineComponent({
                           return (
                             <div
                               key={`dgl-${dgIndex}-${childIndex}`}
-                              class="xy-rich-text-editor-toolbar-dropdown-label"
+                              class={['xy-rich-text-editor-toolbar-dropdown-label', hashId.value]
+                                .filter(Boolean)
+                                .join(' ')}
                             >
                               {childItem.label}
                             </div>
@@ -646,7 +654,12 @@ export default defineComponent({
                     dgIndex < dropdownItems.length - 1 && (
                       <div
                         key={`dgs-end-${dgIndex}`}
-                        class="xy-rich-text-editor-toolbar-dropdown-group-separator"
+                        class={[
+                          'xy-rich-text-editor-toolbar-dropdown-group-separator',
+                          hashId.value,
+                        ]
+                          .filter(Boolean)
+                          .join(' ')}
                       />
                     ),
                   ])}
@@ -678,6 +691,11 @@ export default defineComponent({
             <span class="xy-rich-text-editor-toolbar-icon">{renderIcon(buttonProps.icon)}</span>
           )}
           {buttonProps.label && <span>{buttonProps.label}</span>}
+          {(item as any).trailingIcon && (
+            <span class="xy-rich-text-editor-toolbar-icon xy-rich-text-editor-toolbar-button-trailing">
+              {renderIcon((item as any).trailingIcon)}
+            </span>
+          )}
         </button>
       );
     }
@@ -687,7 +705,7 @@ export default defineComponent({
         <div
           key={`${prefix}-group-${groupIndex}`}
           role="group"
-          class={ui.value.group()}
+          class={ui.value.group({ class: hashId.value })}
           data-slot="group"
         >
           {group.map((item: any, index: number) => renderItem(item, index, groupIndex, prefix))}
@@ -697,7 +715,7 @@ export default defineComponent({
             key={`${prefix}-group-sep-${groupIndex}`}
             role="separator"
             data-slot="separator"
-            class={ui.value.separator()}
+            class={ui.value.separator({ class: hashId.value })}
           />
         ),
       ]);
@@ -710,6 +728,7 @@ export default defineComponent({
             {tooltipState.visible && (
               <div
                 class={[
+                  hashId.value,
                   'xy-rich-text-editor-toolbar-tooltip',
                   `xy-rich-text-editor-toolbar-tooltip-${tooltipState.placement}`,
                 ]}
@@ -741,13 +760,17 @@ export default defineComponent({
             editor={props.editor}
             shouldShow={props.shouldShow}
             tabindex="-1"
-            class={ui.value.root()}
+            class={ui.value.root({ class: hashId.value })}
             data-layout={props.layout}
             data-slot="root"
             {...menuOptions.value}
             {...attrs}
           >
-            <As role="toolbar" class={ui.value.base({ class: attrs.class })} data-slot="base">
+            <As
+              role="toolbar"
+              class={ui.value.base({ class: [hashId.value, attrs.class] })}
+              data-slot="base"
+            >
               {renderContent('group')}
             </As>
           </MenuComp>,
@@ -758,7 +781,7 @@ export default defineComponent({
       return [
         <As
           role="toolbar"
-          class={ui.value.root({ class: attrs.class })}
+          class={ui.value.root({ class: [hashId.value, attrs.class] })}
           data-layout={props.layout}
           data-slot="root"
           {...attrs}

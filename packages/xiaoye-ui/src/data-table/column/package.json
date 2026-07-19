@@ -1,0 +1,12 @@
+{
+  "main": "./Column.tsx",
+  "module": "./Column.tsx",
+  "types": "./Column.d.ts",
+  "browser": {
+    "./sfc": "./Column.tsx"
+  },
+  "sideEffects": [
+    "*.tsx",
+    "*.ts"
+  ]
+}

@@ -1,19 +1,15 @@
 /**
  * SSR-safe, exception-safe browser storage accessors.
  *
- * These wrap `window.localStorage` / `window.sessionStorage` and JSON
- * (de)serialization so that callers never crash on:
+ * These wrap `window.localStorage` / `window.sessionStorage` so that callers
+ * never crash on:
  *  - SSR (no `window`)
  *  - privacy / incognito modes where storage access throws `SecurityError`
  *  - quota exceeded (`QuotaExceededError`)
- *  - corrupted or non-JSON stored values
  *
  * When storage is unavailable the accessors degrade gracefully (return
- * `null` / `false`) instead of throwing, so the calling component simply
- * loses state persistence rather than white-screening.
+ * `null` / `false` / `undefined`) instead of throwing.
  */
-
-export type StateStorageMode = 'local' | 'session';
 
 function isDev(): boolean {
   return (
@@ -24,12 +20,13 @@ function isDev(): boolean {
 }
 
 /** Returns the requested Storage, or null when unavailable (SSR / blocked). */
-export function safeGetStorage(mode?: StateStorageMode): Storage | null {
+export function safeGetStorage(storageType: string): Storage | null {
   if (typeof window === 'undefined') return null;
 
   try {
-    if (mode === 'session') return window.sessionStorage;
-    return window.localStorage;
+    if (storageType === 'session') return window.sessionStorage;
+    if (storageType === 'local') return window.localStorage;
+    return null;
   } catch {
     // SecurityError in privacy mode / storage disabled
     return null;
@@ -37,9 +34,7 @@ export function safeGetStorage(mode?: StateStorageMode): Storage | null {
 }
 
 /** Reads a key; returns null on missing key or any access error. */
-export function safeGetItem(storage: Storage | null, key: string): string | null {
-  if (!storage || !key) return null;
-
+export function safeGetItem(storage: Storage, key: string): string | null {
   try {
     return storage.getItem(key);
   } catch {
@@ -48,9 +43,7 @@ export function safeGetItem(storage: Storage | null, key: string): string | null
 }
 
 /** Writes a key; returns false when storage is unavailable or write fails. */
-export function safeSetItem(storage: Storage | null, key: string, value: string): boolean {
-  if (!storage || !key) return false;
-
+export function safeSetItem(storage: Storage, key: string, value: string): boolean {
   try {
     storage.setItem(key, value);
     return true;
@@ -63,22 +56,11 @@ export function safeSetItem(storage: Storage | null, key: string, value: string)
   }
 }
 
-/** Parses JSON; returns null when input is empty or invalid. */
-export function safeJsonParse<T = any>(value: string | null): T | null {
-  if (!value) return null;
-
-  try {
-    return JSON.parse(value) as T;
-  } catch {
-    return null;
-  }
-}
-
-/** Stringifies a value; returns null when serialization fails (e.g. circular). */
-export function safeJsonStringify(value: any): string | null {
+/** Stringifies a value; returns undefined when serialization fails (e.g. circular). */
+export function safeJsonStringify(value: any): string | undefined {
   try {
     return JSON.stringify(value);
   } catch {
-    return null;
+    return undefined;
   }
 }

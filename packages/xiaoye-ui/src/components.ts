@@ -25,8 +25,8 @@ export * from './avatar';
 export { default as Avatar } from './avatar';
 import './avatar/style';
 
-export * from './back-top';
 export { default as BackTop } from './back-top';
+export type { BackTopProps } from './back-top';
 import './back-top/style';
 
 export * from './badge';
@@ -68,6 +68,10 @@ export * from './checkbox';
 export { default as Checkbox } from './checkbox';
 import './checkbox/style';
 
+export * from './chips';
+export { default as Chips } from './chips';
+import './chips/style';
+
 export { default as Col } from './col';
 import './col/style';
 
@@ -94,6 +98,10 @@ import './context-menu/style';
 export * from './dark-mode-toggle';
 export { default as DarkModeToggle } from './dark-mode-toggle';
 import './dark-mode-toggle/style';
+
+export * from './data-table';
+export { default as DataTable } from './data-table';
+import './data-table/style';
 
 export * from './data-view';
 export { default as DataView } from './data-view';
@@ -163,6 +171,10 @@ export { default as Icon } from './icon';
 export * from './image';
 export { default as Image } from './image';
 import './image/style';
+
+export * from './image-compare';
+export { default as ImageCompare } from './image-compare';
+import './image-compare/style';
 
 export * from './inline-edit';
 export { default as InlineEdit } from './inline-edit';
@@ -276,6 +288,10 @@ export * from './rate';
 export { default as Rate } from './rate';
 import './rate/style';
 
+export * from './rating';
+export { default as Rating } from './rating';
+import './rating/style';
+
 export * from './result';
 export { default as Result } from './result';
 import './result/style';
@@ -290,6 +306,10 @@ import './ripple/style';
 
 export { default as Row } from './row';
 import './row/style';
+
+export * from './scroll-panel';
+export { default as ScrollPanel } from './scroll-panel';
+import './scroll-panel/style';
 
 export * from './segmented';
 export { default as Segmented } from './segmented';
@@ -359,6 +379,10 @@ export * from './timeline';
 export { default as Timeline } from './timeline';
 import './timeline/style';
 
+export * from './toggle-button';
+export { default as ToggleButton } from './toggle-button';
+import './toggle-button/style';
+
 export * from './toolbar';
 export { default as Toolbar } from './toolbar';
 import './toolbar/style';
@@ -398,6 +422,10 @@ import './typography/style';
 export * from './upload';
 export { default as Upload } from './upload';
 import './upload/style';
+
+export * from './virtual-list';
+export { default as VirtualList } from './virtual-list';
+import './virtual-list/style';
 
 export * from './virtual-scroller';
 export { default as VirtualScroller } from './virtual-scroller';

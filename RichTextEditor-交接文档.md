@@ -128,8 +128,13 @@ RichTextEditor（主组件）
 - [x] Tooltip height 24px + padding 4px 10px + border-radius 2px + shadow-sm
 - [x] 按钮 disabled opacity 0.75（非 0.4）
 - [x] 内容区子元素 margin-block 20px
+- [x] 标题 h1-h6 margin-block 20px
+- [x] blockquote 使用 colorTextSecondary 提升可读性
+- [x] placeholder 行高与段落一致（28px）并兼容 `is-editor-empty`
 - [x] img border-radius 6px + selectednode outline 2px primary
 - [x] hr 自定义渲染 div[data-type=horizontalRule] + my-8 py-2
+- [x] Toolbar Tooltip 应用 hashId 并修正 fixed 定位
+- [x] 下拉菜单项默认图标颜色从 colorTextQuaternary 调整为 colorTextSecondary
 
 ### 2.3 文档覆盖
 
@@ -150,6 +155,7 @@ RichTextEditor（主组件）
 | ID | 问题 | 文件 | 描述 |
 | --- | --- | --- | --- |
 | BUG-01 | `XYEditorLinkPopover` editor prop 类型警告 | `EditorLinkPopover.tsx` | 控制台报 `Invalid prop: type check failed for prop "editor". Expected Object, got Undefined`。原因是 LinkPopover 挂载时 editor 还没就绪，应在 editor 创建后再 mount |
+| BUG-02 | **~~Enter 键导致焦点跳转到下一个编辑器~~（已修复）** | `RichTextEditor.tsx` | 文档站点中多个编辑器实例共存时，按 Enter 键可能因事件冒泡被文档层面处理程序捕获，导致焦点异常切换到下一个编辑器。已在 `editorProps.handleKeyDown` 中阻止 Enter 事件冒泡，同时保留 Tiptap 默认段落创建行为 |
 
 ### P1 — 功能缺失
 
@@ -158,8 +164,8 @@ RichTextEditor（主组件）
 | MISS-01 | **SuggestionMenu 未关联 Tiptap 建议插件** | `RichTextEditor.tsx` | 输入 `/` 不会触发 SuggestionMenu。需要在主组件中集成 `@tiptap/suggestion` 插件，在输入 `/` 时触发菜单弹出。参考 ui-4 的 `useEditorMenu.ts` 实现 |
 | MISS-02 | **MentionMenu 未关联 Tiptap mention 扩展** | `RichTextEditor.tsx` | 输入 `@` 不会触发 MentionMenu。mention 扩展当前只有基础配置（HTMLAttributes），缺少 suggestion 回调配置 |
 | MISS-03 | **EmojiMenu 未关联 Tiptap emoji 扩展** | `RichTextEditor.tsx` | 输入 `:` 不会触发 EmojiMenu。需要集成 `@tiptap/extension-emoji` 或其 suggestion 替代方案 |
-| MISS-04 | **BubbleMenu/FloatingMenu 未自动注册到工具栏** | `RichTextEditorToolbar.tsx` | 当前 bubble/floating layout 下工具栏只是用 position absolute 定位，未使用 Tiptap 的 `BubbleMenu` / `FloatingMenu` 扩展。应该像 ui-4 一样将工具栏包裹在 Tiptap 的内置菜单组件中 |
-| MISS-05 | **DragHandle dropdown 中 move/delete 操作缺少 pos 参数** | 示例文件 | DragHandle 传出的 `onClick` 回调需要传递当前节点 `pos` 给 moveUp/moveDown/delete 等 handler。当前示例中的 `pos` 是写死的 0 |
+| MISS-04 | **~~BubbleMenu/FloatingMenu 未自动注册到工具栏~~（已修复）** | `RichTextEditorToolbar.tsx` | `RichTextEditorToolbar` 已根据 `layout` 动态使用 Tiptap 内置 `BubbleMenu` / `FloatingMenu` 组件包裹工具栏，并通过 `shouldShow` / `options` 控制显示时机与定位 |
+| MISS-05 | **~~DragHandle dropdown 中 move/delete 操作缺少 pos 参数~~（已修复）** | 示例文件 | `RichTextEditorDragHandle` 的 `nodeChange` 事件已正确携带当前节点 `pos`，`drag-handle-dropdown.vue` 示例通过 `currentNode.value.pos` 动态传递给 handler |
 
 ### P2 — 样式/视觉
 
@@ -247,28 +253,59 @@ const itemHoverBg = `color-mix(in srgb, ${colorBgLayout} 50%, transparent)`;
 
 ## 五、版本历史
 
-| 日期       | 变更                                                        |
-| ---------- | ----------------------------------------------------------- |
-| 2026-07-17 | 初始创建（从 ui-4 抄写），基础 5 个子组件 + 工具栏 + 样式   |
+| 日期 | 变更 |
+| --- | --- |
+| 2026-07-17 | 初始创建（从 ui-4 抄写），基础 5 个子组件 + 工具栏 + 样式 |
 | 2026-07-18 | 修复 safeCanCall 避免 `editor.can() is not a function` 错误 |
-| 2026-07-18 | 样式全面重写（像素级对齐 ui-4）                             |
-| 2026-07-18 | 22 个示例文件 + 文档重写 + FAQ                              |
-| 2026-07-18 | 调试 VitePress 缓存 + 浏览器验证通过                        |
+| 2026-07-18 | 样式全面重写（像素级对齐 ui-4） |
+| 2026-07-18 | 22 个示例文件 + 文档重写 + FAQ |
+| 2026-07-18 | 调试 VitePress 缓存 + 浏览器验证通过 |
+| 2026-07-19 | 修复 `EditorLinkPopover` `autoOpen` 挂载即打开问题 |
+| 2026-07-19 | 调整 `basic.vue` 示例，移除 `auto-open`，避免链接弹窗默认打开 |
+| 2026-07-19 | 微调 hover/active 背景透明度，进一步对齐 ui-4 |
+| 2026-07-19 | 修复 Toolbar Tooltip hashId 不生效及 fixed 定位偏移问题 |
+| 2026-07-19 | 优化下拉菜单项默认图标颜色，提升可读性 |
+| 2026-07-19 | 优化内容区样式：标题 margin、blockquote 颜色、placeholder 行高 |
+| 2026-07-19 | 1:1 移植 ui-4 工具栏样式：按钮宽度自适应、trailingIcon、focus-visible outline |
+| 2026-07-19 | 修复下拉菜单被父容器裁剪：dropdown-panel 改为 fixed 定位并基于触发按钮计算坐标 |
+| 2026-07-19 | 修复链接按钮 slot 失效：改用 `kind: 'link'` 配置 |
+| 2026-07-19 | 修复 Suggestion/Mention/Emoji 菜单样式失效：updateProps 传递 `hashId` |
+| 2026-07-19 | 修复链接 Popover 定位：基于当前选区/光标计算 fixed 坐标 |
+| 2026-07-19 | 对齐 ui-4 默认 placeholder 模式为 `everyLine`，内容区内边距 32px |
+| 2026-07-19 | 工具栏图标统一 `color: currentColor`，兼容 `is-editor-empty` 占位符类名 |
+| 2026-07-19 | RichTextEditor 单元测试全部通过（139 files / 1186 tests） |
+| 2026-07-19 | 修复 MISS-05：`RichTextEditorDragHandle` 正确传递当前节点 `pos` 给下拉菜单操作 |
+| 2026-07-19 | 修复 MISS-04：`RichTextEditorToolbar` 使用 Tiptap 内置 `BubbleMenu` / `FloatingMenu` 包裹工具栏 |
+| 2026-07-19 | 浏览器验证 bubble / floating toolbar 显示与交互正常 |
+| 2026-07-19 | 修复 BUG-02：RichTextEditor 中按 Enter 键焦点意外跳转到下一个编辑器的问题 |
 
 ---
 
 ## 六、下一步工作建议
 
+### 已完成
+
+1. **BUG-01**：`EditorLinkPopover` editor prop 类型警告已修复（改为非 required + 主组件条件渲染）。
+2. **MISS-01/02/03**：`/` `@` `:` 三个菜单已关联 Tiptap suggestion/mention 插件。
+3. **EditorLinkPopover autoOpen**：移除 `immediate: true`，避免页面加载即打开链接弹窗。
+4. **工具栏样式**：1:1 移植 ui-4 工具栏样式，修复按钮宽度、trailingIcon、focus-visible outline、下拉菜单被裁剪、Tooltip fixed 定位等问题。
+5. **链接按钮**：修复 slot 失效，改用 `kind: 'link'` 配置并支持快捷键提示。
+6. **菜单样式**：修复 Suggestion/Mention/Emoji 菜单因缺少 `hashId` 导致样式失效的问题。
+7. **链接 Popover 定位**：改为基于当前选区/光标计算 fixed 坐标，避免出现在编辑器左上角。
+8. **placeholder & 内容区**：默认模式改为 `everyLine`，内容区水平内边距对齐 ui-4 为 32px，兼容 `is-editor-empty` 类名。
+9. **单元测试**：RichTextEditor 相关测试全部通过（139 files / 1186 tests）。
+10. **MISS-05**：`RichTextEditorDragHandle` 的 `nodeChange` 事件已正确传递当前节点 `pos`，`drag-handle-dropdown.vue` 示例使用 `currentNode.value.pos` 执行复制/删除/上移/下移操作。
+11. **MISS-04**：`RichTextEditorToolbar` 已根据 `layout` 动态使用 Tiptap 内置 `BubbleMenu` / `FloatingMenu` 包裹工具栏，浏览器验证 bubble/floating 显示与交互正常。
+12. **BUG-02**：修复文档站点中多个编辑器实例共存时，按 Enter 键焦点意外跳转到下一个编辑器的问题；在 `editorProps.handleKeyDown` 中阻止 Enter 事件冒泡，保留 Tiptap 默认段落创建行为。
+
 ### 短期（1-2 天）
 
-1. **修复 BUG-01**：LinkPopover editor prop 类型警告——使用 `v-if="editor"` 条件渲染
-2. **实现 MISS-01/02/03**：集成 Tiptap suggestion 插件，使 `/` `@` `:` 能触发对应菜单
+1. **解决全包 typecheck 错误**：当前 `pnpm --filter xiaoye-ui typecheck` 仍有大量历史错误，主要来自迁移中的 `data-table`、`markdown-editor`、`back-top`、`ripple`、`tree-table` 等组件；`rich-text-editor` 目录本身无新错。建议先修复这些迁移组件的类型问题，或将其从当前构建/检查范围排除，再重新跑 typecheck。
 
 ### 中期（3-5 天）
 
-3. **实现 MISS-04**：BubbleMenu/FloatingMenu 使用 Tiptap 内置菜单扩展包裹工具栏
-4. **实现 MISS-05**：DragHandle dropdown pos 参数传递
-5. **补充 P3 测试**：交互测试 + 集成测试
+4. **补充 P3 测试**：交互测试 + 集成测试
+5. **LinkPopover 定位优化**：当前 popover 已基于选区/光标定位，后续可进一步优化为锚定工具栏链接按钮
 
 ### 长期
 

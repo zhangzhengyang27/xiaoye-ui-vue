@@ -1,15 +1,5 @@
+/// <reference types="vditor/dist/types" />
 import type { ExtractPropTypes, PropType } from 'vue';
-import type {
-  IOptions,
-  IMenuItem,
-  IToolbarConfig,
-  IHint,
-  IPreview,
-  IUpload,
-  IOutline,
-  IResize,
-  IComment,
-} from 'vditor';
 import { booleanType, stringType, objectType, anyType, arrayType } from '../_util/type';
 
 /** v-model 绑定值的格式 */

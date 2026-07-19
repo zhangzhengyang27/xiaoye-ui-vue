@@ -192,9 +192,22 @@ vi.mock('tiptap-extension-code-block-shiki', () => ({
 vi.mock('@tiptap/extension-drag-handle-vue-3', () => ({
   default: defineComponent({
     name: 'DragHandle',
-    props: ['editor', 'computePositionConfig', 'pluginKey'],
-    setup(_, { slots }) {
-      return () => h('div', { class: 'drag-handle-mock' }, slots.default?.());
+    inheritAttrs: false,
+    props: ['editor', 'computePositionConfig', 'pluginKey', 'class', 'onClick'],
+    setup(props, { emit, slots }) {
+      return () =>
+        h(
+          'div',
+          {
+            class: ['drag-handle-mock', props.class],
+            onClick: () => {
+              // 模拟 DragHandle 扩展：先触发 nodeChange 设置 currentNodePos，再调用 onClick
+              emit('nodeChange', { pos: 10 });
+              props.onClick?.();
+            },
+          },
+          slots.default?.(),
+        );
     },
   }),
 }));
@@ -327,6 +340,35 @@ describe('RichTextEditorDragHandle', () => {
       props: { editor: mockEditor },
     });
     expect(wrapper.find('.xy-rich-text-editor-drag-handle').exists()).toBe(true);
+    wrapper.unmount();
+  });
+
+  it('emits nodeChange with current pos on click', async () => {
+    const nodeAtPos = { toJSON: () => ({ type: 'paragraph' }), nodeSize: 2 };
+    const editorWithNode = {
+      ...mockEditor,
+      state: {
+        ...mockEditor.state,
+        doc: {
+          ...mockEditor.state.doc,
+          nodeAt: pos => (pos === 10 ? nodeAtPos : null),
+        },
+      },
+    };
+
+    const wrapper = mount(RichTextEditorDragHandle, {
+      props: { editor: editorWithNode },
+    });
+
+    // 模拟 DragHandle 扩展：点击根元素触发 nodeChange 设置 currentNodePos，再调用 onClick
+    await wrapper.find('.drag-handle-mock').trigger('click');
+
+    expect(wrapper.emitted('nodeChange')).toHaveLength(1);
+    expect(wrapper.emitted('nodeChange')[0][0]).toEqual({
+      node: { type: 'paragraph' },
+      pos: 10,
+    });
+
     wrapper.unmount();
   });
 });

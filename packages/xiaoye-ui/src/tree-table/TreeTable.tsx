@@ -571,9 +571,7 @@ const TreeTable = defineComponent({
 
     function onColumnResizeStart(event: any) {
       if (!isClient) return;
-      // 修复类型：getOffset 返回 { left: number | string }，断言为 number
-      const containerLeft = getOffset((tableRef.value as any)?.$el || tableRef.value)
-        .left as number;
+      const containerLeft = getOffset((tableRef.value as any)?.$el || tableRef.value).left;
       const target = event.target;
 
       if (!target) return;
@@ -589,9 +587,7 @@ const TreeTable = defineComponent({
 
     function onColumnResize(event: MouseEvent) {
       if (!isClient) return;
-      // 修复类型：getOffset 返回 { left: number | string }，断言为 number
-      const containerLeft = getOffset((tableRef.value as any)?.$el || tableRef.value)
-        .left as number;
+      const containerLeft = getOffset((tableRef.value as any)?.$el || tableRef.value).left;
       const el = (tableRef.value as any)?.$el || tableRef.value;
 
       el.setAttribute('data-xy-unselectable-text', 'true');

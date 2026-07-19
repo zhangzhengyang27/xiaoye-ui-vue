@@ -5,6 +5,7 @@
  */
 export default {
   slots: {
+    root: 'xy-rich-text-editor-emoji-menu',
     content: 'xy-rich-text-editor-emoji-menu-content',
     viewport: 'xy-rich-text-editor-emoji-menu-viewport',
     group: 'xy-rich-text-editor-emoji-menu-group',

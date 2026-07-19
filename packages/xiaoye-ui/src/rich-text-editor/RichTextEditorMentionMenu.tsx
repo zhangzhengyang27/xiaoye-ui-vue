@@ -8,7 +8,6 @@ import {
   onMounted,
   onBeforeUnmount,
   nextTick,
-  toRef,
   watch,
 } from 'vue';
 import type { Editor } from '@tiptap/vue-3';
@@ -18,6 +17,12 @@ import { tv } from './utils/tv';
 import theme from './theme/editor-mention-menu';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, arrayType, booleanType, stringType } from '../_util/type';
+import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useStyle from './style';
+
+if (typeof window !== 'undefined') {
+  (window as any).__rteMentionMenuLoaded = true;
+}
 
 // 渲染 leading icon：支持字符串、VNode、组件定义
 function renderLeadingIcon(icon: any) {
@@ -85,6 +90,10 @@ export default defineComponent({
   props: initDefaultProps(richTextEditorMentionMenuProps(), {}),
   emits: ['update:searchTerm'],
   setup(props, { emit }) {
+    // 使用 RichTextEditor 统一的 prefixCls，确保 MentionMenu 共享同一 hashId
+    const { prefixCls: _prefixCls } = useConfigInject('rich-text-editor', props);
+    const [, hashId] = useStyle(_prefixCls);
+
     // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
     const ui = computed(() =>
       tv({
@@ -120,7 +129,7 @@ export default defineComponent({
         editor: props.editor,
         char: props.char,
         pluginKey: props.pluginKey,
-        items: toRef(() => props.items),
+        items: computed(() => props.items),
         filterFields: props.filterFields,
         ignoreFilter: props.ignoreFilter,
         limit: props.limit,
@@ -132,6 +141,7 @@ export default defineComponent({
           emit('update:searchTerm', val);
         },
         ui,
+        hashId: hashId.value,
         onSelect: (editor, range, item) => {
           editor
             .chain()

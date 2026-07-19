@@ -37,6 +37,23 @@ function score(value: string, searchTerm: string): number | null {
   return 2;
 }
 
+function isStructuralItem(item: any): boolean {
+  return item?.type === 'label' || item?.type === 'separator';
+}
+
+function getItemKey(item: any): string {
+  if (item == null) return '';
+  if (typeof item !== 'object') return String(item);
+  if (item.id != null) return String(item.id);
+  return [
+    item.type ?? '',
+    item.kind ?? '',
+    item.level ?? '',
+    item.label ?? item.name ?? item.emoji ?? item.text ?? '',
+    item.shortcodes?.join(',') ?? '',
+  ].join('\0');
+}
+
 export interface EditorMenuOptions<T = any> {
   editor: Editor;
   char: string;
@@ -58,6 +75,8 @@ export interface EditorMenuOptions<T = any> {
   appendTo?: HTMLElement | (() => HTMLElement);
   // 1:1 复刻 ui-4：UI styles computed ref
   ui: ComputedRef<any>;
+  // XiaoyeUI：CSS-in-JS hashId，必须挂载到菜单根元素上样式才能生效
+  hashId?: string;
 }
 
 export interface EditorMenuReturn<T = any> {
@@ -189,17 +208,32 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       return [filteredItems.value];
     }
 
-    const filteredSet = new Set(filteredItems.value);
+    // Tiptap / VueRenderer 会把 suggestionProps.items 包装成响应式 Proxy，
+    // 导致对象引用与原始 props.items 不一致。使用稳定 key 做匹配。
+    const itemKeyIndex = new Map<string, number>();
+    for (let i = 0; i < filteredItems.value.length; i++) {
+      const item = filteredItems.value[i] as any;
+      if (isStructuralItem(item)) continue;
+      const key = getItemKey(item);
+      if (!itemKeyIndex.has(key)) {
+        itemKeyIndex.set(key, i);
+      }
+    }
+
     return groups.value
       .map(group => {
-        // 保留 structural items（label/separator），它们不参与过滤
-        const structural = group.filter(
-          item => (item as any).type === 'label' || (item as any).type === 'separator',
+        const structural = group.filter(item => isStructuralItem(item));
+        const filtered: T[] = [];
+        for (const item of group) {
+          if (isStructuralItem(item)) continue;
+          const key = getItemKey(item);
+          if (itemKeyIndex.has(key)) {
+            filtered.push(item);
+          }
+        }
+        filtered.sort(
+          (a, b) => itemKeyIndex.get(getItemKey(a))! - itemKeyIndex.get(getItemKey(b))!,
         );
-        // 普通 items 按过滤结果保留，顺序由 filteredItems 的 score 决定
-        const filtered = group.filter(item => filteredSet.has(item));
-        filtered.sort((a, b) => filteredItems.value.indexOf(a) - filteredItems.value.indexOf(b));
-        // structural items（通常是分组标题）放在前面
         return [...structural, ...filtered];
       })
       .filter(group => group.length > 0);
@@ -296,6 +330,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
           onSelect: commandFn,
           onHover: handleHover!,
           state: menuState.value,
+          hashId: options.hashId,
         });
       }
     };
@@ -307,13 +342,15 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
         onSelect: commandFn,
         onHover: handleHover,
         state: menuState.value,
+        hashId: options.hashId,
       },
       editor: options.editor,
     });
 
     element = document.createElement('div');
     // 1:1 复刻 ui-4：root 元素不设置 className，class 由调用方（SuggestionMenu）的 ui.root() 提供
-    // 但 XiaoyeUI 需要 root 作为样式锚点，这里保留 data-slot
+    // XiaoyeUI 需要 root 作为样式锚点，并挂载 CSS-in-JS hashId 样式才能生效
+    element.className = [options.ui.value.root(), options.hashId].filter(Boolean).join(' ');
     element.setAttribute('data-slot', 'root');
     element.style.position = floatingUIOptions.strategy;
     element.style.zIndex = '50';
@@ -370,6 +407,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
             onSelect: commandFn,
             onHover: handleHover!,
             state: menuState.value,
+            hashId: options.hashId,
           });
         }
 
@@ -389,8 +427,12 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       onSelect: { type: Function, required: true },
       onHover: { type: Function, required: true },
       state: { type: String, required: true },
+      hashId: { type: String, default: undefined },
     },
     setup(menuProps: any) {
+      function withHashId(cls: string): string {
+        return [cls, menuProps.hashId].filter(Boolean).join(' ');
+      }
       function handleClick(e: MouseEvent, item: T, selectableIndex: number) {
         e.preventDefault();
         menuProps.onSelect(item, selectableIndex);
@@ -416,7 +458,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
         return h(
           'div',
           {
-            class: options.ui.value.content(),
+            class: withHashId(options.ui.value.content()),
             role: 'listbox',
             'data-state': menuProps.state,
           },
@@ -424,7 +466,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
             h(
               'div',
               {
-                class: options.ui.value.viewport(),
+                class: withHashId(options.ui.value.viewport()),
                 role: 'presentation',
               },
               groupsData.map((group, groupIndex) =>
@@ -432,7 +474,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                   'div',
                   {
                     key: `group-${groupIndex}`,
-                    class: options.ui.value.group(),
+                    class: withHashId(options.ui.value.group()),
                     role: 'group',
                   },
                   group.map((item, itemInGroupIndex) => {
@@ -443,7 +485,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                         'div',
                         {
                           key: `label-${groupIndex}-${itemInGroupIndex}`,
-                          class: options.ui.value.label({ class: itemData.class }),
+                          class: withHashId(options.ui.value.label({ class: itemData.class })),
                         },
                         options.renderItem(item, options.ui),
                       );
@@ -452,7 +494,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                     if (itemData.type === 'separator') {
                       return h('div', {
                         key: `separator-${groupIndex}-${itemInGroupIndex}`,
-                        class: options.ui.value.separator({ class: itemData.class }),
+                        class: withHashId(options.ui.value.separator({ class: itemData.class })),
                         role: 'separator',
                       });
                     }
@@ -464,7 +506,9 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
                       'div',
                       {
                         key: `item-${selectableIndex}`,
-                        class: options.ui.value.item({ class: itemData.class, active: false }),
+                        class: withHashId(
+                          options.ui.value.item({ class: itemData.class, active: false }),
+                        ),
                         role: 'option',
                         'aria-selected': isHighlighted,
                         'data-highlighted': isHighlighted ? '' : undefined,
@@ -503,6 +547,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
       }
 
       const filtered = filter(items.value, q);
+
       return filtered.slice(0, limit);
     },
     command: ({ editor, range, props }: any) => {
@@ -608,6 +653,7 @@ export function useEditorMenu<T = any>(options: EditorMenuOptions<T>): EditorMen
               onSelect: commandFn,
               onHover: handleHover!,
               state: menuState.value,
+              hashId: options.hashId,
             });
           }
 

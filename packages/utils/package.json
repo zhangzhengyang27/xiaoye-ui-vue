@@ -41,6 +41,10 @@
       "types": "./src/eventbus/index.ts",
       "import": "./src/eventbus/index.ts"
     },
+    "./storage": {
+      "types": "./src/storage.ts",
+      "import": "./src/storage.ts"
+    },
     "./zindex": {
       "types": "./src/zindex/index.ts",
       "import": "./src/zindex/index.ts"

@@ -24,15 +24,13 @@ export default function nestedPosition(element: HTMLElement, level: number): voi
     let top: string = '';
 
     if (
-      (elementOffset.left as number) + itemOuterWidth + sublistWidth >
+      elementOffset.left + itemOuterWidth + sublistWidth >
       viewport.width - calculateScrollbarWidth()
     ) {
-      if ((elementOffset.left as number) < sublistWidth) {
+      if (elementOffset.left < sublistWidth) {
         // for too small screens
         if (level % 2 === 1) {
-          left = (elementOffset.left as number)
-            ? '-' + (elementOffset.left as number) + 'px'
-            : '100%';
+          left = elementOffset.left ? '-' + elementOffset.left + 'px' : '100%';
         } else if (level % 2 === 0) {
           left = viewport.width - sublistWidth - calculateScrollbarWidth() + 'px';
         }

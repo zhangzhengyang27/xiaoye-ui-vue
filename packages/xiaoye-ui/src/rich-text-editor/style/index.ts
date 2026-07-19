@@ -1,9 +1,14 @@
 import type { CSSObject } from '../../_util/cssinjs';
+import { Keyframes } from '../../_util/cssinjs';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
-  /** 编辑器内容区内边距（默认 32） */
+  /** 编辑器内容区内边距（默认 32，对应 p-8） */
   contentPadding?: number;
+  /** 编辑器内容区水平内边距（sm 及以上，默认 32，对应 ui-4 sm:px-8） */
+  contentPaddingInline?: number;
+  /** 编辑器内容区垂直内边距（默认 54，对应 py-13.5） */
+  contentPaddingBlock?: number;
   /** 编辑器内容区最小高度（默认 84） */
   contentMinHeight?: number;
   /** 工具栏按钮高度（默认 28，对应 ui-4 sm square 尺寸） */
@@ -46,6 +51,18 @@ export interface ComponentToken {
 //   --ui-color-primary   -> colorPrimary
 //   shadow-sm            -> 0 1px 2px 0 rgba(0,0,0,0.05)
 //   shadow-lg            -> boxShadowTertiary
+
+// 菜单打开/关闭动画 keyframes（使用 cssinjs Keyframes 避免 hashed animation 警告）
+const xyEditorMenuScaleIn = new Keyframes('xy-editor-menu-scale-in', {
+  from: { opacity: '0', transform: 'scale(0.95)' },
+  to: { opacity: '1', transform: 'scale(1)' },
+});
+
+const xyEditorMenuScaleOut = new Keyframes('xy-editor-menu-scale-out', {
+  from: { opacity: '1', transform: 'scale(1)' },
+  to: { opacity: '0', transform: 'scale(0.95)' },
+});
+
 export default genComponentStyleHook(
   'RichTextEditor',
   token => {
@@ -58,9 +75,9 @@ export default genComponentStyleHook(
       borderRadiusLG,
       colorTextSecondary,
       colorText,
-      colorTextQuaternary,
       colorBgLayout,
-      boxShadow,
+      colorFillTertiary,
+      colorFillSecondary,
       boxShadowTertiary,
       paddingMD,
       paddingXS,
@@ -80,6 +97,8 @@ export default genComponentStyleHook(
       controlHeightSM,
       // ComponentToken
       contentPadding,
+      contentPaddingInline,
+      contentPaddingBlock,
       contentMinHeight,
       toolbarButtonSize,
       toolbarButtonGap,
@@ -92,12 +111,14 @@ export default genComponentStyleHook(
 
     const cp = colorPrimary;
     const focusShadow = `0 0 0 2px color-mix(in srgb, ${cp} 20%, transparent)`;
-    // 工具栏按钮 active 态背景：primary 10%（ui-4 精确值，非 12%）
+    // 工具栏按钮 active 态背景：严格按 ui-4 primary/10，hover primary/15
     const activeBg = `color-mix(in srgb, ${cp} 10%, transparent)`;
     const activeBgHover = `color-mix(in srgb, ${cp} 15%, transparent)`;
-    // 菜单 item hover/active 的 ::before 背景（对应 ui-4 bg-elevated 50%/75%）
-    const itemHoverBg = `color-mix(in srgb, ${colorBgLayout} 50%, transparent)`;
-    const itemActiveBg = `color-mix(in srgb, ${colorBgLayout} 75%, transparent)`;
+    // 菜单 item hover/active 的 ::before 背景
+    // ui-4 使用 bg-elevated/50 与 bg-elevated/75；Ant Design 中对应 colorFillTertiary / colorFillSecondary，
+    // 比 colorBgLayout 半透明显眼，键盘/鼠标高亮都能清晰识别。
+    const itemHoverBg = colorFillTertiary;
+    const itemActiveBg = colorFillSecondary;
 
     // shadow-sm：对应 ui-4 的 0 1px 2px 0 rgba(0,0,0,0.05)
     const shadowSM = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
@@ -139,18 +160,21 @@ export default genComponentStyleHook(
           },
 
           // base slot：直接作用在 ProseMirror 元素上（通过 editorProps.attributes.class 注入）
+          // ui-4 默认：outline-none w-full *:my-5 *:first:mt-0 *:last:mb-0 sm:px-8 selection:bg-primary/20
+          // 这里把 sm:px-8（32px）映射为 contentPaddingInline，小屏水平 padding 由 contentPadding 控制
           '&-base': {
             outline: 'none',
             width: '100%',
             minHeight: '100%',
-            padding: `${contentPadding}px`,
+            paddingBlock: `${contentPaddingBlock}px`,
+            paddingInline: `${contentPadding}px`,
             color: 'inherit',
             fontSize: `${fontSizeLG}px`,
             lineHeight: 1.75,
 
-            // sm 屏幕以上 paddingInline: 32px（ui-4 精确值）
+            // sm 屏幕以上使用 contentPaddingInline（ui-4 sm:px-8 = 32px；官网示例通过 ui prop 覆盖为 sm:px-16）
             '@media (min-width: 640px)': {
-              paddingInline: `${contentPadding}px`,
+              paddingInline: `${contentPaddingInline}px`,
             },
 
             // 子元素 margin-block: 20px；首末子元素 margin 0
@@ -200,6 +224,7 @@ export default genComponentStyleHook(
             'h1, h2, h3, h4, h5, h6': {
               color: colorText,
               fontWeight: 700,
+              marginBlock: '20px',
               // 标题内行内 code 共享样式（参考：[&_:is(h1,h2,h3,h4,h5,h6)>code]:border-dashed font-bold）
               code: {
                 borderStyle: 'dashed',
@@ -230,6 +255,7 @@ export default genComponentStyleHook(
               paddingLeft: '16px',
               margin: '20px 0',
               fontStyle: 'italic',
+              color: colorTextSecondary,
             },
 
             // ul/ol：padding-left 24px（ui-4 精确值，非 paddingLG）
@@ -358,27 +384,33 @@ export default genComponentStyleHook(
 
             // placeholder：基于 ProseMirror 内置 :before 伪元素（与源项目一致）
             // Tiptap Placeholder 扩展会给空段落添加 data-placeholder 属性和 is-empty class
-            '.is-empty:before': {
+            '.is-empty:before, .is-editor-empty:before': {
               content: 'attr(data-placeholder)',
               float: 'left',
               color: colorTextSecondary,
               pointerEvents: 'none',
               height: 0,
+              lineHeight: '28px',
             },
           },
 
-          // firstLine 模式：仅第一个空段落显示 placeholder
-          '&-base--firstLine .is-empty:not(:first-child):before': {
-            content: 'none',
-          },
+          // firstLine 模式：仅第一个空段落显示 placeholder（同时兼容 Tiptap 默认的 is-empty 与 ui-4 的 is-editor-empty）
+          '&-base--firstLine .is-empty:not(:first-child):before, &-base--firstLine .is-editor-empty:not(:first-child):before':
+            {
+              content: 'none',
+            },
 
           '&-link-popover': {
-            position: 'absolute',
-            zIndex: 50,
+            // fixed 定位：避免被 editor overflow:hidden 裁剪，并跟随光标/选区
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: 100,
             background: colorBgContainer,
-            border: `1px solid ${colorBorder}`,
+            border: 'none',
             borderRadius: `${borderRadiusLG}px`,
-            boxShadow,
+            // ring + shadow：对应 ui-4 popover 的 ring-default shadow-lg
+            boxShadow: `0 0 0 1px ${colorBorderSecondary}, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)`,
             minWidth: `${linkPopoverMinWidth}px`,
             padding: `${paddingMD}px`,
 
@@ -481,10 +513,15 @@ export default genComponentStyleHook(
           alignItems: 'stretch',
           flexWrap: 'nowrap',
           gap: `${toolbarButtonGap}px`,
-          // XiaoyeUI 定制：fixed 模式保留视觉容器（bg + borderBottom + padding）
-          // ui-4 原版 fixed 模式 root 是空的，由外层 Editor 提供视觉边界
-          padding: `${marginXXS}px ${marginXS}px`,
+          outline: 'none',
+          // 严格按 Nuxt UI 官网 fixed toolbar 示例：border-b border-muted sticky top-0
+          // inset-x-0 px-8 sm:px-16 py-2 z-50 bg-default overflow-x-auto
+          padding: `8px 32px`,
           background: colorBgContainer,
+          // sm 屏幕以上使用 px-16（64px），与 ui-4 官网一致
+          '@media (min-width: 640px)': {
+            padding: `8px 64px`,
+          },
           borderBottom: `1px solid ${colorBorderSecondary}`,
           // 当外层容器太窄时，允许 toolbar 水平滚动而不是换行
           overflowX: 'auto',
@@ -554,8 +591,9 @@ export default genComponentStyleHook(
             gap: '6px',
             // 重置浏览器/VitePress 可能给 button 加的 margin
             margin: 0,
-            // square 尺寸：padding 6px, icon 16x16 -> 总尺寸 28x28
-            width: `${toolbarButtonSize}px`,
+            // 默认按 square 尺寸：padding 6px, icon 16x16 -> 总尺寸 28x28
+            // width 设为 auto：icon-only 时自然撑出 28px；含 label/trailingIcon 时随内容延展
+            width: 'auto',
             height: `${toolbarButtonSize}px`,
             minWidth: `${toolbarButtonSize}px`,
             padding: '6px',
@@ -565,26 +603,30 @@ export default genComponentStyleHook(
             // 默认态：color colorText（text-default）
             color: colorText,
             background: 'transparent',
-            border: '1px solid transparent',
+            border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
-            transition: 'background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease',
+            transition: 'background-color 0.15s ease, color 0.15s ease, outline-color 0.15s ease',
             userSelect: 'none',
             outline: 'none',
-            // hover：bg-elevated/50（对应 ui-4 hover:bg-elevated/50，50% 透明度）
+            // hover：bg-elevated/50（严格对应 ui-4），使用 colorFillTertiary 提高可读性
             '&:hover:not(:disabled)': {
-              background: `color-mix(in srgb, ${colorBgLayout} 50%, transparent)`,
+              background: colorFillTertiary,
               color: colorText,
             },
             // active：同 hover（ui-4 ghost 模式 active 与 hover 一致）
             '&:active:not(:disabled)': {
-              background: `color-mix(in srgb, ${colorBgLayout} 50%, transparent)`,
+              background: colorFillTertiary,
             },
-            // focus-visible：ring-2 ring-inset ring-border-inverted/25
-            // 对应 ui-4: focus-visible:ring-2 focus-visible:ring-inset
-            // ring-border-inverted 在 ant 中对应 colorTextLightSolid（白色/黑色，取决于主题）
+            // dropdown trigger 打开态：对应 ui-4 data-[state=open]:bg-elevated/50
+            '&[data-state="open"]:not(:disabled)': {
+              background: colorFillTertiary,
+            },
+            // focus-visible：outline-2 outline-inset outline-border-inverted/25
+            // 对应 ui-4: focus-visible:ring-2 focus-visible:ring-inset（CSS outline 实现 inset 效果）
             '&:focus-visible': {
-              boxShadow: `inset 0 0 0 2px color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+              outline: `2px solid color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+              outlineOffset: '-2px',
             },
             // 激活态（soft + primary）：text-primary bg-primary/10 hover:bg-primary/15
             '&-active': {
@@ -594,13 +636,14 @@ export default genComponentStyleHook(
                 background: activeBgHover,
               },
               '&:focus-visible': {
-                boxShadow: `inset 0 0 0 2px color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+                outline: `2px solid color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+                outlineOffset: '-2px',
               },
             },
             // 禁用态：opacity 0.75, cursor not-allowed
             '&-disabled': { opacity: 0.75, cursor: 'not-allowed' },
           },
-          // icon 尺寸 16x16
+          // icon 尺寸 16x16，颜色继承父元素，SVG 使用 currentColor 填充/描边
           '&-icon': {
             display: 'inline-flex',
             alignItems: 'center',
@@ -608,83 +651,139 @@ export default genComponentStyleHook(
             width: '16px',
             height: '16px',
             flexShrink: 0,
-            'svg,img': { width: '100%', height: '100%' },
+            color: 'currentColor',
+            'svg,img': {
+              width: '100%',
+              height: '100%',
+              fill: 'currentColor',
+              stroke: 'currentColor',
+            },
           },
           '&-dropdown': { position: 'relative', display: 'inline-flex' },
-          '&-dropdown-arrow': {
-            width: '12px',
-            height: '12px',
-            opacity: 0.6,
-            transition: 'transform 0.2s ease',
-          },
           '&-dropdown-panel': {
-            position: 'absolute',
-            top: `calc(100% + ${marginXXS}px)`,
+            // 使用 fixed 定位，避免被 toolbar 的 overflow-x:auto 裁剪
+            position: 'fixed',
+            top: 0,
             left: 0,
-            minWidth: '176px',
-            maxHeight: '300px',
+            // ui-4 DropdownMenu content 默认 min-w-32 = 128px
+            minWidth: '128px',
+            maxHeight: '320px',
             overflowY: 'auto',
-            zIndex: 50,
-            padding: `${marginXXS}px`,
+            zIndex: 100,
+            padding: 0,
             background: colorBgContainer,
-            border: `1px solid ${colorBorderSecondary}`,
+            border: 'none',
             borderRadius: '6px',
-            boxShadow: boxShadowTertiary,
+            // ring + shadow-lg：对应 ui-4 DropdownMenu content
+            // Tailwind shadow-lg ≈ 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)
+            boxShadow: `0 0 0 1px ${colorBorderSecondary}, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)`,
+            display: 'flex',
+            flexDirection: 'column',
+            transformOrigin: 'top left',
+            '&[data-state="open"]': {
+              animationName: xyEditorMenuScaleIn,
+              animationDuration: '100ms',
+              animationTimingFunction: 'ease-out',
+            },
+            '&[data-state="closed"]': {
+              animationName: xyEditorMenuScaleOut,
+              animationDuration: '100ms',
+              animationTimingFunction: 'ease-in',
+            },
           },
-          '&-dropdown-group': { padding: '2px 0' },
+          '&-dropdown-group': {
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: '4px',
+            isolation: 'isolate',
+          },
           '&-dropdown-group-separator': {
             height: '1px',
-            margin: `${marginXXS}px ${marginXS}px`,
+            margin: '4px -4px',
             background: colorBorderSecondary,
           },
           '&-dropdown-separator': {
             height: '1px',
-            margin: `2px ${marginXS}px`,
+            margin: '4px -4px',
             background: colorBorderSecondary,
           },
           '&-dropdown-label': {
-            padding: `6px ${paddingSM}px`,
-            fontSize: '11px',
-            fontWeight: 600,
-            color: colorTextSecondary,
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            lineHeight: '20px',
-          },
-          '&-dropdown-item': {
+            width: '100%',
             display: 'flex',
             alignItems: 'center',
             gap: '6px',
-            width: '100%',
             padding: '6px',
-            fontSize: '14px',
+            fontSize: '12px',
+            fontWeight: 600,
+            color: colorText,
             lineHeight: 1.25,
+          },
+          '&-dropdown-item': {
+            position: 'relative',
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            // ui-4 EditorToolbar 内 DropdownMenu 继承 size='sm'：p-1.5 text-xs gap-1.5
+            padding: '6px',
+            fontSize: '12px',
+            lineHeight: '16px',
             color: colorText,
             background: 'transparent',
             border: 'none',
             borderRadius: '6px',
             cursor: 'pointer',
             textAlign: 'left',
-            transition: 'background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease',
             outline: 'none',
-            // hover：bg-elevated/50
-            '&:hover:not(:disabled)': {
-              background: `color-mix(in srgb, ${colorBgLayout} 50%, transparent)`,
+            userSelect: 'none',
+            transition: 'color 0.15s ease',
+            // ::before 伪元素：对应 ui-4 item 的 hover/active 背景
+            '::before': {
+              content: '""',
+              position: 'absolute',
+              inset: '1px',
+              borderRadius: '6px',
+              zIndex: -1,
+              transition: 'background-color 0.15s ease',
+            },
+            // hover / data-highlighted：bg-elevated/50
+            '&:hover:not(:disabled), &[data-highlighted]:not([data-disabled])': {
               color: colorText,
+              '::before': { background: itemHoverBg },
             },
-            // focus-visible：ring-2 ring-inset
+            // focus-visible：outline-2 outline-inset
             '&:focus-visible': {
-              boxShadow: `inset 0 0 0 2px color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+              outline: `2px solid color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
+              outlineOffset: '-2px',
             },
-            // active：bg-primary/10 text-primary
-            '&-active': { background: activeBg, color: cp },
+            // active：text-highlighted before:bg-elevated
+            '&-active': {
+              color: colorText,
+              '::before': { background: itemActiveBg },
+            },
             '&-disabled': { opacity: 0.75, cursor: 'not-allowed' },
+            // 图标默认色 text-dimmed，hover/active 变为 text-default
+            // ui-4 sm 下拉项图标尺寸：size-4 = 16x16px
+            // 使用 colorTextSecondary 保证默认态可读性，避免 colorTextQuaternary 过淡
+            '& .xy-rich-text-editor-toolbar-icon': {
+              width: '16px',
+              height: '16px',
+              color: colorTextSecondary,
+              transition: 'color 0.15s ease',
+            },
+            '&:hover:not(:disabled) .xy-rich-text-editor-toolbar-icon, &[data-highlighted]:not([data-disabled]) .xy-rich-text-editor-toolbar-icon, &&-active .xy-rich-text-editor-toolbar-icon':
+              {
+                color: colorText,
+              },
           },
         },
+      } as CSSObject,
 
-        // Tooltip：height 24px, padding 4px 10px, font-size 12px, border-radius 2px（ui-4 精确值）
+      // ===================== Toolbar Tooltip（必须顶层，因为组件 Teleport 到 body） =====================
+      {
         '.xy-rich-text-editor-toolbar-tooltip': {
-          position: 'absolute',
+          position: 'fixed',
           zIndex: 9999,
           height: '24px',
           padding: '4px 10px',
@@ -696,7 +795,7 @@ export default genComponentStyleHook(
           border: `1px solid ${colorBorderSecondary}`,
           borderRadius: '2px',
           whiteSpace: 'nowrap',
-          pointerEvents: 'auto',
+          pointerEvents: 'none',
           userSelect: 'none',
           boxShadow: shadowSM,
           '&-top': { transform: 'translate(-50%, -100%)', marginTop: `-${marginXXS + 2}px` },
@@ -718,7 +817,7 @@ export default genComponentStyleHook(
           '&-right &-arrow': { left: '-3px', top: '50%', marginTop: '-3px', rotate: '135deg' },
         },
 
-        // 动画：scale-in 100ms ease-out（对应 ui-4 tooltip 动画）
+        // 动画：scale-in 100ms ease-out（对应 ui-4 tooltip/dropdown 动画）
         '.xy-dropdown-enter-active, .xy-dropdown-leave-active': {
           transition: 'opacity 0.1s ease-out, transform 0.1s ease-out',
         },
@@ -766,7 +865,7 @@ export default genComponentStyleHook(
             padding: '0 4px',
             width: `${controlHeightSM}px`,
             height: `${controlHeightSM}px`,
-            '&:hover': { color: colorText, background: colorBgLayout },
+            '&:hover': { color: colorText, background: colorFillTertiary },
             '&:active': { cursor: 'grabbing' },
           },
           // 默认拖拽按钮（不传 slot 时渲染）—— 使用 sm + ghost + neutral 样式
@@ -785,7 +884,7 @@ export default genComponentStyleHook(
             borderRadius: '6px',
             outline: 'none',
             transition: 'background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease',
-            '&:hover': { color: colorText, background: colorBgLayout },
+            '&:hover': { color: colorText, background: colorFillTertiary },
             '&:active': { cursor: 'grabbing' },
             '&:focus-visible': {
               boxShadow: `0 0 0 3px color-mix(in srgb, ${colorTextLightSolid} 25%, transparent)`,
@@ -857,7 +956,8 @@ export default genComponentStyleHook(
             maxHeight: `${menuMaxHeight}px`,
             background: colorBgContainer,
             // ring + shadow-lg：合并为单个 box-shadow
-            boxShadow: `0 0 0 1px ${colorBorderSecondary}, ${boxShadowTertiary}`,
+            // Tailwind shadow-lg ≈ 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)
+            boxShadow: `0 0 0 1px ${colorBorderSecondary}, 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)`,
             borderRadius: '6px',
             overflow: 'hidden',
             display: 'flex',
@@ -867,10 +967,14 @@ export default genComponentStyleHook(
             transformOrigin: 'top left',
             // 打开/关闭动画：data-[state=open] scale-in, data-[state=closed] scale-out
             '&[data-state="open"]': {
-              animation: 'xy-editor-menu-scale-in 100ms ease-out',
+              animationName: xyEditorMenuScaleIn,
+              animationDuration: '100ms',
+              animationTimingFunction: 'ease-out',
             },
             '&[data-state="closed"]': {
-              animation: 'xy-editor-menu-scale-out 100ms ease-in',
+              animationName: xyEditorMenuScaleOut,
+              animationDuration: '100ms',
+              animationTimingFunction: 'ease-in',
             },
           },
 
@@ -996,9 +1100,9 @@ export default genComponentStyleHook(
             width: '20px',
             height: '20px',
             fontSize: '16px',
-            // active false: text-dimmed
+            // active false: text-dimmed（Nuxt UI 可读性，使用 colorTextSecondary）
             //   group-data-highlighted:not-group-data-disabled:text-default
-            color: colorTextQuaternary,
+            color: colorTextSecondary,
             transition: 'color 0.15s ease',
             // 父 item[data-highlighted] 时，icon 颜色变为 text-default
             [`${menuSelector(itemCls)}[data-highlighted]:not([data-disabled]) &`]: {
@@ -1061,24 +1165,14 @@ export default genComponentStyleHook(
         },
       } as CSSObject,
 
-      // ===================== 菜单打开/关闭动画 keyframes =====================
-      // 对应 ui-4: data-[state=open]:animate-[scale-in_100ms_ease-out]
-      //           data-[state=closed]:animate-[scale-out_100ms_ease-in]
-      {
-        '@keyframes xy-editor-menu-scale-in': {
-          from: { opacity: '0', transform: 'scale(0.95)' },
-          to: { opacity: '1', transform: 'scale(1)' },
-        },
-        '@keyframes xy-editor-menu-scale-out': {
-          from: { opacity: '1', transform: 'scale(1)' },
-          to: { opacity: '0', transform: 'scale(0.95)' },
-        },
-      } as CSSObject,
+      // Keyframes 对象已在文件顶部定义，cssinjs 会自动注入对应的 @keyframes
     ];
   },
   // 默认 ComponentToken 值（ui-4 精确值）
   {
     contentPadding: 32,
+    contentPaddingInline: 32,
+    contentPaddingBlock: 54,
     contentMinHeight: 84,
     toolbarButtonHeight: 28,
     toolbarButtonSize: 28,

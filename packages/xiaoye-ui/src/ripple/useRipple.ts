@@ -65,8 +65,8 @@ function onMouseDown(event: MouseEvent) {
   }
 
   const offset = getOffset(el);
-  const x = event.pageX - Number(offset.left) + document.body.scrollTop - getWidth(ink) / 2;
-  const y = event.pageY - Number(offset.top) + document.body.scrollLeft - getHeight(ink) / 2;
+  const x = event.pageX - offset.left + document.body.scrollTop - getWidth(ink) / 2;
+  const y = event.pageY - offset.top + document.body.scrollLeft - getHeight(ink) / 2;
 
   ink.style.top = `${y}px`;
   ink.style.left = `${x}px`;

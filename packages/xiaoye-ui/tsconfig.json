@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
+    "types": ["node", "vitest/globals"],
     "paths": {
       "xiaoye-ui": ["./src/index.ts"],
       "xiaoye-ui/*": ["./src/*"],

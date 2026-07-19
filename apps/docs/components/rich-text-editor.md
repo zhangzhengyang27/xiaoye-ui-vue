@@ -18,7 +18,7 @@
 
 ## 基础用法
 
-:::demo 使用 `v-model` 绑定 HTML 字符串。通过默认插槽接收 `editor` 与 `handlers`，调用 `handlers.bold.execute(editor).run()` 即可触发对应命令，`isActive` 用于按钮高亮状态。
+:::demo 最基础的富文本编辑器示例：使用 `compactToolbarItems` 渲染与 ui-4 一致的紧凑工具栏，配合 `RichTextEditorSuggestionMenu` / `MentionMenu` / `EmojiMenu` 实现斜杠命令、`@` 提及、`:` emoji 菜单。`content-type="markdown"` 让 `v-model` 绑定 Markdown 字符串。
 
 rich-text-editor/basic
 

@@ -197,6 +197,11 @@
       "import": "./src/checkbox/index.ts"
     },
     "./checkbox/style": "./src/checkbox/style/index.ts",
+    "./chips": {
+      "types": "./src/chips/index.ts",
+      "import": "./src/chips/index.ts"
+    },
+    "./chips/style": "./src/chips/style/index.ts",
     "./col": {
       "types": "./src/col/index.ts",
       "import": "./src/col/index.ts"
@@ -232,6 +237,11 @@
       "import": "./src/dark-mode-toggle/index.ts"
     },
     "./dark-mode-toggle/style": "./src/dark-mode-toggle/style/index.ts",
+    "./data-table": {
+      "types": "./src/data-table/index.ts",
+      "import": "./src/data-table/index.ts"
+    },
+    "./data-table/style": "./src/data-table/style/index.ts",
     "./data-view": {
       "types": "./src/data-view/index.ts",
       "import": "./src/data-view/index.ts"
@@ -321,6 +331,11 @@
       "import": "./src/image/index.tsx"
     },
     "./image/style": "./src/image/style/index.ts",
+    "./image-compare": {
+      "types": "./src/image-compare/index.ts",
+      "import": "./src/image-compare/index.ts"
+    },
+    "./image-compare/style": "./src/image-compare/style/index.ts",
     "./inline-edit": {
       "types": "./src/inline-edit/index.ts",
       "import": "./src/inline-edit/index.ts"
@@ -465,6 +480,11 @@
       "import": "./src/rate/index.tsx"
     },
     "./rate/style": "./src/rate/style/index.ts",
+    "./rating": {
+      "types": "./src/rating/index.ts",
+      "import": "./src/rating/index.ts"
+    },
+    "./rating/style": "./src/rating/style/index.ts",
     "./result": {
       "types": "./src/result/index.tsx",
       "import": "./src/result/index.tsx"
@@ -485,6 +505,11 @@
       "import": "./src/row/index.ts"
     },
     "./row/style": "./src/row/style/index.ts",
+    "./scroll-panel": {
+      "types": "./src/scroll-panel/index.ts",
+      "import": "./src/scroll-panel/index.ts"
+    },
+    "./scroll-panel/style": "./src/scroll-panel/style/index.ts",
     "./segmented": {
       "types": "./src/segmented/index.ts",
       "import": "./src/segmented/index.ts"
@@ -573,6 +598,11 @@
       "import": "./src/timeline/index.tsx"
     },
     "./timeline/style": "./src/timeline/style/index.tsx",
+    "./toggle-button": {
+      "types": "./src/toggle-button/index.ts",
+      "import": "./src/toggle-button/index.ts"
+    },
+    "./toggle-button/style": "./src/toggle-button/style/index.ts",
     "./toolbar": {
       "types": "./src/toolbar/index.ts",
       "import": "./src/toolbar/index.ts"
@@ -623,6 +653,11 @@
       "import": "./src/upload/index.tsx"
     },
     "./upload/style": "./src/upload/style/index.ts",
+    "./virtual-list": {
+      "types": "./src/virtual-list/index.ts",
+      "import": "./src/virtual-list/index.ts"
+    },
+    "./virtual-list/style": "./src/virtual-list/style/index.ts",
     "./virtual-scroller": {
       "types": "./src/virtual-scroller/index.ts",
       "import": "./src/virtual-scroller/index.ts"
@@ -635,6 +670,7 @@
   },
   "devDependencies": {
     "@types/minimatch": "^6.0.0",
+    "@types/node": "^20.0.0",
     "jsdom": "^24.0.0",
     "moment": "^2.30.1",
     "xhr-mock": "^2.5.1"

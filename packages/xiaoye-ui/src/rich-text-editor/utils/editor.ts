@@ -401,11 +401,24 @@ export function createTableToggleHeaderHandler(type: 'headerRow' | 'headerColumn
 }
 
 export function createHandlers(): EditorHandlers {
-  // 1:1 复刻 ui-4：只保留 mark handler，通过 item.mark 区分 bold/italic/underline/strike/code
+  // 1:1 复刻 ui-4：保留 mark handler，通过 item.mark 区分 bold/italic/underline/strike/code
   const markHandler = createMarkHandler();
+
+  // 为常用 mark 创建便捷别名，兼容示例中 handlers.bold.execute(editor).run() 等调用方式
+  const createMarkAlias = (mark: string) => ({
+    canExecute: (editor: Editor) => markHandler.canExecute(editor, { mark }),
+    execute: (editor: Editor) => markHandler.execute(editor, { mark }),
+    isActive: (editor: Editor) => markHandler.isActive(editor, { mark }),
+    isDisabled: (editor: Editor) => markHandler.isDisabled(editor, { mark }),
+  });
 
   return {
     mark: markHandler,
+    bold: createMarkAlias('bold'),
+    italic: createMarkAlias('italic'),
+    underline: createMarkAlias('underline'),
+    strike: createMarkAlias('strike'),
+    code: createMarkAlias('code'),
     textAlign: createTextAlignHandler(),
     heading: createHeadingHandler(),
     link: createLinkHandler(),

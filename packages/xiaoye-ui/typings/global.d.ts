@@ -19,6 +19,7 @@ declare module 'vue' {
     XYCascader: (typeof import('xiaoye-ui'))['Cascader'];
     XYChart: (typeof import('xiaoye-ui'))['Chart'];
     XYCheckbox: (typeof import('xiaoye-ui'))['Checkbox'];
+    XYChips: (typeof import('xiaoye-ui'))['Chips'];
     XYCol: (typeof import('xiaoye-ui'))['Col'];
     XYCollapse: (typeof import('xiaoye-ui'))['Collapse'];
     XYColorPicker: (typeof import('xiaoye-ui'))['ColorPicker'];
@@ -26,6 +27,7 @@ declare module 'vue' {
     XYConfigProvider: (typeof import('xiaoye-ui'))['ConfigProvider'];
     XYContextMenu: (typeof import('xiaoye-ui'))['ContextMenu'];
     XYDarkModeToggle: (typeof import('xiaoye-ui'))['DarkModeToggle'];
+    XYDataTable: (typeof import('xiaoye-ui'))['DataTable'];
     XYDataView: (typeof import('xiaoye-ui'))['DataView'];
     XYDatePicker: (typeof import('xiaoye-ui'))['DatePicker'];
     XYDescriptions: (typeof import('xiaoye-ui'))['Descriptions'];
@@ -44,6 +46,7 @@ declare module 'vue' {
     XYGrid: (typeof import('xiaoye-ui'))['Grid'];
     XYIcon: (typeof import('xiaoye-ui'))['Icon'];
     XYImage: (typeof import('xiaoye-ui'))['Image'];
+    XYImageCompare: (typeof import('xiaoye-ui'))['ImageCompare'];
     XYInlineEdit: (typeof import('xiaoye-ui'))['InlineEdit'];
     XYInplace: (typeof import('xiaoye-ui'))['Inplace'];
     XYInput: (typeof import('xiaoye-ui'))['Input'];
@@ -73,10 +76,12 @@ declare module 'vue' {
     XYQrcode: (typeof import('xiaoye-ui'))['Qrcode'];
     XYRadio: (typeof import('xiaoye-ui'))['Radio'];
     XYRate: (typeof import('xiaoye-ui'))['Rate'];
+    XYRating: (typeof import('xiaoye-ui'))['Rating'];
     XYResult: (typeof import('xiaoye-ui'))['Result'];
     XYRichTextEditor: (typeof import('xiaoye-ui'))['RichTextEditor'];
     XYRipple: (typeof import('xiaoye-ui'))['Ripple'];
     XYRow: (typeof import('xiaoye-ui'))['Row'];
+    XYScrollPanel: (typeof import('xiaoye-ui'))['ScrollPanel'];
     XYSegmented: (typeof import('xiaoye-ui'))['Segmented'];
     XYSelect: (typeof import('xiaoye-ui'))['Select'];
     XYSkeleton: (typeof import('xiaoye-ui'))['Skeleton'];
@@ -94,6 +99,7 @@ declare module 'vue' {
     XYTag: (typeof import('xiaoye-ui'))['Tag'];
     XYTimePicker: (typeof import('xiaoye-ui'))['TimePicker'];
     XYTimeline: (typeof import('xiaoye-ui'))['Timeline'];
+    XYToggleButton: (typeof import('xiaoye-ui'))['ToggleButton'];
     XYToolbar: (typeof import('xiaoye-ui'))['Toolbar'];
     XYTooltip: (typeof import('xiaoye-ui'))['Tooltip'];
     XYTour: (typeof import('xiaoye-ui'))['Tour'];
@@ -104,6 +110,7 @@ declare module 'vue' {
     XYTreeTable: (typeof import('xiaoye-ui'))['TreeTable'];
     XYTypography: (typeof import('xiaoye-ui'))['Typography'];
     XYUpload: (typeof import('xiaoye-ui'))['Upload'];
+    XYVirtualList: (typeof import('xiaoye-ui'))['VirtualList'];
     XYVirtualScroller: (typeof import('xiaoye-ui'))['VirtualScroller'];
     XYWatermark: (typeof import('xiaoye-ui'))['Watermark'];
   }

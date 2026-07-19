@@ -1,6 +1,6 @@
 /// <reference types="vue/jsx" />
 import type { PropType, ExtractPropTypes } from 'vue';
-import { defineComponent, h, computed, onMounted, onBeforeUnmount, nextTick, toRef } from 'vue';
+import { defineComponent, h, computed, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import { useEditorMenu } from './composables/useEditorMenu';
 import { tv } from './utils/tv';
 import theme from './theme/editor-emoji-menu';
@@ -9,6 +9,8 @@ import type { FloatingUIOptions } from './types/editor';
 import type { SuggestionOptions } from '@tiptap/suggestion';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, arrayType, stringType } from '../_util/type';
+import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useStyle from './style';
 
 export interface EmojiMenuItem {
   name: string;
@@ -56,6 +58,10 @@ export default defineComponent({
   __XY_RICH_TEXT_EDITOR_EMOJI_MENU: true,
   props: initDefaultProps(richTextEditorEmojiMenuProps(), {}),
   setup(props) {
+    // 使用 RichTextEditor 统一的 prefixCls，确保 EmojiMenu 共享同一 hashId
+    const { prefixCls: _prefixCls } = useConfigInject('rich-text-editor', props);
+    const [, hashId] = useStyle(_prefixCls);
+
     // 1:1 复刻 ui-4：通过 tv() 组合 theme 与变体
     const ui = computed(() =>
       tv({
@@ -77,13 +83,14 @@ export default defineComponent({
         editor: props.editor,
         char: props.char,
         pluginKey: props.pluginKey,
-        items: toRef(() => props.items),
+        items: computed(() => props.items),
         filterFields: props.filterFields,
         limit: props.limit,
         options: props.options,
         suggestion: props.suggestion,
         appendTo: props.appendTo,
         ui,
+        hashId: hashId.value,
         onSelect: (editor, range, item) => {
           if (!item.emoji) return;
 

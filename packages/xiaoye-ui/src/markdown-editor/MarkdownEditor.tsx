@@ -1,7 +1,6 @@
 /// <reference types="vue/jsx" />
 import { computed, defineComponent, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import type Vditor from 'vditor';
-import type { IOptions } from 'vditor';
 import { initDefaultProps } from '../_util/props-util';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';
@@ -9,6 +8,13 @@ import markdownEditorProps from './markdownEditorTypes';
 
 // SSR 安全：仅浏览器端可访问 document/window
 const isClient = typeof window !== 'undefined' && !!window.document;
+
+// lute.min.js 本地路径：Vditor 默认从 unpkg CDN 加载 lute（Markdown 解析器），
+// 国内访问不稳定会导致 SV（分屏预览）模式下预览区空白（lute.Md2HTML 调用失败）。
+// 通过 Vite 的 ?url 后缀获取本地 lute.min.js 的 URL，再经 _lutePath 选项传给 Vditor。
+// @ts-ignore - vditor 资源模块无类型声明
+// eslint-disable-next-line import/no-unresolved
+import luteUrl from 'vditor/dist/js/lute/lute.min.js?url';
 
 // i18n 本地加载映射：避免从 unpkg CDN 加载（国内访问不稳定会导致初始化失败）
 const i18nLoaders: Record<string, () => Promise<any>> = {
@@ -102,8 +108,12 @@ export default defineComponent({
         lang: props.lang as any,
         theme: props.theme,
         icon: props.icon,
-        debug: props.debug,
+        debugger: props.debug,
         typewriterMode: props.typewriterMode,
+        // 指定本地 lute.min.js 路径，避免从 unpkg CDN 加载
+        // 原因：国内 unpkg 访问不稳定会导致 lute 加载失败，
+        // 进而使 SV（分屏预览）模式下 lute.Md2HTML 调用失败，预览区空白
+        _lutePath: luteUrl,
       };
 
       // 通过 options.i18n 传入本地加载的翻译对象，阻止 Vditor 从 CDN 加载 i18n
@@ -227,7 +237,11 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       if (vditorInstance) {
-        vditorInstance.destroy();
+        try {
+          vditorInstance.destroy();
+        } catch (e) {
+          console.error('[xy-markdown-editor] 销毁 Vditor 实例失败：', e);
+        }
         vditorInstance = null;
       }
     });

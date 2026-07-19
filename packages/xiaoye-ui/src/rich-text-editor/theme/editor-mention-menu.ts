@@ -5,6 +5,7 @@
  */
 export default {
   slots: {
+    root: 'xy-rich-text-editor-mention-menu',
     content: 'xy-rich-text-editor-mention-menu-content',
     viewport: 'xy-rich-text-editor-mention-menu-viewport',
     group: 'xy-rich-text-editor-mention-menu-group',

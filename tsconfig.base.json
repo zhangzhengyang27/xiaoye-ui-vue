@@ -13,7 +13,7 @@
     "noUnusedParameters": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
-    "lib": ["es2020", "dom"],
+    "lib": ["es2020", "es2022", "dom", "dom.iterable"],
     "stripInternal": true,
     "verbatimModuleSyntax": false,
     "declaration": true,

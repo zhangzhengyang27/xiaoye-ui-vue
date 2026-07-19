@@ -3,6 +3,8 @@ import type { PropType, ExtractPropTypes } from 'vue';
 import { defineComponent, ref, watch, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import type { Editor } from '@tiptap/vue-3';
 import { initDefaultProps } from '../_util/props-util';
+import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useStyle from './style';
 
 // SSR 安全：仅浏览器端可访问 document/window
 const isClient = typeof window !== 'undefined' && !!window.document;
@@ -26,10 +28,15 @@ export default defineComponent({
   props: initDefaultProps(editorLinkPopoverProps(), {}),
   emits: ['open', 'close'],
   setup(props, { emit, expose }) {
+    // 使用 RichTextEditor 统一的 prefixCls，确保 link-popover 共享同一 hashId
+    const { prefixCls: _prefixCls } = useConfigInject('rich-text-editor', props);
+    const [, hashId] = useStyle(_prefixCls);
+
     const visible = ref(false);
     const url = ref('');
     const containerRef = ref<HTMLElement | null>(null);
     const inputRef = ref<HTMLInputElement | null>(null);
+    const positionStyle = ref({ top: '0px', left: '0px' });
 
     let outsideClickListener: ((event: MouseEvent) => void) | null = null;
 
@@ -50,6 +57,27 @@ export default defineComponent({
       nextTick(() => {
         inputRef.value?.focus();
         inputRef.value?.select();
+
+        if (!isClient) return;
+        // 基于当前选区/光标定位 popover，避免出现在编辑器左上角
+        const selection = window.getSelection();
+        let rect: DOMRect | undefined;
+        if (selection && selection.rangeCount > 0) {
+          rect = selection.getRangeAt(0).getBoundingClientRect();
+        }
+        if (
+          (!rect || (rect.width === 0 && rect.height === 0)) &&
+          props.editor?.view?.dom &&
+          typeof props.editor.view.dom.getBoundingClientRect === 'function'
+        ) {
+          rect = props.editor.view.dom.getBoundingClientRect();
+        }
+        if (rect) {
+          positionStyle.value = {
+            top: `${rect.bottom + 8}px`,
+            left: `${rect.left}px`,
+          };
+        }
       });
       bindOutsideClickListener();
     }
@@ -102,18 +130,23 @@ export default defineComponent({
       }
     }
 
+    // 修复 bug：autoOpen 在挂载时立即打开会导致页面加载即显示弹窗。
+    // 改为仅在 onMounted 后检查一次，并监听后续变化；移除 immediate 避免
+    // setup 阶段就触发 open。
     watch(
       () => props.autoOpen,
       val => {
         if (val) open();
       },
-      { immediate: true },
     );
 
     // 修复 bug：SSR 守卫，避免在非客户端环境访问 document
     onMounted(() => {
       if (!isClient) return;
       document.addEventListener('keydown', handleKeydown);
+      if (props.autoOpen) {
+        nextTick(() => open());
+      }
     });
 
     onBeforeUnmount(() => {
@@ -131,7 +164,8 @@ export default defineComponent({
       return (
         <div
           ref={containerRef}
-          class="xy-rich-text-editor-link-popover"
+          class={['xy-rich-text-editor-link-popover', hashId.value]}
+          style={positionStyle.value}
           role="dialog"
           aria-modal={false}
           onMousedown={(e: MouseEvent) => {

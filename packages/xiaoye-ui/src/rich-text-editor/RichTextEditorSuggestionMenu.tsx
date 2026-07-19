@@ -1,15 +1,6 @@
 /// <reference types="vue/jsx" />
 import type { PropType, ExtractPropTypes } from 'vue';
-import {
-  defineComponent,
-  inject,
-  h,
-  computed,
-  onMounted,
-  onBeforeUnmount,
-  nextTick,
-  toRef,
-} from 'vue';
+import { defineComponent, inject, h, computed, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import { useEditorMenu } from './composables/useEditorMenu';
 import { createHandlers } from './utils/editor';
 import { tv } from './utils/tv';
@@ -19,6 +10,8 @@ import type { EditorCustomHandlers, FloatingUIOptions, EditorItem } from './type
 import type { SuggestionOptions } from '@tiptap/suggestion';
 import { initDefaultProps } from '../_util/props-util';
 import { anyType, arrayType, stringType } from '../_util/type';
+import useConfigInject from '../config-provider/hooks/useConfigInject';
+import useStyle from './style';
 
 // 渲染 leading icon：支持字符串（SVG/HTML）、VNode、组件定义
 function renderLeadingIcon(icon: any) {
@@ -110,6 +103,10 @@ export default defineComponent({
   __XY_RICH_TEXT_EDITOR_SUGGESTION_MENU: true,
   props: initDefaultProps(richTextEditorSuggestionMenuProps(), {}),
   setup(props) {
+    // 使用 RichTextEditor 统一的 prefixCls，确保 SuggestionMenu 共享同一 hashId
+    const { prefixCls: _prefixCls } = useConfigInject('rich-text-editor', props);
+    const [, hashId] = useStyle(_prefixCls);
+
     const handlers = inject(
       'editorHandlers',
       computed(() => createHandlers()),
@@ -135,13 +132,14 @@ export default defineComponent({
         editor: props.editor,
         char: props.char,
         pluginKey: props.pluginKey,
-        items: toRef(() => props.items),
+        items: computed(() => props.items),
         filterFields: props.filterFields,
         limit: props.limit,
         options: props.options,
         suggestion: props.suggestion,
         appendTo: props.appendTo,
         ui,
+        hashId: hashId.value,
         onSelect: (editor, range, item: any) => {
           if (item.type === 'label' || item.type === 'separator') return;
 

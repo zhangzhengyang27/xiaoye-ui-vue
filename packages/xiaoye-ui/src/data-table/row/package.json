@@ -1,0 +1,9 @@
+{
+  "main": "./Row.tsx",
+  "module": "./Row.tsx",
+  "types": "./Row.d.ts",
+  "sideEffects": [
+    "*.tsx",
+    "*.ts"
+  ]
+}

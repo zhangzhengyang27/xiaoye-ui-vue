@@ -5,19 +5,19 @@
       v-model="content"
       placeholder="选中文本后点击工具栏的链接按钮..."
     >
-      <template #default="{ editor, handlers }">
-        <div v-if="editor" class="demo-toolbar">
+      <template #default="{ editor: editorInstance, handlers }">
+        <div v-if="editorInstance" class="demo-toolbar">
           <button
             class="demo-btn"
-            :class="{ 'is-active': handlers.link.isActive(editor) }"
+            :class="{ 'is-active': handlers.link.isActive(editorInstance) }"
             @click="openLinkPopover"
           >
             链接
           </button>
           <button
-            v-if="handlers.link.isActive(editor)"
+            v-if="handlers.link.isActive(editorInstance)"
             class="demo-btn"
-            @click="handlers.link.execute(editor, { href: '' }).run()"
+            @click="handlers.link.execute(editorInstance, { href: '' }).run()"
           >
             移除链接
           </button>

@@ -291,13 +291,26 @@ export default defineComponent({
     const editorProps = computed(() => {
       // 排除 data-slot，避免透传到 ProseMirror DOM 干扰样式系统
       const { dataSlot, class: _, ...restAttrs } = attrs as Record<string, any>;
-      return defu(props.editorProps, {
+      // 包装用户的 handleKeyDown：在编辑器内部按 Enter 时阻止事件冒泡，
+      // 避免文档站点层面的键盘处理意外切换焦点；同时保留 Tiptap 默认行为。
+      const { handleKeyDown: userHandleKeyDown, ...restEditorProps } = props.editorProps || {};
+      const handleKeyDown = (view: any, event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+          event.stopPropagation();
+        }
+        return userHandleKeyDown?.(view, event) ?? false;
+      };
+
+      return defu(restEditorProps, {
+        handleKeyDown,
         attributes: {
           autocomplete: 'off',
           autocorrect: 'off',
           autocapitalize: 'off',
           ...restAttrs,
-          class: ui.value.base({ class: [props.classNames?.content, props.ui?.base] }),
+          class: ui.value.base({
+            class: [hashId.value, props.classNames?.content, props.ui?.base],
+          }),
         },
       } as EditorOptions['editorProps']);
     });
@@ -421,7 +434,7 @@ export default defineComponent({
               <EditorContent
                 editor={editor.value}
                 data-slot="content"
-                class={ui.value.content({ class: props.ui?.content })}
+                class={ui.value.content({ class: [hashId.value, props.ui?.content] })}
               />
               <EditorLinkPopover
                 ref={linkPopoverRef as any}

@@ -35,6 +35,11 @@ export type EditorCustomHandlers = Record<string, EditorHandler>;
 // 1:1 复刻 ui-4 的 handler 结构，同时保留 XiaoyeUI 扩展（textColor/highlight/table）
 export type EditorHandlers<H extends EditorCustomHandlers = EditorCustomHandlers> = {
   mark: EditorHandler;
+  bold: EditorHandler;
+  italic: EditorHandler;
+  underline: EditorHandler;
+  strike: EditorHandler;
+  code: EditorHandler;
   textAlign: EditorHandler;
   heading: EditorHandler;
   link: EditorHandler;
