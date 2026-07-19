@@ -47,6 +47,7 @@ const EXPORT_STAR_EXCEPTIONS = [
   'icon', // 无命名导出
   'col', // 实际来自 grid，与 grid 冲突
   'row', // 实际来自 grid，与 grid 冲突
+  'back-top', // BackTopProps 与 float-button 冲突
 ];
 
 // 没有默认导出的模块：不生成 default 转命名导出（纯逻辑/工具模块）
@@ -58,6 +59,7 @@ const NO_DEFAULT_EXPORT_DIRS = [
 const NAMED_EXPORT_OVERRIDES = {
   message: "export { message } from './message';",
   notification: "export { notification } from './notification';",
+  'back-top': "export type { BackTopProps } from './back-top';",
 };
 
 /**
