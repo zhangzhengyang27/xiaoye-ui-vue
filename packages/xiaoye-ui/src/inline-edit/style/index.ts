@@ -218,10 +218,10 @@ export default genComponentStyleHook(
     });
     return [genInlineEditStyle(inlineEditToken)];
   },
-  {
+  token => ({
     inlineEditDisplayHoverBg: 'transparent',
-    inlineEditDisplayPadding: 8,
-    inlineEditBtnSize: 24,
-    inlineEditContentBg: '#ffffff',
-  },
+    inlineEditDisplayPadding: token.paddingXS,
+    inlineEditBtnSize: token.controlHeightSM,
+    inlineEditContentBg: token.colorBgContainer,
+  }),
 );

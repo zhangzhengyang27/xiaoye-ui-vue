@@ -5,6 +5,7 @@ import { defineComponent, computed } from 'vue';
 
 const Empty = defineComponent({
   compatConfig: { MODE: 3 },
+  name: 'EmptyDefault',
   setup() {
     const [, token] = useToken();
 

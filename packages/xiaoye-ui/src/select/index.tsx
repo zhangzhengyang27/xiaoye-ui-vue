@@ -153,7 +153,6 @@ const Select = defineComponent({
     const {
       prefixCls,
       direction,
-      configProvider,
       renderEmpty,
       size: contextSize,
       getPrefixCls,
@@ -234,7 +233,6 @@ const Select = defineComponent({
         showArrow,
       } = props;
       const { hasFeedback, feedbackIcon } = formItemInputContext;
-      const {} = configProvider;
 
       // ===================== Empty =====================
       let mergedNotFound: any;

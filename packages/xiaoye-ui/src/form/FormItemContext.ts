@@ -42,7 +42,6 @@ export const useProvideFormItemContext = (
     formItemFields.value.delete(key);
     formItemFields.value = new Map(formItemFields.value);
   };
-  const instance = getCurrentInstance();
   watch([useValidation, formItemFields], () => {
     if (process.env.NODE_ENV !== 'production') {
       if (useValidation.value && formItemFields.value.size > 1) {
@@ -56,11 +55,6 @@ export const useProvideFormItemContext = (
             .join(', ')} ${formItemFields.value.size} field items.
         You can set not need to be collected fields into \`a-form-item-rest\``,
         );
-        let cur = instance;
-        while (cur.parent) {
-          console.warn('at', cur.type);
-          cur = cur.parent;
-        }
       }
     }
   });

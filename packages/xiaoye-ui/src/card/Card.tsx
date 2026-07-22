@@ -91,7 +91,7 @@ const Card = defineComponent({
       callEvent(props.onTabChange, key);
     };
     const isContainGrid = (obj: VNode[] = []) => {
-      let containGrid: boolean;
+      let containGrid = false;
       obj.forEach(element => {
         if (element && isPlainObject(element.type) && (element.type as any).__XY_CARD_GRID) {
           containGrid = true;
@@ -190,7 +190,7 @@ const Card = defineComponent({
         actions && actions.length ? <ul class={`${pre}-actions`}>{getAction(actions)}</ul> : null;
 
       return wrapSSR(
-        <div ref="cardContainerRef" {...attrs} class={[classString, attrs.class]}>
+        <div {...attrs} class={[classString, attrs.class]}>
           {head}
           {coverDom}
           {children && children.length ? body : null}

@@ -35,6 +35,7 @@ const calcThumbStyle = (targetElement: HTMLElement | null | undefined): ThumbRec
 const toPX = (value?: number) => (value !== undefined ? `${value}px` : undefined);
 
 const MotionThumb = defineComponent({
+  name: 'MotionThumb',
   props: {
     value: anyType<SegmentedValue>(),
     getValueIndex: anyType<(value: SegmentedValue) => number>(),

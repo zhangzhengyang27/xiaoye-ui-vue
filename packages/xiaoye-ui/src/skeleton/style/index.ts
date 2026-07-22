@@ -127,7 +127,7 @@ const genSkeletonElementImageSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
-  const { skeletonImageCls, imageSizeBase, color, borderRadiusSM } = token;
+  const { skeletonImageCls, imageSizeBase, color, borderRadiusSM, colorTextDisabled } = token;
   return {
     [`${skeletonImageCls}`]: {
       display: 'flex',
@@ -138,7 +138,7 @@ const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
       borderRadius: borderRadiusSM,
       ...genSkeletonElementImageSize(imageSizeBase * 2),
       [`${skeletonImageCls}-path`]: {
-        fill: '#bfbfbf',
+        fill: colorTextDisabled,
       },
       [`${skeletonImageCls}-svg`]: {
         ...genSkeletonElementImageSize(imageSizeBase),

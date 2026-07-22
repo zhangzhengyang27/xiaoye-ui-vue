@@ -231,11 +231,7 @@ export default defineComponent({
       );
 
       if (!isUnBorderedButtonType(type)) {
-        buttonNode = (
-          <Wave ref="wave" disabled={!!innerLoading.value}>
-            {buttonNode}
-          </Wave>
-        );
+        buttonNode = <Wave disabled={!!innerLoading.value}>{buttonNode}</Wave>;
       }
 
       return wrapSSR(buttonNode);

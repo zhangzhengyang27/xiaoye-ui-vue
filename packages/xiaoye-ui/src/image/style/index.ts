@@ -298,7 +298,7 @@ export default genComponentStyleHook(
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls,
-      modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
+      modalMaskBg: token.colorBgMask,
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 

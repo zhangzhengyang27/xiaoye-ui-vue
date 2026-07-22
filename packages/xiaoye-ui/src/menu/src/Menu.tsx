@@ -10,6 +10,7 @@ import {
   watchEffect,
   watch,
   onMounted,
+  onBeforeUnmount,
   unref,
 } from 'vue';
 import shallowEqual from '../../_util/shallowequal';
@@ -266,6 +267,9 @@ export default defineComponent({
         emit('update:activeKey', keys[keys.length - 1]);
       });
     };
+    onBeforeUnmount(() => {
+      clearTimeout(timeout);
+    });
 
     const disabled = computed(() => !!props.disabled);
     const isRtl = computed(() => direction.value === 'rtl');

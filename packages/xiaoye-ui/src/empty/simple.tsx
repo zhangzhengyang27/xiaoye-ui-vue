@@ -4,6 +4,7 @@ import { useToken } from '../theme/internal';
 
 const Simple = defineComponent({
   compatConfig: { MODE: 3 },
+  name: 'EmptySimple',
   setup() {
     const [, token] = useToken();
 
