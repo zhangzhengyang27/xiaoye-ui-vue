@@ -130,8 +130,8 @@ if (publishConfig) {
   if (publishConfig.module) pkg.module = publishConfig.module;
   if (publishConfig.types) pkg.types = publishConfig.types;
   if (publishConfig.exports) {
-    // 使用 publishConfig.exports 作为基础，但需要动态生成
-    pkg.exports = generateDistExports(pkg.exports || {});
+    // 先用 dev exports 自动转换，再用 publishConfig.exports 覆盖（确保手写的正确路径优先）
+    pkg.exports = { ...generateDistExports(pkg.exports || {}), ...publishConfig.exports };
   }
   console.log('[postbuild] 已应用 publishConfig');
 }

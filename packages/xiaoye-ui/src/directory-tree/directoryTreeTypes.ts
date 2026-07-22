@@ -1,13 +1,6 @@
-import type { ExtractPropTypes } from 'vue';
-import { treeProps } from '../tree/Tree';
-import { someType } from '../_util/type';
-
-// 目录树展开触发动作：false 不响应 / 'click' 单击 / 'dblclick'|'doubleclick' 双击
-export type ExpandAction = false | 'click' | 'doubleclick' | 'dblclick';
-
-export const directoryTreeProps = () => ({
-  ...treeProps(),
-  expandAction: someType<ExpandAction>([Boolean, String]),
-});
-
-export type DirectoryTreeProps = Partial<ExtractPropTypes<ReturnType<typeof directoryTreeProps>>>;
+/**
+ * 类型统一从 ./DirectoryTree 导出，避免重复定义。
+ * 此文件保留是为了兼容已有的 import 路径。
+ */
+export { directoryTreeProps } from './DirectoryTree';
+export type { ExpandAction, DirectoryTreeProps } from './DirectoryTree';

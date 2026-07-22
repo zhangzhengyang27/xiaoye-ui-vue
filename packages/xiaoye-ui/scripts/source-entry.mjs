@@ -11,7 +11,8 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const srcDir = resolve(__dirname, '../src');
 
 // 非组件目录，不作为多入口
-const EXCLUDE_DIRS = ['_util', 'style', 'theme', 'locale', 'version'];
+// locale 由下方显式扫描处理；config 为内部工具模块，无需构建
+const EXCLUDE_DIRS = ['_util', 'style', 'theme', 'version', 'locale', 'config'];
 
 /**
  * 扫描 src/ 生成多入口映射
@@ -50,6 +51,18 @@ export function getEntries() {
         entries[`${dir}/style`] = stylePath;
         break;
       }
+    }
+  }
+
+  // locale 入口：扫描 src/locale/ 下所有 .ts/.tsx 文件，生成 locale/<name> 入口
+  const localeDir = resolve(srcDir, 'locale');
+  if (existsSync(localeDir) && statSync(localeDir).isDirectory()) {
+    const localeFiles = readdirSync(localeDir).filter(
+      name => (name.endsWith('.ts') || name.endsWith('.tsx')) && !name.endsWith('.d.ts'),
+    );
+    for (const file of localeFiles) {
+      const name = file.replace(/\.(ts|tsx)$/, '');
+      entries[`locale/${name}`] = resolve(localeDir, file);
     }
   }
 

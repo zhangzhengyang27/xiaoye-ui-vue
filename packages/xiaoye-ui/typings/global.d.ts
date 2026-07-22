@@ -10,7 +10,7 @@ declare module 'vue' {
     XYAvatar: (typeof import('xiaoye-ui'))['Avatar'];
     XYBackTop: (typeof import('xiaoye-ui'))['BackTop'];
     XYBadge: (typeof import('xiaoye-ui'))['Badge'];
-    XYBlockUi: (typeof import('xiaoye-ui'))['BlockUi'];
+    XYBlockUI: (typeof import('xiaoye-ui'))['BlockUI'];
     XYBreadcrumb: (typeof import('xiaoye-ui'))['Breadcrumb'];
     XYButton: (typeof import('xiaoye-ui'))['Button'];
     XYCalendar: (typeof import('xiaoye-ui'))['Calendar'];
@@ -43,7 +43,6 @@ declare module 'vue' {
     XYForm: (typeof import('xiaoye-ui'))['Form'];
     XYFormList: (typeof import('xiaoye-ui'))['FormList'];
     XYGalleria: (typeof import('xiaoye-ui'))['Galleria'];
-    XYGrid: (typeof import('xiaoye-ui'))['Grid'];
     XYIcon: (typeof import('xiaoye-ui'))['Icon'];
     XYImage: (typeof import('xiaoye-ui'))['Image'];
     XYImageCompare: (typeof import('xiaoye-ui'))['ImageCompare'];
@@ -59,10 +58,8 @@ declare module 'vue' {
     XYMegaMenu: (typeof import('xiaoye-ui'))['MegaMenu'];
     XYMentions: (typeof import('xiaoye-ui'))['Mentions'];
     XYMenu: (typeof import('xiaoye-ui'))['Menu'];
-    XYMessage: (typeof import('xiaoye-ui'))['Message'];
     XYMeterGroup: (typeof import('xiaoye-ui'))['MeterGroup'];
     XYModal: (typeof import('xiaoye-ui'))['Modal'];
-    XYNotification: (typeof import('xiaoye-ui'))['Notification'];
     XYOrganizationChart: (typeof import('xiaoye-ui'))['OrganizationChart'];
     XYOverlayBadge: (typeof import('xiaoye-ui'))['OverlayBadge'];
     XYPageHeader: (typeof import('xiaoye-ui'))['PageHeader'];

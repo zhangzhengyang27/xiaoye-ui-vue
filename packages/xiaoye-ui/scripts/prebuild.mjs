@@ -55,11 +55,31 @@ const NO_DEFAULT_EXPORT_DIRS = [
   'table-core', // 纯逻辑模块，只有命名导出，无默认导出
 ];
 
+// 非组件模块：有默认导出但不是 Vue 组件（函数 API / 工具对象），不生成 global.d.ts 声明
+const NON_COMPONENT_DIRS = [
+  'grid', // 默认导出为 { useBreakpoint } 工具对象
+  'message', // 函数式 API，非模板组件
+  'notification', // 函数式 API，非模板组件
+];
+
+// PascalCase 名称覆盖：目录名 → 实际组件 PascalCase 名（处理缩写词大小写）
+const PASCAL_NAME_OVERRIDES = {
+  'block-ui': 'BlockUI',
+};
+
 // 替代 export * 的显式命名导出语句（key 为组件目录名）
 const NAMED_EXPORT_OVERRIDES = {
   message: "export { message } from './message';",
   notification: "export { notification } from './notification';",
   'back-top': "export type { BackTopProps } from './back-top';",
+  // === 补充 Props 类型导出 ===
+  cascader: "export type { CascaderProps } from './cascader';",
+  select: "export type { SelectProps } from './select';",
+  radio:
+    "export type { RadioProps, RadioGroupProps, RadioChangeEvent } from './radio';\nexport { RadioGroup, RadioButton } from './radio';",
+  'date-picker': "export type { DatePickerProps, RangePickerProps } from './date-picker';",
+  list: "export type { ListProps } from './list';",
+  menu: "export type { MenuProps, MenuItemProps, SubMenuProps } from './menu';",
 };
 
 /**
@@ -106,9 +126,10 @@ function scanComponents() {
 }
 
 /**
- * 转为 PascalCase
+ * 转为 PascalCase（优先使用覆盖映射）
  */
 function toPascalCase(name) {
+  if (PASCAL_NAME_OVERRIDES[name]) return PASCAL_NAME_OVERRIDES[name];
   // 处理 kebab-case: input-number -> InputNumber
   return name
     .split('-')
@@ -167,6 +188,8 @@ function generateGlobalDts(components) {
   for (const comp of components) {
     // 跳过没有默认导出的纯逻辑模块（不是组件，不应注册为全局组件）
     if (NO_DEFAULT_EXPORT_DIRS.includes(comp.name)) continue;
+    // 跳过非组件模块（函数 API / 工具对象，不用于模板）
+    if (NON_COMPONENT_DIRS.includes(comp.name)) continue;
     const pascalName = toPascalCase(comp.name);
     const xyName = `XY${pascalName}`;
     lines.push(`    ${xyName}: (typeof import('xiaoye-ui'))['${pascalName}'];`);
@@ -213,6 +236,19 @@ function generateExports(components) {
         }
       }
     }
+  }
+
+  // locale 子路径导出（locale 不在组件扫描范围内，需显式添加）
+  const localeDir = resolve(srcDir, 'locale');
+  if (existsSync(localeDir)) {
+    for (const ext of ['.tsx', '.ts']) {
+      const localeIndex = `src/locale/index${ext}`;
+      if (existsSync(resolve(pkgRoot, localeIndex))) {
+        exports['./es/locale'] = { types: `./${localeIndex}`, import: `./${localeIndex}` };
+        break;
+      }
+    }
+    exports['./es/locale/*'] = { types: './src/locale/*.ts', import: './src/locale/*.ts' };
   }
 
   return exports;

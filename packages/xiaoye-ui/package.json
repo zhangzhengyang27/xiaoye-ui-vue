@@ -18,6 +18,7 @@
   "types": "./src/index.ts",
   "sideEffects": [
     "**/style/index.{js,ts}",
+    "**/style.mjs",
     "*.vue",
     "*.css",
     "*.less"
@@ -104,7 +105,15 @@
         "types": "./index.d.ts",
         "import": "./index.mjs"
       },
-      "./package.json": "./package.json"
+      "./package.json": "./package.json",
+      "./es/locale": {
+        "types": "./locale/index.d.ts",
+        "import": "./locale/index.mjs"
+      },
+      "./es/locale/*": {
+        "types": "./locale/*.d.ts",
+        "import": "./locale/*.mjs"
+      }
     }
   },
   "exports": {
@@ -666,6 +675,14 @@
     "./watermark": {
       "types": "./src/watermark/index.tsx",
       "import": "./src/watermark/index.tsx"
+    },
+    "./es/locale": {
+      "types": "./src/locale/index.tsx",
+      "import": "./src/locale/index.tsx"
+    },
+    "./es/locale/*": {
+      "types": "./src/locale/*.ts",
+      "import": "./src/locale/*.ts"
     }
   },
   "devDependencies": {
