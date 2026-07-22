@@ -1,9 +1,20 @@
 {
   "name": "xiaoye-ui",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "description": "An enterprise-class UI design language and Vue-based implementation",
   "author": "xiaoye-ui",
-  "homepage": "https://xiaoye-ui/",
+  "homepage": "https://xiaoye-ui.github.io/",
+  "keywords": [
+    "vue",
+    "vue3",
+    "components",
+    "ui",
+    "xiaoye-ui",
+    "enterprise",
+    "frontend",
+    "framework",
+    "typescript"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -120,6 +120,17 @@ if (!existsSync(distPkgPath)) {
   console.log('[postbuild] 已复制 package.json 到 dist/');
 }
 
+// 1.1 复制 README.md 和 LICENSE 到 dist/（npm 发布页面展示需要）
+const distDir = resolve(pkgRoot, 'dist');
+for (const file of ['README.md', 'LICENSE']) {
+  const src = resolve(pkgRoot, file);
+  const dest = resolve(distDir, file);
+  if (existsSync(src) && !existsSync(dest)) {
+    copyFileSync(src, dest);
+    console.log(`[postbuild] 已复制 ${file} 到 dist/`);
+  }
+}
+
 // 2. 读取并转换
 const pkg = readJson(distPkgPath);
 
@@ -193,7 +204,6 @@ function cleanDeclarationMaps(dir) {
   return count;
 }
 
-const distDir = resolve(pkgRoot, 'dist');
 const removedMaps = cleanDeclarationMaps(distDir);
 if (removedMaps > 0) {
   console.log(`[postbuild] removed ${removedMaps} declaration map files (*.d.ts.map)`);

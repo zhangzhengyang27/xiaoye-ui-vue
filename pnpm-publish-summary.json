@@ -2,35 +2,35 @@
   "publishedPackages": [
     {
       "name": "@xiaoye-ui/utils",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/core",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/icons",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "xiaoye-ui",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/metadata",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/auto-import-resolver",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/nuxt-module",
-      "version": "6.0.1"
+      "version": "6.1.0"
     },
     {
       "name": "@xiaoye-ui/vite-plugin",
-      "version": "6.0.1"
+      "version": "6.1.0"
     }
   ]
 }
