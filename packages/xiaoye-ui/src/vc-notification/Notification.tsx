@@ -207,6 +207,30 @@ const Notification = defineComponent({
   },
 });
 
+/**
+ * 内部 Holder：在 ConfigProvider（携带全局主题）内部执行 useStyle，
+ * 使静态 message / notification 的样式 hash 跟随 ConfigProvider.config 注册的主题。
+ */
+const NotificationHolder = defineComponent({
+  compatConfig: { MODE: 3 },
+  name: 'NotificationHolder',
+  props: ['prefixCls', 'transitionName', 'notiRef', 'useStyle'],
+  setup(props, { attrs }) {
+    const [, hashId] = props.useStyle
+      ? props.useStyle(computed(() => props.prefixCls))
+      : [undefined, computed(() => '')];
+    return () => (
+      <Notification
+        ref={props.notiRef}
+        {...attrs}
+        prefixCls={props.prefixCls}
+        transitionName={props.transitionName}
+        hashId={hashId.value}
+      />
+    );
+  },
+});
+
 Notification.newInstance = function newNotificationInstance(properties, callback) {
   const {
     name = 'notification',
@@ -232,7 +256,6 @@ Notification.newInstance = function newNotificationInstance(properties, callback
     setup(_props, { attrs }) {
       const notiRef = shallowRef();
       const prefixCls = computed(() => globalConfigForApi.getPrefixCls(name, customizePrefixCls));
-      const [, hashId] = useStyle(prefixCls);
       onMounted(() => {
         callback({
           notice(noticeProps: NoticeContent) {
@@ -258,12 +281,12 @@ Notification.newInstance = function newNotificationInstance(properties, callback
           : `${prefixCls.value}-${customTransitionName}`;
         return (
           <ConfigProvider {...global} prefixCls={rootPrefixCls}>
-            <Notification
-              ref={notiRef}
-              {...attrs}
+            <NotificationHolder
               prefixCls={prefixCls.value}
               transitionName={transitionName}
-              hashId={hashId.value}
+              notiRef={notiRef}
+              useStyle={useStyle}
+              {...attrs}
             />
           </ConfigProvider>
         );

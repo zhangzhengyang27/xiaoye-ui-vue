@@ -5,10 +5,12 @@ import Switch from '../switch';
 import { SunIcon, MoonIcon } from '@xiaoye-ui/icons';
 import { initDefaultProps } from '../_util/props-util';
 import { useInjectDisabled } from '../config-provider/DisabledContext';
+import { setGlobalConfig } from '../config-provider/globalConfig';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';
 import darkModeToggleProps from './darkModeToggleTypes';
 import { useDarkMode } from './useDarkMode';
+import theme from '../theme';
 import type { CustomSlotsType } from '../_util/type';
 
 export default defineComponent({
@@ -57,6 +59,22 @@ export default defineComponent({
       },
       { immediate: true },
     );
+
+    // 同步全局主题算法：使 message / notification / Modal.confirm 等静态方法与
+    // holder 弹层（包括未包裹在页面级 ConfigProvider 内的场景）跟随暗/浅切换
+    if (props.syncGlobalTheme) {
+      watch(
+        mergedDark,
+        dark => {
+          setGlobalConfig({
+            theme: {
+              algorithm: dark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+            },
+          });
+        },
+        { immediate: true },
+      );
+    }
 
     const setDark = (dark: boolean) => {
       if (mergedDisabled.value) return;

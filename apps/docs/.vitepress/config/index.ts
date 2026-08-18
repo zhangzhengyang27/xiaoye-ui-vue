@@ -210,6 +210,7 @@ export default defineConfig({
           items: [
             { text: '介绍', link: '/guide/' },
             { text: '安装', link: '/guide/installation' },
+            { text: '暗黑模式', link: '/guide/dark-mode' },
             { text: 'LLM / AI 使用', link: '/guide/llm' },
           ],
         },

@@ -3,6 +3,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { ref, nextTick } from 'vue';
 import DarkModeToggle from '../DarkModeToggle';
 import { useDarkMode } from '../useDarkMode';
+import { globalConfigForApi } from '../../config-provider/globalConfig';
+import theme from '../../theme';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('DarkModeToggle', () => {
@@ -168,6 +170,35 @@ describe('DarkModeToggle', () => {
     const vm = wrapper.vm as any;
     expect(typeof vm.focus).toBe('function');
     expect(typeof vm.blur).toBe('function');
+    wrapper.unmount();
+  });
+});
+
+describe('DarkModeToggle syncGlobalTheme', () => {
+  it('should sync global theme algorithm on toggle', async () => {
+    const wrapper = mount(DarkModeToggle);
+    await nextTick();
+    expect(globalConfigForApi.theme?.algorithm).toBe(theme.defaultAlgorithm);
+    await wrapper.find('button').trigger('click');
+    await nextTick();
+    expect(globalConfigForApi.theme?.algorithm).toBe(theme.darkAlgorithm);
+    await wrapper.find('button').trigger('click');
+    await nextTick();
+    expect(globalConfigForApi.theme?.algorithm).toBe(theme.defaultAlgorithm);
+    wrapper.unmount();
+  });
+
+  it('should not override global theme when syncGlobalTheme is false', async () => {
+    // 清除前一个用例残留的 algorithm 键
+    delete (globalConfigForApi as any).theme;
+    // 预先注册一个全局主题，验证挂载 toggle 不会覆盖它
+    const { setGlobalConfig } = await import('../../config-provider/globalConfig');
+    setGlobalConfig({ theme: { token: { colorPrimary: 'red' } } });
+    await nextTick();
+    const wrapper = mount(DarkModeToggle, { props: { syncGlobalTheme: false } });
+    await nextTick();
+    expect(globalConfigForApi.theme?.token?.colorPrimary).toBe('red');
+    expect(globalConfigForApi.theme?.algorithm).toBeUndefined();
     wrapper.unmount();
   });
 });

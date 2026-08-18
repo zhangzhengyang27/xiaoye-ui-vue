@@ -1,5 +1,5 @@
-import type { App, MaybeRef, Plugin, WatchStopHandle } from 'vue';
-import { watch, computed, reactive, defineComponent, watchEffect } from 'vue';
+import type { App, Plugin } from 'vue';
+import { watch, computed, defineComponent, watchEffect } from 'vue';
 import defaultRenderEmpty from './renderEmpty';
 import type { RenderEmptyHandler } from './renderEmpty';
 import type { Locale } from '../locale-provider';
@@ -10,13 +10,12 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 import message from '../message';
 import notification from '../notification';
-import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/en_US';
 import type { ValidateMessages } from '../form/interface';
 import useStyle from './style';
 import useTheme from './hooks/useTheme';
 import defaultSeedToken from '../theme/themes/seed';
-import type { ConfigProviderInnerProps, ConfigProviderProps, ConfigProviderTheme } from './context';
+import type { ConfigProviderInnerProps } from './context';
 import {
   useConfigContextProvider,
   useConfigContextInject,
@@ -24,32 +23,30 @@ import {
   useProvideGlobalForm,
   defaultIconPrefixCls,
 } from './context';
+import { globalConfigBySet, setGlobalConfig } from './globalConfig';
 import { useProviderSize } from './SizeContext';
 import { useProviderDisabled } from './DisabledContext';
 import { createTheme } from '../_util/cssinjs';
 import { DesignTokenProvider } from '../theme/internal';
 
+export {
+  defaultPrefixCls,
+  globalConfigForApi,
+  globalConfig,
+  setGlobalConfig,
+  resolveGlobalTheme,
+} from './globalConfig';
+export type { GlobalConfigTheme, GlobalConfigProviderProps } from './globalConfig';
 export type {
   ConfigProviderProps,
   ConfigProviderTheme,
+  ThemeConfig,
   SizeType,
   Direction,
   CSPConfig,
   DirectionType,
 } from './context';
-export const defaultPrefixCls = 'xy';
 export { defaultIconPrefixCls };
-function getGlobalPrefixCls() {
-  return globalConfigForApi.prefixCls || defaultPrefixCls;
-}
-
-function getGlobalIconPrefixCls() {
-  return globalConfigForApi.iconPrefixCls || defaultIconPrefixCls;
-}
-const globalConfigBySet = reactive<ConfigProviderProps>({}); // 权重最大
-export const globalConfigForApi: ConfigProviderProps & {
-  getRootPrefixCls?: (rootPrefixCls?: string, customizePrefixCls?: string) => string;
-} = reactive({});
 
 export const configConsumerProps = [
   'getTargetContainer',
@@ -62,64 +59,6 @@ export const configConsumerProps = [
   'locale',
   'pageHeader',
 ];
-
-watchEffect(() => {
-  Object.assign(globalConfigForApi, globalConfigBySet);
-  globalConfigForApi.prefixCls = getGlobalPrefixCls();
-  globalConfigForApi.iconPrefixCls = getGlobalIconPrefixCls();
-  globalConfigForApi.getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-    return suffixCls
-      ? `${globalConfigForApi.prefixCls}-${suffixCls}`
-      : globalConfigForApi.prefixCls;
-  };
-  globalConfigForApi.getRootPrefixCls = () => {
-    // If Global prefixCls provided, use this
-    if (globalConfigForApi.prefixCls) {
-      return globalConfigForApi.prefixCls;
-    }
-
-    // Fallback to default prefixCls
-    return getGlobalPrefixCls();
-  };
-});
-
-type GlobalConfigProviderProps = {
-  prefixCls?: MaybeRef<ConfigProviderProps['prefixCls']>;
-  iconPrefixCls?: MaybeRef<ConfigProviderProps['iconPrefixCls']>;
-  getPopupContainer?: ConfigProviderProps['getPopupContainer'];
-};
-
-let stopWatchEffect: WatchStopHandle;
-const setGlobalConfig = (params: GlobalConfigProviderProps & { theme?: ConfigProviderTheme }) => {
-  if (stopWatchEffect) {
-    stopWatchEffect();
-  }
-  stopWatchEffect = watchEffect(() => {
-    Object.assign(globalConfigBySet, reactive(params));
-    Object.assign(globalConfigForApi, reactive(params));
-  });
-  if (params.theme) {
-    registerTheme(getGlobalPrefixCls(), params.theme);
-  }
-};
-
-export const globalConfig = () => ({
-  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
-  },
-  getIconPrefixCls: getGlobalIconPrefixCls,
-  getRootPrefixCls: () => {
-    // If Global prefixCls provided, use this
-    if (globalConfigForApi.prefixCls) {
-      return globalConfigForApi.prefixCls;
-    }
-
-    // Fallback to default prefixCls
-    return getGlobalPrefixCls();
-  },
-});
 
 const ConfigProvider = defineComponent({
   compatConfig: { MODE: 3 },

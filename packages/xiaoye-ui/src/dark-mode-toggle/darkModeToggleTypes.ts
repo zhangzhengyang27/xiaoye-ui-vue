@@ -26,6 +26,11 @@ export const darkModeToggleProps = () => ({
   disabled: { type: Boolean, default: undefined },
   /** 是否同步状态到 document.documentElement 的 data-theme 属性 */
   applyToDocument: { type: Boolean, default: true },
+  /**
+   * 是否同步切换全局组件主题算法（ConfigProvider.config）。
+   * 开启后静态方法（message / notification / Modal.confirm）与 holder 弹层也会跟随切换暗/浅。
+   */
+  syncGlobalTheme: { type: Boolean, default: true },
   /** 是否跟随系统 prefers-color-scheme 设置（仅非受控模式下生效） */
   followSystem: { type: Boolean, default: false },
   onChange: eventType<(isDark: boolean) => void>(),
