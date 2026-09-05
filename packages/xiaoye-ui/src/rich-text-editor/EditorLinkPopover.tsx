@@ -5,6 +5,7 @@ import type { Editor } from '@tiptap/vue-3';
 import { initDefaultProps } from '../_util/props-util';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';
+import { isSafeUrl } from '../_util/safeUrl';
 
 // SSR 安全：仅浏览器端可访问 document/window
 const isClient = typeof window !== 'undefined' && !!window.document;
@@ -92,8 +93,14 @@ export default defineComponent({
     function apply() {
       if (!props.editor) return;
 
-      if (url.value.trim()) {
-        props.editor.chain().focus().setLink({ href: url.value.trim() }).run();
+      const nextUrl = url.value.trim();
+
+      if (nextUrl) {
+        // 拦截 javascript: / data: 等伪协议，避免保存后渲染触发 XSS
+        if (!isSafeUrl(nextUrl)) {
+          return;
+        }
+        props.editor.chain().focus().setLink({ href: nextUrl }).run();
       } else {
         props.editor.chain().focus().unsetLink().run();
       }

@@ -513,7 +513,13 @@ export default defineComponent({
         document.body.appendChild(thumbnailsStyle);
       }
 
-      const selector = props.containerId ? `#${props.containerId}` : '.xy-galleria';
+      // containerId 会拼进 CSS 选择器，必须限制为合法 ID 字符，
+      // 否则注入 `}` 即可闭合规则块并追加任意样式
+      const containerId =
+        props.containerId && /^[A-Za-z][\w-]*$/.test(props.containerId)
+          ? props.containerId
+          : undefined;
+      const selector = containerId ? `#${containerId}` : '.xy-galleria';
       let innerHTML = `
                 ${selector} .xy-galleria-thumbnail-item {
                     flex: 1 0 ${100 / d_numVisible.value}%

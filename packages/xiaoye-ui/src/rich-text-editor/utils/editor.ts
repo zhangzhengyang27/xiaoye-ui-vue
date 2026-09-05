@@ -7,6 +7,7 @@ import type {
   EditorItem,
   FloatingUIOptions,
 } from '../types/editor';
+import { isSafeUrl } from '../../_util/safeUrl';
 
 /**
  * 安全调用 editor.can() 返回对象上的方法。
@@ -140,6 +141,11 @@ export function createLinkHandler() {
 
       const href = cmd?.href || (typeof prompt === 'function' ? prompt('Enter the URL:') : '');
       if (!href) {
+        return chain;
+      }
+
+      // 拦截 javascript: / data: 等伪协议
+      if (!isSafeUrl(href)) {
         return chain;
       }
 

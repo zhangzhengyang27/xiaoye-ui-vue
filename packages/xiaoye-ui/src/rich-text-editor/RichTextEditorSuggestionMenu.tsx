@@ -12,11 +12,13 @@ import { initDefaultProps } from '../_util/props-util';
 import { anyType, arrayType, stringType } from '../_util/type';
 import useConfigInject from '../config-provider/hooks/useConfigInject';
 import useStyle from './style';
+import { sanitizeSvgString } from '../_util/sanitizeSvg';
 
-// 渲染 leading icon：支持字符串（SVG/HTML）、VNode、组件定义
+// 渲染 leading icon：支持字符串（SVG）、VNode、组件定义
 function renderLeadingIcon(icon: any) {
   if (icon == null) return null;
-  if (typeof icon === 'string') return h('span', { innerHTML: icon });
+  // 字符串按 SVG 净化后再插入，避免外部数据注入可执行 HTML
+  if (typeof icon === 'string') return h('span', { innerHTML: sanitizeSvgString(icon) });
   if (icon.__v_isVnode) return icon;
   if (typeof icon === 'object' || typeof icon === 'function') {
     return h(icon as any);

@@ -23,6 +23,7 @@ import type { VueNode } from '../../_util/type';
 import useConfigInject from '../../config-provider/hooks/useConfigInject';
 import { getTransitionProps } from '../../_util/transition';
 import { booleanType, stringType, functionType, arrayType, objectType } from '../../_util/type';
+import { safeUrl } from '../../_util/safeUrl';
 
 export const listItemProps = () => {
   return {
@@ -198,7 +199,7 @@ export default defineComponent({
               class={listItemNameClass}
               title={file.name}
               {...linkProps}
-              href={file.url}
+              href={safeUrl(file.url)}
               onClick={e => onPreview(file, e)}
             >
               {file.name}
@@ -222,7 +223,7 @@ export default defineComponent({
       };
       const previewIcon = showPreviewIcon ? (
         <a
-          href={file.url || file.thumbUrl}
+          href={safeUrl(file.url || file.thumbUrl)}
           target="_blank"
           rel="noopener noreferrer"
           style={file.url || file.thumbUrl ? undefined : previewStyle}

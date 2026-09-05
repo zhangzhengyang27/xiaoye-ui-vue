@@ -6,6 +6,7 @@ import useConfigInject from '../config-provider/hooks/useConfigInject';
 import { useInjectAnchor } from './context';
 import type { Key, VueNode, CustomSlotsType } from '../_util/type';
 import { objectType, anyType } from '../_util/type';
+import { safeUrl } from '../_util/safeUrl';
 import type { CSSProperties } from '../_util/cssinjs/hooks/useStyleRegister';
 
 export const anchorLinkProps = () => ({
@@ -92,9 +93,10 @@ export default defineComponent({
         <div {...attrs} class={wrapperClassName}>
           <a
             class={titleClassName}
-            href={href}
+            href={safeUrl(href)}
             title={typeof mergedTitle === 'string' ? mergedTitle : ''}
             target={target}
+            rel={target ? 'noopener noreferrer' : undefined}
             onClick={handleClick}
           >
             {slots.customTitle ? slots.customTitle(customTitleProps) : mergedTitle}

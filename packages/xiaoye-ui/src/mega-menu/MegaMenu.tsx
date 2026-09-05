@@ -5,6 +5,7 @@ import useConfigInject from '../config-provider/hooks/useConfigInject';
 import { AngleDownIcon, AngleRightIcon } from '@xiaoye-ui/icons';
 import type { CustomSlotsType } from '../_util/type';
 import useStyle from './style';
+import { safeUrl } from '../_util/safeUrl';
 import { megaMenuProps } from './megaMenuTypes';
 import type {
   MegaMenuItem,
@@ -261,7 +262,14 @@ export default defineComponent({
       const submenuIcon = hasSubmenu(item) ? renderSubmenuIcon(isItemActive(item)) : null;
 
       // 有 url 时渲染为链接，无 url 时省略 href 以符合 CSP 规范（点击由父级 onClick 处理）
-      const linkProps = item.url ? { href: item.url, target: item.target } : {};
+      // href 过协议白名单，target 存在时补 noopener 防反向标签劫持
+      const linkProps = item.url
+        ? {
+            href: safeUrl(item.url),
+            target: item.target,
+            rel: item.target ? 'noopener noreferrer' : undefined,
+          }
+        : {};
 
       return (
         <a {...linkProps} class={`${prefixCls.value}-item-link`} tabindex={-1}>
@@ -312,7 +320,13 @@ export default defineComponent({
       const iconNode = renderIcon(sub.icon);
 
       // 有 url 时渲染为链接，无 url 时省略 href 以符合 CSP 规范（点击由父级 onClick 处理）
-      const linkProps = sub.url ? { href: sub.url, target: sub.target } : {};
+      const linkProps = sub.url
+        ? {
+            href: safeUrl(sub.url),
+            target: sub.target,
+            rel: sub.target ? 'noopener noreferrer' : undefined,
+          }
+        : {};
 
       return (
         <li key={key} class={itemClass} role="menuitem" aria-disabled={sub.disabled || undefined}>
