@@ -55,11 +55,21 @@ export default defineComponent({
           tabindex="0"
           class={cls}
           style={style as CSSProperties}
+          role="button"
+          // 当前页标记为 aria-current，便于读屏软件播报「当前页」
+          aria-current={props.active ? 'page' : undefined}
+          aria-disabled={!page || undefined}
+          aria-label={String(page)}
         >
           {itemRender({
             page,
             type: 'page',
-            originalElement: <a rel="nofollow">{page}</a>,
+            // 语义已由外层 li[role=button] 承担，内层链接不再暴露给辅助技术
+            originalElement: (
+              <a rel="nofollow" aria-hidden="true" tabindex="-1">
+                {page}
+              </a>
+            ),
           })}
         </li>
       );

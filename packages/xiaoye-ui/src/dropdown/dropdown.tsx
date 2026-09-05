@@ -168,8 +168,11 @@ const Dropdown = defineComponent({
               },
               `${prefixCls.value}-trigger`,
             ),
+            // a11y：向辅助技术暴露「展开式菜单」角色与当前展开状态
+            'aria-haspopup': 'menu',
+            'aria-expanded': !!mergedVisible.value,
           },
-          disabled ? { disabled } : {},
+          disabled ? { disabled, 'aria-disabled': true } : {},
         ),
       );
 

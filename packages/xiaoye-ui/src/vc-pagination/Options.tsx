@@ -139,7 +139,13 @@ export default defineComponent({
                 {locale.jump_to_confirm}
               </button>
             ) : (
-              <span onClick={go} onKeyup={go}>
+              <span
+                onClick={go}
+                onKeyup={go}
+                role="button"
+                tabindex="0"
+                aria-label={locale.jump_to_confirm}
+              >
                 {goButton}
               </span>
             );
@@ -155,6 +161,7 @@ export default defineComponent({
               onChange={handleChange}
               onKeyup={go}
               onBlur={handleBlur}
+              aria-label={`${locale.jump_to}${locale.page}`}
             ></BaseInput>
             {locale.page}
             {gotoButton}

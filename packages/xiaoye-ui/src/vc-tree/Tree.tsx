@@ -995,6 +995,20 @@ export default defineComponent({
           event.preventDefault();
           break;
         }
+        // a11y：Home/End 将焦点移至树内首/末节点
+        case KeyCode.HOME: {
+          const first = flattenNodes.value[0];
+          onActiveChange(first ? first.key : null);
+          event.preventDefault();
+          break;
+        }
+        case KeyCode.END: {
+          const nodes = flattenNodes.value;
+          const last = nodes[nodes.length - 1];
+          onActiveChange(last ? last.key : null);
+          event.preventDefault();
+          break;
+        }
       }
 
       // >>>>>>>>>> Expand & Selection

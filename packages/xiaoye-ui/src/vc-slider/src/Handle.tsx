@@ -103,11 +103,14 @@ export default defineComponent({
         [`${prefixCls}-handle-click-focused`]: clickFocused.value,
       });
 
+      // 垂直滑杆需声明方向，读屏才能正确播报上下增减
+      const orientation: 'vertical' | 'horizontal' = props.vertical ? 'vertical' : 'horizontal';
       const ariaProps = {
         'aria-valuemin': min,
         'aria-valuemax': max,
         'aria-valuenow': value,
         'aria-disabled': !!disabled,
+        'aria-orientation': orientation,
       };
       const elStyle = [attrs.style as CSSProperties, positionStyle.value];
       let mergedTabIndex = tabindex || 0;

@@ -29,6 +29,9 @@ const PrevArrow = (_, { attrs }) => {
     class: prevClasses,
     style: { display: 'block' },
     onClick: prevHandler,
+    // a11y：箭头为纯图标按钮，需可读名称；边界态同步 aria-disabled
+    'aria-label': '上一张',
+    'aria-disabled': prevClasses['slick-disabled'] || undefined,
   };
   const customProps = {
     currentSlide,
@@ -81,6 +84,8 @@ const NextArrow = (_, { attrs }) => {
     class: classnames(nextClasses),
     style: { display: 'block' },
     onClick: nextHandler,
+    'aria-label': '下一张',
+    'aria-disabled': nextClasses['slick-disabled'] || undefined,
   };
   const customProps = {
     currentSlide,

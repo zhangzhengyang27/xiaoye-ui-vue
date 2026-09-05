@@ -279,23 +279,33 @@ export default defineComponent({
       }
       return total > totalBoundaryShowSizeChanger;
     },
-    runIfEnter(event, callback, ...restParams) {
-      if (event.key === 'Enter' || event.charCode === 13) {
+    /**
+     * 键盘激活：Enter 与 Space 都应触发。
+     * 分页项标记为 role="button"，按 ARIA 惯例空格键同样需要能激活，
+     * 且必须 preventDefault 阻止空格滚动页面。
+     */
+    runIfActivate(event, callback, ...restParams) {
+      if (
+        event.key === 'Enter' ||
+        event.key === ' ' ||
+        event.key === 'Spacebar' ||
+        event.charCode === 13
+      ) {
         event.preventDefault();
         callback(...restParams);
       }
     },
     runIfEnterPrev(event) {
-      this.runIfEnter(event, this.prev);
+      this.runIfActivate(event, this.prev);
     },
     runIfEnterNext(event) {
-      this.runIfEnter(event, this.next);
+      this.runIfActivate(event, this.next);
     },
     runIfEnterJumpPrev(event) {
-      this.runIfEnter(event, this.jumpPrev);
+      this.runIfActivate(event, this.jumpPrev);
     },
     runIfEnterJumpNext(event) {
-      this.runIfEnter(event, this.jumpNext);
+      this.runIfActivate(event, this.jumpNext);
     },
     handleGoTO(event) {
       if (event.keyCode === KEYCODE.ENTER || event.type === 'click') {
@@ -413,6 +423,8 @@ export default defineComponent({
             class={classNames(`${prefixCls}-prev`, {
               [`${prefixCls}-disabled`]: !hasPrev,
             })}
+            role="button"
+            aria-label={locale.prev_page}
             aria-disabled={!hasPrev}
           >
             {this.renderPrev(prevPage)}
@@ -430,6 +442,7 @@ export default defineComponent({
               onInput={this.handleKeyUp}
               onChange={this.handleKeyUp}
               size="3"
+              aria-label={`${locale.jump_to}${locale.page}`}
             ></BaseInput>
             <span class={`${prefixCls}-slash`}>／</span>
             {allPages}
@@ -442,6 +455,8 @@ export default defineComponent({
             class={classNames(`${prefixCls}-next`, {
               [`${prefixCls}-disabled`]: !hasNext,
             })}
+            role="button"
+            aria-label={locale.next_page}
             aria-disabled={!hasNext}
           >
             {this.renderNext(nextPage)}
@@ -457,7 +472,7 @@ export default defineComponent({
         showTitle,
         itemRender,
         onClick: this.handleChange,
-        onKeypress: this.runIfEnter,
+        onKeypress: this.runIfActivate,
       };
       if (!allPages) {
         pagerList.push(
@@ -482,6 +497,9 @@ export default defineComponent({
             class={classNames(`${prefixCls}-jump-prev`, {
               [`${prefixCls}-jump-prev-custom-icon`]: !!jumpPrevIcon,
             })}
+            role="button"
+            aria-label={prevItemTitle}
+            aria-disabled={!allPages}
           >
             {itemRender({
               page: this.getJumpPrevPage(),
@@ -501,6 +519,9 @@ export default defineComponent({
             class={classNames(`${prefixCls}-jump-next`, {
               [`${prefixCls}-jump-next-custom-icon`]: !!jumpNextIcon,
             })}
+            role="button"
+            aria-label={nextItemTitle}
+            aria-disabled={!allPages}
           >
             {itemRender({
               page: this.getJumpNextPage(),
@@ -517,7 +538,7 @@ export default defineComponent({
           last
           rootPrefixCls={prefixCls}
           onClick={this.handleChange}
-          onKeypress={this.runIfEnter}
+          onKeypress={this.runIfActivate}
           key={allPages}
           page={allPages}
           active={false}
@@ -530,7 +551,7 @@ export default defineComponent({
           locale={locale}
           rootPrefixCls={prefixCls}
           onClick={this.handleChange}
-          onKeypress={this.runIfEnter}
+          onKeypress={this.runIfActivate}
           key={1}
           page={1}
           active={false}
@@ -557,7 +578,7 @@ export default defineComponent({
             locale={locale}
             rootPrefixCls={prefixCls}
             onClick={this.handleChange}
-            onKeypress={this.runIfEnter}
+            onKeypress={this.runIfActivate}
             key={i}
             page={i}
             active={active}
@@ -573,7 +594,7 @@ export default defineComponent({
             locale={locale}
             rootPrefixCls={prefixCls}
             onClick={this.handleChange}
-            onKeypress={this.runIfEnter}
+            onKeypress={this.runIfActivate}
             key={left}
             page={left}
             class={`${prefixCls}-item-after-jump-prev`}
@@ -590,7 +611,7 @@ export default defineComponent({
             locale={locale}
             rootPrefixCls={prefixCls}
             onClick={this.handleChange}
-            onKeypress={this.runIfEnter}
+            onKeypress={this.runIfActivate}
             key={right}
             page={right}
             class={`${prefixCls}-item-before-jump-next`}
@@ -644,6 +665,8 @@ export default defineComponent({
           class={classNames(`${prefixCls}-prev`, {
             [`${prefixCls}-disabled`]: prevDisabled,
           })}
+          role="button"
+          aria-label={locale.prev_page}
           aria-disabled={prevDisabled}
         >
           {this.renderPrev(prevPage)}
@@ -657,6 +680,8 @@ export default defineComponent({
           class={classNames(`${prefixCls}-next`, {
             [`${prefixCls}-disabled`]: nextDisabled,
           })}
+          role="button"
+          aria-label={locale.next_page}
           aria-disabled={nextDisabled}
         >
           {this.renderNext(nextPage)}

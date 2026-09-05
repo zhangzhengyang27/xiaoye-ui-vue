@@ -128,7 +128,7 @@ const Carousel = defineComponent({
     });
     return () => {
       const { dots, arrows, draggable, effect, beforeChange, afterChange, swipeEvent } = props;
-      const { class: cls, style, ...restAttrs } = attrs;
+      const { class: cls, style, 'aria-label': ariaLabel, ...restAttrs } = attrs;
       const fade = effect === 'fade' ? true : props.fade;
       const className = classNames(
         prefixCls.value,
@@ -140,7 +140,13 @@ const Carousel = defineComponent({
         hashId.value,
       );
       return wrapSSR(
-        <div class={className} style={style as CSSProperties}>
+        <div
+          class={className}
+          style={style as CSSProperties}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label={(ariaLabel as string) || undefined}
+        >
           <SlickCarousel
             ref={slickRef}
             {...props}

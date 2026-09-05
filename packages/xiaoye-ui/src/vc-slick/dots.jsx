@@ -70,7 +70,13 @@ const Dots = (_, { attrs }) => {
     }
     dots = dots.concat(
       <li key={i} class={className}>
-        {cloneElement(customPaging({ i }), { onClick })}
+        {cloneElement(customPaging({ i }), {
+          onClick,
+          // a11y：指示点数字在 CSS 中被隐藏（font-size:0），需提供可读名称；
+          // 当前项标记 aria-current
+          'aria-label': `第 ${i + 1} 张`,
+          'aria-current': className['slick-active'] ? 'true' : undefined,
+        })}
       </li>,
     );
   }

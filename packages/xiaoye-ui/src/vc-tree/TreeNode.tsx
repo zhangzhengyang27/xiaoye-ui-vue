@@ -560,6 +560,10 @@ export default defineComponent({
           // Draggable config
           draggable={draggableWithoutDisabled}
           aria-grabbed={dragging}
+          role="treeitem"
+          aria-level={(level || 0) + 1}
+          aria-expanded={!isLeaf ? !!expanded.value : undefined}
+          aria-disabled={disabled || undefined}
           onDragstart={draggableWithoutDisabled ? onDragStart : undefined}
           // Drop config
           onDragenter={mergedDraggable ? onDragEnter : undefined}

@@ -95,19 +95,24 @@ export default defineComponent({
     const breakpoint = useBreakpoint();
     const [locale] = useLocaleReceiver('Pagination', enUS, toRef(props, 'locale'));
     const getIconsProps = (pre: string) => {
-      const ellipsis = <span class={`${pre}-item-ellipsis`}>•••</span>;
+      // 语义已由外层 li[role=button] 承担，这些图标均为装饰，隐藏以免读屏重复播报
+      const ellipsis = (
+        <span class={`${pre}-item-ellipsis`} aria-hidden="true">
+          •••
+        </span>
+      );
       const prevIcon = (
-        <button class={`${pre}-item-link`} type="button" tabindex={-1}>
+        <button class={`${pre}-item-link`} type="button" tabindex={-1} aria-hidden="true">
           {direction.value === 'rtl' ? <RightOutlined /> : <LeftOutlined />}
         </button>
       );
       const nextIcon = (
-        <button class={`${pre}-item-link`} type="button" tabindex={-1}>
+        <button class={`${pre}-item-link`} type="button" tabindex={-1} aria-hidden="true">
           {direction.value === 'rtl' ? <LeftOutlined /> : <RightOutlined />}
         </button>
       );
       const jumpPrevIcon = (
-        <a rel="nofollow" class={`${pre}-item-link`}>
+        <a rel="nofollow" class={`${pre}-item-link`} aria-hidden="true" tabindex={-1}>
           <div class={`${pre}-item-container`}>
             {direction.value === 'rtl' ? (
               <DoubleRightOutlined class={`${pre}-item-link-icon`} />
@@ -119,7 +124,7 @@ export default defineComponent({
         </a>
       );
       const jumpNextIcon = (
-        <a rel="nofollow" class={`${pre}-item-link`}>
+        <a rel="nofollow" class={`${pre}-item-link`} aria-hidden="true" tabindex={-1}>
           <div class={`${pre}-item-container`}>
             {direction.value === 'rtl' ? (
               <DoubleLeftOutlined class={`${pre}-item-link-icon`} />
