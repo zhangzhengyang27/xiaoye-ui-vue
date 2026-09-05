@@ -68,7 +68,8 @@ const TreeTable = defineComponent({
     const d_columns = new HelperSet({ type: 'Column' });
 
     const state = reactive({
-      d_expandedKeys: props.expandedKeys || {},
+      // 浅拷贝：避免后续 delete/赋值直接改动父组件传入的对象
+      d_expandedKeys: props.expandedKeys ? { ...props.expandedKeys } : {},
       d_first: props.first,
       d_rows: props.rows,
       d_sortField: props.sortField,
@@ -80,7 +81,7 @@ const TreeTable = defineComponent({
       styleElement: null as HTMLStyleElement | null,
     });
 
-    const { d_expandedKeys, d_first, d_rows, d_sortField, d_sortOrder, d_multiSortMeta } = state;
+    // 注意：state 是 reactive，禁止解构（解构会丢失响应性），一律通过 state.d_xxx 读写
 
     const tableRef = ref<HTMLElement | null>(null);
     const resizeHelperRef = ref<HTMLElement | null>(null);
@@ -139,8 +140,8 @@ const TreeTable = defineComponent({
       const data = processedData.value;
 
       if (props.pagination) {
-        const first = props.lazy ? 0 : d_first;
-        return data.slice(first, first + d_rows);
+        const first = props.lazy ? 0 : state.d_first;
+        return data.slice(first, first + state.d_rows);
       } else {
         return data;
       }
@@ -152,7 +153,7 @@ const TreeTable = defineComponent({
     });
 
     const sorted = computed(() => {
-      return d_sortField || (d_multiSortMeta && d_multiSortMeta.length > 0);
+      return state.d_sortField || (state.d_multiSortMeta && state.d_multiSortMeta.length > 0);
     });
 
     const hasFooter = computed(() => {
@@ -783,13 +784,13 @@ const TreeTable = defineComponent({
     });
 
     const renderPagination = (position: 'top' | 'bottom') => {
-      const current = d_rows > 0 ? Math.floor(d_first / d_rows) + 1 : 1;
+      const current = state.d_rows > 0 ? Math.floor(state.d_first / state.d_rows) + 1 : 1;
 
       return (
         <Pagination
           total={totalRecordsLength.value}
           current={current}
-          pageSize={d_rows}
+          pageSize={state.d_rows}
           pageSizeOptions={props.rowsPerPageOptions}
           showSizeChanger={!!props.rowsPerPageOptions}
           hideOnSinglePage={!props.alwaysShowPagination}
@@ -808,9 +809,9 @@ const TreeTable = defineComponent({
             key={columnProp(col, 'columnKey') || columnProp(col, 'field') || i}
             column={col}
             resizableColumns={props.resizableColumns}
-            sortField={d_sortField}
-            sortOrder={d_sortOrder}
-            multiSortMeta={d_multiSortMeta}
+            sortField={state.d_sortField}
+            sortOrder={state.d_sortOrder}
+            multiSortMeta={state.d_multiSortMeta}
             sortMode={props.sortMode}
             onColumnClick={onColumnHeaderClick}
             onColumnResizestart={onColumnResizeStart}
@@ -857,7 +858,7 @@ const TreeTable = defineComponent({
           columns={columns.value}
           node={node}
           level={0}
-          expandedKeys={d_expandedKeys}
+          expandedKeys={state.d_expandedKeys}
           indentation={props.indentation}
           selectionMode={props.selectionMode}
           selectionKeys={props.selectionKeys}
