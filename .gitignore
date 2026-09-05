@@ -62,7 +62,8 @@ es
 _site
 yarn.lock
 package-lock.json
-pnpm-lock.yaml
+# 注意：pnpm-lock.yaml 必须提交。本仓库是 pnpm workspace monorepo，
+# 忽略 lockfile 会导致协作者与 CI 解析出不同的依赖版本，构建不可复现。
 /coverage
 
 # Nuxt 临时构建目录
@@ -83,3 +84,6 @@ playwright-report/
 
 # TRAE IDE 内部工作文档（迁移计划等），不纳入版本控制
 .trae/
+
+
+docs/column
