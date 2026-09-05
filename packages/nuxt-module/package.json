@@ -4,14 +4,6 @@
   "description": "Nuxt module for XiaoyeUI",
   "homepage": "https://xiaoye-ui.github.io/",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
-    "directory": "packages/nuxt-module"
-  },
-  "bugs": {
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
-  },
   "keywords": [
     "vue",
     "vue.js",

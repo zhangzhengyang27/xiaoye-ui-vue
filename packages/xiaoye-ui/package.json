@@ -16,13 +16,6 @@
     "typescript"
   ],
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
-  },
   "type": "module",
   "main": "./src/index.ts",
   "module": "./src/index.ts",

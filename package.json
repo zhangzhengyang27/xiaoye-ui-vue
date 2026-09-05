@@ -37,14 +37,7 @@
     "Firefox ESR",
     "not dead"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
-  },
   "homepage": "https://xiaoye-ui.github.io/",
   "engines": {
     "node": ">=18.0.0"

@@ -117,9 +117,7 @@ import { ConfigProvider } from 'xiaoye-ui';
 ## 链接
 
 - [文档站点](https://xiaoye-ui.github.io/)
-- [GitHub](https://github.com/xiaoye-ui/xiaoye-ui)
-- [更新日志](https://github.com/xiaoye-ui/xiaoye-ui/blob/master/CHANGELOG.md)
 
 ## 许可证
 
-[MIT](https://github.com/xiaoye-ui/xiaoye-ui/blob/master/LICENSE)
+[MIT](./LICENSE)

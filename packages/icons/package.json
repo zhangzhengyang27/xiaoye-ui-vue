@@ -5,14 +5,6 @@
   "description": "",
   "homepage": "https://xiaoye-ui/",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui.git",
-    "directory": "packages/icons"
-  },
-  "bugs": {
-    "url": "https://github.com/xiaoye-ui/xiaoye-ui/issues"
-  },
   "sideEffects": [
     "*.vue"
   ],
