@@ -1104,7 +1104,7 @@ const DataTable = defineComponent({
         for (const data of selection) {
           d_selectionKeys.value[String(resolveFieldData(data, props.dataKey))] = 1;
         }
-      } else {
+      } else if (selection) {
         d_selectionKeys.value[String(resolveFieldData(selection, props.dataKey))] = 1;
       }
     }

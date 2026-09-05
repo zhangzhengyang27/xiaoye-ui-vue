@@ -324,6 +324,9 @@ export default defineComponent({
         if (props.placeholder) {
           editor.view.dispatch(editor.state.tr);
         }
+        // 编辑器就绪后再应用初始 disabled：
+        // watch 的 immediate 早于 useEditor 创建，此时 editor.value 为 null，初始只读态会失效
+        editor.setEditable(!props.disabled);
       },
       onUpdate: ({ editor }) => {
         let value;

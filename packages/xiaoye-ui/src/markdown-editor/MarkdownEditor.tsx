@@ -62,7 +62,9 @@ export default defineComponent({
     );
 
     // 标记是否正在通过外部 modelValue 同步到 Vditor，避免回环
-    let isSyncingFromProps = false;
+    // 记录正在从 props 同步进 Vditor 的值：Vditor 的 input 回调可能晚于同步调用，
+    // 布尔标志会提前复位，改用值比较来识别「本次同步引发的回调」
+    let syncingValue: string | null = null;
 
     const rootClasses = computed(() => {
       return [prefixCls.value, hashId.value];
@@ -87,9 +89,10 @@ export default defineComponent({
       const current =
         props.valueFormat === 'html' ? vditorInstance.getHTML() : vditorInstance.getValue();
       if (value !== current) {
-        isSyncingFromProps = true;
+        // 记录正在同步的值：Vditor 的 input 回调可能是防抖/异步的，
+        // 布尔标志会在回调前就复位，改用值比较判断是否由本次同步触发
+        syncingValue = value;
         vditorInstance.setValue(value ?? '', true);
-        isSyncingFromProps = false;
       }
     };
 
@@ -140,7 +143,12 @@ export default defineComponent({
 
       // 事件回调
       options.input = (value: string) => {
-        if (isSyncingFromProps) return;
+        // 与正在同步的值一致 -> 本次回调由 syncValueToVditor 触发，丢弃以防回环
+        if (syncingValue !== null && value === syncingValue) {
+          syncingValue = null;
+          return;
+        }
+        syncingValue = null;
         innerValue.value = value;
         emit('input', value);
         emit('update:modelValue', getEmitValue());
@@ -177,7 +185,11 @@ export default defineComponent({
       () => props.modelValue,
       newValue => {
         if (newValue === undefined || !vditorInstance) return;
-        if (isSyncingFromProps) return;
+        // 该值由内部输入回传产生，无需再写回 Vditor
+        if (syncingValue !== null && newValue === syncingValue) {
+          syncingValue = null;
+          return;
+        }
         syncValueToVditor(newValue);
       },
     );

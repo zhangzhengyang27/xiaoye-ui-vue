@@ -56,6 +56,9 @@ export function useFocusTrap(
   let mutationObserver: MutationObserver | undefined;
   let focusInListener: ((event: FocusEvent) => void) | undefined;
   let focusOutListener: ((event: FocusEvent) => void) | undefined;
+  // 记录 bind 时绑定的元素，供 unbind 精确解绑（不能依赖 target.value，
+  // watch 重跑时它可能已指向新元素）
+  let boundEl: HTMLElement | null = null;
 
   function getOptions() {
     return optsComputed.value;
@@ -166,13 +169,15 @@ export function useFocusTrap(
 
     el.addEventListener('focusin', focusInListener);
     el.addEventListener('focusout', focusOutListener);
+    boundEl = el;
   }
 
   function unbind() {
     mutationObserver?.disconnect();
     mutationObserver = undefined;
 
-    const el = target.value;
+    const el = boundEl;
+    boundEl = null;
     if (!el) return;
 
     if (focusInListener) {

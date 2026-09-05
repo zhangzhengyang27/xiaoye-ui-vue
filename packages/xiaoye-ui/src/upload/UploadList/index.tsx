@@ -21,6 +21,7 @@ import type { VueNode } from '../../_util/type';
 import useConfigInject from '../../config-provider/hooks/useConfigInject';
 import { getTransitionGroupProps } from '../../_util/transition';
 import collapseMotion from '../../_util/collapseMotion';
+import { openSafeWindow } from '../../_util/safeUrl';
 
 const HackSlot = (_, { slots }) => {
   return filterEmpty(slots.default?.())[0];
@@ -53,50 +54,68 @@ export default defineComponent({
     };
     const motionAppear = shallowRef(false);
     onMounted(() => {
-      motionAppear.value == true;
+      motionAppear.value = true;
     });
-    const mergedItems = shallowRef([]);
+    const mergedItems = shallowRef<any[]>([]);
+
+    // 记录已发起过缩略图预览的文件，避免在 props.items 上写标记（会改动父组件数据）
+    const previewedUids = new Set<string>();
+    const previewedFiles = new WeakSet<object>();
+
+    const isPreviewed = (file: InternalUploadFile) =>
+      file.uid != null ? previewedUids.has(String(file.uid)) : previewedFiles.has(file);
+
+    const markPreviewed = (file: InternalUploadFile) => {
+      if (file.uid != null) {
+        previewedUids.add(String(file.uid));
+      } else {
+        previewedFiles.add(file);
+      }
+    };
+
     watch(
       () => props.items,
       (val = []) => {
-        mergedItems.value = val.slice();
+        // 复制元素而非 slice 浅拷贝：后续写入 thumbUrl 只作用于副本，不污染 props.items，
+        // 也就不会反过来触发下面的 deep watch，避免「监听源被自身修改」的循环
+        mergedItems.value = val.map(file => ({ ...file }));
       },
       {
         immediate: true,
         deep: true,
       },
     );
+
     watchEffect(() => {
       if (props.listType !== 'picture' && props.listType !== 'picture-card') {
         return;
       }
-      let hasUpdate = false;
-      (props.items || []).forEach((file: InternalUploadFile, index) => {
+      (props.items || []).forEach((file: InternalUploadFile) => {
         if (
           typeof document === 'undefined' ||
           typeof window === 'undefined' ||
           !(window as any).FileReader ||
           !(window as any).File ||
           !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
-          file.thumbUrl !== undefined
+          file.thumbUrl !== undefined ||
+          !props.previewFile ||
+          isPreviewed(file)
         ) {
           return;
         }
-        file.thumbUrl = '';
-        if (props.previewFile) {
-          props.previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
-            // Need append '' to avoid dead loop
-            const thumbUrl = previewDataUrl || '';
-            if (thumbUrl !== file.thumbUrl) {
-              mergedItems.value[index].thumbUrl = thumbUrl;
-              hasUpdate = true;
-            }
-          });
-        }
+
+        markPreviewed(file);
+
+        props.previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
+          const thumbUrl = previewDataUrl || '';
+          // 异步回调期间 mergedItems 可能已重建，按 uid 精确定位而非依赖索引
+          const target = mergedItems.value.find(item => item.uid === file.uid);
+          if (target && target.thumbUrl !== thumbUrl) {
+            target.thumbUrl = thumbUrl;
+            triggerRef(mergedItems);
+          }
+        });
       });
-      if (hasUpdate) {
-        triggerRef(mergedItems);
-      }
     });
 
     // ============================= Events =============================
@@ -112,7 +131,8 @@ export default defineComponent({
       if (typeof props.onDownload === 'function') {
         callEvent(props.onDownload, file);
       } else if (file.url) {
-        window.open(file.url);
+        // 协议白名单 + noopener，避免 javascript: 伪协议与反向标签劫持
+        openSafeWindow(file.url);
       }
     };
 

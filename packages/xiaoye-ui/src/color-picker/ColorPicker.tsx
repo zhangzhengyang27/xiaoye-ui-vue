@@ -50,7 +50,9 @@ export default defineComponent({
     const isDragging = ref(false);
     const hsbValue = ref<ColorPickerHSBValue | null>(null);
     const localHue = ref(0);
-    const selfUpdate = ref(false);
+    // 记录组件自身最近一次 emit 出去的值，用于在 modelValue 回传时判断是否需要回写 UI。
+    // 相比布尔标志，值比较不会在非受控（父组件未用 v-model）场景下残留状态。
+    const lastEmittedValue = ref<any>(undefined);
     const d_value = ref(props.defaultValue !== undefined ? props.defaultValue : props.modelValue);
 
     // Dragging state
@@ -249,7 +251,6 @@ export default defineComponent({
         b: brightness,
       });
 
-      selfUpdate.value = true;
       updateColorHandle();
       updateInput();
       updateModel(event);
@@ -274,7 +275,6 @@ export default defineComponent({
         b: hsbValue.value?.b ?? 0,
       });
 
-      selfUpdate.value = true;
       updateColorSelector();
       updateHue();
       updateModel(event);
@@ -303,6 +303,7 @@ export default defineComponent({
 
     function writeValue(value: any, _event: MouseEvent | TouchEvent) {
       d_value.value = value;
+      lastEmittedValue.value = value;
       emit('update:modelValue', value);
       emit('value-change', value);
     }
@@ -577,10 +578,19 @@ export default defineComponent({
       newValue => {
         d_value.value = newValue;
         hsbValue.value = toHSB(newValue);
-        if (selfUpdate.value) selfUpdate.value = false;
-        else updateUI();
+
+        const emitted = lastEmittedValue.value;
+        lastEmittedValue.value = undefined;
+
+        // 值由组件自身 emit 产生时 UI 已是最新，跳过回写；否则按外部值刷新 UI
+        if (emitted !== undefined && JSON.stringify(emitted) === JSON.stringify(newValue)) {
+          return;
+        }
+
+        updateUI();
       },
-      { immediate: true },
+      // rgb/hsb 格式下 modelValue 是对象，父组件原地修改也需要感知
+      { immediate: true, deep: true },
     );
 
     watch(

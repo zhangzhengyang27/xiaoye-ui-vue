@@ -62,9 +62,8 @@ const Preview = defineComponent({
   props: previewProps,
   emits: ['close', 'afterClose'],
   setup(props, { emit, attrs }) {
-    const { rotateLeft, rotateRight, zoomIn, zoomOut, close, left, right, flipX, flipY } = reactive(
-      props.icons,
-    );
+    // 注意：reactive 解构会丢失响应性，这里保持对 props.icons 的引用读取
+    const icons = computed(() => props.icons || {});
 
     const scale = shallowRef(1);
     const rotate = shallowRef(0);
@@ -169,44 +168,44 @@ const Preview = defineComponent({
     });
     const toolClassName = `${props.prefixCls}-operations-operation`;
     const iconClassName = `${props.prefixCls}-operations-icon`;
-    const tools = [
+    const tools = computed(() => [
       {
-        icon: close,
+        icon: icons.value.close,
         onClick: onClose,
         type: 'close',
       },
       {
-        icon: zoomIn,
+        icon: icons.value.zoomIn,
         onClick: () => onZoomIn(),
         type: 'zoomIn',
       },
       {
-        icon: zoomOut,
+        icon: icons.value.zoomOut,
         onClick: () => onZoomOut(),
         type: 'zoomOut',
         disabled: computed(() => scale.value === 1),
       },
       {
-        icon: rotateRight,
+        icon: icons.value.rotateRight,
         onClick: onRotateRight,
         type: 'rotateRight',
       },
       {
-        icon: rotateLeft,
+        icon: icons.value.rotateLeft,
         onClick: onRotateLeft,
         type: 'rotateLeft',
       },
       {
-        icon: flipX,
+        icon: icons.value.flipX,
         onClick: onFlipX,
         type: 'flipX',
       },
       {
-        icon: flipY,
+        icon: icons.value.flipY,
         onClick: onFlipY,
         type: 'flipY',
       },
-    ];
+    ]);
 
     const onMouseUp: MouseEventHandler = () => {
       if (props.visible && isMoving.value) {
@@ -363,7 +362,7 @@ const Preview = defineComponent({
         >
           <div class={[`${props.prefixCls}-operations-wrapper`, rootClassName]}>
             <ul class={`${props.prefixCls}-operations`}>
-              {tools.map(({ icon: IconType, onClick, type, disabled }) => (
+              {tools.value.map(({ icon: IconType, onClick, type, disabled }) => (
                 <li
                   class={classnames(toolClassName, {
                     [`${props.prefixCls}-operations-operation-disabled`]:
@@ -404,7 +403,7 @@ const Preview = defineComponent({
               })}
               onClick={onSwitchLeft}
             >
-              {left}
+              {icons.value.left}
             </div>
           )}
           {showLeftOrRightSwitches.value && (
@@ -415,7 +414,7 @@ const Preview = defineComponent({
               })}
               onClick={onSwitchRight}
             >
-              {right}
+              {icons.value.right}
             </div>
           )}
         </Dialog>

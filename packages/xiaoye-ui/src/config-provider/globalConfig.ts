@@ -22,8 +22,10 @@ export const globalConfigForApi: ConfigProviderProps & {
 
 watchEffect(() => {
   Object.assign(globalConfigForApi, globalConfigBySet);
-  globalConfigForApi.prefixCls = getGlobalPrefixCls();
-  globalConfigForApi.iconPrefixCls = getGlobalIconPrefixCls();
+  // 只从 globalConfigBySet 读取，不能读 globalConfigForApi.prefixCls：
+  // 那样会同时读写同一个响应式对象形成自依赖，写入值一旦与读回值不同即无限重跑
+  globalConfigForApi.prefixCls = globalConfigBySet.prefixCls || defaultPrefixCls;
+  globalConfigForApi.iconPrefixCls = globalConfigBySet.iconPrefixCls || defaultIconPrefixCls;
   globalConfigForApi.getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
     return suffixCls

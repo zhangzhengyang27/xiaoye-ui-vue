@@ -81,5 +81,12 @@ export default function useMobileTouchMove(
   });
   onBeforeUnmount(() => {
     document.removeEventListener('touchmove', noop);
+    // 卸载时同步清理惯性滚动定时器与元素监听，
+    // 否则回调仍会在一段时间内操作已卸载组件的滚动状态
+    clearInterval(interval);
+    interval = null;
+    listRef.value?.removeEventListener('touchstart', onTouchStart);
+    cleanUpEvents();
+    element = null;
   });
 }

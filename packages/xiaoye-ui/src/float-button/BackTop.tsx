@@ -2,7 +2,6 @@ import { VerticalAlignTopOutlined } from '@xiaoye-ui/icons';
 import { getTransitionProps } from '../_util/transition';
 import {
   defineComponent,
-  nextTick,
   onActivated,
   onBeforeUnmount,
   onMounted,
@@ -80,26 +79,22 @@ const BackTop = defineComponent({
       container?.removeEventListener('scroll', handleScroll);
     };
 
+    // 直接同步重绑：nextTick 不会带来任何额外保证（props.target 已同步），
+    // 反而制造 target 变更后一拍的空窗期，期间滚动事件丢失
     watch(
       () => props.target,
       () => {
         scrollRemove();
-        nextTick(() => {
-          bindScrollEvent();
-        });
+        bindScrollEvent();
       },
     );
 
     onMounted(() => {
-      nextTick(() => {
-        bindScrollEvent();
-      });
+      bindScrollEvent();
     });
 
     onActivated(() => {
-      nextTick(() => {
-        bindScrollEvent();
-      });
+      bindScrollEvent();
     });
 
     onDeactivated(() => {

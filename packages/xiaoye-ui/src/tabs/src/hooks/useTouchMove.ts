@@ -46,11 +46,16 @@ export default function useTouchMove(
   function onTouchEnd() {
     if (!touchPosition.value) return;
     const lastOffsetValue = lastOffset.value;
+
+    // 时间差为 0 会让速度计算得到 Infinity/NaN，导致惯性动画永不停止
+    const timeDiff = lastTimeDiff.value;
+    const validDiff = Number.isFinite(timeDiff) && timeDiff > 0;
+
     setTouchPosition(null);
     setLastOffset(null);
 
     // Swipe if needed
-    if (lastOffsetValue) {
+    if (lastOffsetValue && validDiff) {
       const distanceX = lastOffsetValue.x / lastTimeDiff.value;
       const distanceY = lastOffsetValue.y / lastTimeDiff.value;
       const absX = Math.abs(distanceX);
@@ -134,6 +139,9 @@ export default function useTouchMove(
   });
 
   onBeforeUnmount(() => {
+    // 惯性动画定时器必须清理，否则组件卸载后仍持续回调 onOffset
+    clearInterval(motionInterval.value);
+    motionInterval.value = undefined;
     document.removeEventListener('touchmove', onProxyTouchMove);
     document.removeEventListener('touchend', onProxyTouchEnd);
   });
