@@ -17,8 +17,12 @@
 
 ### 测试
 
-- 新增 `form` 单测 23 个（`useForm` 校验/trigger/reset/clearValidate/嵌套路径 + `Form` 提交与错误渲染）、`table-core` 单测 25 个（排序/分页/过滤/引擎分派）、`app` 单测 5 个
-- 新增导出聚合生成器单测 19 个与包根导出面快照守卫，单测总数 1207 → 1282
+- 新增 `form` 单测 32 个（`useForm` 校验/trigger/reset/clearValidate/嵌套路径 + `Form` 提交与错误渲染 + `FormItemRest` 上下文隔离与多控件告警 + ErrorList 多条错误/`help` 覆盖）、`table-core` 单测 25 个（排序/分页/过滤/引擎分派）、`app` 单测 5 个
+- 新增导出聚合生成器单测 19 个与包根导出面快照守卫，单测总数 1207 → 1291
+
+### 修复
+
+- `Form.Item` 收集到多个控件时的开发告警把用户指向不存在的 `a-form-item-rest` 标签，改为 `xy-form-item-rest`（文档正文同样修正）
 
 ## 6.0.0
 

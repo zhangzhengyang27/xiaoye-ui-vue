@@ -53,7 +53,7 @@ export const useProvideFormItemContext = (
           ]
             .map(v => `\`${v.name}\``)
             .join(', ')} ${formItemFields.value.size} field items.
-        You can set not need to be collected fields into \`a-form-item-rest\``,
+        You can set not need to be collected fields into \`xy-form-item-rest\``,
         );
       }
     }
