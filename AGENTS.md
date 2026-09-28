@@ -196,9 +196,9 @@ import type { ButtonType } from './buttonTypes';
 import type { CustomSlotsType } from '../_util/type';
 
 export default defineComponent({
-  name: 'AButton',
+  name: 'XYButton',
   inheritAttrs: false,
-  __ANT_BUTTON: true,  // 内部标识
+  __XY_BUTTON: true,  // 内部标识
   props: initDefaultProps(buttonProps(), { type: 'default' }),
   slots: Object as CustomSlotsType<{
     icon: any;
@@ -600,12 +600,34 @@ import { genComponentStyleHook } from 'xiaoye-ui/theme/internal';
 
 1. 创建组件目录结构
 2. 实现组件文件和样式
-3. 导出组件（index.ts）
-4. 注册到主入口（src/index.ts）
-5. 添加导出到 package.json
-6. 编写文档和示例
-7. 添加单元测试
-8. 运行 `pnpm typecheck` 确保类型正确
+3. 在组件 `index.ts` 里导出组件与 Props 类型
+4. 运行 `pnpm gen:entries` 重新生成聚合入口与导出表（见下节，替代手工改 `src/index.ts` / `package.json`）
+5. 编写文档和示例
+6. 添加单元测试
+7. 运行 `pnpm typecheck` 确保类型正确
+
+### 生成物：导出聚合（强制了解）
+
+`packages/xiaoye-ui` 有三个**生成物**，已纳入版本控制，禁止手工编辑：
+
+| 生成物 | 作用 |
+| --- | --- |
+| `src/components.ts` | 组件聚合入口：`export * from './<dir>'` + `export { default as Xx }` + 样式副作用导入 + 歧义名定主语句 |
+| `typings/global.d.ts` | Vue `GlobalComponents` 类型声明（`XYXxx`） |
+| `package.json` 的 `exports` 字段 | 每个组件 `./<name>` 与 `./<name>/style` 双入口（开发期指向 `src`，发布期由 `postbuild` 转成 `dist`） |
+
+生成器在 `packages/xiaoye-ui/scripts/`：`entry-generator.mjs`（静态扫描导出名）+ `gen-entries.mjs`（CLI）+ `ownership-pins.mjs`（归属 pin）。
+
+```bash
+pnpm gen:entries     # 写生成物（新增/改名/删除组件后必须执行）
+pnpm check:entries   # 只校验生成物是否新鲜，漂移则退出码 1
+```
+
+- `pnpm build` 的 `prebuild` 只做 `--check`：**不再静默改写 tracked 文件**，检测到漂移即失败并提示运行 `pnpm gen:entries`。
+- 两个组件暴露同名导出（如都导出 `XxxProps`）会让 `src/components.ts` 触发 TS2308。生成器会自动挑出 owner 并补一条显式 re-export 来消解，**不需要**也**不应该**再维护 `export *` 黑名单。
+- 自动归属优先级：目录名正是该名字的 PascalCase → 只有一个候选目录就地声明了它（其余是转发）→ 目录名字典序。
+- `ownership-pins.mjs` 只用于锁定「6.x 已经发布出去的」归属（`ColumnType`、`LabeledValue`、`SelectValue`），避免换 owner 改变公开 API。**新增冲突不要加 pin**；pin 失效时 `--check` 会报错要求删除。
+- 新增组件时避免与既有公开名重名（尤其 `XxxProps` 之外的裸名如 `Group`/`Item`）；重名不会报错，但会让更多名字出现在包根导出面上，需要一并更新 `tests/__snapshots__/index.test.js.snap`。
 
 ### 添加新依赖
 
@@ -722,8 +744,15 @@ pnpm test:unit
 pnpm build:packages
 ```
 
+改动过组件目录（新增/改名/删除）时，还要：
+
+```bash
+pnpm gen:entries   # 重新生成 components.ts / global.d.ts / package.json exports
+```
+
 ### 禁止事项
 
+- 禁止手工编辑生成物 `packages/xiaoye-ui/src/components.ts`、`packages/xiaoye-ui/typings/global.d.ts`，或绕过 `pnpm gen:entries` 直接改 `packages/xiaoye-ui/package.json` 的 `exports`。
 - 禁止引入新的 `@ant-design/icons-vue` 依赖或子路径导入。
 - 禁止在组件代码中遗留 `console.log`（允许 `console.warn` / `console.error`）。
 - 禁止在发布产物中保留 `workspace:*` 依赖声明。

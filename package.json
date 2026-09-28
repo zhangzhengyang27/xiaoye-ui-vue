@@ -27,6 +27,8 @@
     "format:check": "prettier --check \"**/*.{js,mjs,jsx,ts,tsx,json,md}\"",
     "typecheck": "pnpm -r run typecheck",
     "generate:llms": "node scripts/generate-llms-txt.mjs",
+    "gen:entries": "pnpm --filter xiaoye-ui gen:entries",
+    "check:entries": "pnpm --filter xiaoye-ui check:entries",
     "release:login": "npm login --auth-type=web",
     "release": "pnpm recursive publish --filter './packages/*' --report-summary --publish-branch $(git branch --show-current)",
     "prepare": "husky"

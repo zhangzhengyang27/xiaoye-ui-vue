@@ -32,7 +32,9 @@
   ],
   "scripts": {
     "dev": "vite",
-    "prebuild": "node scripts/prebuild.mjs",
+    "gen:entries": "node scripts/gen-entries.mjs --write",
+    "check:entries": "node scripts/gen-entries.mjs --check",
+    "prebuild": "node scripts/gen-entries.mjs --check",
     "build": "vite build",
     "postbuild": "node scripts/postbuild.mjs",
     "test:unit": "vitest run",

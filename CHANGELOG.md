@@ -2,6 +2,24 @@
 
 本项目所有 notable 变更都会记录在此文件中。
 
+## Unreleased
+
+### 工程与构建
+
+- `packages/xiaoye-ui` 的导出聚合改为静态扫描生成：新增 `scripts/entry-generator.mjs` + `scripts/gen-entries.mjs`，删除 `scripts/prebuild.mjs`
+- 取消手工维护的 `EXPORT_STAR_EXCEPTIONS` / `NAMED_EXPORT_OVERRIDES` / `NO_DEFAULT_EXPORT_DIRS` 黑名单；两个组件暴露同名导出时由生成器自动定主（显式 re-export 覆盖 `export *`），不再触发 TS2308
+- `pnpm build` 的 prebuild 由「就地改写 tracked 文件」改为漂移校验：生成物过期时构建失败并提示运行 `pnpm gen:entries`；新增根脚本 `pnpm gen:entries`
+- 112 个组件目录、668 个导出名全部解析成功，11 个同名冲突自动消解，`ColumnType` / `LabeledValue` / `SelectValue` 通过 `scripts/ownership-pins.mjs` 保持既有归属不变
+
+### 公共 API
+
+- 包根导出面从 356 个名字增加到 378 个（无移除）：此前被 `export *` 黑名单整体屏蔽的 `RangePicker`、`WeekPicker`、`MonthPicker`、`QuarterPicker`、`SubMenu`、`MenuItemGroup`、`MenuDivider`、`ListItemMeta`、`SelectOption`、`RadioGroup`、`RadioButton` 等子组件与 `selectProps`、`cascaderProps`、`listProps` 等 Props 工厂现在可从 `xiaoye-ui` 直接导入
+
+### 测试
+
+- 新增 `form` 单测 23 个（`useForm` 校验/trigger/reset/clearValidate/嵌套路径 + `Form` 提交与错误渲染）、`table-core` 单测 25 个（排序/分页/过滤/引擎分派）、`app` 单测 5 个
+- 新增导出聚合生成器单测 19 个与包根导出面快照守卫，单测总数 1207 → 1282
+
 ## 6.0.0
 
 ### 架构与工程
