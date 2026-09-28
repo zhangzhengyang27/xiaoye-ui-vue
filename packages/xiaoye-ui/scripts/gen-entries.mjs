@@ -112,7 +112,7 @@ if (mode === 'write') {
 if (drift.length) {
   console.error('[gen-entries] 检测到生成物与源码不一致（drift）：');
   for (const [name] of drift) console.error(`  - ${name}`);
-  console.error('\n新增/改名/删除组件后请运行：pnpm --filter xiaoye-ui gen:entries');
+  console.error('\n新增/改名/删除组件后请运行：pnpm gen:entries');
   console.error('然后把生成的 src/components.ts、typings/global.d.ts、package.json 一起提交。');
   process.exit(1);
 }
